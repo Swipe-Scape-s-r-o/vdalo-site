@@ -120,7 +120,8 @@ export function renderSecondPassArticle(slug){
  const sources=a.bodyHtml?'':a.sources?.length?`<section class="article-sources"><h2>Офіційні джерела</h2><ul>${a.sources.map(([label,url])=>`<li><a href="${e(url)}" rel="noopener noreferrer">${e(label)}</a></li>`).join('')}</ul><p>Інформацію перевірено 9 жовтня 2026 року. Перед застосуванням звірте чинну редакцію правил.</p></section>`:'';
  const [actionHeading,actionCopy]=articleActions[a.slug]??['',''];
  const toc=a.toc??a.sections.map(([heading],i)=>[heading,i===0?'start':`part-${i+1}`]);
- const actionSection=a.disableActionSection?'':`<section class="article-conclusion"><h2>${e(actionHeading)}</h2><p>${e(actionCopy)}</p><div class="article-related-links">${a.links.map(([href,label])=>`<a href="${e(href)}">${e(label)} <span aria-hidden="true">↗</span></a>`).join('')}</div></section>`;
+ const relatedLinks=a.links?.length?`<nav class="article-related-links" aria-label="Пов’язані матеріали"><h2>${a.disableActionSection?'Читайте також':'Пов’язані матеріали'}</h2>${a.links.map(([href,label])=>`<a href="${e(href)}">${e(label)} <span aria-hidden="true">↗</span></a>`).join('')}</nav>`:'';
+ const actionSection=a.disableActionSection?relatedLinks:`<section class="article-conclusion"><h2>${e(actionHeading)}</h2><p>${e(actionCopy)}</p>${relatedLinks}</section>`;
  const formatDate=value=>new Intl.DateTimeFormat('uk-UA',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(`${value}T00:00:00Z`)).replace(' р.','');
  const publishedLabel=formatDate(articlePublished),modifiedLabel=formatDate(articleModified);
  const author=getAuthor(a.authorSlug);

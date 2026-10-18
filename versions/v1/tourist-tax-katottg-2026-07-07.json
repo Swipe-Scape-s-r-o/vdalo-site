@@ -1873,18 +1873,18 @@
     },
     {
       "slug": "kosyno-koson",
-      "settlementCode": null,
-      "officialSettlementName": null,
-      "settlementCategory": null,
+      "settlementCode": "UA21020170010067414",
+      "officialSettlementName": "Косонь",
+      "settlementCategory": "село",
       "regionCode": "UA21000000000011690",
       "officialRegionName": "Закарпатська",
       "districtCode": null,
       "officialDistrictName": null,
       "communityCode": "UA21020170000069101",
       "officialCommunityName": "Косоньська",
-      "status": "LOCALITY_NOT_IN_KATOTTG",
-      "matchBasis": null,
-      "reviewNote": "Workbook name is not an exact KATOTTG locality name; it may be a destination alias or require manual research."
+      "status": "MATCHED",
+      "matchBasis": "Офіційний портал «Децентралізація»: село Косонь, КАТОТТГ UA21020170010067414, у складі Косоньської громади UA21020170000069101.",
+      "reviewNote": "Workbook label «Косино (Косонь)» відповідає офіційній назві села Косонь. Не плутати з окремим селом Косино у Чинадіївській громаді."
     },
     {
       "slug": "kovalivka",

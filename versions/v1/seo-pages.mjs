@@ -103,10 +103,73 @@ const articleBridges={
  '/registration':['Як обрати PMS перед стартом','Підготуйте питання для демонстрації й порівняйте системи за однаковими сценаріями.','/blog/yak-obraty-pms-dlya-gotelyu','Перейти до чекліста вибору'],
  '/guest-communication':['Що підготувати до приїзду гостя','Звірте зміст і час повідомлень, спосіб доступу та маршрут до людини, яка допоможе у винятковій ситуації.','/blog/pidhotovka-zaselennya-gostya','Переглянути план підготовки']
 };
+const seoRelatedPages={
+ '/solutions':[
+  ['/hotel-booking-calendar','Календар бронювань для номерів і дат'],
+  ['/integrations','Перевірка каналів та інтеграцій'],
+  ['/blog/shcho-take-pms-dlya-gotelyu','Гід: що таке PMS для готелю']
+ ],
+ '/integrations':[
+  ['/hotel-booking-calendar','Календар бронювань і доступність номерів'],
+  ['/blog/channel-manager-ical-gotelyu','Порівняння Channel Manager та iCal'],
+  ['/cases/hotel-booking-reconciliation','Кейс зіставлення бронювань між системами']
+ ],
+ '/pricing':[
+  ['/solutions','Можливості системи для готелю'],
+  ['/integrations','Умови підключення каналів'],
+  ['/blog/yak-obraty-pms-dlya-gotelyu','Чекліст вибору PMS для готелю'],
+  ['/tools/pms-checklist/','Інтерактивний чекліст PMS']
+ ],
+ '/hotel-booking-calendar':[
+  ['/integrations','Канали та синхронізація бронювань'],
+  ['/blog/shakhmatka-bronyuvan-gotelyu','Практичний гід із шахматки'],
+  ['/cases/direct-bookings-calendar','Кейс прямих бронювань у календарі']
+ ],
+ '/hotel-check-in':[
+  ['/guest-communication','Інструкції та зв’язок із гостем'],
+  ['/blog/pidhotovka-zaselennya-gostya','План підготовки до заселення'],
+  ['/cases/night-self-checkin-germany','Кейс нічного самостійного заселення']
+ ],
+ '/hotel-operations':[
+  ['/hotel-booking-calendar','Календар бронювань і статуси номерів'],
+  ['/blog/status-gotovnosti-nomera-housekeeping','Гід зі статусів housekeeping'],
+  ['/cases/guest-services-glamping','Кейс роботи команди глемпінгу']
+ ],
+ '/guest-communication':[
+  ['/hotel-check-in','Підготовка до заїзду'],
+  ['/blog/pidhotovka-zaselennya-gostya','Повідомлення гостю до прибуття'],
+  ['/blog/qr-kartka-v-nomer-gotelyu','QR-картка з інформацією в номері']
+ ],
+ '/hotel-automation':[
+  ['/hotel-operations','Щоденні процеси команди'],
+  ['/blog/shcho-avtomatyzuvaty-v-goteli-pershym','Як обрати перший процес для автоматизації'],
+  ['/tools/hotel-profitability-calculator/','Калькулятор економіки готелю']
+ ],
+ '/registration':[
+  ['/solutions','Можливості VDALO для готелю'],
+  ['/pricing','Тарифи й склад модулів'],
+  ['/blog/yak-obraty-pms-dlya-gotelyu','Питання перед вибором PMS']
+ ],
+ '/about':[
+  ['/authors','Автори матеріалів VDALO'],
+  ['/blog','Статті та практичні кейси'],
+  ['/cases','Кейси готельних процесів']
+ ],
+ '/contact':[
+  ['/registration','Запит на обговорення доступу'],
+  ['/pricing','Тарифи й модулі'],
+  ['/integrations','Сумісність каналів і сервісів']
+ ]
+};
+function relatedPages(pathname){
+ const links=seoRelatedPages[pathname];
+ if(!links?.length)return '';
+ return `<nav class="seo-section seo-related" aria-labelledby="seo-related-title"><div class="seo-content"><p class="eyebrow">ПОВ’ЯЗАНІ МАТЕРІАЛИ</p><h2 id="seo-related-title">Що переглянути далі</h2><ul>${links.map(([href,label])=>`<li><a href="${e(href)}">${e(label)} <span aria-hidden="true">↗</span></a></li>`).join('')}</ul></div></nav>`;
+}
 function articleBridge(pathname){const [heading,copy,href,label]=articleBridges[pathname];return `<section class="seo-section seo-article-bridge"><div class="seo-content"><p class="eyebrow">ПРАКТИЧНИЙ ГІД</p><div class="seo-article-bridge-card"><div><h2>${e(heading)}</h2><p>${e(copy)}</p></div><a href="${e(href)}">${e(label)} <span aria-hidden="true">↗</span></a></div></div></section>`;}
 function pageContent(config,pathname){
  const body=config.sections.map(([eyebrow,title,html])=>section(eyebrow,title,html)).join('');
- return `<section class="seo-hero"><div class="seo-wrap seo-hero-grid"><div class="seo-hero-copy"><p class="eyebrow">${e(config.eyebrow||'VDALO / ДЛЯ ГОТЕЛЮ')}</p><h1>${e(config.h1)}</h1><p class="seo-lead">${e(config.lead)}</p><div class="seo-hero-actions">${auditButton(config.heroCta||'Обговорити мій процес',config.heroKind||'audit')}<a class="seo-secondary" href="/solutions">Переглянути можливості <span aria-hidden="true">↗</span></a></div></div><figure class="seo-hero-visual${config.heroPortrait?' seo-hero-portrait':''}" style="--hero-position:${e(config.heroPosition||'center')}"><img src="/assets/${e(config.heroImage)}" width="${e(config.heroWidth||1536)}" height="${e(config.heroHeight||1024)}" alt="${e(config.heroAlt)}" title="${e(config.heroAlt)}" fetchpriority="high"></figure></div></section><div class="seo-wrap">${body}${articleBridges[pathname]?articleBridge(pathname):''}${config.extra||''}</div>`;
+ return `<section class="seo-hero"><div class="seo-wrap seo-hero-grid"><div class="seo-hero-copy"><p class="eyebrow">${e(config.eyebrow||'VDALO / ДЛЯ ГОТЕЛЮ')}</p><h1>${e(config.h1)}</h1><p class="seo-lead">${e(config.lead)}</p><div class="seo-hero-actions">${auditButton(config.heroCta||'Обговорити мій процес',config.heroKind||'audit')}<a class="seo-secondary" href="/solutions">Переглянути можливості <span aria-hidden="true">↗</span></a></div></div><figure class="seo-hero-visual${config.heroPortrait?' seo-hero-portrait':''}" style="--hero-position:${e(config.heroPosition||'center')}"><img src="/assets/${e(config.heroImage)}" width="${e(config.heroWidth||1536)}" height="${e(config.heroHeight||1024)}" alt="${e(config.heroAlt)}" title="${e(config.heroAlt)}" fetchpriority="high"></figure></div></section><div class="seo-wrap">${body}${articleBridges[pathname]?articleBridge(pathname):''}${config.extra||''}${relatedPages(pathname)}</div>`;
 }
 
 export function seoRoutes(){return Object.keys(pages);}

@@ -10,11 +10,11 @@ assert.equal(report.ok,true,report.errors.join('\n'));
 assert.equal(touristTaxPlaces.length,377);
 assert.equal(touristTaxCommunities.length,280);
 assert.equal(touristTaxSources.katottg.imported,true);
-assert.equal(touristTaxPlaces.filter(place=>place.katottgSettlementCode).length,364);
+assert.equal(touristTaxPlaces.filter(place=>place.katottgSettlementCode).length,365);
 assert.equal(touristTaxCommunities.filter(community=>community.katottgCode).length,279);
 assert.equal(touristTaxReleasePlan.waves[0].candidateSlugs.length,30);
-assert.equal(touristTaxReleasePlan.waves[0].publishedSlugs.length,16);
-assert.equal(touristTaxCityRoutes().length,16,'only released and fully verified places enter public routes and sitemap');
+assert.equal(touristTaxReleasePlan.waves[0].publishedSlugs.length,21);
+assert.equal(touristTaxCityRoutes().length,28,'only released and fully verified places enter public routes and sitemap');
 
 const preparedBySlug=new Map(workbook.places.map(place=>[place.slug,place]));
 const publicPlaces=touristTaxPlaces.filter(place=>canIndexTouristTaxPlace(place));
@@ -39,13 +39,16 @@ for(const place of touristTaxPlaces){
     const unreviewed=String(prepared[field]??'').trim();
     if(unreviewed.length>80)assert.ok(!html.includes(unreviewed),`unreviewed workbook field leaked into ${place.slug}`);
   }
-  assert.doesNotMatch(html,/8\s?000|8000/,`outdated wage leaked into ${place.slug}`);
+  assert.doesNotMatch(html,/(?<![A-Z0-9])8\s?000(?!\d)/i,`outdated wage leaked into ${place.slug}`);
 }
 
 const hub=renderTouristTaxHub();
 const hubConfig=JSON.parse(hub.match(/<script type="application\/json" id="tourist-tax-config">([^<]+)<\/script>/)[1]);
 assert.deepEqual(hubConfig.publicPlaces.map(place=>place.slug).sort(),publicPlaces.map(place=>place.slug).sort());
-for(const slug of ['kyyiv','bukovel','bar','aktove'])assert.doesNotMatch(hub, new RegExp(`tourist-tax/${slug}/`),`hub links to unreleased place ${slug}`);
+for(const slug of ['bukovel','bar','aktove'])assert.doesNotMatch(hub, new RegExp(`tourist-tax/${slug}/`),`hub links to unreleased place ${slug}`);
+assert.match(hub,/tourist-tax\/yaremche\//,'verified Yaremche route should be linked from the city directory');
+assert.match(hub,/tourist-tax\/yasinya\//,'verified Yasinya route should be linked from the city directory');
+for(const slug of ['tyachiv','irpin','skole'])assert.match(hub,new RegExp(`tourist-tax/${slug}/`),`verified ${slug} route should be linked from the city directory`);
 const browserSearch=await readFile(new URL('../versions/v1/public/tourist-tax.js',import.meta.url),'utf8');
 assert.match(browserSearch,/matches\.slice\(0, 6\)/,'directory should limit suggestions');
 assert.equal(renderTouristTaxCity('missing-city-slug'),null);

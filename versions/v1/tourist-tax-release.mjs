@@ -1,7 +1,7 @@
 // Publication is an explicit editorial action. Candidate pages stay unavailable
 // until their place record, legal rule, calculator and unique copy pass QA.
 export const touristTaxReleasePlan = Object.freeze({
-  activeWave: 1,
+  activeWave: 3,
   waves: Object.freeze([
     Object.freeze({
       number: 1,
@@ -13,10 +13,10 @@ export const touristTaxReleasePlan = Object.freeze({
       ]),
       // Add each destination only after its rule model, geography, calculator and copy gates pass.
       // Add a slug here only after its source record and page QA are complete.
-      publishedSlugs: Object.freeze(['lutsk','sumy','vinnytsya','pivdenne','ternopil','zaporizhzhya','rivne','chernihiv','kolomyya','ivano-frankivsk','chernivtsi','lviv','cherkasy','berehove','uzhhorod','slavsko'])
+      publishedSlugs: Object.freeze(['lutsk','sumy','vinnytsya','pivdenne','ternopil','zaporizhzhya','rivne','chernihiv','kolomyya','ivano-frankivsk','chernivtsi','lviv','cherkasy','berehove','uzhhorod','slavsko','kyyiv','odesa','dnipro','zhytomyr','yaremche'])
     }),
-    Object.freeze({number:2,label:'Друга хвиля',candidateSlugs:Object.freeze([]),publishedSlugs:Object.freeze([])}),
-    Object.freeze({number:3,label:'Третя хвиля',candidateSlugs:Object.freeze([]),publishedSlugs:Object.freeze([])})
+    Object.freeze({number:2,label:'Друга хвиля',candidateSlugs:Object.freeze(['polyana','khust']),publishedSlugs:Object.freeze(['polyana','khust'])}),
+    Object.freeze({number:3,label:'Третя хвиля',candidateSlugs:Object.freeze(['vynohradiv','yasinya','tyachiv','irpin','skole']),publishedSlugs:Object.freeze(['vynohradiv','yasinya','tyachiv','irpin','skole'])})
   ])
 });
 

@@ -16,6 +16,38 @@ if (infographic && !reduceMotion && 'IntersectionObserver' in window) {
 } else if (infographic) infographic.classList.add('is-visible');
 
 const places = Array.isArray(config.publicPlaces) ? config.publicPlaces : [];
+const funnelLinks = [...document.querySelectorAll('[data-tax-funnel-cta]')];
+const calculatorForm = document.getElementById('tourist-tax-calculator');
+const syncFunnelCtaContext = () => {
+  const selectedPlace = calculatorForm?.dataset.placeSlug
+    ? places.find(place => place.slug === calculatorForm.dataset.placeSlug)
+    : null;
+  for (const link of funnelLinks) {
+    const destination = new URL(link.href, window.location.origin);
+    destination.searchParams.set('entry_page', window.location.pathname);
+    if (selectedPlace && link.dataset.taxEntrySource === 'tourist_tax_hub') {
+      destination.searchParams.set('location', selectedPlace.name);
+      destination.searchParams.set('utm_content', selectedPlace.slug);
+    }
+    link.href = `${destination.pathname}${destination.search}${destination.hash}`;
+  }
+};
+syncFunnelCtaContext();
+for (const link of funnelLinks) {
+  link.addEventListener('click', () => {
+    syncFunnelCtaContext();
+    const destination = new URL(link.href, window.location.origin);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'tourist_tax_entry_cta_click',
+      funnel: 'tourist_tax',
+      entry_source: link.dataset.taxEntrySource || '',
+      cta_placement: link.dataset.taxFunnelCta || '',
+      entry_page: window.location.pathname,
+      location: destination.searchParams.get('location') || ''
+    });
+  });
+}
 const searchInputs = document.querySelectorAll('[role="combobox"][aria-controls]');
 
 for (const input of searchInputs) {
@@ -50,6 +82,7 @@ for (const input of searchInputs) {
           if(priceField)priceField.hidden=form.dataset.rateModel!=='banded';
           if(priceInput){priceInput.required=form.dataset.rateModel==='banded';priceInput.value='';}
         }
+        syncFunnelCtaContext();
         close();
         if (status) {
           status.replaceChildren(document.createTextNode(place.verified ? 'Місце обрано. ' : 'Точний розрахунок поки недоступний. '));
@@ -94,8 +127,10 @@ if (form) {
     const domesticGuests = Number(form.elements.domesticGuests.value);
     const inboundGuests = Number(form.elements.inboundGuests.value);
     const accommodationPricePerPersonPerDay=form.elements.accommodationPricePerPersonPerDay?.value;
+    const accommodationType=form.elements.accommodationType?.value;
     const exemption = form.elements.exemption.value;
     const placeSlug = form.dataset.placeSlug || config.placeSlug;
+    const compareOdesa = placeSlug === 'odesa' && Boolean(form.elements.odesaCompare?.checked);
     const guestGroups = [{ category: 'domestic', guests: domesticGuests }, { category: 'inbound', guests: inboundGuests }];
     if (!start || !Number.isInteger(days) || days < 1 || days > 366 || guestGroups.some(group => !Number.isInteger(group.guests) || group.guests < 0 || group.guests > 1000) || guestGroups.every(group => group.guests === 0)) {
       output.textContent = 'Перевірте дату, розрахункові доби та кількість гостей. Вкажіть щонайменше одного гостя.';
@@ -105,11 +140,22 @@ if (form) {
       output.textContent='Для цього населеного пункту введіть вартість проживання на одну особу за добу.';
       return;
     }
+    if(form.dataset.rateModel==='accommodation'&&!accommodationType){
+      output.textContent='Оберіть тип місця проживання за категоріями місцевого рішення.';
+      return;
+    }
     if (!placeSlug) { output.textContent = 'Спершу оберіть населений пункт зі списку.'; return; }
     output.textContent = 'Перевіряємо чинність ставки для цього періоду…';
     try {
-      const response = await fetch('/api/tourist-tax/calculate', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ placeSlug, start, days, guestGroups, accommodationPricePerPersonPerDay, exemption }) });
-      const result = await response.json();
+      const requestCalculation = async scenario => {
+        const response = await fetch('/api/tourist-tax/calculate', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ placeSlug, start, days, guestGroups, accommodationPricePerPersonPerDay, accommodationType, exemption, ...(scenario ? { scenario } : {}) }) });
+        const result = await response.json();
+        if (!response.ok) throw new Error('Request failed');
+        return result;
+      };
+      const [result, comparisonResult] = compareOdesa
+        ? await Promise.all([requestCalculation(), requestCalculation('odesa-inbound-1-percent')])
+        : [await requestCalculation(), null];
       const messages = {
         AMBIGUOUS_PLACE: 'Оберіть населений пункт зі списку, щоб використати його місцеві дані.',
         EXCLUDED_LOCATION: 'Для цього місця калькулятор не публікує розрахунок.',
@@ -123,17 +169,32 @@ if (form) {
         output.textContent = 'Для цього населеного пункту розрахунок поки недоступний. Спробуйте обрати інше місто з підтвердженою ставкою.';
         return;
       }
-      if (!response.ok) throw new Error('Request failed');
       if (result.state === 'VERIFIED_RESULT') {
+        if(compareOdesa&&comparisonResult?.state!=='VERIFIED_RESULT'){
+          output.textContent=comparisonResult?.reason||messages[comparisonResult?.state]||'Не вдалося побудувати порівняльний сценарій. Перевірте дату проживання.';
+          return;
+        }
         output.replaceChildren();
-        const amount = document.createElement('strong');
-        amount.textContent = new Intl.NumberFormat('uk-UA', { style: 'currency', currency: 'UAH' }).format(Number(result.totalCents) / 100);
-        const groups = result.guestGroups.map(group => `${group.guests} ${group.category === 'domestic' ? 'внутрішнього' : 'в’їзного'} туризму · ${group.ratePercent}%`).join('; ');
-        output.append(amount, document.createTextNode(` · ${groups} · ${result.days} розрахункових діб. Інформаційний розрахунок${result.exemptionReviewRequired ? ' до перевірки можливої пільги' : ''}.`));
-        const source = document.createElement('a'); source.href = result.sourceUrl; source.rel = 'noopener'; source.textContent = 'Першоджерело місцевої ставки';
-        output.append(document.createElement('br'), source, document.createTextNode(` · перевірено ${result.checkedAt}`));
+        const renderResultCard=(value,title,isScenario=false)=>{
+          const card=document.createElement('section');card.className=`tt-result-card${isScenario?' tt-result-card-scenario':''}`;
+          const heading=document.createElement('h3');heading.textContent=title;
+          const amount=document.createElement('strong');amount.className='tt-result-amount';amount.textContent=new Intl.NumberFormat('uk-UA',{style:'currency',currency:'UAH'}).format(Number(value.totalCents)/100);
+          const groupsText=value.guestGroups.map(group=>`${group.guests} ${group.category==='domestic'?'внутрішнього':'в’їзного'} туризму · ${group.ratePercent}%${group.accommodationTypeLabel?` · ${group.accommodationTypeLabel}`:''}`).join('; ');
+          const detail=document.createElement('p');detail.textContent=`${groupsText} · ${value.days} розрахункових діб. Інформаційний розрахунок${value.exemptionReviewRequired?' до перевірки можливої пільги':''}.`;
+          card.append(heading,amount,detail);
+          const source=document.createElement('a');source.href=value.sourceUrl;source.rel='noopener';source.textContent=value.scenarioOnly?'Повідомлення ДПС про ставку 1%':'Першоджерело місцевої ставки';card.append(source);
+          const checked=document.createElement('small');checked.textContent=`Перевірено ${value.checkedAt}`;card.append(checked);
+          if(isScenario){const note=document.createElement('p');note.className='tt-scenario-warning';note.textContent='Умовний сценарій за повідомленою ставкою 1% для іноземців. Дату її застосування ще потрібно звірити з повним рішенням; не використовуйте цю суму як підтверджене нарахування за 2026 рік.';card.append(note);}
+          return card;
+        };
+        if(compareOdesa){
+          const comparison=document.createElement('div');comparison.className='tt-result-comparison';
+          comparison.append(renderResultCard(result,'Підтверджені ставки 2026 року'),renderResultCard(comparisonResult,'Порівняльний сценарій: 1% для іноземців',true));
+          output.append(comparison);
+          const difference=document.createElement('p');difference.className='tt-result-difference';difference.textContent=`Різниця між сценаріями: ${new Intl.NumberFormat('uk-UA',{style:'currency',currency:'UAH'}).format((Number(comparisonResult.totalCents)-Number(result.totalCents))/100)}.`;output.append(difference);
+        }else output.append(renderResultCard(result,'Розрахунок за підтвердженими ставками'));
       } else if(result.state==='RATE_THRESHOLD_AMBIGUOUS') output.textContent=`Місцеве рішення не дає однозначно визначити ставку для ціни рівно ${new Intl.NumberFormat('uk-UA').format(result.thresholdUah)} грн. Уточніть тариф у міській раді або податкового агента.`;
-      else output.textContent = messages[result.state] || 'Не вдалося виконати перевірку. Спробуйте пізніше.';
+      else output.textContent = result.reason || messages[result.state] || 'Не вдалося виконати перевірку. Спробуйте пізніше.';
     } catch { output.textContent = 'Не вдалося зв’язатися з калькулятором. Спробуйте ще раз пізніше.'; }
   });
 }

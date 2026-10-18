@@ -2,7 +2,9 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import {canCalculateTouristTaxPlace,canIndexTouristTaxPlace,getTouristTaxRule,touristTaxCommunities,touristTaxPlaces,touristTaxCityRoutes} from '../versions/v1/tourist-tax-data.mjs';
 import {touristTaxReleasePlan} from '../versions/v1/tourist-tax-release.mjs';
 
-const date='2026-10-14';
+const date=process.env.AUDIT_DATE||new Date().toISOString().slice(0,10);
+const reportName=`FIRST_WAVE_AUDIT_${date}.md`;
+const csvName=`FIRST_WAVE_AUDIT_${date}.csv`;
 const waveOne=touristTaxReleasePlan.waves.find(wave=>wave.number===1);
 const yearReviewStatusByCommunityCode=new Map();
 const wordCount=value=>String(value??'').trim().split(/\s+/u).filter(Boolean).length;
@@ -52,6 +54,6 @@ const finalReport=report.replace('## План випуску до 14 листо�
 
 const out=new URL('../seo-workspace/tourist-tax/',import.meta.url);
 await mkdir(out,{recursive:true});
-await writeFile(new URL('FIRST_WAVE_AUDIT_2026-10-14.md',out),finalReport,'utf8');
-await writeFile(new URL('FIRST_WAVE_AUDIT_2026-10-14.csv',out),csv,'utf8');
-console.log(JSON.stringify({ok:true,date,total:rows.length,ready:ready.length,blocked:blocked.length,publicRoutes:touristTaxCityRoutes().length,report:'seo-workspace/tourist-tax/FIRST_WAVE_AUDIT_2026-10-14.md',csv:'seo-workspace/tourist-tax/FIRST_WAVE_AUDIT_2026-10-14.csv'},null,2));
+await writeFile(new URL(reportName,out),finalReport,'utf8');
+await writeFile(new URL(csvName,out),csv,'utf8');
+console.log(JSON.stringify({ok:true,date,total:rows.length,ready:ready.length,blocked:blocked.length,publicRoutes:touristTaxCityRoutes().length,report:`seo-workspace/tourist-tax/${reportName}`,csv:`seo-workspace/tourist-tax/${csvName}`},null,2));
