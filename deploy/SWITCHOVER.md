@@ -114,16 +114,40 @@ Vercel-проєкт лишити живим без змін ще 7 днів. Я�
 - У проєкті Vercel відключити auto-deployment з Git (щоб коміт не їхав туди).
 - Проєкт лишити архівним.
 
-## Крок 7. Перенести репозиторій
+## Крок 7. Репозиторій в організації (виконано 2026-10-18)
 
-- Переносимо `Kostinatyn32/vdalo-site` в організацію GitHub `VDALO`, приватним.
-- На Hetzner: оновити `remote` у `/opt/vdalo/repo` на нове місце; додати deploy-key тільки на читання.
+Репозиторій перенесено в організацію GitHub `Swipe-Scape-s-r-o`:
+<https://github.com/Swipe-Scape-s-r-o/vdalo-site>. Залишається публічним за рішенням контролера.
+
+Локальний клон і сервер уже вказують на нову адресу (HTTPS):
 
 ```bash
-sudo -u deploy git -C /opt/vdalo/repo remote set-url origin git@github.com:VDALO/vdalo-site.git
-sudo -u deploy ssh-keygen -t ed25519 -N "" -f /home/deploy/.ssh/github_vdalo
-# Публічний ключ /home/deploy/.ssh/github_vdalo.pub додати як Deploy Key (Read-only) у Settings репозиторію.
+# local
+git remote set-url origin https://github.com/Swipe-Scape-s-r-o/vdalo-site.git
+
+# server (as deploy)
+sudo -u deploy git -C /opt/vdalo/repo remote set-url origin https://github.com/Swipe-Scape-s-r-o/vdalo-site.git
 ```
+
+### Перехід на SSH deploy-key (лише читання)
+
+Ключ згенеровано на сервері як deploy — приватний файл `/home/deploy/.ssh/vdalo_site_deploy` (600). SSH-конфіг deploy містить alias:
+
+```ssh-config
+Host github-vdalo
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/vdalo_site_deploy
+  IdentitiesOnly yes
+```
+
+Публічний ключ (`/home/deploy/.ssh/vdalo_site_deploy.pub`, fingerprint `SHA256:3Pt5+Iz4XlcdKkEG14WFanO9CB5KQNHd/lpoqGWYatA`) треба додати як Deploy key з прапорцем **Allow read access** у Settings → Deploy keys репозиторію. Після цього переключити origin на SSH-alias:
+
+```bash
+ssh deploy@178.104.154.106 "git -C /opt/vdalo/repo remote set-url origin git@github-vdalo:Swipe-Scape-s-r-o/vdalo-site.git && git -C /opt/vdalo/repo fetch origin"
+```
+
+Переключення зі збереженням HTTPS — поки deploy key не доданий — працює: автооновлювач продовжує тягнути через анонімне HTTPS, поки репозиторій публічний.
 
 ## Відомі питання
 
