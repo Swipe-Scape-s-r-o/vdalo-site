@@ -35,7 +35,7 @@ export function renderQuizPage(params=new URLSearchParams()){
  <link rel="stylesheet" href="/v3/editorial.css">
  <link rel="stylesheet" href="/funnel-assets/funnel.css?v=6">
  <link rel="stylesheet" href="/quiz-assets/quiz.css?v=12">
- <script src="/quiz-assets/quiz.js?v=8" defer></script>
+ <script src="/quiz-assets/quiz.js?v=9" defer></script>
 </head>
 <body class="microlanding quiz-page">
  <a class="skip-link" href="#quiz-main">Перейти до квізу</a>
