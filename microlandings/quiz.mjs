@@ -34,8 +34,8 @@ export function renderQuizPage(params=new URLSearchParams()){
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="/v3/editorial.css">
  <link rel="stylesheet" href="/funnel-assets/funnel.css?v=6">
- <link rel="stylesheet" href="/quiz-assets/quiz.css?v=10">
- <script src="/quiz-assets/quiz.js?v=7" defer></script>
+ <link rel="stylesheet" href="/quiz-assets/quiz.css?v=11">
+ <script src="/quiz-assets/quiz.js?v=8" defer></script>
 </head>
 <body class="microlanding quiz-page">
  <a class="skip-link" href="#quiz-main">Перейти до квізу</a>
