@@ -3,9 +3,16 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {Readable} from 'node:stream';
 import {handleTop5Lead} from '../microlandings/top5-leads.mjs';
+import {renderQuizPage} from '../microlandings/quiz.mjs';
+import {renderSmsTrial} from '../microlandings/sms-trial.mjs';
 
 const quizScript = await readFile(new URL('../microlandings/public/quiz.js', import.meta.url), 'utf8');
 const trialScript = await readFile(new URL('../microlandings/public/sms-trial.js', import.meta.url), 'utf8');
+
+test('quiz and trial form invalidate cached scripts when their behavior changes', () => {
+  assert.match(renderQuizPage(), /quiz-assets\/quiz\.js\?v=9/);
+  assert.match(renderSmsTrial(), /sms-trial-assets\/sms-trial\.js\?v=3/);
+});
 
 test('quiz trial CTA targets /go/trial and keeps campaign attribution', () => {
   assert.match(quizScript, /href="\/go\/trial\?\$\{accessQs\.toString\(\)\}"/);
