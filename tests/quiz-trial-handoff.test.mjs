@@ -11,7 +11,10 @@ const trialScript = await readFile(new URL('../microlandings/public/sms-trial.js
 
 test('quiz and trial form invalidate cached scripts when their behavior changes', () => {
   assert.match(renderQuizPage(), /quiz-assets\/quiz\.js\?v=9/);
-  assert.match(renderSmsTrial(), /sms-trial-assets\/sms-trial\.js\?v=3/);
+  const trialHtml = renderSmsTrial();
+  assert.match(trialHtml, /sms-trial-assets\/sms-trial\.js\?v=3/);
+  assert.match(trialHtml, /Оберіть кількість номерів/);
+  assert.doesNotMatch(trialHtml, /масштаб готелю/);
 });
 
 test('quiz trial CTA targets /go/trial and keeps campaign attribution', () => {
