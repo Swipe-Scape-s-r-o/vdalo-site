@@ -17,7 +17,7 @@
     energy: { label: 'Керування енергоспоживанням', price: 590, from: true },
     checkin: { label: 'Онлайн-заселення', price: 490 },
     reports: { label: 'Розширені звіти', price: 290 },
-    finance: { label: 'Фінанси й туристичний збір', price: 390 },
+    finance: { label: 'Фінансовий облік', price: 390 },
     tasks: { label: 'Задачі команди', price: 290 },
     messages: { label: 'Розширені повідомлення', price: 290 },
     laundry: { label: 'Пральня й мінібар', price: 290 }
