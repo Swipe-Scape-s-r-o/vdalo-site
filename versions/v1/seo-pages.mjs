@@ -9,7 +9,7 @@ const cta=(title,copy,text,kind='audit')=>`<section class="seo-cta"><div><p clas
 const list=items=>`<ul class="seo-checklist">${items.map(x=>`<li>${e(x)}</li>`).join('')}</ul>`;
 const cards=items=>`<div class="seo-card-grid">${items.map(([title,copy,url,label])=>`<article class="seo-card"><h3>${e(title)}</h3><p>${e(copy)}</p>${url.startsWith('/')?`<a href="${url}">${e(label||'Дізнатися більше')} <span aria-hidden="true">↗</span></a>`:''}</article>`).join('')}</div>`;
 const section=(eyebrow,title,body)=>`<section class="seo-section"><div class="seo-content"><p class="eyebrow">${e(eyebrow)}</p><h2>${title}</h2>${body}</div></section>`;
-const commonLinks={integrations:['/integrations','інтеграції'],calendar:['/hotel-booking-calendar','календар бронювань'],checkin:['/hotel-check-in','підготовка до заїзду'],operations:['/hotel-operations','операційні процеси'],communication:['/guest-communication','комунікація з гостем'],automation:['/hotel-automation','автоматизація процесів'],pricing:['/pricing','тарифи'],registration:['/registration','як почати роботу']};
+const commonLinks={integrations:['/integrations','інтеграції'],calendar:['/hotel-booking-calendar','календар бронювань'],checkin:['/hotel-check-in','підготовка до заїзду'],operations:['/hotel-operations','операційні процеси'],communication:['/guest-communication','комунікація з гостем'],automation:['/hotel-automation','автоматизація процесів'],pricing:['/pricing','тарифи'],registration:['/sign-up','як почати роботу']};
 
 const pages={
  '/solutions':{
@@ -83,7 +83,7 @@ const pages={
   ['ПЕРШЕ ЗВЕРНЕННЯ','Що підготувати',`<p>Достатньо назви об’єкта, кількості номерів і короткого опису задачі. Не надсилайте паролі, коди доступу, платіжні дані або документи гостей. Контактні канали показуються на сайті лише після їх підтвердження командою.</p>`]],
   extra:`${cta('Надішліть запит команді VDALO','Форма перевірить поля перед надсиланням. Повідомлення про успіх з’являється лише після підтвердження сервера.','Написати команді')}`
  },
- '/registration':{
+ '/sign-up':{
   title:'Реєстрація в системі VDALO для готелю | Доступ',description:'Як почати роботу з VDALO: опишіть готель і потрібний процес, погодьте модулі та умови доступу. Запит на реєстрацію не створює акаунт автоматично.',h1:'Почніть роботу з системою керування готелем',lead:'PMS (Property Management System) означає систему керування готелем: бронюваннями, номерами й щоденною роботою команди. Щоб обговорити доступ до VDALO, залиште запит і розкажіть про свій об’єкт.',heroCta:'Запросити доступ',heroKind:'trial',heroImage:'vdalo-hotel-registration.webp',heroAlt:'Готельєрка оформлює запит на старт роботи з системою за планшетом у лобі',heroPosition:'35% center',
   sections:[['ЯК ПОЧАТИ','Три кроки до погодженого доступу',cards([['1. Опишіть готель','Кількість номерів, поточні інструменти та процес, який важливо розглянути.','#registration-request',''],['2. Узгодьте склад системи','Перевіримо потрібні модулі, сервіси й технічні умови для об’єкта.','/solutions','Можливості VDALO'],['3. Погодьте формат старту','До початку підтвердимо доступний спосіб і комерційні умови.','/pricing','Тарифи']])],
   ['ПРО РЕЄСТРАЦІЮ','Що означає запит на доступ',`<p>Зараз сторінка збирає запит на обговорення старту. Вона не створює обліковий запис миттєво і не перенаправляє до кабінету. Формат доступу, потрібні дані та наступні дії погоджуються окремо для вашого готелю.</p><p>Для першої розмови не потрібні документи гостей, паролі чи коди замків. Якщо вам потрібен вхід до вже створеного кабінету, скористайтеся адресою, яку надала команда вашого об’єкта.</p>`],
@@ -100,7 +100,7 @@ const articleBridges={
  '/hotel-check-in':['Що підготувати до приїзду гостя','Послідовність повідомлень, оплати, готовності номера, інструкцій і відповідальних за винятки.','/blog/pidhotovka-zaselennya-gostya','Переглянути план підготовки'],
  '/hotel-operations':['Як передавати статус готовності номера','Домовтеся про зрозумілі стани, відповідальних і передачу задач між прибиранням та рецепцією.','/blog/status-gotovnosti-nomera-housekeeping','Читати практичний гід'],
  '/hotel-automation':['Що автоматизувати в готелі першим','Оберіть повторювану задачу, зафіксуйте базовий рівень і перевірте обмежений сценарій.','/blog/shcho-avtomatyzuvaty-v-goteli-pershym','Відкрити метод оцінювання'],
- '/registration':['Як обрати PMS перед стартом','Підготуйте питання для демонстрації й порівняйте системи за однаковими сценаріями.','/blog/yak-obraty-pms-dlya-gotelyu','Перейти до чекліста вибору'],
+ '/sign-up':['Як обрати PMS перед стартом','Підготуйте питання для демонстрації й порівняйте системи за однаковими сценаріями.','/blog/yak-obraty-pms-dlya-gotelyu','Перейти до чекліста вибору'],
  '/guest-communication':['Що підготувати до приїзду гостя','Звірте зміст і час повідомлень, спосіб доступу та маршрут до людини, яка допоможе у винятковій ситуації.','/blog/pidhotovka-zaselennya-gostya','Переглянути план підготовки']
 };
 const seoRelatedPages={
@@ -145,7 +145,7 @@ const seoRelatedPages={
   ['/blog/shcho-avtomatyzuvaty-v-goteli-pershym','Як обрати перший процес для автоматизації'],
   ['/tools/hotel-profitability-calculator/','Калькулятор економіки готелю']
  ],
- '/registration':[
+ '/sign-up':[
   ['/solutions','Можливості VDALO для готелю'],
   ['/pricing','Тарифи й склад модулів'],
   ['/blog/yak-obraty-pms-dlya-gotelyu','Питання перед вибором PMS']
@@ -156,7 +156,7 @@ const seoRelatedPages={
   ['/cases','Кейси готельних процесів']
  ],
  '/contact':[
-  ['/registration','Запит на обговорення доступу'],
+  ['/sign-up','Запит на обговорення доступу'],
   ['/pricing','Тарифи й модулі'],
   ['/integrations','Сумісність каналів і сервісів']
  ]

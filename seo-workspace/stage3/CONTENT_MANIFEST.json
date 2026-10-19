@@ -105,7 +105,7 @@
           "approved_matrix_anchor": "як формується вартість"
         },
         {
-          "target": "/registration",
+          "target": "/sign-up",
           "approved_matrix_anchor": "почати користуватися VDALO"
         }
       ],
@@ -187,7 +187,7 @@
           "approved_matrix_anchor": "уточнити вартість для вашого об'єкта"
         },
         {
-          "target": "/registration",
+          "target": "/sign-up",
           "approved_matrix_anchor": "зареєструватися у VDALO"
         }
       ],
@@ -360,7 +360,7 @@
     },
     {
       "id": "VDALO-10",
-      "path": "/registration",
+      "path": "/sign-up",
       "page_type": "conversion",
       "decision": "NO",
       "status": "NO_BLOCK_PLANNED",
