@@ -1,5 +1,5 @@
 export function getPublicSitemapRoutes({ seoRoutes, caseSlugs, pmsArticle, pmsChoiceArticle, editorialArticles, secondPassArticles, touristTaxRoutes = [] }) {
-  const preferredSeoOrder = ['/solutions','/integrations','/pricing','/hotel-booking-calendar','/hotel-check-in','/hotel-operations','/guest-communication','/hotel-automation','/registration','/about','/contact'];
+  const preferredSeoOrder = ['/solutions','/integrations','/pricing','/hotel-booking-calendar','/hotel-check-in','/hotel-operations','/guest-communication','/hotel-automation','/sign-up','/about','/contact'];
   const seoSet = new Set(seoRoutes);
   const orderedSeoRoutes = [...preferredSeoOrder.filter(route => seoSet.has(route)), ...seoRoutes.filter(route => !preferredSeoOrder.includes(route))];
   return [

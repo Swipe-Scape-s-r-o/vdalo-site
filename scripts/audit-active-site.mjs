@@ -57,7 +57,7 @@ const campaignRoutes = [
 const routes = [...new Set([
   '/', '/solutions', '/integrations', '/pricing', '/hotel-booking-calendar',
   '/hotel-check-in', '/hotel-operations', '/guest-communication',
-  '/hotel-automation', '/registration', '/about', '/contact',
+  '/hotel-automation', '/sign-up', '/about', '/contact',
   '/privacy', '/offer', '/refunds', '/cases', ...caseSlugs,
   '/blog', pmsArticle.slug, pmsChoiceArticle.slug,
   ...editorialArticles.map(article => article.slug), ...secondPassArticles.map(article => article.slug),

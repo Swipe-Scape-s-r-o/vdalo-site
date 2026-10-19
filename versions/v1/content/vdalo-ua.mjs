@@ -23,7 +23,7 @@ export const site = {
     ],
     [
       "Як почати",
-      "/registration"
+      "/sign-up"
     ],
     [
       "Кейси",
