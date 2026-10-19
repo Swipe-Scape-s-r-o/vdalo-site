@@ -710,7 +710,7 @@ test('the ten latest city SEO blocks link to relevant published cities, the hub 
 });
 
 test('tourist-tax lead preserves city and entry attribution and only succeeds after receiver acknowledgement',async()=>{
-  const req=Readable.from([JSON.stringify({phone:'+380 501234567',contact_method:'viber',hotel:'QA готель',location:'Одеса',consent:true,funnel:'tourist_tax',source:'website',code:'tax-docs',video:'t-tax-docs-pile',watched:50,entry_page:'/tourist-tax/odesa/',utm_source:'tourist_tax_city',utm_medium:'internal',utm_campaign:'tourist_tax',utm_content:'odesa'})]);
+  const req=Readable.from([JSON.stringify({name:'QA',email:'qa@example.com',phone:'+380 501234567',contact_method:'viber',hotel:'QA готель',location:'Одеса',property_type:'hotel',rooms:'1-12',consent:true,funnel:'tourist_tax',source:'website',code:'tax-docs',video:'t-tax-docs-pile',watched:50,entry_page:'/tourist-tax/odesa/',utm_source:'tourist_tax_city',utm_medium:'internal',utm_campaign:'tourist_tax',utm_content:'odesa'})]);
   req.method='POST';req.headers={'content-type':'application/json',origin:'https://www.vdalo.tech',host:'www.vdalo.tech'};req.socket={remoteAddress:'192.0.2.144'};
   let status=0,body='',payload;
   const res={writeHead(code){status=code;},end(value){body=JSON.parse(value);}};
@@ -719,7 +719,7 @@ test('tourist-tax lead preserves city and entry attribution and only succeeds af
   assert.equal(payload.contact.location,'Одеса');assert.equal(payload.contact.preferred_method,'viber');
   assert.equal(payload.attribution.entry_page,'/tourist-tax/odesa/');assert.equal(payload.attribution.utm.utm_content,'odesa');
   assert.equal(payload.permissions.respond_to_request,true);
-  const missing=Readable.from([JSON.stringify({phone:'+380501234567',consent:true,funnel:'tourist_tax',source:'website'})]);
+  const missing=Readable.from([JSON.stringify({name:'QA',email:'qa@example.com',phone:'+380501234567',hotel:'QA готель',location:'Одеса',property_type:'hotel',rooms:'1-12',consent:true,funnel:'tourist_tax',source:'website'})]);
   missing.method='POST';missing.headers={'content-type':'application/json',origin:'https://www.vdalo.tech',host:'www.vdalo.tech'};missing.socket={remoteAddress:'192.0.2.145'};
   status=0;body='';let called=false;
   await handleTop5Lead(missing,{writeHead(code){status=code;},end(value){body=JSON.parse(value);}},{env:{},sendRequest:async()=>{called=true;return {ok:true};}});
