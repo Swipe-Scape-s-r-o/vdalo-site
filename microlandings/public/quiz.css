@@ -5,6 +5,9 @@
 .quiz-intro{display:flex;justify-content:center;text-align:center;position:relative;isolation:isolate}.quiz-intro:before,.quiz-intro:after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none}.quiz-intro:before{width:520px;height:520px;right:4%;top:6%;background:radial-gradient(circle,#ed80b018,transparent 70%)}.quiz-intro:after{width:340px;height:340px;left:3%;bottom:4%;background:radial-gradient(circle,#62476912,transparent 70%)}.quiz-intro-copy{max-width:900px;padding:52px 0}.quiz-intro .eyebrow{margin-inline:auto}.quiz-intro h1{max-width:830px;margin-inline:auto}.quiz-lead{margin-inline:auto}.quiz-points{justify-content:center}.quiz-start{margin-inline:auto}.quiz-privacy-note{margin-bottom:0}
 
 .quiz-page .quiz-result h1{color:#fff7f9}
+.quiz-flow,.quiz-result{scroll-margin-top:24px}
+.quiz-result .quiz-signup{width:max-content;max-width:100%;text-align:center}
+@media(max-width:560px){.quiz-result .quiz-signup{width:100%}}
 
 /* Polished, mobile-first finish for the quiz entry screen. */
 .quiz-intro .eyebrow{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:0 auto 18px;padding:7px 12px;border:1px solid #f0d4e1;border-radius:999px;background:#fff9fb;color:#b83c72;font-size:11px;letter-spacing:.13em}
