@@ -98,16 +98,27 @@ document.querySelectorAll('.lead-dialog').forEach(dialog=>{
 function validate(kind,data) {
  const errors={};
  if(data.name.length<2) errors.name='Вкажіть ваше ім’я.';
- const digits=data.contact.replace(/\D/g,'').length;
- if(!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contact) || (/^[+()\d\s.-]+$/.test(data.contact) && digits>=9 && digits<=15))) errors.contact='Вкажіть коректний телефон або email.';
- if(data.units && !/^[1-9]\d{0,4}$/.test(data.units)) errors.units='Вкажіть кількість номерів або юнітів від 1 до 99999.';
- if(!data.consent) errors.consent='Потрібна ваша згода на використання контактів для відповіді.';
+ if(kind==='trial') {
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email='Вкажіть коректний email для надсилання доступу.';
+  const digits=data.phone.replace(/\D/g,'').length;
+  if(!/^[+()\d\s.-]+$/.test(data.phone)||digits<9||digits>15) errors.phone='Вкажіть коректний телефон.';
+  if(data.property.length<2) errors.property='Вкажіть назву готелю або об’єкта.';
+  if(data.city.length<2) errors.city='Вкажіть місто або громаду.';
+  if(!data.property_type) errors.property_type='Оберіть тип об’єкта.';
+  if(!/^[1-9]\d{0,4}$/.test(data.units)) errors.units='Вкажіть кількість номерів або юнітів.';
+ } else {
+  const digits=data.contact.replace(/\D/g,'').length;
+  if(!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contact) || (/^[+()\d\s.-]+$/.test(data.contact) && digits>=9 && digits<=15))) errors.contact='Вкажіть коректний телефон або email.';
+  if(data.units && !/^[1-9]\d{0,4}$/.test(data.units)) errors.units='Вкажіть кількість номерів або юнітів від 1 до 99999.';
+ }
+ if(!data.consent) errors.consent='Потрібна згода на обробку даних для відповіді та підготовки доступу.';
  return errors;
 }
 function showErrors(form,errors) {
- for(const name of ['name','property','contact','units','consent']) {
-  form.elements[name].setAttribute('aria-invalid',String(Boolean(errors[name])));
-  document.getElementById(`${form.dataset.kind}-${name}-error`).textContent=errors[name]||'';
+ for(const name of ['name','property','contact','email','phone','city','property_type','units','consent']) {
+  const field=form.elements[name],error=document.getElementById(`${form.dataset.kind}-${name}-error`);
+  if(field)field.setAttribute('aria-invalid',String(Boolean(errors[name])));
+  if(error)error.textContent=errors[name]||'';
  }
  const first=Object.keys(errors).find(name=>form.elements[name]);
  if(first) {
@@ -137,7 +148,8 @@ document.querySelectorAll('form[data-kind]').forEach(form=>{
   const submit=form.querySelector('[type=submit]');
   if(submit.disabled) return;
   const raw=Object.fromEntries(new FormData(form));
-  const data={...raw,name:(raw.name||'').trim(),property:(raw.property||'').trim(),contact:(raw.contact||'').trim(),units:raw.units||'',mode:kind==='trial'?(raw.mode==='implementation'?'implementation':'start'):'',estimate:raw.estimate||'',consent:raw.consent==='on',utm:{}};
+  const data={...raw,name:(raw.name||'').trim(),property:(raw.property||'').trim(),contact:(raw.contact||'').trim(),email:(raw.email||'').trim(),phone:(raw.phone||'').trim(),city:(raw.city||'').trim(),property_type:(raw.property_type||'').trim(),units:raw.units||'',mode:kind==='trial'?(raw.mode==='implementation'?'implementation':'start'):'',estimate:raw.estimate||'',consent:raw.consent==='on',utm:{}};
+  if(kind==='trial')try{const quiz=JSON.parse(sessionStorage.getItem('vdalo-quiz-context')||'null');if(quiz&&typeof quiz==='object')data.quiz_answers=quiz;}catch{}
   const params=new URLSearchParams(location.search);
   for(const key of ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']) if(params.get(key)) data.utm[key]=params.get(key).slice(0,150);
   const errors=validate(kind,data);
@@ -149,6 +161,7 @@ document.querySelectorAll('form[data-kind]').forEach(form=>{
   try {
    const result=await(kind==='trial'?submitTrialLead(data):submitAuditLead(data));
    track(`${kind}_form_submit_success`,{lead_id:result.leadId});
+   if(kind==='trial')try{sessionStorage.removeItem('vdalo-quiz-context');}catch{}
    form.hidden=true;
    const success=form.parentElement.querySelector('.form-success');
    success.hidden=false;success.focus();

@@ -125,21 +125,29 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--pink);outline-o
   <div class="go-panel" role="dialog" aria-modal="true" aria-labelledby="go-sheet-title">
     <button type="button" class="go-close" id="go-close" aria-label="Закрити форму">×</button>
     <div class="go-grip" aria-hidden="true"></div>
-    <!-- TODO(Codex): create the account through the site's existing registration (trial) flow and start the 14-day trial; keep the hidden fields -->
     <form id="go-form" novalidate>
       <h2 id="go-sheet-title">Запросити 14-денний тест</h2>
-      <p id="go-sheet-sub">Залиште телефон. Команда VDALO узгодить налаштування та дату старту.</p>
-      <label class="go-field"><span>E-mail (необов’язково)</span>
-        <input class="go-input" id="go-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@hotel.ua">
+      <p id="go-sheet-sub">Заповніть дані про себе й об’єкт. Команда перевірить заявку та надішле на email інструкцію для доступу до тесту.</p>
+      <label class="go-field"><span>Ваше ім’я *</span>
+        <input class="go-input" id="go-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="100" required>
+      </label>
+      <label class="go-field"><span>E-mail для доступу до платформи *</span>
+        <input class="go-input" id="go-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@hotel.ua" required>
       </label>
       <label class="go-field"><span>Телефон *</span>
         <input class="go-input" id="go-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" required>
       </label>
       <label class="go-field"><span>Як зручніше зв’язатися?</span><select class="go-input" id="go-contact-method" name="contact_method"><option value="phone">Телефонний дзвінок</option><option value="viber">Viber</option><option value="telegram">Telegram</option></select></label>
-      <label class="go-field"><span>Назва готелю (необов’язково)</span>
-        <input class="go-input" id="go-hotel" name="hotel" type="text" autocomplete="organization" placeholder="Готель «Карпати»">
+      <label class="go-field"><span>Назва готелю / об’єкта *</span>
+        <input class="go-input" id="go-hotel" name="hotel" type="text" autocomplete="organization" placeholder="Готель, садиба, апартаменти" minlength="2" maxlength="150" required>
       </label>
-      <div class="go-field"><span>Скільки номерів? (необов’язково)</span>
+      <label class="go-field"><span>Місто або громада *</span>
+        <input class="go-input" id="go-location" name="location" type="text" autocomplete="address-level2" maxlength="120" required>
+      </label>
+      <label class="go-field"><span>Тип об’єкта *</span>
+        <select class="go-input" id="go-property-type" name="property_type" required><option value="">Оберіть тип</option><option value="hotel">Готель / міні-готель</option><option value="guesthouse">Садиба / гостьовий будинок</option><option value="apartments">Апартаменти</option><option value="glamping">Глемпінг / кемпінг</option><option value="hostel">Хостел</option><option value="other">Інший об’єкт розміщення</option></select>
+      </label>
+      <div class="go-field"><span>Скільки номерів або юнітів? *</span>
         <div class="go-chips" data-name="rooms">
           <button type="button" class="go-chip" aria-pressed="false" data-v="1-5">1–5</button>
           <button type="button" class="go-chip" aria-pressed="false" data-v="6-12">6–12</button>
@@ -148,6 +156,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--pink);outline-o
         </div>
       </div>
       <input type="hidden" name="rooms" id="go-rooms">
+      <label class="go-field"><span>Якою системою керуєте об’єктом? (необов’язково)</span><input class="go-input" id="go-pms" name="pms" maxlength="120" placeholder="Наприклад, Excel, Exely або інша PMS"></label>
       <input type="hidden" name="source" id="go-source">
       <input type="hidden" name="code" id="go-code">
       <input type="hidden" name="funnel" id="go-funnel">
@@ -155,12 +164,12 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--pink);outline-o
       <input type="hidden" name="watched" id="go-watched">
       <div class="go-err" id="go-err" role="alert"></div>
       <button type="submit" class="go-submit">Надіслати запит</button>
-      <p class="go-small">Надсилаючи форму, ви погоджуєтесь на обробку даних для відповіді на запит. <a href="/privacy">Політика конфіденційності</a>.</p>
+      <p class="go-small">Надсилаючи заявку, ви погоджуєтесь на використання даних для її перевірки та підготовки доступу до тесту. <a href="/privacy">Політика конфіденційності</a>.</p>
     </form>
     <div class="go-thanks" aria-live="polite">
       <b aria-hidden="true">✓</b>
       <h2>Запит надіслано</h2>
-      <p>Отримали ваші контакти. Команда VDALO зв’яжеться, щоб узгодити налаштування й дату старту тесту.</p>
+      <p>Дякуємо! Дані отримані. Перевіримо заявку й найближчим часом надішлемо на вказаний email інформацію для доступу до 14-денного тесту VDALO.</p>
     </div>
   </div>
 </div>
@@ -308,8 +317,13 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--pink);outline-o
     const phone = $('go-phone').value.replace(/[^\d+]/g, '');
     const email = $('go-email').value.trim();
     const err = $('go-err');
-    if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.textContent = 'Перевірте формат e-mail або залиште поле порожнім'; return; }
+    if ($('go-name').value.trim().length < 2) { err.textContent = 'Вкажіть ваше ім’я'; $('go-name').focus(); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.textContent = 'Вкажіть коректний email для надсилання доступу'; $('go-email').focus(); return; }
     if (phone.replace(/\D/g, '').length < 9) { err.textContent = 'Перевірте номер телефону'; return; }
+    if ($('go-hotel').value.trim().length < 2) { err.textContent = 'Вкажіть назву готелю або об’єкта'; $('go-hotel').focus(); return; }
+    if ($('go-location').value.trim().length < 2) { err.textContent = 'Вкажіть місто або громаду'; $('go-location').focus(); return; }
+    if (!$('go-property-type').value) { err.textContent = 'Оберіть тип об’єкта'; $('go-property-type').focus(); return; }
+    if (!$('go-rooms').value) { err.textContent = 'Оберіть кількість номерів або юнітів'; return; }
     err.textContent = '';
     const data = Object.fromEntries(new FormData(e.target));
     data.phone = phone;

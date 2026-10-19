@@ -27,16 +27,25 @@ function send(res, status, data, type='application/json; charset=utf-8') {
 const text = (v, max=150) => typeof v==='string' ? v.trim().slice(0,max) : '';
 export function validateLead(kind, raw) {
  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return { errors:{ form:'Перевірте дані форми.' } };
- const data = { name:text(raw.name,100), property:text(raw.property), contact:text(raw.contact,180), units:text(raw.units,6), pms:text(raw.pms), pain:text(raw.pain,1000), mode:kind==='trial'&&raw.mode==='implementation'?'implementation':kind==='trial'?'start':'', estimate:kind==='trial'?text(raw.estimate,1200):'', consent:raw.consent===true };
+ const data = { name:text(raw.name,100), property:text(raw.property,150), contact:text(raw.contact||raw.phone,180), email:text(raw.email,180).toLowerCase(), phone:text(raw.phone,40), city:text(raw.city,120), property_type:text(raw.property_type,40), units:text(raw.units,6), pms:text(raw.pms,150), pain:text(raw.pain,1000), mode:kind==='trial'&&raw.mode==='implementation'?'implementation':kind==='trial'?'start':'', estimate:kind==='trial'?text(raw.estimate,1200):'', consent:raw.consent===true };
  const errors = {};
  if (data.name.length<2) errors.name='Вкажіть ваше ім’я.';
- if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contact) || (/^[+()\d\s.-]+$/.test(data.contact) && data.contact.replace(/\D/g,'').length>=9 && data.contact.replace(/\D/g,'').length<=15))) errors.contact='Вкажіть коректний телефон або email.';
- if (data.units && !/^[1-9]\d{0,4}$/.test(data.units)) errors.units='Вкажіть кількість номерів або юнітів від 1 до 99999.';
- if (!data.consent) errors.consent='Потрібна ваша згода на використання контактів для відповіді.';
+ if(kind==='trial') {
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email='Вкажіть коректний email для надсилання доступу.';
+  const digits=data.phone.replace(/\D/g,'').length;
+  if(!/^[+()\d\s.-]+$/.test(data.phone)||digits<9||digits>15) errors.phone='Вкажіть коректний телефон.';
+  if(data.property.length<2) errors.property='Вкажіть назву готелю або об’єкта.';
+  if(data.city.length<2) errors.city='Вкажіть місто або громаду.';
+  if(!['hotel','guesthouse','apartments','glamping','hostel','other'].includes(data.property_type)) errors.property_type='Оберіть тип об’єкта.';
+  if(!/^[1-9]\d{0,4}$/.test(data.units)) errors.units='Вкажіть кількість номерів або юнітів від 1 до 99999.';
+ } else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contact) || (/^[+()\d\s.-]+$/.test(data.contact) && data.contact.replace(/\D/g,'').length>=9 && data.contact.replace(/\D/g,'').length<=15))) errors.contact='Вкажіть коректний телефон або email.';
+ if (!data.consent) errors.consent='Потрібна згода на обробку даних для відповіді та підготовки доступу.';
  if (raw.website) errors.form='Не вдалося перевірити форму. Оновіть сторінку.';
  const utm = {};
  for (const key of ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']) if (raw.utm?.[key]) utm[key]=text(raw.utm[key],150);
- return { data:{ ...data, kind, utm, source:'vdalo-website' }, errors };
+ const quizRaw=raw.quiz_answers&&typeof raw.quiz_answers==='object'&&!Array.isArray(raw.quiz_answers)?raw.quiz_answers:null;
+ const quiz_answers=quizRaw?Object.fromEntries(Object.entries(quizRaw).filter(([key,value])=>['property_format','property_type','room_range','pms_status','main_pain','frequency','intent','recommendation_route','sms_code'].includes(key)&&typeof value==='string').map(([key,value])=>[key,text(value,80)])):null;
+ return { data:{ ...data, ...(quiz_answers?{quiz_answers}:{}), kind, utm, source:'vdalo-website', ...(kind==='trial'?{trial_days:14,requires_card:false}:{}) }, errors };
 }
 const limits = new Map();
 function limited(req) {
