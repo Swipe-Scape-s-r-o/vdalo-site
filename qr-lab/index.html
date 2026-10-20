@@ -94,7 +94,7 @@
               <div class="field-group is-hidden" data-fields="wifi" hidden>
                 <label for="wifi-name">Назва мережі</label><input id="wifi-name" type="text" autocomplete="off" placeholder="Hotel Guest Wi-Fi" maxlength="128" />
                 <div class="field-split"><div><label for="wifi-password">Пароль мережі</label><div class="password-wrap"><input id="wifi-password" type="password" autocomplete="new-password" placeholder="Введіть пароль" maxlength="64" /><button type="button" id="toggle-password" class="show-password" aria-label="Показати пароль" aria-pressed="false">◉</button></div></div><div><label for="wifi-security">Захист мережі</label><select id="wifi-security"><option value="WPA">WPA / WPA2</option><option value="WEP">WEP</option><option value="nopass">Без пароля</option></select></div></div>
-                <p class="field-hint">Введіть пароль саме від гостьової мережі. WPA/WPA2 приймає 8–63 друковані латинські символи або 64 шістнадцяткові знаки, WEP має інші вимоги. Пароль буде доступний кожному, хто сканує QR.</p>
+                <p class="field-hint" id="wifi-hint">Введіть пароль саме від гостьової мережі. Він буде закодований у QR і стане доступним кожному, хто його сканує. Використовуйте окрему гостьову мережу.</p>
               </div>
               <div class="field-group is-hidden" data-fields="text" hidden>
                 <label for="text-value">Текст для гостей</label><textarea id="text-value" rows="4" maxlength="800" placeholder="Наприклад: Сніданок подають щодня з 8:00 до 10:30 на першому поверсі."></textarea>
