@@ -92,7 +92,8 @@ export async function renderVideoLanding(params,pathname){
   .replace("mp4.play().catch(() => { mp4.controls = true; }); }", "mp4.addEventListener('error', () => { go.classList.add('is-ended'); document.body.classList.remove('go-video-lock'); }); mp4.play().catch(() => { mp4.controls = true; }); }")
  }
  html=html.replace("document.getElementById('go-form').addEventListener('submit', e => {","document.getElementById('go-form').addEventListener('submit', async e => {");
- html=html.replace("document.getElementById('go-video-name').value = vdv.dataset.scenario;",`document.getElementById('go-video-name').value = mp4 ? '${videoAsset.replace('.mp4','')||video}' : vdv.dataset.scenario;`);
+ const selectedVideoName=videoAsset&&!isCampaign?videoAsset.replace('.mp4',''):'';
+ html=html.replace("document.getElementById('go-video-name').value = vdv.dataset.scenario;",`document.getElementById('go-video-name').value = '${selectedVideoName}' || vdv.dataset.scenario;`);
  html=html.replace('<p class="go-note">Без картки · Доступ одразу після реєстрації</p>','<p class="go-note">Після заявки узгодимо налаштування та старт тесту.</p>')
   .replace('Безкоштовно, без картки. Доступ: одразу після реєстрації.','Запит на 14-денний безкоштовний тест. Після надсилання ми зв’яжемося з вами щодо підключення.')
   .replace('Спробувати 14 днів безкоштовно','Запросити 14-денний тест').replace('Отримати доступ на 14 днів','Запросити 14-денний тест').replace('14 днів безкоштовно · Без картки · Доступ одразу','14 днів тесту без оплати · Без картки · Після заявки узгодимо підключення')
