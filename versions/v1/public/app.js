@@ -154,8 +154,25 @@ function openForm(kind,source,interest='',mode='start') {
  if(source==='hero'||source==='final') track(`${source}_${kind}_click`);
  requestAnimationFrame(()=>dialog.querySelector('input:not([type=checkbox])').focus());
 }
+function openContactDialog(control) {
+ const dialog=document.querySelector('#contact-dialog');
+ if(!dialog)return;
+ opener=control;
+ const form=dialog.querySelector('form');
+ form.hidden=false;form.reset();form.removeAttribute('aria-busy');
+ dialog.querySelector('.form-success').hidden=true;
+ dialog.querySelector('.form-status').textContent='';
+ for(const error of form.querySelectorAll('.field-error'))error.textContent='';
+ for(const field of form.querySelectorAll('[aria-invalid]'))field.removeAttribute('aria-invalid');
+ closeNavigation();
+ dialog.showModal();
+ document.body.classList.add('dialog-open');
+ track('contact_form_open',{location:control.closest('.header')?'header':'navigation'});
+ requestAnimationFrame(()=>dialog.querySelector('#contact-name').focus());
+}
 function closeForm(dialog) { dialog.close(); }
 document.querySelectorAll('[data-open]').forEach(control=>control.addEventListener('click',()=>openForm(control.dataset.open,control.dataset.location,control.dataset.interest,control.dataset.mode)));
+document.querySelectorAll('[data-contact-dialog-trigger]').forEach(control=>control.addEventListener('click',event=>{if(!document.querySelector('#contact-dialog'))return;event.preventDefault();openContactDialog(control);}));
 document.querySelectorAll('a[href="#pricing-addons"]').forEach(link=>link.addEventListener('click',()=>{const disclosure=document.querySelector('#pricing-addons details');if(disclosure)disclosure.open=true;}));
 document.querySelectorAll('.addons-calc-link').forEach(link=>link.addEventListener('click',()=>{const modulePicker=document.querySelector('.calculator-modules');if(modulePicker)modulePicker.open=true;}));
 document.querySelectorAll('.lead-dialog').forEach(dialog=>{
@@ -188,7 +205,7 @@ function validate(kind,data) {
 }
 function showErrors(form,errors) {
  for(const name of ['name','property','contact','email','phone','city','property_type','units','consent']) {
-  const field=form.elements[name],error=document.getElementById(`${form.dataset.kind}-${name}-error`);
+  const field=form.elements[name],errorId=field?.getAttribute('aria-describedby')?.split(/\s+/).find(id=>id.endsWith('-error')),error=errorId?document.getElementById(errorId):null;
   if(field)field.setAttribute('aria-invalid',String(Boolean(errors[name])));
   if(error)error.textContent=errors[name]||'';
  }
@@ -203,7 +220,8 @@ async function submitLead(kind,data) {
  const controller=new AbortController();
  const timer=setTimeout(()=>controller.abort(),15000);
  try {
-  const response=await fetch(`/api/leads/${kind}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:controller.signal});
+  const route=kind==='contact'?'audit':kind;
+  const response=await fetch(`/api/leads/${route}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:controller.signal});
   const result=await response.json();
   if(!response.ok || result.ok!==true) { const error=new Error(result.message||'Не вдалося надіслати запит. Спробуйте ще раз.');error.fields=result.errors;throw error; }
   return result;
