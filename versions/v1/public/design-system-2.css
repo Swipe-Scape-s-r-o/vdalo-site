@@ -323,5 +323,6 @@
 .ds2 .header nav .nav-disclosure>summary:focus-visible{outline:2px solid var(--pink);outline-offset:4px;border-radius:4px}
 .ds2 .header nav .nav-chevron{border-color:var(--pink)}
 .ds2 .footer-v2-grid>.footer-link-group>strong{color:var(--pink)}
+@media(min-width:901px){.ds2 .header nav .nav-submenu a,.ds2 .header nav .nav-submenu a:hover,.ds2 .header nav .nav-submenu .nav-disclosure>summary,.ds2 .header nav .nav-submenu .nav-disclosure>summary:hover{color:var(--plum)}}
 @media(max-width:900px){.ds2 .menu-toggle{flex:0 0 44px;display:flex;align-items:center;justify-content:center;gap:6px}.ds2 .menu-toggle span{display:block;width:18px;height:2px;min-height:2px;flex:none;background:var(--soft);opacity:1;border-radius:2px}.ds2 .menu-toggle[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}.ds2 .menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}.ds2 .header nav.open{display:flex}.ds2 .header nav.open .nav-disclosure>summary{color:var(--soft)}}
 .ds2 .header nav.open{display:block}
