@@ -14,3 +14,21 @@ test('all hotel calculators contain exactly one noindex robots directive',async(
 test('video campaign route contains exactly one noindex robots directive',async()=>{
  assertSingleCampaignRobots(await renderVideoLanding(new URLSearchParams(),'/53'),'/53');
 });
+
+test('campaign CTA does not depend on the non-campaign MP4 variable',async()=>{
+ const html=await renderVideoLanding(new URLSearchParams(),'/55');
+ assert.match(html,/document\.getElementById\('go-video-name'\)\.value = '' \|\| vdv\.dataset\.scenario;/);
+ assert.doesNotMatch(html,/document\.getElementById\('go-video-name'\)\.value = mp4 \?/);
+});
+
+test('non-campaign MP4 route retains its selected video name',async()=>{
+ const html=await renderVideoLanding(new URLSearchParams(),'/10');
+ assert.match(html,/document\.getElementById\('go-video-name'\)\.value = 'p-pricing' \|\| vdv\.dataset\.scenario;/);
+});
+
+test('more-videos script does not call the private foot helper from another script',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile(new URL('../microlandings/public/top5/vdalo-videos-more.js',import.meta.url),'utf8');
+ assert.doesNotMatch(source,/(?<![\w$.])foot\s*\(/);
+ assert.match(source,/Кількість дзвінків у сцені наведена для ілюстрації/);
+});
