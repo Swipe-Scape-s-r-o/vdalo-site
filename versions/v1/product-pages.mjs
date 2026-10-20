@@ -4,12 +4,16 @@ const p = (text) => `<p>${text}</p>`;
 const ul = (items) => `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
 const section = (eyebrow, title, body) => [eyebrow, title, body];
 const cta = (title, copy) => `<section class="seo-cta"><div><p class="eyebrow">НАСТУПНИЙ КРОК</p><h2>${title}</h2><p>${copy}</p></div><button class="button" type="button" data-open="audit" data-location="feature-page">Обговорити функцію <span aria-hidden="true">↗</span></button></section>`;
+// The server's HTML prefixer only knows legacy routes; keep feature links
+// relative so it does not rewrite these root routes to /v1/<route>.
+const relativeFeatureLinks = (html) => html.replace(/href="\/(hotel-[a-z0-9-]+)(?=["?#])/g, 'href="$1');
 const image = 'hotel-management-solutions.webp';
 const basic = (route, meta, hero, sections, related) => [route, {
   ...meta, status: meta.status || 'ДОСТУПНО', h1: hero[0], lead: hero[1], eyebrow: 'МОЖЛИВОСТІ VDALO / PMS ДЛЯ ГОТЕЛЮ',
   heroCta: 'Обговорити сценарій', heroImage: hero[2] || image,
-  heroAlt: hero[3] || 'Команда готелю працює з PMS VDALO', heroPosition: 'center', sections,
-  extra: `${related}${cta('Потрібна ця функція у вашому процесі?', 'Опишіть тип об’єкта та робочий сценарій — перевіримо доступний варіант і статус.')}`
+  heroAlt: hero[3] || 'Команда готелю працює з PMS VDALO', heroPosition: 'center',
+  sections: sections.map(([eyebrow, title, body]) => [eyebrow, title, relativeFeatureLinks(body)]),
+  extra: relativeFeatureLinks(`${related}${cta('Потрібна ця функція у вашому процесі?', 'Опишіть тип об’єкта та робочий сценарій — перевіримо доступний варіант і статус.')}`)
 }];
 
 export const productFeaturePages = [

@@ -7,7 +7,7 @@ import {renderSecondPassArticle} from '../versions/v1/article-second-pass.mjs';
 import {touristTaxCityRoutes,canIndexTouristTaxPlace,getTouristTaxPlace} from '../versions/v1/tourist-tax-data.mjs';
 import {renderTouristTaxCity} from '../versions/v1/tourist-tax.mjs';
 
-const internalHrefs=html=>[...html.matchAll(/<a\b[^>]*href=["'](\/[^"]*)["']/gi)].map(match=>match[1]);
+const internalHrefs=html=>[...html.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)].map(match=>match[1]).filter(href=>href.startsWith('/')||/^[a-z][a-z0-9-]*$/.test(href)).map(href=>href.startsWith('/')?href:'/'+href);
 
 test('every SEO landing page ends with contextual internal links',()=>{
   for(const route of seoRoutes()){
