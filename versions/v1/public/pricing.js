@@ -84,12 +84,12 @@ if (pricingRoot && core) {
  const planRoomDefaults={start:5,mini:10,hotel:20,'hotel-plus':50,complex:90,enterprise:151};
  pricingRoot.querySelectorAll('[data-select-plan]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();roomInput.value=String(planRoomDefaults[link.dataset.selectPlan]||20);activateTab(groupForRooms(Number(roomInput.value)));showEstimate();roomInput.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});roomInput.focus({preventScroll:true});}));
  moduleInputs.forEach(input=>input.addEventListener('change',()=>{pricingRoot.querySelectorAll('[data-module-preset]').forEach(button=>button.setAttribute('aria-pressed','false'));showEstimate();}));
- const presets={start:[],camping:['channels','checkin','access','tasks'],small:['assistant','checkin','messages'],hotel:['assistant','access','checkin','finance','tasks','messages']};
+ const presets={start:[],camping:['channels','checkin','tasks'],small:['checkin'],hotel:['checkin','finance','tasks']};
  pricingRoot.querySelectorAll('[data-module-preset]').forEach(button=>button.addEventListener('click',()=>{
   const ids=presets[button.dataset.modulePreset]||[];
   const remove=button.getAttribute('aria-pressed')==='true';
   pricingRoot.querySelectorAll('[data-module-preset]').forEach(other=>other.setAttribute('aria-pressed',String(!remove&&other===button)));
-  for(const input of moduleInputs)input.checked=!remove&&ids.includes(input.dataset.module);
+  for(const input of moduleInputs)input.checked=!input.disabled&&!remove&&ids.includes(input.dataset.module);
   button.setAttribute('aria-pressed',String(!remove));showEstimate();
  }));
  pricingRoot.querySelector('#apart-unit-count')?.addEventListener('input',event=>{pricingRoot.querySelector('[data-apart-price]').textContent=`${money(core.apartPrice(event.target.value))} на місяць`;});
