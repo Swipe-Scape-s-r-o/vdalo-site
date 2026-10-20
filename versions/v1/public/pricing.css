@@ -88,3 +88,4 @@
 .checkout-submit{min-height:52px;padding-inline:26px;border:0;background:#39233e;color:#fff;font-weight:750}
 .checkout-submit:hover{background:#57355c}
 @media(max-width:640px){.checkout-form{border-radius:21px}.checkout-brand{width:118px;margin-bottom:22px}.checkout-heading>p:last-child{font-size:14px}}
+.module-check--status{cursor:not-allowed}.module-check--status input{cursor:not-allowed;opacity:.55}.module-check--status span{color:#625766}.module-check--status small{color:#9a3c68;font-weight:700}.addon-card--status{border-style:dashed}.addon-card--status .addon-kicker{color:#9a3c68}

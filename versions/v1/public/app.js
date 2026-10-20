@@ -24,18 +24,90 @@ if(floatingContacts){
  const links=[['phone','Подзвонити','tel:'],['email','Email','mailto:'],['telegramUrl','Telegram',''],['viberUrl','Viber','']].flatMap(([key,label,prefix])=>{const value=cfg(key);if(!configured(value))return [];let href=String(value);if(prefix&&!href.startsWith(prefix))href=prefix+href;try{if(!['https:','tel:','mailto:'].includes(new URL(href,location.href).protocol))return [];}catch{return [];}const anchor=document.createElement('a');anchor.href=href;anchor.textContent=label;return [anchor];});
  if(links.length){const button=document.createElement('button');button.type='button';button.textContent='Написати нам';button.setAttribute('aria-expanded','false');const menu=document.createElement('div');menu.className='floating-contact-menu';menu.hidden=true;menu.append(...links);button.addEventListener('click',()=>{const expanded=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(expanded));menu.hidden=!expanded;});floatingContacts.hidden=false;floatingContacts.append(button,menu);}
 }
-document.querySelector('.menu-toggle')?.addEventListener('click', event => {
+const siteNavigation=document.querySelector('#navigation');
+const menuToggle=document.querySelector('.menu-toggle');
+const desktopPointerMenu=window.matchMedia('(min-width: 901px) and (hover: hover) and (pointer: fine)');
+const navDisclosures=[...(siteNavigation?.querySelectorAll('details.nav-disclosure')||[])];
+const closeDisclosureBranch=detail=>{
+ detail.open=false;
+ detail.querySelectorAll('details.nav-disclosure[open]').forEach(child=>child.open=false);
+};
+const openDisclosure=detail=>{
+ const megaColumns=detail.closest('.nav-mega-columns');
+ const siblings=megaColumns
+  ? megaColumns.querySelectorAll('.nav-mega-list > .nav-item > details.nav-disclosure[open]')
+  : detail.closest('ul')?.querySelectorAll(':scope > .nav-item > details.nav-disclosure[open]')||[];
+ siblings.forEach(sibling=>{if(sibling!==detail)closeDisclosureBranch(sibling);});
+ detail.open=true;
+};
+navDisclosures.forEach(detail=>{
+ let closeTimer;
+ const summary=detail.querySelector(':scope > summary');
+ detail.addEventListener('pointerenter',event=>{
+  if(!desktopPointerMenu.matches||event.pointerType==='touch')return;
+  clearTimeout(closeTimer);
+  openDisclosure(detail);
+ });
+ detail.addEventListener('pointerleave',event=>{
+  if(!desktopPointerMenu.matches||event.pointerType==='touch')return;
+  // Keep expanded mega-menu groups in place while the pointer crosses the
+  // whitespace between categories. The next category closes its sibling
+  // when it is actually reached; leaving the whole panel closes the menu.
+  if(detail.closest('.nav-mega-columns'))return;
+  clearTimeout(closeTimer);
+  closeTimer=setTimeout(()=>{
+   if(!detail.matches(':hover')&&!detail.contains(document.activeElement))closeDisclosureBranch(detail);
+  },350);
+ });
+ detail.addEventListener('focusin',()=>{
+  clearTimeout(closeTimer);
+  if(!desktopPointerMenu.matches)return;
+  if(detail.dataset.suppressFocusOpen==='true'){delete detail.dataset.suppressFocusOpen;return;}
+  openDisclosure(detail);
+ });
+ detail.addEventListener('focusout',event=>{
+  if(detail.contains(event.relatedTarget))return;
+  clearTimeout(closeTimer);
+  closeTimer=setTimeout(()=>{
+   if(!detail.contains(document.activeElement)&&!detail.matches(':hover'))closeDisclosureBranch(detail);
+  },0);
+ });
+ summary?.addEventListener('click',event=>{
+  if(desktopPointerMenu.matches&&event.detail>0){event.preventDefault();openDisclosure(detail);}
+ });
+});
+const closeNavigation=()=>{
+ siteNavigation?.classList.remove('open');
+ siteNavigation?.querySelectorAll('details[open]').forEach(item=>item.open=false);
+ menuToggle?.setAttribute('aria-expanded','false');
+ menuToggle?.setAttribute('aria-label','Відкрити меню');
+};
+menuToggle?.addEventListener('click', event => {
  const control = event.currentTarget;
  const expanded = control.getAttribute('aria-expanded') !== 'true';
  control.setAttribute('aria-expanded', String(expanded));
  control.setAttribute('aria-label', expanded ? 'Закрити меню' : 'Відкрити меню');
- document.querySelector('#navigation').classList.toggle('open', expanded);
+ siteNavigation?.classList.toggle('open', expanded);
 });
-document.querySelectorAll('#navigation a').forEach(link => link.addEventListener('click', () => {
- document.querySelector('#navigation').classList.remove('open');
- document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
- document.querySelector('.menu-toggle').setAttribute('aria-label', 'Відкрити меню');
-}));
+siteNavigation?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNavigation));
+document.addEventListener('keydown', event=>{
+ if(event.key!=='Escape'||!siteNavigation)return;
+ const openDetails=[...siteNavigation.querySelectorAll('details[open]')];
+ if(openDetails.length){
+  event.preventDefault();
+  const last=openDetails.at(-1);
+  last.open=false;
+  const summary=last.querySelector(':scope > summary');
+  if(summary){last.dataset.suppressFocusOpen='true';summary.focus();delete last.dataset.suppressFocusOpen;}
+ }else if(siteNavigation.classList.contains('open')){
+  event.preventDefault();
+  closeNavigation();
+  menuToggle?.focus();
+ }
+});
+document.addEventListener('click',event=>{
+ if(siteNavigation?.querySelector('details[open]')&&!event.target.closest('#navigation'))siteNavigation.querySelectorAll('details[open]').forEach(item=>item.open=false);
+});
 addEventListener('scroll', () => document.querySelector('.header').classList.toggle('scrolled', scrollY > 120), { passive:true });
 
 // Provider-neutral events. Contact data and free text never enter this layer.
@@ -82,8 +154,25 @@ function openForm(kind,source,interest='',mode='start') {
  if(source==='hero'||source==='final') track(`${source}_${kind}_click`);
  requestAnimationFrame(()=>dialog.querySelector('input:not([type=checkbox])').focus());
 }
+function openContactDialog(control) {
+ const dialog=document.querySelector('#contact-dialog');
+ if(!dialog)return;
+ opener=control;
+ const form=dialog.querySelector('form');
+ form.hidden=false;form.reset();form.removeAttribute('aria-busy');
+ dialog.querySelector('.form-success').hidden=true;
+ dialog.querySelector('.form-status').textContent='';
+ for(const error of form.querySelectorAll('.field-error'))error.textContent='';
+ for(const field of form.querySelectorAll('[aria-invalid]'))field.removeAttribute('aria-invalid');
+ closeNavigation();
+ dialog.showModal();
+ document.body.classList.add('dialog-open');
+ track('contact_form_open',{location:control.closest('.header')?'header':'navigation'});
+ requestAnimationFrame(()=>dialog.querySelector('#contact-name').focus());
+}
 function closeForm(dialog) { dialog.close(); }
 document.querySelectorAll('[data-open]').forEach(control=>control.addEventListener('click',()=>openForm(control.dataset.open,control.dataset.location,control.dataset.interest,control.dataset.mode)));
+document.querySelectorAll('[data-contact-dialog-trigger]').forEach(control=>control.addEventListener('click',event=>{if(!document.querySelector('#contact-dialog'))return;event.preventDefault();openContactDialog(control);}));
 document.querySelectorAll('a[href="#pricing-addons"]').forEach(link=>link.addEventListener('click',()=>{const disclosure=document.querySelector('#pricing-addons details');if(disclosure)disclosure.open=true;}));
 document.querySelectorAll('.addons-calc-link').forEach(link=>link.addEventListener('click',()=>{const modulePicker=document.querySelector('.calculator-modules');if(modulePicker)modulePicker.open=true;}));
 document.querySelectorAll('.lead-dialog').forEach(dialog=>{
@@ -106,17 +195,20 @@ function validate(kind,data) {
   if(data.city.length<2) errors.city='Вкажіть місто або громаду.';
   if(!data.property_type) errors.property_type='Оберіть тип об’єкта.';
   if(!/^[1-9]\d{0,4}$/.test(data.units)) errors.units='Вкажіть кількість номерів або юнітів.';
+ } else if(kind==='contact') {
+  const digits=data.contact.replace(/\D/g,'').length;
+  if(!/^[+()\d\s.-]+$/.test(data.contact)||digits<9||digits>15) errors.contact='Вкажіть коректний номер телефону.';
  } else {
   const digits=data.contact.replace(/\D/g,'').length;
   if(!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contact) || (/^[+()\d\s.-]+$/.test(data.contact) && digits>=9 && digits<=15))) errors.contact='Вкажіть коректний телефон або email.';
   if(data.units && !/^[1-9]\d{0,4}$/.test(data.units)) errors.units='Вкажіть кількість номерів або юнітів від 1 до 99999.';
  }
- if(!data.consent) errors.consent='Потрібна згода на обробку даних для відповіді та підготовки доступу.';
+ if(!data.consent) errors.consent='Потрібна згода на обробку даних, щоб ми відповіли на запит.';
  return errors;
 }
 function showErrors(form,errors) {
  for(const name of ['name','property','contact','email','phone','city','property_type','units','consent']) {
-  const field=form.elements[name],error=document.getElementById(`${form.dataset.kind}-${name}-error`);
+  const field=form.elements[name],errorId=field?.getAttribute('aria-describedby')?.split(/\s+/).find(id=>id.endsWith('-error')),error=errorId?document.getElementById(errorId):null;
   if(field)field.setAttribute('aria-invalid',String(Boolean(errors[name])));
   if(error)error.textContent=errors[name]||'';
  }
@@ -131,7 +223,8 @@ async function submitLead(kind,data) {
  const controller=new AbortController();
  const timer=setTimeout(()=>controller.abort(),15000);
  try {
-  const response=await fetch(`/api/leads/${kind}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:controller.signal});
+  const route=kind==='contact'?'audit':kind;
+  const response=await fetch(`/api/leads/${route}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,form_kind:kind}),signal:controller.signal});
   const result=await response.json();
   if(!response.ok || result.ok!==true) { const error=new Error(result.message||'Не вдалося надіслати запит. Спробуйте ще раз.');error.fields=result.errors;throw error; }
   return result;
@@ -289,14 +382,16 @@ if(calendarNode) {
  }
  const showWeek=()=>{
   grid.querySelectorAll('[data-reservation]').forEach(button=>button.remove());
+  const reservations=document.createDocumentFragment();
   calendar.weeks[week].forEach(item=>{
    const button=document.createElement('button');button.type='button';button.className=`reservation ${item.channel}`;
    button.style.gridColumn=`${item.start+2} / span ${item.nights}`;button.style.gridRow=String(item.room+2);
    button.dataset.reservation=item.id;button.dataset.channel=item.channel;button.setAttribute('aria-pressed','false');
    const dates=shiftedReservation(item,week);
    button.setAttribute('aria-label',`${item.label}, номер ${calendar.rooms[item.room][0]}, ${dates.arrival} до ${dates.departure}`);
-   const name=document.createElement('span');name.textContent=item.label;const state=document.createElement('small');state.textContent=item.status;button.append(name,state);grid.append(button);
+    const name=document.createElement('span');name.textContent=item.label;const state=document.createElement('small');state.textContent=item.status;button.append(name,state);reservations.append(button);
   });
+  grid.append(reservations);
   const weekStart=new Date(startDate);weekStart.setDate(weekStart.getDate()+week*7);
   document.querySelectorAll('[data-day]').forEach(day=>{const date=new Date(weekStart);date.setDate(date.getDate()+Number(day.dataset.day));day.textContent=String(date.getDate());const weekday=day.parentElement.querySelector('[data-day-weekday]');weekday.textContent=new Intl.DateTimeFormat('uk-UA',{weekday:'short'}).format(date).replace('.','');});
   const weekEnd=new Date(weekStart);weekEnd.setDate(weekEnd.getDate()+6);

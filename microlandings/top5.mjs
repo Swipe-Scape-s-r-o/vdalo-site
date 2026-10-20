@@ -33,7 +33,11 @@ const attachQuizContext=`if(params.get('utm_campaign')==='hotel_quiz'){try{const
 
 async function template(name){return readFile(path.join(root,'top5',name),'utf8');}
 function common(html,title,description,canonical='/go'){
- return html.replace(/<title>[^<]*<\/title>/i,`<title>${title}</title>`).replace(/<meta name="description"[^>]*>/i,`<meta name="description" content="${description}">`).replace('</head>','<meta name="robots" content="noindex,nofollow"><link rel="canonical" href="https://www.vdalo.tech'+canonical+'"><meta name="referrer" content="strict-origin-when-cross-origin"></head>').replaceAll('/go/vdalo-videos','/sms-trial-assets/top5/vdalo-videos').replace('</style>','.go-consent{display:flex;align-items:flex-start;gap:10px;font-size:13px}.go-consent input{width:18px;height:18px;accent-color:var(--pink);flex:none}\n</style>');
+ let page=html.replace(/<title>[^<]*<\/title>/i,`<title>${title}</title>`).replace(/<meta name="description"[^>]*>/i,`<meta name="description" content="${description}">`);
+ const robots='<meta name="robots" content="noindex,nofollow">';
+ if(/<meta\b[^>]*name=["']robots["'][^>]*>/i.test(page))page=page.replace(/<meta\b[^>]*name=["']robots["'][^>]*>/i,robots);
+ else page=page.replace('</head>',`${robots}</head>`);
+ return page.replace('</head>','<link rel="canonical" href="https://www.vdalo.tech'+canonical+'"><meta name="referrer" content="strict-origin-when-cross-origin"></head>').replaceAll('/go/vdalo-videos','/sms-trial-assets/top5/vdalo-videos').replace('</style>','.go-consent{display:flex;align-items:flex-start;gap:10px;font-size:13px}.go-consent input{width:18px;height:18px;accent-color:var(--pink);flex:none}\n</style>');
 }
 export async function renderVideoLanding(params,pathname){
  const match=pathname.match(/^\/(?:go\/)?(\d{1,3})\/?$/),raw=Number(match?.[1]||params.get('c')||0),code=codeMap[raw]?raw:53,video=params.get('v')||codeMap[code],funnel=top[code]?.funnel||funnelFor[code]||'staff';

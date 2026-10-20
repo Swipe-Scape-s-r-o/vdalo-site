@@ -71,7 +71,7 @@ const useCases = {
   },
   wifi: {
     mode: 'wifi', title: 'Wi-Fi для гостей', subtitle: 'Відскануйте, щоб під’єднатися',
-    note: 'QR під’єднає телефон до мережі без ручного введення пароля. Розміщуйте код у гостьовій зоні, адже пароль буде всередині QR.',
+    note: 'Для захищеної мережі QR містить пароль, який можна прочитати зі сканування. Для відкритої мережі без пароля QR містить лише назву мережі. Використовуйте окремий гостьовий Wi-Fi.',
   },
   menu: {
     mode: 'url', label: 'Посилання на меню ресторану', hint: 'Додайте посилання на ваше онлайн-меню. Цей інструмент створює QR, але не формує саме меню.',
@@ -117,6 +117,7 @@ document.querySelectorAll('[data-preset]').forEach(button => button.addEventList
   document.querySelector('#qr-title').value = preset.title;
   document.querySelector('#qr-subtitle').value = preset.subtitle;
   document.querySelector('#usecase-note').textContent = preset.note;
+  if (preset.mode === 'wifi') updateWifiSecurityCopy();
   generatorError.hidden = true;
 }));
 
@@ -153,6 +154,7 @@ document.querySelectorAll('[data-mode]').forEach(tab => tab.addEventListener('cl
         : 'Вставте повне посилання на сторінку або сервіс, який має відкрити гість.';
   }
   document.querySelector('#mode-panel').setAttribute('aria-labelledby', tab.id);
+  if (generatorMode === 'wifi') updateWifiSecurityCopy();
   generatorError.hidden = true;
 }));
 
@@ -181,7 +183,31 @@ document.querySelector('#wifi-security').addEventListener('change', event => {
   passwordField.hidden = !passwordIsNeeded;
   passwordField.classList.toggle('is-hidden', !passwordIsNeeded);
   document.querySelector('#wifi-password').required = passwordIsNeeded;
+  updateWifiSecurityCopy();
 });
+
+function updateWifiSecurityCopy() {
+  const security = document.querySelector('#wifi-security').value;
+  const copy = {
+    WPA: {
+      hint: 'Введіть пароль саме від гостьової мережі. Він буде закодований у QR і стане доступним кожному, хто його сканує. Використовуйте окрему гостьову мережу.',
+      note: 'QR міститиме назву мережі й пароль. Його можна прочитати зі сканування, тому використовуйте окремий гостьовий Wi-Fi та не публікуйте код поза гостьовою зоною.',
+    },
+    WEP: {
+      hint: 'Введіть пароль саме від гостьової мережі. Він буде закодований у QR і стане доступним кожному, хто його сканує. WEP є застарілим типом захисту; за можливості оберіть WPA/WPA2.',
+      note: 'QR міститиме назву мережі й пароль. WEP є застарілим типом захисту; за можливості використовуйте окрему мережу з WPA/WPA2.',
+    },
+    nopass: {
+      hint: 'Для відкритої мережі пароль не потрібен і не потрапляє в QR. Код міститиме лише назву мережі. Відкрита мережа не захищає трафік паролем; для гостей краще налаштувати окремий захищений Wi-Fi.',
+      note: 'Відкрита мережа не має захисту паролем. QR міститиме лише назву мережі. Для гостей краще налаштувати окремий захищений Wi-Fi.',
+    },
+  }[security];
+  document.querySelector('#wifi-hint').textContent = copy.hint;
+  if (generatorMode === 'wifi' || generatorUseCase === 'wifi') {
+    document.querySelector('#usecase-note').textContent = copy.note;
+  }
+}
+updateWifiSecurityCopy();
 document.querySelectorAll('#url-value, #wifi-name, #wifi-password, #wifi-security, #text-value').forEach(input => {
   input.addEventListener(input.tagName === 'SELECT' ? 'change' : 'input', () => {
     invalidateGeneratorOutput();
@@ -283,7 +309,9 @@ function showGeneratorOutput(output, value) {
   document.querySelector('[data-engine="nayuki"] .engine-state').textContent = 'Готово';
   document.querySelector('#metrics-nayuki').innerHTML = `<span>PNG: ${fmtBytes(output.pngBlob.size)}</span><span>SVG: ${fmtBytes(new Blob([output.svg]).size)}</span><span>ECC: H</span><span>Матриця: ${output.modules}</span>`;
   generatorCaption.textContent = generatorMode === 'wifi'
-    ? 'Відскануйте камерою, щоб під’єднатися до Wi-Fi. Пароль міститься всередині коду.'
+    ? document.querySelector('#wifi-security').value === 'nopass'
+      ? 'Відкрита мережа не має пароля. QR містить назву мережі; камера може запропонувати підключення.'
+      : 'QR містить назву захищеної мережі та пароль. Камера може запропонувати підключення; пароль можна прочитати зі сканування.'
     : generatorMode === 'text'
       ? 'Відскануйте камерою, щоб прочитати текстову інформацію для гостя.'
       : `Відскануйте камерою, щоб відкрити ${useCases[generatorUseCase]?.label?.replace('Посилання на ', '').replace('Посилання для ', '') || 'ваше посилання'}.`;

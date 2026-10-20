@@ -107,6 +107,13 @@
 .ds2 .conversion-next-step{margin-top:24px;padding-top:20px}
 .ds2 .faq-list summary{padding-block:19px}
 .ds2 .lead-dialog{max-width:580px}
+.ds2 .contact-dialog{width:min(500px,calc(100% - 32px))}
+.ds2 .contact-dialog .dialog-body{padding:36px}
+.ds2 .contact-dialog .form-grid{grid-template-columns:1fr;gap:14px}
+.ds2 .contact-dialog .dialog-intro{max-width:390px}
+.ds2 .contact-dialog .field input{min-height:50px}
+.ds2 .contact-dialog .consent-field label{font-size:12px;line-height:1.55}
+.ds2 .contact-dialog .form-footnote{margin-top:10px}
 .ds2 .dialog-body{padding:30px}
 .ds2 .lead-dialog h2{font-size:29px;line-height:1.15;margin-bottom:12px}
 .ds2 .dialog-intro{font-size:14px;line-height:1.6;margin-bottom:22px}
@@ -238,7 +245,7 @@
  .ds2 .journey-state{grid-template-columns:84px 1fr;min-height:0;padding:16px;gap:16px}.ds2 .journey-state>img{width:84px;height:126px}.ds2 .journey-state strong{font-size:20px}
  .ds2 .role-panel{min-height:0}.ds2 .fit-strip>div{grid-template-columns:1fr;gap:10px}.ds2 .fit-strip summary{min-height:54px}
  .ds2 .migration-path{gap:22px}.ds2 .start-routes article{padding:26px 22px}.ds2 .start-routes h3{font-size:28px}
- .ds2 .lead-dialog{width:calc(100% - 24px);max-height:calc(100dvh - 24px)}.ds2 .dialog-body{padding:26px 20px}.ds2 .lead-dialog h2{font-size:26px}.ds2 .form-grid{grid-template-columns:1fr;gap:12px}
+ .ds2 .lead-dialog{width:calc(100% - 24px);max-height:calc(100dvh - 24px)}.ds2 .dialog-body{padding:26px 20px}.ds2 .lead-dialog h2{font-size:26px}.ds2 .form-grid{grid-template-columns:1fr;gap:12px}.ds2 .contact-dialog .dialog-body{padding:30px 22px 24px}
  .ds2 .hero-v3 .hero-v2-description{line-height:1.65}.ds2 .hero-v3 .hero-v2-photo>img{height:230px}
  .dark-edition .dark-hero{padding-top:38px}.dark-edition .dark-hero h1{font-size:clamp(46px,12vw,68px);max-width:100%}.dark-edition .dark-hero-description{line-height:1.65}
  .dark-edition .dark-hero-media{opacity:1}.dark-edition .dark-hero-media:after{background:linear-gradient(90deg,#160f19f0,#160f19a8),linear-gradient(0deg,#160f19ee,transparent 75%)}
@@ -475,3 +482,30 @@
 .ds2 .module-presets button[aria-pressed="true"]{border-color:#d84685;background:#fff0f6;box-shadow:inset 0 0 0 1px #d84685;color:#54263f}
 .ds2 .module-presets button:focus-visible{outline:3px solid #d8468580;outline-offset:2px}
 @media(max-width:767px){.ds2 .module-presets{grid-template-columns:1fr 1fr}.ds2 .module-presets button{font-size:11px;padding:8px}}
+
+/* Responsive QA: keep conversion actions aligned with the copy and inside the viewport. */
+.ds2 .hero-v3 .hero-v2-copy,.ds2 .hero-v3 .hero-v2-conversion,.ds2 .hero-v3 .hero-v2-actions{min-width:0}
+.ds2 .hero-v3 .hero-v2-actions{align-items:flex-start;justify-content:flex-start}
+.ds2 .hero-v3 .hero-v2-actions>.button:first-child{margin-inline:0}
+.ds2 .hero-v3 .hero-product-link{align-self:flex-start}
+.ds2 .button{box-sizing:border-box;max-inline-size:100%;min-inline-size:0}
+@media(min-width:768px) and (max-width:1199px){
+ .ds2 .hero-v3 .hero-v2-actions{align-items:flex-start;justify-content:flex-start}
+ .ds2 .hero-v3 .hero-v2-actions>.button:first-child{width:max-content;max-width:100%}
+ .ds2 .hero-v3 .hero-product-link{max-width:100%;white-space:normal}
+ .ds2 .footer-v2-grid{gap:clamp(20px,3vw,32px)}
+ .ds2 .footer-v2-grid>div{min-width:0}
+}
+@media(max-width:767px){
+ .ds2 .wrap{padding-inline:clamp(16px,5vw,20px)}
+ .ds2 .hero-v3 .hero-v2-actions{align-items:stretch;justify-content:flex-start}
+ .ds2 .hero-v3 .hero-v2-actions>.button:first-child{width:100%;max-width:100%;white-space:normal}
+ .ds2 .hero-v3 .hero-v2-actions>.button:first-child>span{white-space:normal;overflow-wrap:anywhere}
+ .ds2 .hero-v3 .hero-product-link{min-height:44px;white-space:normal}
+ .ds2 .seo-hero-actions .button{white-space:normal}
+}
+@media(max-width:380px){
+ .ds2 .hero-v3 .hero-v2-actions>.button:first-child{gap:8px;padding-inline:12px;font-size:13px;white-space:normal}
+ .ds2 .hero-v3 .hero-v2-actions>.button:first-child>span{font-size:13px;white-space:normal}
+ .ds2 .header-inner{gap:10px}
+}

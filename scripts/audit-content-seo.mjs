@@ -18,7 +18,10 @@ import { touristTaxCityRoutes } from '../versions/v1/tourist-tax-data.mjs';
 import { renderTouristTaxFunnel } from '../microlandings/tourist-tax-funnel.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const qrStudioHtml = readFileSync(path.join(root, 'qr-lab', 'dist', 'index.html'), 'utf8');
+// The page metadata lives in the source HTML; the built asset bundle is only
+// required for runtime/browser checks. Keep content audits runnable before build.
+const qrStudioDist = path.join(root, 'qr-lab', 'dist', 'index.html');
+const qrStudioHtml = readFileSync(existsSync(qrStudioDist) ? qrStudioDist : path.join(root, 'qr-lab', 'index.html'), 'utf8');
 const pages = new Map([
   ['/', renderPage({ origin: 'https://www.vdalo.tech', full: true })],
   ['/cases', renderCaseList()], ['/blog', renderBlogPage({ origin: 'https://www.vdalo.tech' })],

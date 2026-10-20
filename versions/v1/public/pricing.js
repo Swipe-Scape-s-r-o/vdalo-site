@@ -8,6 +8,15 @@ if (pricingRoot && core) {
  const roomSliderValue = pricingRoot.querySelector('[data-room-slider-value]');
  const moduleInputs = [...pricingRoot.querySelectorAll('[data-module]')];
  const periodMonths = {month:1,six:6,year:12};
+ const track = (event,properties={}) => {
+  window.dataLayer=window.dataLayer||[];
+  window.dataLayer.push({event,brand:'VDALO',path:location.pathname,...properties});
+ };
+ const trackCalculator = (action,extra={}) => {
+  const {plan,rooms,estimateMonthly}=estimateData();
+  const modules=selectedModules();
+  track('pricing_calculator_update',{action,plan_id:plan.id,rooms,period,module_ids:modules,module_count:modules.length,estimated_monthly:Math.round(estimateMonthly),...extra});
+ };
  const applyPlanPeriod = monthly => core.applyPeriod(monthly,period);
  const roomLabel = count => count === 1 ? 'номер' : 'номерів';
  const selectedModules = () => moduleInputs.filter(input=>input.checked).map(input=>input.dataset.module);
@@ -28,7 +37,7 @@ if (pricingRoot && core) {
   if(focus) pricingRoot.querySelector(`[data-pricing-view="${id}"]`)?.focus();
  }
  const groupForRooms = rooms => rooms<=12?'small':rooms<=80?'medium':'large';
- const showEstimate = () => {
+ const showEstimate = (trackingAction='') => {
   const data=estimateData();
   const {plan,rooms,modules,periodPlan,estimateMonthly,isFrom}=data;
   pricingRoot.querySelectorAll('[data-plan-card]').forEach(card=>{
@@ -68,34 +77,44 @@ if (pricingRoot && core) {
    if(isFrom){const quoteModules=selectedModules().filter(id=>core.modules[id]?.from||(id==='rms'&&rooms>80)).map(id=>core.modules[id]?.label||'розширені правила ціни');note.textContent=plan.monthly===null?`Для тарифу ${plan.name} потрібен індивідуальний розрахунок. Запросіть пробний доступ нижче, щоб погодити умови.`:`Уточніть вартість: ${quoteModules.join(', ')}. Запросіть пробний доступ нижче, щоб погодити склад і ціну.`;submit.disabled=true;}
    else{note.textContent=`Перше списання ${money(periodPlan.total+modules.sum*periodMonths[period]+(setupIncluded?setupPrice:0))}${setupIncluded?' включає разове підключення':''}. Далі регулярно ${money(periodPlan.total+modules.sum*periodMonths[period])} за обраним періодом.`;submit.disabled=false;}
   }
+  if(trackingAction)trackCalculator(trackingAction,{setup_selected:Boolean(setupInput?.checked)});
  };
  pricingRoot.querySelectorAll('[data-pricing-view]').forEach((tab,index,all)=>{
   tab.addEventListener('click',()=>activateTab(tab.dataset.pricingView));
   tab.addEventListener('keydown',event=>{let next=index;if(event.key==='ArrowRight')next=(index+1)%all.length;else if(event.key==='ArrowLeft')next=(index+all.length-1)%all.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=all.length-1;else return;event.preventDefault();activateTab(all[next].dataset.pricingView,true);});
  });
- pricingRoot.querySelectorAll('[data-billing-period]').forEach(button=>button.addEventListener('click',()=>{period=button.dataset.billingPeriod;showEstimate();}));
+ pricingRoot.querySelectorAll('[data-billing-period]').forEach(button=>button.addEventListener('click',()=>{period=button.dataset.billingPeriod;showEstimate('billing_period');}));
  const syncRoomDisplay = () => {
   const rooms=Math.max(1,Math.floor(Number(roomInput?.value)||1));
   if(roomSlider)roomSlider.value=String(Math.min(200,rooms));
   if(roomSliderValue)roomSliderValue.value=`${rooms} ${roomLabel(rooms)}`;
  };
  roomInput?.addEventListener('input',()=>{syncRoomDisplay();activateTab(groupForRooms(Math.max(1,Math.floor(Number(roomInput.value)||1))));showEstimate();});
+ roomInput?.addEventListener('change',()=>trackCalculator('room_count'));
  roomSlider?.addEventListener('input',()=>{if(roomInput)roomInput.value=roomSlider.value;syncRoomDisplay();activateTab(groupForRooms(Number(roomSlider.value)));showEstimate();});
+ roomSlider?.addEventListener('change',()=>trackCalculator('room_count'));
  const planRoomDefaults={start:5,mini:10,hotel:20,'hotel-plus':50,complex:90,enterprise:151};
  pricingRoot.querySelectorAll('[data-select-plan]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();roomInput.value=String(planRoomDefaults[link.dataset.selectPlan]||20);activateTab(groupForRooms(Number(roomInput.value)));showEstimate();roomInput.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});roomInput.focus({preventScroll:true});}));
- moduleInputs.forEach(input=>input.addEventListener('change',()=>{pricingRoot.querySelectorAll('[data-module-preset]').forEach(button=>button.setAttribute('aria-pressed','false'));showEstimate();}));
- const presets={start:[],camping:['channels','checkin','access','tasks'],small:['assistant','checkin','messages'],hotel:['assistant','access','checkin','finance','tasks','messages']};
+ moduleInputs.forEach(input=>input.addEventListener('change',()=>{pricingRoot.querySelectorAll('[data-module-preset]').forEach(button=>button.setAttribute('aria-pressed','false'));showEstimate('module_selection');}));
+ const presets={start:[],camping:['channels','checkin','tasks'],small:['checkin'],hotel:['checkin','finance','tasks']};
  pricingRoot.querySelectorAll('[data-module-preset]').forEach(button=>button.addEventListener('click',()=>{
   const ids=presets[button.dataset.modulePreset]||[];
   const remove=button.getAttribute('aria-pressed')==='true';
   pricingRoot.querySelectorAll('[data-module-preset]').forEach(other=>other.setAttribute('aria-pressed',String(!remove&&other===button)));
-  for(const input of moduleInputs)input.checked=!remove&&ids.includes(input.dataset.module);
-  button.setAttribute('aria-pressed',String(!remove));showEstimate();
+  for(const input of moduleInputs)input.checked=!input.disabled&&!remove&&ids.includes(input.dataset.module);
+  button.setAttribute('aria-pressed',String(!remove));showEstimate('module_preset');
  }));
- pricingRoot.querySelector('#apart-unit-count')?.addEventListener('input',event=>{pricingRoot.querySelector('[data-apart-price]').textContent=`${money(core.apartPrice(event.target.value))} на місяць`;});
- setupInput?.addEventListener('change',showEstimate);
- checkoutForm?.addEventListener('submit',event=>{if(checkoutForm.querySelector('.checkout-submit').disabled){event.preventDefault();return;}if(!checkoutForm.reportValidity())event.preventDefault();});
- pricingRoot.querySelectorAll('[data-pricing-submit]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();checkoutForm?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});}));
+ const apartUnits=pricingRoot.querySelector('#apart-unit-count');
+ apartUnits?.addEventListener('input',event=>{pricingRoot.querySelector('[data-apart-price]').textContent=`${money(core.apartPrice(event.target.value))} на місяць`;});
+ apartUnits?.addEventListener('change',event=>track('pricing_calculator_update',{action:'apart_units',plan_id:'apart',units:Math.max(1,Math.floor(Number(event.target.value)||1)),estimated_monthly:core.apartPrice(event.target.value)}));
+ setupInput?.addEventListener('change',()=>showEstimate('setup_option'));
+ checkoutForm?.addEventListener('submit',event=>{
+  if(checkoutForm.querySelector('.checkout-submit').disabled){event.preventDefault();return;}
+  if(!checkoutForm.reportValidity()){event.preventDefault();return;}
+  const estimate=estimateData();
+  track('begin_checkout',{plan_id:estimate.plan.id,rooms:estimate.rooms,period,module_ids:selectedModules(),setup_selected:Boolean(setupInput?.checked)});
+ });
+ pricingRoot.querySelectorAll('[data-pricing-submit]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();const estimate=estimateData();track('pricing_checkout_open',{location:link.dataset.location,plan_id:estimate.plan.id,rooms:estimate.rooms,period});checkoutForm?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});}));
  if('IntersectionObserver' in window){const pricingObserver=new IntersectionObserver(entries=>{const visible=entries.some(entry=>entry.isIntersecting);pricingRoot.querySelector('[data-pricing-sticky]').classList.toggle('visible',visible);document.body.classList.toggle('pricing-visible',visible);},{threshold:.1});pricingObserver.observe(pricingRoot);}
  activateTab(groupForRooms(Math.max(1,Math.floor(Number(roomInput?.value)||1))));
  syncRoomDisplay();

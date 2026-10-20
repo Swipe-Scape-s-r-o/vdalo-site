@@ -81,6 +81,12 @@ VDALO_FUNNEL_RETENTION=...
 
 Payload: `lead_id`, `property_id` (до визначення CRM: null), `offer_id`, `landing_route`, `stage`, `proposed_next_step`, `submitted_at`, `contact`, `qualification`, `attribution`, `permissions`. `room_count` є числом. `current_PMS` і контекст залишаються у qualification. Одержувач має обробляти `Idempotency-Key`, щоб повторний запит не створював дубль.
 
+### Поетапне надсилання заявки на тест
+
+Форма `/go/trial` спершу надсилає email після згоди користувача, а після цього дає заповнити дані об’єкта. Обидва webhook-запити мають той самий `lead_id`: перший має `event_type: lead_captured`, `status: email_captured`, `proposed_next_step: collect_property_details` і лише email у `contact`; другий має `event_type: lead_enriched`, `status: pending_contact`, `proposed_next_step: review_trial_request` і повні контактні та кваліфікаційні дані. Обидва зберігають `kind: trial_request` та атрибуцію квізу.
+
+CRM-одержувач має створювати запис для першої події й доповнювати той самий запис за `lead_id` після другої. Не можна трактувати другу подію як нову заявку. `Idempotency-Key` є окремим для етапу та вмісту події: повторна однакова відправка не створює повтор, а виправлення даних може оновити наявний запис. Перевірити цей upsert-контракт на тестовому CRM-одержувачі перед рекламним запуском.
+
 Обмеження поточної реалізації: базовий ліміт у пам’яті процесу не є глобальним захистом розподіленого деплою. Під час реального запуску доставки потрібно погодити rate limiting, дедуплікацію й retention на стороні одержувача.
 
 ## Перед запуском кампаній

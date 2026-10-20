@@ -29,6 +29,7 @@ export function validateLead(kind, raw) {
  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return { errors:{ form:'Перевірте дані форми.' } };
  const data = { name:text(raw.name,100), property:text(raw.property,150), contact:text(raw.contact||raw.phone,180), email:text(raw.email,180).toLowerCase(), phone:text(raw.phone,40), city:text(raw.city,120), property_type:text(raw.property_type,40), units:text(raw.units,6), pms:text(raw.pms,150), pain:text(raw.pain,1000), mode:kind==='trial'&&raw.mode==='implementation'?'implementation':kind==='trial'?'start':'', estimate:kind==='trial'?text(raw.estimate,1200):'', consent:raw.consent===true };
  const errors = {};
+ const isCallback=kind==='audit'&&raw.form_kind==='contact';
  if (data.name.length<2) errors.name='Вкажіть ваше ім’я.';
  if(kind==='trial') {
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email='Вкажіть коректний email для надсилання доступу.';
@@ -38,14 +39,17 @@ export function validateLead(kind, raw) {
   if(data.city.length<2) errors.city='Вкажіть місто або громаду.';
   if(!['hotel','guesthouse','apartments','glamping','hostel','other'].includes(data.property_type)) errors.property_type='Оберіть тип об’єкта.';
   if(!/^[1-9]\d{0,4}$/.test(data.units)) errors.units='Вкажіть кількість номерів або юнітів від 1 до 99999.';
+ } else if (isCallback) {
+  const digits=data.contact.replace(/\D/g,'').length;
+  if(!/^[+()\d\s.-]+$/.test(data.contact)||digits<9||digits>15) errors.contact='Вкажіть коректний номер телефону.';
  } else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contact) || (/^[+()\d\s.-]+$/.test(data.contact) && data.contact.replace(/\D/g,'').length>=9 && data.contact.replace(/\D/g,'').length<=15))) errors.contact='Вкажіть коректний телефон або email.';
- if (!data.consent) errors.consent='Потрібна згода на обробку даних для відповіді та підготовки доступу.';
+ if (!data.consent) errors.consent='Потрібна згода на обробку даних, щоб ми відповіли на запит.';
  if (raw.website) errors.form='Не вдалося перевірити форму. Оновіть сторінку.';
  const utm = {};
  for (const key of ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']) if (raw.utm?.[key]) utm[key]=text(raw.utm[key],150);
  const quizRaw=raw.quiz_answers&&typeof raw.quiz_answers==='object'&&!Array.isArray(raw.quiz_answers)?raw.quiz_answers:null;
  const quiz_answers=quizRaw?Object.fromEntries(Object.entries(quizRaw).filter(([key,value])=>['property_format','property_type','room_range','pms_status','main_pain','frequency','intent','recommendation_route','sms_code'].includes(key)&&typeof value==='string').map(([key,value])=>[key,text(value,80)])):null;
- return { data:{ ...data, ...(quiz_answers?{quiz_answers}:{}), kind, utm, source:'vdalo-website', ...(kind==='trial'?{trial_days:14,requires_card:false}:{}) }, errors };
+ return { data:{ ...data, ...(quiz_answers?{quiz_answers}:{}), kind, ...(isCallback?{form_kind:'contact'}:{}), utm, source:'vdalo-website', ...(kind==='trial'?{trial_days:14,requires_card:false}:{}) }, errors };
 }
 const limits = new Map();
 function limited(req) {
@@ -86,6 +90,7 @@ async function lead(req,res,kind) {
  }
 }
 function privacyPage() {
+ const canonicalOrigin = 'https://www.vdalo.tech';
  const content = `<main id="main" class="wrap legal privacy-page">
   <p class="eyebrow">VDALO / ПРАВОВА ІНФОРМАЦІЯ</p>
   <h1>Політика конфіденційності</h1>
@@ -105,15 +110,15 @@ function privacyPage() {
   <section id="security"><h2>11. Захист даних</h2><p>Застосовуємо технічні та організаційні заходи для захисту від несанкціонованого доступу, втрати, зміни чи розкриття даних. Доступ надається за потребою для роботи. Жоден спосіб передавання або зберігання даних не може гарантувати абсолютну безпеку, тому не надсилайте через сайт паролі, коди підтвердження чи секрети інтеграцій.</p></section>
   <section id="changes"><h2>12. Зміни до політики</h2><p>Ми можемо оновлювати політику, якщо змінюється сайт, сервіс, постачальники або законодавство. Актуальна редакція публікується на цій сторінці із зазначенням дати.</p><p>Правова основа: <a href="https://zakon.rada.gov.ua/laws/show/2297-17#Text" rel="noopener noreferrer">Закон України «Про захист персональних даних»</a>.</p><p>Умови замовлення, оплати, отримання доступу й повернення коштів описані в <a href="/offer">публічній оферті</a> та <a href="/refunds">правилах повернення коштів</a>.</p></section>
  </main>`;
- let html=renderPage({full:false,origin:origin||'https://www.vdalo.tech'}).replace(/<main id="main">[\s\S]*?<\/main>/,content);
+ let html=renderPage({full:false,origin:canonicalOrigin}).replace(/<main id="main">[\s\S]*?<\/main>/,content);
  html=html.replace(/<title>[\s\S]*?<\/title>/,'<title>Політика конфіденційності | VDALO</title>')
   .replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="Дізнайтеся, як VDALO обробляє персональні дані на сайті, у формах звернення та інструментах, кому може їх передавати і як реалізувати свої права.">')
   .replace(/<meta name="robots" content="[^"]*">/,'<meta name="robots" content="index,follow">')
-  .replace(/<link rel="canonical" href="[^"]*">/,`<link rel="canonical" href="${escape(origin||'https://www.vdalo.tech')}/privacy">`)
+  .replace(/<link rel="canonical" href="[^"]*">/,`<link rel="canonical" href="${canonicalOrigin}/privacy">`)
   .replace(/<meta property="og:title" content="[^"]*">/,'<meta property="og:title" content="Політика конфіденційності | VDALO">')
   .replace(/<meta property="og:description" content="[^"]*">/,'<meta property="og:description" content="Як VDALO обробляє персональні дані на сайті та як ви можете реалізувати свої права.">')
-  .replace(/<meta property="og:url" content="[^"]*">/,`<meta property="og:url" content="${escape(origin||'https://www.vdalo.tech')}/privacy">`)
-  .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,`<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage','name':'Політика конфіденційності VDALO','inLanguage':'uk','url':`${origin||'https://www.vdalo.tech'}/privacy`})}</script>`);
+  .replace(/<meta property="og:url" content="[^"]*">/,`<meta property="og:url" content="${canonicalOrigin}/privacy">`)
+  .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,`<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage','name':'Політика конфіденційності VDALO','inLanguage':'uk','url':`${canonicalOrigin}/privacy`})}</script>`);
  return html;
 }
 const server=http.createServer(async(req,res)=>{

@@ -9,18 +9,18 @@
   };
   const modules = {
     channels: { label: 'Керування каналами продажу', price: 590, includedFrom: ['mini', 'hotel', 'hotel-plus', 'complex', 'enterprise'] },
-    prro: { label: 'ПРРО та фіскалізація', price: 290, includedFrom: ['hotel', 'hotel-plus', 'complex', 'enterprise'] },
-    rms: { label: 'Розширені правила ціни', price: 590, variable: true },
-    assistant: { label: 'AI-помічник для гостей', price: 590, from: true },
-    access: { label: 'Ключі та PIN-коди', price: 490, perRoom: 20 },
+    prro: { label: 'ПРРО та фіскалізація', price: 290, status: 'development', includedFrom: ['hotel', 'hotel-plus', 'complex', 'enterprise'] },
+    rms: { label: 'Розширені правила ціни', price: 590, variable: true, status: 'beta' },
+    assistant: { label: 'AI-помічник для гостей', price: 590, from: true, status: 'development' },
+    access: { label: 'Ручні PIN-коди', price: 490, perRoom: 20, status: 'beta' },
     kiosk: { label: 'Кіоск для гостей', price: 990 },
-    energy: { label: 'Керування енергоспоживанням', price: 590, from: true },
+    energy: { label: 'Керування енергоспоживанням', price: 590, from: true, status: 'development' },
     checkin: { label: 'Онлайн-заселення', price: 490 },
     reports: { label: 'Розширені звіти', price: 290 },
     finance: { label: 'Фінансовий облік', price: 390 },
     tasks: { label: 'Задачі команди', price: 290 },
-    messages: { label: 'Розширені повідомлення', price: 290 },
-    laundry: { label: 'Пральня й мінібар', price: 290 }
+    messages: { label: 'Розширені повідомлення', price: 290, status: 'development' },
+    laundry: { label: 'Мінібар (beta) / пральня та запаси (у розробці)', price: 290, status: 'beta' }
   };
   function hotelPlan(rooms) {
     const count = Math.max(1, Math.floor(Number(rooms) || 1));
@@ -37,6 +37,7 @@
     let sum = 0, isFrom = false; const notes = [];
     for (const id of selected) {
       const item = modules[id]; if (!item) continue;
+      if (item.status === 'development' || item.status === 'beta') { notes.push(`${item.label}: ${item.status === 'beta' ? 'бета, потрібне підтвердження' : 'у розробці, поки не включено в розрахунок'}`); continue; }
       if (item.includedFrom?.includes(planId)) { notes.push(`${item.label}: входить у тариф`); continue; }
       if (id === 'rms') {
         if (rooms > 80) { isFrom = true; notes.push('Розширені правила ціни: індивідуальний розрахунок понад 80 номерів'); continue; }

@@ -15,10 +15,10 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {renderPage as firstPage} from './versions/v1/render.mjs';
 import {server as leadServer,privacyPage} from './versions/v1/server.mjs';
-import {renderCaseList,renderCase,caseSlugs} from './versions/v1/cases.mjs';
+import {renderCaseList,renderCase,caseSlugs,caseLastUpdated} from './versions/v1/cases.mjs';
 import {renderBlogPage} from './versions/v1/blog.mjs';
-import {renderEditorialArticle,editorialArticles} from './versions/v1/article-library.mjs';
-import {renderSecondPassArticle,secondPassArticles} from './versions/v1/article-second-pass.mjs';
+import {renderEditorialArticle,editorialArticles,articleDates} from './versions/v1/article-library.mjs';
+import {renderSecondPassArticle,secondPassArticles,modifiedAt as secondPassModifiedAt} from './versions/v1/article-second-pass.mjs';
 import {renderPmsArticle,pmsArticle} from './versions/v1/article-pms.mjs';
 import {renderPmsChoiceArticle,pmsChoiceArticle} from './versions/v1/article-pms-choice.mjs';
 import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator} from './versions/v1/tools.mjs';
@@ -29,7 +29,7 @@ import {renderOfferPage,renderRefundPage} from './versions/v1/legal.mjs';
 import {renderAuthorPage,renderKostiantynAuthorPage,renderAuthorsDirectory} from './versions/v1/author-page.mjs';
 import {handleWayForPay} from './payments/wayforpay.mjs';
 import {applySitewideSchema} from './versions/v1/schema.mjs';
-import {getPublicSitemapRoutes} from './versions/v1/sitemap.mjs';
+import {getPublicSitemapRoutes,serializeSitemapXml} from './versions/v1/sitemap.mjs';
 import {renderTouristTaxHub,renderTouristTaxCity,handleTouristTaxCalculation} from './versions/v1/tourist-tax.mjs';
 import {renderTouristTaxFunnel} from './microlandings/tourist-tax-funnel.mjs';
 import {touristTaxCityRoutes,getTouristTaxPlace,getTouristTaxRule} from './versions/v1/tourist-tax-data.mjs';
@@ -43,14 +43,22 @@ const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/sv
 const touristTaxRoutes=['/tourist-tax/',...touristTaxCityRoutes()];
 const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles,touristTaxRoutes});
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
+const sitemapLastModifiedByRoute=new Map([
+ [pmsArticle.slug,pmsArticle.dateModified],
+ [pmsChoiceArticle.slug,pmsChoiceArticle.dateModified],
+ ...editorialArticles.map(article=>[article.slug,articleDates[article.slug]?.modified]),
+ ...secondPassArticles.map(article=>[article.slug,article.modifiedDate??secondPassModifiedAt]),
+ ...caseSlugs.map(route=>[route,caseLastUpdated]),
+]);
 function sitemapXml(){
- const entries=publicSitemapRoutes.map(route=>{
+ const lastModified=new Map(sitemapLastModifiedByRoute);
+ for(const route of publicSitemapRoutes){
   const citySlug=route.match(/^\/tourist-tax\/([a-z0-9-]+)\/$/)?.[1];
   const place=citySlug?getTouristTaxPlace(citySlug):null;
-  const lastmod=place?getTouristTaxRule(place)?.checkedAt:null;
-  return `<url><loc>https://www.vdalo.tech${route}</loc>${lastmod?`<lastmod>${lastmod}</lastmod>`:''}</url>`;
- }).join('');
- return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${entries}</urlset>`;
+  const checkedAt=place?getTouristTaxRule(place)?.checkedAt:null;
+  if(checkedAt)lastModified.set(route,checkedAt);
+ }
+ return serializeSitemapXml(publicSitemapRoutes,lastModified);
 }
 function withSocialMetadata(html){
  const title=html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim()||'VDALO';
@@ -105,7 +113,7 @@ function sendVideo(req,res,data){
  res.writeHead(status,{'Content-Type':'video/mp4','Content-Length':body.length,'Cache-Control':'public, max-age=86400','X-Content-Type-Options':'nosniff','Accept-Ranges':'bytes',...(status===206?{'Content-Range':`bytes ${start}-${end}/${size}`}:{})});
  res.end(req.method==='HEAD'?undefined:body);
 }
-function prefix(html,version){return html.replace(/\b(src|href|action|poster)="\/([^\"]*)"/g,(match,attribute,path)=>{if(path.startsWith('/')||path.startsWith('v1/')||path.startsWith('v2/')||path.startsWith('v3/'))return match;if(attribute==='href'&&(/^(?:$|#|privacy(?:\/|$)|offer(?:\/|$)|refunds?(?:\/|$)|cases(?:\/|$)|blog(?:\/|$)|authors(?:\/|$)|tools(?:\/|$)|solutions(?:\/|$)|integrations(?:\/|$)|pricing(?:\/|$)|hotel-booking-calendar(?:\/|$)|hotel-check-in(?:\/|$)|hotel-operations(?:\/|$)|guest-communication(?:\/|$)|hotel-automation(?:\/|$)|about(?:\/|$)|contact(?:\/|$)|tourist-tax(?:\/|$)|sign-up(?:\/|$)|registration(?:\/|$))/.test(path)))return match;return `${attribute}="/${version}/${path}"`;});}
+function prefix(html,version){return html.replace(/\b(src|href|action|poster)="\/([^\"]*)"/g,(match,attribute,path)=>{if(path.startsWith('/')||path.startsWith('v1/')||path.startsWith('v2/')||path.startsWith('v3/'))return match;if(attribute==='href'&&(/^(?:$|#|privacy(?:\/|$)|offer(?:\/|$)|refunds?(?:\/|$)|cases(?:\/|$)|blog(?:\/|$)|authors(?:\/|$)|tools(?:\/|$)|solutions(?:\/|$)|integrations(?:\/|$)|pricing(?:\/|$)|hotel-[a-z0-9-]+(?:\/|$)|guest-communication(?:\/|$)|hotel-automation(?:\/|$)|about(?:\/|$)|contact(?:\/|$)|tourist-tax(?:\/|$)|sign-up(?:\/|$)|registration(?:\/|$))/.test(path)))return match;return `${attribute}="/${version}/${path}"`;});}
 function renderNotFound(){
  return `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Сторінку не знайдено | VDALO</title><meta name="robots" content="noindex,follow"><link rel="stylesheet" href="/v1/site.css"></head><body><header class="site-header"><a href="/" aria-label="VDALO, на головну"><img src="/v1/assets/vdalo-canonical-496.png" width="124" height="41" alt="VDALO"></a></header><main id="main" class="wrap" style="min-height:65vh;display:grid;align-content:center;gap:1rem"><p class="eyebrow">VDALO · 404</p><h1>Сторінку не знайдено</h1><p>Можливо, адресу змінено. Перейдіть на головну або відкрийте довідник туристичного збору.</p><p><a class="button primary" href="/">На головну</a> <a class="button outline" href="/tourist-tax/">Туристичний збір</a></p></main></body></html>`;
 }

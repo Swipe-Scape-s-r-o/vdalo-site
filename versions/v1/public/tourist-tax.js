@@ -120,6 +120,10 @@ for (const input of searchInputs) {
 const form = document.getElementById('tourist-tax-calculator');
 if (form) {
   const output = document.getElementById('tt-result');
+  const trackCalculation = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'tourist_tax_calculation_success' });
+  };
   form.addEventListener('submit', async event => {
     event.preventDefault();
     const start = form.elements.start.value;
@@ -193,6 +197,7 @@ if (form) {
           output.append(comparison);
           const difference=document.createElement('p');difference.className='tt-result-difference';difference.textContent=`Різниця між сценаріями: ${new Intl.NumberFormat('uk-UA',{style:'currency',currency:'UAH'}).format((Number(comparisonResult.totalCents)-Number(result.totalCents))/100)}.`;output.append(difference);
         }else output.append(renderResultCard(result,'Розрахунок за підтвердженими ставками'));
+        trackCalculation();
       } else if(result.state==='RATE_THRESHOLD_AMBIGUOUS') output.textContent=`Місцеве рішення не дає однозначно визначити ставку для ціни рівно ${new Intl.NumberFormat('uk-UA').format(result.thresholdUah)} грн. Уточніть тариф у міській раді або податкового агента.`;
       else output.textContent = result.reason || messages[result.state] || 'Не вдалося виконати перевірку. Спробуйте пізніше.';
     } catch { output.textContent = 'Не вдалося зв’язатися з калькулятором. Спробуйте ще раз пізніше.'; }
