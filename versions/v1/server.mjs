@@ -86,6 +86,7 @@ async function lead(req,res,kind) {
  }
 }
 function privacyPage() {
+ const canonicalOrigin = 'https://www.vdalo.tech';
  const content = `<main id="main" class="wrap legal privacy-page">
   <p class="eyebrow">VDALO / ПРАВОВА ІНФОРМАЦІЯ</p>
   <h1>Політика конфіденційності</h1>
@@ -105,15 +106,15 @@ function privacyPage() {
   <section id="security"><h2>11. Захист даних</h2><p>Застосовуємо технічні та організаційні заходи для захисту від несанкціонованого доступу, втрати, зміни чи розкриття даних. Доступ надається за потребою для роботи. Жоден спосіб передавання або зберігання даних не може гарантувати абсолютну безпеку, тому не надсилайте через сайт паролі, коди підтвердження чи секрети інтеграцій.</p></section>
   <section id="changes"><h2>12. Зміни до політики</h2><p>Ми можемо оновлювати політику, якщо змінюється сайт, сервіс, постачальники або законодавство. Актуальна редакція публікується на цій сторінці із зазначенням дати.</p><p>Правова основа: <a href="https://zakon.rada.gov.ua/laws/show/2297-17#Text" rel="noopener noreferrer">Закон України «Про захист персональних даних»</a>.</p><p>Умови замовлення, оплати, отримання доступу й повернення коштів описані в <a href="/offer">публічній оферті</a> та <a href="/refunds">правилах повернення коштів</a>.</p></section>
  </main>`;
- let html=renderPage({full:false,origin:origin||'https://www.vdalo.tech'}).replace(/<main id="main">[\s\S]*?<\/main>/,content);
+ let html=renderPage({full:false,origin:canonicalOrigin}).replace(/<main id="main">[\s\S]*?<\/main>/,content);
  html=html.replace(/<title>[\s\S]*?<\/title>/,'<title>Політика конфіденційності | VDALO</title>')
   .replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="Дізнайтеся, як VDALO обробляє персональні дані на сайті, у формах звернення та інструментах, кому може їх передавати і як реалізувати свої права.">')
   .replace(/<meta name="robots" content="[^"]*">/,'<meta name="robots" content="index,follow">')
-  .replace(/<link rel="canonical" href="[^"]*">/,`<link rel="canonical" href="${escape(origin||'https://www.vdalo.tech')}/privacy">`)
+  .replace(/<link rel="canonical" href="[^"]*">/,`<link rel="canonical" href="${canonicalOrigin}/privacy">`)
   .replace(/<meta property="og:title" content="[^"]*">/,'<meta property="og:title" content="Політика конфіденційності | VDALO">')
   .replace(/<meta property="og:description" content="[^"]*">/,'<meta property="og:description" content="Як VDALO обробляє персональні дані на сайті та як ви можете реалізувати свої права.">')
-  .replace(/<meta property="og:url" content="[^"]*">/,`<meta property="og:url" content="${escape(origin||'https://www.vdalo.tech')}/privacy">`)
-  .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,`<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage','name':'Політика конфіденційності VDALO','inLanguage':'uk','url':`${origin||'https://www.vdalo.tech'}/privacy`})}</script>`);
+  .replace(/<meta property="og:url" content="[^"]*">/,`<meta property="og:url" content="${canonicalOrigin}/privacy">`)
+  .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,`<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage','name':'Політика конфіденційності VDALO','inLanguage':'uk','url':`${canonicalOrigin}/privacy`})}</script>`);
  return html;
 }
 const server=http.createServer(async(req,res)=>{
