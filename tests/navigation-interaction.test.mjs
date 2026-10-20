@@ -46,8 +46,8 @@ test('mega-menu lists have no browser bullets, use compact rows, and stay within
 
 test('homepage first and second sections have a tighter responsive gap',()=>{
   assert.match(css,/\.ds2 \.hero-v3\{padding-bottom:40px\}/);
-  assert.match(css,/\.ds2 \.pms-section\{padding-top:64px\}/);
-  assert.match(css,/@media\(max-width:767px\)\{\.ds2 \.hero-v3\{padding-bottom:36px\}\.ds2 \.pms-section\{padding-top:48px\}\}/);
+  assert.match(css,/\.ds2 \.section\.pms-section\{padding-top:64px\}/);
+  assert.match(css,/@media\(max-width:767px\)\{\.ds2 \.hero-v3\{padding-bottom:36px\}\.ds2 \.section\.pms-section\{padding-top:48px\}\}/);
 });
 
 test('mobile disclosure remains keyboard-operable and Escape closes navigation',()=>{
