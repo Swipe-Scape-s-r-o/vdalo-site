@@ -23,6 +23,11 @@ test('desktop pointer hover and keyboard focus reveal nested navigation',()=>{
   assert.match(css,/\.nav-disclosure:hover>\.nav-submenu[^}]*top:calc\(100% \+ 8px\)/);
 });
 
+test('mega-menu nested groups stay open while the pointer crosses between categories',()=>{
+  assert.match(js,/if\(detail\.closest\('\.nav-mega-columns'\)\)return;[\s\S]*?\},350\);/);
+  assert.match(js,/const siblings=megaColumns[\s\S]*?siblings\.forEach\(sibling=>\{if\(sibling!==detail\)closeDisclosureBranch\(sibling\);\}\)/);
+});
+
 test('mega-menu sections stay in independent columns when one group expands',()=>{
   const html=renderPage({origin:'https://www.vdalo.tech'});
   assert.match(html,/class="nav-submenu nav-submenu-level-2 nav-mega-columns"/);
@@ -33,6 +38,7 @@ test('mega-menu sections stay in independent columns when one group expands',()=
   assert.match(css,/\.header-inner\{height:80px;position:relative\}/);
   assert.match(css,/\.site-nav>\.nav-mega-trigger\{position:static\}/);
   assert.match(css,/\.nav-disclosure\[data-nav-panel="mega"\]>.nav-submenu\{left:auto;right:0/);
+  assert.match(css,/\.nav-disclosure\[data-nav-panel="mega"\]>.nav-submenu\{[^}]*width:min\(700px,calc\(100vw - 48px\)\)[^}]*gap:4px 12px/);
   assert.match(js,/const megaColumns=detail\.closest\('\.nav-mega-columns'\)/);
   assert.match(js,/\.nav-mega-list > \.nav-item > details\.nav-disclosure\[open\]/);
 });

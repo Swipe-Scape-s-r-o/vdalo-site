@@ -50,10 +50,14 @@ navDisclosures.forEach(detail=>{
  });
  detail.addEventListener('pointerleave',event=>{
   if(!desktopPointerMenu.matches||event.pointerType==='touch')return;
+  // Keep expanded mega-menu groups in place while the pointer crosses the
+  // whitespace between categories. The next category closes its sibling
+  // when it is actually reached; leaving the whole panel closes the menu.
+  if(detail.closest('.nav-mega-columns'))return;
   clearTimeout(closeTimer);
   closeTimer=setTimeout(()=>{
    if(!detail.matches(':hover')&&!detail.contains(document.activeElement))closeDisclosureBranch(detail);
-  },180);
+  },350);
  });
  detail.addEventListener('focusin',()=>{
   clearTimeout(closeTimer);
