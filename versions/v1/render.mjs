@@ -8,7 +8,14 @@ export const button = (kind, text, location, style = '') => `<button class="butt
 const logo = () => `<img src="${assetUrl('vdalo-canonical-496.png')}" width="124" height="41" alt="VDALO®" decoding="async">`;
 function header({full=false}={}) {
  const sectionLink=url=>!full&&url.startsWith('#')?`/${url}`:url;
- return `<a class="skip-link" href="#main">Перейти до змісту</a><header class="header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="VDALO, головна">${logo()}</a><nav id="navigation" aria-label="Головна навігація">${site.navigation.map(([title,url])=>`<a href="${sectionLink(url)}">${e(title)}</a>`).join('')}<a class="mobile-audit" href="${full?'#audit':'/#audit'}">Отримати аудит</a></nav><div class="header-actions"><a class="header-phone" data-requires-config="phone" data-config-href="phone" hidden><span data-config-text="phone"></span></a><a class="header-telegram" data-requires-config="telegramUrl" data-config-href="telegramUrl" hidden>Telegram</a>${button('audit','Отримати аудит','header','compact')}<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Відкрити меню"><span></span><span></span></button></div></div></header>`;
+ const navItems=(items,level=1)=>items.map(item=>{
+  if(item.children?.length){
+   const hasNested=item.children.some(child=>child.children?.length);
+   return `<li class="nav-item nav-item-level-${level}"><details class="nav-disclosure" data-nav-level="${level}"${hasNested?' data-nav-panel="mega"':''}><summary>${e(item.label)}<span class="nav-chevron" aria-hidden="true"></span></summary><ul class="nav-submenu nav-submenu-level-${level+1}">${navItems(item.children,level+1)}</ul></details></li>`;
+  }
+  return `<li class="nav-item nav-item-level-${level}"><a href="${sectionLink(item.href)}">${e(item.label)}</a></li>`;
+ }).join('');
+ return `<a class="skip-link" href="#main">Перейти до змісту</a><header class="header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="VDALO, головна">${logo()}</a><nav id="navigation" aria-label="Головна навігація"><ul class="site-nav">${navItems(site.navigation)}<li class="nav-item mobile-nav-action"><a class="mobile-audit" href="${full?'#audit':'/#audit'}">Отримати аудит</a></li></ul></nav><div class="header-actions"><a class="header-phone" data-requires-config="phone" data-config-href="phone" hidden><span data-config-text="phone"></span></a><a class="header-telegram" data-requires-config="telegramUrl" data-config-href="telegramUrl" hidden>Telegram</a>${button('audit','Отримати аудит','header','compact')}<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Відкрити меню"><span></span><span></span></button></div></div></header>`;
 }
 function hero() { return renderHero(); }
 function footer() { return renderFooter(); }

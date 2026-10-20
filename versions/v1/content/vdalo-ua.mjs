@@ -9,34 +9,79 @@ export const site = {
     "ogDescription": "Бронювання, робота з номерами та задачі команди в одній системі. Почніть із безкоштовного аудиту процесів вашого готелю."
   },
   "navigation": [
-    [
-      "Можливості",
-      "/solutions"
-    ],
-    [
-      "Інтеграції",
-      "/integrations"
-    ],
-    [
-      "Тарифи",
-      "/pricing"
-    ],
-    [
-      "Як почати",
-      "/sign-up"
-    ],
-    [
-      "Кейси",
-      "/cases"
-    ],
-    [
-      "Інструменти",
-      "/tools/"
-    ],
-    [
-      "Блог",
-      "/blog"
-    ]
+    {
+      "label": "Продукт",
+      "children": [
+        { "label": "Огляд можливостей", "href": "/solutions" },
+        { "label": "Усі функції та їх статуси", "href": "/hotel-pms-modules" },
+        { "label": "Запросити доступ", "href": "/sign-up" },
+        {
+          "label": "Бронювання та продажі",
+          "children": [
+            { "label": "Календар бронювань", "href": "/hotel-booking-calendar" },
+            { "label": "Прямі бронювання", "href": "/hotel-direct-booking" },
+            { "label": "Channel Manager", "href": "/hotel-channel-manager" },
+            { "label": "Керування доходами", "href": "/hotel-revenue-management" }
+          ]
+        },
+        {
+          "label": "Робота з гостями",
+          "children": [
+            { "label": "Підготовка до заїзду", "href": "/hotel-check-in" },
+            { "label": "Профіль гостя", "href": "/hotel-guest-profile" },
+            { "label": "Guest App і QR", "href": "/hotel-guest-app" },
+            { "label": "Комунікація з гостем", "href": "/guest-communication" }
+          ]
+        },
+        {
+          "label": "Операції готелю",
+          "children": [
+            { "label": "Робота команди", "href": "/hotel-operations" },
+            { "label": "Прибирання та готовність номерів", "href": "/hotel-housekeeping" },
+            { "label": "Доступ і заселення", "href": "/hotel-access-control" },
+            { "label": "Події та оренда просторів", "href": "/hotel-events" }
+          ]
+        },
+        {
+          "label": "Фінанси та облік",
+          "children": [
+            { "label": "Фінансовий облік", "href": "/hotel-finance" },
+            { "label": "Туристичний збір", "href": "/hotel-tourist-tax" },
+            { "label": "ПРРО та фіскалізація", "href": "/hotel-prro" }
+          ]
+        },
+        {
+          "label": "Автоматизація та розвиток",
+          "children": [
+            { "label": "Автоматизація процесів", "href": "/hotel-automation" },
+            { "label": "Кілька об’єктів і ролі", "href": "/hotel-multi-property" },
+            { "label": "AI-помічник", "href": "/hotel-ai-assistant" },
+            { "label": "Конструктор сайту", "href": "/hotel-site-builder" },
+            { "label": "Керування енергією", "href": "/hotel-energy-management" },
+            { "label": "Перехід з іншої PMS", "href": "/hotel-pms-migration" }
+          ]
+        }
+      ]
+    },
+    { "label": "Інтеграції", "href": "/integrations" },
+    { "label": "Тарифи", "href": "/pricing" },
+    {
+      "label": "Матеріали",
+      "children": [
+        { "label": "Кейси", "href": "/cases" },
+        { "label": "Блог", "href": "/blog" },
+        { "label": "Інструменти", "href": "/tools/" },
+        { "label": "Довідник туристичного збору", "href": "/tourist-tax/" }
+      ]
+    },
+    {
+      "label": "Про VDALO",
+      "children": [
+        { "label": "Команда", "href": "/about" },
+        { "label": "Автори", "href": "/authors" },
+        { "label": "Контакти", "href": "/contact" }
+      ]
+    }
   ],
   "commercial": {
     "trialEnabled": true,

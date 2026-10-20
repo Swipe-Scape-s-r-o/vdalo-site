@@ -24,18 +24,39 @@ if(floatingContacts){
  const links=[['phone','Подзвонити','tel:'],['email','Email','mailto:'],['telegramUrl','Telegram',''],['viberUrl','Viber','']].flatMap(([key,label,prefix])=>{const value=cfg(key);if(!configured(value))return [];let href=String(value);if(prefix&&!href.startsWith(prefix))href=prefix+href;try{if(!['https:','tel:','mailto:'].includes(new URL(href,location.href).protocol))return [];}catch{return [];}const anchor=document.createElement('a');anchor.href=href;anchor.textContent=label;return [anchor];});
  if(links.length){const button=document.createElement('button');button.type='button';button.textContent='Написати нам';button.setAttribute('aria-expanded','false');const menu=document.createElement('div');menu.className='floating-contact-menu';menu.hidden=true;menu.append(...links);button.addEventListener('click',()=>{const expanded=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(expanded));menu.hidden=!expanded;});floatingContacts.hidden=false;floatingContacts.append(button,menu);}
 }
-document.querySelector('.menu-toggle')?.addEventListener('click', event => {
+const siteNavigation=document.querySelector('#navigation');
+const menuToggle=document.querySelector('.menu-toggle');
+const closeNavigation=()=>{
+ siteNavigation?.classList.remove('open');
+ siteNavigation?.querySelectorAll('details[open]').forEach(item=>item.open=false);
+ menuToggle?.setAttribute('aria-expanded','false');
+ menuToggle?.setAttribute('aria-label','Відкрити меню');
+};
+menuToggle?.addEventListener('click', event => {
  const control = event.currentTarget;
  const expanded = control.getAttribute('aria-expanded') !== 'true';
  control.setAttribute('aria-expanded', String(expanded));
  control.setAttribute('aria-label', expanded ? 'Закрити меню' : 'Відкрити меню');
- document.querySelector('#navigation').classList.toggle('open', expanded);
+ siteNavigation?.classList.toggle('open', expanded);
 });
-document.querySelectorAll('#navigation a').forEach(link => link.addEventListener('click', () => {
- document.querySelector('#navigation').classList.remove('open');
- document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
- document.querySelector('.menu-toggle').setAttribute('aria-label', 'Відкрити меню');
-}));
+siteNavigation?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNavigation));
+document.addEventListener('keydown', event=>{
+ if(event.key!=='Escape'||!siteNavigation)return;
+ const openDetails=[...siteNavigation.querySelectorAll('details[open]')];
+ if(openDetails.length){
+  event.preventDefault();
+  const last=openDetails.at(-1);
+  last.open=false;
+  last.querySelector(':scope > summary')?.focus();
+ }else if(siteNavigation.classList.contains('open')){
+  event.preventDefault();
+  closeNavigation();
+  menuToggle?.focus();
+ }
+});
+document.addEventListener('click',event=>{
+ if(siteNavigation?.querySelector('details[open]')&&!event.target.closest('#navigation'))siteNavigation.querySelectorAll('details[open]').forEach(item=>item.open=false);
+});
 addEventListener('scroll', () => document.querySelector('.header').classList.toggle('scrolled', scrollY > 120), { passive:true });
 
 // Provider-neutral events. Contact data and free text never enter this layer.
