@@ -194,7 +194,7 @@ Object.assign(seoRelatedPages, {
 function relatedPages(pathname){
  const links=seoRelatedPages[pathname];
  if(!links?.length)return '';
- return `<nav class="seo-section seo-related" aria-labelledby="seo-related-title"><div class="seo-content"><p class="eyebrow">ПОВ’ЯЗАНІ МАТЕРІАЛИ</p><h2 id="seo-related-title">Що переглянути далі</h2><ul>${links.map(([href,label])=>`<li><a href="${e(href)}">${e(label)} <span aria-hidden="true">↗</span></a></li>`).join('')}</ul></div></nav>`;
+ return `<nav class="seo-section seo-related" aria-labelledby="seo-related-title"><div class="seo-content"><p class="eyebrow">ПОВ’ЯЗАНІ МАТЕРІАЛИ</p><h2 id="seo-related-title">Що переглянути далі</h2><ul>${links.map(([href,label])=>{const safeHref=/^\/hotel-[a-z0-9-]+$/.test(href)?href.slice(1):href;return `<li><a href="${e(safeHref)}">${e(label)} <span aria-hidden="true">↗</span></a></li>`;}).join('')}</ul></div></nav>`;
 }
 function articleBridge(pathname){const [heading,copy,href,label]=articleBridges[pathname];return `<section class="seo-section seo-article-bridge"><div class="seo-content"><p class="eyebrow">ПРАКТИЧНИЙ ГІД</p><div class="seo-article-bridge-card"><div><h2>${e(heading)}</h2><p>${e(copy)}</p></div><a href="${e(href)}">${e(label)} <span aria-hidden="true">↗</span></a></div></div></section>`;}
 function pageContent(config,pathname){
