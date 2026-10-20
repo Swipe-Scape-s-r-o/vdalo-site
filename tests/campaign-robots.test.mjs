@@ -18,6 +18,8 @@ test('video campaign route contains exactly one noindex robots directive',async(
 test('campaign CTA does not depend on the non-campaign MP4 variable',async()=>{
  const html=await renderVideoLanding(new URLSearchParams(),'/55');
  assert.match(html,/document\.getElementById\('go-video-name'\)\.value = '' \|\| vdv\.dataset\.scenario;/);
+ assert.match(html,/<input type="hidden" name="watched" id="go-watched">/);
+ assert.match(html,/document\.getElementById\('go-watched'\)\.value = watched;/);
  assert.doesNotMatch(html,/document\.getElementById\('go-video-name'\)\.value = mp4 \?/);
  assert.match(html,/vdalo-videos-more\.js\?v=8/);
 });
