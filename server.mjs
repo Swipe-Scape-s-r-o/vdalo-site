@@ -15,10 +15,10 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {renderPage as firstPage} from './versions/v1/render.mjs';
 import {server as leadServer,privacyPage} from './versions/v1/server.mjs';
-import {renderCaseList,renderCase,caseSlugs} from './versions/v1/cases.mjs';
+import {renderCaseList,renderCase,caseSlugs,caseLastUpdated} from './versions/v1/cases.mjs';
 import {renderBlogPage} from './versions/v1/blog.mjs';
-import {renderEditorialArticle,editorialArticles} from './versions/v1/article-library.mjs';
-import {renderSecondPassArticle,secondPassArticles} from './versions/v1/article-second-pass.mjs';
+import {renderEditorialArticle,editorialArticles,articleDates} from './versions/v1/article-library.mjs';
+import {renderSecondPassArticle,secondPassArticles,modifiedAt as secondPassModifiedAt} from './versions/v1/article-second-pass.mjs';
 import {renderPmsArticle,pmsArticle} from './versions/v1/article-pms.mjs';
 import {renderPmsChoiceArticle,pmsChoiceArticle} from './versions/v1/article-pms-choice.mjs';
 import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator} from './versions/v1/tools.mjs';
@@ -29,7 +29,7 @@ import {renderOfferPage,renderRefundPage} from './versions/v1/legal.mjs';
 import {renderAuthorPage,renderKostiantynAuthorPage,renderAuthorsDirectory} from './versions/v1/author-page.mjs';
 import {handleWayForPay} from './payments/wayforpay.mjs';
 import {applySitewideSchema} from './versions/v1/schema.mjs';
-import {getPublicSitemapRoutes} from './versions/v1/sitemap.mjs';
+import {getPublicSitemapRoutes,serializeSitemapXml} from './versions/v1/sitemap.mjs';
 import {renderTouristTaxHub,renderTouristTaxCity,handleTouristTaxCalculation} from './versions/v1/tourist-tax.mjs';
 import {renderTouristTaxFunnel} from './microlandings/tourist-tax-funnel.mjs';
 import {touristTaxCityRoutes,getTouristTaxPlace,getTouristTaxRule} from './versions/v1/tourist-tax-data.mjs';
@@ -43,14 +43,22 @@ const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/sv
 const touristTaxRoutes=['/tourist-tax/',...touristTaxCityRoutes()];
 const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles,touristTaxRoutes});
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
+const sitemapLastModifiedByRoute=new Map([
+ [pmsArticle.slug,pmsArticle.dateModified],
+ [pmsChoiceArticle.slug,pmsChoiceArticle.dateModified],
+ ...editorialArticles.map(article=>[article.slug,articleDates[article.slug]?.modified]),
+ ...secondPassArticles.map(article=>[article.slug,article.modifiedDate??secondPassModifiedAt]),
+ ...caseSlugs.map(route=>[route,caseLastUpdated]),
+]);
 function sitemapXml(){
- const entries=publicSitemapRoutes.map(route=>{
+ const lastModified=new Map(sitemapLastModifiedByRoute);
+ for(const route of publicSitemapRoutes){
   const citySlug=route.match(/^\/tourist-tax\/([a-z0-9-]+)\/$/)?.[1];
   const place=citySlug?getTouristTaxPlace(citySlug):null;
-  const lastmod=place?getTouristTaxRule(place)?.checkedAt:null;
-  return `<url><loc>https://www.vdalo.tech${route}</loc>${lastmod?`<lastmod>${lastmod}</lastmod>`:''}</url>`;
- }).join('');
- return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${entries}</urlset>`;
+  const checkedAt=place?getTouristTaxRule(place)?.checkedAt:null;
+  if(checkedAt)lastModified.set(route,checkedAt);
+ }
+ return serializeSitemapXml(publicSitemapRoutes,lastModified);
 }
 function withSocialMetadata(html){
  const title=html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim()||'VDALO';

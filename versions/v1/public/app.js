@@ -353,14 +353,16 @@ if(calendarNode) {
  }
  const showWeek=()=>{
   grid.querySelectorAll('[data-reservation]').forEach(button=>button.remove());
+  const reservations=document.createDocumentFragment();
   calendar.weeks[week].forEach(item=>{
    const button=document.createElement('button');button.type='button';button.className=`reservation ${item.channel}`;
    button.style.gridColumn=`${item.start+2} / span ${item.nights}`;button.style.gridRow=String(item.room+2);
    button.dataset.reservation=item.id;button.dataset.channel=item.channel;button.setAttribute('aria-pressed','false');
    const dates=shiftedReservation(item,week);
    button.setAttribute('aria-label',`${item.label}, номер ${calendar.rooms[item.room][0]}, ${dates.arrival} до ${dates.departure}`);
-   const name=document.createElement('span');name.textContent=item.label;const state=document.createElement('small');state.textContent=item.status;button.append(name,state);grid.append(button);
+    const name=document.createElement('span');name.textContent=item.label;const state=document.createElement('small');state.textContent=item.status;button.append(name,state);reservations.append(button);
   });
+  grid.append(reservations);
   const weekStart=new Date(startDate);weekStart.setDate(weekStart.getDate()+week*7);
   document.querySelectorAll('[data-day]').forEach(day=>{const date=new Date(weekStart);date.setDate(date.getDate()+Number(day.dataset.day));day.textContent=String(date.getDate());const weekday=day.parentElement.querySelector('[data-day-weekday]');weekday.textContent=new Intl.DateTimeFormat('uk-UA',{weekday:'short'}).format(date).replace('.','');});
   const weekEnd=new Date(weekStart);weekEnd.setDate(weekEnd.getDate()+6);

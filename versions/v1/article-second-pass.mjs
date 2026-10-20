@@ -84,7 +84,7 @@ const articles=[
 ];
 articles.push(...qrArticles);
 
-const publishedAt='2026-10-09',modifiedAt='2026-10-13';
+export const publishedAt='2026-10-09',modifiedAt='2026-10-13';
 const editorialNotes={
  '/blog/shakhmatka-bronyuvan-gotelyu':'Значення кольорів і статусів залежать від налаштувань конкретної PMS. Перед навчанням команди звірте цю легенду з вашим календарем.',
  '/blog/channel-manager-ical-gotelyu':'Можливості залежать від конкретної пари систем і погодженого підключення. Перед вибором підтвердьте напрямки та поля обміну у постачальників.',
