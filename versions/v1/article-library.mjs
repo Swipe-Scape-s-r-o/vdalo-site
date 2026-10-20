@@ -33,7 +33,7 @@ const articles=[
 ];
 
 function renderBody(a){return a.sections.map(([heading,text],i)=>`<section id="${i===0?'start':`part-${i+1}`}"><h2>${e(heading)}</h2><p>${e(text)}</p></section>`).join('')}
-const articleDates=Object.fromEntries(articles.map(a=>[a.slug,{published:'2026-10-09',modified:'2026-10-15'}]));
+export const articleDates=Object.fromEntries(articles.map(a=>[a.slug,{published:'2026-10-09',modified:'2026-10-15'}]));
 function schema(a){const dates=articleDates[a.slug];return JSON.stringify({'@context':'https://schema.org','@graph':[{'@type':'BlogPosting','headline':a.headline,'description':a.description,'datePublished':dates.published,'dateModified':dates.modified,'author':{'@type':'Person',name:'Олег Степенєв',url:origin+'/authors/oleh-stepeniev'},'publisher':{'@type':'Organization',name:'VDALO',logo:{'@type':'ImageObject',url:`${origin}/v1/assets/vdalo-canonical.png`}},'image':[`${origin}/v1${a.image}`],'mainEntityOfPage':{'@type':'WebPage','@id':`${origin}${a.slug}`},'inLanguage':'uk'},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem',position:1,name:'Головна',item:origin},{'@type':'ListItem',position:2,name:'Блог',item:`${origin}/blog`},{'@type':'ListItem',position:3,name:a.headline,item:`${origin}${a.slug}`}]}]}).replace(/</g,'\\u003c')}
 const articleNextSteps={
  '/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy':{heading:'Перший вимір',action:'Оберіть одну послугу й один період. Запишіть кількість гостей, яким її запропонували, запитів, підтверджених замовлень і виконаних послуг. Так буде видно, на якому кроці гості найчастіше зупиняються.',note:'У кейсі про глемпінг окремо описано зміну частки замовлень і модельний оборот. Це дані одного об’єкта; вони не прогнозують результат іншого готелю.'},

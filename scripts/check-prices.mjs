@@ -9,20 +9,23 @@ for (const [rooms,id,monthly] of plans) {
   assert.equal(actual.id,id,`${rooms} rooms selects ${id}`);
   assert.equal(actual.monthly,monthly,`${rooms} rooms price`);
 }
-assert.deepEqual(pricing.applyPeriod(1490,'six'),{monthlyEquivalent:1416,total:8493});
-assert.deepEqual(pricing.applyPeriod(1490,'year'),{monthlyEquivalent:1366,total:16390});
+assert.deepEqual(pricing.applyPeriod(1490,'six'),{monthlyEquivalent:1341,total:8046});
+assert.deepEqual(pricing.applyPeriod(1490,'year'),{monthlyEquivalent:1118,total:13410});
 for (const [units,expected] of [[1,399],[3,399],[4,478],[5,557],[10,952]]) assert.equal(pricing.apartPrice(units),expected,`Apart ${units}`);
 const evening=pricing.modulesPrice('hotel',20,['assistant','checkin','access']);
-assert.equal(evening.sum,1970);
-assert.equal(1490+evening.sum,3460);
+assert.equal(evening.sum,490);
+assert.equal(1490+evening.sum,1980);
+assert.equal(evening.notes.length,3);
 const accounting=pricing.modulesPrice('hotel',20,['prro','finance']);
 assert.equal(accounting.sum,390);
-assert.match(accounting.notes[0],/входить у тариф/);
+assert.ok(accounting.notes.some(note=>/у розробці/.test(note)));
 assert.equal(390+pricing.modulesPrice('start',5,['channels']).sum,980);
-assert.equal(990+pricing.modulesPrice('mini',10,['prro']).sum,1280);
-assert.equal(pricing.modulesPrice('hotel',30,['rms']).sum,590);
-assert.equal(pricing.modulesPrice('hotel-plus',50,['rms']).sum,990);
-assert.equal(pricing.modulesPrice('complex',90,['rms']).isFrom,true);
+assert.equal(990+pricing.modulesPrice('mini',10,['prro']).sum,990);
+for (const [planId,rooms] of [['hotel',30],['hotel-plus',50],['complex',90]]) {
+  const estimate=pricing.modulesPrice(planId,rooms,['rms']);
+  assert.equal(estimate.sum,0,`${planId} RMS stays outside the quote while in beta`);
+  assert.ok(estimate.notes.some(note=>/бета/.test(note)));
+}
 const html=renderPricing();
 for(const [id,plan] of Object.entries(pricing.plans)) {
   const match=html.match(new RegExp(`data-plan-card="${id}"[^>]*data-base-price="([^"]*)"`));

@@ -24,3 +24,15 @@ export function getPublicSitemapRoutes({ seoRoutes, caseSlugs, pmsArticle, pmsCh
     ...touristTaxRoutes,
   ];
 }
+
+export function serializeSitemapXml(routes, lastModifiedByRoute = new Map()) {
+  const entries = routes.map(route => {
+    const safeRoute = String(route).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[char]));
+    const lastmod = lastModifiedByRoute.get(route);
+    const validLastmod = /^\d{4}-\d{2}-\d{2}$/.test(lastmod || '')
+      && Number.isFinite(Date.parse(`${lastmod}T00:00:00Z`))
+      && new Date(`${lastmod}T00:00:00Z`).toISOString().slice(0,10) === lastmod;
+    return `<url><loc>https://www.vdalo.tech${safeRoute}</loc>${validLastmod?`<lastmod>${lastmod}</lastmod>`:''}</url>`;
+  }).join('');
+  return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${entries}</urlset>`;
+}

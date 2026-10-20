@@ -22,6 +22,8 @@ const [touristTax,touristTaxData] = await Promise.all([
   import('../versions/v1/tourist-tax-data.mjs'),
 ]);
 const origin = 'https://www.vdalo.tech';
+// Structured data and SEO metadata are authored in the source HTML. The Vite
+// bundle is not needed for schema validation, which should also run pre-build.
 const qrStudioHtml = await readFile(new URL('../qr-lab/index.html', import.meta.url), 'utf8');
 const serviceRoutes = new Set(['/hotel-booking-calendar','/hotel-check-in','/hotel-operations','/guest-communication','/hotel-automation']);
 const renderers = new Map([

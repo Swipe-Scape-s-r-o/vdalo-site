@@ -41,7 +41,12 @@ function hotelProblems() {
   'Питання про Wi-Fi, сніданок і паркування повторюються в кожну зміну. Адміністратор постійно відволікається.',
   'Після виїзду треба швидко з’ясувати, чи номер прибраний і готовий. Статуси губляться в чатах, а рецепція перепитує.'
  ];
- return `<section class="section problem-solution-sequence" id="solutions" aria-labelledby="problem-sequence-title"><div class="wrap"><header class="problem-sequence-heading"><p class="eyebrow">ЩОДЕННА РОБОТА ГОТЕЛЮ</p><h2 id="problem-sequence-title">П’ять ситуацій, знайомих готельній команді</h2><p>Час і увагу забирають дрібні повторювані кроки між бронюваннями, гостями та командою.</p></header><div class="problem-card-grid">${solutions.map((x,i)=>`<article class="problem-card problem-card--${e(x.productId)}"><figure class="problem-card-photo"><img src="/assets/${e(x.image)}" width="1200" height="800" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1050px) 44vw, 28vw" alt="${e(x.imageAlt)}" loading="lazy" decoding="async"></figure><div class="problem-card-copy"><p class="eyebrow">ПРОБЛЕМА 0${i+1}</p><h3>${e(x.title)}</h3><p>${e(summaries[i]||x.pain)}</p></div></article>`).join('')}</div></div></section>`;
+ return `<section class="section problem-solution-sequence" id="solutions" aria-labelledby="problem-sequence-title"><div class="wrap"><header class="problem-sequence-heading"><p class="eyebrow">ЩОДЕННА РОБОТА ГОТЕЛЮ</p><h2 id="problem-sequence-title">П’ять ситуацій, знайомих готельній команді</h2><p>Час і увагу забирають дрібні повторювані кроки між бронюваннями, гостями та командою.</p></header><div class="problem-card-grid">${solutions.map((x,i)=>{
+  const imageBase=x.image.replace(/\.jpe?g$/i,'');
+  const image480=assetUrl(`${imageBase}-480.jpg`);
+  const image768=assetUrl(`${imageBase}-768.jpg`);
+  return `<article class="problem-card problem-card--${e(x.productId)}"><figure class="problem-card-photo"><img src="${image768}" srcset="${image480} 480w, ${image768} 768w" width="768" height="512" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1050px) 44vw, 28vw" alt="${e(x.imageAlt)}" loading="lazy" decoding="async"></figure><div class="problem-card-copy"><p class="eyebrow">ПРОБЛЕМА 0${i+1}</p><h3>${e(x.title)}</h3><p>${e(summaries[i]||x.pain)}</p></div></article>`;
+ }).join('')}</div></div></section>`;
 }
 
 function uniqueApproach() {

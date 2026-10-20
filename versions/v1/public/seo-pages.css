@@ -16,6 +16,9 @@
 /* Keep each supporting page's next step beside its explanation, on every viewport. */
 .seo-hero-grid{grid-template-areas:none;grid-template-rows:auto;row-gap:0;column-gap:clamp(36px,6vw,88px)}
 .seo-hero-copy,.seo-hero-visual,.seo-hero-actions{grid-area:auto}
+
+/* Let long Ukrainian section headings scale down on narrow phones. */
+@media(max-width:600px){.seo-content h2{font-size:clamp(1.45rem,7.4vw,1.9rem)}}
 .seo-hero-copy>.seo-hero-actions{margin-top:24px;gap:12px 20px}
 .seo-hero-actions .seo-secondary{min-height:48px;display:inline-flex;align-items:center}
 @media(min-width:601px){.seo-hero{padding:clamp(64px,7vw,100px) 0 64px}}
