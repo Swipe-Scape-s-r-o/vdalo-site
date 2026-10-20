@@ -328,12 +328,12 @@
 @media(max-width:767px){.ds2 .hero-v3{padding:40px 0 52px}.ds2 .hero-v3 .hero-v2-grid{grid-template-columns:1fr;gap:32px}.ds2 .hero-v3 h1{font-size:clamp(44px,12vw,72px);line-height:1.03}.ds2 .hero-v3 .hero-v2-description{font-size:16px}.ds2 .hero-v3 .hero-v2-actions{grid-template-columns:1fr;max-width:none;width:100%;gap:10px;align-items:stretch}.ds2 .hero-v3 .hero-v2-actions .button{min-height:52px;width:100%;font-size:14px;padding:14px 18px}.ds2 .hero-v3 .hero-v2-actions .outline{padding:14px 18px}.ds2 .hero-v3 .hero-v2-note{font-size:11px;max-width:100%}.ds2 .hero-v3 .hero-v2-photo>img{height:320px;clip-path:polygon(12% 0,100% 0,100% 100%,0 100%)}.ds2 .hero-v3 figcaption{font-size:10px}.ds2 .section h2{font-size:36px;line-height:1.1}.ds2 .pms-section{padding-block:64px}.ds2 .arrival-image{height:350px;border-radius:0 36% 36% 0}.ds2 .menu-toggle span{background:var(--soft)}.ds2 .header .brand img{width:110px}.ds2 .header nav{background:var(--plum);color:var(--soft)}.ds2 .mobile-audit{color:var(--soft)}.ds2 .final-v2{padding-block:72px}.ds2 .final-v2 .final-bottom>div{grid-template-columns:1fr;max-width:none;width:100%;gap:10px}.ds2 .final-v2 .final-bottom .outline{padding:14px}.ds2 .integration-hub strong{font-size:26px}}
 /* Keep the first two homepage sections visually connected and the mega menu compact. */
 .ds2 .hero-v3{padding-bottom:40px}
-.ds2 .pms-section{padding-top:64px}
+.ds2 .section.pms-section{padding-top:64px}
 .ds2 .nav-mega-list{list-style:none;margin:0;padding:0;gap:2px}
 .ds2 .nav-mega-columns>.nav-mega-column{min-width:0}
 .ds2 .nav-mega-columns .nav-item{margin:0}
 @media(min-width:901px){.ds2 .nav-mega-columns{box-sizing:border-box;max-height:calc(100vh - 112px);overflow-y:auto;overscroll-behavior:contain}.ds2 .nav-mega-columns a,.ds2 .nav-mega-columns .nav-disclosure>summary{min-height:36px;padding-block:6px}.ds2 .nav-mega-columns .nav-submenu .nav-item a{min-height:32px;padding-block:4px}}
-@media(max-width:767px){.ds2 .hero-v3{padding-bottom:36px}.ds2 .pms-section{padding-top:48px}}
+@media(max-width:767px){.ds2 .hero-v3{padding-bottom:36px}.ds2 .section.pms-section{padding-top:48px}}
 @media(prefers-reduced-motion:reduce){.ds2 .hero-v3 .hero-v2-photo>img{animation:none;transform:none}}
 @media(max-width:767px){.ds2 .pms-benefits p,.ds2 .integration-benefits p,.ds2 .ukraine-items p,.ds2 .audience-list p,.ds2 .migration-path p,.ds2 .migration-concerns p,.ds2 .faq-list details>p,.ds2 .arrival-steps p,.ds2 .start-routes article>p:not(.route-number):not(.fine-print){font-size:16px;line-height:1.7}}
 /* Ensure nested navigation and footer labels meet contrast on dark brand surfaces. */
