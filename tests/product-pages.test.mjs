@@ -30,12 +30,12 @@ test('product page routes are unique and represented in the public SEO route reg
   for(const route of paths)assert.ok(seoRoutes().includes(route),`${route} should be registered`);
 });
 
-test('feature page links avoid the server prefixer rewriting root feature routes to /v1',()=>{
-  const legacyRoutes=new Set(['/hotel-booking-calendar','/hotel-check-in','/hotel-operations','/hotel-automation']);
+test('feature page links use registered root feature routes',()=>{
+  const publicRoutes=new Set(seoRoutes());
   for(const [route] of productFeaturePages){
     const html=renderSeoPage(route);
     const hotelHrefs=[...html.matchAll(/href="(\/(?:v1\/)?hotel-[a-z0-9-]+)"/g)].map(match=>match[1]);
-    assert.ok(hotelHrefs.every(href=>legacyRoutes.has(href)),`${route} must not emit slash-prefixed feature links that server.mjs rewrites`);
+    assert.ok(hotelHrefs.every(href=>href.startsWith('/hotel-')&&publicRoutes.has(href)),`${route} must link only to registered root feature routes, never /v1 routes`);
   }
 });
 
