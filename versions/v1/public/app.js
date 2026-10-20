@@ -195,12 +195,15 @@ function validate(kind,data) {
   if(data.city.length<2) errors.city='Вкажіть місто або громаду.';
   if(!data.property_type) errors.property_type='Оберіть тип об’єкта.';
   if(!/^[1-9]\d{0,4}$/.test(data.units)) errors.units='Вкажіть кількість номерів або юнітів.';
+ } else if(kind==='contact') {
+  const digits=data.contact.replace(/\D/g,'').length;
+  if(!/^[+()\d\s.-]+$/.test(data.contact)||digits<9||digits>15) errors.contact='Вкажіть коректний номер телефону.';
  } else {
   const digits=data.contact.replace(/\D/g,'').length;
   if(!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contact) || (/^[+()\d\s.-]+$/.test(data.contact) && digits>=9 && digits<=15))) errors.contact='Вкажіть коректний телефон або email.';
   if(data.units && !/^[1-9]\d{0,4}$/.test(data.units)) errors.units='Вкажіть кількість номерів або юнітів від 1 до 99999.';
  }
- if(!data.consent) errors.consent='Потрібна згода на обробку даних для відповіді та підготовки доступу.';
+ if(!data.consent) errors.consent='Потрібна згода на обробку даних, щоб ми відповіли на запит.';
  return errors;
 }
 function showErrors(form,errors) {
@@ -221,7 +224,7 @@ async function submitLead(kind,data) {
  const timer=setTimeout(()=>controller.abort(),15000);
  try {
   const route=kind==='contact'?'audit':kind;
-  const response=await fetch(`/api/leads/${route}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:controller.signal});
+  const response=await fetch(`/api/leads/${route}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,form_kind:kind}),signal:controller.signal});
   const result=await response.json();
   if(!response.ok || result.ok!==true) { const error=new Error(result.message||'Не вдалося надіслати запит. Спробуйте ще раз.');error.fields=result.errors;throw error; }
   return result;
