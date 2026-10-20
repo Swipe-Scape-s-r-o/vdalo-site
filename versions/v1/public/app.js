@@ -33,7 +33,10 @@ const closeDisclosureBranch=detail=>{
  detail.querySelectorAll('details.nav-disclosure[open]').forEach(child=>child.open=false);
 };
 const openDisclosure=detail=>{
- const siblings=detail.closest('ul')?.querySelectorAll(':scope > .nav-item > details.nav-disclosure[open]')||[];
+ const megaColumns=detail.closest('.nav-mega-columns');
+ const siblings=megaColumns
+  ? megaColumns.querySelectorAll('.nav-mega-list > .nav-item > details.nav-disclosure[open]')
+  : detail.closest('ul')?.querySelectorAll(':scope > .nav-item > details.nav-disclosure[open]')||[];
  siblings.forEach(sibling=>{if(sibling!==detail)closeDisclosureBranch(sibling);});
  detail.open=true;
 };
