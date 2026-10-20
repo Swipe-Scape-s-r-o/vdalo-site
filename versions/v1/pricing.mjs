@@ -22,7 +22,7 @@ const moduleGroups = [
  ['Продажі та ціни',['channels','rms']],['Робота з гостем',['assistant','access','kiosk','checkin','messages']],['Облік і команда',['prro','reports','finance','tasks','laundry','energy']]
 ];
 function moduleChecks() {
- return moduleGroups.map(([heading,ids])=>`<fieldset class="module-check-group"><legend>${e(heading)}</legend>${ids.map(id=>{const item=PRICING.modules[id];return `<label class="module-check"><input type="checkbox" data-module="${id}"><span>${e(item.label)}</span><small data-module-price="${id}">${item.price.toLocaleString('uk-UA')} грн / міс</small></label>`;}).join('')}</fieldset>`).join('');
+ return moduleGroups.map(([heading,ids])=>`<fieldset class="module-check-group"><legend>${e(heading)}</legend>${ids.map(id=>{const item=PRICING.modules[id];const status=item.status==='development'?'У розробці':item.status==='beta'?'Бета · уточніть доступність':'';return `<label class="module-check${status?' module-check--status':''}"><input type="checkbox" data-module="${id}"${status?' disabled aria-disabled="true"':''}><span>${e(item.label)}</span><small data-module-price="${id}">${status?e(status):`${item.price.toLocaleString('uk-UA')} грн / міс`}</small></label>`;}).join('')}</fieldset>`).join('');
 }
 const planLabels = {start:'Start',mini:'Mini',hotel:'Hotel','hotel-plus':'Hotel+',complex:'Complex',enterprise:'Enterprise'};
 function comparisonTable() {
@@ -38,7 +38,6 @@ function comparisonTable() {
   ['Базові звіти й аналітика',[1,1,1,1,1,'custom']],
   ['Туристичний збір: розрахунок і пільги',[1,1,1,1,1,'custom']],
   ['Ролі та доступи для команди',[0,0,1,1,1,'custom']],
-  ['ПРРО у погодженому сценарії',[0,0,1,1,1,'custom']]
  ];
  const cell = value => value === 'custom'
   ? '<span class="comparison-status comparison-status--custom">За умовами</span>'
@@ -54,12 +53,14 @@ function addonSection() {
    const item=PRICING.modules[id];
    const priceLead=item.from||item.variable?'Від ':'';
    const included=item.includedFrom?.length?`Входить у тариф ${item.includedFrom.map(plan=>planLabels[plan]).join(', ')}`:'';
-   const kicker=included?'УМОВИ ЗАЛЕЖАТЬ ВІД ТАРИФУ':'ДОДАТКОВИЙ МОДУЛЬ';
-   const availability=id==='channels'?'Для Start доступний окремо.':included?included:'Підключається за потреби.';
-   return `<article class="addon-card"><p class="addon-kicker">${kicker}</p><h4>${e(item.label)}</h4><p class="addon-price"><strong>${priceLead}${item.price.toLocaleString('uk-UA')} грн</strong><span>на місяць${item.perRoom?` + ${item.perRoom} грн за номер`:''}</span></p><p class="addon-included">${e(availability)}</p></article>`;
+   const status=item.status==='development'?'У РОЗРОБЦІ':item.status==='beta'?'БЕТА · УТОЧНІТЬ ДОСТУПНІСТЬ':'';
+   const kicker=status|| (included?'УМОВИ ЗАЛЕЖАТЬ ВІД ТАРИФУ':'ДОДАТКОВИЙ МОДУЛЬ');
+   const availability=status?(item.status==='beta'?'Пілотний сценарій; доступність узгоджується окремо.':'Майбутній модуль; не входить до замовлення чи розрахунку.'):(id==='channels'?'Для Start доступний окремо.':included?included:'Підключається за потреби.');
+   const price=status?'':`<p class="addon-price"><strong>${priceLead}${item.price.toLocaleString('uk-UA')} грн</strong><span>на місяць${item.perRoom?` + ${item.perRoom} грн за номер`:''}</span></p>`;
+   return `<article class="addon-card${status?' addon-card--status':''}"><p class="addon-kicker">${e(kicker)}</p><h4>${e(item.label)}</h4>${price}<p class="addon-included">${e(availability)}</p></article>`;
   }).join('')}</div></section>`;
  }).join('');
- return `<section class="section addons-section" id="pricing-addons" aria-labelledby="addons-title"><div class="wrap"><div class="addons-heading"><p class="eyebrow">МОДУЛІ ЗА ПОТРЕБИ</p><h2 id="addons-title">Усі модулі для процесів готелю</h2><p class="large-copy">Перегляньте вартість інструментів і дізнайтеся, що вже входить у ваш тариф.</p></div><details class="addons-disclosure"><summary id="addons-disclosure-title"><span><strong>Відкрити каталог модулів</strong><small>${moduleCount} модулів у трьох напрямках</small></span><span class="addons-toggle" aria-hidden="true">+</span></summary><div class="addons-disclosure-content">${groups}<p class="addons-footnote">Ціна вказана за місяць, якщо модуль оплачується окремо. Точний склад і сумісність погоджуються для конкретного об’єкта.</p><a class="button addons-calc-link" href="#hotel-room-count">Порахувати модулі для мого готелю <span aria-hidden="true">↗</span></a></div></details></div></section>`;
+ return `<section class="section addons-section" id="pricing-addons" aria-labelledby="addons-title"><div class="wrap"><div class="addons-heading"><p class="eyebrow">МОДУЛІ ЗА ПОТРЕБИ</p><h2 id="addons-title">Функції для процесів готелю</h2><p class="large-copy">Перегляньте модулі зі статусом і вартістю там, де її вже можна підтвердити.</p></div><details class="addons-disclosure"><summary id="addons-disclosure-title"><span><strong>Відкрити каталог модулів</strong><small>${moduleCount} функцій у трьох напрямках</small></span><span class="addons-toggle" aria-hidden="true">+</span></summary><div class="addons-disclosure-content">${groups}<p class="addons-footnote">Ціна показується лише для функцій, доступних для замовлення. Модулі зі статусом «у розробці» або «бета» не входять до розрахунку й можуть не бути доступними для вашого об’єкта.</p><a class="button addons-calc-link" href="#hotel-room-count">Порахувати доступні модулі <span aria-hidden="true">↗</span></a></div></details></div></section>`;
 }
 export function renderPricing() {
  return `<section class="section pricing-section pricing-overhaul" id="pricing" aria-labelledby="pricing-title"><div class="wrap"><div class="pricing-heading"><p class="eyebrow">ТАРИФИ / УМОВИ ДЛЯ ГОТЕЛЮ</p><h2 id="pricing-title">Почніть із тарифу під ваш номерний фонд.</h2><p class="large-copy">Розрахуйте базову вартість і додайте лише ті модулі, які потрібні вашому об’єкту.</p></div>
