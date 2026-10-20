@@ -53,7 +53,7 @@ test('site navigation uses hover, focus and touch disclosure without chevron ico
   assert.ok(html.includes('class="nav-disclosure"'));
   assert.ok(!html.includes('nav-chevron'));
   assert.ok(css.includes('.ds2 .nav-disclosure>summary::marker{content:""}'));
-  assert.ok(css.includes('.ds2 .nav-disclosure[open]>.nav-submenu::before{content:"";position:absolute;left:0;right:0;top:-9px;height:10px;background:transparent}'));
+  assert.ok(css.includes('@media(min-width:901px){.ds2 .site-nav>.nav-item>.nav-disclosure[open]>.nav-submenu::before{content:"";position:absolute;left:0;right:0;top:-9px;height:10px;background:transparent}}'));
   assert.ok(js.includes("'(min-width: 901px) and (hover: hover) and (pointer: fine)'"));
   assert.ok(js.includes("detail.addEventListener('pointerenter'"));
   assert.ok(js.includes("detail.addEventListener('focusin'"));
