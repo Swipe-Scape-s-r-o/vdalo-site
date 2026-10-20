@@ -61,6 +61,7 @@ navDisclosures.forEach(detail=>{
  });
  detail.addEventListener('focusin',()=>{
   clearTimeout(closeTimer);
+  if(!desktopPointerMenu.matches)return;
   if(detail.dataset.suppressFocusOpen==='true'){delete detail.dataset.suppressFocusOpen;return;}
   openDisclosure(detail);
  });
