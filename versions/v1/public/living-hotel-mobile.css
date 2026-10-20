@@ -1,5 +1,5 @@
-/* VDALO · «Живий готель» — МОБІЛЬНА версія (v4.1), один екран телефона. Показується лише на екранах до 860 px.
-   Усе під .lhm, keyframes з префіксом lhm-. Висота блоку — var(--lhm-h, 100svh). */
+/* VDALO · «Живий готель» - МОБІЛЬНА версія (v4.1), один екран телефона. Показується лише на екранах до 860 px.
+   Усе під .lhm, keyframes з префіксом lhm-. Висота блоку - var(--lhm-h, 100svh). */
 .lhm,.lhm *,.lhm *::before,.lhm *::after{box-sizing:border-box}
 .lhm button:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
 .lhm{--plum:#39233E; --plum-dark:#2D1A31; --pink:#FF92BD; --pink-light:#FFE1EC;

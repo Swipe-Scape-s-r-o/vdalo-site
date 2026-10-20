@@ -1,7 +1,7 @@
 /* VDALO · блок «Живий готель» (v3)
    Усе під .lh: токени, класи й keyframes (lh-*) не перетинаються зі стилями сайту.
    Кольори й шрифти повторюють ds2 сайту: --plum #39233E, --pink #FF92BD, Inter Tight / Inter.
-   Якщо на сайті вже є ці токени — можна прибрати дублікати з блоку .lh{…} нижче. */
+   Якщо на сайті вже є ці токени - можна прибрати дублікати з блоку .lh{…} нижче. */
 .lh *,.lh *::before,.lh *::after{box-sizing:border-box}
 .lh button:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
 .lh{--plum:#39233E; --plum-dark:#2D1A31; --pink:#FF92BD; --pink-light:#FFE1EC;
