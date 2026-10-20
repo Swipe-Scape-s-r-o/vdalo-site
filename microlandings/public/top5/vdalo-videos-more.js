@@ -177,7 +177,7 @@
         { type: 'big', html: 'Знову 3 ночі.', top: 330, size: 38, at: 1.0 },
         { type: 'big', html: '<em class="r">Знову гості.</em>', top: 372, size: 38, at: 1.6 },
         { type: 'num', from: 1, to: 7, n1: 1.8, n2: 6.2, top: 450, cls: 'r', label: 'приклад повторних дзвінків за ніч', fmt: n => Math.round(n) },
-        foot('Кількість дзвінків у сцені наведена для ілюстрації.', 1)
+        { type: 'html', at: 1, anim: 'fade', html: '<div class="vdv-foot" style="bottom:22px">Кількість дзвінків у сцені наведена для ілюстрації.</div>' }
       ] },
       { a: 7.0, b: 11.7, els: [
         { type: 'cap', html: 'Інформація для гостя <em>на одній сторінці</em>', size: 29 },
