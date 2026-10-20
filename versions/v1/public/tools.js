@@ -36,6 +36,7 @@ if(!root)return;
 const valueFields=[...root.querySelectorAll('[data-profit-value]')];
 const ranges=[...root.querySelectorAll('[data-profit-range]')];
 const status=root.querySelector('[data-profit-status]');
+let calculatorUseTracked=false;
 const currency=new Intl.NumberFormat('uk-UA',{style:'currency',currency:'UAH',maximumFractionDigits:0});
 const decimal=new Intl.NumberFormat('uk-UA',{maximumFractionDigits:1});
 const get=(key)=>Number(root.querySelector(`[data-profit-value="${key}"]`).value);
@@ -71,12 +72,14 @@ valueFields.forEach(field=>field.addEventListener('input',()=>{
  const range=root.querySelector(`[data-profit-range="${field.dataset.profitValue}"]`);
  if(field.checkValidity())range.value=field.value;
  recalculate();
+ if(!calculatorUseTracked&&valueFields.every(input=>input.checkValidity())){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'hotel_profitability_calculator_use'});calculatorUseTracked=true;}
 }));
 ranges.forEach(range=>range.addEventListener('input',()=>{
  const field=root.querySelector(`[data-profit-value="${range.dataset.profitRange}"]`);
  field.value=range.value;
  field.setAttribute('aria-invalid','false');
  recalculate();
+ if(!calculatorUseTracked&&valueFields.every(input=>input.checkValidity())){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'hotel_profitability_calculator_use'});calculatorUseTracked=true;}
 }));
 recalculate();
 })();

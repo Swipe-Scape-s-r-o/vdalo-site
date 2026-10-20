@@ -11,7 +11,7 @@ function header({full=false}={}) {
  const navItems=(items,level=1)=>items.map(item=>{
   if(item.children?.length){
    const hasNested=item.children.some(child=>child.children?.length);
-   return `<li class="nav-item nav-item-level-${level}"><details class="nav-disclosure" data-nav-level="${level}"${hasNested?' data-nav-panel="mega"':''}><summary>${e(item.label)}<span class="nav-chevron" aria-hidden="true"></span></summary><ul class="nav-submenu nav-submenu-level-${level+1}">${navItems(item.children,level+1)}</ul></details></li>`;
+   return `<li class="nav-item nav-item-level-${level}"><details class="nav-disclosure" data-nav-level="${level}"${hasNested?' data-nav-panel="mega"':''}><summary>${e(item.label)}</summary><ul class="nav-submenu nav-submenu-level-${level+1}">${navItems(item.children,level+1)}</ul></details></li>`;
   }
   return `<li class="nav-item nav-item-level-${level}"><a href="${sectionLink(item.href)}">${e(item.label)}</a></li>`;
  }).join('');

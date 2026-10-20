@@ -154,6 +154,7 @@ document.querySelectorAll('[data-mode]').forEach(tab => tab.addEventListener('cl
         : 'Вставте повне посилання на сторінку або сервіс, який має відкрити гість.';
   }
   document.querySelector('#mode-panel').setAttribute('aria-labelledby', tab.id);
+  if (generatorMode === 'wifi') updateWifiSecurityCopy();
   generatorError.hidden = true;
 }));
 
@@ -187,11 +188,26 @@ document.querySelector('#wifi-security').addEventListener('change', event => {
 
 function updateWifiSecurityCopy() {
   const security = document.querySelector('#wifi-security').value;
-  const note = security === 'nopass'
-    ? 'Відкрита мережа не має захисту паролем. QR міститиме лише назву мережі. Для гостей краще налаштувати окремий захищений Wi-Fi.'
-    : 'QR міститиме назву мережі й пароль. Його можна прочитати зі сканування, тому використовуйте окремий гостьовий Wi-Fi та не публікуйте код поза гостьовою зоною.';
-  document.querySelector('#usecase-note').textContent = note;
+  const copy = {
+    WPA: {
+      hint: 'Введіть пароль саме від гостьової мережі. Він буде закодований у QR і стане доступним кожному, хто його сканує. Використовуйте окрему гостьову мережу.',
+      note: 'QR міститиме назву мережі й пароль. Його можна прочитати зі сканування, тому використовуйте окремий гостьовий Wi-Fi та не публікуйте код поза гостьовою зоною.',
+    },
+    WEP: {
+      hint: 'Введіть пароль саме від гостьової мережі. Він буде закодований у QR і стане доступним кожному, хто його сканує. WEP є застарілим типом захисту; за можливості оберіть WPA/WPA2.',
+      note: 'QR міститиме назву мережі й пароль. WEP є застарілим типом захисту; за можливості використовуйте окрему мережу з WPA/WPA2.',
+    },
+    nopass: {
+      hint: 'Для відкритої мережі пароль не потрібен і не потрапляє в QR. Код міститиме лише назву мережі. Відкрита мережа не захищає трафік паролем; для гостей краще налаштувати окремий захищений Wi-Fi.',
+      note: 'Відкрита мережа не має захисту паролем. QR міститиме лише назву мережі. Для гостей краще налаштувати окремий захищений Wi-Fi.',
+    },
+  }[security];
+  document.querySelector('#wifi-hint').textContent = copy.hint;
+  if (generatorMode === 'wifi' || generatorUseCase === 'wifi') {
+    document.querySelector('#usecase-note').textContent = copy.note;
+  }
 }
+updateWifiSecurityCopy();
 document.querySelectorAll('#url-value, #wifi-name, #wifi-password, #wifi-security, #text-value').forEach(input => {
   input.addEventListener(input.tagName === 'SELECT' ? 'change' : 'input', () => {
     invalidateGeneratorOutput();
