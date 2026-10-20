@@ -37,8 +37,19 @@ test('contact modal receiver rejects an invalid number or missing consent',()=>{
  assert.ok(errors.consent);
 });
 
+test('callback form requires a phone number and keeps the contact intent for the existing receiver',()=>{
+ const rejected=validateLead('audit',{form_kind:'contact',name:'Олена',contact:'olena@example.com',consent:true});
+ assert.equal(rejected.errors.contact,'Вкажіть коректний номер телефону.');
+ const accepted=validateLead('audit',{form_kind:'contact',name:'Олена',contact:'+380 67 123 45 67',consent:true});
+ assert.deepEqual(accepted.errors,{});
+ assert.equal(accepted.data.kind,'audit');
+ assert.equal(accepted.data.form_kind,'contact');
+});
+
 test('contact modal restores focus and keeps truthful server-confirmed success behavior',()=>{
  assert.match(app,/dialog\.addEventListener\('close',\(\)=>\{document\.body\.classList\.remove\('dialog-open'\);opener\?\.focus\(\);\}\)/);
  assert.match(app,/result\.ok!==true/);
  assert.match(app,/const route=kind==='contact'\?'audit':kind/);
+ assert.match(app,/else if\(kind==='contact'\)[\s\S]*?Вкажіть коректний номер телефону/);
+ assert.match(app,/form_kind:kind/);
 });
