@@ -57,6 +57,7 @@ test('homepage first and second sections have a tighter responsive gap',()=>{
 });
 
 test('mobile disclosure remains keyboard-operable and Escape closes navigation',()=>{
+  assert.match(js,/detail\.addEventListener\('focusin',\(\)=>\{\s*clearTimeout\(closeTimer\);\s*if\(!desktopPointerMenu\.matches\)return;/);
   assert.match(css,/@media\(max-width:900px\)[\s\S]*?\.nav-disclosure\[open\]>\.nav-submenu/);
   assert.match(css,/\.nav-mega-list\{gap:0\}/);
   assert.match(css,/\.nav-submenu \.nav-submenu \.nav-item a\{min-height:44px;font-size:12px\}/);
