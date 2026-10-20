@@ -20,7 +20,8 @@ test('GTM container is installed and product forms emit acknowledged success eve
 test('quiz, 14-day trial and funnel emit their main conversion events',()=>{
   for(const event of ['quiz_start','quiz_answer','quiz_complete','quiz_recommendation_click','quiz_access_click'])assert.ok(quiz.includes(`track('${event}'`),event);
   for(const event of ['primary_cta_click','form_success','form_error'])assert.ok(funnel.includes(`track('${event}'`),event);
-  assert.ok(trial.includes("track('form_success',{lead_id:result.leadId})"));
+  assert.ok(trial.includes("track('form_success',{lead_id:leadId,stage:'email_captured'})"));
+  assert.ok(trial.includes("track('form_details_complete',{lead_id:result.leadId})"));
   assert.ok(trial.includes("track('form_error',{step:2,reason:'delivery'})"));
 });
 
