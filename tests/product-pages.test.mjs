@@ -56,6 +56,8 @@ test('site navigation uses hover, focus and touch disclosure without chevron ico
   assert.ok(js.includes("detail.addEventListener('focusin'"));
   assert.ok(js.includes("summary?.addEventListener('click'"));
   assert.ok(js.includes("if(event.key!=='Escape'"));
+  assert.ok(js.includes("detail.dataset.suppressFocusOpen==='true'"));
+  assert.ok(js.includes("last.dataset.suppressFocusOpen='true';summary.focus()"));
 });
 
 test('beta and development modules cannot be priced or selected from pricing UI',()=>{
