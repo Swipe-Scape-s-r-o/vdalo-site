@@ -37,6 +37,19 @@ test('mega-menu sections stay in independent columns when one group expands',()=
   assert.match(js,/\.nav-mega-list > \.nav-item > details\.nav-disclosure\[open\]/);
 });
 
+test('mega-menu lists have no browser bullets, use compact rows, and stay within the viewport',()=>{
+  assert.match(css,/\.nav-mega-list\{list-style:none;margin:0;padding:0;gap:2px\}/);
+  assert.match(css,/@media\(min-width:901px\)\{\.ds2 \.nav-mega-columns\{[^}]*max-height:calc\(100vh - 112px\);overflow-y:auto/);
+  assert.match(css,/\.ds2 \.nav-mega-columns a,\.ds2 \.nav-mega-columns \.nav-disclosure>summary\{min-height:36px;padding-block:6px\}/);
+  assert.match(css,/\.ds2 \.nav-mega-columns \.nav-submenu \.nav-item a\{min-height:32px;padding-block:4px\}/);
+});
+
+test('homepage first and second sections have a tighter responsive gap',()=>{
+  assert.match(css,/\.ds2 \.hero-v3\{padding-bottom:40px\}/);
+  assert.match(css,/\.ds2 \.pms-section\{padding-top:64px\}/);
+  assert.match(css,/@media\(max-width:767px\)\{\.ds2 \.hero-v3\{padding-bottom:36px\}\.ds2 \.pms-section\{padding-top:48px\}\}/);
+});
+
 test('mobile disclosure remains keyboard-operable and Escape closes navigation',()=>{
   assert.match(css,/@media\(max-width:900px\)[\s\S]*?\.nav-disclosure\[open\]>\.nav-submenu/);
   assert.match(css,/\.nav-mega-list\{gap:0\}/);

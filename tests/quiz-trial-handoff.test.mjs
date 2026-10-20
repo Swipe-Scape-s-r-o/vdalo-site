@@ -12,8 +12,8 @@ const trialScript = await readFile(new URL('../microlandings/public/sms-trial.js
 test('quiz and trial form invalidate cached scripts when their behavior changes', () => {
   assert.match(renderQuizPage(), /quiz-assets\/quiz\.js\?v=9/);
   const trialHtml = renderSmsTrial();
-  assert.match(trialHtml, /sms-trial-assets\/sms-trial\.js\?v=3/);
-  assert.match(trialHtml, /Оберіть кількість номерів/);
+  assert.match(trialHtml, /sms-trial-assets\/sms-trial\.js\?v=4/);
+  assert.match(trialHtml, /Розкажіть про ваш об’єкт/);
   assert.doesNotMatch(trialHtml, /масштаб готелю/);
 });
 
@@ -24,7 +24,8 @@ test('quiz trial CTA targets /go/trial and keeps campaign attribution', () => {
 
 test('trial form carries stored quiz context and maps it to the correct lead funnel', () => {
   assert.match(trialScript, /sessionStorage\.getItem\('vdalo-quiz-context'\)/);
-  assert.match(trialScript, /data\.quiz_answers=validQuizContext;data\.quiz_landing_route=validQuizContext\.recommendation_route/);
+  assert.match(trialScript, /Object\.assign\(data,context\(\)\)/);
+  assert.match(trialScript, /quiz_answers:validQuizContext,quiz_landing_route:validQuizContext\.recommendation_route/);
   assert.match(trialScript, /channels:'overbook',checkin:'staff',night_calls:'nights',power:'blackout',direct:'commission'/);
   assert.match(trialScript, /propertyTypes=\{hotel:'hotel',guesthouse:'guesthouse',apartments:'apartments',resort:'glamping',hostel:'hostel',other:'other'\}/);
 });
