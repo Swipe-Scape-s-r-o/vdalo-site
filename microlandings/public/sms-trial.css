@@ -35,3 +35,4 @@ html,body{overflow-x:hidden}
  .sms-go.is-complete .st-after-video .st-button{width:100%;max-width:520px;min-height:58px;margin:0;font-size:16px}
 }
 @media(max-width:850px) and (orientation:landscape){.sms-go:not(.is-complete) .st-video-card video{object-fit:contain}}
+.st-email-summary{margin:0 0 20px;padding:12px 14px;border:1px solid #e7dce5;border-radius:10px;background:#fff;color:#695b68;font-size:12px;line-height:1.5;overflow-wrap:anywhere}.st-email-summary strong{color:var(--plum)}.st-email-summary button{margin-left:6px;padding:4px 6px;border:0;background:none;color:#8b4168;text-decoration:underline;font:600 12px Inter,system-ui,sans-serif;cursor:pointer}.st-email-summary button:focus-visible{outline:2px solid var(--plum);outline-offset:2px}.st-back-secondary{margin-top:4px}
