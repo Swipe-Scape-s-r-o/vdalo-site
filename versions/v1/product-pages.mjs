@@ -3,7 +3,7 @@ const cards = (items) => `<div class="seo-card-grid">${items.join('')}</div>`;
 const p = (text) => `<p>${text}</p>`;
 const ul = (items) => `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
 const section = (eyebrow, title, body) => [eyebrow, title, body];
-const cta = (title, copy) => `<section class="seo-cta"><div><p class="eyebrow">НАСТУПНИЙ КРОК</p><h2>${title}</h2><p>${copy}</p></div><button class="button" type="button" data-open="audit" data-location="feature-page">Обговорити функцію <span aria-hidden="true">↗</span></button></section>`;
+const cta = (title, copy) => `<section class="seo-cta"><div><p class="eyebrow">НАСТУПНИЙ КРОК</p><h2>${title}</h2><p>${copy}</p></div><button class="button" type="button" data-open="audit" data-location="feature-page" data-interest="${String(title).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}">Обговорити функцію <span aria-hidden="true">↗</span></button></section>`;
 // The server's HTML prefixer only knows legacy routes; keep feature links
 // relative so it does not rewrite these root routes to /v1/<route>.
 const relativeFeatureLinks = (html) => html.replace(/href="\/(hotel-[a-z0-9-]+)(?=["?#])/g, 'href="$1');
