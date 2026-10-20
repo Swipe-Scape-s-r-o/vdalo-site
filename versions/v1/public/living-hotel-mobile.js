@@ -1,6 +1,6 @@
-/* VDALO · «Живий готель» — МОБІЛЬНА версія (v4.1), vanilla JS без залежностей.
+/* VDALO · «Живий готель» - МОБІЛЬНА версія (v4.1), vanilla JS без залежностей.
    Стартує лише на екранах до 860 px (або з атрибутом data-always на секції).
-   Події для аналітики (Фаза 2): lh:manual-fix, lh:vdalo-on, lh:summary, lh:cta — CustomEvent на секції #living-hotel-m. */
+   Події для аналітики (Фаза 2): lh:manual-fix, lh:vdalo-on, lh:summary, lh:cta - CustomEvent на секції #living-hotel-m. */
 (() => {
   'use strict';
   const host = document.getElementById('living-hotel-m');
@@ -264,12 +264,12 @@
     overbook: { tag: 'Овербукінг · 302', name: 'Гостю продали зайнятий номер 302', rate: 60, cost: 1800,
       manual: () => 'Переселили гостя в інший готель: −1 800 грн компенсації',
       auto: inc => inc.prevented ? 'Бронювання з Booking → номер 302 одразу закрито в Airbnb і на сайті. Овербукінгу не сталося'
-                                 : 'VDALO показав вільний 303 — гостя заселено без переселення' },
+                                 : 'VDALO показав вільний 303 - гостя заселено без переселення' },
     night:    { tag: 'Гість під дверима', name: 'Нічний заїзд, рецепція зачинена', rate: 45,
       manual: () => `Ви встали о ${timeStr()}, щоб відчинити двері`,
       auto: () => `Гість о ${timeStr()} отримав PIN-код (з розумним замком) і заселився сам` },
     messy:    { tag: 'Не прибрано', name: 'Ранній заїзд, а 202 не прибраний', rate: 30,
-      manual: () => 'Подзвонили покоївці — гість чекав 40 хвилин',
+      manual: () => 'Подзвонили покоївці - гість чекав 40 хвилин',
       auto: () => `Покоївка отримала задачу о ${timeStr()}. Рецепція бачить статус номера 202` },
     phone:    { tag: 'Дзвінки', name: 'Телефон рецепції не замовкає', rate: 35,
       manual: () => `Відповіли гостю о ${timeStr()}: де паркінг і пароль від Wi‑Fi`,
@@ -282,7 +282,7 @@
       auto: inc => `Номер ${inc.room} порожній → світло й клімат вимкнено (з датчиками)` },
     cash:     { tag: 'Каса', name: 'Каса не сходиться після зміни', rate: 40,
       manual: () => 'Перерахували касу вручну: не вистачає 1 250 грн',
-      auto: () => 'Оплата карткою, чек через ПРРО — каса звірена без перерахунку' }
+      auto: () => 'Оплата карткою, чек через ПРРО - каса звірена без перерахунку' }
   };
   // one night as data: [second, event]
   const TIMELINE = [
@@ -392,7 +392,7 @@
       if (type === 'phone' && state.mode === 'chaos') {
         state.missedCalls++;
         if (isNight()) { state.wake++; wakeOwner(); }
-        feed('Знову дзвонять на рецепцію — ніхто не відповідає', 'bad');
+        feed('Знову дзвонять на рецепцію - ніхто не відповідає', 'bad');
         renderWidget();
       }
       return null;
@@ -644,7 +644,7 @@
   }
   $('#lhm-switch').addEventListener('click', () => setMode(state.mode === 'chaos' ? 'vdalo' : 'chaos'));
   // PROTOTYPE ONLY: on the site #lh-cta carries data-open="trial" and the site's app.js opens the form
-  // #lhm-cta carries data-open="trial" data-mode="start" data-location="living-hotel-mobile" — the site's app.js opens the form.
+  // #lhm-cta carries data-open="trial" data-mode="start" data-location="living-hotel-mobile" - the site's app.js opens the form.
   $('#lhm-cta').addEventListener('click', () => emit('cta'));
 
   // ---------- summary (numbers come from what really happened) ----------
@@ -664,13 +664,13 @@
     const h = document.createElement('h3');
     h.textContent = vd
       ? (state.lossAtSwitch > 0 ? 'Ранок. З VDALO решта ночі минула спокійно.' : 'Ранок. Ніч минула без вас.')
-      : (state.manual === 0 ? 'Ранок. Ви нічого не встигли — і ніч вирішила за вас.' : `Ранок. Ви вирішили ${state.manual} з ${state.total} проблем.`);
+      : (state.manual === 0 ? 'Ранок. Ви нічого не встигли - і ніч вирішила за вас.' : `Ранок. Ви вирішили ${state.manual} з ${state.total} проблем.`);
     const dl = document.createElement('dl');
     const cell = (k, v) => { const d = document.createElement('div'); const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd'); dd.textContent = v; d.append(dt, dd); dl.append(d); };
     if (vd) { cell('Закрив VDALO', state.auto); cell('Втрати до VDALO', `${fmt(state.lossAtSwitch)} грн`); cell('Після', `${fmt(state.loss - state.lossAtSwitch)} грн`); }
     else { cell('Проблем за ніч', state.total); cell('Втрати', `${fmt(state.loss)} грн`); cell('Вас будили', state.wake); }
     const p = document.createElement('p');
-    p.textContent = vd ? (state.wake > 0 ? 'Після підключення VDALO дзвінки, задачі й заселення взяла на себе система — вас більше не будили.' : 'Дзвінки, задачі й заселення взяла на себе система. Вас не будили.') : (open.length ? `Ще ${open.length} проблем лишилися на ранок. ` : '') + 'Тепер проживіть цю саму ніч з VDALO.';
+    p.textContent = vd ? (state.wake > 0 ? 'Після підключення VDALO дзвінки, задачі й заселення взяла на себе система - вас більше не будили.' : 'Дзвінки, задачі й заселення взяла на себе система. Вас не будили.') : (open.length ? `Ще ${open.length} проблем лишилися на ранок. ` : '') + 'Тепер проживіть цю саму ніч з VDALO.';
     const note = document.createElement('p'); note.className = 'note'; note.textContent = 'Умовна ніч, суми орієнтовні.';
     const row = document.createElement('div'); row.className = 'row';
     const again = document.createElement('button'); again.type = 'button'; again.className = 'lhm-btn lhm-btn-primary';

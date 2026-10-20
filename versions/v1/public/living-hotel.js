@@ -1,6 +1,6 @@
-/* VDALO · блок «Живий готель» (v3) — vanilla JS, без залежностей.
-   Шукає <section id="living-hotel">; якщо його немає на сторінці — нічого не робить.
-   Події для аналітики (Фаза 2, нічого не трекає саме): lh:manual-fix, lh:vdalo-on, lh:summary, lh:cta — CustomEvent на секції. */
+/* VDALO · блок «Живий готель» (v3) - vanilla JS, без залежностей.
+   Шукає <section id="living-hotel">; якщо його немає на сторінці - нічого не робить.
+   Події для аналітики (Фаза 2, нічого не трекає саме): lh:manual-fix, lh:vdalo-on, lh:summary, lh:cta - CustomEvent на секції. */
 
 (() => {
   'use strict';
@@ -263,12 +263,12 @@
     overbook: { tag: 'Овербукінг · 302', name: 'Гостю продали зайнятий номер 302', rate: 60, cost: 1800,
       manual: () => 'Переселили гостя в інший готель: −1 800 грн компенсації',
       auto: inc => inc.prevented ? 'Бронювання з Booking → номер 302 одразу закрито в Airbnb і на сайті. Овербукінгу не сталося'
-                                 : 'VDALO показав вільний 303 — гостя заселено без переселення' },
+                                 : 'VDALO показав вільний 303 - гостя заселено без переселення' },
     night:    { tag: 'Гість під дверима', name: 'Нічний заїзд, рецепція зачинена', rate: 45,
       manual: () => `Ви встали о ${timeStr()}, щоб відчинити двері`,
       auto: () => `Гість о ${timeStr()} отримав PIN-код (з розумним замком) і заселився сам` },
     messy:    { tag: 'Не прибрано', name: 'Ранній заїзд, а 202 не прибраний', rate: 30,
-      manual: () => 'Подзвонили покоївці — гість чекав 40 хвилин',
+      manual: () => 'Подзвонили покоївці - гість чекав 40 хвилин',
       auto: () => `Покоївка отримала задачу о ${timeStr()}. Рецепція бачить статус номера 202` },
     phone:    { tag: 'Дзвінки', name: 'Телефон рецепції не замовкає', rate: 35,
       manual: () => `Відповіли гостю о ${timeStr()}: де паркінг і пароль від Wi‑Fi`,
@@ -281,7 +281,7 @@
       auto: inc => `Номер ${inc.room} порожній → світло й клімат вимкнено (з датчиками)` },
     cash:     { tag: 'Каса', name: 'Каса не сходиться після зміни', rate: 40,
       manual: () => 'Перерахували касу вручну: не вистачає 1 250 грн',
-      auto: () => 'Оплата карткою, чек через ПРРО — каса звірена без перерахунку' }
+      auto: () => 'Оплата карткою, чек через ПРРО - каса звірена без перерахунку' }
   };
   // one night as data: [second, event]
   const TIMELINE = [
@@ -391,7 +391,7 @@
       if (type === 'phone' && state.mode === 'chaos') {
         state.missedCalls++;
         if (isNight()) { state.wake++; wakeOwner(); }
-        feed('Знову дзвонять на рецепцію — ніхто не відповідає', 'bad');
+        feed('Знову дзвонять на рецепцію - ніхто не відповідає', 'bad');
         renderWidget();
       }
       return null;
@@ -616,7 +616,7 @@
     render();
   }
   $('#lh-switch').addEventListener('click', () => setMode(state.mode === 'chaos' ? 'vdalo' : 'chaos'));
-  // #lh-cta carries data-open="trial" data-mode="start" data-location="living-hotel" — the site's app.js opens the form.
+  // #lh-cta carries data-open="trial" data-mode="start" data-location="living-hotel" - the site's app.js opens the form.
   $('#lh-cta').addEventListener('click', () => emit('cta'));
 
   // ---------- summary (numbers come from what really happened) ----------
@@ -636,7 +636,7 @@
     const h = document.createElement('h3');
     h.textContent = vd
       ? (state.lossAtSwitch > 0 ? 'Ранок. З VDALO решта ночі минула спокійно.' : 'Ранок. Ніч минула без вас.')
-      : (state.manual === 0 ? 'Ранок. Ви нічого не встигли — і ніч вирішила за вас.' : `Ранок. Ви вирішили ${state.manual} з ${state.total} проблем.`);
+      : (state.manual === 0 ? 'Ранок. Ви нічого не встигли - і ніч вирішила за вас.' : `Ранок. Ви вирішили ${state.manual} з ${state.total} проблем.`);
     const dl = document.createElement('dl');
     const cell = (k, v) => { const d = document.createElement('div'); const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd'); dd.textContent = v; d.append(dt, dd); dl.append(d); };
     if (vd) { cell('Закрив VDALO', state.auto); cell('Втрати до VDALO', `${fmt(state.lossAtSwitch)} грн`); cell('Після', `${fmt(state.loss - state.lossAtSwitch)} грн`); }
