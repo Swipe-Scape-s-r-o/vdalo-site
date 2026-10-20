@@ -52,7 +52,11 @@ navDisclosures.forEach(detail=>{
    if(!detail.matches(':hover')&&!detail.contains(document.activeElement))closeDisclosureBranch(detail);
   },180);
  });
- detail.addEventListener('focusin',()=>{clearTimeout(closeTimer);openDisclosure(detail);});
+ detail.addEventListener('focusin',()=>{
+  clearTimeout(closeTimer);
+  if(detail.dataset.suppressFocusOpen==='true'){delete detail.dataset.suppressFocusOpen;return;}
+  openDisclosure(detail);
+ });
  detail.addEventListener('focusout',event=>{
   if(detail.contains(event.relatedTarget))return;
   clearTimeout(closeTimer);
@@ -85,7 +89,8 @@ document.addEventListener('keydown', event=>{
   event.preventDefault();
   const last=openDetails.at(-1);
   last.open=false;
-  last.querySelector(':scope > summary')?.focus();
+  const summary=last.querySelector(':scope > summary');
+  if(summary){last.dataset.suppressFocusOpen='true';summary.focus();delete last.dataset.suppressFocusOpen;}
  }else if(siteNavigation.classList.contains('open')){
   event.preventDefault();
   closeNavigation();
