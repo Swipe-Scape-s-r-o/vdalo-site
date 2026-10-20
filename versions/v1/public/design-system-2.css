@@ -330,10 +330,6 @@
 .ds2 .header nav>.site-nav>.nav-item>a:hover,.ds2 .header nav>.site-nav>.nav-item>a:focus-visible,.ds2 .header nav>.site-nav>.nav-item>.nav-disclosure>summary:hover,.ds2 .header nav>.site-nav>.nav-item>.nav-disclosure>summary:focus-visible{text-decoration:underline;text-decoration-color:var(--pink);text-decoration-thickness:2px;text-underline-offset:7px}
 .ds2 .header nav .nav-disclosure>summary:focus-visible{outline:2px solid var(--pink);outline-offset:4px;border-radius:4px}
 .ds2 .footer-v2-grid>.footer-link-group>strong{color:var(--pink)}
-<<<<<<< HEAD
-=======
-@media(min-width:901px){.ds2 .site-nav>.nav-item>.nav-disclosure[open]>.nav-submenu::before{content:"";position:absolute;left:0;right:0;top:-9px;height:10px;background:transparent}}
->>>>>>> 15ab0a3 (chore(release): prepare site updates for staging QA)
 @media(min-width:901px){.ds2 .header nav .nav-submenu a,.ds2 .header nav .nav-submenu a:hover,.ds2 .header nav .nav-submenu .nav-disclosure>summary,.ds2 .header nav .nav-submenu .nav-disclosure>summary:hover{color:var(--plum)}}
 @media(max-width:900px){.ds2 .menu-toggle{flex:0 0 44px;display:flex;align-items:center;justify-content:center;gap:6px}.ds2 .menu-toggle span{display:block;width:18px;height:2px;min-height:2px;flex:none;background:var(--soft);opacity:1;border-radius:2px}.ds2 .menu-toggle[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}.ds2 .menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}.ds2 .header nav.open{display:flex}.ds2 .header nav.open .nav-disclosure>summary{color:var(--soft)}}
 .ds2 .header nav.open{display:block}
