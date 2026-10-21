@@ -22,13 +22,21 @@ test('contact CTA opens a short, accessible dialog from both desktop and mobile 
 
 test('contact modal sends a valid phone lead through the existing audit lead receiver',()=>{
  const html=renderPage({origin:'https://www.vdalo.tech'});
- assert.match(html,/<form data-kind="contact" novalidate>/);
+ assert.match(html,/<form data-kind="contact" method="post" action="\/api\/leads\/audit" novalidate>/);
  assert.match(app,/data-contact-dialog-trigger[\s\S]*?openContactDialog\(control\)/);
  assert.match(app,/const route=kind==='contact'\?'audit':kind/);
  const {data,errors}=validateLead('audit',{name:'Олена Готель',contact:'+380 67 123 45 67',consent:true});
  assert.deepEqual(errors,{});
  assert.equal(data.contact,'+380 67 123 45 67');
  assert.equal(data.kind,'audit');
+});
+
+test('lead forms never fall back to putting contact data in the page URL',()=>{
+ const html=renderPage({origin:'https://www.vdalo.tech',full:true});
+ assert.match(html,/<form data-kind="contact" method="post" action="\/api\/leads\/audit" novalidate>/);
+ assert.match(html,/<form data-kind="audit" method="post" action="\/api\/leads\/audit" data-mode="start" novalidate>/);
+ assert.match(html,/<form data-kind="trial" method="post" action="\/api\/leads\/trial" data-mode="start" novalidate>/);
+ assert.match(app,/form\.addEventListener\('submit',async event=>\{\s*event\.preventDefault\(\)/);
 });
 
 test('contact modal receiver rejects an invalid number or missing consent',()=>{
