@@ -19,3 +19,7 @@ test('mobile hero CTA labels can wrap and stay within the viewport',()=>{
 test('small phone overrides allow long CTA labels to wrap',()=>{
   assert.match(css,/@media\(max-width:380px\)\{[\s\S]*?\.ds2 \.hero-v3 \.hero-v2-actions>\.button:first-child\{[^}]*white-space:normal/);
 });
+
+test('mobile integrations and roles grids can shrink below their content minimum',()=>{
+  assert.match(css,/@media\(max-width:767px\)\{[\s\S]*?\.ds2 \.integrations-layout,\.ds2 \.roles-layout\{grid-template-columns:minmax\(0,1fr\);gap:28px\}/);
+});
