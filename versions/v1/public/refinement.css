@@ -502,6 +502,7 @@
  .ds2 .hero-v3 .hero-v2-actions>.button:first-child{width:100%;max-width:100%;white-space:normal}
  .ds2 .hero-v3 .hero-v2-actions>.button:first-child>span{white-space:normal;overflow-wrap:anywhere}
  .ds2 .hero-v3 .hero-product-link{min-height:44px;white-space:normal}
+ .ds2 .integration-orbit .integration-channels li{width:auto;max-width:100%}
  .ds2 .seo-hero-actions .button{white-space:normal}
 }
 @media(max-width:380px){

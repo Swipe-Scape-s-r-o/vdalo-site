@@ -27,3 +27,7 @@ test('mobile integrations and roles grids can shrink below their content minimum
 test('role tabs fit a 320px viewport without forcing page overflow',()=>{
   assert.match(css,/@media\(max-width:380px\)\{[\s\S]*?\.ds2 \.role-tabs button\{min-width:0;gap:4px;padding-inline:4px;font-size:11px\}/);
 });
+
+test('mobile integration cards shrink to their grid tracks',()=>{
+  assert.match(css,/@media\(max-width:767px\)\{[\s\S]*?\.ds2 \.integration-orbit \.integration-channels li\{width:auto;max-width:100%\}/);
+});
