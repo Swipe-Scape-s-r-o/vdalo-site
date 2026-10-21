@@ -19,3 +19,15 @@ test('mobile hero CTA labels can wrap and stay within the viewport',()=>{
 test('small phone overrides allow long CTA labels to wrap',()=>{
   assert.match(css,/@media\(max-width:380px\)\{[\s\S]*?\.ds2 \.hero-v3 \.hero-v2-actions>\.button:first-child\{[^}]*white-space:normal/);
 });
+
+test('mobile integrations and roles grids can shrink below their content minimum',()=>{
+  assert.match(css,/@media\(max-width:767px\)\{[\s\S]*?\.ds2 \.integrations-layout,\.ds2 \.roles-layout\{grid-template-columns:minmax\(0,1fr\);gap:28px\}/);
+});
+
+test('role tabs fit a 320px viewport without forcing page overflow',()=>{
+  assert.match(css,/@media\(max-width:380px\)\{[\s\S]*?\.ds2 \.role-tabs button\{min-width:0;gap:4px;padding-inline:4px;font-size:11px\}/);
+});
+
+test('mobile integration cards shrink to their grid tracks',()=>{
+  assert.match(css,/@media\(max-width:767px\)\{[\s\S]*?\.ds2 \.integration-orbit \.integration-channels li\{width:auto;max-width:100%\}/);
+});

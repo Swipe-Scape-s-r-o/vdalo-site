@@ -238,7 +238,7 @@
  .ds2 .problem-peek{padding-block:30px}.ds2 .problem-peek-heading{align-items:start;flex-direction:column;gap:12px}.ds2 .problem-peek-heading h2{font-size:27px}.ds2 .problem-peek ul{grid-template-columns:1fr;gap:12px;margin-top:20px}.ds2 .problem-peek li{padding-top:10px}.ds2 .problem-peek li:before{top:17px}
  .ds2 .section{padding-block:52px}.ds2 .section h2{font-size:34px}.ds2 .pms-intro{gap:18px}
  .ds2 .pms-benefits{gap:20px}.ds2 .pms-benefits>div{display:grid;grid-template-columns:24px 1fr;column-gap:12px}.ds2 .pms-benefits .feature-icon{grid-row:1/3;margin:2px 0}.ds2 .pms-benefits p{font-size:15px;margin-top:5px}
- .ds2 .integrations-layout,.ds2 .roles-layout{grid-template-columns:1fr;gap:28px}
+ .ds2 .integrations-layout,.ds2 .roles-layout{grid-template-columns:minmax(0,1fr);gap:28px}
  .ds2 .integration-benefits{grid-template-columns:1fr;gap:20px;margin-top:26px;padding-top:24px}.ds2 .integration-benefits p{font-size:15px;line-height:1.6}
  .ds2 .integration-bottom{gap:18px}.ds2 .product-panel{padding:24px 18px;gap:22px}.ds2 .product-panel-text h3{font-size:26px}.ds2 .product-panel-footer{gap:16px}.ds2 .product-panel-footer .button{width:100%;white-space:normal}
  .ds2 .product-tabs{scroll-snap-type:x proximity}.ds2 .product-tabs>button{scroll-snap-align:start;min-width:190px}
@@ -502,10 +502,12 @@
  .ds2 .hero-v3 .hero-v2-actions>.button:first-child{width:100%;max-width:100%;white-space:normal}
  .ds2 .hero-v3 .hero-v2-actions>.button:first-child>span{white-space:normal;overflow-wrap:anywhere}
  .ds2 .hero-v3 .hero-product-link{min-height:44px;white-space:normal}
+ .ds2 .integration-orbit .integration-channels li{width:auto;max-width:100%}
  .ds2 .seo-hero-actions .button{white-space:normal}
 }
 @media(max-width:380px){
  .ds2 .hero-v3 .hero-v2-actions>.button:first-child{gap:8px;padding-inline:12px;font-size:13px;white-space:normal}
  .ds2 .hero-v3 .hero-v2-actions>.button:first-child>span{font-size:13px;white-space:normal}
+ .ds2 .role-tabs button{min-width:0;gap:4px;padding-inline:4px;font-size:11px}
  .ds2 .header-inner{gap:10px}
 }
