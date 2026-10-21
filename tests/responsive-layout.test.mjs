@@ -23,3 +23,7 @@ test('small phone overrides allow long CTA labels to wrap',()=>{
 test('mobile integrations and roles grids can shrink below their content minimum',()=>{
   assert.match(css,/@media\(max-width:767px\)\{[\s\S]*?\.ds2 \.integrations-layout,\.ds2 \.roles-layout\{grid-template-columns:minmax\(0,1fr\);gap:28px\}/);
 });
+
+test('role tabs fit a 320px viewport without forcing page overflow',()=>{
+  assert.match(css,/@media\(max-width:380px\)\{[\s\S]*?\.ds2 \.role-tabs button\{min-width:0;gap:4px;padding-inline:4px;font-size:11px\}/);
+});
