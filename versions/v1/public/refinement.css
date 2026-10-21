@@ -507,5 +507,6 @@
 @media(max-width:380px){
  .ds2 .hero-v3 .hero-v2-actions>.button:first-child{gap:8px;padding-inline:12px;font-size:13px;white-space:normal}
  .ds2 .hero-v3 .hero-v2-actions>.button:first-child>span{font-size:13px;white-space:normal}
+ .ds2 .role-tabs button{min-width:0;gap:4px;padding-inline:4px;font-size:11px}
  .ds2 .header-inner{gap:10px}
 }
