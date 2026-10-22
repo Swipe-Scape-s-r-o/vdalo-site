@@ -3,6 +3,6 @@
   "framework": null,
   "buildCommand": "npm --prefix qr-lab ci && npm --prefix qr-lab run build",
   "git": { "deploymentEnabled": true },
-  "functions": { "api/index.mjs": { "includeFiles": "{versions/**/public/**,microlandings/public/**,microlandings/top5/**,qr-lab/dist/**}", "maxDuration": 30 } },
+  "functions": { "api/index.mjs": { "includeFiles": "{versions/**/public/**,microlandings/public/**,microlandings/top5/**,microlandings/lp-assets/**,qr-lab/dist/**}", "maxDuration": 30 } },
   "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
 }

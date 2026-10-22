@@ -7,6 +7,7 @@ import {renderSmsTrial} from './microlandings/sms-trial.mjs';
 import {handleFunnelLead} from './microlandings/leads.mjs';
 import {renderVideoLanding,renderCalculator,assetNames} from './microlandings/top5.mjs';
 import {handleTop5Lead} from './microlandings/top5-leads.mjs';
+import {renderRobotFunnel,robotFunnelRoutes,robotFunnelLegacyRoutes,robotFunnelAssetRoot} from './microlandings/robot-funnels.mjs';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {gzipSync} from 'node:zlib';
@@ -36,7 +37,7 @@ import {touristTaxCityRoutes,getTouristTaxPlace,getTouristTaxRule} from './versi
 
 const root=path.dirname(fileURLToPath(import.meta.url));
 if(!process.env.VERCEL && existsSync(path.join(root,'.env')) && process.loadEnvFile)process.loadEnvFile(path.join(root,'.env'));
-const types={'.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.jpg':'image/jpeg','.jpeg':'image/jpeg','.mp4':'video/mp4','.json':'application/json; charset=utf-8','.woff2':'font/woff2'};
+const types={'.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.jpg':'image/jpeg','.jpeg':'image/jpeg','.mp4':'video/mp4','.webm':'video/webm','.json':'application/json; charset=utf-8','.woff2':'font/woff2'};
 const gtmHead=`<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PKDT7MMT');</script>`;
 const gtmBody=`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKDT7MMT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/svg+xml">';
@@ -206,6 +207,18 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/funnel/privacy')return send(res,200,renderFunnelPrivacy());
   if(pathname==='/q/') {res.writeHead(308,{Location:'/q'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/q')return send(res,200,renderQuizPage(url.searchParams));
+  if(pathname.startsWith('/q')&&pathname.endsWith('/')){const slug=pathname.slice(1,-1),canonical=robotFunnelLegacyRoutes.get(slug)||slug;if(robotFunnelRoutes.has(canonical)){res.writeHead(308,{Location:`/${canonical}${url.search}`,'Cache-Control':'public, max-age=300'});return res.end();}}
+  if(pathname.startsWith('/q')&&robotFunnelLegacyRoutes.has(pathname.slice(1))){res.writeHead(308,{Location:`/${robotFunnelLegacyRoutes.get(pathname.slice(1))}${url.search}`,'Cache-Control':'public, max-age=300'});return res.end();}
+  const funnelCode=robotFunnelRoutes.get(pathname.slice(1));
+  if(funnelCode)return send(res,200,await renderRobotFunnel(funnelCode,url.searchParams));
+  if(pathname.startsWith('/lp-assets/video/')){
+   const filename=path.basename(pathname),assetPath=path.join(robotFunnelAssetRoot,filename);
+   if(!/^[a-zA-Z0-9_.-]+$/.test(filename)||path.dirname(assetPath)!==robotFunnelAssetRoot)return send(res,404,'Не знайдено.','text/plain; charset=utf-8');
+   try{const data=await readFile(assetPath);if(filename.endsWith('.mp4'))return sendVideo(req,res,data);res.writeHead(200,{'Content-Type':types[path.extname(filename)]||'application/octet-stream','Cache-Control':'public, max-age=86400','X-Content-Type-Options':'nosniff'});return res.end(req.method==='HEAD'?undefined:data);}catch(error){if(error.code!=='ENOENT')throw error;return send(res,404,'Не знайдено.','text/plain; charset=utf-8');}
+  }
+  if(/^\/robot-funnel-assets\/robot-funnels\.(?:css|js)$/.test(pathname)){
+   const filename=path.join(root,'microlandings','public',path.basename(pathname)),data=await readFile(filename);res.writeHead(200,{'Content-Type':types[path.extname(filename)],'Cache-Control':'public, max-age=300','X-Content-Type-Options':'nosniff'});return res.end(req.method==='HEAD'?undefined:data);
+  }
   if(pathname==='/go/') {res.writeHead(308,{Location:'/go'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/go')return send(res,200,renderSmsGo(url.searchParams));
   if(pathname==='/go/trial')return send(res,200,renderSmsTrial(url.searchParams));

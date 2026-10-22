@@ -1,7 +1,7 @@
 import {createHash,randomUUID} from 'node:crypto';
 
 const clean=(v,n=180)=>typeof v==='string'?v.trim().slice(0,n):'';
-const funnels=new Set(['staff','nights','overbook','commission','blackout','tourist_tax']);
+const funnels=new Set(['staff','nights','overbook','commission','blackout','tourist_tax','guest_data','faq','night','notebook','direct','housekeeping','late_checkin']);
 const sources=new Set(['sms','sms2','email','direct','website','']);
 const buckets=new Set(['1-5','6-12','13-40','41+','1-12','41-80','81+']);
 const quizEnums={property_format:['guesthouse','hotel','apartments','glamping','hostel','multiple','other'],property_type:['hotel','guesthouse','apartments','resort','hostel','other'],room_range:['1-5','6-12','13-40','41+'],pms_status:['none','spreadsheets','manual_gaps','exely','satisfied','switching'],main_pain:['channels','checkin','night_calls','power','direct'],frequency:['daily','weekly','monthly','rare'],intent:['solution','calculator']};
@@ -39,7 +39,7 @@ export async function handleTop5Lead(req,res,{sendRequest=fetch,env=process.env}
   const raw=JSON.parse(Buffer.concat(chunks).toString('utf8'));
   if(!raw||typeof raw!=='object'||Array.isArray(raw))return reply(res,400,{ok:false,message:'Перевірте дані форми.'});
   if(raw.website)return reply(res,400,{ok:false,message:'Не вдалося перевірити запит.'});
-  const name=clean(raw.name,100),email=clean(raw.email,180).toLowerCase(),phone=clean(raw.phone,40),contactMethod=clean(raw.contact_method,20)||'phone',hotel=clean(raw.hotel,150),location=clean(raw.location,120),propertyType=clean(raw.property_type,40),pms=clean(raw.pms,120),hotelCount=clean(raw.hotel_count,10),rooms=clean(raw.rooms,20)||clean(raw.quiz_answers?.room_range,20),funnel=clean(raw.funnel,30),source=clean(raw.source,30),code=clean(raw.code,10),video=clean(raw.video,50),watched=Number(raw.watched)||0,entryPage=clean(raw.entry_page,180);
+  const name=clean(raw.name,100),email=clean(raw.email,180).toLowerCase(),phone=clean(raw.phone,40),contactMethod=clean(raw.contact_method,20)||'phone',hotel=clean(raw.hotel,150),location=clean(raw.location,120),propertyType=clean(raw.property_type,40),pms=clean(raw.pms,120),hotelCount=clean(raw.hotel_count,10),rooms=clean(raw.rooms,20)||clean(raw.quiz_answers?.room_range,20),funnel=clean(raw.funnel,30),source=clean(raw.source,30),code=clean(raw.code,10),video=clean(raw.video,50),videoVariant=clean(raw.video_variant,12),pageFormat=clean(raw.page_format,20),contactTag=clean(raw.t,120),watched=Number(raw.watched)||0,entryPage=clean(raw.entry_page,180);
   const submissionStage=raw.submission_stage==='email_capture'?'email_capture':raw.submission_stage==='details_complete'?'details_complete':'';
   const suppliedLeadId=typeof raw.submission_id==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(raw.submission_id)?raw.submission_id:'';
   if(raw.submission_stage&&!submissionStage)return reply(res,422,{ok:false,message:'Не вдалося визначити крок заявки.'});
@@ -58,13 +58,15 @@ export async function handleTop5Lead(req,res,{sendRequest=fetch,env=process.env}
    if(!accepted)return reply(res,502,{ok:false,message:'Не вдалося підтвердити отримання email. Спробуйте ще раз.'});
    return reply(res,200,{ok:true,leadId,stage:'email_captured'});
   }
+  const isRobotFunnel=/^q(?:[1-9]|10)b?$/.test(code)&&pageFormat;
   if(name.length<2)return reply(res,422,{ok:false,message:'Вкажіть ваше ім’я.'});
   if(!/^[+()\d\s.-]+$/.test(phone)||phone.replace(/\D/g,'').length<9||phone.replace(/\D/g,'').length>15)return reply(res,422,{ok:false,message:'Вкажіть коректний телефон.'});
   if(hotel.length<2)return reply(res,422,{ok:false,message:'Вкажіть назву готелю або об’єкта.'});
-  if(location.length<2)return reply(res,422,{ok:false,message:'Вкажіть місто або громаду.'});
-  if(!new Set(['hotel','guesthouse','apartments','glamping','hostel','other']).has(propertyType))return reply(res,422,{ok:false,message:'Оберіть тип об’єкта.'});
+  if(!isRobotFunnel&&location.length<2)return reply(res,422,{ok:false,message:'Вкажіть місто або громаду.'});
+  if(!new Set(['hotel','guesthouse','apartments','glamping','hostel','other']).has(propertyType)&&!isRobotFunnel)return reply(res,422,{ok:false,message:'Оберіть тип об’єкта.'});
+  if(isRobotFunnel&&!new Set(['video','calculator','questions']).has(pageFormat))return reply(res,422,{ok:false,message:'Не вдалося визначити формат сторінки.'});
   if(!new Set(['phone','viber','telegram']).has(contactMethod))return reply(res,422,{ok:false,message:'Оберіть зручний спосіб зв’язку.'});
-  if(!buckets.has(rooms))return reply(res,422,{ok:false,message:'Оберіть кількість номерів або юнітів.'});
+  if(!isRobotFunnel&&!buckets.has(rooms))return reply(res,422,{ok:false,message:'Оберіть кількість номерів або юнітів.'});
   if(hotelCount&&!new Set(['1','2-3','4+']).has(hotelCount))return reply(res,422,{ok:false,message:'Перевірте кількість об’єктів.'});
   if(!funnels.has(funnel)||!sources.has(source))return reply(res,422,{ok:false,message:'Не вдалося визначити джерело запиту.'});
   if(raw.consent!==true)return reply(res,422,{ok:false,message:'Потрібна згода на обробку даних.'});
@@ -74,7 +76,8 @@ export async function handleTop5Lead(req,res,{sendRequest=fetch,env=process.env}
   const quizAnswers=cleanQuizContext(raw,funnel);
   const isTouristTax=funnel==='tourist_tax';
   const leadId=suppliedLeadId||randomUUID();
-  const payload={lead_id:leadId,kind:isTouristTax?'tourist_tax_inquiry':'trial_request',event_type:submissionStage==='details_complete'?'lead_enriched':'lead_captured',status:'pending_contact',stage:'NEW',proposed_next_step:'review_trial_request',...(isTouristTax?{}:{trial_days:14,requires_card:false}),submitted_at:new Date().toISOString(),contact:{name,email,phone,preferred_method:contactMethod,hotel_name:hotel,property_type:propertyType,location,room_range:rooms,...(hotelCount?{hotel_count:hotelCount}:{}),...(pms?{current_pms:pms}:{})},...(quizAnswers?{qualification:{quiz_answers:quizAnswers}}:{}),attribution:{source,code,funnel,video,entry_page:entryPage||null,watched_percent:[0,25,50,75,100].reduce((best,value)=>Math.abs(best-watched)<Math.abs(value-watched)?best:value,0),calculator:calc||null,utm:Object.fromEntries(['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(k=>[k,clean(raw[k],150)]).filter(([,v])=>v))},permissions:{respond_to_request:true,consent:true},source_system:'vdalo-top5-funnels'};
+  const safeAnswers=raw.answers&&typeof raw.answers==='object'&&!Array.isArray(raw.answers)?Object.fromEntries(Object.entries(raw.answers).slice(0,12).map(([key,value])=>[clean(key,50),typeof value==='string'?clean(value,300):typeof value==='number'||typeof value==='boolean'?value:null])):{};
+  const payload={lead_id:leadId,kind:isTouristTax?'tourist_tax_inquiry':'trial_request',event_type:isRobotFunnel?'lead_captured':submissionStage==='details_complete'?'lead_enriched':'lead_captured',status:'pending_contact',stage:'NEW',proposed_next_step:'review_trial_request',...(isTouristTax?{}:{trial_days:14,requires_card:false}),submitted_at:new Date().toISOString(),contact:{name,email,phone,preferred_method:contactMethod,...(hotel?{hotel_name:hotel}:{}),...(propertyType?{property_type:propertyType}:{}),...(location?{location}:{}),...(rooms?{room_range:rooms}:{}),...(hotelCount?{hotel_count:hotelCount}:{}),...(pms?{current_pms:pms}:{})},...(quizAnswers?{qualification:{quiz_answers:quizAnswers}}:{}),...(safeAnswers?{answers:safeAnswers}:{}),attribution:{source,code,funnel,...(pageFormat?{page_format:pageFormat}:{}),...(video?{video}:{}),...(videoVariant?{video_variant:videoVariant}:{}),...(contactTag?{contact_tag:contactTag}:{}),entry_page:entryPage||null,watched_percent:[0,25,50,75,100].reduce((best,value)=>Math.abs(best-watched)<Math.abs(value-watched)?value:best,0),calculator:calc||null,utm:Object.fromEntries(['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(k=>[k,clean(raw[k],150)]).filter(([,v])=>v))},permissions:{respond_to_request:true,consent:true},source_system:isRobotFunnel?'vdalo-robot-funnels':'vdalo-top5-funnels'};
   const accepted=await deliverLead(endpoint,payload,submissionStage||'details_complete',env,sendRequest);
   if(!accepted)return reply(res,502,{ok:false,message:'Не вдалося підтвердити отримання запиту. Спробуйте пізніше.'});
   return reply(res,200,{ok:true,leadId:payload.lead_id,stage:'pending_contact'});
