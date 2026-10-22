@@ -41,6 +41,17 @@ test('video assets referenced by the manifest exist and support accessible, redu
  assert.match(client,/if\(!success\.hidden\)\{step1\.hidden=true;step2\.hidden=true;return;\}/);
 });
 
+test('robot funnel analytics includes page context and excludes visitor-entered answers',async()=>{
+ const client=await readFile(path.join(root,'microlandings','public','robot-funnels.js'),'utf8');
+ assert.match(client,/page_path:location\.pathname,page_title:document\.title/);
+ assert.match(client,/send\('form_step1_done'\)/);
+ assert.match(client,/send\('questions_done',\{answer_count:2\}\)/);
+ assert.match(client,/send\('calc_result',\{calculator_type:'tourist_tax'\}\)/);
+ assert.doesNotMatch(client,/send\('form_step1_done',\{property_name:/);
+ assert.doesNotMatch(client,/send\('questions_done',\{answers:/);
+ assert.doesNotMatch(client,/send\('calc_result',\{calculator:/);
+});
+
 test('robot funnel accepts only object name and contact, then sends a captured lead with Callo attribution',async()=>{
  const request=Readable.from([JSON.stringify({
   name:'Тест',email:'qa@example.com',phone:'+380501234567',hotel:'Тестова садиба',contact_method:'phone',consent:true,
