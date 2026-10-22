@@ -1,0 +1,469 @@
+[
+ {
+  "code": "q1",
+  "funnel": "overbook",
+  "pain": "Овербукінг: один номер продали двом гостям",
+  "pages": [
+   "q1",
+   "q1b"
+  ],
+  "h1": "Один номер продали двом гостям?",
+  "cta_in_video": "Налаштуйте мені календар",
+  "variant": "v1",
+  "title": "Двоє гостей",
+  "kind": "Дзеркало, сцена болю",
+  "duration_s": 16.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 459,
+  "files": {
+   "mp4": "q1-overbook-v1.mp4",
+   "webm": "q1-overbook-v1.webm",
+   "poster": "q1-overbook-v1.jpg"
+  }
+ },
+ {
+  "code": "q1",
+  "funnel": "overbook",
+  "pain": "Овербукінг: один номер продали двом гостям",
+  "pages": [
+   "q1",
+   "q1b"
+  ],
+  "h1": "Один номер продали двом гостям?",
+  "cta_in_video": "Налаштуйте мені календар",
+  "variant": "v3",
+  "title": "Пʼятниця, 13:58",
+  "kind": "Сюжет-дзеркало",
+  "duration_s": 23.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 623,
+  "files": {
+   "mp4": "q1-overbook-v3.mp4",
+   "webm": "q1-overbook-v3.webm",
+   "poster": "q1-overbook-v3.jpg"
+  }
+ },
+ {
+  "code": "q2",
+  "funnel": "guest_data",
+  "pain": "Дані гостей і документи вручну",
+  "pages": [
+   "q2"
+  ],
+  "h1": "Знову переписуєте дані гостей вручну?",
+  "cta_in_video": "Налаштуйте анкету гостя",
+  "variant": "v1",
+  "title": "Знову переписуєте",
+  "kind": "Дзеркало, сцена болю",
+  "duration_s": 16.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 555,
+  "files": {
+   "mp4": "q2-guest_data-v1.mp4",
+   "webm": "q2-guest_data-v1.webm",
+   "poster": "q2-guest_data-v1.jpg"
+  }
+ },
+ {
+  "code": "q2",
+  "funnel": "guest_data",
+  "pain": "Дані гостей і документи вручну",
+  "pages": [
+   "q2"
+  ],
+  "h1": "Знову переписуєте дані гостей вручну?",
+  "cta_in_video": "Налаштуйте анкету гостя",
+  "variant": "v2",
+  "title": "Кожен заїзд. Вручну.",
+  "kind": "Кінетична типографіка",
+  "duration_s": 12.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 291,
+  "files": {
+   "mp4": "q2-guest_data-v2.mp4",
+   "webm": "q2-guest_data-v2.webm",
+   "poster": "q2-guest_data-v2.jpg"
+  }
+ },
+ {
+  "code": "q3",
+  "funnel": "tourist_tax",
+  "pain": "Туристичний збір рахують вручну",
+  "pages": [
+   "q3"
+  ],
+  "h1": "Туристичний збір рахуєте вручну?",
+  "cta_in_video": "Порахуйте свій збір нижче",
+  "variant": "v1",
+  "title": "Турзбір вручну",
+  "kind": "Дзеркало, сцена болю",
+  "duration_s": 16.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 458,
+  "files": {
+   "mp4": "q3-tourist_tax-v1.mp4",
+   "webm": "q3-tourist_tax-v1.webm",
+   "poster": "q3-tourist_tax-v1.jpg"
+  }
+ },
+ {
+  "code": "q3",
+  "funnel": "tourist_tax",
+  "pain": "Туристичний збір рахують вручну",
+  "pages": [
+   "q3"
+  ],
+  "h1": "Туристичний збір рахуєте вручну?",
+  "cta_in_video": "Порахуйте нижче за 20 секунд",
+  "variant": "v2",
+  "title": "Помилка може коштувати штрафу",
+  "kind": "Кінетична типографіка",
+  "duration_s": 12.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 265,
+  "files": {
+   "mp4": "q3-tourist_tax-v2.mp4",
+   "webm": "q3-tourist_tax-v2.webm",
+   "poster": "q3-tourist_tax-v2.jpg"
+  }
+ },
+ {
+  "code": "q3",
+  "funnel": "tourist_tax",
+  "pain": "Туристичний збір рахують вручну",
+  "pages": [
+   "q3"
+  ],
+  "h1": "Туристичний збір рахуєте вручну?",
+  "cta_in_video": "Спробуйте на своїх цифрах. Калькулятор нижче",
+  "variant": "v3",
+  "title": "Калькулятор турзбору",
+  "kind": "Доказ: анімований калькулятор на прикладі",
+  "duration_s": 18.5,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 352,
+  "files": {
+   "mp4": "q3-tourist_tax-v3.mp4",
+   "webm": "q3-tourist_tax-v3.webm",
+   "poster": "q3-tourist_tax-v3.jpg"
+  },
+  "note": "приклад ставки; без запису екрана"
+ },
+ {
+  "code": "q4",
+  "funnel": "faq",
+  "pain": "Гості питають одне й те саме",
+  "pages": [
+   "q4",
+   "q4b"
+  ],
+  "h1": "Гості питають вас одне й те саме?",
+  "cta_in_video": "Налаштуйте чат-бота",
+  "variant": "v1",
+  "title": "Сьомий дзвінок за вечір",
+  "kind": "Дзеркало, сцена болю",
+  "duration_s": 16.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 560,
+  "files": {
+   "mp4": "q4-faq-v1.mp4",
+   "webm": "q4-faq-v1.webm",
+   "poster": "q4-faq-v1.jpg"
+  }
+ },
+ {
+  "code": "q5",
+  "funnel": "night",
+  "pain": "Нічний запит = втрачене бронювання",
+  "pages": [
+   "q5"
+  ],
+  "h1": "Гість питає о другій ночі. Хто відповість?",
+  "cta_in_video": "Налаштуйте нічного бота",
+  "variant": "v1",
+  "title": "Нічне бронювання",
+  "kind": "Дзеркало, сцена болю",
+  "duration_s": 18.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 441,
+  "files": {
+   "mp4": "q5-night-v1.mp4",
+   "webm": "q5-night-v1.webm",
+   "poster": "q5-night-v1.jpg"
+  }
+ },
+ {
+  "code": "q5",
+  "funnel": "night",
+  "pain": "Нічний запит = втрачене бронювання",
+  "pages": [
+   "q5"
+  ],
+  "h1": "Гість питає о другій ночі. Хто відповість?",
+  "cta_in_video": "Налаштуйте нічного бота",
+  "variant": "v3",
+  "title": "01:40. Три садиби",
+  "kind": "Сюжет-дзеркало",
+  "duration_s": 22.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 476,
+  "files": {
+   "mp4": "q5-night-v3.mp4",
+   "webm": "q5-night-v3.webm",
+   "poster": "q5-night-v3.jpg"
+  }
+ },
+ {
+  "code": "q6",
+  "funnel": "notebook",
+  "pain": "Бронювання в зошиті й месенджерах",
+  "pages": [
+   "q6"
+  ],
+  "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+  "cta_in_video": "Налаштуйте мені календар",
+  "variant": "v1",
+  "title": "Хто на 14-те?",
+  "kind": "Дзеркало, сцена болю",
+  "duration_s": 16.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 403,
+  "files": {
+   "mp4": "q6-notebook-v1.mp4",
+   "webm": "q6-notebook-v1.webm",
+   "poster": "q6-notebook-v1.jpg"
+  }
+ },
+ {
+  "code": "q6",
+  "funnel": "notebook",
+  "pain": "Бронювання в зошиті й месенджерах",
+  "pages": [
+   "q6"
+  ],
+  "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+  "cta_in_video": "Налаштуйте мені календар",
+  "variant": "v2",
+  "title": "Де бронювання на 14-те?",
+  "kind": "Кінетична типографіка",
+  "duration_s": 11.5,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 275,
+  "files": {
+   "mp4": "q6-notebook-v2.mp4",
+   "webm": "q6-notebook-v2.webm",
+   "poster": "q6-notebook-v2.jpg"
+  }
+ },
+ {
+  "code": "q6",
+  "funnel": "notebook",
+  "pain": "Бронювання в зошиті й месенджерах",
+  "pages": [
+   "q6"
+  ],
+  "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+  "cta_in_video": "Налаштуйте мені календар",
+  "variant": "v3",
+  "title": "Один екран",
+  "kind": "Доказ: календар з демо-даними",
+  "duration_s": 22.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 612,
+  "files": {
+   "mp4": "q6-notebook-v3.mp4",
+   "webm": "q6-notebook-v3.webm",
+   "poster": "q6-notebook-v3.jpg"
+  }
+ },
+ {
+  "code": "q7",
+  "funnel": "commission",
+  "pain": "Комісії сайту бронювань",
+  "pages": [
+   "q7"
+  ],
+  "h1": "Скільки ви віддаєте Букінгу за рік?",
+  "cta_in_video": "Калькулятор нижче",
+  "variant": "v1",
+  "title": "Скільки з цього ваше?",
+  "kind": "Дзеркало, сцена болю",
+  "duration_s": 16.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 455,
+  "files": {
+   "mp4": "q7-commission-v1.mp4",
+   "webm": "q7-commission-v1.webm",
+   "poster": "q7-commission-v1.jpg"
+  }
+ },
+ {
+  "code": "q8",
+  "funnel": "housekeeping",
+  "pain": "Номер не готовий до заїзду",
+  "pages": [
+   "q8"
+  ],
+  "h1": "Гості вже приїхали, а номер не прибраний?",
+  "cta_in_video": "Налаштуйте прибирання",
+  "variant": "v1",
+  "title": "12:30. Гості вже тут",
+  "kind": "Дзеркало, сцена болю",
+  "duration_s": 16.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 380,
+  "files": {
+   "mp4": "q8-housekeeping-v1.mp4",
+   "webm": "q8-housekeeping-v1.webm",
+   "poster": "q8-housekeeping-v1.jpg"
+  }
+ },
+ {
+  "code": "q8",
+  "funnel": "housekeeping",
+  "pain": "Номер не готовий до заїзду",
+  "pages": [
+   "q8"
+  ],
+  "h1": "Гості вже приїхали, а номер не прибраний?",
+  "cta_in_video": "Налаштуйте прибирання",
+  "variant": "v2",
+  "title": "Хто кому не сказав",
+  "kind": "Кінетична типографіка",
+  "duration_s": 11.5,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 231,
+  "files": {
+   "mp4": "q8-housekeeping-v2.mp4",
+   "webm": "q8-housekeeping-v2.webm",
+   "poster": "q8-housekeeping-v2.jpg"
+  }
+ },
+ {
+  "code": "q8",
+  "funnel": "housekeeping",
+  "pain": "Номер не готовий до заїзду",
+  "pages": [
+   "q8"
+  ],
+  "h1": "Гості вже приїхали, а номер не прибраний?",
+  "cta_in_video": "Налаштуйте прибирання",
+  "variant": "v3",
+  "title": "Сьогодні 4 заїзди",
+  "kind": "Доказ: статуси номерів",
+  "duration_s": 21.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 523,
+  "files": {
+   "mp4": "q8-housekeeping-v3.mp4",
+   "webm": "q8-housekeeping-v3.webm",
+   "poster": "q8-housekeeping-v3.jpg"
+  },
+  "note": "статуси прибирання чекають підтвердження власника"
+ },
+ {
+  "code": "q9",
+  "funnel": "staff",
+  "pain": "Бракує людей",
+  "pages": [
+   "q9"
+  ],
+  "h1": "Роботи більшає, а людей бракує?",
+  "cta_in_video": "Запишіться на 15 хвилин",
+  "variant": "v1",
+  "title": "Вакансія третій тиждень",
+  "kind": "Дзеркало, сцена болю",
+  "duration_s": 16.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 599,
+  "files": {
+   "mp4": "q9-staff-v1.mp4",
+   "webm": "q9-staff-v1.webm",
+   "poster": "q9-staff-v1.jpg"
+  }
+ },
+ {
+  "code": "q9",
+  "funnel": "staff",
+  "pain": "Бракує людей",
+  "pages": [
+   "q9"
+  ],
+  "h1": "Роботи більшає, а людей бракує?",
+  "cta_in_video": "Запишіться на 15 хвилин",
+  "variant": "v2",
+  "title": "Роботи більшає",
+  "kind": "Кінетична типографіка",
+  "duration_s": 13.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 258,
+  "files": {
+   "mp4": "q9-staff-v2.mp4",
+   "webm": "q9-staff-v2.webm",
+   "poster": "q9-staff-v2.jpg"
+  }
+ },
+ {
+  "code": "q10",
+  "funnel": "late_checkin",
+  "pain": "Чекаєте гостя до ночі",
+  "pages": [
+   "q10"
+  ],
+  "h1": "Знову чекаєте гостя до півночі?",
+  "cta_in_video": "Налаштуйте заселення без вас",
+  "variant": "v1",
+  "title": "23:40. Ви досі чекаєте",
+  "kind": "Дзеркало, сцена болю",
+  "duration_s": 16.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 364,
+  "files": {
+   "mp4": "q10-late_checkin-v1.mp4",
+   "webm": "q10-late_checkin-v1.webm",
+   "poster": "q10-late_checkin-v1.jpg"
+  }
+ },
+ {
+  "code": "q10",
+  "funnel": "late_checkin",
+  "pain": "Чекаєте гостя до ночі",
+  "pages": [
+   "q10"
+  ],
+  "h1": "Знову чекаєте гостя до півночі?",
+  "cta_in_video": "Налаштуйте заселення без вас",
+  "variant": "v3",
+  "title": "Холодна вечеря",
+  "kind": "Сюжет-дзеркало",
+  "duration_s": 23.0,
+  "aspect": "4:5 (1080x1350)",
+  "audio": false,
+  "size_kb": 652,
+  "files": {
+   "mp4": "q10-late_checkin-v3.mp4",
+   "webm": "q10-late_checkin-v3.webm",
+   "poster": "q10-late_checkin-v3.jpg"
+  }
+ }
+]
