@@ -7,7 +7,7 @@ import {renderSmsTrial} from './microlandings/sms-trial.mjs';
 import {handleFunnelLead} from './microlandings/leads.mjs';
 import {renderVideoLanding,renderCalculator,assetNames} from './microlandings/top5.mjs';
 import {handleTop5Lead} from './microlandings/top5-leads.mjs';
-import {renderRobotFunnel,robotFunnelCodes,robotFunnelAssetRoot} from './microlandings/robot-funnels.mjs';
+import {renderRobotFunnel,robotFunnelRoutes,robotFunnelLegacyRoutes,robotFunnelAssetRoot} from './microlandings/robot-funnels.mjs';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {gzipSync} from 'node:zlib';
@@ -207,8 +207,10 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/funnel/privacy')return send(res,200,renderFunnelPrivacy());
   if(pathname==='/q/') {res.writeHead(308,{Location:'/q'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/q')return send(res,200,renderQuizPage(url.searchParams));
-  if(/^\/(?:q1b|q4b|q7b|q(?:[1-9]|10))\/$/.test(pathname)){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
-  if(robotFunnelCodes.has(pathname.slice(1))&&pathname.startsWith('/q'))return send(res,200,await renderRobotFunnel(pathname.slice(1),url.searchParams));
+  if(pathname.startsWith('/q')&&pathname.endsWith('/')){const slug=pathname.slice(1,-1),canonical=robotFunnelLegacyRoutes.get(slug)||slug;if(robotFunnelRoutes.has(canonical)){res.writeHead(308,{Location:`/${canonical}${url.search}`,'Cache-Control':'public, max-age=300'});return res.end();}}
+  if(pathname.startsWith('/q')&&robotFunnelLegacyRoutes.has(pathname.slice(1))){res.writeHead(308,{Location:`/${robotFunnelLegacyRoutes.get(pathname.slice(1))}${url.search}`,'Cache-Control':'public, max-age=300'});return res.end();}
+  const funnelCode=robotFunnelRoutes.get(pathname.slice(1));
+  if(funnelCode)return send(res,200,await renderRobotFunnel(funnelCode,url.searchParams));
   if(pathname.startsWith('/lp-assets/video/')){
    const filename=path.basename(pathname),assetPath=path.join(robotFunnelAssetRoot,filename);
    if(!/^[a-zA-Z0-9_.-]+$/.test(filename)||path.dirname(assetPath)!==robotFunnelAssetRoot)return send(res,404,'Не знайдено.','text/plain; charset=utf-8');

@@ -21,6 +21,13 @@ const offers={
  q10:{funnel:'late_checkin',format:'video',h1:'Знову чекаєте гостя до півночі?',sub:'Сервіс «Вдало» надішле гостю інструкцію заїзду, щоб він міг заселитися без вашої присутності.',cta:'Налаштуйте заселення без вас',videos:['q10-late_checkin-v1','q10-late_checkin-v3'],faqs:[['А ключі?','Електронні замки та передача ключів не входять у підтверджені можливості сервісу.'],['Що отримує гість?','Команда VDALO уточнить вміст інструкції для вашого процесу.'],['Коли надходить інструкція?','Час відправлення узгоджується під час налаштування.']]},
 };
 
+// Compact public slugs for SMS; internal campaign codes stay stable for analytics and media manifests.
+export const robotFunnelRoutes=new Map([
+ ['q1','q1'],['q2','q2'],['q3','q3'],['q4','q4'],['q5','q5'],['q6','q6'],['q7','q7'],['q8','q8'],['q9','q9'],
+ ['qa','q1b'],['qb','q4b'],['qc','q7b'],['qd','q10'],
+]);
+export const robotFunnelLegacyRoutes=new Map([['q1b','qa'],['q4b','qb'],['q7b','qc'],['q10','qd']]);
+
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export async function renderRobotFunnel(code,searchParams){
  const cfg=offers[code]; if(!cfg)return null;

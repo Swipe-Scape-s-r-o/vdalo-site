@@ -4,7 +4,7 @@ import path from 'node:path';
 import {Readable} from 'node:stream';
 import test from 'node:test';
 import {fileURLToPath} from 'node:url';
-import {renderRobotFunnel,robotFunnelAssetRoot,robotFunnelCodes} from '../microlandings/robot-funnels.mjs';
+import {renderRobotFunnel,robotFunnelAssetRoot,robotFunnelCodes,robotFunnelRoutes,robotFunnelLegacyRoutes} from '../microlandings/robot-funnels.mjs';
 import {handleTop5Lead} from '../microlandings/top5-leads.mjs';
 
 const expectedCodes=['q1','q1b','q2','q3','q4','q4b','q5','q6','q7','q7b','q8','q9','q10'];
@@ -24,6 +24,17 @@ test('all robot funnels render with lean property and contact fields, no city or
   assert.doesNotMatch(html,/безкоштовне налаштування|налаштування безкоштовно/i,code);
   if(['q6','q9'].includes(code))assert.match(html,/За бажанням оберіть відповіді/);
  }
+});
+
+test('public SMS slugs fit in two characters and keep legacy campaign codes mapped',async()=>{
+ assert.equal(robotFunnelRoutes.size,13);
+ for(const [slug,code] of robotFunnelRoutes){
+  assert.ok(slug.length<=2,`/${slug} exceeds the SMS slug limit`);
+  assert.ok(robotFunnelCodes.has(code),`${slug} points to unknown funnel code ${code}`);
+  const html=await renderRobotFunnel(code,new URLSearchParams());
+  assert.match(html,new RegExp(`<body data-code="${code}">`));
+ }
+ assert.deepEqual([...robotFunnelLegacyRoutes],[['q1b','qa'],['q4b','qb'],['q7b','qc'],['q10','qd']]);
 });
 
 test('video assets referenced by the manifest exist and support accessible, reduced-motion playback',async()=>{
