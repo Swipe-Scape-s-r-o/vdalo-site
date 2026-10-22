@@ -58,15 +58,15 @@ export async function handleTop5Lead(req,res,{sendRequest=fetch,env=process.env}
    if(!accepted)return reply(res,502,{ok:false,message:'Не вдалося підтвердити отримання email. Спробуйте ще раз.'});
    return reply(res,200,{ok:true,leadId,stage:'email_captured'});
   }
+  const isRobotFunnel=/^q(?:[1-9]|10)b?$/.test(code)&&pageFormat;
   if(name.length<2)return reply(res,422,{ok:false,message:'Вкажіть ваше ім’я.'});
   if(!/^[+()\d\s.-]+$/.test(phone)||phone.replace(/\D/g,'').length<9||phone.replace(/\D/g,'').length>15)return reply(res,422,{ok:false,message:'Вкажіть коректний телефон.'});
-  const isRobotFunnel=/^q(?:[1-9]|10)b?$/.test(code)&&pageFormat;
-  if(!isRobotFunnel&&hotel.length<2)return reply(res,422,{ok:false,message:'Вкажіть назву готелю або об’єкта.'});
+  if(hotel.length<2)return reply(res,422,{ok:false,message:'Вкажіть назву готелю або об’єкта.'});
   if(!isRobotFunnel&&location.length<2)return reply(res,422,{ok:false,message:'Вкажіть місто або громаду.'});
   if(!new Set(['hotel','guesthouse','apartments','glamping','hostel','other']).has(propertyType)&&!isRobotFunnel)return reply(res,422,{ok:false,message:'Оберіть тип об’єкта.'});
   if(isRobotFunnel&&!new Set(['video','calculator','questions']).has(pageFormat))return reply(res,422,{ok:false,message:'Не вдалося визначити формат сторінки.'});
   if(!new Set(['phone','viber','telegram']).has(contactMethod))return reply(res,422,{ok:false,message:'Оберіть зручний спосіб зв’язку.'});
-  if(!buckets.has(rooms))return reply(res,422,{ok:false,message:'Оберіть кількість номерів або юнітів.'});
+  if(!isRobotFunnel&&!buckets.has(rooms))return reply(res,422,{ok:false,message:'Оберіть кількість номерів або юнітів.'});
   if(hotelCount&&!new Set(['1','2-3','4+']).has(hotelCount))return reply(res,422,{ok:false,message:'Перевірте кількість об’єктів.'});
   if(!funnels.has(funnel)||!sources.has(source))return reply(res,422,{ok:false,message:'Не вдалося визначити джерело запиту.'});
   if(raw.consent!==true)return reply(res,422,{ok:false,message:'Потрібна згода на обробку даних.'});
@@ -77,7 +77,7 @@ export async function handleTop5Lead(req,res,{sendRequest=fetch,env=process.env}
   const isTouristTax=funnel==='tourist_tax';
   const leadId=suppliedLeadId||randomUUID();
   const safeAnswers=raw.answers&&typeof raw.answers==='object'&&!Array.isArray(raw.answers)?Object.fromEntries(Object.entries(raw.answers).slice(0,12).map(([key,value])=>[clean(key,50),typeof value==='string'?clean(value,300):typeof value==='number'||typeof value==='boolean'?value:null])):{};
-  const payload={lead_id:leadId,kind:isTouristTax?'tourist_tax_inquiry':'trial_request',event_type:submissionStage==='details_complete'?'lead_enriched':'lead_captured',status:'pending_contact',stage:'NEW',proposed_next_step:'review_trial_request',...(isTouristTax?{}:{trial_days:14,requires_card:false}),submitted_at:new Date().toISOString(),contact:{name,email,phone,preferred_method:contactMethod,...(hotel?{hotel_name:hotel}:{}),...(propertyType?{property_type:propertyType}:{}),...(location?{location}:{}),room_range:rooms,...(hotelCount?{hotel_count:hotelCount}:{}),...(pms?{current_pms:pms}:{})},...(quizAnswers?{qualification:{quiz_answers:quizAnswers}}:{}),...(safeAnswers?{answers:safeAnswers}:{}),attribution:{source,code,funnel,...(pageFormat?{page_format:pageFormat}:{}),...(video?{video}:{}),...(videoVariant?{video_variant:videoVariant}:{}),...(contactTag?{contact_tag:contactTag}:{}),entry_page:entryPage||null,watched_percent:[0,25,50,75,100].reduce((best,value)=>Math.abs(best-watched)<Math.abs(value-watched)?value:best,0),calculator:calc||null,utm:Object.fromEntries(['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(k=>[k,clean(raw[k],150)]).filter(([,v])=>v))},permissions:{respond_to_request:true,consent:true},source_system:isRobotFunnel?'vdalo-robot-funnels':'vdalo-top5-funnels'};
+  const payload={lead_id:leadId,kind:isTouristTax?'tourist_tax_inquiry':'trial_request',event_type:submissionStage==='details_complete'?'lead_enriched':'lead_captured',status:'pending_contact',stage:'NEW',proposed_next_step:'review_trial_request',...(isTouristTax?{}:{trial_days:14,requires_card:false}),submitted_at:new Date().toISOString(),contact:{name,email,phone,preferred_method:contactMethod,...(hotel?{hotel_name:hotel}:{}),...(propertyType?{property_type:propertyType}:{}),...(location?{location}:{}),...(rooms?{room_range:rooms}:{}),...(hotelCount?{hotel_count:hotelCount}:{}),...(pms?{current_pms:pms}:{})},...(quizAnswers?{qualification:{quiz_answers:quizAnswers}}:{}),...(safeAnswers?{answers:safeAnswers}:{}),attribution:{source,code,funnel,...(pageFormat?{page_format:pageFormat}:{}),...(video?{video}:{}),...(videoVariant?{video_variant:videoVariant}:{}),...(contactTag?{contact_tag:contactTag}:{}),entry_page:entryPage||null,watched_percent:[0,25,50,75,100].reduce((best,value)=>Math.abs(best-watched)<Math.abs(value-watched)?value:best,0),calculator:calc||null,utm:Object.fromEntries(['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(k=>[k,clean(raw[k],150)]).filter(([,v])=>v))},permissions:{respond_to_request:true,consent:true},source_system:isRobotFunnel?'vdalo-robot-funnels':'vdalo-top5-funnels'};
   const accepted=await deliverLead(endpoint,payload,submissionStage||'details_complete',env,sendRequest);
   if(!accepted)return reply(res,502,{ok:false,message:'Не вдалося підтвердити отримання запиту. Спробуйте пізніше.'});
   return reply(res,200,{ok:true,leadId:payload.lead_id,stage:'pending_contact'});
