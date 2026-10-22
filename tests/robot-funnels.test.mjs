@@ -49,7 +49,7 @@ test('video assets referenced by the manifest exist and support accessible, redu
  const client=await readFile(path.join(root,'microlandings','public','robot-funnels.js'),'utf8');
  assert.match(client,/prefers-reduced-motion: reduce/);
  assert.match(client,/video_complete/);
- assert.match(client,/if\(!success\.hidden\)\{step1\.hidden=true;step2\.hidden=true;return;\}/);
+ assert.match(client,/if\(!success\.hidden\)\{step1\.hidden=true;step2\.hidden=true;success\.focus\(\);return;\}/);
 });
 
 test('robot funnel analytics includes page context and excludes visitor-entered answers',async()=>{
@@ -61,6 +61,24 @@ test('robot funnel analytics includes page context and excludes visitor-entered 
  assert.doesNotMatch(client,/send\('form_step1_done',\{property_name:/);
  assert.doesNotMatch(client,/send\('questions_done',\{answers:/);
  assert.doesNotMatch(client,/send\('calc_result',\{calculator:/);
+});
+
+test('default contact choice matches the channel submitted by the form and errors are screen-reader linked',async()=>{
+ const html=await renderRobotFunnel('q1',new URLSearchParams());
+ const client=await readFile(path.join(root,'microlandings','public','robot-funnels.js'),'utf8');
+ const styles=await readFile(path.join(root,'microlandings','public','robot-funnels.css'),'utf8');
+ assert.match(html,/data-name="contact_method">[\s\S]*?<button[^>]*class="chip selected"[^>]*aria-pressed="true"[^>]*data-value="phone"/);
+ assert.match(client,/answers\.contact_method\|\|'phone'/);
+ assert.match(client,/aria-invalid/);
+ assert.match(client,/aria-describedby/);
+ assert.match(client,/form\.elements\.hotel\.focus\(\)/);
+ assert.match(client,/field\.checkValidity\(\)/);
+ assert.match(client,/nightsField\.checkValidity\(\)/);
+ assert.match(client,/now\.getFullYear\(\)/);
+ assert.doesNotMatch(client,/toISOString\(\)\.slice\(0,10\)/);
+ assert.match(client,/Це не прогноз доходу/);
+ assert.match(styles,/\.icon-btn\{[^}]*width:44px;height:44px/);
+ assert.match(styles,/\.chip\{[^}]*min-height:44px/);
 });
 
 test('robot funnel accepts only object name and contact, then sends a captured lead with Callo attribution',async()=>{
