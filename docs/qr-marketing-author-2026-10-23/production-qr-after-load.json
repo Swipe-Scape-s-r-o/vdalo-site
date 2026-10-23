@@ -1,0 +1,23 @@
+{
+  "articleCards": 0,
+  "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+  "client": 1425,
+  "graphTypes": [
+    "Organization",
+    "WebSite",
+    "WebPage",
+    "SoftwareApplication",
+    "BreadcrumbList"
+  ],
+  "h1": [
+    "Генератор QR-кодів для готелів"
+  ],
+  "ministryLinks": [],
+  "newArticleLinks": 1,
+  "path": "/tools/qr-studio/",
+  "profileLinks": 0,
+  "robots": "index,follow,max-image-preview:large",
+  "scroll": 1425,
+  "title": "QR-генератор для готелю, садиби й ресторану | VDALO",
+  "width": 1440
+}
