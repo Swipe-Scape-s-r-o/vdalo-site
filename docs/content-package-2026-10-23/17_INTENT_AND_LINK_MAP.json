@@ -1,0 +1,2179 @@
+[
+  {
+    "id": "P001",
+    "url": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+    "cluster": "PMS: продукт, пояснення, вибір або перехід",
+    "intent": "Порівняти способи обміну календарями й визначити потрібний сценарій.",
+    "query_hypotheses": [
+      "channel manager чи ical",
+      "синхронізація календарів готелю",
+      "iCal Booking Airbnb"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "що таке PMS",
+        "url": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "прямі бронювання на сайті",
+        "url": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu"
+      },
+      {
+        "anchor": "обговорити підключення",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P002",
+    "url": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "cluster": "Пряме бронювання й продаж",
+    "intent": "Побудувати й перевірити прямий канал бронювання.",
+    "query_hypotheses": [
+      "прямі бронювання готелю",
+      "віджет бронювання на сайт",
+      "модуль бронювання готелю"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "Channel Manager та iCal",
+        "url": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu"
+      },
+      {
+        "anchor": "кейс прямих бронювань",
+        "url": "https://www.vdalo.tech/cases/direct-bookings-calendar"
+      },
+      {
+        "anchor": "обговорити процес",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P003",
+    "url": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+    "cluster": "PMS: продукт, пояснення, вибір або перехід",
+    "intent": "Навчити команду читати календар номерного фонду.",
+    "query_hypotheses": [
+      "шахматка готелю",
+      "календар бронювань готелю",
+      "шахматка бронювання номерів"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "основи PMS",
+        "url": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "готовність номера",
+        "url": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping"
+      },
+      {
+        "anchor": "обговорити календар",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P004",
+    "url": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+    "cluster": "PMS: продукт, пояснення, вибір або перехід",
+    "intent": "Спланувати перехід із контрольованим прийманням даних.",
+    "query_hypotheses": [
+      "перехід на нову PMS",
+      "міграція даних готелю",
+      "перенесення бронювань PMS"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "кейс міграції даних",
+        "url": "https://www.vdalo.tech/cases/hotel-data-migration"
+      },
+      {
+        "anchor": "чекліст вибору PMS",
+        "url": "https://www.vdalo.tech/tools/pms-checklist/"
+      },
+      {
+        "anchor": "обговорити перехід",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P005",
+    "url": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "cluster": "Гість, команда й перша автоматизація",
+    "intent": "Збільшити зручність купівлі послуг і виміряти результат.",
+    "query_hypotheses": [
+      "додаткові послуги готелю",
+      "продаж послуг готелю",
+      "upsell у готелі"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "кейс замовлення послуг",
+        "url": "https://www.vdalo.tech/cases/guest-services-glamping"
+      },
+      {
+        "anchor": "QR-картка в номер",
+        "url": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu"
+      },
+      {
+        "anchor": "обговорити процес",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P006",
+    "url": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+    "cluster": "Гість, команда й перша автоматизація",
+    "intent": "Налаштувати зрозумілу підготовку прибуття й передачу інформації.",
+    "query_hypotheses": [
+      "підготовка до заселення гостя",
+      "чекліст заїзду готель",
+      "повідомлення гостю перед заїздом"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "готовність номера",
+        "url": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping"
+      },
+      {
+        "anchor": "кейс пізнього заїзду",
+        "url": "https://www.vdalo.tech/cases/night-self-checkin-germany"
+      },
+      {
+        "anchor": "обговорити підготовку",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P007",
+    "url": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+    "cluster": "Гість, команда й перша автоматизація",
+    "intent": "Побудувати достовірну передачу готовності номера між командами.",
+    "query_hypotheses": [
+      "статус готовності номера",
+      "housekeeping готель",
+      "прибирання та рецепція"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "читання календаря",
+        "url": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu"
+      },
+      {
+        "anchor": "підготовка до заїзду",
+        "url": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya"
+      },
+      {
+        "anchor": "обговорити роботу команди",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P008",
+    "url": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "cluster": "Гість, команда й перша автоматизація",
+    "intent": "Визначити перший обмежений процес для тесту автоматизації.",
+    "query_hypotheses": [
+      "автоматизація готелю з чого почати",
+      "аудит процесів готелю",
+      "що автоматизувати в готелі"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "чекліст вибору PMS",
+        "url": "https://www.vdalo.tech/tools/pms-checklist/"
+      },
+      {
+        "anchor": "статуси номера",
+        "url": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping"
+      },
+      {
+        "anchor": "обговорити процес готелю",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P009",
+    "url": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+    "cluster": "PMS: продукт, пояснення, вибір або перехід",
+    "intent": "Дати повне базове пояснення PMS без змішування з комерційною сторінкою.",
+    "query_hypotheses": [
+      "що таке PMS",
+      "система управління готелем",
+      "PMS для готелю"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "калькуляторі виручки та RevPAR",
+        "url": "https://www.vdalo.tech/tools/hotel-profitability-calculator/"
+      },
+      {
+        "anchor": "можливості VDALO",
+        "url": "https://www.vdalo.tech/solutions"
+      },
+      {
+        "anchor": "календар бронювань",
+        "url": "https://www.vdalo.tech/hotel-booking-calendar"
+      },
+      {
+        "anchor": "підключення сервісів",
+        "url": "https://www.vdalo.tech/integrations"
+      },
+      {
+        "anchor": "підготовку до заїзду",
+        "url": "https://www.vdalo.tech/hotel-check-in"
+      },
+      {
+        "anchor": "тарифи",
+        "url": "https://www.vdalo.tech/pricing"
+      },
+      {
+        "anchor": "критерії вибору PMS для готелю",
+        "url": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "календар бронювань",
+        "url": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu"
+      },
+      {
+        "anchor": "чекліст перевірки",
+        "url": "https://www.vdalo.tech/tools/pms-checklist/"
+      },
+      {
+        "anchor": "обговорити PMS",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P010",
+    "url": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+    "cluster": "PMS: продукт, пояснення, вибір або перехід",
+    "intent": "Допомогти порівняти постачальників за однаковими вимогами.",
+    "query_hypotheses": [
+      "як обрати PMS",
+      "порівняння PMS для готелю",
+      "критерії вибору готельної програми"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "чеклісті вибору PMS",
+        "url": "https://www.vdalo.tech/tools/pms-checklist/"
+      },
+      {
+        "anchor": "що таке PMS для готелю",
+        "url": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "сумісність потрібних інтеграцій",
+        "url": "https://www.vdalo.tech/integrations"
+      },
+      {
+        "anchor": "умови тарифів",
+        "url": "https://www.vdalo.tech/pricing"
+      },
+      {
+        "anchor": "план міграції",
+        "url": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh"
+      },
+      {
+        "anchor": "запросити доступ",
+        "url": "https://www.vdalo.tech/sign-up"
+      }
+    ]
+  },
+  {
+    "id": "P011",
+    "url": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "cluster": "QR: сценарій, інструкція або інструмент",
+    "intent": "Закрити окремий практичний намір QR-кластера.",
+    "query_hypotheses": [
+      "QR коди для готелів",
+      "QR для готелю",
+      "QR меню Wi-Fi бронювання"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "Створити QR-код для готелю у VDALO",
+        "url": "https://www.vdalo.tech/tools/qr-studio/"
+      },
+      {
+        "anchor": "як створити QR-код Wi-Fi для готелю",
+        "url": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu"
+      },
+      {
+        "anchor": "що додати на QR-картку в номер",
+        "url": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu"
+      },
+      {
+        "anchor": "посібник із QR-маркетингу",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu"
+      }
+    ]
+  },
+  {
+    "id": "P012",
+    "url": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+    "cluster": "QR: сценарій, інструкція або інструмент",
+    "intent": "Закрити окремий практичний намір QR-кластера.",
+    "query_hypotheses": [
+      "QR код Wi-Fi для готелю",
+      "створити Wi-Fi QR",
+      "QR пароль Wi-Fi"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "Створити QR-код Wi-Fi у VDALO",
+        "url": "https://www.vdalo.tech/tools/qr-studio/"
+      },
+      {
+        "anchor": "QR-картка в номер готелю: готові шаблони",
+        "url": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu"
+      },
+      {
+        "anchor": "35 практичних способів використання QR-кодів у готелі",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv"
+      }
+    ]
+  },
+  {
+    "id": "P013",
+    "url": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+    "cluster": "QR: сценарій, інструкція або інструмент",
+    "intent": "Закрити окремий практичний намір QR-кластера.",
+    "query_hypotheses": [
+      "QR картка в номер",
+      "QR табличка готель",
+      "картка Wi-Fi для готелю"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "Створити QR-код для картки у VDALO",
+        "url": "https://www.vdalo.tech/tools/qr-studio/"
+      },
+      {
+        "anchor": "як зробити Wi-Fi QR для гостей",
+        "url": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu"
+      },
+      {
+        "anchor": "35 способів використання QR-кодів у готелі",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv"
+      }
+    ]
+  },
+  {
+    "id": "P014",
+    "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+    "cluster": "Туристичний збір: правила, арифметика або довідник",
+    "intent": "Пояснити правила й облік туристичного збору.",
+    "query_hypotheses": [
+      "туристичний збір 2026",
+      "розрахунок туристичного збору",
+      "пільги туристичний збір"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "Перейдіть до довідника ставок і калькулятора туристичного збору",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      },
+      {
+        "anchor": "обговорити облік",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P015",
+    "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "cluster": "Туристичний збір: правила, арифметика або довідник",
+    "intent": "Пояснити арифметику туристичного збору на перевірюваних прикладах.",
+    "query_hypotheses": [
+      "туристичний збір 2026",
+      "розрахунок туристичного збору",
+      "пільги туристичний збір"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довіднику ставок туристичного збору",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "Львів",
+        "url": "https://www.vdalo.tech/tourist-tax/lviv/"
+      },
+      {
+        "anchor": "Дніпро",
+        "url": "https://www.vdalo.tech/tourist-tax/dnipro/"
+      },
+      {
+        "anchor": "Тернопіль",
+        "url": "https://www.vdalo.tech/tourist-tax/ternopil/"
+      },
+      {
+        "anchor": "правила туристичного збору",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "обговорити облік",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P016",
+    "url": "https://www.vdalo.tech/cases/guest-services-glamping",
+    "cluster": "Досвід конкретного процесу або дослідження",
+    "intent": "Оцінити конкретний операційний досвід і його застосовність.",
+    "query_hypotheses": [
+      "каталог послуг для гостей глемпінгу: що змінилося в замовленнях",
+      "кейс автоматизації готелю"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "посібнику з додаткових послуг",
+        "url": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy"
+      },
+      {
+        "anchor": "оцінка економіки готелю",
+        "url": "https://www.vdalo.tech/tools/hotel-profitability-calculator/"
+      },
+      {
+        "anchor": "обговорити сценарій",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P017",
+    "url": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+    "cluster": "Досвід конкретного процесу або дослідження",
+    "intent": "Оцінити конкретний операційний досвід і його застосовність.",
+    "query_hypotheses": [
+      "прямі бронювання глемпінгу: як сайт пов’язали з робочим календарем",
+      "кейс автоматизації готелю"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "статті про прямі бронювання",
+        "url": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu"
+      },
+      {
+        "anchor": "iCal і Channel Manager",
+        "url": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu"
+      },
+      {
+        "anchor": "обговорити прямий канал",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P018",
+    "url": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+    "cluster": "Досвід конкретного процесу або дослідження",
+    "intent": "Оцінити конкретний операційний досвід і його застосовність.",
+    "query_hypotheses": [
+      "звірка виплат ota: як пов’язали бронювання, документи й надходження",
+      "кейс автоматизації готелю"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "правила оцінки автоматизації",
+        "url": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym"
+      },
+      {
+        "anchor": "кейс міграції даних",
+        "url": "https://www.vdalo.tech/cases/hotel-data-migration"
+      },
+      {
+        "anchor": "обговорити звірку",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P019",
+    "url": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+    "cluster": "Досвід конкретного процесу або дослідження",
+    "intent": "Оцінити конкретний операційний досвід і його застосовність.",
+    "query_hypotheses": [
+      "пізнє заселення після закриття рецепції: досвід готелю в німеччині",
+      "кейс автоматизації готелю"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "інструкції до заїзду",
+        "url": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya"
+      },
+      {
+        "anchor": "готовність номера",
+        "url": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping"
+      },
+      {
+        "anchor": "обговорити пізній заїзд",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P020",
+    "url": "https://www.vdalo.tech/cases/hotel-data-migration",
+    "cluster": "Досвід конкретного процесу або дослідження",
+    "intent": "Оцінити конкретний операційний досвід і його застосовність.",
+    "query_hypotheses": [
+      "перенесення історії готелю: 18 475 бронювань і контрольна звірка",
+      "кейс автоматизації готелю"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "інструкції з переходу на PMS",
+        "url": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh"
+      },
+      {
+        "anchor": "критерії вибору системи",
+        "url": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "обговорити міграцію",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P021",
+    "url": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+    "cluster": "Досвід конкретного процесу або дослідження",
+    "intent": "Оцінити конкретний операційний досвід і його застосовність.",
+    "query_hypotheses": [
+      "дослідження сайтів 2 118 об’єктів: як перевіряли видимий модуль бронювання",
+      "кейс автоматизації готелю"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "статті про віджет і прямі бронювання",
+        "url": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu"
+      },
+      {
+        "anchor": "кейс прямого каналу",
+        "url": "https://www.vdalo.tech/cases/direct-bookings-calendar"
+      },
+      {
+        "anchor": "обговорити сайт готелю",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P022",
+    "url": "https://www.vdalo.tech/",
+    "cluster": "PMS: продукт, пояснення, вибір або перехід",
+    "intent": "Оцінити VDALO як PMS для готелю та вибрати стартовий маршрут.",
+    "query_hypotheses": [
+      "система керування готелем",
+      "PMS для готелю Україна",
+      "VDALO"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "Запросити пробний доступ",
+        "url": "https://www.vdalo.tech/sign-up"
+      },
+      {
+        "anchor": "Отримати безкоштовний аудит процесу",
+        "url": "https://www.vdalo.tech/hotel-automation"
+      },
+      {
+        "anchor": "Подивитися приклад календаря",
+        "url": "https://www.vdalo.tech/#pms"
+      },
+      {
+        "anchor": "Переглянути кейси",
+        "url": "https://www.vdalo.tech/cases"
+      },
+      {
+        "anchor": "25 критеріїв вибору PMS",
+        "url": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "чекліст порівняння",
+        "url": "https://www.vdalo.tech/tools/pms-checklist/"
+      },
+      {
+        "anchor": "тарифи",
+        "url": "https://www.vdalo.tech/pricing"
+      },
+      {
+        "anchor": "довідник туристичного збору",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      }
+    ]
+  },
+  {
+    "id": "P023",
+    "url": "https://www.vdalo.tech/about",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Перевірити команду, досвід і підхід постачальника.",
+    "query_hypotheses": [
+      "про VDALO",
+      "команда VDALO"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "профілі Олега Степенєва",
+        "url": "https://www.vdalo.tech/authors/oleh-stepeniev"
+      },
+      {
+        "anchor": "кейсах",
+        "url": "https://www.vdalo.tech/cases"
+      },
+      {
+        "anchor": "тарифах",
+        "url": "https://www.vdalo.tech/pricing"
+      },
+      {
+        "anchor": "публічній оферті",
+        "url": "https://www.vdalo.tech/offer"
+      },
+      {
+        "anchor": "автори матеріалів",
+        "url": "https://www.vdalo.tech/authors"
+      },
+      {
+        "anchor": "зв’язатися з VDALO",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P024",
+    "url": "https://www.vdalo.tech/contact",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Знайти канал звернення за конкретною темою.",
+    "query_hypotheses": [
+      "контакти VDALO"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "сторінці повернення коштів",
+        "url": "https://www.vdalo.tech/refunds"
+      },
+      {
+        "anchor": "оферті",
+        "url": "https://www.vdalo.tech/offer"
+      },
+      {
+        "anchor": "запиту на доступ",
+        "url": "https://www.vdalo.tech/sign-up"
+      },
+      {
+        "anchor": "вартість",
+        "url": "https://www.vdalo.tech/pricing"
+      }
+    ]
+  },
+  {
+    "id": "P025",
+    "url": "https://www.vdalo.tech/sign-up",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Запросити погоджений пробний доступ, розуміючи наступний крок.",
+    "query_hypotheses": [
+      "реєстрація VDALO",
+      "доступ VDALO"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "опублікованими тарифами",
+        "url": "https://www.vdalo.tech/pricing"
+      },
+      {
+        "anchor": "умовами послуг",
+        "url": "https://www.vdalo.tech/offer"
+      },
+      {
+        "anchor": "чекліст PMS",
+        "url": "https://www.vdalo.tech/tools/pms-checklist/"
+      },
+      {
+        "anchor": "контакти",
+        "url": "https://www.vdalo.tech/contact"
+      },
+      {
+        "anchor": "конфіденційність",
+        "url": "https://www.vdalo.tech/privacy"
+      }
+    ]
+  },
+  {
+    "id": "P026",
+    "url": "https://www.vdalo.tech/hotel-automation",
+    "cluster": "Гість, команда й перша автоматизація",
+    "intent": "Зрозуміти призначення сторінки й обрати наступну дію.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "метод вибору першої автоматизації",
+        "url": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym"
+      },
+      {
+        "anchor": "зв’язатися з командою",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P027",
+    "url": "https://www.vdalo.tech/authors",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Перевірити професійні напрями автора й знайти його публікації.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "стаття про QR-маркетинг ресторану",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu"
+      },
+      {
+        "anchor": "профілю Олега Степенєва",
+        "url": "https://www.vdalo.tech/authors/oleh-stepeniev"
+      },
+      {
+        "anchor": "профіль Костянтина Тріпайла",
+        "url": "https://www.vdalo.tech/authors/kostiantyn-tripailo"
+      },
+      {
+        "anchor": "блозі",
+        "url": "https://www.vdalo.tech/blog"
+      },
+      {
+        "anchor": "кейсах",
+        "url": "https://www.vdalo.tech/cases"
+      },
+      {
+        "anchor": "команді VDALO",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P028",
+    "url": "https://www.vdalo.tech/authors/oleh-stepeniev",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Перевірити професійні напрями автора й знайти його публікації.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "Каталог послуг у чеському глемпінгу",
+        "url": "https://www.vdalo.tech/cases/guest-services-glamping"
+      },
+      {
+        "anchor": "Прямі бронювання та робочий календар",
+        "url": "https://www.vdalo.tech/cases/direct-bookings-calendar"
+      },
+      {
+        "anchor": "Звірка виплат OTA",
+        "url": "https://www.vdalo.tech/cases/hotel-booking-reconciliation"
+      },
+      {
+        "anchor": "Пізнє заселення в Німеччині",
+        "url": "https://www.vdalo.tech/cases/night-self-checkin-germany"
+      },
+      {
+        "anchor": "Перенесення історії готелю",
+        "url": "https://www.vdalo.tech/cases/hotel-data-migration"
+      },
+      {
+        "anchor": "Перегляд сайтів 2 118 об’єктів",
+        "url": "https://www.vdalo.tech/cases/booking-widget-study-2118"
+      },
+      {
+        "anchor": "про VDALO",
+        "url": "https://www.vdalo.tech/about"
+      },
+      {
+        "anchor": "усі автори",
+        "url": "https://www.vdalo.tech/authors"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P029",
+    "url": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Перевірити професійні напрями автора й знайти його публікації.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "статті про бронювання через сайт",
+        "url": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu"
+      },
+      {
+        "anchor": "каталозі кейсів",
+        "url": "https://www.vdalo.tech/cases"
+      },
+      {
+        "anchor": "контакти VDALO",
+        "url": "https://www.vdalo.tech/contact"
+      },
+      {
+        "anchor": "QR-коди для ресторану: від меню до підтвердженого замовлення",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu"
+      },
+      {
+        "anchor": "усі матеріали",
+        "url": "https://www.vdalo.tech/blog"
+      },
+      {
+        "anchor": "автори",
+        "url": "https://www.vdalo.tech/authors"
+      }
+    ]
+  },
+  {
+    "id": "P030",
+    "url": "https://www.vdalo.tech/blog",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Знайти практичний матеріал за робочою задачею готелю.",
+    "query_hypotheses": [
+      "блог VDALO",
+      "матеріали для готельєрів"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "місцевий довідник",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "чеклістом PMS",
+        "url": "https://www.vdalo.tech/tools/pms-checklist/"
+      },
+      {
+        "anchor": "звернутися до VDALO",
+        "url": "https://www.vdalo.tech/contact"
+      },
+      {
+        "anchor": "Читати посібник",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu"
+      },
+      {
+        "anchor": "кейси",
+        "url": "https://www.vdalo.tech/cases"
+      },
+      {
+        "anchor": "інструменти",
+        "url": "https://www.vdalo.tech/tools/"
+      },
+      {
+        "anchor": "автори",
+        "url": "https://www.vdalo.tech/authors"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym"
+      }
+    ]
+  },
+  {
+    "id": "P031",
+    "url": "https://www.vdalo.tech/cases",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Оцінити застосовність описаного операційного досвіду.",
+    "query_hypotheses": [
+      "кейси VDALO",
+      "кейси автоматизації готелю"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "опишіть процес команді VDALO",
+        "url": "https://www.vdalo.tech/contact"
+      },
+      {
+        "anchor": "посібники",
+        "url": "https://www.vdalo.tech/blog"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/cases/guest-services-glamping"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/cases/direct-bookings-calendar"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/cases/hotel-booking-reconciliation"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/cases/night-self-checkin-germany"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/cases/hotel-data-migration"
+      },
+      {
+        "anchor": "Посилання в каталозі",
+        "url": "https://www.vdalo.tech/cases/booking-widget-study-2118"
+      }
+    ]
+  },
+  {
+    "id": "P032",
+    "url": "https://www.vdalo.tech/tools/",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Зрозуміти правила використання та виконати потрібну дію.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "Чекліст PMS",
+        "url": "https://www.vdalo.tech/tools/pms-checklist/"
+      },
+      {
+        "anchor": "Калькулятор показників",
+        "url": "https://www.vdalo.tech/tools/hotel-profitability-calculator/"
+      },
+      {
+        "anchor": "QR Studio",
+        "url": "https://www.vdalo.tech/tools/qr-studio/"
+      },
+      {
+        "anchor": "Довідник туристичного збору",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "політикою конфіденційності",
+        "url": "https://www.vdalo.tech/privacy"
+      },
+      {
+        "anchor": "блог",
+        "url": "https://www.vdalo.tech/blog"
+      }
+    ]
+  },
+  {
+    "id": "P033",
+    "url": "https://www.vdalo.tech/tools/hotel-profitability-calculator/",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Зрозуміти правила використання та виконати потрібну дію.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "що автоматизувати першим",
+        "url": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym"
+      },
+      {
+        "anchor": "інші інструменти",
+        "url": "https://www.vdalo.tech/tools/"
+      },
+      {
+        "anchor": "обговорити процес",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P034",
+    "url": "https://www.vdalo.tech/tools/pms-checklist/",
+    "cluster": "PMS: продукт, пояснення, вибір або перехід",
+    "intent": "Зрозуміти правила використання та виконати потрібну дію.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "Читайте посібник «Як обрати PMS для готелю за 25 критеріями»",
+        "url": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "дізнайтеся, що таке PMS",
+        "url": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu"
+      },
+      {
+        "anchor": "сумісність потрібних інтеграцій",
+        "url": "https://www.vdalo.tech/integrations"
+      },
+      {
+        "anchor": "тарифи й склад витрат",
+        "url": "https://www.vdalo.tech/pricing"
+      },
+      {
+        "anchor": "політика приватності",
+        "url": "https://www.vdalo.tech/privacy"
+      }
+    ]
+  },
+  {
+    "id": "P035",
+    "url": "https://www.vdalo.tech/tools/qr-studio/",
+    "cluster": "QR: сценарій, інструкція або інструмент",
+    "intent": "Зрозуміти правила використання та виконати потрібну дію.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow,max-image-preview:large",
+    "related_links": [
+      {
+        "anchor": "посібник із QR-маркетингу",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu"
+      },
+      {
+        "anchor": "QR-код Wi-Fi",
+        "url": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu"
+      },
+      {
+        "anchor": "картка в номер",
+        "url": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu"
+      },
+      {
+        "anchor": "35 сценаріїв",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv"
+      }
+    ]
+  },
+  {
+    "id": "P036",
+    "url": "https://www.vdalo.tech/pricing",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Порівняти повну ціну конфігурацій і перейти до уточнення або замовлення.",
+    "query_hypotheses": [
+      "тарифи VDALO",
+      "вартість PMS VDALO"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "каталог модулів",
+        "url": "https://www.vdalo.tech/hotel-pms-modules"
+      },
+      {
+        "anchor": "запросити доступ",
+        "url": "https://www.vdalo.tech/sign-up"
+      },
+      {
+        "anchor": "умови послуги",
+        "url": "https://www.vdalo.tech/offer"
+      },
+      {
+        "anchor": "повернення коштів",
+        "url": "https://www.vdalo.tech/refunds"
+      },
+      {
+        "anchor": "уточнити конфігурацію",
+        "url": "https://www.vdalo.tech/contact"
+      }
+    ]
+  },
+  {
+    "id": "P037",
+    "url": "https://www.vdalo.tech/privacy",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Знайти опубліковані договірні або інформаційні правила; SEO-розширення не потрібне.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "оферті",
+        "url": "https://www.vdalo.tech/offer"
+      },
+      {
+        "anchor": "правилах повернення коштів",
+        "url": "https://www.vdalo.tech/refunds"
+      },
+      {
+        "anchor": "тарифи",
+        "url": "https://www.vdalo.tech/pricing"
+      }
+    ]
+  },
+  {
+    "id": "P038",
+    "url": "https://www.vdalo.tech/offer",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Знайти опубліковані договірні або інформаційні правила; SEO-розширення не потрібне.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "сторінці тарифів",
+        "url": "https://www.vdalo.tech/pricing"
+      },
+      {
+        "anchor": "правилах повернення коштів",
+        "url": "https://www.vdalo.tech/refunds"
+      },
+      {
+        "anchor": "політиці конфіденційності",
+        "url": "https://www.vdalo.tech/privacy"
+      }
+    ]
+  },
+  {
+    "id": "P039",
+    "url": "https://www.vdalo.tech/refunds",
+    "cluster": "Сервісні й довірчі сторінки",
+    "intent": "Знайти опубліковані договірні або інформаційні правила; SEO-розширення не потрібне.",
+    "query_hypotheses": [],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "публічній оферті",
+        "url": "https://www.vdalo.tech/offer"
+      },
+      {
+        "anchor": "політиці конфіденційності",
+        "url": "https://www.vdalo.tech/privacy"
+      },
+      {
+        "anchor": "тарифи",
+        "url": "https://www.vdalo.tech/pricing"
+      }
+    ]
+  },
+  {
+    "id": "P040",
+    "url": "https://www.vdalo.tech/tourist-tax/cherkasy/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Черкасах 2026",
+      "ставка туристичного збору Черкасах"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P041",
+    "url": "https://www.vdalo.tech/tourist-tax/chernihiv/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Чернігові 2026",
+      "ставка туристичного збору Чернігові"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P042",
+    "url": "https://www.vdalo.tech/tourist-tax/berehove/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Береговому 2026",
+      "ставка туристичного збору Береговому"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P043",
+    "url": "https://www.vdalo.tech/tourist-tax/dnipro/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Дніпрі 2026",
+      "ставка туристичного збору Дніпрі"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P044",
+    "url": "https://www.vdalo.tech/tourist-tax/chernivtsi/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Чернівцях 2026",
+      "ставка туристичного збору Чернівцях"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P045",
+    "url": "https://www.vdalo.tech/tourist-tax/irpin/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Ірпені 2026",
+      "ставка туристичного збору Ірпені"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P046",
+    "url": "https://www.vdalo.tech/tourist-tax/ivano-frankivsk/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Івано-Франківську 2026",
+      "ставка туристичного збору Івано-Франківську"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P047",
+    "url": "https://www.vdalo.tech/tourist-tax/khust/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Хусті 2026",
+      "ставка туристичного збору Хусті"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P048",
+    "url": "https://www.vdalo.tech/tourist-tax/odesa/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Одесі 2026",
+      "ставка туристичного збору Одесі"
+    ],
+    "current_robots": "noindex,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P049",
+    "url": "https://www.vdalo.tech/tourist-tax/lutsk/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Луцьку 2026",
+      "ставка туристичного збору Луцьку"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P050",
+    "url": "https://www.vdalo.tech/tourist-tax/lviv/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Львові 2026",
+      "ставка туристичного збору Львові"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P051",
+    "url": "https://www.vdalo.tech/tourist-tax/kyyiv/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Києві 2026",
+      "ставка туристичного збору Києві"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P052",
+    "url": "https://www.vdalo.tech/tourist-tax/kolomyya/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Коломиї 2026",
+      "ставка туристичного збору Коломиї"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P053",
+    "url": "https://www.vdalo.tech/tourist-tax/slavsko/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Славську 2026",
+      "ставка туристичного збору Славську"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P054",
+    "url": "https://www.vdalo.tech/tourist-tax/polyana/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Поляні 2026",
+      "ставка туристичного збору Поляні"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P055",
+    "url": "https://www.vdalo.tech/tourist-tax/skole/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Сколе 2026",
+      "ставка туристичного збору Сколе"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P056",
+    "url": "https://www.vdalo.tech/tourist-tax/rivne/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Рівному 2026",
+      "ставка туристичного збору Рівному"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P057",
+    "url": "https://www.vdalo.tech/tourist-tax/pivdenne/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Південному 2026",
+      "ставка туристичного збору Південному"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P058",
+    "url": "https://www.vdalo.tech/tourist-tax/ternopil/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Тернополі 2026",
+      "ставка туристичного збору Тернополі"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P059",
+    "url": "https://www.vdalo.tech/tourist-tax/vinnytsya/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Вінниці 2026",
+      "ставка туристичного збору Вінниці"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P060",
+    "url": "https://www.vdalo.tech/tourist-tax/uzhhorod/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Ужгороді 2026",
+      "ставка туристичного збору Ужгороді"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P061",
+    "url": "https://www.vdalo.tech/tourist-tax/tyachiv/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Тячеві 2026",
+      "ставка туристичного збору Тячеві"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P062",
+    "url": "https://www.vdalo.tech/tourist-tax/sumy/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Сумах 2026",
+      "ставка туристичного збору Сумах"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P063",
+    "url": "https://www.vdalo.tech/tourist-tax/zaporizhzhya/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Запоріжжі 2026",
+      "ставка туристичного збору Запоріжжі"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P064",
+    "url": "https://www.vdalo.tech/tourist-tax/yaremche/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Яремчі 2026",
+      "ставка туристичного збору Яремчі"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P065",
+    "url": "https://www.vdalo.tech/tourist-tax/yasinya/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Ясіні 2026",
+      "ставка туристичного збору Ясіні"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P066",
+    "url": "https://www.vdalo.tech/tourist-tax/zhytomyr/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Житомирі 2026",
+      "ставка туристичного збору Житомирі"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P067",
+    "url": "https://www.vdalo.tech/tourist-tax/vynohradiv/",
+    "cluster": "Місцева ставка й територія",
+    "intent": "Знайти місцеве правило й перевірити попередній розрахунок.",
+    "query_hypotheses": [
+      "туристичний збір Виноградові 2026",
+      "ставка туристичного збору Виноградові"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "довідник громад",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "правила й пільги",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P068",
+    "url": "https://www.vdalo.tech/tourist-tax/",
+    "cluster": "Туристичний збір: правила, арифметика або довідник",
+    "intent": "Знайти місцеву довідку та правильно використати калькулятор.",
+    "query_hypotheses": [
+      "туристичний збір 2026",
+      "ставки туристичного збору",
+      "калькулятор туристичного збору"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "Черкасах",
+        "url": "https://www.vdalo.tech/tourist-tax/cherkasy/"
+      },
+      {
+        "anchor": "Чернігові",
+        "url": "https://www.vdalo.tech/tourist-tax/chernihiv/"
+      },
+      {
+        "anchor": "Береговому",
+        "url": "https://www.vdalo.tech/tourist-tax/berehove/"
+      },
+      {
+        "anchor": "Дніпрі",
+        "url": "https://www.vdalo.tech/tourist-tax/dnipro/"
+      },
+      {
+        "anchor": "Чернівцях",
+        "url": "https://www.vdalo.tech/tourist-tax/chernivtsi/"
+      },
+      {
+        "anchor": "Ірпені",
+        "url": "https://www.vdalo.tech/tourist-tax/irpin/"
+      },
+      {
+        "anchor": "Івано-Франківську",
+        "url": "https://www.vdalo.tech/tourist-tax/ivano-frankivsk/"
+      },
+      {
+        "anchor": "Хусті",
+        "url": "https://www.vdalo.tech/tourist-tax/khust/"
+      },
+      {
+        "anchor": "Одесі",
+        "url": "https://www.vdalo.tech/tourist-tax/odesa/"
+      },
+      {
+        "anchor": "Луцьку",
+        "url": "https://www.vdalo.tech/tourist-tax/lutsk/"
+      },
+      {
+        "anchor": "Львові",
+        "url": "https://www.vdalo.tech/tourist-tax/lviv/"
+      },
+      {
+        "anchor": "Києві",
+        "url": "https://www.vdalo.tech/tourist-tax/kyyiv/"
+      },
+      {
+        "anchor": "Коломиї",
+        "url": "https://www.vdalo.tech/tourist-tax/kolomyya/"
+      },
+      {
+        "anchor": "Славську",
+        "url": "https://www.vdalo.tech/tourist-tax/slavsko/"
+      },
+      {
+        "anchor": "Поляні",
+        "url": "https://www.vdalo.tech/tourist-tax/polyana/"
+      },
+      {
+        "anchor": "Сколе",
+        "url": "https://www.vdalo.tech/tourist-tax/skole/"
+      },
+      {
+        "anchor": "Рівному",
+        "url": "https://www.vdalo.tech/tourist-tax/rivne/"
+      },
+      {
+        "anchor": "Південному",
+        "url": "https://www.vdalo.tech/tourist-tax/pivdenne/"
+      },
+      {
+        "anchor": "Тернополі",
+        "url": "https://www.vdalo.tech/tourist-tax/ternopil/"
+      },
+      {
+        "anchor": "Вінниці",
+        "url": "https://www.vdalo.tech/tourist-tax/vinnytsya/"
+      },
+      {
+        "anchor": "Ужгороді",
+        "url": "https://www.vdalo.tech/tourist-tax/uzhhorod/"
+      },
+      {
+        "anchor": "Тячеві",
+        "url": "https://www.vdalo.tech/tourist-tax/tyachiv/"
+      },
+      {
+        "anchor": "Сумах",
+        "url": "https://www.vdalo.tech/tourist-tax/sumy/"
+      },
+      {
+        "anchor": "Запоріжжі",
+        "url": "https://www.vdalo.tech/tourist-tax/zaporizhzhya/"
+      },
+      {
+        "anchor": "Яремчі",
+        "url": "https://www.vdalo.tech/tourist-tax/yaremche/"
+      },
+      {
+        "anchor": "Ясіні",
+        "url": "https://www.vdalo.tech/tourist-tax/yasinya/"
+      },
+      {
+        "anchor": "Житомирі",
+        "url": "https://www.vdalo.tech/tourist-tax/zhytomyr/"
+      },
+      {
+        "anchor": "Виноградові",
+        "url": "https://www.vdalo.tech/tourist-tax/vynohradiv/"
+      },
+      {
+        "anchor": "загальний посібник",
+        "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina"
+      },
+      {
+        "anchor": "приклади арифметики",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      }
+    ]
+  },
+  {
+    "id": "P069",
+    "url": "https://www.vdalo.tech/tourist-tax/start",
+    "cluster": "Туристичний збір: правила, арифметика або довідник",
+    "intent": "Залишити конкретний запит після рекламного переходу.",
+    "query_hypotheses": [
+      "облік туристичного збору"
+    ],
+    "current_robots": "noindex,follow",
+    "related_links": [
+      {
+        "anchor": "місцевий довідник",
+        "url": "https://www.vdalo.tech/tourist-tax/"
+      },
+      {
+        "anchor": "сім прикладів розрахунку",
+        "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026"
+      },
+      {
+        "anchor": "Обговорити процес",
+        "url": "https://www.vdalo.tech/contact"
+      },
+      {
+        "anchor": "політика приватності",
+        "url": "https://www.vdalo.tech/privacy"
+      }
+    ]
+  },
+  {
+    "id": "P070",
+    "url": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "cluster": "QR: сценарій, інструкція або інструмент",
+    "intent": "Організувати ресторанний QR-маркетинг і перевірити шлях від переходу до виконаного замовлення.",
+    "query_hypotheses": [
+      "QR-коди для ресторану",
+      "QR маркетинг ресторану",
+      "QR меню та заявки на банкет"
+    ],
+    "current_robots": "index,follow",
+    "related_links": [
+      {
+        "anchor": "посібнику з QR-кодів для готелів",
+        "url": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv"
+      },
+      {
+        "anchor": "QR Studio VDALO",
+        "url": "https://www.vdalo.tech/tools/qr-studio/"
+      },
+      {
+        "anchor": "QR-картка в номер",
+        "url": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu"
+      },
+      {
+        "anchor": "Автор Костянтин Тріпайло",
+        "url": "https://www.vdalo.tech/authors/kostiantyn-tripailo"
+      }
+    ]
+  }
+]

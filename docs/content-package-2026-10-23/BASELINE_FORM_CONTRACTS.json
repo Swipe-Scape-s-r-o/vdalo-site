@@ -1,0 +1,781 @@
+{
+  "/blog/channel-manager-ical-gotelyu": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/shakhmatka-bronyuvan-gotelyu": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/perehid-na-pms-bez-vtraty-danyh": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/pidhotovka-zaselennya-gostya": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/status-gotovnosti-nomera-housekeeping": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/shcho-avtomatyzuvaty-v-goteli-pershym": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/shcho-take-pms-dlya-gotelyu": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/yak-obraty-pms-dlya-gotelyu": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/blog/qr-kody-dlya-goteliv": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/qr-wifi-dlya-gotelyu": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/qr-kartka-v-nomer-gotelyu": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/turystychnyi-zbir-gotel-ukraina": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/blog/rozrakhunok-turystychnoho-zboru-2026": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/cases/guest-services-glamping": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/cases/direct-bookings-calendar": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/cases/hotel-booking-reconciliation": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/cases/night-self-checkin-germany": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/cases/hotel-data-migration": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/cases/booking-widget-study-2118": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/": [
+    {
+      "id": "checkout-form",
+      "count": 11,
+      "sha256": "3a0da388d86659ea9a57622380fade81d590733a40b1382f72b5c6c932fed2d9"
+    },
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/about": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/contact": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/sign-up": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/hotel-automation": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/authors": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/authors/oleh-stepeniev": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/authors/kostiantyn-tripailo": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/blog": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/cases": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/tools/": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/tools/hotel-profitability-calculator/": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/tools/pms-checklist/": [
+    {
+      "id": "/v1/api/tools/pms-report",
+      "count": 4,
+      "sha256": "1786fc5bbe2eaa24999ad7e4d3f5ca0b2bb80f6eaea83f04e1d79c5e1397ea11"
+    },
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/tools/qr-studio/": [
+    {
+      "id": "generator-form",
+      "count": 30,
+      "sha256": "151d2e4f62e8faa534d418569a1c4feb5cbead07142c60b1b6bcb7e71a53032e"
+    }
+  ],
+  "/pricing": [
+    {
+      "id": "checkout-form",
+      "count": 11,
+      "sha256": "3a0da388d86659ea9a57622380fade81d590733a40b1382f72b5c6c932fed2d9"
+    },
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ],
+  "/privacy": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/offer": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/refunds": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    }
+  ],
+  "/tourist-tax/cherkasy/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "5015b862a99beb806ccc58638deaed21c1596e9e096077a4362e15f76b351cd8"
+    }
+  ],
+  "/tourist-tax/chernihiv/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "80fdbe510dbb46d6bdab9b3a139b53910e78629de688c015a5cbd448839e46fd"
+    }
+  ],
+  "/tourist-tax/berehove/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "a06b18829c201ebb09143f40296b878946cd53d917b5ec30644f9c02decac883"
+    }
+  ],
+  "/tourist-tax/dnipro/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "c296beaad249a4ca0894d8685aa302436f26de5667a199c3e211eb7a48d2944e"
+    }
+  ],
+  "/tourist-tax/chernivtsi/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "97016cc6ead874c803f1b6acfcc9b6d60b254250bb3ad462e2c80ef786ddff64"
+    }
+  ],
+  "/tourist-tax/irpin/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "07561ece82eaa20659b26218f8496c92a64b359ef9a2613e76ae090fcea1977e"
+    }
+  ],
+  "/tourist-tax/ivano-frankivsk/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "fa18e48dc2692bce960f39c12b0b4aaf3208c88d9fa51c1615a3e46282c16526"
+    }
+  ],
+  "/tourist-tax/khust/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "893d7834474cefdf1ca4e003bf824507036911499ca49d0b624ed4a4c3b5b564"
+    }
+  ],
+  "/tourist-tax/odesa/": [],
+  "/tourist-tax/lutsk/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "fe31ce0908125641f9a323117e64cb2eccde443e39673cbb472a6423a4672148"
+    }
+  ],
+  "/tourist-tax/lviv/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "72e7f5577fb593f0aa9de2d11d75349e6c338d679a5dbb3254aecd4935e0ca40"
+    }
+  ],
+  "/tourist-tax/kyyiv/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "74e6e197a54226c41858069638ba9cf214faf696047a55e98a668367bec1e281"
+    }
+  ],
+  "/tourist-tax/kolomyya/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "e5a4a727a47914d1aa2b6a65e523dd95d60684aac120458772e6ff7c97a260cb"
+    }
+  ],
+  "/tourist-tax/slavsko/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "4b59eccbd6676fed3b9ea0d171f92f38fc78083a2d6a5234f810744557f8ff44"
+    }
+  ],
+  "/tourist-tax/polyana/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "186d1e575112b2167b61511b96afe7d7e98824c346bbff52b8eab9525015ed70"
+    }
+  ],
+  "/tourist-tax/skole/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "fafa349a21bac85bfc086de328e0c01fd75b498b655ffbeaf1e56ee163875465"
+    }
+  ],
+  "/tourist-tax/rivne/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "7d61a8864a7133e8e7b0d4e74dc639006403538b6cb4adc08b75464218bc99c4"
+    }
+  ],
+  "/tourist-tax/pivdenne/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "ba0f8b357dd1c9cd4758811cb3c65e7164418735cc42aff5c8f73fafb39ec5b2"
+    }
+  ],
+  "/tourist-tax/ternopil/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "d2067bc24cb199b9d790da8f6d236fa3b06542fc8cc8161e285c290c703765cb"
+    }
+  ],
+  "/tourist-tax/vinnytsya/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "51e462c2129d5f6100d52e2d1928bf99a1b812bdb0b605c1510a0ba048dea9b1"
+    }
+  ],
+  "/tourist-tax/uzhhorod/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "876163eaea48ce11c4d5964be29126cf57bf0af8fe3d3d382b28030b6220b77c"
+    }
+  ],
+  "/tourist-tax/tyachiv/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "3e1f416e010f899eba93347f85b7a7695b8d60b8f29158c8e66624ba7ccc53e1"
+    }
+  ],
+  "/tourist-tax/sumy/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "22862d62c0ac798cc7021012f2638a62d1c888bf1c41d5a2b0b1680dbd784afa"
+    }
+  ],
+  "/tourist-tax/zaporizhzhya/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "bc19a900b5f3d9f194ac6d742c4546e162632812b1dd85959c284f30df275b0f"
+    }
+  ],
+  "/tourist-tax/yaremche/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 9,
+      "sha256": "84d50c34d7c59dd4b6a3b359b4ca49a498ab8006c687830b9c1a2f938b9bf895"
+    }
+  ],
+  "/tourist-tax/yasinya/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "4bef676ef4655d3a27bda640e60395bf96b6b7a454e4cb5367dd66061b5ed718"
+    }
+  ],
+  "/tourist-tax/zhytomyr/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "c3eea4c7120b0014a0e477eef18c6fc73e515ad1561f234492ca1a0bd5ae32c1"
+    }
+  ],
+  "/tourist-tax/vynohradiv/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "f7424aa24e7c7262ef2bb05111f3454b70c53cb9bdcfe0a9b4fd30698a02d5f0"
+    }
+  ],
+  "/tourist-tax/": [
+    {
+      "id": "tourist-tax-calculator",
+      "count": 8,
+      "sha256": "b03a1af028477183a32da10c6a451fb0e9d21935441be5a7859f731fc674e134"
+    }
+  ],
+  "/tourist-tax/start": [
+    {
+      "id": "ttf-form",
+      "count": 6,
+      "sha256": "d32a842ae62064fbd7fc42156330ac243970c8c88236801f317c9e0dc167640e"
+    }
+  ],
+  "/blog/qr-kody-dlya-restoranu": [
+    {
+      "id": "contact",
+      "count": 5,
+      "sha256": "1c5f618856c578d3b7b432d49d88ad804adbdcf2c96f82aea8f27e1f4c0f3b32"
+    },
+    {
+      "id": "trial",
+      "count": 13,
+      "sha256": "fe4c4cf233d10191e23344a51bb05fca9e81fadf34395bd66ba50f100e374821"
+    },
+    {
+      "id": "audit",
+      "count": 10,
+      "sha256": "46db34bba56d4abd9a2741bf84fd79944621f464f79585fffa23d56c1571bee0"
+    }
+  ]
+}

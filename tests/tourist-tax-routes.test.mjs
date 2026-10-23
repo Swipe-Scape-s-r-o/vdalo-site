@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 process.env.VERCEL='1';
 const {default:server}=await import('../server.mjs');
 const {touristTaxPlaces,touristTaxCityRoutes,canIndexTouristTaxPlace}=await import('../versions/v1/tourist-tax-data.mjs');
+const {getPreparedPage}=await import('../versions/v1/content-revisions/content.mjs');
 
 async function request(url,method='GET'){
   const req={url,method,headers:{},on(){},once(){},resume(){}};
@@ -90,7 +91,7 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
 test('tourist-tax funnel route is served with analytics, privacy, accessibility and both video assets',async()=>{
   const funnel=await request('/tourist-tax/start');
   assert.equal(funnel.status,200);
-  assert.match(funnel.body,/<title>Туристичний збір у готелі: документи й звітність \| VDALO<\/title>/);
+  assert.ok(funnel.body.includes(`<title>${getPreparedPage('/tourist-tax/start').title}</title>`));
   assert.match(funnel.body,/<meta name="robots" content="noindex,follow">/);
   assert.match(funnel.body,/<link rel="canonical" href="https:\/\/www\.vdalo\.tech\/tourist-tax\/start">/);
   assert.match(funnel.body,/GTM-PKDT7MMT/);
@@ -123,7 +124,8 @@ test('only released city routes resolve through the actual app router',async()=>
       assert.match(response.body,/class="tt-seo-content"/,`city SEO block missing: ${place.slug}`);
       const title=response.body.match(/<title>([^<]+)<\/title>/)?.[1]||'';
       assert.ok(title.length<=65,`city title should stay concise: ${place.slug} (${title.length} chars)`);
-      if(place.slug==='kyyiv')assert.match(title,/Туристичний збір у Києві 2026: ставки та калькулятор \| VDALO/);
+      if(getPreparedPage(place.route))assert.equal(title,getPreparedPage(place.route).title);
+      else if(place.slug==='kyyiv')assert.match(title,/Туристичний збір у Києві 2026: ставки та калькулятор \| VDALO/);
        else if(place.slug==='odesa')assert.match(title,/Туристичний збір в Одесі 2026: ставки й калькулятор \| VDALO/);
        else if(place.slug==='polyana')assert.match(title,/Туристичний збір у Поляні у 2026 році \| Ставки/);
        else if(place.slug==='khust')assert.match(title,/Туристичний збір у Хусті на 2026 рік: ставки й калькулятор/);

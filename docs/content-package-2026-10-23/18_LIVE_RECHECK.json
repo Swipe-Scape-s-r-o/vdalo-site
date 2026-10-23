@@ -1,0 +1,384 @@
+{
+  "checked": "2026-10-23",
+  "initial_inventory": {
+    "known_urls": 96,
+    "canonical_pages": 92,
+    "sitemap_urls": 90,
+    "drafts": 69,
+    "articles": 15
+  },
+  "final_inventory": {
+    "known_urls": 97,
+    "canonical_pages": 93,
+    "sitemap_urls": 91,
+    "drafts": 70,
+    "articles": 16
+  },
+  "repeat_html_fetches": [
+    {
+      "url": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/cases/guest-services-glamping",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/cases/hotel-data-migration",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/",
+      "http": 200,
+      "main_text_unchanged": true
+    },
+    {
+      "url": "https://www.vdalo.tech/about",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/contact",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/sign-up",
+      "http": 200,
+      "main_text_unchanged": true
+    },
+    {
+      "url": "https://www.vdalo.tech/hotel-automation",
+      "http": 200,
+      "main_text_unchanged": true
+    },
+    {
+      "url": "https://www.vdalo.tech/authors",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/authors/oleh-stepeniev",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/blog",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/cases",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tools/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tools/hotel-profitability-calculator/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tools/pms-checklist/",
+      "http": 200,
+      "main_text_unchanged": true
+    },
+    {
+      "url": "https://www.vdalo.tech/tools/qr-studio/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/pricing",
+      "http": 200,
+      "main_text_unchanged": true
+    },
+    {
+      "url": "https://www.vdalo.tech/privacy",
+      "http": 200,
+      "main_text_unchanged": true
+    },
+    {
+      "url": "https://www.vdalo.tech/offer",
+      "http": 200,
+      "main_text_unchanged": true
+    },
+    {
+      "url": "https://www.vdalo.tech/refunds",
+      "http": 200,
+      "main_text_unchanged": true
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/cherkasy/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/chernihiv/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/berehove/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/dnipro/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/chernivtsi/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/irpin/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/ivano-frankivsk/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/khust/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/odesa/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/lutsk/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/lviv/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/kyyiv/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/kolomyya/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/slavsko/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/polyana/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/skole/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/rivne/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/pivdenne/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/ternopil/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/vinnytsya/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/uzhhorod/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/tyachiv/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/sumy/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/zaporizhzhya/",
+      "http": 200,
+      "main_text_unchanged": true
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/yaremche/",
+      "http": 200,
+      "main_text_unchanged": true
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/yasinya/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/zhytomyr/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/vynohradiv/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/",
+      "http": 200,
+      "main_text_unchanged": false
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/start",
+      "http": 200,
+      "main_text_unchanged": true
+    }
+  ],
+  "new_page": {
+    "url": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "id": "P070",
+    "status": "Виявлена у фінальному sitemap, прочитана й доповнена"
+  },
+  "observed_indexing_changes": [
+    {
+      "url": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+      "before": "noindex,follow",
+      "final": "index,follow",
+      "action": "Збережено фінальний стан; додано опубліковану статтю."
+    },
+    {
+      "url": "https://www.vdalo.tech/tourist-tax/odesa/",
+      "before": "Не було окремого noindex",
+      "final": "noindex,follow",
+      "action": "Збережено фінальний стан; арифметика в редакції явно умовна."
+    }
+  ],
+  "interpretation": "58 основних текстів відрізнялися від початкового завантаження, 11 були незмінними. Окремо знайдено одну нову статтю. У файлах враховано нові корисні приклади, контакти, біографію й наявну публікацію автора. Первинний аудит не є твердженням, що всі ті самі недоліки досі залишені на сайті."
+}

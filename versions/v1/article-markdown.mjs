@@ -2,27 +2,33 @@ const escapeHtml = value => String(value).replaceAll('&', '&amp;').replaceAll('<
 
 function safeHref(value) {
   const href = value.trim();
-  if (href.startsWith('/') || href.startsWith('#')) return href;
+  if ((href.startsWith('/') && !href.startsWith('//')) || href.startsWith('#')) return href;
   try {
     const url = new URL(href);
-    return ['https:', 'http:', 'mailto:'].includes(url.protocol) ? href : '';
+    return ['https:', 'http:', 'mailto:', 'tel:'].includes(url.protocol) ? href : '';
   } catch {
     return '';
   }
 }
 
 function inlineMarkdown(value) {
-  let html = escapeHtml(value);
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, rawHref) => {
-    const href = safeHref(rawHref.replaceAll('&amp;', '&'));
+  const tokens=[];
+  const token=html=>{const id=tokens.push(html)-1;return `\u0001${id}\u0002`;};
+  let source=value.replace(/`([^`]+)`/g,(_match,code)=>token(`<code>${escapeHtml(code)}</code>`));
+  source = source.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, rawHref) => {
+    const href = safeHref(rawHref);
     if (!href) return label;
     const external = /^https?:/i.test(href);
-    return `<a href="${escapeHtml(href)}"${external ? ' rel="noopener noreferrer"' : ''}>${label}</a>`;
+    return token(`<a href="${escapeHtml(href)}"${external ? ' rel="noopener noreferrer"' : ''}>${escapeHtml(label)}</a>`);
   });
+  source=source.replace(/https?:\/\/[^\s<>\u0001\u0002]+/g,url=>{
+    const trimmed=url.replace(/[.,;:]$/,'');
+    return token(`<a href="${escapeHtml(trimmed)}" rel="noopener noreferrer">${escapeHtml(trimmed)}</a>`)+url.slice(trimmed.length);
+  });
+  let html=escapeHtml(source);
   html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-  return html;
+  return html.replace(/\u0001(\d+)\u0002/g,(_match,index)=>tokens[Number(index)]);
 }
 
 function slugify(value) {
@@ -47,6 +53,7 @@ export function renderArticleMarkdown(markdown) {
   const toc = [];
   let index = 0;
   let sectionOpen = false;
+  const headingIds = new Map();
 
   while (index < lines.length) {
     const line = lines[index].trim();
@@ -56,7 +63,10 @@ export function renderArticleMarkdown(markdown) {
     if (heading) {
       const level = heading[1].length;
       const title = heading[2].trim();
-      const id = slugify(title);
+      const base = slugify(title);
+      const count = (headingIds.get(base) ?? 0) + 1;
+      headingIds.set(base,count);
+      const id = count === 1 ? base : `${base}-${count}`;
       if (level === 2) {
         if (sectionOpen) html.push('</section>');
         html.push(`<section id="${escapeHtml(id)}"><h2>${inlineMarkdown(title)}</h2>`);
@@ -83,7 +93,7 @@ export function renderArticleMarkdown(markdown) {
       index += 2;
       const rows = [];
       while (index < lines.length && lines[index].trim().startsWith('|')) rows.push(splitTableRow(lines[index++]));
-      html.push('<div class="article-table-wrap"><table><thead><tr>');
+      html.push('<div class="article-table-wrap" role="region" aria-label="Таблиця з горизонтальною прокруткою" tabindex="0"><table><thead><tr>');
       html.push(header.map(cell => `<th scope="col">${inlineMarkdown(cell)}</th>`).join(''));
       html.push('</tr></thead><tbody>');
       html.push(rows.map(row => `<tr>${header.map((_cell, cellIndex) => `<td>${inlineMarkdown(row[cellIndex] ?? '')}</td>`).join('')}</tr>`).join(''));

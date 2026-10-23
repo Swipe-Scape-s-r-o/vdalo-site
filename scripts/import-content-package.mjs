@@ -1,0 +1,31 @@
+import {readFileSync,readdirSync,mkdirSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import path from 'node:path';
+const source=process.argv[2];
+if(!source)throw new Error('Usage: node scripts/import-content-package.mjs <extracted-package-directory>');
+const read=file=>readFileSync(path.join(source,file),'utf8').replace(/^\uFEFF/,'').replace(/\r/g,'');
+const metadata=JSON.parse(read('03_METADATA.json'));
+const notes=JSON.parse(read('12_EDITORIAL_NOTES.json'));
+const deferred=JSON.parse(read('13_DEFERRED_FUNCTION_PAGES.json'));
+const files=readdirSync(path.join(source,'15_PAGE_PACKS'));
+const target=new URL('../versions/v1/content-revisions/',import.meta.url);
+mkdirSync(new URL('pages/',target),{recursive:true});
+const pages=[];
+for(const meta of metadata){
+  const file=files.find(name=>name.startsWith(meta.id+'_'));
+  if(!file)throw new Error(`Missing ${meta.id}`);
+  const pack=read(`15_PAGE_PACKS/${file}`);
+  const copy=pack.split('ПОВНИЙ ПУБЛІЧНИЙ ТЕКСТ\n\n')[1]?.split('\n\nКІНЕЦЬ ПУБЛІЧНОГО ТЕКСТУ')[0]?.trim();
+  if(!copy||copy!==read(`09_PUBLIC_COPY/${file}`).trim())throw new Error(`Public copy mismatch ${meta.id}`);
+  if((copy.match(/^# /gm)||[]).length!==1||!copy.startsWith(`# ${meta.h1}\n`))throw new Error(`H1 mismatch ${meta.id}`);
+  if(deferred.some(page=>page.url===meta.url))throw new Error(`Deferred route included ${meta.url}`);
+  const filename=`${file.slice(0,-4)}.md`;
+  writeFileSync(new URL(`pages/${filename}`,target),copy+'\n');
+  pages.push({id:meta.id,route:new URL(meta.canonical).pathname,file:filename,title:meta.title,description:meta.description,h1:meta.h1,ogTitle:meta.og_title,ogDescription:meta.og_description,canonical:meta.canonical,robots:meta.robots_current,sourceSha256:createHash('sha256').update(copy).digest('hex')});
+}
+writeFileSync(new URL('registry.json',target),JSON.stringify(pages,null,2)+'\n');
+const documentation=new URL('../docs/content-package-2026-10-23/',import.meta.url);
+mkdirSync(documentation,{recursive:true});
+for(const file of ['00_README.txt','05_CLAIMS_AND_GAPS.json','06_IMPLEMENTATION_PLAN.txt','07_SOURCES.json','11_LOCAL_RATE_SOURCES.json','12_EDITORIAL_NOTES.json','13_DEFERRED_FUNCTION_PAGES.json','14_VALIDATION.txt','16_SECOND_PASS_REVIEW.json','17_INTENT_AND_LINK_MAP.json','18_LIVE_RECHECK.json'])writeFileSync(new URL(file,documentation),read(file));
+writeFileSync(new URL('PROVENANCE.json',documentation),JSON.stringify({package:'VDALO_Content_Package_2026-10-23',edition:2,pages:pages.length,publicCopySha256:pages.map(({id,sourceSha256})=>({id,sourceSha256})),notes:'Source hashes precede documented website/UX adaptations; draft JSON-LD is not blindly imported.'},null,2)+'\n');
+console.log(`Imported ${pages.length} full page packs; ${deferred.length} product pages remain excluded.`);

@@ -820,10 +820,11 @@ test('Yaremche calculator requires and applies the selected accommodation catego
   assert.equal(hotel.state,'VERIFIED_RESULT');
   assert.equal(hotel.totalCents,'17294');
   assert.equal(hotel.guestGroups[0].ratePercent,0.5);
-  assert.equal(hotel.guestGroups[0].accommodationTypeLabel,'Готель, мотель або заклад готельного типу');
+  assert.equal(hotel.guestGroups[0].accommodationTypeLabel,'Готель');
   const other=calculateTouristTax({...base,accommodationType:'other'});
   assert.equal(other.totalCents,'10376');
   assert.equal(other.guestGroups[1].ratePercent,0.3);
+  assert.match(other.guestGroups[1].accommodationTypeLabel,/Мотель/);
   assert.equal(calculateTouristTax({...base,accommodationType:'unknown'}).state,'INVALID_INPUT');
   assert.equal(calculateTouristTax({...base,start:'2027-01-01',accommodationType:'hotel'}).state,'RATE_OUT_OF_PERIOD');
   const page=renderTouristTaxCity('yaremche');

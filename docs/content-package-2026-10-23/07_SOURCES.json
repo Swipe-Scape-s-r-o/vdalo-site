@@ -1,0 +1,1032 @@
+{
+  "checked": "2026-10-23",
+  "internal_files": [
+    "03-02_PRODUCT_TRUTH.md",
+    "06-05_EVIDENCE_RULES.md",
+    "21-PMS_Core_Product_Scope_2026-10-06.md",
+    "13-GTM.md",
+    "12-ECONOMICS.md",
+    "23-BRAND_TASK_PACK.md",
+    "09-BRAND.md",
+    "30-CHATGPT_PROJECT_MANIFEST.md",
+    "02-01_DECISIONS.md",
+    "26-RESEARCH_TASK_PACK.md",
+    "10-COMPETITORS.md",
+    "28-SEO_TASK_PACK.md",
+    "25-PRODUCT_TASK_PACK.md",
+    "27-SALES_TASK_PACK.md",
+    "18-WEBSITE.md",
+    "07-PROJECT_INSTRUCTIONS.md",
+    "05-04_OPEN_QUESTIONS.md",
+    "17-SEO.md",
+    "29-WEBSITE_TASK_PACK.md",
+    "01-00_MASTER_CONTEXT.md",
+    "11-CUSTOMER_ICP_VOC.md",
+    "15-MARKETS.md",
+    "19-CURRENT_PUBLIC_CLAIMS.md",
+    "04-03_BRAND_ARCHITECTURE.md",
+    "14-INTEGRATIONS_SECURITY.md",
+    "08-00_HOME.md",
+    "22-VDALO_Brand_Copywriting_Guide_UA.md",
+    "16-OPERATIONS_WORKFLOWS.md",
+    "20-SOURCE_INDEX.md",
+    "24-CODEX_TASK_PACK.md"
+  ],
+  "external_fetches": [
+    {
+      "url": "https://chernigiv-rada.gov.ua/fin-miscevi-podatky/id-35780/",
+      "http": 200,
+      "final_url": "https://chernigiv-rada.gov.ua/fin-miscevi-podatky/id-35780/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "bb10b1a0b0743d",
+      "kind": "html",
+      "characters": 4682
+    },
+    {
+      "url": "https://chernigiv-rada.gov.ua/storage/files/06/21/09/24/d2591043db2538471681da9ec338c0fb.pdf",
+      "http": 200,
+      "final_url": "https://chernigiv-rada.gov.ua/storage/files/06/21/09/24/d2591043db2538471681da9ec338c0fb.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "2b3bff3adbd9b6",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 3028
+    },
+    {
+      "url": "https://chernigiv-rada.gov.ua/storage/files/15/23/07/00/f60a2b68ff122f255a01a6efbdc24ea6.pdf",
+      "http": 200,
+      "final_url": "https://chernigiv-rada.gov.ua/storage/files/15/23/07/00/f60a2b68ff122f255a01a6efbdc24ea6.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "3822760341c223",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 11047
+    },
+    {
+      "url": "https://cherkasy-rada.gov.ua/documents/miska-vlada/departamenty/departament-finansovoyi-polityky/rishennya-pro-misczevi-podatky-ta-zbory/diyuchi-rishennya-pro-misczevi-podatky-i-zbory/pro-zatverdzhennya-polozhen-ta-stavok-misczevyh-podatkiv-i-zboriv-na-terytoriyi-mista-cherkasy/",
+      "http": 200,
+      "final_url": "https://cherkasy-rada.gov.ua/documents/miska-vlada/departamenty/departament-finansovoyi-polityky/rishennya-pro-misczevi-podatky-ta-zbory/diyuchi-rishennya-pro-misczevi-podatky-i-zbory/pro-zatverdzhennya-polozhen-ta-stavok-misczevyh-podatkiv-i-zboriv-na-terytoriyi-mista-cherkasy/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "70ebb17de26862",
+      "kind": "html",
+      "characters": 922
+    },
+    {
+      "url": "https://cherkasy-rada.gov.ua/novyny/informacziya-departamentu-finansovoyi-polityky-cherkaskoyi-miskoyi-rady-pro-vykonannya-byudzhetu-cherkaskoyi-miskoyi-terytorialnoyi-gromady-za-2024-rik/",
+      "http": 200,
+      "final_url": "https://cherkasy-rada.gov.ua/novyny/informacziya-departamentu-finansovoyi-polityky-cherkaskoyi-miskoyi-rady-pro-vykonannya-byudzhetu-cherkaskoyi-miskoyi-terytorialnoyi-gromady-za-2024-rik/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "9295928a0552fb",
+      "kind": "html",
+      "characters": 22434
+    },
+    {
+      "url": "https://cherkasy-rada.gov.ua/wp-content/uploads/documents/2025/08/prognoz-2026-2028.pdf",
+      "http": 200,
+      "final_url": "https://cherkasy-rada.gov.ua/wp-content/uploads/documents/2025/08/prognoz-2026-2028.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "4a21af48b55f6d",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 235789
+    },
+    {
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "http": 200,
+      "final_url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "8d7d5b412c8148",
+      "kind": "html",
+      "characters": 16432
+    },
+    {
+      "url": "https://developers.booking.com/connectivity/docs/connections-api/connections-overview",
+      "http": 200,
+      "final_url": "https://developers.booking.com/connectivity/docs/connections-api/connections-overview",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "6170634df40022",
+      "kind": "html",
+      "characters": 4541
+    },
+    {
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+      "http": 200,
+      "final_url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "d76e3db85ca0e8",
+      "kind": "html",
+      "characters": 12140
+    },
+    {
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "http": 200,
+      "final_url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "455005f14f8c6b",
+      "kind": "html",
+      "characters": 7627
+    },
+    {
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/article",
+      "http": 200,
+      "final_url": "https://developers.google.com/search/docs/appearance/structured-data/article",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "a0d932ee9c738b",
+      "kind": "html",
+      "characters": 16851
+    },
+    {
+      "url": "https://deputat.omr.gov.ua/session/14-lipnya-2026-roku/",
+      "http": 200,
+      "final_url": "https://deputat.omr.gov.ua/session/14-lipnya-2026-roku/",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "0260f45c64b0ad",
+      "kind": "html",
+      "characters": 4988
+    },
+    {
+      "url": "https://if.tax.gov.ua/media-ark/news-ark/print-1041769.html",
+      "http": 200,
+      "final_url": "https://if.tax.gov.ua/media-ark/news-ark/print-1041769.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "f2cec216fa906e",
+      "kind": "html",
+      "characters": 1997
+    },
+    {
+      "url": "https://if.tax.gov.ua/media-ark/local-news/558315.html",
+      "http": 200,
+      "final_url": "https://if.tax.gov.ua/media-ark/local-news/558315.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "f81d985e2ed1d4",
+      "kind": "html",
+      "characters": 4408
+    },
+    {
+      "url": "https://github.com/zxing/zxing/wiki/Barcode-Contents#wi-fi-network-config-android-ios-11",
+      "http": 200,
+      "final_url": "https://github.com/zxing/zxing/wiki/Barcode-Contents#wi-fi-network-config-android-ios-11",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "16e4493195ce40",
+      "kind": "html",
+      "characters": 11501
+    },
+    {
+      "url": "https://integration.diia.gov.ua/",
+      "http": 200,
+      "final_url": "https://integration.diia.gov.ua/",
+      "content_type": "text/html",
+      "date_checked": "2026-10-23",
+      "key": "08cac3621657f4",
+      "kind": "html",
+      "characters": 7759
+    },
+    {
+      "url": "https://finance.smr.gov.ua/47-opodatkuvannya-v-ukraini",
+      "http": 200,
+      "final_url": "https://finance.smr.gov.ua/47-opodatkuvannya-v-ukraini",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "6cc1dcbac2831a",
+      "kind": "html",
+      "characters": 22025
+    },
+    {
+      "url": "https://finance.smr.gov.ua/files/%D0%94%D0%BE%D1%85%D0%BE%D0%B4%D0%B8/%D0%9D%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%20%D0%B1%D0%B0%D0%B7%D0%B0/%D0%BC%D1%96%D1%81%D1%86%D0%B5%D0%B2%D1%96%20%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%BA%D0%B8/%D0%BD%D0%B0%202022%20%D1%80%D1%96%D0%BA/1238-mr.zip",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "219801778d31b2"
+    },
+    {
+      "url": "https://km.tax.gov.ua/media-ark/news-ark/1020882.html",
+      "http": 200,
+      "final_url": "https://km.tax.gov.ua/media-ark/news-ark/1020882.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "d7e7013d7d2f96",
+      "kind": "html",
+      "characters": 5541
+    },
+    {
+      "url": "https://km.tax.gov.ua/media-ark/news-ark/print-1020882.html",
+      "http": 200,
+      "final_url": "https://km.tax.gov.ua/media-ark/news-ark/print-1020882.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "f91d28969ea6b4",
+      "kind": "html",
+      "characters": 2776
+    },
+    {
+      "url": "https://kolrada.gov.ua/p/podatki",
+      "http": 200,
+      "final_url": "https://kolrada.gov.ua/p/podatki",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "d32a8fdc725403",
+      "kind": "html",
+      "characters": 10445
+    },
+    {
+      "url": "https://khust-miskrada.gov.ua/wp-content/uploads/2021/07/Dodatok-5-do-rishennia-344.pdf",
+      "http": 200,
+      "final_url": "https://khust-miskrada.gov.ua/wp-content/uploads/2021/07/Dodatok-5-do-rishennia-344.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "b733be4636a81f",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 5175
+    },
+    {
+      "url": "https://khust-miskrada.gov.ua/wp-content/uploads/2025/07/Rishennia-2542.pdf",
+      "http": 200,
+      "final_url": "https://khust-miskrada.gov.ua/wp-content/uploads/2025/07/Rishennia-2542.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "35355635f6a9ff",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 3986
+    },
+    {
+      "url": "https://khust-miskrada.gov.ua/wp-content/uploads/2022/08/Rishennia-866.pdf",
+      "http": 200,
+      "final_url": "https://khust-miskrada.gov.ua/wp-content/uploads/2022/08/Rishennia-866.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "a21923772295b3",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 12506
+    },
+    {
+      "url": "https://kyivcity.gov.ua/news/kivrada_ukhvalila_novi_stavki_turistichnogo_zboru/",
+      "http": null,
+      "error": "HTTP Error 403: Forbidden",
+      "key": "cfc8c8b63396cd"
+    },
+    {
+      "url": "https://od.tax.gov.ua/diialnist/zabezpechennya-nadhodjen/print-1050922.html",
+      "http": 200,
+      "final_url": "https://od.tax.gov.ua/diialnist/zabezpechennya-nadhodjen/print-1050922.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "c5509eb9504b9a",
+      "kind": "html",
+      "characters": 2249
+    },
+    {
+      "url": "https://nbkolrada.gov.ua/dt/348928/",
+      "http": 200,
+      "final_url": "https://nbkolrada.gov.ua/dt/348928/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "831afac7cad36c",
+      "kind": "html",
+      "characters": 95552
+    },
+    {
+      "url": "https://nbkolrada.gov.ua/dt/789139/",
+      "http": 200,
+      "final_url": "https://nbkolrada.gov.ua/dt/789139/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "b2c5329e4c81f9",
+      "kind": "html",
+      "characters": 72566
+    },
+    {
+      "url": "https://od.tax.gov.ua/diialnist/zabezpechennya-nadhodjen/print-1033334.html",
+      "http": 200,
+      "final_url": "https://od.tax.gov.ua/diialnist/zabezpechennya-nadhodjen/print-1033334.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "4aa2c7c701354a",
+      "kind": "html",
+      "characters": 2068
+    },
+    {
+      "url": "https://nbkolrada.gov.ua/dt/789086/",
+      "http": 200,
+      "final_url": "https://nbkolrada.gov.ua/dt/789086/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "882daffdae2a86",
+      "kind": "html",
+      "characters": 167603
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/lbc_0750200000_edrpou_43360202_version_1.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "cbcf565ed167c3"
+    },
+    {
+      "url": "https://old.kmr.gov.ua/uk/content/proekt-rishennya-kyyivskoyi-miskoyi-rady-29954",
+      "http": 200,
+      "final_url": "https://old.kmr.gov.ua/uk/content/proekt-rishennya-kyyivskoyi-miskoyi-rady-29954",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "81f7c105300305",
+      "kind": "html",
+      "characters": 25412
+    },
+    {
+      "url": "https://tax.gov.ua/baneryi/programni-rro/",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/baneryi/programni-rro/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "683850d34773df",
+      "kind": "html",
+      "characters": 8398
+    },
+    {
+      "url": "https://old.vin-rada.gov.ua/%D1%82%D1%83%D1%80%D0%B8%D0%B7%D0%BC/%D1%82%D1%83%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%B8%D0%B9-%D0%B7%D0%B1%D1%96%D1%80/",
+      "http": 200,
+      "final_url": "https://old.vin-rada.gov.ua/%D1%82%D1%83%D1%80%D0%B8%D0%B7%D0%BC/%D1%82%D1%83%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%B8%D0%B9-%D0%B7%D0%B1%D1%96%D1%80/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "5360569e0ed04f",
+      "kind": "html",
+      "characters": 12913
+    },
+    {
+      "url": "https://rivnerada.gov.ua/publicservicesapi/api/search-document/load-senate-document/23153/0/783/24-06-2021",
+      "http": 200,
+      "final_url": "https://rivnerada.gov.ua/publicservicesapi/api/search-document/load-senate-document/23153/0/783/24-06-2021",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "1fab4708bd09fa",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 5176
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934849/d8b5e601_2eea_43c3_86ad_ec0e8d6023f6.pdf",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/data/material/000/801/934849/d8b5e601_2eea_43c3_86ad_ec0e8d6023f6.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "3fab28857e3604",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 282406
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/lbc_0756400000_edrpou_44070868_version_1.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "59430a52108bd7"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/lbc_0750300000_edrpou_41087685_version_4.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "22861cd87e7c9e"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/lbc_0755900000_edrpou_02313559_version_1.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "4179ac0ff448ba"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/lbc_0751700000_edrpou_26031452_version_1.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "346220d20ee968"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/lbc_0756100000_edrpou_25440728_version_1.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "40638b16c7fa64"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934863/f5fade5e_db5d_4526_ab5a_8d2105263251.pdf",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/data/material/000/801/934863/f5fade5e_db5d_4526_ab5a_8d2105263251.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "d055febda8f59a",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 314763
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934869/lbc_0953000000_edrpou_04054334_version_2.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "77b49a96bdfa94"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934869/lbc_0956300000_edrpou_20555668_version_5.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "1b70377ce7b910"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934872/lbc_1054600000_edrpou_02318025_version_1.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "d66e30c0cca508"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934870/db34b3dd_b4d1_4766_8186_ebc29a7a42f4.pdf",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/data/material/000/801/934870/db34b3dd_b4d1_4766_8186_ebc29a7a42f4.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "2503c583dd3bb0",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 284020
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934864/e2ba70ad_f3b6_4097_86bd_9ecadab9d8aa.pdf",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/data/material/000/801/934864/e2ba70ad_f3b6_4097_86bd_9ecadab9d8aa.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "4e9bf7dbf1f886",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 492175
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934878/lbc_1559100000_edrpou_22491872_version_5.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "44b87827f3c101"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934878/lbc_1556400000_edrpou_02315044_version_1.pdf",
+      "http": null,
+      "error": "HTTP Error 404: Not Found",
+      "key": "0b5f88f0801cc0"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934883/01bb5e61_0220_47aa_ba69_8f53584d7e19.pdf",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/data/material/000/801/934883/01bb5e61_0220_47aa_ba69_8f53584d7e19.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "565d2032ac348a",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 209822
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934883/2193442c_a7bd_4832_adde_b89bbc479258.pdf",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/data/material/000/801/934883/2193442c_a7bd_4832_adde_b89bbc479258.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "351db2a8d02be1",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 293180
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934883/d5ac4701_e753_4c8a_9d0c_a0f735173f94.pdf",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/data/material/000/801/934883/d5ac4701_e753_4c8a_9d0c_a0f735173f94.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "8c776ac03d715d",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 403774
+    },
+    {
+      "url": "https://ternopilcity.gov.ua/sesiya/rishennya-sesii/93883.html",
+      "http": 200,
+      "final_url": "https://ternopilcity.gov.ua/sesiya/rishennya-sesii/93883.html",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "6c5c2dc2822113",
+      "kind": "html",
+      "characters": 4419
+    },
+    {
+      "url": "https://ternopilcity.gov.ua/en/sesiya/rishennya-sesii/100218.html",
+      "http": 200,
+      "final_url": "https://ternopilcity.gov.ua/en/sesiya/rishennya-sesii/100218.html",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "923d780d2cf541",
+      "kind": "html",
+      "characters": 2875
+    },
+    {
+      "url": "https://tax.gov.ua/nk/rozdil-xii--mistsevi-podatki-i/",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/nk/rozdil-xii--mistsevi-podatki-i/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "2dc76d29d2ae9e",
+      "kind": "html",
+      "characters": 56967
+    },
+    {
+      "url": "https://ternopilcity.gov.ua/sesiya/rishennya-sesii/29955.html",
+      "http": 200,
+      "final_url": "https://ternopilcity.gov.ua/sesiya/rishennya-sesii/29955.html",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "0ae5ce9dafcbd4",
+      "kind": "html",
+      "characters": 13295
+    },
+    {
+      "url": "https://tax.gov.ua/zakonodavstvo/podatki-ta-zbori/stavki-mistsevih-podatkiv-ta-zboriv/",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/zakonodavstvo/podatki-ta-zbori/stavki-mistsevih-podatkiv-ta-zboriv/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "897f79e6ba2f22",
+      "kind": "html",
+      "characters": 9163
+    },
+    {
+      "url": "https://ternopilcity.gov.ua/sesiya/rishennya-sesii/96026.html",
+      "http": 200,
+      "final_url": "https://ternopilcity.gov.ua/sesiya/rishennya-sesii/96026.html",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "93c94a028c648f",
+      "kind": "html",
+      "characters": 3616
+    },
+    {
+      "url": "https://vl.tax.gov.ua/media-ark/news-ark/978756.html",
+      "http": 200,
+      "final_url": "https://vl.tax.gov.ua/media-ark/news-ark/978756.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "22f7a94b48cc97",
+      "kind": "html",
+      "characters": 6288
+    },
+    {
+      "url": "https://tr.tax.gov.ua/media-ark/news-ark/print-1020725.html",
+      "http": 200,
+      "final_url": "https://tr.tax.gov.ua/media-ark/news-ark/print-1020725.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "df03bc5acac9ad",
+      "kind": "html",
+      "characters": 2827
+    },
+    {
+      "url": "https://vin-rada.gov.ua/news/%D0%BD%D0%B0%D1%80%D0%B0%D0%B4%D0%B0/",
+      "http": 200,
+      "final_url": "https://vin-rada.gov.ua/news/%D0%BD%D0%B0%D1%80%D0%B0%D0%B4%D0%B0/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "ccba2485b6f819",
+      "kind": "html",
+      "characters": 2495
+    },
+    {
+      "url": "https://vmr.gov.ua/media/%D0%94%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B8/%D0%94%D0%A4/%D0%94%D0%A4%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8/%D0%9F%D0%9E%D0%94%D0%90%D0%A2%D0%9A%D0%98/%D0%A0%D1%96%D1%88%D0%B5%D0%BD%D0%BD%D1%8F%20%D0%BC%D1%96%D1%81%D1%8C%D0%BA%D0%BE%D1%97%20%D1%80%D0%B0%D0%B4%D0%B8%20%E2%84%963535%20%D0%B2%D1%96%D0%B4%2019-06-2025.pdf",
+      "http": 200,
+      "final_url": "https://vmr.gov.ua/media/%D0%94%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B8/%D0%94%D0%A4/%D0%94%D0%A4%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8/%D0%9F%D0%9E%D0%94%D0%90%D0%A2%D0%9A%D0%98/%D0%A0%D1%96%D1%88%D0%B5%D0%BD%D0%BD%D1%8F%20%D0%BC%D1%96%D1%81%D1%8C%D0%BA%D0%BE%D1%97%20%D1%80%D0%B0%D0%B4%D0%B8%20%E2%84%963535%20%D0%B2%D1%96%D0%B4%2019-06-2025.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "608848e787776d",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 137110
+    },
+    {
+      "url": "https://www.airbnb.com/help/article/99",
+      "http": 200,
+      "final_url": "https://www.airbnb.com/help/article/99",
+      "content_type": "text/html;charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "d3d37bda1d68ed",
+      "kind": "html",
+      "characters": 5033
+    },
+    {
+      "url": "https://www.oracle.com/hospitality/what-is-hotel-pms/",
+      "http": 200,
+      "final_url": "https://www.oracle.com/hospitality/what-is-hotel-pms/",
+      "content_type": "text/html",
+      "date_checked": "2026-10-23",
+      "key": "5071d67237a1a2",
+      "kind": "html",
+      "characters": 65
+    },
+    {
+      "url": "https://www.lutskrada.gov.ua/publications/u-lutsku-zbilshyly-stavky-turystychnoho-zboru-dlia-v-iznoho-ta-vnutrishnoho-turyzmu",
+      "http": 200,
+      "final_url": "https://www.lutskrada.gov.ua/publications/u-lutsku-zbilshyly-stavky-turystychnoho-zboru-dlia-v-iznoho-ta-vnutrishnoho-turyzmu",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "196fb910555780",
+      "kind": "html",
+      "characters": 2068
+    },
+    {
+      "url": "https://www.lutskrada.gov.ua/documents/17496325233676686-pro-vstanovlennya-stavok-turistichnogo-zboru",
+      "http": 200,
+      "final_url": "https://www.lutskrada.gov.ua/documents/17496325233676686-pro-vstanovlennya-stavok-turistichnogo-zboru",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "2275c8d842f7bb",
+      "kind": "html",
+      "characters": 731
+    },
+    {
+      "url": "https://vmr.gov.ua/mistsevi-podatky-ta-zbory",
+      "http": 200,
+      "final_url": "https://vmr.gov.ua/mistsevi-podatky-ta-zbory",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "fc9ec2399b43f8",
+      "kind": "html",
+      "characters": 6719
+    },
+    {
+      "url": "https://www.qrcode.com/en/howto/code.html",
+      "http": 200,
+      "final_url": "https://www.qrcode.com/en/howto/code.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "2e9766d79876b3",
+      "kind": "html",
+      "characters": 1634
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934869/c2141f1f_5b12_4be6_a95c_fc738535012e.pdf",
+      "http": 200,
+      "final_url": "https://tax.gov.ua/data/material/000/801/934869/c2141f1f_5b12_4be6_a95c_fc738535012e.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "2459bf8a980303",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 4818311
+    },
+    {
+      "url": "https://www.vmr.gov.ua/media/%D0%94%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B8/%D0%94%D0%A4/%D0%94%D0%A4%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8/%D0%9F%D0%9E%D0%94%D0%90%D0%A2%D0%9A%D0%98/%D0%A0%D1%96%D1%88%D0%B5%D0%BD%D0%BD%D1%8F%20%D0%BC%D1%96%D1%81%D1%8C%D0%BA%D0%BE%D1%97%20%D1%80%D0%B0%D0%B4%D0%B8%20%D0%B2%D1%96%D0%B4%2025.06.2021%20%E2%84%96469.pdf",
+      "http": 200,
+      "final_url": "https://www.vmr.gov.ua/media/%D0%94%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B8/%D0%94%D0%A4/%D0%94%D0%A4%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8/%D0%9F%D0%9E%D0%94%D0%90%D0%A2%D0%9A%D0%98/%D0%A0%D1%96%D1%88%D0%B5%D0%BD%D0%BD%D1%8F%20%D0%BC%D1%96%D1%81%D1%8C%D0%BA%D0%BE%D1%97%20%D1%80%D0%B0%D0%B4%D0%B8%20%D0%B2%D1%96%D0%B4%2025.06.2021%20%E2%84%96469.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "dffc5b664d19eb",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 104362
+    },
+    {
+      "url": "https://www.tax.gov.ua/data/material/000/801/934858/a266f45f_e9e4_457e_a9c3_c2c533a28700.pdf",
+      "http": 200,
+      "final_url": "https://www.tax.gov.ua/data/material/000/801/934858/a266f45f_e9e4_457e_a9c3_c2c533a28700.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "bcc0e251533fe9",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 378811
+    },
+    {
+      "url": "https://www.tax.gov.ua/data/material/000/801/934845/865ba29b_179e_49b0_95dd_13ac5c61a3c2.pdf",
+      "http": 200,
+      "final_url": "https://www.tax.gov.ua/data/material/000/801/934845/865ba29b_179e_49b0_95dd_13ac5c61a3c2.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "3a2aa80c1e3110",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 397148
+    },
+    {
+      "url": "https://www.tax.gov.ua/data/material/000/801/934846/ba390b74_22f5_46b0_a1e3_0b55dc45343b.pdf",
+      "http": 200,
+      "final_url": "https://www.tax.gov.ua/data/material/000/801/934846/ba390b74_22f5_46b0_a1e3_0b55dc45343b.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "a88589d14f021f",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 669189
+    },
+    {
+      "url": "https://ymtg.gov.ua/documents/327388-pro-vstanovlennia-stavok-turisticnogo-zboru-na-teritoriyi-pivdennivskoyi-miskoyi-teritorialnoyi-gromadi-odeskogo-raionu",
+      "http": 200,
+      "final_url": "https://ymtg.gov.ua/documents/327388-pro-vstanovlennia-stavok-turisticnogo-zboru-na-teritoriyi-pivdennivskoyi-miskoyi-teritorialnoyi-gromadi-odeskogo-raionu",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "636219ff4e9c0b",
+      "kind": "html",
+      "characters": 4387
+    },
+    {
+      "url": "https://www.zt-rada.gov.ua/?pages=18912",
+      "http": 200,
+      "final_url": "https://www.zt-rada.gov.ua/?pages=18912",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "e50422f30bb6ee",
+      "kind": "html",
+      "characters": 839
+    },
+    {
+      "url": "https://zak.tax.gov.ua/media-ark/news-ark/1015698.html",
+      "http": 200,
+      "final_url": "https://zak.tax.gov.ua/media-ark/news-ark/1015698.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "b0268224914633",
+      "kind": "html",
+      "characters": 7789
+    },
+    {
+      "url": "https://zak.tax.gov.ua/media-ark/news-ark/1004871.html",
+      "http": 200,
+      "final_url": "https://zak.tax.gov.ua/media-ark/news-ark/1004871.html",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "3f551bc5084343",
+      "kind": "html",
+      "characters": 5949
+    },
+    {
+      "url": "https://zakon.rada.gov.ua/laws/show/2755-17",
+      "http": null,
+      "error": "HTTP Error 503: Service Unavailable",
+      "key": "34ceba8ddc5b92"
+    },
+    {
+      "url": "https://zakon.rada.gov.ua/laws/show/4695-IX",
+      "http": null,
+      "error": "HTTP Error 503: Service Unavailable",
+      "key": "a27d760a070dff"
+    },
+    {
+      "url": "https://zakon.rada.gov.ua/laws/show/4695-20",
+      "http": null,
+      "error": "HTTP Error 503: Service Unavailable",
+      "key": "6dcbcce76f4a2e"
+    },
+    {
+      "url": "https://zakon.rada.gov.ua/laws/show/2755-17#n3691",
+      "http": null,
+      "error": "HTTP Error 503: Service Unavailable",
+      "key": "d63a439686027d"
+    },
+    {
+      "url": "https://zakon.rada.gov.ua/rada/show/v0011201-11",
+      "http": null,
+      "error": "HTTP Error 503: Service Unavailable",
+      "key": "53ca4865f48cfb"
+    },
+    {
+      "url": "https://zaktour.gov.ua/en/za-6-misiatsiv-2026-roku-na-zakarpatti-splatyly-16-7-mln-hrn-turystychnoho-zboru/",
+      "http": 200,
+      "final_url": "https://zaktour.gov.ua/en/za-6-misiatsiv-2026-roku-na-zakarpatti-splatyly-16-7-mln-hrn-turystychnoho-zboru/",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "cedaf3aae78b4c",
+      "kind": "html",
+      "characters": 4766
+    },
+    {
+      "url": "https://zp.gov.ua/pages/164604-miscevi-podatki-ta-zbori",
+      "http": 200,
+      "final_url": "https://zp.gov.ua/pages/164604-miscevi-podatki-ta-zbori",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "1fb0fc74221882",
+      "kind": "html",
+      "characters": 7668
+    },
+    {
+      "url": "https://zp.gov.ua/documents/95368-pro-vstanovlennia-turisticnogo-zboru",
+      "http": 200,
+      "final_url": "https://zp.gov.ua/documents/95368-pro-vstanovlennia-turisticnogo-zboru",
+      "content_type": "text/html; charset=utf-8",
+      "date_checked": "2026-10-23",
+      "key": "daacf59908fba3",
+      "kind": "html",
+      "characters": 3562
+    },
+    {
+      "url": "https://zir.tax.gov.ua/main/bz/view/?id=33413&src=ques",
+      "http": 200,
+      "final_url": "https://zir.tax.gov.ua/main/bz/view/?id=33413&src=ques",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "043f2f0a2db5a5",
+      "kind": "html",
+      "characters": 1714
+    },
+    {
+      "url": "https://zir.tax.gov.ua/main/bz/view/?id=32972&src=ques",
+      "http": 200,
+      "final_url": "https://zir.tax.gov.ua/main/bz/view/?id=32972&src=ques",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "aaaa685f48c299",
+      "kind": "html",
+      "characters": 1605
+    },
+    {
+      "url": "https://zir.tax.gov.ua/main/bz/view/?id=33671&src=ques",
+      "http": 200,
+      "final_url": "https://zir.tax.gov.ua/main/bz/view/?id=33671&src=ques",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "e0047e230b519b",
+      "kind": "html",
+      "characters": 1862
+    },
+    {
+      "url": "https://zir.tax.gov.ua/main/bz/view/?id=40833&src=ques",
+      "http": 200,
+      "final_url": "https://zir.tax.gov.ua/main/bz/view/?id=40833&src=ques",
+      "content_type": "text/html; charset=UTF-8",
+      "date_checked": "2026-10-23",
+      "key": "320fb1cb44860a",
+      "kind": "html",
+      "characters": 4402
+    },
+    {
+      "url": "https://zt-rada.gov.ua/files/upload/sitefiles/doc1639059843.pdf",
+      "http": 200,
+      "final_url": "https://zt-rada.gov.ua/files/upload/sitefiles/doc1639059843.pdf",
+      "content_type": "application/pdf",
+      "date_checked": "2026-10-23",
+      "key": "df8d1d488ef211",
+      "kind": "pdf",
+      "text_extraction": true,
+      "characters": 350602
+    }
+  ],
+  "recovered_official_pdf_files": [
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/5bb87e90_1710_4aa9_a769_255f802e1f0d.pdf",
+      "key": "b45e311a2ea7e9",
+      "targets": [
+        "yasinya"
+      ],
+      "date_checked": "2026-10-23"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/4e161262_60b5_4550_bc1a_1d123200f403.pdf",
+      "key": "65a09597bf4260",
+      "targets": [
+        "uzhhorod"
+      ],
+      "date_checked": "2026-10-23"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/481cb663_1b9f_45be_8892_42ebf7734915.pdf",
+      "key": "3c388c674b105d",
+      "targets": [
+        "berehove"
+      ],
+      "date_checked": "2026-10-23"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/7122a939_c7df_4e6d_949a_f3a12b8f31bc.pdf",
+      "key": "b1e4e156eafbda",
+      "targets": [
+        "khust"
+      ],
+      "date_checked": "2026-10-23"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/73293a41_b1a1_4186_96a3_e02be470ec5a.pdf",
+      "key": "5b5b342f510cb6",
+      "targets": [
+        "polyana"
+      ],
+      "date_checked": "2026-10-23"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934858/c477aedc_2bc6_4d23_bb82_39a26148fc23.pdf",
+      "key": "22af7f36373ce0",
+      "targets": [
+        "tyachiv"
+      ],
+      "date_checked": "2026-10-23"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934872/bc1c25b3_1fb7_4bf3_aee1_c39074f83848.pdf",
+      "key": "e5f6e337c20653",
+      "targets": [
+        "irpin"
+      ],
+      "date_checked": "2026-10-23"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934878/ca316fa0_df15_4eb4_8fc3_60aebc444424.pdf",
+      "key": "7117fab8a47f5b",
+      "targets": [
+        "pivdenne"
+      ],
+      "date_checked": "2026-10-23"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934878/d72d55a6_6ff4_4449_b6f5_8c12cb2addbf.pdf",
+      "key": "30893ae1f6d68b",
+      "targets": [
+        "odesa"
+      ],
+      "date_checked": "2026-10-23"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934869/5e03a092_6823_4065_8c28_d28109437dc3.pdf",
+      "key": "22286af6bd2613",
+      "targets": [
+        "yaremche"
+      ],
+      "date_checked": "2026-10-23"
+    },
+    {
+      "url": "https://tax.gov.ua/data/material/000/801/934869/697df0c7_4b57_49ea_9500_70b168ee66c6.pdf",
+      "key": "81080ed0ddb39b",
+      "targets": [
+        "kolomyya"
+      ],
+      "date_checked": "2026-10-23"
+    }
+  ],
+  "broken_old_pdf_links": [
+    "https://tax.gov.ua/data/material/000/801/934858/lbc_0750200000_edrpou_43360202_version_1.pdf",
+    "https://tax.gov.ua/data/material/000/801/934858/lbc_0756400000_edrpou_44070868_version_1.pdf",
+    "https://tax.gov.ua/data/material/000/801/934858/lbc_0750300000_edrpou_41087685_version_4.pdf",
+    "https://tax.gov.ua/data/material/000/801/934858/lbc_0755900000_edrpou_02313559_version_1.pdf",
+    "https://tax.gov.ua/data/material/000/801/934858/lbc_0751700000_edrpou_26031452_version_1.pdf",
+    "https://tax.gov.ua/data/material/000/801/934858/lbc_0756100000_edrpou_25440728_version_1.pdf",
+    "https://tax.gov.ua/data/material/000/801/934869/lbc_0953000000_edrpou_04054334_version_2.pdf",
+    "https://tax.gov.ua/data/material/000/801/934869/lbc_0956300000_edrpou_20555668_version_5.pdf",
+    "https://tax.gov.ua/data/material/000/801/934872/lbc_1054600000_edrpou_02318025_version_1.pdf",
+    "https://tax.gov.ua/data/material/000/801/934878/lbc_1559100000_edrpou_22491872_version_5.pdf",
+    "https://tax.gov.ua/data/material/000/801/934878/lbc_1556400000_edrpou_02315044_version_1.pdf"
+  ],
+  "note": "Громади у відновлених файлах зіставлено за назвою та КАТОТТГ. Ставки, джерела й відкриті питання наведено окремо для кожної громади у 11_LOCAL_RATE_SOURCES.json.",
+  "second_pass": [
+    {
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "checked": "2026-10-23",
+      "use": "Повнота відповіді, власний аналіз, джерела й відсутність вимоги до довільної довжини."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "checked": "2026-10-23",
+      "use": "Основи SEO, текстова доступність, внутрішні посилання та відповідність розмітки видимому тексту."
+    },
+    {
+      "url": "https://od.tax.gov.ua/media-ark/news-ark/1038595.html",
+      "checked": "2026-10-23",
+      "use": "Підтверджено повідомлення ДПС про рішення Одеси від 14.07.2026 №4314-VIII та зміну відсотка; дата застосування потребує повного акта."
+    },
+    {
+      "url": "https://omr.gov.ua/ua/acts/council/222272/",
+      "checked": "2026-10-23",
+      "use": "Адреса повного рішення наведена ДПС; при отриманні повертає HTTP 503. Не використовувалася як прочитане підтвердження дати застосування."
+    },
+    {
+      "url": "https://zt-rada.gov.ua/?pages=18912",
+      "checked": "2026-10-23",
+      "use": "Річна сторінка підтверджена; потрібні додатки для міста Житомира та Вересів залишаються недоступними у прочитаному представленні."
+    },
+    {
+      "url": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+      "checked": "2026-10-23",
+      "use": "Нова публічна стаття з авторством Костянтина; збережена й доповнена."
+    },
+    {
+      "url": "https://support.google.com/analytics/answer/10917952?hl=uk",
+      "checked": "2026-10-23",
+      "use": "Офіційне пояснення параметрів кампанії, використане в ресторанному матеріалі."
+    },
+    {
+      "url": "https://support.google.com/contributionpolicy/answer/7400114?hl=uk",
+      "checked": "2026-10-23",
+      "use": "Офіційні правила відгуків, зокрема незалежність від винагороди."
+    }
+  ]
+}

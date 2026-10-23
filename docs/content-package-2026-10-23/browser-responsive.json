@@ -1,0 +1,2816 @@
+[
+  {
+    "route": "/blog/channel-manager-ical-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Channel Manager чи iCal: що обрати для синхронізації бронювань"
+    ],
+    "scroll": 367,
+    "tables": 3,
+    "width": 390
+  },
+  {
+    "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання готелю: від заявки на сайті до запису в PMS"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Шахматка готелю: як читати бронювання, доступність і блокування"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Як перейти на нову PMS: план міграції та перевірки готельних даних"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Як готелю продавати додаткові послуги: від каталогу до виконаного замовлення"
+    ],
+    "scroll": 367,
+    "tables": 3,
+    "width": 390
+  },
+  {
+    "route": "/blog/pidhotovka-zaselennya-gostya",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Підготовка до заселення: що гість і команда мають знати до заїзду"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/blog/status-gotovnosti-nomera-housekeeping",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Готовність номера: як узгодити статуси housekeeping і рецепції"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Що автоматизувати в готелі першим: метод вибору та перевірки"
+    ],
+    "scroll": 367,
+    "tables": 3,
+    "width": 390
+  },
+  {
+    "route": "/blog/shcho-take-pms-dlya-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Що таке PMS для готелю: функції, приклади та межі системи"
+    ],
+    "scroll": 367,
+    "tables": 4,
+    "width": 390
+  },
+  {
+    "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Як обрати PMS для готелю: 25 критеріїв, тести й матриця рішення"
+    ],
+    "scroll": 367,
+    "tables": 5,
+    "width": 390
+  },
+  {
+    "route": "/blog/qr-kody-dlya-goteliv",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "QR-коди для готелів: 35 сценаріїв із перевіркою результату"
+    ],
+    "scroll": 367,
+    "tables": 3,
+    "width": 390
+  },
+  {
+    "route": "/blog/qr-wifi-dlya-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Як зробити QR-код Wi-Fi для гостей готелю"
+    ],
+    "scroll": 367,
+    "tables": 4,
+    "width": 390
+  },
+  {
+    "route": "/blog/qr-kartka-v-nomer-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "QR-картка в номер готелю: тексти, структура та перевірка друку"
+    ],
+    "scroll": 367,
+    "tables": 3,
+    "width": 390
+  },
+  {
+    "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Туристичний збір у 2026 році: правила для гостей і готелів"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Каталог послуг для гостей глемпінгу: що змінилося в замовленнях"
+    ],
+    "scroll": 632,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання глемпінгу: як сайт пов’язали з робочим календарем"
+    ],
+    "scroll": 632,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Звірка виплат OTA: як пов’язали бронювання, документи й надходження"
+    ],
+    "scroll": 632,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Пізнє заселення після закриття рецепції: досвід готелю в Німеччині"
+    ],
+    "scroll": 632,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Перенесення історії готелю: 18 475 бронювань і контрольна звірка"
+    ],
+    "scroll": 632,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Дослідження сайтів 2 118 об’єктів: як перевіряли видимий модуль бронювання"
+    ],
+    "scroll": 632,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 4,
+    "h1": [
+      "Система керування готелем.Для щоденної роботи."
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/about",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "VDALO: продукт, що починається з роботи готелю"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/contact",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Обговорімо задачу вашого готелю"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/sign-up",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Запросіть доступ до VDALO для вашого готелю"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/hotel-automation",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "З якого процесу почати автоматизацію готелю"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/authors",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Автори матеріалів VDALO"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/authors/oleh-stepeniev",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Олег Степенєв"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/blog",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Практичні матеріали для власника й команди готелю"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/cases",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Кейси змін у роботі готелю"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/tools/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Практичні інструменти для готельєрів"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/tools/hotel-profitability-calculator/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Калькулятор виручки, RevPAR та окремих витрат готелю"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/tools/pms-checklist/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 2,
+    "h1": [
+      "Чекліст вибору PMS: оцінка та повнота перевірки"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "QR Studio: підготуйте код під задачу гостя"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/pricing",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 4,
+    "h1": [
+      "Тарифи VDALO: базова вартість, доплати та підключення"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/privacy",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Політика конфіденційності VDALO"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/offer",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Публічна оферта та умови послуг VDALO"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/refunds",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Повернення коштів і скасування замовлення VDALO"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/cherkasy/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Черкасах у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/chernihiv/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернігові у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/berehove/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Береговому у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/dnipro/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Дніпрі у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/chernivtsi/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернівцях у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/irpin/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ірпені у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/ivano-frankivsk/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Івано-Франківську у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/khust/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Хусті у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/odesa/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 0,
+    "h1": [
+      "Туристичний збір в Одесі у 2026 році: перевірка зміни ставки"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/lutsk/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Луцьку у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/lviv/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Львові у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/kyyiv/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Києві у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/kolomyya/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Коломиї у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/slavsko/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Славську у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/polyana/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Поляні у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/skole/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сколе у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/rivne/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Рівному у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/pivdenne/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Південному у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/ternopil/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тернополі у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/vinnytsya/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Вінниці у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/uzhhorod/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ужгороді у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/tyachiv/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тячеві у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/sumy/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сумах у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/zaporizhzhya/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Запоріжжі у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/yaremche/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Яремчі у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/yasinya/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ясіні у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/zhytomyr/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Житомирі у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/vynohradiv/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Виноградові у 2026 році"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Україні у 2026 році: довідник громад і розрахунок"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/start",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 1,
+    "h1": [
+      "Упорядкуйте роботу з туристичним збором"
+    ],
+    "scroll": 367,
+    "tables": 0,
+    "width": 390
+  },
+  {
+    "route": "/blog/qr-kody-dlya-restoranu",
+    "size": "mobile",
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "QR-коди для ресторану: від меню до підтвердженого замовлення"
+    ],
+    "scroll": 367,
+    "tables": 3,
+    "width": 390
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "size": "mobile",
+    "retest": true,
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Каталог послуг для гостей глемпінгу: що змінилося в замовленнях"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "size": "mobile",
+    "retest": true,
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання глемпінгу: як сайт пов’язали з робочим календарем"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "size": "mobile",
+    "retest": true,
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Звірка виплат OTA: як пов’язали бронювання, документи й надходження"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "size": "mobile",
+    "retest": true,
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Пізнє заселення після закриття рецепції: досвід готелю в Німеччині"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "size": "mobile",
+    "retest": true,
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Перенесення історії готелю: 18 475 бронювань і контрольна звірка"
+    ],
+    "scroll": 367,
+    "tables": 2,
+    "width": 390
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "size": "mobile",
+    "retest": true,
+    "brokenImages": [],
+    "client": 367,
+    "forms": 3,
+    "h1": [
+      "Дослідження сайтів 2 118 об’єктів: як перевіряли видимий модуль бронювання"
+    ],
+    "scroll": 367,
+    "tables": 1,
+    "width": 390
+  },
+  {
+    "route": "/blog/channel-manager-ical-gotelyu",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Channel Manager чи iCal: що обрати для синхронізації бронювань"
+    ],
+    "scroll": 1417,
+    "tables": 3,
+    "width": 1440
+  },
+  {
+    "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання готелю: від заявки на сайті до запису в PMS"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Шахматка готелю: як читати бронювання, доступність і блокування"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Як перейти на нову PMS: план міграції та перевірки готельних даних"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Як готелю продавати додаткові послуги: від каталогу до виконаного замовлення"
+    ],
+    "scroll": 1417,
+    "tables": 3,
+    "width": 1440
+  },
+  {
+    "route": "/blog/pidhotovka-zaselennya-gostya",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Підготовка до заселення: що гість і команда мають знати до заїзду"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/blog/status-gotovnosti-nomera-housekeeping",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Готовність номера: як узгодити статуси housekeeping і рецепції"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Що автоматизувати в готелі першим: метод вибору та перевірки"
+    ],
+    "scroll": 1417,
+    "tables": 3,
+    "width": 1440
+  },
+  {
+    "route": "/blog/shcho-take-pms-dlya-gotelyu",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Що таке PMS для готелю: функції, приклади та межі системи"
+    ],
+    "scroll": 1417,
+    "tables": 4,
+    "width": 1440
+  },
+  {
+    "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Як обрати PMS для готелю: 25 критеріїв, тести й матриця рішення"
+    ],
+    "scroll": 1417,
+    "tables": 5,
+    "width": 1440
+  },
+  {
+    "route": "/blog/qr-kody-dlya-goteliv",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "QR-коди для готелів: 35 сценаріїв із перевіркою результату"
+    ],
+    "scroll": 1417,
+    "tables": 3,
+    "width": 1440
+  },
+  {
+    "route": "/blog/qr-wifi-dlya-gotelyu",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Як зробити QR-код Wi-Fi для гостей готелю"
+    ],
+    "scroll": 1417,
+    "tables": 4,
+    "width": 1440
+  },
+  {
+    "route": "/blog/qr-kartka-v-nomer-gotelyu",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "QR-картка в номер готелю: тексти, структура та перевірка друку"
+    ],
+    "scroll": 1417,
+    "tables": 3,
+    "width": 1440
+  },
+  {
+    "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Туристичний збір у 2026 році: правила для гостей і готелів"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Каталог послуг для гостей глемпінгу: що змінилося в замовленнях"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання глемпінгу: як сайт пов’язали з робочим календарем"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Звірка виплат OTA: як пов’язали бронювання, документи й надходження"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Пізнє заселення після закриття рецепції: досвід готелю в Німеччині"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Перенесення історії готелю: 18 475 бронювань і контрольна звірка"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Дослідження сайтів 2 118 об’єктів: як перевіряли видимий модуль бронювання"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 4,
+    "h1": [
+      "Система керування готелем.Для щоденної роботи."
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/about",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "VDALO: продукт, що починається з роботи готелю"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/contact",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Обговорімо задачу вашого готелю"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/sign-up",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Запросіть доступ до VDALO для вашого готелю"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/hotel-automation",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "З якого процесу почати автоматизацію готелю"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/authors",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Автори матеріалів VDALO"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/authors/oleh-stepeniev",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Олег Степенєв"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/blog",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Практичні матеріали для власника й команди готелю"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/cases",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "Кейси змін у роботі готелю"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/tools/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Практичні інструменти для готельєрів"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/tools/hotel-profitability-calculator/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Калькулятор виручки, RevPAR та окремих витрат готелю"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/tools/pms-checklist/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 2,
+    "h1": [
+      "Чекліст вибору PMS: оцінка та повнота перевірки"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "QR Studio: підготуйте код під задачу гостя"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/pricing",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 4,
+    "h1": [
+      "Тарифи VDALO: базова вартість, доплати та підключення"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/privacy",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Політика конфіденційності VDALO"
+    ],
+    "scroll": 1417,
+    "tables": 1,
+    "width": 1440
+  },
+  {
+    "route": "/offer",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Публічна оферта та умови послуг VDALO"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/refunds",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Повернення коштів і скасування замовлення VDALO"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/cherkasy/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Черкасах у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/chernihiv/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернігові у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/berehove/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Береговому у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/dnipro/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Дніпрі у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/chernivtsi/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернівцях у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/irpin/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ірпені у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/ivano-frankivsk/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Івано-Франківську у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/khust/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Хусті у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/odesa/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 0,
+    "h1": [
+      "Туристичний збір в Одесі у 2026 році: перевірка зміни ставки"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/lutsk/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Луцьку у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/lviv/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Львові у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/kyyiv/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Києві у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/kolomyya/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Коломиї у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/slavsko/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Славську у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/polyana/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Поляні у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/skole/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сколе у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/rivne/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Рівному у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/pivdenne/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Південному у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/ternopil/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тернополі у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/vinnytsya/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Вінниці у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/uzhhorod/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ужгороді у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/tyachiv/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тячеві у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/sumy/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сумах у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/zaporizhzhya/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Запоріжжі у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/yaremche/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Яремчі у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/yasinya/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ясіні у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/zhytomyr/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Житомирі у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/vynohradiv/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Виноградові у 2026 році"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Україні у 2026 році: довідник громад і розрахунок"
+    ],
+    "scroll": 1417,
+    "tables": 2,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/start",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 1,
+    "h1": [
+      "Упорядкуйте роботу з туристичним збором"
+    ],
+    "scroll": 1417,
+    "tables": 0,
+    "width": 1440
+  },
+  {
+    "route": "/blog/qr-kody-dlya-restoranu",
+    "size": "desktop",
+    "brokenImages": [],
+    "client": 1417,
+    "forms": 3,
+    "h1": [
+      "QR-коди для ресторану: від меню до підтвердженого замовлення"
+    ],
+    "scroll": 1417,
+    "tables": 3,
+    "width": 1440
+  },
+  {
+    "route": "/blog/channel-manager-ical-gotelyu",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Channel Manager чи iCal: що обрати для синхронізації бронювань"
+    ],
+    "scroll": 745,
+    "tables": 3,
+    "width": 768
+  },
+  {
+    "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання готелю: від заявки на сайті до запису в PMS"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Шахматка готелю: як читати бронювання, доступність і блокування"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Як перейти на нову PMS: план міграції та перевірки готельних даних"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Як готелю продавати додаткові послуги: від каталогу до виконаного замовлення"
+    ],
+    "scroll": 745,
+    "tables": 3,
+    "width": 768
+  },
+  {
+    "route": "/blog/pidhotovka-zaselennya-gostya",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Підготовка до заселення: що гість і команда мають знати до заїзду"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/blog/status-gotovnosti-nomera-housekeeping",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Готовність номера: як узгодити статуси housekeeping і рецепції"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Що автоматизувати в готелі першим: метод вибору та перевірки"
+    ],
+    "scroll": 745,
+    "tables": 3,
+    "width": 768
+  },
+  {
+    "route": "/blog/shcho-take-pms-dlya-gotelyu",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Що таке PMS для готелю: функції, приклади та межі системи"
+    ],
+    "scroll": 745,
+    "tables": 4,
+    "width": 768
+  },
+  {
+    "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Як обрати PMS для готелю: 25 критеріїв, тести й матриця рішення"
+    ],
+    "scroll": 745,
+    "tables": 5,
+    "width": 768
+  },
+  {
+    "route": "/blog/qr-kody-dlya-goteliv",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "QR-коди для готелів: 35 сценаріїв із перевіркою результату"
+    ],
+    "scroll": 745,
+    "tables": 3,
+    "width": 768
+  },
+  {
+    "route": "/blog/qr-wifi-dlya-gotelyu",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Як зробити QR-код Wi-Fi для гостей готелю"
+    ],
+    "scroll": 745,
+    "tables": 4,
+    "width": 768
+  },
+  {
+    "route": "/blog/qr-kartka-v-nomer-gotelyu",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "QR-картка в номер готелю: тексти, структура та перевірка друку"
+    ],
+    "scroll": 745,
+    "tables": 3,
+    "width": 768
+  },
+  {
+    "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Туристичний збір у 2026 році: правила для гостей і готелів"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Каталог послуг для гостей глемпінгу: що змінилося в замовленнях"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання глемпінгу: як сайт пов’язали з робочим календарем"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Звірка виплат OTA: як пов’язали бронювання, документи й надходження"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Пізнє заселення після закриття рецепції: досвід готелю в Німеччині"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Перенесення історії готелю: 18 475 бронювань і контрольна звірка"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Дослідження сайтів 2 118 об’єктів: як перевіряли видимий модуль бронювання"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 4,
+    "h1": [
+      "Система керування готелем.Для щоденної роботи."
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/about",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "VDALO: продукт, що починається з роботи готелю"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/contact",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Обговорімо задачу вашого готелю"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/sign-up",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Запросіть доступ до VDALO для вашого готелю"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/hotel-automation",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "З якого процесу почати автоматизацію готелю"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/authors",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Автори матеріалів VDALO"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/authors/oleh-stepeniev",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Олег Степенєв"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/blog",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Практичні матеріали для власника й команди готелю"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/cases",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "Кейси змін у роботі готелю"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/tools/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Практичні інструменти для готельєрів"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/tools/hotel-profitability-calculator/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Калькулятор виручки, RevPAR та окремих витрат готелю"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/tools/pms-checklist/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 2,
+    "h1": [
+      "Чекліст вибору PMS: оцінка та повнота перевірки"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "QR Studio: підготуйте код під задачу гостя"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/pricing",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 4,
+    "h1": [
+      "Тарифи VDALO: базова вартість, доплати та підключення"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/privacy",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Політика конфіденційності VDALO"
+    ],
+    "scroll": 745,
+    "tables": 1,
+    "width": 768
+  },
+  {
+    "route": "/offer",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Публічна оферта та умови послуг VDALO"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/refunds",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Повернення коштів і скасування замовлення VDALO"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/cherkasy/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Черкасах у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/chernihiv/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернігові у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/berehove/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Береговому у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/dnipro/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Дніпрі у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/chernivtsi/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернівцях у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/irpin/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ірпені у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/ivano-frankivsk/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Івано-Франківську у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/khust/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Хусті у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/odesa/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 0,
+    "h1": [
+      "Туристичний збір в Одесі у 2026 році: перевірка зміни ставки"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/lutsk/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Луцьку у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/lviv/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Львові у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/kyyiv/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Києві у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/kolomyya/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Коломиї у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/slavsko/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Славську у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/polyana/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Поляні у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/skole/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сколе у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/rivne/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Рівному у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/pivdenne/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Південному у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/ternopil/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тернополі у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/vinnytsya/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Вінниці у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/uzhhorod/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ужгороді у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/tyachiv/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тячеві у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/sumy/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сумах у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/zaporizhzhya/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Запоріжжі у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/yaremche/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Яремчі у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/yasinya/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ясіні у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/zhytomyr/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Житомирі у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/vynohradiv/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Виноградові у 2026 році"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Україні у 2026 році: довідник громад і розрахунок"
+    ],
+    "scroll": 745,
+    "tables": 2,
+    "width": 768
+  },
+  {
+    "route": "/tourist-tax/start",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 1,
+    "h1": [
+      "Упорядкуйте роботу з туристичним збором"
+    ],
+    "scroll": 745,
+    "tables": 0,
+    "width": 768
+  },
+  {
+    "route": "/blog/qr-kody-dlya-restoranu",
+    "size": "tablet",
+    "brokenImages": [],
+    "client": 745,
+    "forms": 3,
+    "h1": [
+      "QR-коди для ресторану: від меню до підтвердженого замовлення"
+    ],
+    "scroll": 745,
+    "tables": 3,
+    "width": 768
+  }
+]

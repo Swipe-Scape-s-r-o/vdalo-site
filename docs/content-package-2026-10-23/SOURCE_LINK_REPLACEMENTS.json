@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "yasinya",
+    "before": "https://tax.gov.ua/data/material/000/801/934858/lbc_0756400000_edrpou_44070868_version_1.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934858/5bb87e90_1710_4aa9_a769_255f802e1f0d.pdf"
+  },
+  {
+    "slug": "uzhhorod",
+    "before": "https://tax.gov.ua/data/material/000/801/934858/lbc_0755900000_edrpou_02313559_version_1.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934858/4e161262_60b5_4550_bc1a_1d123200f403.pdf"
+  },
+  {
+    "slug": "berehove",
+    "before": "https://tax.gov.ua/data/material/000/801/934858/lbc_0751700000_edrpou_26031452_version_1.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934858/481cb663_1b9f_45be_8892_42ebf7734915.pdf"
+  },
+  {
+    "slug": "khust",
+    "before": "https://tax.gov.ua/data/material/000/801/934858/lbc_0756100000_edrpou_25440728_version_1.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934858/7122a939_c7df_4e6d_949a_f3a12b8f31bc.pdf"
+  },
+  {
+    "slug": "polyana",
+    "before": "https://tax.gov.ua/data/material/000/801/934858/lbc_0750300000_edrpou_41087685_version_4.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934858/73293a41_b1a1_4186_96a3_e02be470ec5a.pdf"
+  },
+  {
+    "slug": "tyachiv",
+    "before": "https://tax.gov.ua/data/material/000/801/934858/lbc_0750200000_edrpou_43360202_version_1.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934858/c477aedc_2bc6_4d23_bb82_39a26148fc23.pdf"
+  },
+  {
+    "slug": "irpin",
+    "before": "https://tax.gov.ua/data/material/000/801/934872/lbc_1054600000_edrpou_02318025_version_1.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934872/bc1c25b3_1fb7_4bf3_aee1_c39074f83848.pdf"
+  },
+  {
+    "slug": "pivdenne",
+    "before": "https://tax.gov.ua/data/material/000/801/934878/lbc_1559100000_edrpou_22491872_version_5.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934878/ca316fa0_df15_4eb4_8fc3_60aebc444424.pdf"
+  },
+  {
+    "slug": "odesa",
+    "before": "https://tax.gov.ua/data/material/000/801/934878/lbc_1556400000_edrpou_02315044_version_1.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934878/d72d55a6_6ff4_4449_b6f5_8c12cb2addbf.pdf"
+  },
+  {
+    "slug": "yaremche",
+    "before": "https://tax.gov.ua/data/material/000/801/934869/lbc_0956300000_edrpou_20555668_version_5.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934869/5e03a092_6823_4065_8c28_d28109437dc3.pdf"
+  },
+  {
+    "slug": "kolomyya",
+    "before": "https://tax.gov.ua/data/material/000/801/934869/lbc_0953000000_edrpou_04054334_version_2.pdf",
+    "after": "https://tax.gov.ua/data/material/000/801/934869/697df0c7_4b57_49ea_9500_70b168ee66c6.pdf"
+  }
+]
