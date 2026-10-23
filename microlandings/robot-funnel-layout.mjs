@@ -7,7 +7,7 @@ export function renderFunnelLayout({cfg,code,details,media,form,faq,videoList,ta
  return `<!doctype html><html lang="uk"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(cfg.h1)} | VDALO</title><meta name="description" content="${esc(cfg.sub)}"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#2D1A31">
-<link rel="stylesheet" href="/robot-funnel-assets/robot-funnels.css?v=20261023b"><script type="application/json" id="funnel-config">${config}</script></head><body data-code="${code}">
+<link rel="stylesheet" href="/robot-funnel-assets/robot-funnels.css?v=20261023c"><script type="application/json" id="funnel-config">${config}</script></head><body data-code="${code}">
 <a class="skip-link" href="#main">До вмісту</a>
 <header class="header"><a href="/" aria-label="VDALO, на головну"><img src="/v1/assets/vdalo-canonical-496.png" width="140" height="44" alt="VDALO"></a><a class="header-link" href="#how">Як це працює <span aria-hidden="true">↗</span></a></header>
 <main id="main"><section class="hero" aria-labelledby="hero-title"><div class="hero-copy">
