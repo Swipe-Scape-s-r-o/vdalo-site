@@ -80,7 +80,7 @@ function withSocialMetadata(html){
 function withTagManager(html){
  const withSocial=withSocialMetadata(html);
  const withFavicon=withSocial.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+(/<link\b[^>]*\brel=["'][^"']*\bicon\b[^"']*["'][^>]*>/i.test(withSocial)?'':faviconLink));
- const consentAssets='<link rel="stylesheet" href="/v1/clarity-consent.css?v=2"><script src="/v1/clarity-consent.js?v=2"></script>';
+ const consentAssets='<link rel="stylesheet" href="/v1/clarity-consent.css?v=3"><script src="/v1/clarity-consent.js?v=3"></script>';
  const calloPrelude=/<body[^>]*\bdata-code=/i.test(withFavicon)?calloAttributionPrelude:'';
  return withFavicon.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+calloPrelude+consentAssets+gtmHead);
 }
