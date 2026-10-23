@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-23T22:53:43.742Z",
-  "title": "Design System: VDALO compact homepage",
+  "generatedAt": "2026-10-23T23:55:33.002Z",
+  "title": "Design System: VDALO restored full homepage",
   "extensions": {
     "colorMeta": {
       "plum": {
@@ -190,15 +190,15 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Compact homepage hero only; responsive sizes remain documented in DESIGN.md."
+        "purpose": "Restored full-homepage hero; implemented desktop, tablet and final mobile overrides are recorded in DESIGN.md."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Compact homepage section headings."
+        "purpose": "Full-homepage section headings, with restored local measures."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Workflow headings."
+        "purpose": "Base local heading hierarchy; module, role, journey and pain titles retain documented local sizes."
       },
       "body": {
         "displayName": "Body",
@@ -206,7 +206,7 @@
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Role controls and summaries."
+        "purpose": "Homepage summaries and interface copy; restored tab sets retain their own local hierarchy."
       },
       "price": {
         "displayName": "Price",
@@ -223,22 +223,17 @@
       {
         "name": "press-duration",
         "value": "160ms",
-        "purpose": "Primary-button and role-tab press response."
+        "purpose": "Homepage primary-button press and hover response."
       },
       {
-        "name": "tab-color-duration",
-        "value": "180ms",
-        "purpose": "Role-tab color change."
-      },
-      {
-        "name": "section-fade",
+        "name": "price-settle",
         "value": "420ms",
-        "purpose": "One-time heading and price appearance."
+        "purpose": "One-time price-figure appearance from scale .98; section-heading fades are removed."
       },
       {
         "name": "step-enter",
         "value": "360ms",
-        "purpose": "One-time onboarding step entrance; 60ms stagger capped at three steps."
+        "purpose": "One-time onboarding step entrance from 16px right; 60ms stagger capped at three steps."
       },
       {
         "name": "arrival-enter",
@@ -249,6 +244,16 @@
         "name": "hero-settle",
         "value": "12000ms linear",
         "purpose": "One-time image scale from 1.025 to 1; pauses while document is hidden."
+      },
+      {
+        "name": "shared-panel-feedback",
+        "value": "240ms cubic-bezier(.22,1,.36,1)",
+        "purpose": "Inherited app.js pointer-triggered module, role and journey panel feedback from 8px below; keyboard selection stays immediate."
+      },
+      {
+        "name": "existing-night-scenario",
+        "value": "46s",
+        "purpose": "Existing interactive scenario duration, not an entrance token; advances in view while the document is visible. Reduced-motion branches retain scenario state."
       }
     ],
     "breakpoints": [
@@ -259,6 +264,14 @@
       {
         "name": "tablet",
         "value": "1000px"
+      },
+      {
+        "name": "module-row",
+        "value": "900px"
+      },
+      {
+        "name": "night-phone",
+        "value": "860px"
       },
       {
         "name": "mobile-layout",
@@ -295,14 +308,6 @@
       "css": ".ds-home-text-link{display:inline-block;font:600 16px/1.5 Inter,Arial,sans-serif;color:#39233e;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.25em;padding-block:9px}@media(hover:hover) and (pointer:fine){.ds-home-text-link:hover{text-decoration-thickness:2px}}.ds-home-text-link:focus-visible{outline:3px solid #aa3e74;outline-offset:5px}"
     },
     {
-      "name": "Role tab",
-      "kind": "chip",
-      "refersTo": "tab",
-      "description": "Role selection state. Production implements roving focus and keyboard navigation in homepage.js.",
-      "html": "<div class=\"ds-tab-row\" role=\"tablist\" aria-label=\"Сценарії\"><button class=\"ds-home-tab\" role=\"tab\" aria-selected=\"true\" type=\"button\">Рецепція</button><button class=\"ds-home-tab\" role=\"tab\" aria-selected=\"false\" type=\"button\" tabindex=\"-1\">Команда</button></div>",
-      "css": ".ds-tab-row{display:flex;gap:8px}.ds-home-tab{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:12px 18px;font:600 17px/1.3 Inter,Arial,sans-serif;border:0;border-radius:12px;color:#39233e;background:#e4d5e0;cursor:pointer;transition:transform 160ms cubic-bezier(.23,1,.32,1),background-color 180ms ease}.ds-home-tab[aria-selected=true]{background:#39233e;color:#fff5f7}.ds-home-tab:active{transform:scale(.98)}@media(hover:hover) and (pointer:fine){.ds-home-tab:hover{background:#d9c4d4}.ds-home-tab[aria-selected=true]:hover{background:#533859}}.ds-home-tab:focus-visible{outline:3px solid #aa3e74;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-home-tab{transition:none!important;transform:none!important}}"
-    },
-    {
       "name": "Price surface",
       "kind": "card",
       "refersTo": "price-card",
@@ -313,15 +318,15 @@
     {
       "name": "Shared form field",
       "kind": "input",
-      "description": "Inherited shared form style, outside the new homepage token boundary. Preview does not submit data.",
+      "description": "Inherited shared form preview, outside the homepage token boundary. Its small shared label is recorded as existing drift, not a new type rule. Preview does not submit data.",
       "html": "<div class=\"ds-field\"><label for=\"ds-name\">Ваше ім’я *</label><input class=\"ds-shared-input\" id=\"ds-name\" name=\"name\" autocomplete=\"name\" required minlength=\"2\" maxlength=\"100\"></div>",
       "css": ".ds-field{display:grid;gap:8px;font-family:Inter,Arial,sans-serif;color:#39233e}.ds-field label{font-size:13px;font-weight:600}.ds-shared-input{box-sizing:border-box;border:1px solid #39233e40;border-radius:10px;min-height:46px;width:100%;padding:10px 14px;color:#39233e;background:#fffafb;font:400 16px Inter,Arial,sans-serif}.ds-shared-input:focus-visible{outline:3px solid currentColor;outline-offset:5px}.ds-shared-input[aria-invalid=true]{border-color:#39233e;border-width:2px;background:#ffe6ef}"
     },
     {
       "name": "Homepage quick navigation",
       "kind": "nav",
-      "description": "Simple section links in the plum hero; shared global navigation remains under its existing system.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Основні можливості\"><a class=\"ds-home-quicklink\" href=\"#pms\">Бронювання</a><a class=\"ds-home-quicklink\" href=\"#features\">Команда</a><a class=\"ds-home-quicklink\" href=\"#pricing\">Тарифи</a></nav>",
+      "description": "Actual restored destinations: calendar, complete modules, channels and pricing. Global navigation remains under its existing system.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Основні можливості\"><a class=\"ds-home-quicklink\" href=\"#pms\">Бронювання</a><a class=\"ds-home-quicklink\" href=\"#features\">Можливості</a><a class=\"ds-home-quicklink\" href=\"#integrations\">Канали продажу</a><a class=\"ds-home-quicklink\" href=\"#pricing\">Тарифи</a></nav>",
       "css": ".ds-nav{display:flex;justify-content:space-between;gap:20px;padding:25px;background:#39233e;color:#fff5f7;font-family:Inter,Arial,sans-serif}.ds-home-quicklink{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;font-size:16px;min-height:44px}.ds-home-quicklink:focus-visible{outline:3px solid #aa3e74;outline-offset:5px}@media(max-width:700px){.ds-nav{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;padding:20px}.ds-home-quicklink{font-size:14px;min-height:42px}}"
     },
     {
@@ -335,40 +340,41 @@
   ],
   "narrative": {
     "northStar": "A confirmed reservation",
-    "overview": "This document records the compact homepage implementation dated 24 October 2026. Its filled surfaces, hotel photography and reservation rectangles express the existing plum and pink identity through practical hotel work. The reservation is a motif observed in this surface; it is not a new global composition rule.\n\nThe token layer and component conventions below apply to the content inside `.homepage-2026`, plus the documented `body.homepage-shell` background and mobile-action spacing. They do not replace the visual systems of the other approximately 70 routes, the shared header and footer, the shared forms or the existing calculator. The retained brand guide and editorial standards remain authoritative; this file describes the implemented homepage where the route deliberately differs.\n\nSource evidence is `versions/v1/homepage.mjs`, `versions/v1/public/homepage.css` and `versions/v1/public/homepage.js`, with inherited styles sampled from the shared bundle. No browser, launcher or deployment was run for this documentation pass. The separate finish review and owner review remain separate decisions.",
+    "overview": "This document records the full homepage restored on 24 October 2026 after the owner rejected the shortened structure. Its filled surfaces, hotel photography and reservation rectangles express the existing plum and pink identity through practical hotel work. The restored night simulation, five distinct pain cards and complete module browser belong to this homepage; they do not prescribe the composition of other pages.\n\nThe token layer and component conventions below apply to the content inside `.homepage-2026`, plus the documented `body.homepage-shell` background and mobile-action spacing. The retained brand guide and editorial standards remain authoritative for the shared header, footer, forms, calculator and other routes. This is a local extension of the pinned VDALO world. `RESTORATION_METAPROMPT.md` supersedes the shortened STORY in the original brief while preserving its palette, type and material commitments.\n\nSource evidence is `versions/v1/homepage.mjs`, `experience.mjs`, `render.mjs`, `homepage-guide.mjs`, the homepage stylesheet/script, shared styles and `app.js`, and the existing living-hotel files. `RESTORATION_QA.md` records the supplied browser evidence and its limits. This documentation pass read source and review records without running a browser, renderer, tests, launcher or deployment. The finish verdict and owner approval are separate decisions.",
     "keyCharacteristics": [
       "Plum fields, pink actions and warm paper with tonal surface changes.",
       "Inter Tight headings and Inter body and interface text.",
       "Filled reservation geometry, softly rounded media and pill actions.",
-      "Immediate controls, visible HTML and short optional motion."
+      "Nine module panels, three roles, five guest stages and the existing night simulation.",
+      "Visible reading content, contained tab/calendar scrolling and short optional motion."
     ],
     "rules": [
-      {
-        "name": "The Home Scope Rule",
-        "body": "Apply the compact-home conventions only within the documented homepage boundary. Keep shared components and other routes under their existing authority.",
-        "section": "layout"
-      },
       {
         "name": "The Existing Identity Rule",
         "body": "Preserve the pinned plum and pink palette, the Inter family and the canonical raster wordmark.",
         "section": "colors"
       },
       {
+        "name": "The Home Scope Rule",
+        "body": "Apply the restored homepage conventions only within the documented homepage boundary. Keep shared components and other routes under their existing authority.",
+        "section": "layout"
+      },
+      {
         "name": "The Visible Baseline Rule",
-        "body": "Content is visible before animation. Reduced motion removes decoration while interactions keep their meaning.",
+        "body": "Reading content is visible before decorative animation. Reduced motion suppresses decorative movement while interactions keep their meaning.",
         "section": "components"
       }
     ],
     "dos": [
-      "Do keep the compact-home styles scoped to the homepage boundary.",
+      "Do keep the restored homepage styles scoped to the homepage boundary.",
       "Do preserve the canonical raster wordmark and its proportions.",
       "Do use the recorded Inter Tight and Inter hierarchy for this homepage.",
       "Do show illustrative UI and generated hospitality imagery with the factual labels present in the implementation.",
       "Do preserve visible focus, keyboard tab selection and native disclosure behavior.",
-      "Do preserve reduced-motion behavior and HTML visibility when enhancement is unavailable."
+      "Do preserve source-based reduced-motion behavior and visible reading content."
     ],
     "donts": [
-      "Don't apply the compact homepage's typography, spacing or radii across the other routes without a separate task.",
+      "Don't apply the homepage's local typography, spacing or radii across other routes without a separate task.",
       "Don't replace the canonical wordmark with text or an older vector adaptation.",
       "Don't promote demo data, generated imagery or in-development modules into product proof.",
       "Don't introduce Unicode U+2014 or encoded equivalents into public content.",
@@ -376,4 +382,3 @@
     ]
   }
 }
-

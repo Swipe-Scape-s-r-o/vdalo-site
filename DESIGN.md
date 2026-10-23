@@ -1,6 +1,6 @@
 ---
-name: VDALO compact homepage
-description: Implemented homepage conventions scoped to the October 2026 compact surface
+name: VDALO restored full homepage
+description: Implemented conventions for the full homepage restored on 24 October 2026
 colors:
   plum: "#39233e"
   spark-pink: "#ff92bd"
@@ -18,7 +18,7 @@ colors:
 typography:
   display:
     fontFamily: "'Inter Tight', Inter, sans-serif"
-    fontSize: "clamp(50px, 4.4vw, 66px)"
+    fontSize: "clamp(40px, 3.9vw, 56px)"
     fontWeight: 800
     lineHeight: 1.02
     letterSpacing: "-0.035em"
@@ -73,14 +73,6 @@ components:
     textColor: "{colors.blush}"
     rounded: "{rounded.pill}"
     padding: "18px 28px"
-  tab:
-    backgroundColor: "{colors.tab-surface}"
-    textColor: "{colors.plum}"
-    rounded: "{rounded.control}"
-    padding: "12px 18px"
-  tab-selected:
-    backgroundColor: "{colors.plum}"
-    textColor: "{colors.blush}"
   price-card:
     backgroundColor: "{colors.spark-pink}"
     textColor: "{colors.plum}"
@@ -93,24 +85,25 @@ components:
     padding: "0 24px"
 ---
 
-# Design System: VDALO compact homepage
+# Design System: VDALO restored full homepage
 
 ## Overview
 
 **Creative North Star: "A confirmed reservation"**
 
-This document records the compact homepage implementation dated 24 October 2026. Its filled surfaces, hotel photography and reservation rectangles express the existing plum and pink identity through practical hotel work. The reservation is a motif observed in this surface; it is not a new global composition rule.
+This document records the full homepage restored on 24 October 2026 after the owner rejected the shortened structure. Its filled surfaces, hotel photography and reservation rectangles express the existing plum and pink identity through practical hotel work. The restored night simulation, five distinct pain cards and complete module browser belong to this homepage; they do not prescribe the composition of other pages.
 
-The token layer and component conventions below apply to the content inside `.homepage-2026`, plus the documented `body.homepage-shell` background and mobile-action spacing. They do not replace the visual systems of the other approximately 70 routes, the shared header and footer, the shared forms or the existing calculator. The retained brand guide and editorial standards remain authoritative; this file describes the implemented homepage where the route deliberately differs.
+The token layer and component conventions below apply to the content inside `.homepage-2026`, plus the documented `body.homepage-shell` background and mobile-action spacing. The retained brand guide and editorial standards remain authoritative for the shared header, footer, forms, calculator and other routes. This is a local extension of the pinned VDALO world. `RESTORATION_METAPROMPT.md` supersedes the shortened STORY in the original brief while preserving its palette, type and material commitments.
 
-Source evidence is `versions/v1/homepage.mjs`, `versions/v1/public/homepage.css` and `versions/v1/public/homepage.js`, with inherited styles sampled from the shared bundle. No browser, launcher or deployment was run for this documentation pass. The separate finish review and owner review remain separate decisions.
+Source evidence is `versions/v1/homepage.mjs`, `experience.mjs`, `render.mjs`, `homepage-guide.mjs`, the homepage stylesheet/script, shared styles and `app.js`, and the existing living-hotel files. `RESTORATION_QA.md` records the supplied browser evidence and its limits. This documentation pass read source and review records without running a browser, renderer, tests, launcher or deployment. The finish verdict and owner approval are separate decisions.
 
 **Key Characteristics:**
 
 - Plum fields, pink actions and warm paper with tonal surface changes.
 - Inter Tight headings and Inter body and interface text.
 - Filled reservation geometry, softly rounded media and pill actions.
-- Immediate controls, visible HTML and short optional motion.
+- Nine module panels, three roles, five guest stages and the existing night simulation.
+- Visible reading content, contained tab/calendar scrolling and short optional motion.
 
 ## Colors
 
@@ -118,16 +111,16 @@ Plum anchors the system, pink identifies action and price, and pale warm surface
 
 ### Primary
 
-- **Plum:** Text on light surfaces; hero and pricing fields; selected role and final action.
+- **Plum:** Text on light surfaces; hero, journey, night and pricing fields; selected controls and final action.
 - **Spark Pink:** Main demo buttons, the price figure and the final contact section.
 
 ### Neutral
 
-- **Paper:** Base page, FAQ answers and expanded calculator surface.
+- **Paper:** Base page, module reading surface, FAQ answers and expanded calculator surface.
 - **Blush:** Text on plum and the illustrative arrival state.
-- **Soft Surface:** Calendar and FAQ grouping.
-- **Workflow Surface:** Role workflow and reading panel.
-- **Tab Surface / Tab Hover:** Unselected role controls and their pointer hover.
+- **Soft Surface:** Pain cards, calendar, case and FAQ grouping.
+- **Workflow Surface:** Channels, modules, approach and demo grouping.
+- **Tab Surface / Tab Hover:** Pale control grouping and an inherited palette shade retained in the stylesheet. These colors do not define all restored shared tab variants.
 - **Plum Lifted / Pink Hover:** The darker and lighter pointer states for active controls.
 - **Focus:** Keyboard outline and small onboarding markers.
 - **Direct Booking / Online Booking:** Filled calendar reservations; channel meaning also remains in labels.
@@ -141,15 +134,15 @@ The sidecar's tonal ramps are generated preview aids. They are not additional pr
 **Display Font:** Inter Tight, then Inter and sans-serif.  
 **Body Font:** Inter, then Arial and sans-serif.
 
-The compact, heavy headings are grounded by readable body copy and plain interface labels. Headings use balanced wrapping; paragraphs use pretty wrapping. The base heading weight comes from the shared stylesheet.
+The heavy headings are grounded by readable body copy and plain interface labels. Headings use balanced wrapping; paragraphs use pretty wrapping. The base heading weight comes from the shared stylesheet. The frontmatter display size now records the implemented hero, replacing the rejected larger compact value.
 
 ### Hierarchy
 
-- **Display:** Hero statement. Its two lines include an authored break. At widths up to 1000px it uses a tablet clamp (34px, 4.8vw, 56px); up to 700px it uses a mobile clamp (32px, 10vw, 64px), line height (1) and a narrow measure (12ch).
-- **Headline:** Section headings, usually no wider than (18ch). On mobile their size is (34px). Smaller local headings identify channels, founder context and expanded pricing.
-- **Title:** Workflow headings. On mobile their size is (27px).
-- **Body:** Main paragraphs. At up to 700px their size becomes (16px). The hero lead uses (20px / 1.5), then (18px / 1.5) on mobile. Typical supporting copy is constrained to (35–50ch).
-- **Label:** Role buttons and FAQ summaries. Mobile role labels use (14px); FAQ summaries use (16px).
+- **Display:** Hero statement, with an authored break and no narrow maximum measure. Between 701px and 1000px, the existing tablet rule overrides its desktop size with `clamp(34px, 4.8vw, 56px)`. At up to 700px, the final source override is `clamp(26px, calc(8.8vw - 2px), 56px)`, with line height (1). The older mobile clamp and (12ch) measure are superseded. Supplied QA records two lines at 320/390/1440px and three at 768px.
+- **Headline:** Base section heading hierarchy. Restored section headings allow up to (21ch), with local exceptions; mobile headings use (34px).
+- **Title:** Base local heading hierarchy. Restored component titles deliberately vary: pain cards (25px), module panels (31px), roles (29px) and journey panels (34px). Their mobile counterparts are (24px), (27px), (27px) and (28px).
+- **Body:** Main paragraphs, becoming (16px) at up to 700px. The hero lead uses (20px / 1.5), then (18px / 1.5) on mobile. Restored large copy uses (18px / 1.65), then (17px). The guide uses (17px / 1.75), then (16px / 1.75), within (72ch).
+- **Label:** Base homepage summaries and interface copy. Current module labels use (15px / 1.4); mobile role labels use (14px), and FAQ summaries use (16px). The three restored shared tab systems retain their own local hierarchy.
 - **Price:** The plan figure. Mobile size is (64px); its currency suffix uses Inter (19px, weight 500).
 
 Inter Tight differs from the older Playfair Display recommendation in the retained brand guide. This is the implemented, task-specific homepage choice, not a change to every route.
@@ -158,21 +151,46 @@ Inter Tight differs from the older Playfair Display recommendation in the retain
 
 The content width is capped at (1240px), with desktop gutters (40px each), tablet gutters (24px each) below 1000px and mobile gutters (20px each) below 700px. The route uses CSS grid and flex layouts; it does not implement the older guide's literal 12/8/4 column system.
 
-The hero is a two-column composition (1fr / 1.13fr), with copy first in the DOM and a photo with an illustrative arrival overlay. The section rhythm comes from the frontmatter; channels and final contact use their own compact padding. Workflow, onboarding, pricing, founder and FAQ layouts each fit their content rather than sharing an identical card grid.
+The hero is a two-column composition (1fr / 1.13fr), with copy first in the DOM and a photo with an illustrative arrival overlay. The full restored sequence follows the table below. This is a record of this route, not a global page template.
 
-At up to 1000px the hero becomes equal columns, gaps tighten and founder/reading content becomes one outer column. At up to 700px the hero, calendar introduction, workflows, channels, price summary and FAQ stack. Onboarding copy precedes its image. Quick links become a two-column grid, and the decorative FAQ photograph is hidden. The hero changes to a dedicated image asset at up to 600px.
+| Order | Homepage surface | Actual destination |
+| --- | --- | --- |
+| 1 | Benefit, PMS explanation, demo action and quick links | `#home-title`, `#main` |
+| 2 | Original interactive night demonstration | `#living-hotel` / `#living-hotel-m` |
+| 3 | Five separate photographic pain cards | `#solutions` |
+| 4 | Sales channels and Channel Manager | `#integrations` |
+| 5 | Direct bookings | `#direct-booking` |
+| 6 | Interactive reservation calendar | `#pms` |
+| 7 | All nine modules | `#features` |
+| 8 | Owner, reception and team roles; property formats | `#roles`, `#audience` |
+| 9 | Five stages of the guest journey | `#journey` |
+| 10 | Late-arrival case | `#case-proof-title` (heading destination) |
+| 11 | Source-backed tariff and full calculator disclosure | `#pricing`, `#home-pricing-detail` |
+| 12 | Founder and team context | `#author` |
+| 13 | Implementation approach | `#unique` |
+| 14 | Launch with the team | `#onboarding` |
+| 15 | Demonstration and next step | `#demo`; `#next-step` immediately precedes it |
+| 16 | FAQ | `#faq` |
+| 17 | Final request | `#audit` |
+| 18 | Visible SEO guide and internal resource links | `#guide`, topic IDs beginning `#home-guide-` |
 
-At widths of at least 1100px hero actions stack vertically. The mobile action appears only below 700px and only when the hero, demo request, final action, guide-end request and footer are out of view; it also hides while the menu or a dialog is open. It reserves bottom space and includes the device safe-area inset.
+Restored content sections use the recorded section rhythm, with component-specific spacing. The five pain cards form three cards above two wider cards on desktop, two columns plus a full-width final card below 1000px, and one column below 700px. Modules use a (270px) side navigation and one reading panel on desktop; the side navigation narrows to (220px) below 1000px and becomes a horizontally scrolling row below 900px. Role and guest-stage layouts retain their own proportions.
 
-**The Home Scope Rule.** Apply the compact-home conventions only within the documented homepage boundary. Keep shared components and other routes under their existing authority.
+At up to 1000px the hero becomes equal columns and gaps tighten. At up to 700px the hero, calendar introduction, channels, direct-booking diagram, roles, journey, price summary, founder, demo and FAQ stack. Onboarding copy precedes its image. Quick links become a two-column grid, the FAQ photograph is hidden and the guide navigation loses its sticky position. The hero changes to a dedicated image asset at up to 600px. Module and journey tabs and the calendar scroll inside their own regions.
+
+The night simulation uses its phone layout at up to 860px. Its homepage-specific height is capped at `calc(100svh - 104px)` with a matching minimum cap so the control row can fit below the sticky header. The scene remains the existing interactive SVG example, with its own internal layout and states.
+
+At widths of at least 1100px hero actions stack vertically. The mobile action appears below 700px when the hero, either visible night scene, demo request, final action, guide-end request and footer are out of view; it also hides while the menu or a dialog is open. It reserves bottom space and includes the device safe-area inset.
+
+**The Home Scope Rule.** Apply the restored homepage conventions only within the documented homepage boundary. Keep shared components and other routes under their existing authority.
 
 ## Elevation & Depth
 
-The compact homepage uses tonal layering rather than new shadows. The calendar explicitly removes its inherited border and shadow. Filled surfaces separate a reservation, an arrival, a selected role, a price and a disclosure. Existing shared navigation, dialogs and calculator retain their own depth rules; their inherited shadows are not a new homepage token vocabulary.
+The homepage uses tonal layering for its new and locally restyled surfaces. The calendar, pain cards, diagrams, module browser, case and founder container remove inherited shadows. Filled surfaces separate a reservation, arrival, selected control, price and disclosure. Existing shared navigation, dialogs, calculator and the restored night simulation keep their own depth treatments; those inherited effects are not a new homepage shadow vocabulary.
 
 ## Shapes
 
-Media, the calendar shell, price figure and reading panel use the surface radius. Tabs, arrival state, FAQ and calculator disclosure use the control radius. Primary actions use the pill radius. The reservation motif is a filled rounded rectangle, grounded by the working calendar rather than a separate decorative shape.
+Media, pain cards, calendar, diagrams, module browser, journey state, case and price figure use the surface radius. Current tabs, arrival state, FAQ and calculator disclosure use the control radius. Primary actions use the pill radius. The reservation motif is a filled rounded rectangle grounded by the working calendar. The existing night scene retains its illustrated hotel geometry and internal control shapes.
 
 ## Components
 
@@ -186,23 +204,29 @@ Focus within the homepage uses an outline (3px) and offset (5px), with the focus
 
 ### Chips
 
-Role tabs are filled rectangular controls, not a general tag system. Unselected tabs use the tab surface; selection uses plum with blush text. The implementation has ARIA tabs and panels, roving tabindex and Left/Right/Home/End key handling. Selecting a role is immediate; press scales the control to (.98). Without JavaScript, the tab bar is hidden and all role panels are shown.
+The restored homepage has nine module controls, three role controls and five guest-stage controls. Shared `app.js` maintains the ARIA tabs/panels, selected state and roving tabindex. All three accept Left/Right/Home/End; the vertical module set also accepts Up/Down. Selection updates panel visibility immediately. Module selection uses plum and blush, while the journey selection uses pink on plum. Role controls have a minimum height (48px), module controls (58px, then 56px on mobile), and journey controls (64px).
+
+The former four-tab `.home-tabs` component and its homepage-script keyboard handler are no longer rendered. Its frontmatter component entries and sidecar preview have been retired rather than carried forward as active metadata. Source does not establish the former claim that all panels appear without JavaScript: the initial selected panel is rendered and the others carry `hidden`.
 
 ### Cards / Containers
 
-The price figure is a filled pink surface with the price hierarchy and room-count context. The arrival overlay is blush on a photo and is explicitly labeled as an example. The reading panel is a tonal container for a published case excerpt and its descriptive link. These containers add no homepage shadow.
+The five pain cards each retain a photograph, distinct existing SVG icon, title, explanatory copy and relevant action. The price figure is a filled pink surface with room-count context. The arrival overlay is blush on a photo and labeled as an example. Channels and direct bookings use filled diagrams with compatibility and connection conditions. The case keeps its descriptive route link. The two redundant uppercase diagram labels and the inherited communication timeline stripe have been removed in this homepage adaptation.
 
 ### Inputs / Fields
 
-The compact homepage creates no new form-field system. Demo buttons open the existing audit request form. Shared fields retain their labels, text errors, consent handling and delivery flow. The sidecar's input preview is an extraction of that inherited field style, not a new homepage primitive: thin plum stroke, pale fill, (10px) corners, input text (16px), and an error background plus a text message. Calculator controls retain their established selectors and handlers.
+The homepage creates no new form-field system. Demo buttons open the existing audit request form with demo context. Shared fields retain their labels, text errors, consent handling and delivery flow. The sidecar's input preview is an extraction of that inherited field style: thin plum stroke, pale fill, (10px) corners, input text (16px), and an error background plus a text message. Calculator controls retain their established selectors and handlers; `pricing-core.js` remains authoritative for price and module status.
 
 ### Navigation
 
-The shared sticky header and footer remain existing components, with the canonical raster logo. The compact homepage adds a simple quick-link row with icons, unadorned text and section anchors. On mobile it becomes a two-column grid. Old homepage anchor aliases are mapped to their nearest retained section by the homepage script.
+The shared sticky header and footer use the canonical raster logo. The homepage quick links lead to the actual calendar (`#pms`), all modules (`#features`), channels (`#integrations`) and tariff (`#pricing`). On mobile they form a two-column grid. Restored sections own their destinations as listed in Layout. The homepage script no longer remaps legacy anchors to unrelated retained sections. The visible guide supplies its own topic links.
 
 ### Working calendar
 
-The existing calendar is retained as a labeled demonstration. It supports selecting a reservation, changing the week and filtering channels. The homepage supplies plum and soft surfaces, taller reservation rows (72px), non-shrinking booking text (14px) and the direct/online fills. It is visible without an entrance animation.
+The existing calendar is retained as a labeled demonstration. It supports selecting a reservation, changing the week and filtering channels through shared `app.js`. The homepage supplies plum and soft surfaces, taller reservation rows (72px), non-shrinking booking text (14px) and the direct/online fills. It is visible without an entrance animation.
+
+### Night simulation
+
+The original animated interactive demonstration is restored before the five pains. Separate desktop and mobile fragments keep their IDs and handlers. The dispatcher loads the script for the current breakpoint (860px). Its night runs for (46 seconds), with mode switching, incidents and a summary. Copy explicitly labels its events, sums and indicators as conditional examples. It is not a video player or customer evidence.
 
 ### Disclosures
 
@@ -210,32 +234,34 @@ FAQ uses native details and summary elements. The arrow changes orientation when
 
 ### Motion
 
-The page uses the Web Animations API with one-time intersection triggers and no new animation dependency. Headings fade briefly (420ms); onboarding steps move horizontally (16px, 360ms) with a short stagger (60ms); the price figure settles from scale (.98, 420ms). The arrival enters vertically (20px, 650ms) after a short delay (180ms). The hero image settles once from scale (1.025) over (12000ms, linear), pausing while the document is hidden.
+The homepage script uses the Web Animations API with one-time intersection triggers. Onboarding steps move horizontally (16px, 360ms) with a short stagger (60ms); the price figure settles from scale (.98, 420ms). The arrival enters vertically (20px, 650ms) after a delay (180ms). The hero image settles once from scale (1.025) over (12000ms, linear), pausing while the document is hidden. Section-heading fades have been removed.
 
-The shared homepage easing is cubic-bezier(.23, 1, .32, 1). Reduced motion removes animation and transitions; changing that preference cancels active homepage animations. Calendar changes and keyboard tab selection stay immediate.
+The homepage easing is cubic-bezier(.23, 1, .32, 1). Shared `app.js` also retains its existing component entrance feedback and pointer-triggered panel transition (240ms, 8px); keyboard tab selection and calendar changes stay immediate. This is inherited behavior rather than a new universal motion rule.
 
-**The Visible Baseline Rule.** Content is visible before animation. Reduced motion removes decoration while interactions keep their meaning.
+The night simulation advances while in view and the document is visible. Its existing reduced-motion branches place moving figures immediately and suppress selected effects, while the scenario state still progresses. Homepage CSS disables CSS animation and transitions in reduced motion; the homepage script skips decorative entrances and cancels its active animations if that preference changes. Do not infer that every timer or inherited animation is canceled dynamically.
 
-Source review supports these fallback descriptions. QA.md explicitly records that reduced-motion and no-JavaScript modes were not interactively exercised in its browser environment.
+**The Visible Baseline Rule.** Reading content is visible before decorative animation. Reduced motion suppresses decorative movement while interactions keep their meaning.
+
+These are source-grounded descriptions. `RESTORATION_QA.md` states that reduced motion was reviewed in code because system-mode emulation was unavailable. This pass does not claim an interactive no-JavaScript review or full night-state coverage from still captures.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- Do keep the compact-home styles scoped to the homepage boundary.
+- Do keep the restored homepage styles scoped to the homepage boundary.
 - Do preserve the canonical raster wordmark and its proportions.
 - Do use the recorded Inter Tight and Inter hierarchy for this homepage.
 - Do show illustrative UI and generated hospitality imagery with the factual labels present in the implementation.
 - Do preserve visible focus, keyboard tab selection and native disclosure behavior.
-- Do preserve reduced-motion behavior and HTML visibility when enhancement is unavailable.
+- Do preserve source-based reduced-motion behavior and visible reading content.
 
 ### Don't:
 
-- Don't apply the compact homepage's typography, spacing or radii across the other routes without a separate task.
+- Don't apply the homepage's local typography, spacing or radii across other routes without a separate task.
 - Don't replace the canonical wordmark with text or an older vector adaptation.
 - Don't promote demo data, generated imagery or in-development modules into product proof.
 - Don't introduce Unicode U+2014 or encoded equivalents into public content.
 - Don't treat this document, its preview snippets or QA notes as release approval.
 
-The older guide's serif type, grid and larger card radii have not been reconciled globally. This document records the homepage exceptions and preserves that guide. Small inherited shared text and any findings from the separate visual reviewer are not canonized by this file. No conversion uplift, owner approval or production deployment is asserted.
+The older guide's serif recommendation, grid and larger card radii have not been reconciled globally. Small inherited shared text, unused compact CSS and any remaining craft-floor findings are recorded as drift rather than reusable house rules. This pass does not repair them. The source retains the older `data-homepage="compact-v1"` compatibility marker alongside the actual `restored-full-v3` revision; the former does not name the current structure. No conversion uplift, owner approval or deployment is asserted.
 

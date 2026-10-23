@@ -2,28 +2,11 @@
  const page=document.querySelector('.homepage-2026');
  if(!page)return;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
- const tabs=[...page.querySelectorAll('[data-home-tab]')];
- const select=tab=>{
-  tabs.forEach(item=>{const active=item===tab;item.setAttribute('aria-selected',String(active));item.tabIndex=active?0:-1;document.getElementById(`home-panel-${item.dataset.homeTab}`).hidden=!active;});
-  // This is an interaction, not a lead. No contact data enters analytics.
-  document.dispatchEvent(new CustomEvent('vdalo:home-scenario',{detail:{scenario:tab.dataset.homeTab}}));
- };
- tabs.forEach((tab,index)=>{
-  tab.addEventListener('click',()=>select(tab));
-  tab.addEventListener('keydown',event=>{
-   const target=event.key==='ArrowRight'?(index+1)%tabs.length:event.key==='ArrowLeft'?(index+tabs.length-1)%tabs.length:event.key==='Home'?0:event.key==='End'?tabs.length-1:-1;
-   if(target<0)return;event.preventDefault();select(tabs[target]);tabs[target].focus();
-  });
- });
- // Published homepage anchors now point to their nearest concise replacement.
- const aliases={solutions:'features',roles:'features',journey:'features',unique:'features','next-step':'audit','living-hotel':'pms'};
- function followAlias(){const id=aliases[location.hash.slice(1)];if(id)document.getElementById(id)?.scrollIntoView({behavior:'instant',block:'start'});}
- addEventListener('hashchange',followAlias);followAlias();
  const sticky=page.querySelector('.home-mobile-action');
  const hero=page.querySelector('.home-hero');
  const close=page.querySelector('.home-close');
  const footer=document.querySelector('footer');
- const actionZones=[hero,close,footer,page.querySelector('.home-demo-copy'),page.querySelector('.home-guide-end')].filter(Boolean);
+ const actionZones=[hero,close,footer,page.querySelector('.home-demo-copy'),page.querySelector('.home-guide-end'),page.querySelector('#living-hotel'),page.querySelector('#living-hotel-m')].filter(Boolean);
  const visibleZones=new Set([hero]);
  function syncSticky(){sticky.hidden=visibleZones.size>0||!!document.querySelector('dialog[open],#navigation.open')||!!document.querySelector('.modal.open,.modal.is-open');}
  if('IntersectionObserver' in window){
@@ -34,7 +17,7 @@
  // Visible HTML is the baseline. WAAPI decorates once; failure never hides copy.
  if(!reduce.matches&&'IntersectionObserver' in window&&Element.prototype.animate){
   const ease='cubic-bezier(.23,1,.32,1)';
-  const targets=page.querySelectorAll('.home-section h2,.home-start-steps li,.home-price-figure');
+  const targets=page.querySelectorAll('.home-start-steps li,.home-price-figure');
   const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
    if(!entry.isIntersecting)return;observer.unobserve(entry.target);
    const step=entry.target.matches('li');
