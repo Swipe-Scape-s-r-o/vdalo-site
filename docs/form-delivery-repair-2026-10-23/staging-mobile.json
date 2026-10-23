@@ -1,0 +1,197 @@
+[
+  {
+    "path": "/q1",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/q2",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/q3",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/q4",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/q5",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/q6",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/q7",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/q8",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/q9",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/qa",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/qb",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/qc",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  },
+  {
+    "path": "/qd",
+    "hotelInvalid": "true",
+    "invalid": [
+      "name",
+      "email",
+      "phone",
+      "consent"
+    ],
+    "overflow": false,
+    "step2": true,
+    "success": false,
+    "width": 390,
+    "closed": true
+  }
+]
