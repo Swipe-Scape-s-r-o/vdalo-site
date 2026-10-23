@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-23",
+  "environment": "staging",
+  "container": "GTM-PKDT7MMT",
+  "workspaceChange": "Microsoft Clarity - Official paused in unpublished draft",
+  "tagAssistant": "Google tag fired; Clarity tag paused",
+  "afterRejectAndReload": {
+    "clarityTagCount": 0,
+    "bannerHidden": true
+  },
+  "afterAccept": {
+    "clarityTagCount": 1,
+    "bannerHidden": true
+  },
+  "recordingReceivedInClarity": "not confirmed",
+  "published": false
+}

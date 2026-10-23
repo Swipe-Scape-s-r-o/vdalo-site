@@ -1,0 +1,994 @@
+[
+  {
+    "route": "q1",
+    "broken": [],
+    "description": "Сервіс «Вдало» зводить усі бронювання в один календар. Налаштуємо його для вас.",
+    "dpr": 1.0000000298023224,
+    "h1": "Один номер продали двом гостям?",
+    "height": 2401,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q1",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 1440
+  },
+  {
+    "route": "q2",
+    "broken": [],
+    "description": "Сервіс «Вдало» збирає дані гостя до приїзду й переносить їх у документи. Налаштуємо це для вашого готелю.",
+    "dpr": 1.0000000298023224,
+    "h1": "Знову переписуєте дані гостей вручну?",
+    "height": 2401,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q2",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 1440
+  },
+  {
+    "route": "q3",
+    "broken": [],
+    "description": "Після підключення вашого об’єкта до VDALO налаштуємо автоматичний розрахунок туристичного збору в бронюваннях. Залиште заявку, щоб обговорити ваш процес.",
+    "dpr": 1.0000000298023224,
+    "h1": "Туристичний збір рахуєте вручну?",
+    "height": 2536,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q3",
+    "video": [],
+    "width": 1440
+  },
+  {
+    "route": "q4",
+    "broken": [],
+    "description": "Відповіді на типові питання гостей - у базі вашого готелю й під рукою. Налаштуємо чат-бота під ваших гостей.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гості питають вас одне й те саме?",
+    "height": 2473,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q4",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 1440
+  },
+  {
+    "route": "q5",
+    "broken": [],
+    "description": "Чат-бот «Вдало» відповідає гостям, поки ви спите. Налаштуємо нічного бота для вашого готелю.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гість питає о другій ночі. Хто відповість?",
+    "height": 2473,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q5",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 1440
+  },
+  {
+    "route": "q6",
+    "broken": [],
+    "description": "Сервіс «Вдало» тримає всі бронювання в одному календарі у вашому телефоні.",
+    "dpr": 1.0000000298023224,
+    "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+    "height": 2571,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q6",
+    "video": [],
+    "width": 1440
+  },
+  {
+    "route": "q7",
+    "broken": [],
+    "description": "Порахуйте на своїх цифрах. Модуль бронювання «Вдало» на вашому сайті приймає бронювання напряму, без комісії.",
+    "dpr": 1.0000000298023224,
+    "h1": "Скільки ви віддаєте Букінгу за рік?",
+    "height": 2391,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q7",
+    "video": [],
+    "width": 1440
+  },
+  {
+    "route": "q8",
+    "broken": [],
+    "description": "У «Вдало» видно, який номер готувати першим і до котрої години.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гості вже приїхали, а номер не прибраний?",
+    "height": 2401,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q8",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 1440
+  },
+  {
+    "route": "q9",
+    "broken": [],
+    "description": "За 15 хвилин покажемо, що з бронювань, документів і відповідей гостям можна зняти з вашої команди.",
+    "dpr": 1.0000000298023224,
+    "h1": "Роботи більшає, а людей бракує?",
+    "height": 2617,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q9",
+    "video": [],
+    "width": 1440
+  },
+  {
+    "route": "qa",
+    "broken": [],
+    "description": "Сервіс «Вдало» зводить бронювання з усіх каналів в один календар. Налаштуємо його для вас.",
+    "dpr": 1.0000000298023224,
+    "h1": "Двоє гостей. Один номер.",
+    "height": 2401,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qa",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 1440
+  },
+  {
+    "route": "qb",
+    "broken": [],
+    "description": "Відповіді на типові питання гостей - у базі вашого готелю й під рукою. Налаштуємо чат-бота під ваших гостей.",
+    "dpr": 1.0000000298023224,
+    "h1": "Ті самі питання гостей - щодня?",
+    "height": 2428,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qb",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 1440
+  },
+  {
+    "route": "qc",
+    "broken": [],
+    "description": "Модуль бронювання «Вдало» на вашому сайті: гість бронює напряму за кілька кроків.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гість знайшов вас на картах, але не зміг забронювати?",
+    "height": 2460,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qc",
+    "video": [],
+    "width": 1440
+  },
+  {
+    "route": "qd",
+    "broken": [],
+    "description": "Сервіс «Вдало» надішле гостю інструкцію заїзду. Ключ або інший спосіб доступу ваш об’єкт організовує заздалегідь.",
+    "dpr": 1.0000000298023224,
+    "h1": "Знову чекаєте гостя до півночі?",
+    "height": 2401,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 1425,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qd",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 1440
+  },
+  {
+    "route": "q1",
+    "broken": [],
+    "description": "Сервіс «Вдало» зводить усі бронювання в один календар. Налаштуємо його для вас.",
+    "dpr": 1.0000000298023224,
+    "h1": "Один номер продали двом гостям?",
+    "height": 2395,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q1",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 768
+  },
+  {
+    "route": "q2",
+    "broken": [],
+    "description": "Сервіс «Вдало» збирає дані гостя до приїзду й переносить їх у документи. Налаштуємо це для вашого готелю.",
+    "dpr": 1.0000000298023224,
+    "h1": "Знову переписуєте дані гостей вручну?",
+    "height": 2371,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q2",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 768
+  },
+  {
+    "route": "q3",
+    "broken": [],
+    "description": "Після підключення вашого об’єкта до VDALO налаштуємо автоматичний розрахунок туристичного збору в бронюваннях. Залиште заявку, щоб обговорити ваш процес.",
+    "dpr": 1.0000000298023224,
+    "h1": "Туристичний збір рахуєте вручну?",
+    "height": 2739,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q3",
+    "video": [],
+    "width": 768
+  },
+  {
+    "route": "q4",
+    "broken": [],
+    "description": "Відповіді на типові питання гостей - у базі вашого готелю й під рукою. Налаштуємо чат-бота під ваших гостей.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гості питають вас одне й те саме?",
+    "height": 2443,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q4",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 768
+  },
+  {
+    "route": "q5",
+    "broken": [],
+    "description": "Чат-бот «Вдало» відповідає гостям, поки ви спите. Налаштуємо нічного бота для вашого готелю.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гість питає о другій ночі. Хто відповість?",
+    "height": 2443,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q5",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 768
+  },
+  {
+    "route": "q6",
+    "broken": [],
+    "description": "Сервіс «Вдало» тримає всі бронювання в одному календарі у вашому телефоні.",
+    "dpr": 1.0000000298023224,
+    "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+    "height": 2752,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q6",
+    "video": [],
+    "width": 768
+  },
+  {
+    "route": "q7",
+    "broken": [],
+    "description": "Порахуйте на своїх цифрах. Модуль бронювання «Вдало» на вашому сайті приймає бронювання напряму, без комісії.",
+    "dpr": 1.0000000298023224,
+    "h1": "Скільки ви віддаєте Букінгу за рік?",
+    "height": 2535,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q7",
+    "video": [],
+    "width": 768
+  },
+  {
+    "route": "q8",
+    "broken": [],
+    "description": "У «Вдало» видно, який номер готувати першим і до котрої години.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гості вже приїхали, а номер не прибраний?",
+    "height": 2371,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q8",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 768
+  },
+  {
+    "route": "q9",
+    "broken": [],
+    "description": "За 15 хвилин покажемо, що з бронювань, документів і відповідей гостям можна зняти з вашої команди.",
+    "dpr": 1.0000000298023224,
+    "h1": "Роботи більшає, а людей бракує?",
+    "height": 2771,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q9",
+    "video": [],
+    "width": 768
+  },
+  {
+    "route": "qa",
+    "broken": [],
+    "description": "Сервіс «Вдало» зводить бронювання з усіх каналів в один календар. Налаштуємо його для вас.",
+    "dpr": 1.0000000298023224,
+    "h1": "Двоє гостей. Один номер.",
+    "height": 2395,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qa",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 768
+  },
+  {
+    "route": "qb",
+    "broken": [],
+    "description": "Відповіді на типові питання гостей - у базі вашого готелю й під рукою. Налаштуємо чат-бота під ваших гостей.",
+    "dpr": 1.0000000298023224,
+    "h1": "Ті самі питання гостей - щодня?",
+    "height": 2443,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qb",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 768
+  },
+  {
+    "route": "qc",
+    "broken": [],
+    "description": "Модуль бронювання «Вдало» на вашому сайті: гість бронює напряму за кілька кроків.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гість знайшов вас на картах, але не зміг забронювати?",
+    "height": 2595,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qc",
+    "video": [],
+    "width": 768
+  },
+  {
+    "route": "qd",
+    "broken": [],
+    "description": "Сервіс «Вдало» надішле гостю інструкцію заїзду. Ключ або інший спосіб доступу ваш об’єкт організовує заздалегідь.",
+    "dpr": 1.0000000298023224,
+    "h1": "Знову чекаєте гостя до півночі?",
+    "height": 2395,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 753,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qd",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 768
+  },
+  {
+    "route": "q1",
+    "broken": [],
+    "description": "Сервіс «Вдало» зводить усі бронювання в один календар. Налаштуємо його для вас.",
+    "dpr": 1.0000000298023224,
+    "h1": "Один номер продали двом гостям?",
+    "height": 3163,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q1",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 390
+  },
+  {
+    "route": "q2",
+    "broken": [],
+    "description": "Сервіс «Вдало» збирає дані гостя до приїзду й переносить їх у документи. Налаштуємо це для вашого готелю.",
+    "dpr": 1.0000000298023224,
+    "h1": "Знову переписуєте дані гостей вручну?",
+    "height": 3149,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q2",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 390
+  },
+  {
+    "route": "q3",
+    "broken": [],
+    "description": "Після підключення вашого об’єкта до VDALO налаштуємо автоматичний розрахунок туристичного збору в бронюваннях. Залиште заявку, щоб обговорити ваш процес.",
+    "dpr": 1.0000000298023224,
+    "h1": "Туристичний збір рахуєте вручну?",
+    "height": 3581,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q3",
+    "video": [],
+    "width": 390
+  },
+  {
+    "route": "q4",
+    "broken": [],
+    "description": "Відповіді на типові питання гостей - у базі вашого готелю й під рукою. Налаштуємо чат-бота під ваших гостей.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гості питають вас одне й те саме?",
+    "height": 3270,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q4",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 390
+  },
+  {
+    "route": "q5",
+    "broken": [],
+    "description": "Чат-бот «Вдало» відповідає гостям, поки ви спите. Налаштуємо нічного бота для вашого готелю.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гість питає о другій ночі. Хто відповість?",
+    "height": 3237,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q5",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 390
+  },
+  {
+    "route": "q6",
+    "broken": [],
+    "description": "Сервіс «Вдало» тримає всі бронювання в одному календарі у вашому телефоні.",
+    "dpr": 1.0000000298023224,
+    "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+    "height": 3534,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q6",
+    "video": [],
+    "width": 390
+  },
+  {
+    "route": "q7",
+    "broken": [],
+    "description": "Порахуйте на своїх цифрах. Модуль бронювання «Вдало» на вашому сайті приймає бронювання напряму, без комісії.",
+    "dpr": 1.0000000298023224,
+    "h1": "Скільки ви віддаєте Букінгу за рік?",
+    "height": 3423,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q7",
+    "video": [],
+    "width": 390
+  },
+  {
+    "route": "q8",
+    "broken": [],
+    "description": "У «Вдало» видно, який номер готувати першим і до котрої години.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гості вже приїхали, а номер не прибраний?",
+    "height": 3123,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q8",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 390
+  },
+  {
+    "route": "q9",
+    "broken": [],
+    "description": "За 15 хвилин покажемо, що з бронювань, документів і відповідей гостям можна зняти з вашої команди.",
+    "dpr": 1.0000000298023224,
+    "h1": "Роботи більшає, а людей бракує?",
+    "height": 3591,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q9",
+    "video": [],
+    "width": 390
+  },
+  {
+    "route": "qa",
+    "broken": [],
+    "description": "Сервіс «Вдало» зводить бронювання з усіх каналів в один календар. Налаштуємо його для вас.",
+    "dpr": 1.0000000298023224,
+    "h1": "Двоє гостей. Один номер.",
+    "height": 3189,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qa",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 390
+  },
+  {
+    "route": "qb",
+    "broken": [],
+    "description": "Відповіді на типові питання гостей - у базі вашого готелю й під рукою. Налаштуємо чат-бота під ваших гостей.",
+    "dpr": 1.0000000298023224,
+    "h1": "Ті самі питання гостей - щодня?",
+    "height": 3214,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qb",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 390
+  },
+  {
+    "route": "qc",
+    "broken": [],
+    "description": "Модуль бронювання «Вдало» на вашому сайті: гість бронює напряму за кілька кроків.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гість знайшов вас на картах, але не зміг забронювати?",
+    "height": 3462,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qc",
+    "video": [],
+    "width": 390
+  },
+  {
+    "route": "qd",
+    "broken": [],
+    "description": "Сервіс «Вдало» надішле гостю інструкцію заїзду. Ключ або інший спосіб доступу ваш об’єкт організовує заздалегідь.",
+    "dpr": 1.0000000298023224,
+    "h1": "Знову чекаєте гостя до півночі?",
+    "height": 3195,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 375,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qd",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 390
+  },
+  {
+    "route": "q1",
+    "broken": [],
+    "description": "Сервіс «Вдало» зводить усі бронювання в один календар. Налаштуємо його для вас.",
+    "dpr": 1.0000000298023224,
+    "h1": "Один номер продали двом гостям?",
+    "height": 3551,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q1",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 320
+  },
+  {
+    "route": "q2",
+    "broken": [],
+    "description": "Сервіс «Вдало» збирає дані гостя до приїзду й переносить їх у документи. Налаштуємо це для вашого готелю.",
+    "dpr": 1.0000000298023224,
+    "h1": "Знову переписуєте дані гостей вручну?",
+    "height": 3535,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q2",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 320
+  },
+  {
+    "route": "q3",
+    "broken": [],
+    "description": "Після підключення вашого об’єкта до VDALO налаштуємо автоматичний розрахунок туристичного збору в бронюваннях. Залиште заявку, щоб обговорити ваш процес.",
+    "dpr": 1.0000000298023224,
+    "h1": "Туристичний збір рахуєте вручну?",
+    "height": 4043,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q3",
+    "video": [],
+    "width": 320
+  },
+  {
+    "route": "q4",
+    "broken": [],
+    "description": "Відповіді на типові питання гостей - у базі вашого готелю й під рукою. Налаштуємо чат-бота під ваших гостей.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гості питають вас одне й те саме?",
+    "height": 3547,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q4",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 320
+  },
+  {
+    "route": "q5",
+    "broken": [],
+    "description": "Чат-бот «Вдало» відповідає гостям, поки ви спите. Налаштуємо нічного бота для вашого готелю.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гість питає о другій ночі. Хто відповість?",
+    "height": 3554,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q5",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 320
+  },
+  {
+    "route": "q6",
+    "broken": [],
+    "description": "Сервіс «Вдало» тримає всі бронювання в одному календарі у вашому телефоні.",
+    "dpr": 1.0000000298023224,
+    "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+    "height": 3930,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q6",
+    "video": [],
+    "width": 320
+  },
+  {
+    "route": "q7",
+    "broken": [],
+    "description": "Порахуйте на своїх цифрах. Модуль бронювання «Вдало» на вашому сайті приймає бронювання напряму, без комісії.",
+    "dpr": 1.0000000298023224,
+    "h1": "Скільки ви віддаєте Букінгу за рік?",
+    "height": 3723,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q7",
+    "video": [],
+    "width": 320
+  },
+  {
+    "route": "q8",
+    "broken": [],
+    "description": "У «Вдало» видно, який номер готувати першим і до котрої години.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гості вже приїхали, а номер не прибраний?",
+    "height": 3465,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q8",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 320
+  },
+  {
+    "route": "q9",
+    "broken": [],
+    "description": "За 15 хвилин покажемо, що з бронювань, документів і відповідей гостям можна зняти з вашої команди.",
+    "dpr": 1.0000000298023224,
+    "h1": "Роботи більшає, а людей бракує?",
+    "height": 3940,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/q9",
+    "video": [],
+    "width": 320
+  },
+  {
+    "route": "qa",
+    "broken": [],
+    "description": "Сервіс «Вдало» зводить бронювання з усіх каналів в один календар. Налаштуємо його для вас.",
+    "dpr": 1.0000000298023224,
+    "h1": "Двоє гостей. Один номер.",
+    "height": 3519,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qa",
+    "video": [
+      {
+        "error": null,
+        "ready": 4
+      }
+    ],
+    "width": 320
+  },
+  {
+    "route": "qb",
+    "broken": [],
+    "description": "Відповіді на типові питання гостей - у базі вашого готелю й під рукою. Налаштуємо чат-бота під ваших гостей.",
+    "dpr": 1.0000000298023224,
+    "h1": "Ті самі питання гостей - щодня?",
+    "height": 3496,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qb",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 320
+  },
+  {
+    "route": "qc",
+    "broken": [],
+    "description": "Модуль бронювання «Вдало» на вашому сайті: гість бронює напряму за кілька кроків.",
+    "dpr": 1.0000000298023224,
+    "h1": "Гість знайшов вас на картах, але не зміг забронювати?",
+    "height": 3815,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qc",
+    "video": [],
+    "width": 320
+  },
+  {
+    "route": "qd",
+    "broken": [],
+    "description": "Сервіс «Вдало» надішле гостю інструкцію заїзду. Ключ або інший спосіб доступу ваш об’єкт організовує заздалегідь.",
+    "dpr": 1.0000000298023224,
+    "h1": "Знову чекаєте гостя до півночі?",
+    "height": 3481,
+    "overflow": [],
+    "robots": "noindex,nofollow",
+    "scrollWidth": 305,
+    "taxInputs": 0,
+    "updated": true,
+    "url": "https://staging.vdalo.tech/qd",
+    "video": [
+      {
+        "error": null,
+        "ready": 1
+      }
+    ],
+    "width": 320
+  }
+]

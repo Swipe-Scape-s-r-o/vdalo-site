@@ -1,0 +1,67 @@
+[
+  {
+    "route": "q1",
+    "count": 3,
+    "open": 3
+  },
+  {
+    "route": "q2",
+    "count": 3,
+    "open": 3
+  },
+  {
+    "route": "q3",
+    "count": 3,
+    "open": 3
+  },
+  {
+    "route": "q4",
+    "count": 4,
+    "open": 4
+  },
+  {
+    "route": "q5",
+    "count": 4,
+    "open": 4
+  },
+  {
+    "route": "q6",
+    "count": 3,
+    "open": 3
+  },
+  {
+    "route": "q7",
+    "count": 3,
+    "open": 3
+  },
+  {
+    "route": "q8",
+    "count": 3,
+    "open": 3
+  },
+  {
+    "route": "q9",
+    "count": 3,
+    "open": 3
+  },
+  {
+    "route": "qa",
+    "count": 3,
+    "open": 3
+  },
+  {
+    "route": "qb",
+    "count": 4,
+    "open": 4
+  },
+  {
+    "route": "qc",
+    "count": 3,
+    "open": 3
+  },
+  {
+    "route": "qd",
+    "count": 3,
+    "open": 3
+  }
+]
