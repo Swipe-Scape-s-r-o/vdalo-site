@@ -1,0 +1,28 @@
+{
+  "mobileTocCheck": {
+    "headerBottom": 68.66667175292969,
+    "open": true,
+    "targetTop": 204.3229217529297,
+    "url": "https://staging.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu#%D1%81%D1%82%D0%B2%D0%BE%D1%80%D1%96%D1%82%D1%8C-%D1%81%D0%B2%D0%BE%D1%8E-qr-%D0%BA%D0%B0%D1%80%D1%82%D0%BA%D1%83"
+  },
+  "desktopTocCheck": {
+    "headerBottom": 80.66667175292969,
+    "readingWidth": 720,
+    "targetTop": 203.90625
+  },
+  "indexMobile": {
+    "cards": 6,
+    "client": 375,
+    "columns": "299.667px",
+    "scroll": 375,
+    "width": 390
+  },
+  "indexDesktop": {
+    "cards": 6,
+    "client": 1425,
+    "columns": "518px 518px",
+    "scroll": 1425,
+    "width": 1440
+  },
+  "consoleErrors": []
+}
