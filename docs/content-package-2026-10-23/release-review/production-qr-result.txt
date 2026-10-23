@@ -1,0 +1,79 @@
+ом; QR залишиться на контрастній картці. До 2 МБ."
+    - generic: Фото буде тлом; QR залишиться на контрастній картці. До 2 МБ.
+    - text: Заголовок на картці
+    - textbox "Заголовок на картці":
+      - /placeholder: Наприклад, Wi-Fi для гостей
+    - text: Підпис під кодом
+    - textbox "Підпис під кодом":
+      - /placeholder: Відскануйте камерою телефона
+    - status: Для кращого сканування залишайте високий контраст і невеликий логотип. Завжди перевіряйте готовий файл камерою.
+    - paragraph:
+      - generic: ◈
+      - text: Вміст QR, пароль Wi-Fi та вибрані файли не передаються на сервер.
+    - button "Створити QR-код":
+      - text: Створити QR-код
+      - generic: →
+    - complementary "Ваш QR-код":
+      - paragraph: ПОПЕРЕДНІЙ ПЕРЕГЛЯД
+      - heading "Ваш QR-код" [level=3]
+      - generic: Готово
+      - img "Оформлений QR-код. Перед використанням перевірте його камерою телефона."
+      - paragraph: Відскануйте камерою, щоб відкрити бронювання.
+      - generic: Розмір файлу
+      - combobox "Розмір файлу":
+        - option "512 × 512 px"
+        - option "1024 × 1024 px" [selected]
+        - option "2048 × 2048 px"
+      - generic: Для JPG, PNG, WebP і PDF
+      - button "PNG Завантажити PNG":
+        - generic: PNG
+        - generic: Завантажити PNG
+        - generic: ↓
+      - button "JPG Завантажити JPG":
+        - generic: JPG
+        - generic: Завантажити JPG
+        - generic: ↓
+      - button "WEBP Завантажити WebP":
+        - generic: WEBP
+        - generic: Завантажити WebP
+        - generic: ↓
+      - button "SVG Завантажити SVG":
+        - generic: SVG
+        - generic: Завантажити SVG
+        - generic: ↓
+      - button "PDF Завантажити PDF":
+        - generic: PDF
+        - generic: Завантажити PDF
+        - generic: ↓
+      - status
+      - paragraph:
+        - generic: ✳
+        - text: SVG масштабується без втрати якості. Для друку підійдуть SVG або PDF.
+  - region "Хочете бачити бронювання з QR у VDALO?":
+    - paragraph: НАСТУПНИЙ КРОК ДЛЯ БРОНЮВАННЯ
+    - heading "Хочете бачити бронювання з QR у VDALO?" [level=2]
+    - paragraph: QR-код відкриває потрібну сторінку. Щоб нова бронь з’явилася у календарі й шахматці VDALO, код має вести на налаштовану сторінку або віджет бронювання VDALO.
+    - generic "Шлях від QR-коду до календаря бронювань VDALO":
+      - article:
+        - generic: "01"
+        - generic: ▦
+        - heading "Гість сканує QR" [level=3]
+        - paragraph: На рецепції, у номері, на сайті або в рекламному матеріалі.
+      - generic: →
+      - article:
+        - generic: "02"
+        - generic: ↗
+        - heading "Обирає дати й номер" [level=3]
+        - paragraph: QR веде на вашу сторінку або віджет прямого бронювання VDALO.
+      - generic: →
+      - article:
+        - generic: "03"
+        - generic: ▤
+        - heading "Команда бачить бронь" [level=3]
+        - paragraph: Після налаштування бронювання відображається у календарі та шахматці VDALO.
+    - paragraph:
+      - strong: "Для інших QR-сценаріїв:"
+      - text: Wi-Fi, меню чи сторінка гостя відкривають відповідну інформацію. Щоб замовлення з меню або побажання гостя з’являлися у VDALO, потрібна окрема форма чи інтеграція.
+    - paragraph:
+      - strong: "Важливо:"
+      - text: статичний QR сам не передає дані в PMS. Він зберігає

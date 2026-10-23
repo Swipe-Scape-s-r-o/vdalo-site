@@ -1,0 +1,6 @@
+HTTP/1.1 401 Unauthorized
+Alt-Svc: h3=":443"; ma=2592000
+Server: Caddy
+Www-Authenticate: Basic realm="restricted"
+X-Robots-Tag: noindex, nofollow
+Date: Fri, 23 Oct 2026 21:01:58 GMT

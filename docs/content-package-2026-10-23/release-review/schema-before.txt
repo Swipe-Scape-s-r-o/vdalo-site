@@ -1,0 +1,5 @@
+
+> vdalo-site@1.0.0 validate:schema
+> node scripts/validate-schema.mjs
+
+Validated 91/91 routes; 0 errors.

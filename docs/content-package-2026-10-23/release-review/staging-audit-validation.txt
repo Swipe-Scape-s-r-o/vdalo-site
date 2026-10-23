@@ -1,0 +1,94 @@
+ink "повернення й скасування":
+        - /url: /refunds
+  - paragraph: НАСТУПНИЙ КРОК
+  - heading "Обговоріть процес із командою VDALO" [level=2]
+  - paragraph: Залиште контакт і назву об’єкта. Команда уточнить запит та погодить наступні дії.
+  - button "Обговорити процес":
+    - text: Обговорити процес
+    - generic: ↗
+- contentinfo:
+  - link "VDALO, головна":
+    - /url: /
+    - img "VDALO®"
+  - paragraph:
+    - text: Автоматизація щоденної роботи готелю.
+    - text: Керуйте готелем вдало.
+  - strong: Фізична особа-підприємець Проценко Марта Олександрівна
+  - text: "РНОКПП / ІПН: 3695802023"
+  - text: Україна, Полтавська область, Кременчуцький район, село Рокитне, вулиця Незалежності, будинок 21
+  - link "+380 93 908 22 54":
+    - /url: tel:+380939082254
+  - strong: Продукт
+  - link "Огляд продукту":
+    - /url: /solutions
+  - link "Усі функції PMS":
+    - /url: /hotel-pms-modules
+  - link "Календар бронювань":
+    - /url: /hotel-booking-calendar
+  - link "Channel Manager":
+    - /url: /hotel-channel-manager
+  - link "Guest App і QR":
+    - /url: /hotel-guest-app
+  - link "Операції команди":
+    - /url: /hotel-operations
+  - strong: Для бізнесу
+  - link "Інтеграції":
+    - /url: /integrations
+  - link "Тарифи":
+    - /url: /pricing
+  - link "Запросити доступ":
+    - /url: /sign-up
+  - link "Туристичний збір у PMS":
+    - /url: /hotel-tourist-tax
+  - strong: Матеріали
+  - link "Блог":
+    - /url: /blog
+  - link "Кейси":
+    - /url: /cases
+  - link "Інструменти":
+    - /url: /tools/
+  - link "Довідник туристичного збору":
+    - /url: /tourist-tax/
+  - strong: Компанія
+  - link "Команда":
+    - /url: /about
+  - link "Автори":
+    - /url: /authors
+  - link "Контакти":
+    - /url: /contact
+  - generic: © 2026 VDALO
+  - link "Конфіденційність":
+    - /url: /privacy
+  - link "Налаштування cookie":
+    - /url: /v1/privacy#cookie-preferences
+  - link "Оферта й умови послуги":
+    - /url: /offer
+  - link "Повернення коштів":
+    - /url: /refunds
+  - generic: Україна / vdalo.tech
+  - link "На початок":
+    - /url: /#main
+- dialog "Обговорити процеси вашого готелю":
+  - button "Закрити форму": ×
+  - paragraph: VDALO / Розмова про процеси готелю
+  - heading "Обговорити процеси вашого готелю" [level=2]
+  - paragraph: Залиште ім’я та телефон або email. Додатковий контекст можна вказати за бажанням. Команда відповість і погодить доречний наступний крок.
+  - generic: Ваше ім’я та прізвище *
+  - textbox "Ваше ім’я та прізвище *" [active]
+  - generic: Вкажіть ваше ім’я.
+  - generic: Телефон або email
+  - textbox "Телефон або email":
+    - /placeholder: Телефон або email для відповіді
+  - generic: Вкажіть коректний телефон або email.
+  - generic "Додатковий контекст (необов’язково)"
+  - text: Вебсайт
+  - textbox
+  - checkbox "Погоджуюся на використання моїх контактів для відповіді на цей запит. Політика конфіденційності."
+  - text: Погоджуюся на використання моїх контактів для відповіді на цей запит.
+  - link "Політика конфіденційності":
+    - /url: /privacy
+  - text: .
+  - generic: Потрібна згода на обробку даних, щоб ми відповіли на запит.
+  - button "Надіслати запит"
+  - paragraph: Команда відповість на ваш запит і погодить доречний наступний крок.
+- status

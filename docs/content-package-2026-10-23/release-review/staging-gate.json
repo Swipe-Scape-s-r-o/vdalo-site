@@ -1,0 +1,18 @@
+{
+  "routes": 70,
+  "checks": 140,
+  "widths": [
+    390,
+    1440
+  ],
+  "issues": [],
+  "console": [],
+  "runtime": "84ac8f1",
+  "submission": "Only blank/invalid validation, no lead sent",
+  "tools": {
+    "tax": "138,35 грн for 2 domestic guests × 2 days",
+    "profitability": "126 000 грн remainder in documented scenario",
+    "qr": "Generated, PNG export enabled",
+    "pms": "7 sections, 25 QA-only selections, 100%/100% result; local test draft cleanup not confirmed by browser automation"
+  }
+}

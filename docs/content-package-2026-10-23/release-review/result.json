@@ -1,0 +1,19 @@
+{
+  "runtime": "84ac8f1e302a09310ce5c5aa96208c36b4e46bfb",
+  "stagingChecks": 140,
+  "productionChecks": 140,
+  "issues": [],
+  "widths": [
+    390,
+    1440
+  ],
+  "consoleErrors": [],
+  "forms": "Blank/invalid client validation only, no lead sent",
+  "analytics": "GTM, GA4 and Clarity script elements observed with the existing consent selection; receipt not independently confirmed in analytics dashboards",
+  "pms": "All 7 steps and 25 synthetic selections checked on staging; existing production browser draft preserved",
+  "productionTools": {
+    "tax": "311,29 грн for 2 domestic + 1 inbound guest × 2 days",
+    "profitability": "126 000 грн remainder in documented example",
+    "qr": "Generated preview visible; PNG export enabled"
+  }
+}
