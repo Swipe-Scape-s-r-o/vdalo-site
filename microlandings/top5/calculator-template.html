@@ -125,7 +125,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--pink);outline-o
   <div class="go-panel" role="dialog" aria-modal="true" aria-labelledby="go-sheet-title">
     <button type="button" class="go-close" id="go-close" aria-label="Закрити форму">×</button>
     <div class="go-grip" aria-hidden="true"></div>
-    <form id="go-form" novalidate>
+    <form id="go-form" data-clarity-mask="true" novalidate>
       <h2 id="go-sheet-title">Запросити 14-денний тест</h2>
       <p id="go-sheet-sub">Заповніть дані про себе й об’єкт. Команда перевірить заявку та надішле на email інструкцію для доступу до тесту.</p>
       <label class="go-field"><span>Ваше ім’я *</span>
@@ -287,7 +287,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--pink);outline-o
     sheet.classList.add('open'); sheet.setAttribute('aria-hidden', 'false');
     go.setAttribute('inert', '');
     vdv.vdv && vdv.vdv.pause();
-    setTimeout(() => document.getElementById('go-phone').focus(), 250);
+    setTimeout(() => { if (!sheet.contains(document.activeElement)) document.getElementById('go-phone').focus(); }, 250);
     emit('cta', { video: vdv.dataset.scenario, watched });
   };
   const close = () => { sheet.classList.remove('open'); sheet.setAttribute('aria-hidden', 'true'); go.removeAttribute('inert'); cta.focus(); };

@@ -42,9 +42,12 @@ export async function handleTop5Lead(req,res,{sendRequest=fetch,env=process.env}
   const name=clean(raw.name,100),email=clean(raw.email,180).toLowerCase(),phone=clean(raw.phone,40),contactMethod=clean(raw.contact_method,20)||'phone',hotel=clean(raw.hotel,150),location=clean(raw.location,120),propertyType=clean(raw.property_type,40),pms=clean(raw.pms,120),hotelCount=clean(raw.hotel_count,10),rooms=clean(raw.rooms,20)||clean(raw.quiz_answers?.room_range,20),funnel=clean(raw.funnel,30),source=clean(raw.source,30),code=clean(raw.code,10),video=clean(raw.video,50),videoVariant=clean(raw.video_variant,12),pageFormat=clean(raw.page_format,20),contactTag=clean(raw.t,120),watched=Number(raw.watched)||0,entryPage=clean(raw.entry_page,180);
   const submissionStage=raw.submission_stage==='email_capture'?'email_capture':raw.submission_stage==='details_complete'?'details_complete':'';
   const suppliedLeadId=typeof raw.submission_id==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(raw.submission_id)?raw.submission_id:'';
+  // The standalone consultation asks only for a phone and optional property/city.
+  // Keep its two exact legacy variants separate from full trial/robot forms.
+  const isTaxPhoneInquiry=funnel==='tourist_tax'&&source==='website'&&['tax-docs','tax-report'].includes(code)&&!pageFormat&&!submissionStage;
   if(raw.submission_stage&&!submissionStage)return reply(res,422,{ok:false,message:'Не вдалося визначити крок заявки.'});
   if(submissionStage==='details_complete'&&!suppliedLeadId)return reply(res,422,{ok:false,message:'Поверніться до першого кроку, щоб зберегти email.'});
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return reply(res,422,{ok:false,message:'Вкажіть коректний email для надсилання доступу.'});
+  if((!isTaxPhoneInquiry||email)&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return reply(res,422,{ok:false,message:'Вкажіть коректний email для надсилання доступу.'});
   if(submissionStage==='email_capture'){
    if(raw.consent!==true)return reply(res,422,{ok:false,message:'Потрібна згода, щоб зберегти email і відповісти щодо тестового доступу.'});
    if(!funnels.has(funnel)||!sources.has(source))return reply(res,422,{ok:false,message:'Не вдалося визначити джерело запиту.'});
@@ -59,14 +62,14 @@ export async function handleTop5Lead(req,res,{sendRequest=fetch,env=process.env}
    return reply(res,200,{ok:true,leadId,stage:'email_captured'});
   }
   const isRobotFunnel=/^q(?:[1-9]|10)b?$/.test(code)&&pageFormat;
-  if(name.length<2)return reply(res,422,{ok:false,message:'Вкажіть ваше ім’я.'});
+  if(!isTaxPhoneInquiry&&name.length<2)return reply(res,422,{ok:false,message:'Вкажіть ваше ім’я.'});
   if(!/^[+()\d\s.-]+$/.test(phone)||phone.replace(/\D/g,'').length<9||phone.replace(/\D/g,'').length>15)return reply(res,422,{ok:false,message:'Вкажіть коректний телефон.'});
-  if(hotel.length<2)return reply(res,422,{ok:false,message:'Вкажіть назву готелю або об’єкта.'});
-  if(!isRobotFunnel&&location.length<2)return reply(res,422,{ok:false,message:'Вкажіть місто або громаду.'});
-  if(!new Set(['hotel','guesthouse','apartments','glamping','hostel','other']).has(propertyType)&&!isRobotFunnel)return reply(res,422,{ok:false,message:'Оберіть тип об’єкта.'});
+  if(!isTaxPhoneInquiry&&hotel.length<2)return reply(res,422,{ok:false,message:'Вкажіть назву готелю або об’єкта.'});
+  if(!isRobotFunnel&&!isTaxPhoneInquiry&&location.length<2)return reply(res,422,{ok:false,message:'Вкажіть місто або громаду.'});
+  if(!new Set(['hotel','guesthouse','apartments','glamping','hostel','other']).has(propertyType)&&!isRobotFunnel&&!isTaxPhoneInquiry)return reply(res,422,{ok:false,message:'Оберіть тип об’єкта.'});
   if(isRobotFunnel&&!new Set(['video','calculator','questions']).has(pageFormat))return reply(res,422,{ok:false,message:'Не вдалося визначити формат сторінки.'});
   if(!new Set(['phone','viber','telegram']).has(contactMethod))return reply(res,422,{ok:false,message:'Оберіть зручний спосіб зв’язку.'});
-  if(!isRobotFunnel&&!buckets.has(rooms))return reply(res,422,{ok:false,message:'Оберіть кількість номерів або юнітів.'});
+  if(!isRobotFunnel&&!isTaxPhoneInquiry&&!buckets.has(rooms))return reply(res,422,{ok:false,message:'Оберіть кількість номерів або юнітів.'});
   if(hotelCount&&!new Set(['1','2-3','4+']).has(hotelCount))return reply(res,422,{ok:false,message:'Перевірте кількість об’єктів.'});
   if(!funnels.has(funnel)||!sources.has(source))return reply(res,422,{ok:false,message:'Не вдалося визначити джерело запиту.'});
   if(raw.consent!==true)return reply(res,422,{ok:false,message:'Потрібна згода на обробку даних.'});

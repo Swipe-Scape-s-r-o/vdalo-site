@@ -1,0 +1,212 @@
+[
+  {
+    "route": "/audit",
+    "hasUncheckedRequiredConsent": true,
+    "ready": "true",
+    "required": [
+      "name",
+      "property",
+      "contact",
+      "consent"
+    ],
+    "invalid": [
+      "name",
+      "property",
+      "contact",
+      "consent"
+    ],
+    "nativeInvalid": [
+      "name",
+      "property",
+      "contact",
+      "consent"
+    ],
+    "overflow": false
+  },
+  {
+    "route": "/research",
+    "hasUncheckedRequiredConsent": true,
+    "ready": "true",
+    "required": [
+      "name",
+      "property",
+      "contact",
+      "role",
+      "consent"
+    ],
+    "invalid": [
+      "name",
+      "property",
+      "contact",
+      "role",
+      "consent"
+    ],
+    "nativeInvalid": [
+      "name",
+      "property",
+      "contact",
+      "role",
+      "consent"
+    ],
+    "overflow": false
+  },
+  {
+    "route": "/trial",
+    "hasUncheckedRequiredConsent": true,
+    "ready": "true",
+    "required": [
+      "name",
+      "property",
+      "contact",
+      "rooms",
+      "consent"
+    ],
+    "invalid": [
+      "name",
+      "property",
+      "contact",
+      "rooms",
+      "consent"
+    ],
+    "nativeInvalid": [
+      "name",
+      "property",
+      "contact",
+      "rooms",
+      "consent"
+    ],
+    "overflow": false
+  },
+  {
+    "route": "/switch",
+    "hasUncheckedRequiredConsent": true,
+    "ready": "true",
+    "required": [
+      "name",
+      "property",
+      "contact",
+      "current_pms",
+      "consent"
+    ],
+    "invalid": [
+      "name",
+      "property",
+      "contact",
+      "current_pms",
+      "consent"
+    ],
+    "nativeInvalid": [
+      "name",
+      "property",
+      "contact",
+      "current_pms",
+      "consent"
+    ],
+    "overflow": false
+  },
+  {
+    "route": "/one-process",
+    "hasUncheckedRequiredConsent": true,
+    "ready": "true",
+    "required": [
+      "name",
+      "property",
+      "contact",
+      "selected_process",
+      "consent"
+    ],
+    "invalid": [
+      "name",
+      "property",
+      "contact",
+      "selected_process",
+      "consent"
+    ],
+    "nativeInvalid": [
+      "name",
+      "property",
+      "contact",
+      "selected_process",
+      "consent"
+    ],
+    "overflow": false
+  },
+  {
+    "route": "/pms-check",
+    "hasUncheckedRequiredConsent": true,
+    "ready": "true",
+    "required": [
+      "name",
+      "property",
+      "contact",
+      "current_pms",
+      "consent"
+    ],
+    "invalid": [
+      "name",
+      "property",
+      "contact",
+      "current_pms",
+      "consent"
+    ],
+    "nativeInvalid": [
+      "name",
+      "property",
+      "contact",
+      "current_pms",
+      "consent"
+    ],
+    "overflow": false
+  },
+  {
+    "route": "/founding-hotels",
+    "hasUncheckedRequiredConsent": true,
+    "ready": "true",
+    "required": [
+      "name",
+      "property",
+      "contact",
+      "role",
+      "consent"
+    ],
+    "invalid": [
+      "name",
+      "property",
+      "contact",
+      "role",
+      "consent"
+    ],
+    "nativeInvalid": [
+      "name",
+      "property",
+      "contact",
+      "role",
+      "consent"
+    ],
+    "overflow": false
+  },
+  {
+    "route": "/hotel-research",
+    "hasUncheckedRequiredConsent": true,
+    "ready": "true",
+    "required": [
+      "property_type",
+      "pms_usage",
+      "selected_process",
+      "consent"
+    ],
+    "invalid": [
+      "property_type",
+      "pms_usage",
+      "selected_process",
+      "consent"
+    ],
+    "nativeInvalid": [
+      "property_type",
+      "pms_usage",
+      "selected_process",
+      "consent"
+    ],
+    "overflow": false
+  }
+]
