@@ -204,7 +204,7 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/privacy')return send(res,200,prefix(privacyPage(),'v1'));
   if(pathname==='/offer')return send(res,200,prefix(renderOfferPage(),'v1'));
   if(pathname==='/refunds')return send(res,200,prefix(renderRefundPage(),'v1'));
-  if(pathname==='/')return sendCompressed(req,res,200,prefix(firstPage({origin:'https://www.vdalo.tech',full:true}),'v1'),'text/html; charset=utf-8');
+  if(pathname==='/')return sendCompressed(req,res,200,prefix(firstPage({origin:'https://www.vdalo.tech',full:true,homepage:true}),'v1'),'text/html; charset=utf-8');
   if(pathname==='/robots.txt')return send(res,200,'User-agent: *\nAllow: /\nSitemap: https://www.vdalo.tech/sitemap.xml\n','text/plain; charset=utf-8');
   if(pathname==='/sitemap.xml')return send(res,200,sitemapXml(),'application/xml; charset=utf-8');
   if(pathname==='/llms.txt')return send(res,200,`# VDALO\n\n> Українська платформа для керування готельними бронюваннями та щоденними процесами.\n\n## Основні сторінки\n\n${publicSitemapRoutes.map(route=>`- https://www.vdalo.tech${route}`).join('\n')}\n\n## Дані про сайт\n\n- Мова основного сайту: українська.\n- Довідник туристичного збору містить лише опубліковані сторінки з перевіреними ставками.\n- Перед застосуванням ставки звіряйте місцеве рішення та офіційні джерела на відповідній сторінці.\n- XML sitemap: https://www.vdalo.tech/sitemap.xml\n`,'text/plain; charset=utf-8');
@@ -255,9 +255,9 @@ const server=http.createServer(async(req,res)=>{
   const version=route[1],relative=route[2]||'/';
   if(!route[2]){res.writeHead(307,{Location:`/${version}/`});return res.end();}
   if(version!=='v1' && !(version==='v3' && (/^\/assets\/[a-zA-Z0-9_.-]+$/.test(relative)||relative==='/editorial.css')))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
-  if(version==='v1' && relative==='/')return sendCompressed(req,res,200,prefix(firstPage({origin:'',full:true}),'v1'),'text/html; charset=utf-8');
+  if(version==='v1' && relative==='/')return sendCompressed(req,res,200,prefix(firstPage({origin:'',full:true,homepage:true}),'v1'),'text/html; charset=utf-8');
   if(version==='v1' && relative==='/privacy')return send(res,200,prefix(privacyPage(),'v1'));
-  if(!/^\/(assets\/[a-zA-Z0-9_.-]+|author-page\.css|blog\.css|editorial-seo\.css|reading-layout\.css|prepared-content\.css|partners\.(?:css|js)|tools\.(?:css|js)|seo-pages\.css|integration-channels\.css|pricing\.(?:css|js)|pricing-core\.js|site-config\.js|styles\.css|site\.css|home\.css|design-system-2\.css|dark-edition\.css|polish\.css|refinement\.css|cases\.css|editorial\.css|experience\.css|experience\.js|app\.js|clarity-consent\.(?:css|js)|living-hotel(?:-mobile|-dispatch)?\.(?:css|js))$/.test(relative))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
+  if(!/^\/(assets\/[a-zA-Z0-9_.-]+|author-page\.css|blog\.css|editorial-seo\.css|reading-layout\.css|prepared-content\.css|partners\.(?:css|js)|homepage\.(?:css|js)|tools\.(?:css|js)|seo-pages\.css|integration-channels\.css|pricing\.(?:css|js)|pricing-core\.js|site-config\.js|styles\.css|site\.css|home\.css|design-system-2\.css|dark-edition\.css|polish\.css|refinement\.css|cases\.css|editorial\.css|experience\.css|experience\.js|app\.js|clarity-consent\.(?:css|js)|living-hotel(?:-mobile|-dispatch)?\.(?:css|js))$/.test(relative))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
   const file=path.join(root,'versions',version,'public',relative.slice(1));
   const bundle=version==='v1'&&relative==='/home.css'?homeCssBundle:version==='v1'&&relative==='/site.css'?siteCssBundle:null;
   const data=bundle?Buffer.from(bundle.css):await readFile(file);

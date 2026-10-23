@@ -1,0 +1,379 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T22:53:43.742Z",
+  "title": "Design System: VDALO compact homepage",
+  "extensions": {
+    "colorMeta": {
+      "plum": {
+        "role": "primary",
+        "displayName": "Plum",
+        "tonalRamp": [
+          "oklch(15% 0.0186 320.02)",
+          "oklch(26% 0.0323 320.02)",
+          "oklch(38% 0.0472 320.02)",
+          "oklch(50% 0.0558 320.02)",
+          "oklch(62% 0.0558 320.02)",
+          "oklch(74% 0.0558 320.02)",
+          "oklch(85% 0.0419 320.02)",
+          "oklch(95% 0.0140 320.02)"
+        ]
+      },
+      "spark-pink": {
+        "role": "secondary",
+        "displayName": "Spark Pink",
+        "tonalRamp": [
+          "oklch(15% 0.0464 355.68)",
+          "oklch(26% 0.0805 355.68)",
+          "oklch(38% 0.1176 355.68)",
+          "oklch(50% 0.1392 355.68)",
+          "oklch(62% 0.1392 355.68)",
+          "oklch(74% 0.1392 355.68)",
+          "oklch(85% 0.1044 355.68)",
+          "oklch(95% 0.0348 355.68)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0012 39.48)",
+          "oklch(26% 0.0020 39.48)",
+          "oklch(38% 0.0029 39.48)",
+          "oklch(50% 0.0035 39.48)",
+          "oklch(62% 0.0035 39.48)",
+          "oklch(74% 0.0035 39.48)",
+          "oklch(85% 0.0026 39.48)",
+          "oklch(95% 0.0009 39.48)"
+        ]
+      },
+      "blush": {
+        "role": "neutral",
+        "displayName": "Blush",
+        "tonalRamp": [
+          "oklch(15% 0.0037 3.49)",
+          "oklch(26% 0.0064 3.49)",
+          "oklch(38% 0.0093 3.49)",
+          "oklch(50% 0.0110 3.49)",
+          "oklch(62% 0.0110 3.49)",
+          "oklch(74% 0.0110 3.49)",
+          "oklch(85% 0.0083 3.49)",
+          "oklch(95% 0.0028 3.49)"
+        ]
+      },
+      "soft-surface": {
+        "role": "neutral",
+        "displayName": "Soft Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0039 342.65)",
+          "oklch(26% 0.0068 342.65)",
+          "oklch(38% 0.0099 342.65)",
+          "oklch(50% 0.0117 342.65)",
+          "oklch(62% 0.0117 342.65)",
+          "oklch(74% 0.0117 342.65)",
+          "oklch(85% 0.0088 342.65)",
+          "oklch(95% 0.0029 342.65)"
+        ]
+      },
+      "workflow-surface": {
+        "role": "neutral",
+        "displayName": "Workflow Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0050 332.25)",
+          "oklch(26% 0.0087 332.25)",
+          "oklch(38% 0.0128 332.25)",
+          "oklch(50% 0.0151 332.25)",
+          "oklch(62% 0.0151 332.25)",
+          "oklch(74% 0.0151 332.25)",
+          "oklch(85% 0.0113 332.25)",
+          "oklch(95% 0.0038 332.25)"
+        ]
+      },
+      "tab-surface": {
+        "role": "neutral",
+        "displayName": "Tab Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0074 334.96)",
+          "oklch(26% 0.0127 334.96)",
+          "oklch(38% 0.0186 334.96)",
+          "oklch(50% 0.0221 334.96)",
+          "oklch(62% 0.0221 334.96)",
+          "oklch(74% 0.0221 334.96)",
+          "oklch(85% 0.0165 334.96)",
+          "oklch(95% 0.0055 334.96)"
+        ]
+      },
+      "tab-hover": {
+        "role": "neutral",
+        "displayName": "Tab Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0106 334.03)",
+          "oklch(26% 0.0184 334.03)",
+          "oklch(38% 0.0269 334.03)",
+          "oklch(50% 0.0319 334.03)",
+          "oklch(62% 0.0319 334.03)",
+          "oklch(74% 0.0319 334.03)",
+          "oklch(85% 0.0239 334.03)",
+          "oklch(95% 0.0080 334.03)"
+        ]
+      },
+      "plum-lifted": {
+        "role": "primary",
+        "displayName": "Plum Lifted",
+        "tonalRamp": [
+          "oklch(15% 0.0214 320.16)",
+          "oklch(26% 0.0372 320.16)",
+          "oklch(38% 0.0543 320.16)",
+          "oklch(50% 0.0643 320.16)",
+          "oklch(62% 0.0643 320.16)",
+          "oklch(74% 0.0643 320.16)",
+          "oklch(85% 0.0483 320.16)",
+          "oklch(95% 0.0161 320.16)"
+        ]
+      },
+      "pink-hover": {
+        "role": "secondary",
+        "displayName": "Pink Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0319 353.94)",
+          "oklch(26% 0.0552 353.94)",
+          "oklch(38% 0.0807 353.94)",
+          "oklch(50% 0.0956 353.94)",
+          "oklch(62% 0.0956 353.94)",
+          "oklch(74% 0.0956 353.94)",
+          "oklch(85% 0.0717 353.94)",
+          "oklch(95% 0.0239 353.94)"
+        ]
+      },
+      "focus": {
+        "role": "secondary",
+        "displayName": "Focus",
+        "tonalRamp": [
+          "oklch(15% 0.0507 352.53)",
+          "oklch(26% 0.0879 352.53)",
+          "oklch(38% 0.1284 352.53)",
+          "oklch(50% 0.1521 352.53)",
+          "oklch(62% 0.1521 352.53)",
+          "oklch(74% 0.1521 352.53)",
+          "oklch(85% 0.1140 352.53)",
+          "oklch(95% 0.0380 352.53)"
+        ]
+      },
+      "direct-booking": {
+        "role": "secondary",
+        "displayName": "Direct Booking",
+        "tonalRamp": [
+          "oklch(15% 0.0181 351.72)",
+          "oklch(26% 0.0314 351.72)",
+          "oklch(38% 0.0458 351.72)",
+          "oklch(50% 0.0543 351.72)",
+          "oklch(62% 0.0543 351.72)",
+          "oklch(74% 0.0543 351.72)",
+          "oklch(85% 0.0407 351.72)",
+          "oklch(95% 0.0136 351.72)"
+        ]
+      },
+      "online-booking": {
+        "role": "neutral",
+        "displayName": "Online Booking",
+        "tonalRamp": [
+          "oklch(15% 0.0112 318.12)",
+          "oklch(26% 0.0193 318.12)",
+          "oklch(38% 0.0283 318.12)",
+          "oklch(50% 0.0335 318.12)",
+          "oklch(62% 0.0335 318.12)",
+          "oklch(74% 0.0335 318.12)",
+          "oklch(85% 0.0251 318.12)",
+          "oklch(95% 0.0084 318.12)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Compact homepage hero only; responsive sizes remain documented in DESIGN.md."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Compact homepage section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Workflow headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Homepage copy with mobile size reduction."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Role controls and summaries."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Source-backed plan figure."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "home-ease",
+        "value": "cubic-bezier(.23,1,.32,1)",
+        "purpose": "Homepage transform transitions and one-time entrances."
+      },
+      {
+        "name": "press-duration",
+        "value": "160ms",
+        "purpose": "Primary-button and role-tab press response."
+      },
+      {
+        "name": "tab-color-duration",
+        "value": "180ms",
+        "purpose": "Role-tab color change."
+      },
+      {
+        "name": "section-fade",
+        "value": "420ms",
+        "purpose": "One-time heading and price appearance."
+      },
+      {
+        "name": "step-enter",
+        "value": "360ms",
+        "purpose": "One-time onboarding step entrance; 60ms stagger capped at three steps."
+      },
+      {
+        "name": "arrival-enter",
+        "value": "650ms",
+        "purpose": "Illustrative arrival enters from 20px below after 180ms."
+      },
+      {
+        "name": "hero-settle",
+        "value": "12000ms linear",
+        "purpose": "One-time image scale from 1.025 to 1; pauses while document is hidden."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-actions",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet",
+        "value": "1000px"
+      },
+      {
+        "name": "mobile-layout",
+        "value": "700px"
+      },
+      {
+        "name": "mobile-image",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Demo button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Pink homepage action. Preview is visual only; production opens the existing request form.",
+      "html": "<button class=\"ds-home-button\" type=\"button\">Замовити демо <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><path d=\"M4 12h16m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-home-button{display:inline-flex;align-items:center;justify-content:center;gap:24px;padding:18px 28px;min-height:58px;border:0;border-radius:99px;font:700 17px/1.25 Inter,Arial,sans-serif;cursor:pointer;text-decoration:none;transition:transform 160ms cubic-bezier(.23,1,.32,1),background-color 160ms ease}.ds-home-button svg{width:22px;height:22px;flex:none}.ds-home-button:active{transform:scale(.97)}.ds-home-button{background:#ff92bd;color:#39233e}@media(hover:hover) and (pointer:fine){.ds-home-button:hover{transform:translateY(-2px);background:#ffb3d1}}.ds-home-button:focus-visible{outline:3px solid #aa3e74;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-home-button{transition:none!important;transform:none!important}}"
+    },
+    {
+      "name": "Final demo button",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Plum action on the pink final section.",
+      "html": "<button class=\"ds-home-button-dark\" type=\"button\">Замовити демо <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><path d=\"M4 12h16m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-home-button-dark{display:inline-flex;align-items:center;justify-content:center;gap:24px;padding:18px 28px;min-height:58px;border:0;border-radius:99px;font:700 17px/1.25 Inter,Arial,sans-serif;cursor:pointer;text-decoration:none;transition:transform 160ms cubic-bezier(.23,1,.32,1),background-color 160ms ease}.ds-home-button-dark svg{width:22px;height:22px;flex:none}.ds-home-button-dark:active{transform:scale(.97)}.ds-home-button-dark{background:#39233e;color:#fff5f7}@media(hover:hover) and (pointer:fine){.ds-home-button-dark:hover{transform:translateY(-2px);background:#533859}}.ds-home-button-dark:focus-visible{outline:3px solid #aa3e74;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-home-button-dark{transition:none!important;transform:none!important}}"
+    },
+    {
+      "name": "Text link",
+      "kind": "button",
+      "description": "Underlined secondary action or route link.",
+      "html": "<a class=\"ds-home-text-link\" href=\"#pms\">Спробувати календар</a>",
+      "css": ".ds-home-text-link{display:inline-block;font:600 16px/1.5 Inter,Arial,sans-serif;color:#39233e;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.25em;padding-block:9px}@media(hover:hover) and (pointer:fine){.ds-home-text-link:hover{text-decoration-thickness:2px}}.ds-home-text-link:focus-visible{outline:3px solid #aa3e74;outline-offset:5px}"
+    },
+    {
+      "name": "Role tab",
+      "kind": "chip",
+      "refersTo": "tab",
+      "description": "Role selection state. Production implements roving focus and keyboard navigation in homepage.js.",
+      "html": "<div class=\"ds-tab-row\" role=\"tablist\" aria-label=\"Сценарії\"><button class=\"ds-home-tab\" role=\"tab\" aria-selected=\"true\" type=\"button\">Рецепція</button><button class=\"ds-home-tab\" role=\"tab\" aria-selected=\"false\" type=\"button\" tabindex=\"-1\">Команда</button></div>",
+      "css": ".ds-tab-row{display:flex;gap:8px}.ds-home-tab{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:12px 18px;font:600 17px/1.3 Inter,Arial,sans-serif;border:0;border-radius:12px;color:#39233e;background:#e4d5e0;cursor:pointer;transition:transform 160ms cubic-bezier(.23,1,.32,1),background-color 180ms ease}.ds-home-tab[aria-selected=true]{background:#39233e;color:#fff5f7}.ds-home-tab:active{transform:scale(.98)}@media(hover:hover) and (pointer:fine){.ds-home-tab:hover{background:#d9c4d4}.ds-home-tab[aria-selected=true]:hover{background:#533859}}.ds-home-tab:focus-visible{outline:3px solid #aa3e74;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-home-tab{transition:none!important;transform:none!important}}"
+    },
+    {
+      "name": "Price surface",
+      "kind": "card",
+      "refersTo": "price-card",
+      "description": "Filled price summary surface. This preview omits a numeric price; production reads pricing-core.js.",
+      "html": "<div class=\"ds-price\"><p>Start, до 8 номерів</p><p class=\"ds-price-placeholder\">Тариф</p><p>Календар, гості, тарифи, прибирання та віджет бронювання.</p></div>",
+      "css": ".ds-price{background:#ff92bd;color:#39233e;border-radius:16px;padding:30px 36px;font:400 17px/1.6 Inter,Arial,sans-serif}.ds-price p{margin:0}.ds-price p:first-child{font-weight:600}.ds-price .ds-price-placeholder{font-family:'Inter Tight',Inter,sans-serif;font-size:72px;line-height:1.1;letter-spacing:-.04em;font-weight:700;margin:12px 0 0}.ds-price p:last-child{font-size:16px;margin-top:18px}"
+    },
+    {
+      "name": "Shared form field",
+      "kind": "input",
+      "description": "Inherited shared form style, outside the new homepage token boundary. Preview does not submit data.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-name\">Ваше ім’я *</label><input class=\"ds-shared-input\" id=\"ds-name\" name=\"name\" autocomplete=\"name\" required minlength=\"2\" maxlength=\"100\"></div>",
+      "css": ".ds-field{display:grid;gap:8px;font-family:Inter,Arial,sans-serif;color:#39233e}.ds-field label{font-size:13px;font-weight:600}.ds-shared-input{box-sizing:border-box;border:1px solid #39233e40;border-radius:10px;min-height:46px;width:100%;padding:10px 14px;color:#39233e;background:#fffafb;font:400 16px Inter,Arial,sans-serif}.ds-shared-input:focus-visible{outline:3px solid currentColor;outline-offset:5px}.ds-shared-input[aria-invalid=true]{border-color:#39233e;border-width:2px;background:#ffe6ef}"
+    },
+    {
+      "name": "Homepage quick navigation",
+      "kind": "nav",
+      "description": "Simple section links in the plum hero; shared global navigation remains under its existing system.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Основні можливості\"><a class=\"ds-home-quicklink\" href=\"#pms\">Бронювання</a><a class=\"ds-home-quicklink\" href=\"#features\">Команда</a><a class=\"ds-home-quicklink\" href=\"#pricing\">Тарифи</a></nav>",
+      "css": ".ds-nav{display:flex;justify-content:space-between;gap:20px;padding:25px;background:#39233e;color:#fff5f7;font-family:Inter,Arial,sans-serif}.ds-home-quicklink{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;font-size:16px;min-height:44px}.ds-home-quicklink:focus-visible{outline:3px solid #aa3e74;outline-offset:5px}@media(max-width:700px){.ds-nav{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;padding:20px}.ds-home-quicklink{font-size:14px;min-height:42px}}"
+    },
+    {
+      "name": "FAQ disclosure",
+      "kind": "custom",
+      "refersTo": "disclosure",
+      "description": "Native details and summary, with immediate arrow state.",
+      "html": "<details class=\"ds-faq\"><summary class=\"ds-home-summary\">Як почати користуватися? <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><path d=\"M4 12h16m-6-6 6 6-6 6\"/></svg></summary><p>Залиште заявку. Менеджер уточнить вашу задачу, покаже систему й погодить налаштування.</p></details>",
+      "css": ".ds-faq{background:#fcf9f8;color:#39233e;border-radius:12px;padding:0 24px;font-family:Inter,Arial,sans-serif}.ds-home-summary{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:20px 0;list-style:none;cursor:pointer;font-size:17px;font-weight:600;line-height:1.4}.ds-home-summary::-webkit-details-marker{display:none}.ds-home-summary svg{width:20px;height:20px;flex:none;transform:rotate(90deg)}.ds-faq[open] .ds-home-summary svg{transform:rotate(-90deg)}.ds-faq p{font-size:16px;line-height:1.6;margin:0;padding:0 28px 24px 0}.ds-home-summary:focus-visible{outline:3px solid #aa3e74;outline-offset:5px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A confirmed reservation",
+    "overview": "This document records the compact homepage implementation dated 24 October 2026. Its filled surfaces, hotel photography and reservation rectangles express the existing plum and pink identity through practical hotel work. The reservation is a motif observed in this surface; it is not a new global composition rule.\n\nThe token layer and component conventions below apply to the content inside `.homepage-2026`, plus the documented `body.homepage-shell` background and mobile-action spacing. They do not replace the visual systems of the other approximately 70 routes, the shared header and footer, the shared forms or the existing calculator. The retained brand guide and editorial standards remain authoritative; this file describes the implemented homepage where the route deliberately differs.\n\nSource evidence is `versions/v1/homepage.mjs`, `versions/v1/public/homepage.css` and `versions/v1/public/homepage.js`, with inherited styles sampled from the shared bundle. No browser, launcher or deployment was run for this documentation pass. The separate finish review and owner review remain separate decisions.",
+    "keyCharacteristics": [
+      "Plum fields, pink actions and warm paper with tonal surface changes.",
+      "Inter Tight headings and Inter body and interface text.",
+      "Filled reservation geometry, softly rounded media and pill actions.",
+      "Immediate controls, visible HTML and short optional motion."
+    ],
+    "rules": [
+      {
+        "name": "The Home Scope Rule",
+        "body": "Apply the compact-home conventions only within the documented homepage boundary. Keep shared components and other routes under their existing authority.",
+        "section": "layout"
+      },
+      {
+        "name": "The Existing Identity Rule",
+        "body": "Preserve the pinned plum and pink palette, the Inter family and the canonical raster wordmark.",
+        "section": "colors"
+      },
+      {
+        "name": "The Visible Baseline Rule",
+        "body": "Content is visible before animation. Reduced motion removes decoration while interactions keep their meaning.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do keep the compact-home styles scoped to the homepage boundary.",
+      "Do preserve the canonical raster wordmark and its proportions.",
+      "Do use the recorded Inter Tight and Inter hierarchy for this homepage.",
+      "Do show illustrative UI and generated hospitality imagery with the factual labels present in the implementation.",
+      "Do preserve visible focus, keyboard tab selection and native disclosure behavior.",
+      "Do preserve reduced-motion behavior and HTML visibility when enhancement is unavailable."
+    ],
+    "donts": [
+      "Don't apply the compact homepage's typography, spacing or radii across the other routes without a separate task.",
+      "Don't replace the canonical wordmark with text or an older vector adaptation.",
+      "Don't promote demo data, generated imagery or in-development modules into product proof.",
+      "Don't introduce Unicode U+2014 or encoded equivalents into public content.",
+      "Don't treat this document, its preview snippets or QA notes as release approval."
+    ]
+  }
+}
+
