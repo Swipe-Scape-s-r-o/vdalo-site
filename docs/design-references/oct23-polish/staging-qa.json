@@ -10,7 +10,6 @@
     "staging-q1-390.jpg",
     "staging-q2-1440.jpg",
     "staging-q2-390.jpg",
-    "staging-q3-390.jpg",
     "staging-q4-390.jpg",
     "staging-q5-390.jpg",
     "staging-q6-390.jpg",
@@ -19,7 +18,6 @@
     "staging-q9-390.jpg",
     "staging-qa-390.jpg",
     "staging-qb-390.jpg",
-    "staging-qc-390.jpg",
     "staging-qd-390.jpg"
   ],
   "routes": [
@@ -1180,5 +1178,8 @@
       "faqOpen": true,
       "submitted": false
     }
+  ],
+  "captureLimitations": [
+    "Long screenshot composites for q3 and qc were rejected as tool artifacts; DOM, viewport and interaction checks passed, but these composites are not accepted as visual evidence."
   ]
 }
