@@ -38,9 +38,8 @@ import {touristTaxCityRoutes,getTouristTaxPlace,getTouristTaxRule} from './versi
 const root=path.dirname(fileURLToPath(import.meta.url));
 if(!process.env.VERCEL && existsSync(path.join(root,'.env')) && process.loadEnvFile)process.loadEnvFile(path.join(root,'.env'));
 const types={'.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.jpg':'image/jpeg','.jpeg':'image/jpeg','.mp4':'video/mp4','.webm':'video/webm','.json':'application/json; charset=utf-8','.woff2':'font/woff2'};
-const gtmHead=`<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PKDT7MMT');</script>`;
+const gtmHead=`<script>(function(w,d,s,l,i){w.__vdaloLoadGoogleTags=function(){if(w.__vdaloGoogleTagsLoaded)return;w.__vdaloGoogleTagsLoaded=true;w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;d.head.appendChild(j);};if(w.vdaloConsent&&w.vdaloConsent.getPreferences().analytics)w.__vdaloLoadGoogleTags();})(window,document,'script','dataLayer','GTM-PKDT7MMT');</script>`;
 const calloAttributionPrelude=`<script>(function(){try{var url=new URL(window.location.href),tag=url.searchParams.get('t');if(tag){window.__vdaloCalloTag=tag;url.searchParams.delete('t');history.replaceState(history.state,'',url.pathname+(url.search?url.search:'')+url.hash);}}catch(_){}})();</script>`;
-const gtmBody=`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKDT7MMT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/svg+xml">';
 const touristTaxRoutes=['/tourist-tax/',...touristTaxCityRoutes()];
 const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles,touristTaxRoutes});
@@ -81,10 +80,9 @@ function withSocialMetadata(html){
 function withTagManager(html){
  const withSocial=withSocialMetadata(html);
  const withFavicon=withSocial.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+(/<link\b[^>]*\brel=["'][^"']*\bicon\b[^"']*["'][^>]*>/i.test(withSocial)?'':faviconLink));
- const consentAssets='<link rel="stylesheet" href="/v1/clarity-consent.css?v=1"><script defer src="/v1/clarity-consent.js?v=1"></script>';
+ const consentAssets='<link rel="stylesheet" href="/v1/clarity-consent.css?v=3"><script src="/v1/clarity-consent.js?v=3"></script>';
  const calloPrelude=/<body[^>]*\bdata-code=/i.test(withFavicon)?calloAttributionPrelude:'';
- const withHead=withFavicon.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+calloPrelude+gtmHead+consentAssets);
- return withHead.replace(/<body(?:\s[^>]*)?>/i,opening=>opening+gtmBody);
+ return withFavicon.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+calloPrelude+consentAssets+gtmHead);
 }
 function send(res,status,text,type='text/html; charset=utf-8',method='GET'){
  const body=type.toLowerCase().startsWith('text/html')?withTagManager(applySitewideSchema(text,res._schemaPath||'',indexableSchemaRoutes)):text;

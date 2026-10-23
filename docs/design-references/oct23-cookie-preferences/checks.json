@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-23",
+  "automatedTests": 180,
+  "checks": [
+    {
+      "case": "first_visit",
+      "banner": {
+        "height": 192.33334350585935,
+        "width": 280.66668701171875
+      },
+      "bannerHidden": false,
+      "tags": [],
+      "viewport": {
+        "height": 740,
+        "width": 320
+      }
+    },
+    {
+      "case": "statistics_only",
+      "tags": [
+        "https://www.googletagmanager.com/gtag/js?id=G-ST38L6GRRM&cx=c&gtm=4e6al1h1",
+        "https://www.googletagmanager.com/gtm.js?id=GTM-PKDT7MMT"
+      ]
+    },
+    {
+      "case": "replay_only",
+      "tags": [
+        "https://www.clarity.ms/tag/z199c8oakv"
+      ]
+    },
+    {
+      "bannerHidden": true,
+      "case": "all_after_reload",
+      "tags": [
+        "https://www.googletagmanager.com/gtag/js?id=G-ST38L6GRRM&cx=c&gtm=4e6al1h1",
+        "https://www.clarity.ms/tag/z199c8oakv",
+        "https://www.googletagmanager.com/gtm.js?id=GTM-PKDT7MMT"
+      ]
+    },
+    {
+      "analytics": false,
+      "case": "revoked_after_reload",
+      "replay": false,
+      "tags": []
+    }
+  ],
+  "finalRoutes": 13,
+  "oldQuizQuestionsCompleted": 5,
+  "oldQuizSettingsInQuestionAndResult": true,
+  "validLeadSubmitted": false,
+  "physicalPhone": false
+}
