@@ -1,0 +1,1490 @@
+[
+  {
+    "route": "/",
+    "status": 200,
+    "hash": "597a64c8a722a6fc8ba9eddd8bf68cad631809c962271ebd3713dff59e283904",
+    "title": "Система керування готелем і бронюваннями | VDALO",
+    "canonical": "https://www.vdalo.tech/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/solutions",
+    "status": 200,
+    "hash": "5c9c3abe15dd975b54da53cbc9780d7ae8988bd2b071b66404ad85d68535f784",
+    "title": "Можливості VDALO для готелю | Ключові процеси",
+    "canonical": "https://www.vdalo.tech/solutions",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/integrations",
+    "status": 200,
+    "hash": "661510bfe7b1deb6e4ed2bacf2cbd69ffc56242c19f16021fd47da0e82fd0b2d",
+    "title": "60+ інтеграцій для готелів: Booking.com, Airbnb та інші | VDALO",
+    "canonical": "https://www.vdalo.tech/integrations",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/pricing",
+    "status": 200,
+    "hash": "56dd51b921ec21bfad0c6abdb9251cb7a2ad6c1fdb2fad994fe6ed56e1573e3e",
+    "title": "Тарифи для готелів і апартаментів | VDALO",
+    "canonical": "https://www.vdalo.tech/pricing",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-booking-calendar",
+    "status": 200,
+    "hash": "7d2c413ba72eed725fe3863d6defc7771375202328b19ab789c7686edf3977db",
+    "title": "Календар бронювань готелю та шахівниця номерів | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-booking-calendar",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-direct-booking",
+    "status": 200,
+    "hash": "28d526e6b2945f21218780fd93bb72f33e80dceff1bcb8a2063efc4d32b85d0e",
+    "title": "Віджет бронювання для сайту готелю | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-direct-booking",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-channel-manager",
+    "status": 200,
+    "hash": "44023db440a8142bba73886a604ae6624538e5f6c77b078a105897ae8032ef1d",
+    "title": "Channel Manager готелю: 60+ інтеграцій | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-channel-manager",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-revenue-management",
+    "status": 200,
+    "hash": "adda1763f7691516c5f18a9db2bca5fe222e9634687021e08e6e3604ce24427c",
+    "title": "Ціни та Revenue Management у PMS готелю | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-revenue-management",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-check-in",
+    "status": 200,
+    "hash": "2e8744beabc530e3d4f6b27455bdcb8ef49064bb0fd22e45781e002c542368bd",
+    "title": "Онлайн-реєстрація й заселення в готелі | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-check-in",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-guest-profile",
+    "status": 200,
+    "hash": "cd768d07a275ec37a86f946f1091f1db1f9cf7e8dc764e49d4bf98364cd03be7",
+    "title": "Картка гостя та онлайн-реєстрація в PMS | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-guest-profile",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-guest-app",
+    "status": 200,
+    "hash": "c305bb6ca114fea214169b2175d91127986cce58bc6aa3338d6262787db4732f",
+    "title": "Guest App і QR-сторінка для гостей готелю | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-guest-app",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-ai-assistant",
+    "status": 200,
+    "hash": "8f59158b3a11090165cb0ae53d3c71ea49df6c9a4e5da386f1d5e2a44274a3df",
+    "title": "AI-помічники в PMS: для персоналу й гостей | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-ai-assistant",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-access-control",
+    "status": 200,
+    "hash": "ea90353711ab41fd0b3a66c32663b6b5fdf5c21c267e0181b1a83897a3c9c086",
+    "title": "Цифрове заселення, кіоск і PIN для готелю | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-access-control",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-operations",
+    "status": 200,
+    "hash": "f703dc4e8ef0d01dcd3136c6f798b8d8e5ed7670178d7683d4b823ace46aa7d4",
+    "title": "Задачі команди готелю й готовність номерів | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-operations",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-housekeeping",
+    "status": 200,
+    "hash": "725b4edb08058e0d1f91a807bcd42f26134caf0a5d9619d44f2956848f2e64c4",
+    "title": "Housekeeping та готовність номерів у PMS | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-housekeeping",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-finance",
+    "status": 200,
+    "hash": "c97e6ded1445da8fd889500cb0fb82c1d8ddf34accdd0e13e4c8ac23b1f3c7a4",
+    "title": "Фінансовий облік готелю у PMS | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-finance",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-tourist-tax",
+    "status": 200,
+    "hash": "3e63281bd5b05a2bca594fbe5441958cfb4ff97886950c2729ce39a7d15c403e",
+    "title": "Туристичний збір у PMS готелю: розрахунок і облік | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-tourist-tax",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-prro",
+    "status": 200,
+    "hash": "3d883fc36f13563a2f9aeb9e6065d55b61797866e82d826d0399e83ebd97887f",
+    "title": "ПРРО для готелю та фіскалізація | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-prro",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-energy-management",
+    "status": 200,
+    "hash": "797c8dbea44b9cb50cf6edcb56b23f47d2670d5df825804562e0c55c40ea851b",
+    "title": "Керування енергією готелю через PMS | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-energy-management",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-events",
+    "status": 200,
+    "hash": "643426c282aa2c9e46875dc428949f5c4f772b42a015d8de4159c1ed80edb216",
+    "title": "Бронювання залів і подій у готелі | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-events",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-pms-migration",
+    "status": 200,
+    "hash": "79d744caccf4cb31719425a0c1052f509bf345164f698c391f47e7dcc0fb63db",
+    "title": "Перехід і імпорт даних з іншої PMS | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-pms-migration",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-multi-property",
+    "status": 200,
+    "hash": "3fde0d185d2d6d1c8cf8725f11c2adc5aec7b5354f1e978d7e3da7bea977dddc",
+    "title": "PMS для кількох готелів і ролей команди | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-multi-property",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-site-builder",
+    "status": 200,
+    "hash": "789ec5c8437e9cd45e425b173811da677c7297db46bcc0d38d64b84939bf9e0b",
+    "title": "Конструктор сайту для готелю в PMS | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-site-builder",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-pms-modules",
+    "status": 200,
+    "hash": "01a4ca533df754bf6f76bb9e34afbef7b59fdcdfccf1942ef84642a71f5291c2",
+    "title": "Функції PMS VDALO: можливості й дорожня карта",
+    "canonical": "https://www.vdalo.tech/hotel-pms-modules",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/guest-communication",
+    "status": 200,
+    "hash": "b6aa2687d00d10f04109949ded470aa17f450f5d351751a2707b07f32fd4f4ef",
+    "title": "Комунікація з гостями готелю | VDALO",
+    "canonical": "https://www.vdalo.tech/guest-communication",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/hotel-automation",
+    "status": 200,
+    "hash": "1099ce3502f27482fd1760a169ef5065c39e1136129bfea57fccd7962dc2a6ad",
+    "title": "Автоматизація процесів готелю: з чого почати | VDALO",
+    "canonical": "https://www.vdalo.tech/hotel-automation",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/sign-up",
+    "status": 200,
+    "hash": "d9cb3aa6d72cfc6baa8eb06e38fef9ecdf55c7dfcf240aa79210da761786fb43",
+    "title": "Реєстрація в системі VDALO для готелю | Доступ",
+    "canonical": "https://www.vdalo.tech/sign-up",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/about",
+    "status": 200,
+    "hash": "3ace6c8e2ab1cb07ec23f01c34e486f2a1750f26bd6047172166fcfb135544af",
+    "title": "Про VDALO та засновника Олега Степенєва | Досвід у готелях",
+    "canonical": "https://www.vdalo.tech/about",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/contact",
+    "status": 200,
+    "hash": "1278b099a8cf5330276dc67eae386e10f0657c3fbd317e80b93815ac486ad675",
+    "title": "Контакти VDALO | Обговорити автоматизацію готелю",
+    "canonical": "https://www.vdalo.tech/contact",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/authors",
+    "status": 200,
+    "hash": "fb6ba32ed89886bb97985b2047a25e40a6dde630250626a60d7609e4c3e778f3",
+    "title": "Автори VDALO: досвід і статті для готельного бізнесу",
+    "canonical": "https://www.vdalo.tech/authors",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/vdalo-canonical-496.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/authors/oleh-stepeniev",
+    "status": 200,
+    "hash": "ec60b56782c0021ecda689edb8657ba50fb7054252f837c860b99144c76a0f13",
+    "title": "Олег Степенєв - автор матеріалів VDALO про готелі",
+    "canonical": "https://www.vdalo.tech/authors/oleh-stepeniev",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/oleg-stepeniev-profile.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/privacy",
+    "status": 200,
+    "hash": "7835cfad0c3076bd27f65b6ce6ce5929e08c1203ecbd328d724191e4763518c1",
+    "title": "Політика конфіденційності | VDALO",
+    "canonical": "https://www.vdalo.tech/privacy",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/offer",
+    "status": 200,
+    "hash": "d1b08e99ab78351347ad4d0858ce52164b5b8cf918336ac1a5dfcc64258e04dc",
+    "title": "Публічна оферта та умови надання послуг | VDALO",
+    "canonical": "https://www.vdalo.tech/offer",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/refunds",
+    "status": 200,
+    "hash": "1d45ae5b496773bf4c1e5fa7a2f52b08fa777928ac8d75dd87e373b037a41722",
+    "title": "Повернення коштів і скасування замовлення | VDALO",
+    "canonical": "https://www.vdalo.tech/refunds",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/cases",
+    "status": 200,
+    "hash": "eb66e7b599a529493484093360f31f5b003980c6722618ca854e06518b6b2926",
+    "title": "Кейси автоматизації готелів: приклади й результати | VDALO",
+    "canonical": "https://www.vdalo.tech/cases",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/case-glamping-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "status": 200,
+    "hash": "9c2b753a7ca191cfa58fdd5daf1e0450c5e7d4e9ae577c43dcc3fcbe2a82fb3e",
+    "title": "Як глемпінг збільшив замовлення послуг | VDALO",
+    "canonical": "https://www.vdalo.tech/cases/guest-services-glamping",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/case-glamping-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "status": 200,
+    "hash": "483b3d53ba55e5e831e7c7be22dc06fdc816ae2bafa20380aa3e9db021366c4a",
+    "title": "Прямі бронювання готелю: 2–5 на день | VDALO",
+    "canonical": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/case-direct-booking-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "status": 200,
+    "hash": "68acae16336881c1ed0888827d640b81cf96d07e4eb7ec6ab21236905c64f8ae",
+    "title": "Звірка виплат і документів у готелі | VDALO",
+    "canonical": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/case-finance-reconciliation-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "status": 200,
+    "hash": "e1c6fdd4c0a05a617baa245c1f9403bd6b81acc31644e54ccf4e8eb679b9a56f",
+    "title": "Нічне самозаселення в готелі Німеччини | VDALO",
+    "canonical": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/case-night-checkin-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "status": 200,
+    "hash": "d635aca0e697790e03ab69fe1ea690d726e0468ef885cac3da885b368f4f07c1",
+    "title": "Міграція PMS: 18 475 бронювань готелю | VDALO",
+    "canonical": "https://www.vdalo.tech/cases/hotel-data-migration",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/case-data-migration-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "status": 200,
+    "hash": "4b482b3bb120fe881467ccd2a3a07d35f33f7273de42ebc58825c043842e7899",
+    "title": "2 118 сайтів: модуль бронювання в малих готелях | VDALO",
+    "canonical": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/case-hotel-research-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog",
+    "status": 200,
+    "hash": "7ef3f84c4fa8d73e042e5e8f4af281b16a5a1635b87020a00f45fde5572ef3d8",
+    "title": "Блог для готелів: статті, кейси й інструкції | VDALO",
+    "canonical": "https://www.vdalo.tech/blog",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/shcho-take-pms-dlya-gotelyu",
+    "status": 200,
+    "hash": "402199f0958052ed45190314effb34bc8619c14c7e597f234823c725ea0cb7a0",
+    "title": "Що таке PMS для готелю: функції та приклади | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/blog-pms-cover-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "status": 200,
+    "hash": "621a1fbc55fdea1e91fec8ade7322b3a75a76ccdbfecf79e221be3a2ac1113de",
+    "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-pms-choice-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "status": 200,
+    "hash": "83212622102d02e9b0ec189efb22640accafb78576fe011fe25ef30e1de3c3fb",
+    "title": "Додаткові послуги в готелі: як спростити замовлення | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-additional-services-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "status": 200,
+    "hash": "c555c47167c5a8064034ff17d8fa7dcc0a84c2d2ba3f7b5b31b9a1005d6143e9",
+    "title": "Прямі бронювання готелю: віджет, календар та iCal | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-direct-booking-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "status": 200,
+    "hash": "99353b49a7714564b4549e2d72e5f1cb2b542901c3abea244ce989700ef37e19",
+    "title": "Як перейти на PMS і зберегти історію бронювань | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-data-migration-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "status": 200,
+    "hash": "e467982603a8354d72f4c87a17d493f2eb0be10644864cba5a6739c28cee621b",
+    "title": "Шахматка готелю: як читати календар бронювань | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-booking-calendar-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/channel-manager-ical-gotelyu",
+    "status": 200,
+    "hash": "19d648388a410edb0f3b2f34953abe9ab793009d69e511bd84973cfcc189a37c",
+    "title": "Channel Manager чи iCal для готелю: що обрати | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-channel-sync-final.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/pidhotovka-zaselennya-gostya",
+    "status": 200,
+    "hash": "ca3b7a2a40d769de82b4b6a0de5f1643bb10af0501477ff0f90a4f922a719516",
+    "title": "Як підготувати заселення гостя до приїзду | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-prearrival-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "status": 200,
+    "hash": "4838c3a125a78453dc20b0953fddcc9f9f85848f75eebe583f8f7a4769719a89",
+    "title": "Що автоматизувати в готелі першим: практична оцінка | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-automation-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/status-gotovnosti-nomera-housekeeping",
+    "status": 200,
+    "hash": "ef29d28d1066e803905fa6df8d00cc84a954572cf43d9aaf73cffa3dd7a5ff09",
+    "title": "Статус готовності номера: housekeeping і рецепція | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-housekeeping-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "status": 200,
+    "hash": "0deb90fc0acb284342428721fb71800d58e49acbfdbb0e2d1b49f2c4286e9e94",
+    "title": "Туристичний збір 2026: ставки, пільги й розрахунок",
+    "canonical": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-tourist-tax-guide-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "status": 200,
+    "hash": "7c6de370410187e2a1ed5c5a50f0ef73c2d8f351de954ee37013cb308a391c9e",
+    "title": "Туристичний збір 2026: формула і 7 прикладів | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-tourist-tax-formula-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/qr-kody-dlya-goteliv",
+    "status": 200,
+    "hash": "e7ed69d1e279ddd19e528a6390dcc7acf25354f8e3527d8ba0ff70dbd2248e78",
+    "title": "QR-коди для готелів: 35 сценаріїв і приклади | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-qr-pillar-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/qr-wifi-dlya-gotelyu",
+    "status": 200,
+    "hash": "141f1a2b7f12c7bcc6fc98bc1088ac6c49b622f5cb80be75818f42fb2f29c160",
+    "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-qr-wifi-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/blog/qr-kartka-v-nomer-gotelyu",
+    "status": 200,
+    "hash": "f41f341802fb1cb2bdabc1604fb08579fb6641344c4343e47619dd2727ee1caa",
+    "title": "QR-картка в номер готелю: шаблони й друк | VDALO",
+    "canonical": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/blog-qr-room-card-natural.jpg"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tools/",
+    "status": 200,
+    "hash": "e6feb8c97f1bf555595c16b71384285bd11b85948ecf72bdd55c88a9936f7fc3",
+    "title": "Інструменти для готельєрів | VDALO",
+    "canonical": "https://www.vdalo.tech/tools/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "status": 404,
+    "hash": "8402e36a2d61bcb5fcfa0b3c6172fa28ac5d2a9346d8d28cb324189f0433491c",
+    "h1": 0,
+    "ogImages": [],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tools/pms-checklist/",
+    "status": 200,
+    "hash": "b6dba714a98d476b9593faf89ca04ab0848e4751688ef5b2bb44a92c9fa4a1cb",
+    "title": "Чекліст вибору PMS: 25 критеріїв | VDALO",
+    "canonical": "https://www.vdalo.tech/tools/pms-checklist/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tools/hotel-profitability-calculator/",
+    "status": 200,
+    "hash": "b1051499d4d918766d35e89c03bd5dc963ed4dc55eee991ba7915563b3634369",
+    "title": "Калькулятор прибутковості готелю: виручка та RevPAR | VDALO",
+    "canonical": "https://www.vdalo.tech/tools/hotel-profitability-calculator/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/",
+    "status": 200,
+    "hash": "d7f3db234904c22651fd9c4c438ba05788b30e36c7f47975a5af415d5baedc43",
+    "title": "Туристичний збір 2026: ставки в містах | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/lutsk/",
+    "status": 200,
+    "hash": "2b4cc1215e5df8702cd957d5e5eb27b8ba0652bddc91947a9eefd351eda7a018",
+    "title": "Туристичний збір у Луцьку 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/lutsk/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/berehove/",
+    "status": 200,
+    "hash": "ea306686d4f83d3e8d516bdc6055a5fe6b5e33cb1d9b2202ef396ebb3d455552",
+    "title": "Туристичний збір у Береговому 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/berehove/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/cherkasy/",
+    "status": 200,
+    "hash": "7c5199d4ecdaf706d80d03118b96b05055f0f2aa8d64ea336a3fb9df64aba443",
+    "title": "Туристичний збір у Черкасах 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/cherkasy/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/chernihiv/",
+    "status": 200,
+    "hash": "408eeb2ee78f40a254c38a3eeb80d1f1f5d25b7a71aa45dd68cfdfb2d5147677",
+    "title": "Туристичний збір у Чернігові 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/chernihiv/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/chernivtsi/",
+    "status": 200,
+    "hash": "8a427104f5fecd619d5c11104f1da04ac3a067c6272a257c0c53f8579fc91d8a",
+    "title": "Туристичний збір у Чернівцях 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/chernivtsi/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/dnipro/",
+    "status": 200,
+    "hash": "e281d3286d323eec724c8e092e31719b421ab992d17421174fd0fc50302d8dc8",
+    "title": "Туристичний збір у Дніпрі 2026: ставки за ціною ночівлі",
+    "canonical": "https://www.vdalo.tech/tourist-tax/dnipro/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/irpin/",
+    "status": 200,
+    "hash": "b6da8fbb74e1d248d2ea2bfc4a79e14e5b5c6c78c9f29fdf95c9e7be28eab5db",
+    "title": "Туристичний збір в Ірпені 2026: ставки та розрахунок | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/irpin/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/ivano-frankivsk/",
+    "status": 200,
+    "hash": "0a6932b701b27982f5581e7c8b299f3ab6a7fe49fa5d34c3ce588dbf4fc6f08c",
+    "title": "Туристичний збір в Івано-Франківську 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/ivano-frankivsk/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/khust/",
+    "status": 200,
+    "hash": "a0c82567de71169574495bf1cbeef44bcfe68d36dee2d7c51912ead15539e383",
+    "title": "Туристичний збір у Хусті на 2026 рік: ставки й калькулятор",
+    "canonical": "https://www.vdalo.tech/tourist-tax/khust/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/kolomyya/",
+    "status": 200,
+    "hash": "facbcd910b88e210c648bfc58ee1b6b44c4520fc63b019f903754c8eadb55485",
+    "title": "Туристичний збір у Коломиї 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/kolomyya/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/kyyiv/",
+    "status": 200,
+    "hash": "d0d0a12293348c0257c508acaddcb5e8597a4ebc1a5a9f70e8beb7ab9efada3d",
+    "title": "Туристичний збір у Києві 2026: ставки та калькулятор | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/kyyiv/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/lviv/",
+    "status": 200,
+    "hash": "cc4cd6be7334ebde487c058e6ed8700bfd127c4c13e023c4008e963d48f0d6a9",
+    "title": "Туристичний збір у Львові 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/lviv/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/odesa/",
+    "status": 200,
+    "hash": "66b638d900a241154f4fb6ac222a53ead4e281b2659dc4885fe67e12569868ac",
+    "title": "Туристичний збір в Одесі 2026: ставки й калькулятор | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/odesa/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/pivdenne/",
+    "status": 200,
+    "hash": "ca5a38624ad274f0aad7c8366b8274a4cae25d1c2c5c3dffb2eb7e67dfaf8275",
+    "title": "Туристичний збір у Південному 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/pivdenne/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/polyana/",
+    "status": 200,
+    "hash": "f94558b1c1b3b20b1921a146973d7804e562c5630c0db7cc78e9d2ac666b4de4",
+    "title": "Туристичний збір у Поляні у 2026 році | Ставки",
+    "canonical": "https://www.vdalo.tech/tourist-tax/polyana/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/rivne/",
+    "status": 200,
+    "hash": "400e7cd043b7a04c71c6915088a83be728a7bd11e428a7da03c5ef54b6a2d9d1",
+    "title": "Туристичний збір у Рівному 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/rivne/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/skole/",
+    "status": 200,
+    "hash": "acd90c08211c2833dc5191dc65dec16e06e1cc0db530b1ccbdbdbeb365b941eb",
+    "title": "Туристичний збір у Сколе 2026: ставки й калькулятор | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/skole/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/slavsko/",
+    "status": 200,
+    "hash": "d5472d14be711caafdedbeeda6ca8c5c26e0afde317856843252d8f58e2fab21",
+    "title": "Туристичний збір у Славську 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/slavsko/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/sumy/",
+    "status": 200,
+    "hash": "1ea8bebf1a1654c5a6feb4745636e179eeb70154710cc3420a137ddab18890d0",
+    "title": "Туристичний збір у Сумах 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/sumy/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/ternopil/",
+    "status": 200,
+    "hash": "2961b12c52fab16813ef2d05715b63c2e79336d2055af1549318872ec15ec452",
+    "title": "Туристичний збір у Тернополі 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/ternopil/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/tyachiv/",
+    "status": 200,
+    "hash": "dc9cb3378e4977b84a27d9e8223de26658633e416a210f341ce47482562da153",
+    "title": "Туристичний збір у Тячеві 2026: ставки, калькулятор | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/tyachiv/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/uzhhorod/",
+    "status": 200,
+    "hash": "1c8656398d1b65ecad335fc41345338667cf9821ffd8c0199ab5fb7fdb4a8947",
+    "title": "Туристичний збір в Ужгороді 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/uzhhorod/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/vinnytsya/",
+    "status": 200,
+    "hash": "375f3982cd91f3f2384ddaa769f307a0f51ae9b3e0ae1cbe8d188384341c175a",
+    "title": "Туристичний збір у Вінниці 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/vinnytsya/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/vynohradiv/",
+    "status": 200,
+    "hash": "e01bacfd23f8fdccbde9f5d1bfa163392bbb2205e659e55540bc8f1c357d879b",
+    "title": "Туристичний збір у Виноградові 2026: ставка | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/vynohradiv/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/yaremche/",
+    "status": 200,
+    "hash": "d5eef411d04e4abec86af0a97c25c12bea1c1d63c01531f0b87ec9d8c341ac78",
+    "title": "Туристичний збір у Яремче у 2026 році: ставки за типом житла",
+    "canonical": "https://www.vdalo.tech/tourist-tax/yaremche/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/yasinya/",
+    "status": 200,
+    "hash": "6137424ec71b92e6acc0169fa73162e2c4eff6475dd51c9bb163806b7580b30a",
+    "title": "Туристичний збір у Ясіні у 2026 році: ставка та калькулятор",
+    "canonical": "https://www.vdalo.tech/tourist-tax/yasinya/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/zaporizhzhya/",
+    "status": 200,
+    "hash": "0f3b34334f92b0cdbe4388ddd3f2710aae813539eb3da151d52891dae032083d",
+    "title": "Туристичний збір у Запоріжжі 2026: ставки | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/zaporizhzhya/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/zhytomyr/",
+    "status": 200,
+    "hash": "87359002cab197bad6ac0cb01444400046ed7b1a5f87ca1033b3e4436e4256be",
+    "title": "Туристичний збір у Житомирі: ставки 2026 | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/zhytomyr/",
+    "h1": 1,
+    "robots": "index,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/q",
+    "status": 200,
+    "hash": "d81686f5c5e1890791be5ab3b2c466f2c3841318ca52ee25a86a1dbcacdd69df",
+    "title": "Де готель втрачає гроші й нерви? Квіз VDALO",
+    "canonical": "https://www.vdalo.tech/q",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/q1",
+    "status": 200,
+    "hash": "22167c3dbe182ec368ba286dda15061d1b20a05ce2ad276c46b89646dc5c8bdf",
+    "title": "Один номер продали двом гостям? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/q2",
+    "status": 200,
+    "hash": "5a8e4476dea6f4aeef560fbefa843133d21d63bc7fe4ebb99ed653cad228c9c9",
+    "title": "Знову переписуєте дані гостей вручну? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/q3",
+    "status": 200,
+    "hash": "60b2f93d1d0f8d95812f4940c6b8bb6be69d155b006bd4f8cf90a72ac16a8ddb",
+    "title": "Туристичний збір рахуєте вручну? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/q4",
+    "status": 200,
+    "hash": "30e5b37693e4039f6732e3694369981a66e888394a3a0db6ed4af37a334772df",
+    "title": "Гості питають вас одне й те саме? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/q5",
+    "status": 200,
+    "hash": "9972ff4daf5f3ad0fff2f7e6a26233027f66b0a1e2677893ca2d14f09c5c4755",
+    "title": "Гість питає о другій ночі. Хто відповість? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/q6",
+    "status": 200,
+    "hash": "3fe94bfd82f5a62f10a6ce5c1e73938398baf298313b95d8d9a7095a7fd9729c",
+    "title": "Бронювання в зошиті, а заявки губляться у Viber та Instagram? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/q7",
+    "status": 200,
+    "hash": "58ad0e421418444a6e053d806fac8dab56bbdb49bd9ab2d524daca4592a83a2d",
+    "title": "Скільки ви віддаєте Букінгу за рік? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/q8",
+    "status": 200,
+    "hash": "0f85f96b7246c01e81ae92df64b1e384d4bde3520b6abd133932aaff2602352a",
+    "title": "Гості вже приїхали, а номер не прибраний? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/q9",
+    "status": 200,
+    "hash": "72bd1b06f1d53f43a630b6927732f07469c7a7594b8c19ca8748131cbae2767f",
+    "title": "Роботи більшає, а людей бракує? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/qa",
+    "status": 200,
+    "hash": "b85b491523e7d2f299218dced98db7d12fff6a8d961bd0b75062db231a59b585",
+    "title": "Двоє гостей. Один номер. | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/qb",
+    "status": 200,
+    "hash": "9ba9a1917745805c7aa3278028ad564db3dbdb5b7061eeab4ffb68344426a7a7",
+    "title": "Ті самі питання гостей - щодня? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/qc",
+    "status": 200,
+    "hash": "72eb73e1c89869046dacb9d079a062fedea4f83e304cd5957ca539faeef71b2a",
+    "title": "Гість знайшов вас на картах, але не зміг забронювати? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/qd",
+    "status": 200,
+    "hash": "1786f9859ed41c7152ad7467c5a83cb889be8e6bb81b31efc12b8451ad0ac444",
+    "title": "Знову чекаєте гостя до півночі? | VDALO",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/go/trial",
+    "status": 200,
+    "hash": "912c986f8af42d0b02f4326e558564cc7b9bbd9c5027acdc5c57784e32c24cbd",
+    "title": "14-денний тест VDALO для готелю",
+    "canonical": "https://www.vdalo.tech/go/trial",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/funnel",
+    "status": 200,
+    "hash": "63f740fe1e20cee2a0ea4553d947c46b3f98fa584c8b596e785d1e37e03ada1f",
+    "title": "Усі 8 воронок | VDALO",
+    "canonical": "https://www.vdalo.tech/funnel",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/55",
+    "status": 200,
+    "hash": "8ced9a194fb59c9875caa03112bb0ded97f1b80159fdb959abf429e00b755ea8",
+    "title": "Бронювання з каналів і ризик овербукінгу | VDALO",
+    "canonical": "https://www.vdalo.tech/55",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/53",
+    "status": 200,
+    "hash": "6714ee968eecfc7a15c8871591010ccb225fb10864ad0f1194331396f5139a00",
+    "title": "Підготовка до заїзду та заселення гостей | VDALO",
+    "canonical": "https://www.vdalo.tech/53",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/54",
+    "status": 200,
+    "hash": "2f69fed0307fa09c6201870091e987c51c83f2ce7cbb49ea64cd519b4323aebc",
+    "title": "Інструкції для гостей і нічні запитання | VDALO",
+    "canonical": "https://www.vdalo.tech/54",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/50",
+    "status": 200,
+    "hash": "bc2dc9fae3f7a7f4370fceb4d6f7afa88325bd715dc0d2f44dd817ec04a6973f",
+    "title": "Робота готелю під час відключень світла | VDALO",
+    "canonical": "https://www.vdalo.tech/50",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/47",
+    "status": 200,
+    "hash": "224a2531bebed4aeb81ed9100079a0b08dc122806ba32773563569c1781f91e9",
+    "title": "Прямі звернення та бронювання для готелю | VDALO",
+    "canonical": "https://www.vdalo.tech/47",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/k3",
+    "status": 200,
+    "hash": "d90c26aec00c94b99b064467cfa14badc26d2804792c6831417c247493b908eb",
+    "title": "Бронювання та овербукінг: оцініть процес | VDALO",
+    "canonical": "https://www.vdalo.tech/k3",
+    "h1": 1,
+    "robots": "noindex,nofollow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/tourist-tax/start",
+    "status": 200,
+    "hash": "e0d9f95162b7f1959e7a50ed971e9580a34319dc7a1bf89105fb1d7d00ea49e0",
+    "title": "Туристичний збір у готелі: документи й звітність | VDALO",
+    "canonical": "https://www.vdalo.tech/tourist-tax/start",
+    "h1": 1,
+    "robots": "noindex,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png"
+    ],
+    "schemaErrors": 0
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "status": 200,
+    "hash": "0f18f26d603f10fc5ea1d65aa697b63bbd4cf2a9f4ebdc07772e2201373d62e6",
+    "title": "Костянтин Тріпайло: автор VDALO про маркетинг і QR для готелів",
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "h1": 1,
+    "robots": "noindex,follow",
+    "ogImages": [
+      "https://www.vdalo.tech/v1/assets/og-1200x630.png",
+      "https://www.vdalo.tech/v1/assets/kostiantyn-tripailo-profile.jpg"
+    ],
+    "schemaErrors": 0
+  }
+]

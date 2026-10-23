@@ -19,7 +19,7 @@ export const qrArticles = [
     minutes: 13,
     lead: '35 сценаріїв для готелю, апартаментів, хостелу чи бази відпочинку. Оберіть QR для конкретної задачі гостя, перевірте сторінку за ним і підготуйте код до друку.',
     publishedDate: '2026-10-15',
-    modifiedDate: '2026-10-15',
+    modifiedDate: '2026-10-23',
     disableActionSection: true,
     links: [
       ['/blog/qr-wifi-dlya-gotelyu', 'Інструкція зі створення Wi-Fi QR'],
@@ -38,7 +38,7 @@ export const qrArticles = [
     minutes: 9,
     lead: 'SSID, тип захисту, пароль і перевірка на телефонах. Покроково покажемо, як підготувати QR для гостьової мережі, надрукувати картку й уникнути типових помилок.',
     publishedDate: '2026-10-15',
-    modifiedDate: '2026-10-15',
+    modifiedDate: '2026-10-23',
     disableActionSection: true,
     links: [
       ['/blog/qr-kody-dlya-goteliv', '35 сценаріїв QR-кодів у готелі'],
@@ -57,7 +57,7 @@ export const qrArticles = [
     minutes: 10,
     lead: 'Оберіть один або два QR-коди, підготуйте підписи й контакт рецепції. У статті є три готові тексти для карток, поради щодо формату та чекліст перед тиражем.',
     publishedDate: '2026-10-15',
-    modifiedDate: '2026-10-15',
+    modifiedDate: '2026-10-23',
     disableActionSection: true,
     links: [
       ['/blog/qr-kody-dlya-goteliv', '35 сценаріїв QR-кодів для готелю'],

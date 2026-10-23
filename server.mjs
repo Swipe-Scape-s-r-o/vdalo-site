@@ -32,6 +32,7 @@ import {handleWayForPay} from './payments/wayforpay.mjs';
 import {applySitewideSchema} from './versions/v1/schema.mjs';
 import {getPublicSitemapRoutes,serializeSitemapXml} from './versions/v1/sitemap.mjs';
 import {renderTouristTaxHub,renderTouristTaxCity,handleTouristTaxCalculation} from './versions/v1/tourist-tax.mjs';
+import {normalizeNonproductMetadata} from './versions/v1/nonproduct-seo.mjs';
 import {renderTouristTaxFunnel} from './microlandings/tourist-tax-funnel.mjs';
 import {touristTaxCityRoutes,getTouristTaxPlace,getTouristTaxRule} from './versions/v1/tourist-tax-data.mjs';
 
@@ -85,13 +86,13 @@ function withTagManager(html){
  return withFavicon.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+calloPrelude+consentAssets+gtmHead);
 }
 function send(res,status,text,type='text/html; charset=utf-8',method='GET'){
- const body=type.toLowerCase().startsWith('text/html')?withTagManager(applySitewideSchema(text,res._schemaPath||'',indexableSchemaRoutes)):text;
+ const body=type.toLowerCase().startsWith('text/html')?withTagManager(applySitewideSchema(normalizeNonproductMetadata(text,res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)):text;
  const publicHtml=type.toLowerCase().startsWith('text/html')&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath);
  res.writeHead(status,{'Content-Type':type,'Cache-Control':publicHtml?'public, max-age=0, s-maxage=300, stale-while-revalidate=86400':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY'});res.end(method==='HEAD'?undefined:body);
 }
 function sendCompressed(req,res,status,data,type,cache='no-store'){
  const isHtml=type.toLowerCase().startsWith('text/html');
- const source=isHtml?withTagManager(applySitewideSchema(Buffer.isBuffer(data)?data.toString('utf8'):data,res._schemaPath||'',indexableSchemaRoutes)):data;
+ const source=isHtml?withTagManager(applySitewideSchema(normalizeNonproductMetadata(Buffer.isBuffer(data)?data.toString('utf8'):data,res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)):data;
  if(isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath))cache='public, max-age=0, s-maxage=300, stale-while-revalidate=86400';
  const body=Buffer.isBuffer(source)?source:Buffer.from(source);
  const compressed=body.length>=1024&&/\bgzip\b/.test(req.headers['accept-encoding']||'');
@@ -252,7 +253,7 @@ const server=http.createServer(async(req,res)=>{
   if(version!=='v1' && !(version==='v3' && (/^\/assets\/[a-zA-Z0-9_.-]+$/.test(relative)||relative==='/editorial.css')))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
   if(version==='v1' && relative==='/')return sendCompressed(req,res,200,prefix(firstPage({origin:'',full:true}),'v1'),'text/html; charset=utf-8');
   if(version==='v1' && relative==='/privacy')return send(res,200,prefix(privacyPage(),'v1'));
-  if(!/^\/(assets\/[a-zA-Z0-9_.-]+|author-page\.css|blog\.css|tools\.(?:css|js)|seo-pages\.css|integration-channels\.css|pricing\.(?:css|js)|pricing-core\.js|site-config\.js|styles\.css|site\.css|home\.css|design-system-2\.css|dark-edition\.css|polish\.css|refinement\.css|cases\.css|editorial\.css|experience\.css|experience\.js|app\.js|clarity-consent\.(?:css|js)|living-hotel(?:-mobile|-dispatch)?\.(?:css|js))$/.test(relative))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
+  if(!/^\/(assets\/[a-zA-Z0-9_.-]+|author-page\.css|blog\.css|editorial-seo\.css|tools\.(?:css|js)|seo-pages\.css|integration-channels\.css|pricing\.(?:css|js)|pricing-core\.js|site-config\.js|styles\.css|site\.css|home\.css|design-system-2\.css|dark-edition\.css|polish\.css|refinement\.css|cases\.css|editorial\.css|experience\.css|experience\.js|app\.js|clarity-consent\.(?:css|js)|living-hotel(?:-mobile|-dispatch)?\.(?:css|js))$/.test(relative))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
   const file=path.join(root,'versions',version,'public',relative.slice(1));
   const bundle=version==='v1'&&relative==='/home.css'?homeCssBundle:version==='v1'&&relative==='/site.css'?siteCssBundle:null;
   const data=bundle?Buffer.from(bundle.css):await readFile(file);
