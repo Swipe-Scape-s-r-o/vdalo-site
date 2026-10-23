@@ -1,11 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {createHash} from 'node:crypto';
 import {preparedPages,applyPreparedContent,getPreparedPage} from '../versions/v1/content-revisions/content.mjs';
 import {renderRouteForReview} from '../scripts/review-render.mjs';
 import {elements,inner,hasClass,textOf,decodeText} from '../versions/v1/content-revisions/html-fragments.mjs';
-import {formContract} from '../versions/v1/content-revisions/form-contract.mjs';
+import {formContract,portableHtmlHash} from '../versions/v1/content-revisions/form-contract.mjs';
 import {renderArticleMarkdown} from '../versions/v1/article-markdown.mjs';
 const baseline=JSON.parse(readFileSync(new URL('../docs/content-package-2026-10-23/BASELINE_FORM_CONTRACTS.json',import.meta.url)));
 const unchanged=JSON.parse(readFileSync(new URL('../docs/content-package-2026-10-23/BASELINE_EXCLUDED_ROUTES.json',import.meta.url)));
@@ -38,11 +37,12 @@ test('every existing form preserves its action, fields, required constraints and
  }
 });
 
-test('23 deferred product pages and all 13 new funnels remain byte-for-byte intact',async()=>{
+test('23 deferred product pages and all 13 new funnels retain their complete HTML across platforms',async()=>{
  assert.equal(Object.keys(unchanged).length,36);
  for(const [route,hash] of Object.entries(unchanged)){
   const {html}=await rendered(route);
-  assert.equal(createHash('sha256').update(html).digest('hex'),hash,route);
+  assert.equal(portableHtmlHash(html),hash.portableSha256,route);
+  assert.equal(applyPreparedContent(html,route),html,route);
  }
 });
 
