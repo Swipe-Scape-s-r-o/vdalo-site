@@ -35,7 +35,7 @@ export function renderQuizPage(params=new URLSearchParams()){
  <link rel="stylesheet" href="/v3/editorial.css">
  <link rel="stylesheet" href="/funnel-assets/funnel.css?v=6">
  <link rel="stylesheet" href="/quiz-assets/quiz.css?v=12">
- <script src="/quiz-assets/quiz.js?v=9" defer></script>
+ <script src="/quiz-assets/quiz.js?v=10" defer></script>
 </head>
 <body class="microlanding quiz-page">
  <a class="skip-link" href="#quiz-main">Перейти до квізу</a>
@@ -57,14 +57,14 @@ export function renderQuizPage(params=new URLSearchParams()){
    </figure>
   </section>
   <section class="quiz-flow" id="quiz-flow" hidden aria-live="polite">
-   <div class="quiz-flow-top"><a href="/" class="quiz-back-home">VDALO</a><span class="quiz-step-count" data-count>Питання 1 із 5</span></div>
+   <div class="quiz-flow-top"><a href="/" class="quiz-back-home">VDALO</a><span class="quiz-step-count" data-count>Питання 1 із 5</span><button type="button" class="cookie-preferences-link" data-open-cookie-settings aria-label="Налаштування cookie">Cookie</button></div>
    <div class="quiz-progress" role="progressbar" aria-label="Прогрес квізу" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span data-progress></span></div>
    <div class="quiz-question" data-question></div>
    <div class="quiz-controls"><button class="quiz-back" type="button" data-back hidden>← Назад</button><span class="quiz-selection-hint">Оберіть один варіант</span></div>
   </section>
   <section class="quiz-result" id="quiz-result" hidden aria-live="polite"></section>
  </main>
- <footer class="ml-footer quiz-footer"><div class="wrap"><a href="/" aria-label="VDALO, головна"><img src="/v1/assets/vdalo-canonical.png" width="168" height="56" alt="VDALO®"></a><p>Керуйте готелем вдало.</p><a href="/funnel/privacy">Використання даних</a></div></footer>
+ <footer class="ml-footer quiz-footer"><div class="wrap"><a href="/" aria-label="VDALO, головна"><img src="/v1/assets/vdalo-canonical.png" width="168" height="56" alt="VDALO®"></a><p>Керуйте готелем вдало.</p><a href="/funnel/privacy">Використання даних</a><button type="button" class="cookie-preferences-link" data-open-cookie-settings>Налаштування cookie</button></div></footer>
  <script type="application/json" id="quiz-config">${config}</script>
 </body>
 </html>`;

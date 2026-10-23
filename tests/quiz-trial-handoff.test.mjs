@@ -10,7 +10,7 @@ const quizScript = await readFile(new URL('../microlandings/public/quiz.js', imp
 const trialScript = await readFile(new URL('../microlandings/public/sms-trial.js', import.meta.url), 'utf8');
 
 test('quiz and trial form invalidate cached scripts when their behavior changes', () => {
-  assert.match(renderQuizPage(), /quiz-assets\/quiz\.js\?v=9/);
+  assert.match(renderQuizPage(), /quiz-assets\/quiz\.js\?v=10/);
   const trialHtml = renderSmsTrial();
   assert.match(trialHtml, /sms-trial-assets\/sms-trial\.js\?v=4/);
   assert.match(trialHtml, /Розкажіть про ваш об’єкт/);
