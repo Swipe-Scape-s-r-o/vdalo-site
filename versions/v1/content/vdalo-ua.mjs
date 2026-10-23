@@ -79,6 +79,7 @@ export const site = {
       "children": [
         { "label": "Команда", "href": "/about" },
         { "label": "Автори", "href": "/authors" },
+        { "label": "Партнери та інтегратори", "href": "/partners" },
         { "label": "Контакти", "href": "/contact" }
       ]
     }

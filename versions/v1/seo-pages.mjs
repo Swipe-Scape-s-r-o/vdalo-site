@@ -2,6 +2,7 @@ import {renderPage,escape} from './render.mjs';
 import {renderPricing} from './pricing.mjs';
 import {assetVersion} from './assets.mjs';
 import {productFeaturePages} from './product-pages.mjs';
+import {renderPartnersPage,partnerIntegrationBridge} from './partners.mjs';
 
 const e=escape;
 const origin='https://www.vdalo.tech';
@@ -202,8 +203,9 @@ function pageContent(config,pathname){
  return `<section class="seo-hero"><div class="seo-wrap seo-hero-grid"><div class="seo-hero-copy"><p class="eyebrow">${e(config.eyebrow||'VDALO / ДЛЯ ГОТЕЛЮ')}</p><h1>${e(config.h1)}</h1><p class="seo-lead">${e(config.lead)}</p>${config.status?`<p class="seo-status-pill"><span>СТАТУС</span>${e(config.status)}</p>`:''}<div class="seo-hero-actions">${auditButton(config.heroCta||'Обговорити мій процес',config.heroKind||'audit',config.h1)}<a class="seo-secondary" href="/solutions">Переглянути можливості <span aria-hidden="true">↗</span></a></div></div><figure class="seo-hero-visual${config.heroPortrait?' seo-hero-portrait':''}" style="--hero-position:${e(config.heroPosition||'center')}"><img src="/assets/${e(config.heroImage)}" width="${e(config.heroWidth||1536)}" height="${e(config.heroHeight||1024)}" alt="${e(config.heroAlt)}" title="${e(config.heroAlt)}" fetchpriority="high"></figure></div></section><div class="seo-wrap">${body}${articleBridges[pathname]?articleBridge(pathname):''}${config.extra||''}${relatedPages(pathname)}</div>`;
 }
 
-export function seoRoutes(){return Object.keys(pages);}
+export function seoRoutes(){return [...Object.keys(pages),'/partners'];}
 export function renderSeoPage(pathname){
+ if(pathname==='/partners')return renderPartnersPage();
  const config=pages[pathname]; if(!config)return null;
  const canonical=`${origin}${pathname}`;
  const type=pathname==='/solutions'?'CollectionPage':'WebPage';
@@ -220,5 +222,6 @@ export function renderSeoPage(pathname){
   .replace('</head>',`<link rel="stylesheet" href="/seo-pages.css?v=${assetVersion('seo-pages.css')}"></head>`)
   .replace(/<nav id="navigation"[\s\S]*?<\/nav>/,nav=>nav.replace(/href="#([^"]+)"/g,'href="/#$1"'))
   .replace(/<footer[\s\S]*?<\/footer>/,footer=>footer.replace(/href="#([^"]+)"/g,'href="/#$1"'));
+ if(pathname==='/integrations')html=html.replace('</main>',`${partnerIntegrationBridge}</main>`);
  return html;
 }

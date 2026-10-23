@@ -234,7 +234,8 @@ const submitTrialLead=data=>submitLead('trial',data);
 const submitAuditLead=data=>submitLead('audit',data);
 document.querySelectorAll('form[data-kind]').forEach(form=>{
  let started=false,submissionId='';
- form.addEventListener('input',()=>{if(!started){started=true;track(`${form.dataset.kind}_form_start`);}}, {passive:true});
+ const eventContext=form.dataset.formVariant?{form_variant:form.dataset.formVariant}:{};
+ form.addEventListener('input',()=>{if(!started){started=true;track(`${form.dataset.kind}_form_start`,eventContext);}}, {passive:true});
  form.addEventListener('submit',async event=>{
   event.preventDefault();
   const kind=form.dataset.kind;
@@ -247,14 +248,15 @@ document.querySelectorAll('form[data-kind]').forEach(form=>{
   const params=new URLSearchParams(location.search);
   for(const key of ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']) if(params.get(key)) data.utm[key]=params.get(key).slice(0,150);
   const errors=validate(kind,data);
+  if(form.dataset.requireProperty==='true'&&data.property.length<2)errors.property='Вкажіть назву готелю або об’єкта.';
   showErrors(form,errors);
   const status=form.querySelector('.form-status');
   status.textContent='';
-  if(Object.keys(errors).length) {track(`${kind}_form_submit_error`,{reason:'validation'});return;}
+  if(Object.keys(errors).length) {track(`${kind}_form_submit_error`,{...eventContext,reason:'validation'});return;}
   submit.disabled=true;submit.textContent='Надсилаємо…';form.setAttribute('aria-busy','true');
   try {
    const result=await(kind==='trial'?submitTrialLead(data):submitAuditLead(data));
-   track(`${kind}_form_submit_success`,{lead_id:result.leadId});
+   track(`${kind}_form_submit_success`,{...eventContext,lead_id:result.leadId});
    if(kind==='trial')try{sessionStorage.removeItem('vdalo-quiz-context');}catch{}
    form.hidden=true;
    const success=form.parentElement.querySelector('.form-success');
@@ -262,9 +264,10 @@ document.querySelectorAll('form[data-kind]').forEach(form=>{
   } catch(error) {
    if(error.fields) showErrors(form,error.fields);
    status.textContent=error.name==='AbortError'?'Відповідь затримується. Не вдалося підтвердити отримання заявки. Спробуйте пізніше.':error.message==='Failed to fetch'?'Немає зв’язку із сервером. Перевірте інтернет і спробуйте ще раз.':error.message;
-   track(`${kind}_form_submit_error`,{reason:error.fields?'validation':'delivery'});
+   track(`${kind}_form_submit_error`,{...eventContext,reason:error.fields?'validation':'delivery'});
   } finally {submit.disabled=false;submit.textContent=submit.dataset.label;form.removeAttribute('aria-busy');}
  });
+ if(form.hasAttribute('data-partner-request'))form.dataset.leadReady='true';
 });
 
 const tabs=[...document.querySelectorAll('[data-step]')];
