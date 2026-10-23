@@ -66,3 +66,7 @@ html{scroll-padding-top:24px}body{background:var(--plum);line-height:1.6}button,
  .closing .eyebrow{font-size:9px;letter-spacing:.1em;gap:10px}
 }
 @media(max-width:359px){.benefit{padding:18px;column-gap:12px}.benefit:last-child{padding-bottom:18px}.benefit h3{font-size:18px}.below .steps li{padding:22px}}
+/* Explicit viewport geometry also survives DOM-based session replay. */
+.sheet[open]{position:fixed;inset:0;z-index:1000}
+.sheet-close-row{position:sticky;top:-16px;z-index:2;margin-top:-16px;padding:16px 0 10px;background:var(--plum)}
+@media(max-width:699px){.sheet-close-row{top:-12px;margin-top:-12px;padding-top:12px}}

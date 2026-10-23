@@ -7,7 +7,7 @@ export function renderFunnelLayout({cfg,code,details,media,form,faq,videoList,ta
  return `<!doctype html><html lang="uk"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(cfg.h1)} | VDALO</title><meta name="description" content="${esc(cfg.sub)}"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#2D1A31">
-<link rel="stylesheet" href="/robot-funnel-assets/robot-funnels.css?v=20261023c"><script type="application/json" id="funnel-config">${config}</script></head><body data-code="${code}">
+<link rel="stylesheet" href="/robot-funnel-assets/robot-funnels.css?v=20261023d"><script type="application/json" id="funnel-config">${config}</script></head><body data-code="${code}">
 <a class="skip-link" href="#main">До вмісту</a>
 <header class="header"><a href="/" aria-label="VDALO, на головну"><img src="/v1/assets/vdalo-canonical-496.png" width="140" height="44" alt="VDALO"></a><a class="header-link" href="#how">Як це працює <span aria-hidden="true">↗</span></a></header>
 <main id="main"><section class="hero" aria-labelledby="hero-title"><div class="hero-copy">
@@ -21,5 +21,5 @@ export function renderFunnelLayout({cfg,code,details,media,form,faq,videoList,ta
 <section class="faq-section" aria-labelledby="faq-title"><div class="section-heading"><span class="section-icon">${icon('help')}</span><p class="eyebrow">БЕЗ ЗАЙВИХ ПИТАНЬ</p><h2 id="faq-title">Відповіді на запитання</h2><p>Деталі, які допоможуть зробити наступний крок.</p></div><div class="faq">${faq.map(([q,a])=>`<details><summary>${esc(q)}<span class="faq-plus" aria-hidden="true">+</span></summary><p>${esc(a)}</p></details>`).join('')}</div></section>
 <section class="closing" aria-labelledby="closing-title"><div><p class="eyebrow"><span class="closing-icon">${icon('calendar')}</span>КЕРУЙТЕ ГОТЕЛЕМ ВДАЛО</p><h2 id="closing-title">Почніть з вашого об’єкта.</h2><p>Розкажіть, що хочете спростити. Команда допоможе визначити наступний крок.</p><p class="price">Після тесту - від <strong>390 грн</strong>/міс.</p></div><div class="closing-action"><button class="primary" data-open>${esc(cfg.cta)} <span aria-hidden="true">↗</span></button><p>14 днів тесту · Без картки</p></div></section></div></main>
 <footer class="funnel-footer"><a href="/" aria-label="VDALO, на головну"><img src="/v1/assets/vdalo-canonical-496.png" width="112" height="36" alt="VDALO"></a><p>Менше ручної роботи. Більше контролю.</p><nav aria-label="Корисні посилання"><a href="/privacy">Конфіденційність</a><button type="button" data-open-cookie-settings>Налаштування аналітики</button></nav></footer>
-${form}<script src="/robot-funnel-assets/robot-funnels.js?v=20261023" defer></script></body></html>`;
+${form}<script src="/robot-funnel-assets/robot-funnels.js?v=20261023d" defer></script></body></html>`;
 }
