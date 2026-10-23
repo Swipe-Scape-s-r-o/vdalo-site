@@ -107,6 +107,13 @@
     const status = document.createElement('div'); status.className = 'cookie-status'; status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
     document.body.append(banner, dialog, status);
     ui = {banner, dialog, status, analytics: dialog.querySelector('#cookie-analytics'), replay: dialog.querySelector('#cookie-replay'), save: dialog.querySelector('[data-cookie-save]')};
+    // Older quiz and offer layouts do not share the main site's footer.
+    if (!document.querySelector('[data-open-cookie-settings]')) {
+      const footer = document.querySelector('footer'), reopen = document.createElement('button');
+      reopen.type = 'button'; reopen.textContent = 'Налаштування cookie'; reopen.setAttribute('data-open-cookie-settings', '');
+      reopen.className = footer ? 'cookie-preferences-link' : 'cookie-preferences-link cookie-preferences-floating';
+      (footer || document.body).appendChild(reopen);
+    }
     for (const root of [banner, dialog]) {
       root.querySelector('[data-cookie-accept]').addEventListener('click', () => saveChoice({analytics: true, replay: true}));
       root.querySelector('[data-cookie-reject]').addEventListener('click', () => saveChoice(emptyChoice()));
