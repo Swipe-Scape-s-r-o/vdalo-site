@@ -38,7 +38,7 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   assert.match(city.body,/Ставку звірено 14 жовтня 2026 року/);
   assert.match(city.body,/Наступна планова перевірка джерел: до 1 грудня 2026 року/);
   assert.match(city.body,/а не гарантія незмінності ставки/);
-  for(const slug of ['sumy','vinnytsya','pivdenne','ternopil','zaporizhzhya','rivne','chernihiv','kolomyya','ivano-frankivsk','chernivtsi','lviv','cherkasy','berehove','uzhhorod','slavsko','odesa','vynohradiv','yasinya','tyachiv','irpin','skole']){
+  for(const slug of ['sumy','vinnytsya','pivdenne','ternopil','zaporizhzhya','rivne','chernihiv','kolomyya','ivano-frankivsk','chernivtsi','lviv','cherkasy','berehove','uzhhorod','slavsko','vynohradiv','yasinya','tyachiv','irpin','skole']){
     const verifiedCity=await request(`/tourist-tax/${slug}/`);
     assert.equal(verifiedCity.status,200);
     assert.match(verifiedCity.body,/name="robots" content="index,follow"/);
@@ -58,7 +58,7 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
     assert.match(unreleased.body,/Сторінку не знайдено/);
   }
   const hubConfig=JSON.parse(hub.body.match(/<script type="application\/json" id="tourist-tax-config">([^<]+)<\/script>/)[1]);
-  assert.deepEqual(hubConfig.publicPlaces.map(place=>place.slug).sort(),['berehove','cherkasy','chernihiv','chernivtsi','dnipro','irpin','ivano-frankivsk','khust','kolomyya','kyyiv','lutsk','lviv','odesa','pivdenne','polyana','rivne','skole','slavsko','sumy','ternopil','tyachiv','uzhhorod','vinnytsya','vynohradiv','yaremche','yasinya','zaporizhzhya','zhytomyr']);
+  assert.deepEqual(hubConfig.publicPlaces.map(place=>place.slug).sort(),['berehove','cherkasy','chernihiv','chernivtsi','dnipro','irpin','ivano-frankivsk','khust','kolomyya','kyyiv','lutsk','lviv','pivdenne','polyana','rivne','skole','slavsko','sumy','ternopil','tyachiv','uzhhorod','vinnytsya','vynohradiv','yaremche','yasinya','zaporizhzhya','zhytomyr']);
   const yaremche=await request('/tourist-tax/yaremche/');
   assert.equal(yaremche.status,200);
   assert.match(yaremche.body,/name="accommodationType"/);
@@ -82,8 +82,8 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   assert.match(sitemap.body,/tourist-tax\/lutsk/);
   assert.doesNotMatch(sitemap.body,/tourist-tax\/aktove/);
   const citySitemapEntries=[...sitemap.body.matchAll(/<loc>https:\/\/www\.vdalo\.tech\/tourist-tax\/[^<]+<\/loc>/g)];
-  assert.equal(citySitemapEntries.length,28,'only verified city routes should appear in the city sitemap');
-  for(const slug of ['kyyiv','sumy','vinnytsya','pivdenne','ternopil','zaporizhzhya','rivne','chernihiv','kolomyya','ivano-frankivsk','chernivtsi','lviv','cherkasy','berehove','uzhhorod','slavsko','odesa','dnipro','zhytomyr','vynohradiv','yasinya','tyachiv','irpin','skole'])assert.match(sitemap.body,new RegExp(`tourist-tax/${slug}/`));
+  assert.equal(citySitemapEntries.length,27,'only verified city routes should appear in the city sitemap');
+  for(const slug of ['kyyiv','sumy','vinnytsya','pivdenne','ternopil','zaporizhzhya','rivne','chernihiv','kolomyya','ivano-frankivsk','chernivtsi','lviv','cherkasy','berehove','uzhhorod','slavsko','dnipro','zhytomyr','vynohradiv','yasinya','tyachiv','irpin','skole'])assert.match(sitemap.body,new RegExp(`tourist-tax/${slug}/`));
   for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place)))assert.doesNotMatch(sitemap.body,new RegExp(`tourist-tax/${place.slug}/`),`sitemap contains unreleased place: ${place.slug}`);
 });
 
@@ -129,6 +129,11 @@ test('only released city routes resolve through the actual app router',async()=>
        else if(place.slug==='khust')assert.match(title,/Туристичний збір у Хусті на 2026 рік: ставки й калькулятор/);
       else if(['tyachiv','irpin','skole'].includes(place.slug))assert.match(title,new RegExp(`Туристичний збір .* 2026: .* \\| VDALO`));
       else assert.match(title,/Туристичний збір .+2026.+/);
+    }else if(place.slug==='odesa'){
+      assert.equal(response.status,200);
+      assert.match(response.body,/name="robots" content="noindex,follow"/);
+      assert.match(response.body,/Чому зараз немає розрахунку/);
+      assert.doesNotMatch(response.body,/id="tt-calculator"/);
     }else{
       assert.equal(response.status,404,`unreleased route should be unavailable: ${place.route}`);
       assert.match(response.body,/name="robots" content="noindex,follow"/);
@@ -150,10 +155,11 @@ test('calculation API accepts same-origin minimal inputs and fails closed',async
   assert.equal(calculation.body.state,'VERIFIED_RESULT');
   assert.equal(calculation.body.totalCents,'25941');
   const odesaScenario=await send({payload:JSON.stringify({placeSlug:'odesa',start:'2026-10-10',days:1,guestGroups:[{category:'inbound',guests:1}],scenario:'odesa-inbound-1-percent'})});
-  assert.equal(odesaScenario.status,200);
-  assert.equal(odesaScenario.body.state,'VERIFIED_RESULT');
-  assert.equal(odesaScenario.body.totalCents,'8647');
-  assert.equal(odesaScenario.body.scenarioOnly,true);
+  assert.equal(odesaScenario.status,404);
+  assert.equal(odesaScenario.body.state,'PLACE_UNAVAILABLE');
+  const odesaOfficial=await send({payload:JSON.stringify({...body,placeSlug:'odesa'})});
+  assert.equal(odesaOfficial.status,404);
+  assert.equal(odesaOfficial.body.state,'PLACE_UNAVAILABLE');
   const wrongPlaceScenario=await send({payload:JSON.stringify({placeSlug:'kyyiv',start:'2026-10-10',days:1,guestGroups:[{category:'inbound',guests:1}],scenario:'odesa-inbound-1-percent'})});
   assert.equal(wrongPlaceScenario.body.state,'INVALID_INPUT');
   const ternopilPayload={...body,placeSlug:'ternopil',start:'2026-10-10',end:undefined,nights:undefined,days:2,guestGroups:[{category:'domestic',guests:1}],accommodationPricePerPersonPerDay:'300.00'};

@@ -51,61 +51,27 @@ test('Kyiv page uses the official 2026 DPS rates and calculates within the verif
   assert.equal(nextYear.state,'RATE_OUT_OF_PERIOD');
 });
 
-test('Odesa has complete localized SEO and calculates confirmed 2026 rates for both guest categories',()=>{
+test('Odesa keeps a useful review URL and refuses calculations while official sources conflict',()=>{
   const place=touristTaxPlaces.find(item=>item.slug==='odesa');
   const community=touristTaxCommunities.find(item=>item.slug===place.communitySlug);
   assert.equal(place.katottgSettlementCode,'UA51100270010076757');
   assert.equal(community.katottgCode,'UA51100270000073549');
-  assert.equal(community.taxRule.status,'VERIFIED');
-  assert.equal(community.taxRule.decisionNumber,'4192-VIII');
-  assert.equal(community.taxRule.effectiveFrom,'2026-01-01');
-  assert.equal(community.taxRule.effectiveTo,'2026-12-31');
-  assert.deepEqual(community.taxRule.rates,{domestic:0.5,inbound:0.5});
-  assert.equal(canCalculateTouristTaxPlace(place),true);
-  assert.equal(canIndexTouristTaxPlace(place),true);
-  assert.equal(hasPlaceSeoBlock(place),true);
+  assert.equal(community.taxRule.status,'CONFLICT');
+  assert.equal(canCalculateTouristTaxPlace(place),false);
+  assert.equal(canIndexTouristTaxPlace(place),false);
   const page=renderTouristTaxCity('odesa');
-  assert.match(page,/<title>Туристичний збір в Одесі 2026: ставки й калькулятор \| VDALO<\/title>/);
-  assert.match(page,/<meta name="description" content="Туристичний збір в Одесі у 2026 році: ставка 0,5%, калькулятор і пояснення рішення №4314-VIII\. ДПС повідомила про 1% для іноземців; перевіряємо період дії\."/);
+  assert.match(page,/<meta name="robots" content="noindex,follow"/);
+  assert.match(page,/<link rel="canonical" href="https:\/\/www\.vdalo\.tech\/tourist-tax\/odesa\/"/);
   assert.match(page,/рішення №4314-VIII/);
-  assert.match(page,/туристичний збір в Одесі/);
-  assert.match(page,/калькулятором туристичного збору в Одесі/);
-  assert.match(page,/id="tt-odesa-compare" name="odesaCompare" type="checkbox"/);
-  assert.match(page,/Показати сценарій зі ставкою 1% для іноземних гостей/);
-  assert.match(page,/сценарне порівняння, а не підтверджене нарахування/);
-  assert.match(page,/Коли почне діяти ставка 1% для іноземців в Одесі\?/);
-  assert.match(page,/статті 12 Податкового кодексу/);
-  assert.match(page,/UA51100270000073549/);
-  assert.match(page,/class="tt-seo-content"/);
-  const seo=page.match(/<section class="tt-seo-content"[\s\S]*?<\/section>/)?.[0]||'';
-  assert.ok(seo.split(/\s+/).filter(Boolean).length>=350,'Odesa bottom SEO block should contain substantive local information');
-  assert.equal((seo.match(/Приклад розрахунку для двох гостей в Одесі/g)||[]).length,1,'calculation example should appear once in the SEO block');
-  const beforeAmendment=calculateTouristTax({placeSlug:'odesa',start:'2026-07-13',days:1,guestGroups:[{category:'inbound',guests:1}]});
-  const afterAmendment=calculateTouristTax({placeSlug:'odesa',start:'2026-10-20',days:1,guestGroups:[{category:'inbound',guests:1}]});
-  assert.equal(beforeAmendment.state,'VERIFIED_RESULT');
-  assert.equal(beforeAmendment.totalCents,'4324');
-  assert.equal(afterAmendment.state,'VERIFIED_RESULT');
-  assert.equal(afterAmendment.totalCents,'4324');
-  const scenario=calculateTouristTax({placeSlug:'odesa',start:'2026-10-20',days:1,guestGroups:[{category:'inbound',guests:1}],scenario:'odesa-inbound-1-percent'});
-  assert.equal(scenario.state,'VERIFIED_RESULT');
-  assert.equal(scenario.totalCents,'8647');
-  assert.equal(scenario.guestGroups[0].ratePercent,1);
-  assert.equal(scenario.scenarioOnly,true);
-  assert.match(scenario.sourceUrl,/od\.tax\.gov\.ua/);
-  const domestic=calculateTouristTax({placeSlug:'odesa',start:'2026-10-20',days:3,guestGroups:[{category:'domestic',guests:2}]});
-  assert.equal(domestic.state,'VERIFIED_RESULT');
-  assert.equal(domestic.totalCents,'25941');
-  const mixed=calculateTouristTax({placeSlug:'odesa',start:'2026-10-20',days:1,guestGroups:[{category:'domestic',guests:1},{category:'inbound',guests:1}]});
-  assert.equal(mixed.state,'VERIFIED_RESULT');
-  assert.equal(mixed.totalCents,'8647');
-  const mixedScenario=calculateTouristTax({placeSlug:'odesa',start:'2026-10-20',days:1,guestGroups:[{category:'domestic',guests:1},{category:'inbound',guests:1}],scenario:'odesa-inbound-1-percent'});
-  assert.equal(mixedScenario.totalCents,'12971');
-  const domesticScenario=calculateTouristTax({placeSlug:'odesa',start:'2026-10-20',days:1,guestGroups:[{category:'domestic',guests:1}],scenario:'odesa-inbound-1-percent'});
-  assert.equal(domesticScenario.totalCents,'4324');
-  assert.equal(calculateTouristTax({placeSlug:'kyyiv',start:'2026-10-20',days:1,guestGroups:[{category:'inbound',guests:1}],scenario:'odesa-inbound-1-percent'}).state,'INVALID_INPUT');
-  assert.equal(calculateTouristTax({placeSlug:'odesa',start:'2027-01-01',days:1,guestGroups:[{category:'inbound',guests:1}],scenario:'odesa-inbound-1-percent'}).state,'RATE_OUT_OF_PERIOD');
-  const outOfWindow=calculateTouristTax({placeSlug:'odesa',start:'2027-01-01',days:1,guestGroups:[{category:'inbound',guests:1}]});
-  assert.equal(outOfWindow.state,'RATE_OUT_OF_PERIOD');
+  assert.match(page,/Чому зараз немає розрахунку/);
+  assert.match(page,/0,50%/);assert.match(page,/1%/);
+  assert.doesNotMatch(page,/id="tt-calculator"|name="odesaCompare"/);
+  assert.ok(!touristTaxCityRoutes().includes('/tourist-tax/odesa/'));
+  for(const category of ['domestic','inbound'])for(const start of ['2026-07-13','2026-10-20','2027-01-01'])for(const scenario of ['official','odesa-inbound-1-percent']){
+    const result=calculateTouristTax({placeSlug:'odesa',start,days:3,guests:2,category,scenario});
+    assert.equal(result.state,'SOURCE_CONFLICT');assert.equal(result.totalCents,undefined);
+  }
+  assert.equal(calculateTouristTax({placeSlug:'kyyiv',start:'2026-10-20',days:1,guests:1,category:'inbound',scenario:'odesa-inbound-1-percent'}).state,'INVALID_INPUT');
 });
 
 test('Sumy 2026 rate, city page and calculator are verified',()=>{
@@ -650,7 +616,7 @@ test('directory and all reviewed city pages are indexable and included in the si
   assert.ok(routes.includes('/tourist-tax/'));
   assert.ok(routes.includes('/tourist-tax/lutsk/'));
   for(const route of ['/tourist-tax/sumy/','/tourist-tax/vinnytsya/','/tourist-tax/pivdenne/'])assert.ok(routes.includes(route));
-  assert.equal(routes.filter(route=>route.startsWith('/tourist-tax/')&&route!=='/tourist-tax/').length,28);
+  assert.equal(routes.filter(route=>route.startsWith('/tourist-tax/')&&route!=='/tourist-tax/').length,27);
   assert.ok(routes.includes('/tourist-tax/kyyiv/'));
   assert.ok(routes.includes('/tourist-tax/ternopil/'));
   assert.ok(routes.includes('/tourist-tax/zaporizhzhya/'));
@@ -750,11 +716,11 @@ test('every published city with an Excel rate mismatch marks the public rate and
     .filter(place=>{
       const candidate=place?.sourceRecord?.proposedRates;
       const rule=place&&touristTaxCommunities.find(community=>community.slug===place.communitySlug)?.taxRule;
-      return Number.isFinite(candidate?.domestic)&&Number.isFinite(candidate?.inbound)&&(
+      return canIndexTouristTaxPlace(place)&&Number.isFinite(candidate?.domestic)&&Number.isFinite(candidate?.inbound)&&(
         Boolean(rule?.rateSchedule)||candidate.domestic!==rule?.rates?.domestic||candidate.inbound!==rule?.rates?.inbound
       );
     });
-  assert.equal(conflictingPlaces.length,18);
+  assert.equal(conflictingPlaces.length,17);
   for(const place of conflictingPlaces){
     const html=renderTouristTaxCity(place.slug);
     assert.ok(html,`published city page should render: ${place.slug}`);
@@ -821,8 +787,8 @@ test('city data, sources and publication state reconcile',()=>{
   assert.equal(new Set(touristTaxCommunities.map(community=>community.katottgCode).filter(Boolean)).size,touristTaxCommunities.filter(community=>community.katottgCode).length,'mapped community codes must be unique');
   assert.equal(new Set(touristTaxPlaces.map(place=>place.editorial.title)).size,377,'every city route must have a unique title');
   assert.equal(new Set(touristTaxPlaces.map(place=>place.editorial.seoBlock.title)).size,377,'every city route must have a unique H1');
-  assert.equal(report.warnings.length,349);
-  assert.equal(touristTaxCityRoutes().length,28);
+  assert.equal(report.warnings.length,350);
+  assert.equal(touristTaxCityRoutes().length,27);
   const unsafe={...touristTaxPlaces[0],readiness:{...touristTaxPlaces[0].readiness,seoQaPassed:false}};
   assert.ok(validateTouristTaxPlaces([unsafe]).errors.some(error=>error.includes('incomplete readiness gates')));
 });

@@ -353,7 +353,7 @@
   {
     "route": "/about",
     "status": 200,
-    "hash": "447c284d663241bc0e06bd0fed4537774126bbe1a735da169df12cd09986b746",
+    "hash": "5edfd8f8e8e37f1bd6a79017a60a63116e3b8c562161e3772402919436b63f02",
     "title": "Про VDALO та засновника Олега Степенєва | Досвід у готелях",
     "canonical": "https://www.vdalo.tech/about",
     "h1": 1,
@@ -470,7 +470,7 @@
   {
     "route": "/cases/direct-bookings-calendar",
     "status": 200,
-    "hash": "b1fa574258767de6dfdaa12c0fa38040a872a5fb4669990438c6fa0103119deb",
+    "hash": "c6b62f434516068505f2f61bfa30232a49f2af6df6ea6fe6a3bb0e4fd5354f5e",
     "title": "Прямі бронювання готелю: 2–5 на день | VDALO",
     "canonical": "https://www.vdalo.tech/cases/direct-bookings-calendar",
     "h1": 1,
@@ -509,7 +509,7 @@
   {
     "route": "/cases/hotel-data-migration",
     "status": 200,
-    "hash": "9706b96ae51dd57d7df84b013fea40ddb128ae684047ba108dcb3074a102e3b3",
+    "hash": "712faf1c7429ff2db149607bb7b4b50f1872718eb8d9261bf5584732f4c9d04e",
     "title": "Міграція PMS: 18 475 бронювань готелю | VDALO",
     "canonical": "https://www.vdalo.tech/cases/hotel-data-migration",
     "h1": 1,
@@ -522,7 +522,7 @@
   {
     "route": "/cases/booking-widget-study-2118",
     "status": 200,
-    "hash": "e92c008053cc53dd51e5fe1eb3eb6ab281052692888591f0c728556db8187ad5",
+    "hash": "29ed0ff7b4e16de34281b479ea4dec8ac38cf1fac1663341618c1effccd7730f",
     "title": "Дослідження 2 118 сайтів: метод і межі висновків | VDALO",
     "canonical": "https://www.vdalo.tech/cases/booking-widget-study-2118",
     "h1": 1,
@@ -561,7 +561,7 @@
   {
     "route": "/blog/yak-obraty-pms-dlya-gotelyu",
     "status": 200,
-    "hash": "841bffd5ea22a4cf21bd8f30adc3ef69da3c001123b1ec594b93b34cecafd9af",
+    "hash": "243337d898aa56f6ca5fa2a7ba860c3f2eb77a6b3043ec31590fe6b033e6b14d",
     "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO",
     "canonical": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
     "h1": 1,
@@ -574,7 +574,7 @@
   {
     "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
     "status": 200,
-    "hash": "f4ef55b2bbfe30427870c59336194c7069f41fea15b3f6936f5f59d2bd820990",
+    "hash": "4a231e537447e27807f3de979d02c8a79d989f06a0f61e53b1ddabe78dda4d26",
     "title": "Додаткові послуги в готелі: як спростити замовлення | VDALO",
     "canonical": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
     "h1": 1,
@@ -587,7 +587,7 @@
   {
     "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
     "status": 200,
-    "hash": "4e2169e471ed57ab21bfe90502cbb4c2259e1af298d3282c88731d545f83515a",
+    "hash": "59701d35dfc3d88bf6c74eb726a9491e50cd199112fa430575fae27aab072930",
     "title": "Прямі бронювання готелю: віджет, календар та iCal | VDALO",
     "canonical": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
     "h1": 1,
@@ -600,7 +600,7 @@
   {
     "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
     "status": 200,
-    "hash": "eea65f6912e7d93c2e8e373ab94ed792ce37bc47c3ed19ac44229d6ac4a801a2",
+    "hash": "5ab21efe1609c8a9dff22cb9c705ca8e9650599fa86f872a7fd4c36f7418dcc5",
     "title": "Як перейти на PMS і зберегти історію бронювань | VDALO",
     "canonical": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
     "h1": 1,
@@ -613,7 +613,7 @@
   {
     "route": "/blog/shakhmatka-bronyuvan-gotelyu",
     "status": 200,
-    "hash": "595c447061342d57a92501ae36f109c2c228e943fbab3efb51c67471ce4677aa",
+    "hash": "dcfad3102dc4ee9a03448b838cfa96716d6545b017d9ee3aeab0fc62e895ce88",
     "title": "Шахматка готелю: як читати календар бронювань | VDALO",
     "canonical": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
     "h1": 1,
@@ -652,7 +652,7 @@
   {
     "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
     "status": 200,
-    "hash": "ca031753afd6977281db94c85da0d41c185f0af04e310a6650aaa520225a6758",
+    "hash": "41cf8c6fb003397691acb9acf465bbde2ce03f0cff7f5cae41e29c737981150e",
     "title": "Що автоматизувати в готелі першим: практична оцінка | VDALO",
     "canonical": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
     "h1": 1,
@@ -665,7 +665,7 @@
   {
     "route": "/blog/status-gotovnosti-nomera-housekeeping",
     "status": 200,
-    "hash": "00230cff7fbe3e64a11bf3150a877a144d846747de29e0d33e8ef45e68116a20",
+    "hash": "ee765ad684ce780ecfa16c0798bb3a451a8463defc295a60c8a0b1c05a2568a1",
     "title": "Статус готовності номера: housekeeping і рецепція | VDALO",
     "canonical": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
     "h1": 1,
@@ -678,7 +678,7 @@
   {
     "route": "/blog/turystychnyi-zbir-gotel-ukraina",
     "status": 200,
-    "hash": "bcf0a2fc69f37dfedaa5c6fd57628e12f385d5190fb4da788c1e6b0f25ea5dd8",
+    "hash": "f094fb3eae6929719b93095fac4deab859dc5c1e552b60debd57dfbcd4ad57e9",
     "title": "Туристичний збір 2026: ставки, пільги й розрахунок",
     "canonical": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
     "h1": 1,
@@ -691,7 +691,7 @@
   {
     "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
     "status": 200,
-    "hash": "fefd665fe2b8c52f74d5773d5cc61b91c900afae8fe1c1aa13344a146904082f",
+    "hash": "dd67404c1256dffd8894d8a0588b00d718aa0d1e283a4e2ef4a7e1b50c4f6b0f",
     "title": "Туристичний збір 2026: формула і 7 прикладів | VDALO",
     "canonical": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
     "h1": 1,
@@ -1458,7 +1458,7 @@
   {
     "route": "/tourist-tax/odesa/",
     "status": 200,
-    "hash": "4b007a90b10b313534b1bee6662ec11ea49e7fd2cf6204b7d0945aaf1d279806",
+    "hash": "b06b295807167f9fe97db321bd3ae4379cd9ee474076ed335e9c45f93626d2fa",
     "title": "Туристичний збір в Одесі 2026: перевірка змін ставки | VDALO",
     "canonical": "https://www.vdalo.tech/tourist-tax/odesa/",
     "h1": 1,
