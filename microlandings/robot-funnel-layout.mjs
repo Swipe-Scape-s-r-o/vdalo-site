@@ -1,0 +1,24 @@
+const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+
+export function renderFunnelLayout({cfg,code,details,media,form,faq,videoList,taxPlaces,utm}){
+ const config=JSON.stringify({code,funnel:cfg.funnel,format:cfg.format,h1:cfg.h1,sub:cfg.sub,cta:cfg.cta,videos:videoList,faq,rooms:['1-5','6-12','13-40','41+'],taxPlaces,utm}).replace(/</g,'\\u003c');
+ const caption=code==='q3'?'Автоматизація після реєстрації та налаштування об’єкта':cfg.format==='calculator'?'Почніть із власних цифр':cfg.format==='questions'?'Дві відповіді, щоб почати з вашої ситуації':videoList.length?'Коротко про ситуацію, знайому готельєрам':'Пряме бронювання з вашого сайту';
+ return `<!doctype html><html lang="uk"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${esc(cfg.h1)} | VDALO</title><meta name="description" content="${esc(cfg.sub)}"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#2D1A31">
+<link rel="stylesheet" href="/robot-funnel-assets/robot-funnels.css?v=20261023"><script type="application/json" id="funnel-config">${config}</script></head><body data-code="${code}">
+<a class="skip-link" href="#main">До вмісту</a>
+<header class="header"><a href="/" aria-label="VDALO, на головну"><img src="/v1/assets/vdalo-canonical-496.png" width="140" height="44" alt="VDALO"></a><a class="header-link" href="#how">Як це працює <span aria-hidden="true">↗</span></a></header>
+<main id="main"><section class="hero" aria-labelledby="hero-title"><div class="hero-copy">
+<p class="eyebrow"><span aria-hidden="true"></span>${esc(details.label)}</p><h1 id="hero-title">${esc(cfg.h1)}</h1><p class="sub">${esc(cfg.sub)}</p>
+<button class="primary sticky-cta" data-open>${esc(cfg.cta)} <span aria-hidden="true">↗</span></button><p class="trial-note"><span aria-hidden="true">✓</span> <strong>14 днів безкоштовно, без картки.</strong></p>
+</div><div class="hero-visual">${media}<p class="media-caption">${esc(caption)}</p></div></section>
+<div class="below"><section class="benefit-section" aria-labelledby="benefit-title"><div class="section-heading"><p class="eyebrow">ДЛЯ ВАШОГО ОБ’ЄКТА</p><h2 id="benefit-title">${esc(details.title)}</h2></div>
+<div class="benefit-grid">${details.items.map(([title,text],index)=>`<article class="benefit"><span class="benefit-number" aria-hidden="true">0${index+1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div></section>
+<section class="how-section" id="how" aria-labelledby="how-title"><div class="section-heading"><p class="eyebrow">ПРОСТИЙ ПОЧАТОК</p><h2 id="how-title">Що буде після заявки</h2><p>Від першої розмови до тесту на ваших бронюваннях.</p></div>
+<ol class="steps"><li><span class="step-number" aria-hidden="true">01</span><h3>Знайомимося</h3><p>З вами зв’яжеться менеджер команди VDALO у вибраний спосіб.</p></li><li><span class="step-number" aria-hidden="true">02</span><h3>Дивимося ваш процес</h3><p>За 15 хвилин покажемо, як налаштувати потрібний процес.</p></li><li><span class="step-number" aria-hidden="true">03</span><h3>Тестуєте на практиці</h3><p>14 днів тестуєте сервіс на своїх бронюваннях, без картки.</p></li></ol></section>
+<section class="faq-section" aria-labelledby="faq-title"><div class="section-heading"><p class="eyebrow">БЕЗ ЗАЙВИХ ПИТАНЬ</p><h2 id="faq-title">Відповіді на запитання</h2><p>Деталі, які допоможуть зробити наступний крок.</p></div><div class="faq">${faq.map(([q,a])=>`<details><summary>${esc(q)}<span class="faq-plus" aria-hidden="true">+</span></summary><p>${esc(a)}</p></details>`).join('')}</div></section>
+<section class="closing" aria-labelledby="closing-title"><div><p class="eyebrow">КЕРУЙТЕ ГОТЕЛЕМ ВДАЛО</p><h2 id="closing-title">Почніть з вашого об’єкта.</h2><p>Розкажіть, що хочете спростити. Команда допоможе визначити наступний крок.</p><p class="price">Після тесту - від <strong>390 грн</strong>/міс.</p></div><div class="closing-action"><button class="primary" data-open>${esc(cfg.cta)} <span aria-hidden="true">↗</span></button><p>14 днів тесту · Без картки</p></div></section></div></main>
+<footer class="funnel-footer"><a href="/" aria-label="VDALO, на головну"><img src="/v1/assets/vdalo-canonical-496.png" width="112" height="36" alt="VDALO"></a><p>Менше ручної роботи. Більше контролю.</p><nav aria-label="Корисні посилання"><a href="/privacy">Конфіденційність</a><button type="button" data-open-cookie-settings>Налаштування аналітики</button></nav></footer>
+${form}<script src="/robot-funnel-assets/robot-funnels.js?v=20261023" defer></script></body></html>`;
+}

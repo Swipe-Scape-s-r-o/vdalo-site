@@ -57,7 +57,7 @@ test('robot funnel analytics includes page context and excludes visitor-entered 
  assert.match(client,/page_path:location\.pathname,page_title:document\.title/);
  assert.match(client,/send\('form_step1_done'\)/);
  assert.match(client,/send\('questions_done',\{answer_count:2\}\)/);
- assert.match(client,/send\('calc_result',\{calculator_type:'tourist_tax'\}\)/);
+ assert.match(client,/send\('calc_result',\{calculator_type:'commission'\}\)/);
  assert.doesNotMatch(client,/send\('form_step1_done',\{property_name:/);
  assert.doesNotMatch(client,/send\('questions_done',\{answers:/);
  assert.doesNotMatch(client,/send\('calc_result',\{calculator:/);
@@ -73,8 +73,7 @@ test('default contact choice matches the channel submitted by the form and error
  assert.match(client,/aria-describedby/);
  assert.match(client,/form\.elements\.hotel\.focus\(\)/);
  assert.match(client,/field\.checkValidity\(\)/);
- assert.match(client,/nightsField\.checkValidity\(\)/);
- assert.match(client,/now\.getFullYear\(\)/);
+ assert.doesNotMatch(client,/api\/tourist-tax\/calculate/);
  assert.doesNotMatch(client,/toISOString\(\)\.slice\(0,10\)/);
  assert.match(client,/Це не прогноз доходу/);
  assert.match(styles,/\.icon-btn\{[^}]*width:44px;height:44px/);
