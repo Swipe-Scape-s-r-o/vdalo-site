@@ -19,7 +19,8 @@
 .prepared-copy td:last-child,.prepared-copy th:last-child{border-right:0}
 .prepared-copy tr:last-child td{border-bottom:0}
 .prepared-copy blockquote{margin:1.5rem 0;padding:1rem 1.35rem;border-left:3px solid #db6fa9;background:#fbebf3;border-radius:0 12px 12px 0}
-.prepared-copy pre{max-width:100%;overflow-x:auto;padding:1.25rem;border-radius:12px;background:#302035;color:#fff7fc;font-size:.86rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere;overscroll-behavior-inline:contain}
+.prepared-copy pre{max-width:100%;overflow-x:auto;padding:1.25rem;border-radius:12px;background:#f5eef3;color:#39233e;font-size:.86rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere;overscroll-behavior-inline:contain}
+.prepared-copy pre>code{color:inherit;background:transparent}
 .prepared-copy :not(pre)>code{background:#f5e8f0;color:#5c2d51;border-radius:4px;padding:.12em .3em;overflow-wrap:anywhere}
 .prepared-anchor{display:block;position:relative;scroll-margin-top:7rem;height:0}
 .prepared-service{max-width:960px;margin:0 auto 3rem;padding:1rem 1.25rem 0}

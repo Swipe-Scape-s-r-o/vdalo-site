@@ -105,6 +105,10 @@ test('internal links and published section anchors resolve after copy replacemen
 
 test('responsive tables, Wi-Fi payload, consent settings and unavailable email states survive',async()=>{
  const wifi=await rendered('/blog/qr-wifi-dlya-gotelyu');assert.match(wifi.html,/<pre><code>WIFI:/);
+ const css=readFileSync(new URL('../versions/v1/public/prepared-content.css',import.meta.url),'utf8');
+ // The reading layout also uses this pale surface: keep its inherited ink dark.
+ assert.match(css,/\.prepared-copy pre\{[^}]*background:#f5eef3;color:#39233e/);
+ assert.match(css,/\.prepared-copy pre>code\{color:inherit;background:transparent\}/);
  const privacy=await rendered('/privacy');assert.match(privacy.html,/<button id="cookie-preferences" type="button" data-open-cookie-settings>/);
  const checklist=await rendered('/tools/pms-checklist/');assert.match(checklist.html,/Надсилання email-звіту наразі недоступне/);assert.match(checklist.html,/data-email-ready="false"/);
  const html=renderArticleMarkdown('## Секція\n\n[Телефон](tel:+380939082254)\n\nhttps://example.com/a\n\n## Секція\n\n<script>alert(1)</script>').html;
