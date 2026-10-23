@@ -1,0 +1,1056 @@
+[
+  {
+    "bad": [],
+    "body": {
+      "bottom": 4419.09375,
+      "height": 3124.375,
+      "left": 18,
+      "right": 349,
+      "top": 1294.71875,
+      "width": 331,
+      "x": 18,
+      "y": 1294.71875
+    },
+    "brokenImages": [
+      "/v1/assets/oleg-stepeniev-profile.jpg"
+    ],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 785.1875,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 564.53125,
+        "width": 331,
+        "x": 18,
+        "y": 564.53125
+      }
+    },
+    "h1": "Як персональна сторінка допомогла гостям частіше замовляти послуги",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 871.5625,
+      "height": 742.5625,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/cases/guest-services-glamping",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 4470.9375,
+      "height": 3076.359375,
+      "left": 18,
+      "right": 349,
+      "top": 1394.578125,
+      "width": 331,
+      "x": 18,
+      "y": 1394.578125
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 819.984375,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 599.328125,
+        "width": 331,
+        "x": 18,
+        "y": 599.328125
+      }
+    },
+    "h1": "2–5 прямих бронювань на день: як броні одразу потрапляють у календар",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 928.046875,
+      "height": 799.046875,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/cases/direct-bookings-calendar",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 4404.671875,
+      "height": 3018.171875,
+      "left": 18,
+      "right": 349,
+      "top": 1386.5,
+      "width": 331,
+      "x": 18,
+      "y": 1386.5
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 772.78125,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 552.125,
+        "width": 331,
+        "x": 18,
+        "y": 552.125
+      }
+    },
+    "h1": "Як система прибрала ручну звірку виплат і документів",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 880.84375,
+      "height": 751.84375,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/cases/hotel-booking-reconciliation",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 4224.578125,
+      "height": 2885.78125,
+      "left": 18,
+      "right": 349,
+      "top": 1338.796875,
+      "width": 331,
+      "x": 18,
+      "y": 1338.796875
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 807.578125,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 586.921875,
+        "width": 331,
+        "x": 18,
+        "y": 586.921875
+      }
+    },
+    "h1": "Нічне заселення без чергового адміністратора: готель у Німеччині",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 915.640625,
+      "height": 786.640625,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/cases/night-self-checkin-germany",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 4159.1875,
+      "height": 2855.1875,
+      "left": 18,
+      "right": 349,
+      "top": 1304,
+      "width": 331,
+      "x": 18,
+      "y": 1304
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 772.78125,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 552.125,
+        "width": 331,
+        "x": 18,
+        "y": 552.125
+      }
+    },
+    "h1": "Як перенесли історію готелю за сім років і звірили дані",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 880.84375,
+      "height": 751.84375,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/cases/hotel-data-migration",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 4712.90625,
+      "height": 3332.53125,
+      "left": 18,
+      "right": 349,
+      "top": 1380.375,
+      "width": 331,
+      "x": 18,
+      "y": 1380.375
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 799.96875,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 579.3125,
+        "width": 331,
+        "x": 18,
+        "y": 579.3125
+      }
+    },
+    "h1": "Дослідження 2 118 сайтів: як перевіряли модулі бронювання",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 908.03125,
+      "height": 779.03125,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/cases/booking-widget-study-2118",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 13800.171875,
+      "height": 12675.859375,
+      "left": 18,
+      "right": 349,
+      "top": 1124.3125,
+      "width": 331,
+      "x": 18,
+      "y": 1124.3125
+    },
+    "brokenImages": [
+      "/v1/assets/blog-pms-workflow.jpg"
+    ],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 923.9375,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 703.28125,
+        "width": 331,
+        "x": 18,
+        "y": 703.28125
+      }
+    },
+    "h1": "Що таке PMS для готелю: як працює система управління, основні функції та приклади",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 1010.3125,
+      "height": 881.3125,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/shcho-take-pms-dlya-gotelyu",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 33828.671875,
+      "height": 32737.046875,
+      "left": 18,
+      "right": 349,
+      "top": 1091.625,
+      "width": 331,
+      "x": 18,
+      "y": 1091.625
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 869.5625,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 648.90625,
+        "width": 331,
+        "x": 18,
+        "y": 648.90625
+      }
+    },
+    "h1": "Як обрати PMS для готелю у 2026/2027 роках: 25 критеріїв і чекліст перед покупкою",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 977.625,
+      "height": 848.625,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 5914.46875,
+      "height": 4760.15625,
+      "left": 18,
+      "right": 349,
+      "top": 1154.3125,
+      "width": 331,
+      "x": 18,
+      "y": 1154.3125
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 953.9375,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 733.28125,
+        "width": 331,
+        "x": 18,
+        "y": 733.28125
+      }
+    },
+    "h1": "Як готелю збільшити замовлення додаткових послуг: сторінка гостя, каталог і простий шлях до заявки",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 1040.3125,
+      "height": 911.3125,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 5870.625,
+      "height": 4751.109375,
+      "left": 18,
+      "right": 349,
+      "top": 1119.515625,
+      "width": 331,
+      "x": 18,
+      "y": 1119.515625
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 919.140625,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 698.484375,
+        "width": 331,
+        "x": 18,
+        "y": 698.484375
+      }
+    },
+    "h1": "Прямі бронювання готелю: як працює віджет і що перевірити в синхронізації календарів",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 1005.515625,
+      "height": 876.515625,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 5985.125,
+      "height": 4873.921875,
+      "left": 18,
+      "right": 349,
+      "top": 1111.203125,
+      "width": 331,
+      "x": 18,
+      "y": 1111.203125
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 889.140625,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 668.484375,
+        "width": 331,
+        "x": 18,
+        "y": 668.484375
+      }
+    },
+    "h1": "Як перейти на PMS без втрати історії бронювань: план міграції даних готелю",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 997.203125,
+      "height": 868.203125,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 5631.015625,
+      "height": 4551.796875,
+      "left": 18,
+      "right": 349,
+      "top": 1079.21875,
+      "width": 331,
+      "x": 18,
+      "y": 1079.21875
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 857.15625,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 636.5,
+        "width": 331,
+        "x": 18,
+        "y": 636.5
+      }
+    },
+    "h1": "Шахматка готелю: як читати календар номерів і знаходити конфлікти",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 965.21875,
+      "height": 836.21875,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 6338.171875,
+      "height": 5275.84375,
+      "left": 18,
+      "right": 349,
+      "top": 1062.328125,
+      "width": 331,
+      "x": 18,
+      "y": 1062.328125
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1536,
+      "rect": {
+        "bottom": 861.953125,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 641.296875,
+        "width": 331,
+        "x": 18,
+        "y": 641.296875
+      }
+    },
+    "h1": "Channel Manager чи iCal: як синхронізуються бронювання в готелі",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 948.328125,
+      "height": 819.328125,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/channel-manager-ical-gotelyu",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 5958.609375,
+      "height": 4931.078125,
+      "left": 18,
+      "right": 349,
+      "top": 1027.53125,
+      "width": 331,
+      "x": 18,
+      "y": 1027.53125
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 827.15625,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 606.5,
+        "width": 331,
+        "x": 18,
+        "y": 606.5
+      }
+    },
+    "h1": "Заселення без поспіху: що підготувати до приїзду гостя",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 913.53125,
+      "height": 784.53125,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/pidhotovka-zaselennya-gostya",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 5979.875,
+      "height": 4873.46875,
+      "left": 18,
+      "right": 349,
+      "top": 1106.40625,
+      "width": 331,
+      "x": 18,
+      "y": 1106.40625
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 884.34375,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 663.6875,
+        "width": 331,
+        "x": 18,
+        "y": 663.6875
+      }
+    },
+    "h1": "Що автоматизувати в готелі першим: метод оцінки без гучних обіцянок",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 992.40625,
+      "height": 863.40625,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 6284.6875,
+      "height": 5227.859375,
+      "left": 18,
+      "right": 349,
+      "top": 1056.828125,
+      "width": 331,
+      "x": 18,
+      "y": 1056.828125
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 834.765625,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 614.109375,
+        "width": 331,
+        "x": 18,
+        "y": 614.109375
+      }
+    },
+    "h1": "Як передавати статус готовності номера між housekeeping і рецепцією",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 942.828125,
+      "height": 813.828125,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/status-gotovnosti-nomera-housekeeping",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 15004.859375,
+      "height": 13885.34375,
+      "left": 18,
+      "right": 349,
+      "top": 1119.515625,
+      "width": 331,
+      "x": 18,
+      "y": 1119.515625
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 919.140625,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 698.484375,
+        "width": 331,
+        "x": 18,
+        "y": 698.484375
+      }
+    },
+    "h1": "Туристичний збір у 2026 році: повний посібник для гостей, готелів і власників житла",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 1005.515625,
+      "height": 876.515625,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 11012.421875,
+      "height": 9879.015625,
+      "left": 18,
+      "right": 349,
+      "top": 1133.40625,
+      "width": 331,
+      "x": 18,
+      "y": 1133.40625
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 911.34375,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 690.6875,
+        "width": 331,
+        "x": 18,
+        "y": 690.6875
+      }
+    },
+    "h1": "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 1019.40625,
+      "height": 863.40625,
+      "left": 18,
+      "right": 349,
+      "top": 156,
+      "width": 331,
+      "x": 18,
+      "y": 156
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 15309,
+      "height": 14251.46875,
+      "left": 18,
+      "right": 349,
+      "top": 1057.53125,
+      "width": 331,
+      "x": 18,
+      "y": 1057.53125
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 857.15625,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 636.5,
+        "width": 331,
+        "x": 18,
+        "y": 636.5
+      }
+    },
+    "h1": "QR-коди для готелів: 35 способів використання та практичні приклади",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 943.53125,
+      "height": 814.53125,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/qr-kody-dlya-goteliv",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 10905.65625,
+      "height": 9855.734375,
+      "left": 18,
+      "right": 349,
+      "top": 1049.921875,
+      "width": 331,
+      "x": 18,
+      "y": 1049.921875
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 849.546875,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 628.890625,
+        "width": 331,
+        "x": 18,
+        "y": 628.890625
+      }
+    },
+    "h1": "Як зробити QR-код Wi-Fi для гостей готелю: покрокова інструкція",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 935.921875,
+      "height": 806.921875,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/qr-wifi-dlya-gotelyu",
+    "width": 390
+  },
+  {
+    "bad": [],
+    "body": {
+      "bottom": 12644.421875,
+      "height": 11586.890625,
+      "left": 18,
+      "right": 349,
+      "top": 1057.53125,
+      "width": 331,
+      "x": 18,
+      "y": 1057.53125
+    },
+    "brokenImages": [],
+    "client": 367,
+    "cover": {
+      "complete": true,
+      "fit": "contain",
+      "natural": 1200,
+      "rect": {
+        "bottom": 857.15625,
+        "height": 220.65625,
+        "left": 18,
+        "right": 349,
+        "top": 636.5,
+        "width": 331,
+        "x": 18,
+        "y": 636.5
+      }
+    },
+    "h1": "QR-картка в номер готелю: що додати, як оформити та надрукувати",
+    "h1Size": "30px",
+    "hero": {
+      "bottom": 943.53125,
+      "height": 814.53125,
+      "left": 18,
+      "right": 349,
+      "top": 129,
+      "width": 331,
+      "x": 18,
+      "y": 129
+    },
+    "scroll": 367,
+    "toc": {
+      "desktop": "none",
+      "mobile": "block",
+      "open": false
+    },
+    "url": "/blog/qr-kartka-v-nomer-gotelyu",
+    "width": 390
+  }
+]

@@ -116,7 +116,8 @@ for (const [path, renderHtml] of routes) {
       if (article.dateModified && isCaseArticle) {
         const [,year,month,day] = article.dateModified.match(/^(\d{4})-(\d{2})-(\d{2})$/) || [];
         const months = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
-        if (!html.includes(`оновлено ${Number(day)} ${months[Number(month)-1]} ${year}`)) errors.push(`${path}: dateModified is not represented in visible case text`);
+        const hasUpdatedTime = new RegExp(`<time\\b[^>]*datetime=["']${article.dateModified}["']`, 'i').test(html);
+        if (!hasUpdatedTime && !html.toLocaleLowerCase('uk').includes(`оновлено ${Number(day)} ${months[Number(month)-1]} ${year}`)) errors.push(`${path}: dateModified is not represented in visible case text`);
       }
       if (article.url !== canonical || !article.headline || !article.image) errors.push(`${path}: article is missing canonical URL, headline, or image`);
       if (article.author?.url !== `${origin}/authors/oleh-stepeniev`) errors.push(`${path}: author is not linked to author profile`);

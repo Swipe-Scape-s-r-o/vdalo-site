@@ -1,0 +1,107 @@
+[
+  {
+    "path": "/cases/guest-services-glamping",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/cases/direct-bookings-calendar",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/cases/hotel-booking-reconciliation",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/cases/night-self-checkin-germany",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/cases/hotel-data-migration",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/cases/booking-widget-study-2118",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/shcho-take-pms-dlya-gotelyu",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/channel-manager-ical-gotelyu",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/pidhotovka-zaselennya-gostya",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/status-gotovnosti-nomera-housekeeping",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/qr-kody-dlya-goteliv",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/qr-wifi-dlya-gotelyu",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/blog/qr-kartka-v-nomer-gotelyu",
+    "status": 200,
+    "errors": []
+  }
+]
