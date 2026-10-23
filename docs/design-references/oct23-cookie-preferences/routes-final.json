@@ -1,0 +1,106 @@
+[
+  {
+    "route": "q1",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Один номер продали двом гостям?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "q2",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Знову переписуєте дані гостей вручну?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "q3",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Туристичний збір рахуєте вручну?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "q4",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Гості питають вас одне й те саме?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "q5",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Гість питає о другій ночі. Хто відповість?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "q6",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "q7",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Скільки ви віддаєте Букінгу за рік?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "q8",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Гості вже приїхали, а номер не прибраний?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "q9",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Роботи більшає, а людей бракує?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "qa",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Двоє гостей. Один номер.",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "qb",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Ті самі питання гостей - щодня?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "qc",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Гість знайшов вас на картах, але не зміг забронювати?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  },
+  {
+    "route": "qd",
+    "asset": "/v1/clarity-consent.js?v=3",
+    "h1": "Знову чекаєте гостя до півночі?",
+    "optionalTags": 0,
+    "overflow": false,
+    "settings": 1
+  }
+]
