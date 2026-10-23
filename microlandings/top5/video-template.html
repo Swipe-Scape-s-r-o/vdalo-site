@@ -171,7 +171,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
 <div class="go-sheet" id="go-sheet" aria-hidden="true">
   <div class="go-panel" role="dialog" aria-modal="true" aria-labelledby="go-sheet-title">
     <div class="go-grip" aria-hidden="true"></div>
-    <form id="go-form" novalidate>
+    <form id="go-form" data-clarity-mask="true" novalidate>
       <h2 id="go-sheet-title">Запросити 14-денний тест</h2>
       <p id="go-sheet-sub">Заповніть дані про себе й об’єкт. Команда перевірить заявку та надішле на email інструкцію для доступу до тесту.</p>
       <label class="go-field"><span>Ваше ім’я та прізвище *</span><input class="go-input" id="go-name" name="name" autocomplete="name" minlength="2" maxlength="100" required></label>
@@ -181,7 +181,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
       <label class="go-field"><span>Назва готелю / об’єкта *</span><input class="go-input" id="go-hotel" name="hotel" type="text" autocomplete="organization" minlength="2" maxlength="150" required></label>
       <label class="go-field"><span>Місто або громада *</span><input class="go-input" id="go-location" name="location" type="text" autocomplete="address-level2" maxlength="120" required></label>
       <label class="go-field"><span>Тип об’єкта *</span><select class="go-input" id="go-property-type" name="property_type" required><option value="">Оберіть тип</option><option value="hotel">Готель / міні-готель</option><option value="guesthouse">Садиба / гостьовий будинок</option><option value="apartments">Апартаменти</option><option value="glamping">Глемпінг / кемпінг</option><option value="hostel">Хостел</option><option value="other">Інший об’єкт розміщення</option></select></label>
-      <label class="go-field"><span>Кількість номерів або юнітів *</span>
+      <div class="go-field" role="group" aria-label="Кількість номерів або юнітів"><span>Кількість номерів або юнітів *</span>
         <div class="go-chips" data-name="rooms">
           <button type="button" class="go-chip" aria-pressed="false" data-v="1-5">1–5</button>
           <button type="button" class="go-chip" aria-pressed="false" data-v="6-12">6–12</button>
@@ -362,7 +362,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
   // sheet
   const sheet = $('go-sheet');
   const emit = (name, detail) => document.dispatchEvent(new CustomEvent(`k:${name}`, { detail }));
-  const open = () => { sheet.classList.add('open'); sheet.setAttribute('aria-hidden', 'false'); setTimeout(() => $('go-name').focus(), 250); emit('cta', { code: $('go-code').value, calc: $('go-calc').value }); };
+  const open = () => { sheet.classList.add('open'); sheet.setAttribute('aria-hidden', 'false'); setTimeout(() => { if (!sheet.contains(document.activeElement)) $('go-name').focus(); }, 250); emit('cta', { code: $('go-code').value, calc: $('go-calc').value }); };
   const close = () => { sheet.classList.remove('open'); sheet.setAttribute('aria-hidden', 'true'); };
   document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', open));
   sheet.addEventListener('click', e => { if (e.target === sheet) close(); });
