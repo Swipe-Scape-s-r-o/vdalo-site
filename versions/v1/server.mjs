@@ -4,6 +4,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
+import {resolveLeadDestination,sendAcknowledgedLead,intakeEventId} from '../../microlandings/legacy-delivery.mjs';
 import { renderPage, escape } from './render.mjs';
 import { site } from './content/vdalo-ua.mjs';
 
@@ -63,7 +64,7 @@ function limited(req) {
  }
  return ++bucket.count>12;
 }
-async function lead(req,res,kind) {
+export async function lead(req,res,kind,{env=process.env,sendRequest=fetch}={}) {
  if (limited(req)) return send(res,429,{ok:false,message:'Забагато спроб. Будь ласка, спробуйте трохи пізніше.'});
  if (!req.headers['content-type']?.startsWith('application/json')) return send(res,415,{ok:false,message:'Непідтримуваний формат запиту.'});
  if (req.headers.origin) {
@@ -76,14 +77,14 @@ async function lead(req,res,kind) {
   const raw=JSON.parse(body);
   const {data,errors}=validateLead(kind,raw);
   if(Object.keys(errors).length) return send(res,422,{ok:false,errors,message:'Перевірте поля форми.'});
-  const target=process.env[kind==='trial'?'VDALO_TRIAL_WEBHOOK_URL':'VDALO_AUDIT_WEBHOOK_URL'] || process.env.VDALO_LEAD_WEBHOOK_URL;
+  const target=resolveLeadDestination(kind,env);
   if (!target) return send(res,503,{ok:false,message:'Приймання заявок ще налаштовується. Ваш запит не надіслано. Спробуйте пізніше.'});
-  const url = new URL(target);
-  if(url.protocol!=='https:' && !(process.env.NODE_ENV!=='production' && url.protocol==='http:' && ['localhost','127.0.0.1'].includes(url.hostname))) throw new Error('Invalid webhook protocol');
-  const id=randomUUID();
-  const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json',...(process.env.VDALO_WEBHOOK_BEARER_TOKEN?{Authorization:`Bearer ${process.env.VDALO_WEBHOOK_BEARER_TOKEN}`}:{})},body:JSON.stringify({...data,id,submittedAt:new Date().toISOString()}),signal:AbortSignal.timeout(10000),redirect:'error'});
-  await response.body?.cancel();
-  if(!response.ok) return send(res,502,{ok:false,message:'Не вдалося надіслати запит. Спробуйте ще раз трохи пізніше.'});
+  const parentId=typeof raw.submission_id==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(raw.submission_id)?raw.submission_id:randomUUID();
+  const context=[data.estimate,data.email&&`Email: ${data.email}`,data.phone&&`Телефон: ${data.phone}`,data.city&&`Місто: ${data.city}`,data.property_type&&`Тип об’єкта: ${data.property_type}`,data.quiz_answers&&`Відповіді квізу: ${JSON.stringify(data.quiz_answers)}`].filter(Boolean).join('\n');
+  if(context.length>1200)return send(res,422,{ok:false,message:'Контекст заявки завеликий. Скоротіть додаткові відповіді.'});
+  const id=intakeEventId(parentId,`website:${kind}`,data);
+  const accepted=await sendAcknowledgedLead(target,{...data,estimate:context,id,submittedAt:new Date().toISOString()},{sendRequest});
+  if(!accepted) return send(res,502,{ok:false,message:'Не вдалося надіслати запит. Спробуйте ще раз трохи пізніше.'});
   return send(res,200,{ok:true,leadId:id});
  } catch(error) {
   return send(res,error instanceof SyntaxError?400:502,{ok:false,message:'Не вдалося надіслати запит. Перевірте дані або спробуйте пізніше.'});

@@ -680,7 +680,7 @@ test('tourist-tax lead preserves city and entry attribution and only succeeds af
   req.method='POST';req.headers={'content-type':'application/json',origin:'https://www.vdalo.tech',host:'www.vdalo.tech'};req.socket={remoteAddress:'192.0.2.144'};
   let status=0,body='',payload;
   const res={writeHead(code){status=code;},end(value){body=JSON.parse(value);}};
-  await handleTop5Lead(req,res,{env:{VDALO_LEAD_WEBHOOK_URL:'https://receiver.example.invalid/leads',VDALO_TRIAL_WEBHOOK_URL:'https://fallback.example.invalid/leads'},sendRequest:async(url,options)=>{assert.equal(url,'https://receiver.example.invalid/leads');payload=JSON.parse(options.body);return {ok:true,body:{async cancel(){}}};}});
+  await handleTop5Lead(req,res,{env:{VDALO_LEAD_WEBHOOK_URL:'https://receiver.example.invalid/leads',VDALO_TRIAL_WEBHOOK_URL:'https://fallback.example.invalid/leads'},sendRequest:async(url,options)=>{assert.equal(url,'https://receiver.example.invalid/leads');payload=JSON.parse(options.body);return new Response(JSON.stringify({ok:true}),{status:200});}});
   assert.equal(status,200);assert.equal(body.ok,true);assert.equal(payload.kind,'tourist_tax_inquiry');
   assert.equal(payload.contact.location,'Одеса');assert.equal(payload.contact.preferred_method,'viber');
   assert.equal(payload.attribution.entry_page,'/tourist-tax/odesa/');assert.equal(payload.attribution.utm.utm_content,'odesa');

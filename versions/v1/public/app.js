@@ -233,7 +233,7 @@ async function submitLead(kind,data) {
 const submitTrialLead=data=>submitLead('trial',data);
 const submitAuditLead=data=>submitLead('audit',data);
 document.querySelectorAll('form[data-kind]').forEach(form=>{
- let started=false;
+ let started=false,submissionId='';
  form.addEventListener('input',()=>{if(!started){started=true;track(`${form.dataset.kind}_form_start`);}}, {passive:true});
  form.addEventListener('submit',async event=>{
   event.preventDefault();
@@ -241,7 +241,8 @@ document.querySelectorAll('form[data-kind]').forEach(form=>{
   const submit=form.querySelector('[type=submit]');
   if(submit.disabled) return;
   const raw=Object.fromEntries(new FormData(form));
-  const data={...raw,name:(raw.name||'').trim(),property:(raw.property||'').trim(),contact:(raw.contact||'').trim(),email:(raw.email||'').trim(),phone:(raw.phone||'').trim(),city:(raw.city||'').trim(),property_type:(raw.property_type||'').trim(),units:raw.units||'',mode:kind==='trial'?(raw.mode==='implementation'?'implementation':'start'):'',estimate:raw.estimate||'',consent:raw.consent==='on',utm:{}};
+  submissionId= submissionId||crypto.randomUUID();
+  const data={...raw,submission_id:submissionId,name:(raw.name||'').trim(),property:(raw.property||'').trim(),contact:(raw.contact||'').trim(),email:(raw.email||'').trim(),phone:(raw.phone||'').trim(),city:(raw.city||'').trim(),property_type:(raw.property_type||'').trim(),units:raw.units||'',mode:kind==='trial'?(raw.mode==='implementation'?'implementation':'start'):'',estimate:raw.estimate||'',consent:raw.consent==='on',utm:{}};
   if(kind==='trial')try{const quiz=JSON.parse(sessionStorage.getItem('vdalo-quiz-context')||'null');if(quiz&&typeof quiz==='object')data.quiz_answers=quiz;}catch{}
   const params=new URLSearchParams(location.search);
   for(const key of ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']) if(params.get(key)) data.utm[key]=params.get(key).slice(0,150);
