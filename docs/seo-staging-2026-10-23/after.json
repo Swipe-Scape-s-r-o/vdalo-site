@@ -561,7 +561,7 @@
   {
     "route": "/blog/yak-obraty-pms-dlya-gotelyu",
     "status": 200,
-    "hash": "243337d898aa56f6ca5fa2a7ba860c3f2eb77a6b3043ec31590fe6b033e6b14d",
+    "hash": "7a2fda2429e8205c0060752a8bc38e4e695dc7a770cfcca620f27bf0198ffd44",
     "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO",
     "canonical": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
     "h1": 1,
@@ -574,7 +574,7 @@
   {
     "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
     "status": 200,
-    "hash": "4a231e537447e27807f3de979d02c8a79d989f06a0f61e53b1ddabe78dda4d26",
+    "hash": "90d9a250e24535f1e953ea64c6673473528abf319a7d6eebe0cce974ae1e765f",
     "title": "Додаткові послуги в готелі: як спростити замовлення | VDALO",
     "canonical": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
     "h1": 1,
@@ -587,7 +587,7 @@
   {
     "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
     "status": 200,
-    "hash": "59701d35dfc3d88bf6c74eb726a9491e50cd199112fa430575fae27aab072930",
+    "hash": "53a0be9f2757abd4efd3732634a31e8d1e510a1900c2eb69a93b797876ba7634",
     "title": "Прямі бронювання готелю: віджет, календар та iCal | VDALO",
     "canonical": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
     "h1": 1,
@@ -600,7 +600,7 @@
   {
     "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
     "status": 200,
-    "hash": "5ab21efe1609c8a9dff22cb9c705ca8e9650599fa86f872a7fd4c36f7418dcc5",
+    "hash": "04b672450aac331a01318a2755ccffb1222a0876deca38f9438afa6dfa5ac9a0",
     "title": "Як перейти на PMS і зберегти історію бронювань | VDALO",
     "canonical": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
     "h1": 1,
@@ -613,7 +613,7 @@
   {
     "route": "/blog/shakhmatka-bronyuvan-gotelyu",
     "status": 200,
-    "hash": "dcfad3102dc4ee9a03448b838cfa96716d6545b017d9ee3aeab0fc62e895ce88",
+    "hash": "21d08c5976d106bcbd45df128160f327dad555ebe7888d006fa13ff7912bb7ae",
     "title": "Шахматка готелю: як читати календар бронювань | VDALO",
     "canonical": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
     "h1": 1,
@@ -626,7 +626,7 @@
   {
     "route": "/blog/channel-manager-ical-gotelyu",
     "status": 200,
-    "hash": "a14ecaf84646c41fe5e8a27923c17d06fd10bdd9344ff0dcd57e7384e2cecb28",
+    "hash": "b53f6120c7913f1e534cf953378d1423887f3f4657fb1301f06ee3c4a075e700",
     "title": "Channel Manager чи iCal для готелю: що обрати | VDALO",
     "canonical": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
     "h1": 1,
@@ -639,7 +639,7 @@
   {
     "route": "/blog/pidhotovka-zaselennya-gostya",
     "status": 200,
-    "hash": "307e1b9f6a89779bb8cb04ffe6ef9d8c78dbe7581a887d27d988488f10a78ccd",
+    "hash": "ebd3f719f093f86961c202116b10f99daef3189e1688a9dc03533eae7142611f",
     "title": "Як підготувати заселення гостя до приїзду | VDALO",
     "canonical": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
     "h1": 1,
@@ -652,7 +652,7 @@
   {
     "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
     "status": 200,
-    "hash": "41cf8c6fb003397691acb9acf465bbde2ce03f0cff7f5cae41e29c737981150e",
+    "hash": "1a254c7784ad2cdfcc33de9fd0f833af0251268c1f41b02b6bd97d77e4e7b5a3",
     "title": "Що автоматизувати в готелі першим: практична оцінка | VDALO",
     "canonical": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
     "h1": 1,
@@ -665,7 +665,7 @@
   {
     "route": "/blog/status-gotovnosti-nomera-housekeeping",
     "status": 200,
-    "hash": "ee765ad684ce780ecfa16c0798bb3a451a8463defc295a60c8a0b1c05a2568a1",
+    "hash": "df65ff7f5cd7d097d0d4bf921809772ed0137854ed06eee2e287c08e316f0779",
     "title": "Статус готовності номера: housekeeping і рецепція | VDALO",
     "canonical": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
     "h1": 1,
@@ -678,7 +678,7 @@
   {
     "route": "/blog/turystychnyi-zbir-gotel-ukraina",
     "status": 200,
-    "hash": "f094fb3eae6929719b93095fac4deab859dc5c1e552b60debd57dfbcd4ad57e9",
+    "hash": "c609ed4ab0690bd674fbb95fc0588f36b4aeb31a20198077b9b57dcecef3ffbc",
     "title": "Туристичний збір 2026: ставки, пільги й розрахунок",
     "canonical": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
     "h1": 1,
@@ -691,7 +691,7 @@
   {
     "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
     "status": 200,
-    "hash": "dd67404c1256dffd8894d8a0588b00d718aa0d1e283a4e2ef4a7e1b50c4f6b0f",
+    "hash": "f82c1d62b696d1b07e3575cf3983f4495026e8d285bc14db4498b343d97f7098",
     "title": "Туристичний збір 2026: формула і 7 прикладів | VDALO",
     "canonical": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
     "h1": 1,
@@ -704,7 +704,7 @@
   {
     "route": "/blog/qr-kody-dlya-goteliv",
     "status": 200,
-    "hash": "7526e8fa56c3819d1a107b8e3cca9a94226cdcc07104a0af0faafde3795234b2",
+    "hash": "02a4c5130f0b691502d94f4b8149d8a4e0577751fd8b431c50536ec59e17368d",
     "title": "QR-коди для готелів: 35 сценаріїв і приклади | VDALO",
     "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
     "h1": 1,
@@ -717,7 +717,7 @@
   {
     "route": "/blog/qr-wifi-dlya-gotelyu",
     "status": 200,
-    "hash": "0791bbb2931c99424ce8c9817ed402cfc8b356e34b75ceaa7e4a7d04384c5214",
+    "hash": "b1f5d5b987524d7f0c68e325ca386e50cc9907a6bfccf731f49fbb6b775d8be3",
     "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO",
     "canonical": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
     "h1": 1,
@@ -730,7 +730,7 @@
   {
     "route": "/blog/qr-kartka-v-nomer-gotelyu",
     "status": 200,
-    "hash": "5bd54bd24a31322858228a4110d9a1658cc14b684f77ac8920645a466239ae48",
+    "hash": "9b95ca475202d6c5870d4274917d0ab13e9ee72edd4eece7c1b725d12afd7315",
     "title": "QR-картка в номер готелю: шаблони й друк | VDALO",
     "canonical": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
     "h1": 1,

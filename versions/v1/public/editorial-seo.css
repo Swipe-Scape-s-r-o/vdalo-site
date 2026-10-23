@@ -11,4 +11,6 @@
 .practice-example{border:1px solid #dccfdd;background:#fbf6fb;padding:1rem 1.25rem;border-radius:14px}
 .article-body blockquote{margin:1.25rem 0;padding:.5rem 1.25rem;border-left:4px solid #bc5689;background:#faf4f8}
 .article-body{min-width:0}.article-layout>*{min-width:0}
+.article-body pre{max-width:100%;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
+.article-body pre code{white-space:inherit}
 @media(max-width:600px){.practice-table th,.practice-table td{padding:.65rem .75rem}.article-practice{margin-block:1.75rem}.practice-example{padding:.75rem 1rem}}
