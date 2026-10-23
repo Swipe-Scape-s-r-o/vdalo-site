@@ -1,0 +1,76 @@
+
+  - link "+380 93 908 22 54":
+    - /url: tel:+380939082254
+  - strong: Продукт
+  - link "Огляд продукту":
+    - /url: /solutions
+  - link "Усі функції PMS":
+    - /url: /hotel-pms-modules
+  - link "Календар бронювань":
+    - /url: /hotel-booking-calendar
+  - link "Channel Manager":
+    - /url: /hotel-channel-manager
+  - link "Guest App і QR":
+    - /url: /hotel-guest-app
+  - link "Операції команди":
+    - /url: /hotel-operations
+  - strong: Для бізнесу
+  - link "Інтеграції":
+    - /url: /integrations
+  - link "Тарифи":
+    - /url: /pricing
+  - link "Запросити доступ":
+    - /url: /sign-up
+  - link "Туристичний збір у PMS":
+    - /url: /hotel-tourist-tax
+  - strong: Матеріали
+  - link "Блог":
+    - /url: /blog
+  - link "Кейси":
+    - /url: /cases
+  - link "Інструменти":
+    - /url: /tools/
+  - link "Довідник туристичного збору":
+    - /url: /tourist-tax/
+  - strong: Компанія
+  - link "Команда":
+    - /url: /about
+  - link "Автори":
+    - /url: /authors
+  - link "Контакти":
+    - /url: /contact
+  - generic: © 2026 VDALO
+  - link "Конфіденційність":
+    - /url: /privacy
+  - link "Налаштування cookie":
+    - /url: /v1/privacy#cookie-preferences
+  - link "Оферта й умови послуги":
+    - /url: /offer
+  - link "Повернення коштів":
+    - /url: /refunds
+  - generic: Україна / vdalo.tech
+  - link "На початок":
+    - /url: "#main"
+- dialog "Налаштування cookie":
+  - banner:
+    - paragraph: ВАША ПРИВАТНІСТЬ
+    - heading "Налаштування cookie" [level=2]
+    - button "Закрити налаштування cookie" [active]: ×
+  - paragraph: Виберіть, що дозволити. Сайт і форми працюють, навіть якщо залишити лише необхідні.
+  - heading "Необхідні" [level=3]
+  - generic: Завжди активні
+  - paragraph: Зберігають ваш вибір cookie та потрібні для запитаних вами функцій сайту. Їх не використовуємо для аналітики.
+  - strong: Статистика відвідувань
+  - switch "Статистика відвідувань"
+  - generic: "Google Analytics 4: перегляди сторінок, переходи та натискання. Використовує cookie _ga та _ga_*."
+  - strong: Запис взаємодій
+  - switch "Запис взаємодій"
+  - generic: "Microsoft Clarity: прокручування та взаємодія з блоками сайту. Вміст форм маскується. Використовує cookie _clck та _clsk."
+  - paragraph: Вибір зберігаємо на цьому пристрої до 180 днів. Змінити його можна через «Налаштування cookie» внизу сторінки. Після відкликання вже наданої згоди сторінка оновиться, щоб зупинити завантажені інструменти.
+  - link "Політика конфіденційності ↗":
+    - /url: /privacy#cookie-preferences
+  - contentinfo:
+    - button "Дозволити всі"
+    - button "Зберегти вибір"
+    - button "Лише необхідні"
+- status

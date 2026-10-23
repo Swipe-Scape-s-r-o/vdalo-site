@@ -1,0 +1,12 @@
+{
+  "production": {
+    "status": 200,
+    "title": "Channel Manager чи iCal для готелю: що обрати | VDALO",
+    "preparedRevision": false
+  },
+  "stagingProtection": {
+    "status": 401,
+    "robots": "noindex, nofollow",
+    "requiresAuthentication": true
+  }
+}

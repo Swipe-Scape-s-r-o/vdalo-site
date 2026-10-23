@@ -1,0 +1,4167 @@
+[
+  {
+    "route": "/blog/channel-manager-ical-gotelyu",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Channel Manager чи iCal: що обрати для синхронізації бронювань"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Channel Manager чи iCal: відмінності для готелю | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання готелю: від заявки на сайті до запису в PMS"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Прямі бронювання готелю: віджет, календар і витрати | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Шахматка готелю: як читати бронювання, доступність і блокування"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Шахматка готелю: календар бронювань і конфлікти | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Як перейти на нову PMS: план міграції та перевірки готельних даних"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Перехід на PMS: міграція даних і контрольна звірка | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Як готелю продавати додаткові послуги: від каталогу до виконаного замовлення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Додаткові послуги готелю: як спростити замовлення | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/pidhotovka-zaselennya-gostya",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Підготовка до заселення: що гість і команда мають знати до заїзду"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Підготовка до заселення гостя: чекліст готелю | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/status-gotovnosti-nomera-housekeeping",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Готовність номера: як узгодити статуси housekeeping і рецепції"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Готовність номера: housekeeping і рецепція | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Що автоматизувати в готелі першим: метод вибору та перевірки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Автоматизація готелю: з якого процесу почати | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/shcho-take-pms-dlya-gotelyu",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Що таке PMS для готелю: функції, приклади та межі системи"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Що таке PMS для готелю: функції та приклади | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Як обрати PMS для готелю: 25 критеріїв, тести й матриця рішення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/qr-kody-dlya-goteliv",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "QR-коди для готелів: 35 сценаріїв із перевіркою результату"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "QR-коди для готелів: 35 сценаріїв і план запуску | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/qr-wifi-dlya-gotelyu",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Як зробити QR-код Wi-Fi для гостей готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/qr-kartka-v-nomer-gotelyu",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "QR-картка в номер готелю: тексти, структура та перевірка друку"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "QR-картка в номер готелю: тексти, макет і друк | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Туристичний збір у 2026 році: правила для гостей і готелів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір 2026: правила для готелю та гостя | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Розрахунок туристичного збору 2026: 7 прикладів | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/guest-services-glamping",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Каталог послуг для гостей глемпінгу: що змінилося в замовленнях"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Каталог послуг глемпінгу: досвід замовлень гостей | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання глемпінгу: як сайт пов’язали з робочим календарем"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Прямі бронювання в календарі: кейс глемпінгу | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Звірка виплат OTA: як пов’язали бронювання, документи й надходження"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Звірка виплат OTA і документів: кейс Чехії | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Пізнє заселення після закриття рецепції: досвід готелю в Німеччині"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Пізнє заселення після закриття рецепції: кейс | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/hotel-data-migration",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Перенесення історії готелю: 18 475 бронювань і контрольна звірка"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Міграція 18 475 бронювань: досвід готелю | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Дослідження сайтів 2 118 об’єктів: як перевіряли видимий модуль бронювання"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Дослідження сайтів 2 118 об’єктів розміщення | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/",
+    "client": 945,
+    "forms": 4,
+    "h1": [
+      "Система керування готелем.Для щоденної роботи."
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Система керування готелем і бронюваннями | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/about",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/about",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "VDALO: продукт, що починається з роботи готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Про VDALO: команда й підхід до роботи готелю",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/contact",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/contact",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Обговорімо задачу вашого готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Контакти VDALO: обговорити PMS і процеси готелю",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/sign-up",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/sign-up",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Запросіть доступ до VDALO для вашого готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Запросити доступ до PMS VDALO для готелю",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/hotel-automation",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/hotel-automation",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "З якого процесу почати автоматизацію готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Аудит і автоматизація процесів готелю | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/authors",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Автори матеріалів VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Автори VDALO: досвід і матеріали для готельєрів",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/authors/oleh-stepeniev",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors/oleh-stepeniev",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Олег Степенєв"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Олег Степенєв: автор матеріалів VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Костянтин Тріпайло: маркетинг і продажі | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Практичні матеріали для власника й команди готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Блог VDALO: PMS, бронювання та робота готелю",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/cases",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "Кейси змін у роботі готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Кейси готельних процесів і автоматизації | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tools/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Практичні інструменти для готельєрів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Інструменти для готелю: розрахунки, PMS і QR | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tools/hotel-profitability-calculator/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/hotel-profitability-calculator/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Калькулятор виручки, RevPAR та окремих витрат готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Калькулятор виручки й показників готелю | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tools/pms-checklist/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/pms-checklist/",
+    "client": 945,
+    "forms": 2,
+    "h1": [
+      "Чекліст вибору PMS: оцінка та повнота перевірки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Чекліст PMS: 25 критеріїв і порівняння систем | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "QR Studio: підготуйте код під задачу гостя"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow,max-image-preview:large",
+    "scroll": 945,
+    "title": "QR Studio для готелю: Wi-Fi, меню й посилання | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/pricing",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/pricing",
+    "client": 945,
+    "forms": 4,
+    "h1": [
+      "Тарифи VDALO: базова вартість, доплати та підключення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Тарифи VDALO: вартість PMS для вашого об’єкта",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/privacy",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/privacy",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Політика конфіденційності VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Конфіденційність і дані користувачів | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/offer",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/offer",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Публічна оферта та умови послуг VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Умови послуги й публічна оферта | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/refunds",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/refunds",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Повернення коштів і скасування замовлення VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Повернення коштів і скасування VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/cherkasy/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/cherkasy/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Черкасах у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Черкасах 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/chernihiv/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/chernihiv/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернігові у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Чернігові 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/berehove/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/berehove/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Береговому у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Береговому 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/dnipro/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/dnipro/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Дніпрі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Дніпрі 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/chernivtsi/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/chernivtsi/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернівцях у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Чернівцях 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/irpin/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/irpin/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ірпені у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір в Ірпені 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/ivano-frankivsk/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/ivano-frankivsk/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Івано-Франківську у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір в Івано-Франківську 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/khust/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/khust/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Хусті у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Хусті 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/odesa/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/odesa/",
+    "client": 945,
+    "forms": 0,
+    "h1": [
+      "Туристичний збір в Одесі у 2026 році: перевірка зміни ставки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "noindex,follow",
+    "scroll": 945,
+    "title": "Туристичний збір в Одесі 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/lutsk/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/lutsk/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Луцьку у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Луцьку 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/lviv/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/lviv/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Львові у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Львові 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/kyyiv/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/kyyiv/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Києві у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Києві 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/kolomyya/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/kolomyya/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Коломиї у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Коломиї 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/slavsko/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/slavsko/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Славську у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Славську 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/polyana/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/polyana/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Поляні у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Поляні 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/skole/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/skole/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сколе у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Сколе 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/rivne/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/rivne/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Рівному у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Рівному 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/pivdenne/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/pivdenne/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Південному у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Південному 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/ternopil/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/ternopil/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тернополі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Тернополі 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/vinnytsya/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/vinnytsya/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Вінниці у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Вінниці 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/uzhhorod/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/uzhhorod/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ужгороді у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір в Ужгороді 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/tyachiv/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/tyachiv/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тячеві у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Тячеві 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/sumy/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/sumy/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сумах у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Сумах 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/zaporizhzhya/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/zaporizhzhya/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Запоріжжі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Запоріжжі 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/yaremche/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/yaremche/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Яремчі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір в Яремчі 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/yasinya/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/yasinya/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ясіні у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір в Ясіні 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/zhytomyr/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/zhytomyr/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Житомирі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Житомирі 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/vynohradiv/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/vynohradiv/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Виноградові у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір у Виноградові 2026 | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Україні у 2026 році: довідник громад і розрахунок"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "Туристичний збір 2026: ставки громад і калькулятор | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/tourist-tax/start",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/start",
+    "client": 945,
+    "forms": 1,
+    "h1": [
+      "Упорядкуйте роботу з туристичним збором"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "noindex,follow",
+    "scroll": 945,
+    "title": "Облік туристичного збору: обговорити процес | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/qr-kody-dlya-restoranu",
+    "size": "desktop960",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "client": 945,
+    "forms": 3,
+    "h1": [
+      "QR-коди для ресторану: від меню до підтвердженого замовлення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 945,
+    "title": "QR-коди для ресторану: меню, заявки та аналітика | VDALO",
+    "updated": true,
+    "width": 960
+  },
+  {
+    "route": "/blog/channel-manager-ical-gotelyu",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Channel Manager чи iCal: що обрати для синхронізації бронювань"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Channel Manager чи iCal: відмінності для готелю | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання готелю: від заявки на сайті до запису в PMS"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Прямі бронювання готелю: віджет, календар і витрати | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Шахматка готелю: як читати бронювання, доступність і блокування"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Шахматка готелю: календар бронювань і конфлікти | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Як перейти на нову PMS: план міграції та перевірки готельних даних"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Перехід на PMS: міграція даних і контрольна звірка | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Як готелю продавати додаткові послуги: від каталогу до виконаного замовлення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Додаткові послуги готелю: як спростити замовлення | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/pidhotovka-zaselennya-gostya",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Підготовка до заселення: що гість і команда мають знати до заїзду"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Підготовка до заселення гостя: чекліст готелю | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/status-gotovnosti-nomera-housekeeping",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Готовність номера: як узгодити статуси housekeeping і рецепції"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Готовність номера: housekeeping і рецепція | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Що автоматизувати в готелі першим: метод вибору та перевірки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Автоматизація готелю: з якого процесу почати | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/shcho-take-pms-dlya-gotelyu",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Що таке PMS для готелю: функції, приклади та межі системи"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Що таке PMS для готелю: функції та приклади | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+    "client": 245,
+    "forms": 1,
+    "h1": [
+      "Як обрати PMS для готелю: 25 критеріїв, тести й матриця рішення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/qr-kody-dlya-goteliv",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "QR-коди для готелів: 35 сценаріїв із перевіркою результату"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "QR-коди для готелів: 35 сценаріїв і план запуску | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/qr-wifi-dlya-gotelyu",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Як зробити QR-код Wi-Fi для гостей готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/qr-kartka-v-nomer-gotelyu",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "QR-картка в номер готелю: тексти, структура та перевірка друку"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "QR-картка в номер готелю: тексти, макет і друк | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Туристичний збір у 2026 році: правила для гостей і готелів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Туристичний збір 2026: правила для готелю та гостя | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Розрахунок туристичного збору 2026: 7 прикладів | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/guest-services-glamping",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Каталог послуг для гостей глемпінгу: що змінилося в замовленнях"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Каталог послуг глемпінгу: досвід замовлень гостей | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання глемпінгу: як сайт пов’язали з робочим календарем"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Прямі бронювання в календарі: кейс глемпінгу | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Звірка виплат OTA: як пов’язали бронювання, документи й надходження"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Звірка виплат OTA і документів: кейс Чехії | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Пізнє заселення після закриття рецепції: досвід готелю в Німеччині"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Пізнє заселення після закриття рецепції: кейс | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/hotel-data-migration",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Перенесення історії готелю: 18 475 бронювань і контрольна звірка"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Міграція 18 475 бронювань: досвід готелю | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Дослідження сайтів 2 118 об’єктів: як перевіряли видимий модуль бронювання"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Дослідження сайтів 2 118 об’єктів розміщення | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/",
+    "client": 245,
+    "forms": 4,
+    "h1": [
+      "Система керування готелем.Для щоденної роботи."
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 247,
+    "title": "Система керування готелем і бронюваннями | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/about",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/about",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "VDALO: продукт, що починається з роботи готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Про VDALO: команда й підхід до роботи готелю",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/contact",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/contact",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Обговорімо задачу вашого готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Контакти VDALO: обговорити PMS і процеси готелю",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/sign-up",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/sign-up",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Запросіть доступ до VDALO для вашого готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Запросити доступ до PMS VDALO для готелю",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/hotel-automation",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/hotel-automation",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "З якого процесу почати автоматизацію готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Аудит і автоматизація процесів готелю | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/authors",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors",
+    "client": 245,
+    "forms": 1,
+    "h1": [
+      "Автори матеріалів VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 249,
+    "title": "Автори VDALO: досвід і матеріали для готельєрів",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/authors/oleh-stepeniev",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors/oleh-stepeniev",
+    "client": 245,
+    "forms": 1,
+    "h1": [
+      "Олег Степенєв"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Олег Степенєв: автор матеріалів VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "client": 245,
+    "forms": 1,
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 263,
+    "title": "Костянтин Тріпайло: маркетинг і продажі | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog",
+    "client": 245,
+    "forms": 1,
+    "h1": [
+      "Практичні матеріали для власника й команди готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 269,
+    "title": "Блог VDALO: PMS, бронювання та робота готелю",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/cases",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases",
+    "client": 245,
+    "forms": 3,
+    "h1": [
+      "Кейси змін у роботі готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Кейси готельних процесів і автоматизації | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/tools/",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/",
+    "client": 245,
+    "forms": 1,
+    "h1": [
+      "Практичні інструменти для готельєрів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Інструменти для готелю: розрахунки, PMS і QR | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/tools/hotel-profitability-calculator/",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/hotel-profitability-calculator/",
+    "client": 245,
+    "forms": 1,
+    "h1": [
+      "Калькулятор виручки, RevPAR та окремих витрат готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Калькулятор виручки й показників готелю | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/tools/pms-checklist/",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/pms-checklist/",
+    "client": 245,
+    "forms": 2,
+    "h1": [
+      "Чекліст вибору PMS: оцінка та повнота перевірки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 245,
+    "title": "Чекліст PMS: 25 критеріїв і порівняння систем | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "size": "narrow260",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+    "client": 245,
+    "forms": 1,
+    "h1": [
+      "QR Studio: підготуйте код під задачу гостя"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow,max-image-preview:large",
+    "scroll": 249,
+    "title": "QR Studio для готелю: Wi-Fi, меню й посилання | VDALO",
+    "updated": true,
+    "width": 260
+  },
+  {
+    "route": "/blog/channel-manager-ical-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Channel Manager чи iCal: що обрати для синхронізації бронювань"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Channel Manager чи iCal: відмінності для готелю | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання готелю: від заявки на сайті до запису в PMS"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Прямі бронювання готелю: віджет, календар і витрати | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Шахматка готелю: як читати бронювання, доступність і блокування"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Шахматка готелю: календар бронювань і конфлікти | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Як перейти на нову PMS: план міграції та перевірки готельних даних"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Перехід на PMS: міграція даних і контрольна звірка | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Як готелю продавати додаткові послуги: від каталогу до виконаного замовлення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Додаткові послуги готелю: як спростити замовлення | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/pidhotovka-zaselennya-gostya",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Підготовка до заселення: що гість і команда мають знати до заїзду"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Підготовка до заселення гостя: чекліст готелю | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/status-gotovnosti-nomera-housekeeping",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Готовність номера: як узгодити статуси housekeeping і рецепції"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Готовність номера: housekeeping і рецепція | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Що автоматизувати в готелі першим: метод вибору та перевірки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Автоматизація готелю: з якого процесу почати | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/shcho-take-pms-dlya-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Що таке PMS для готелю: функції, приклади та межі системи"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Що таке PMS для готелю: функції та приклади | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Як обрати PMS для готелю: 25 критеріїв, тести й матриця рішення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/qr-kody-dlya-goteliv",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "QR-коди для готелів: 35 сценаріїв із перевіркою результату"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "QR-коди для готелів: 35 сценаріїв і план запуску | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/qr-wifi-dlya-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Як зробити QR-код Wi-Fi для гостей готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/qr-kartka-v-nomer-gotelyu",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "QR-картка в номер готелю: тексти, структура та перевірка друку"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "QR-картка в номер готелю: тексти, макет і друк | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Туристичний збір у 2026 році: правила для гостей і готелів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір 2026: правила для готелю та гостя | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Розрахунок туристичного збору 2026: 7 прикладів | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/guest-services-glamping",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Каталог послуг для гостей глемпінгу: що змінилося в замовленнях"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Каталог послуг глемпінгу: досвід замовлень гостей | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання глемпінгу: як сайт пов’язали з робочим календарем"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Прямі бронювання в календарі: кейс глемпінгу | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Звірка виплат OTA: як пов’язали бронювання, документи й надходження"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Звірка виплат OTA і документів: кейс Чехії | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Пізнє заселення після закриття рецепції: досвід готелю в Німеччині"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Пізнє заселення після закриття рецепції: кейс | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/hotel-data-migration",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Перенесення історії готелю: 18 475 бронювань і контрольна звірка"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Міграція 18 475 бронювань: досвід готелю | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Дослідження сайтів 2 118 об’єктів: як перевіряли видимий модуль бронювання"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Дослідження сайтів 2 118 об’єктів розміщення | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/",
+    "client": 375,
+    "forms": 4,
+    "h1": [
+      "Система керування готелем.Для щоденної роботи."
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Система керування готелем і бронюваннями | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/about",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/about",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "VDALO: продукт, що починається з роботи готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Про VDALO: команда й підхід до роботи готелю",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/contact",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/contact",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Обговорімо задачу вашого готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Контакти VDALO: обговорити PMS і процеси готелю",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/sign-up",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/sign-up",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Запросіть доступ до VDALO для вашого готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Запросити доступ до PMS VDALO для готелю",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/hotel-automation",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/hotel-automation",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "З якого процесу почати автоматизацію готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Аудит і автоматизація процесів готелю | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/authors",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Автори матеріалів VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Автори VDALO: досвід і матеріали для готельєрів",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/authors/oleh-stepeniev",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors/oleh-stepeniev",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Олег Степенєв"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Олег Степенєв: автор матеріалів VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Костянтин Тріпайло: маркетинг і продажі | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Практичні матеріали для власника й команди готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Блог VDALO: PMS, бронювання та робота готелю",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/cases",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "Кейси змін у роботі готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Кейси готельних процесів і автоматизації | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tools/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Практичні інструменти для готельєрів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Інструменти для готелю: розрахунки, PMS і QR | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tools/hotel-profitability-calculator/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/hotel-profitability-calculator/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Калькулятор виручки, RevPAR та окремих витрат готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Калькулятор виручки й показників готелю | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tools/pms-checklist/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/pms-checklist/",
+    "client": 375,
+    "forms": 2,
+    "h1": [
+      "Чекліст вибору PMS: оцінка та повнота перевірки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Чекліст PMS: 25 критеріїв і порівняння систем | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "QR Studio: підготуйте код під задачу гостя"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow,max-image-preview:large",
+    "scroll": 375,
+    "title": "QR Studio для готелю: Wi-Fi, меню й посилання | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/pricing",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/pricing",
+    "client": 375,
+    "forms": 4,
+    "h1": [
+      "Тарифи VDALO: базова вартість, доплати та підключення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Тарифи VDALO: вартість PMS для вашого об’єкта",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/privacy",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/privacy",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Політика конфіденційності VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Конфіденційність і дані користувачів | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/offer",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/offer",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Публічна оферта та умови послуг VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Умови послуги й публічна оферта | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/refunds",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/refunds",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Повернення коштів і скасування замовлення VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Повернення коштів і скасування VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/cherkasy/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/cherkasy/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Черкасах у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Черкасах 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/chernihiv/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/chernihiv/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернігові у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Чернігові 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/berehove/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/berehove/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Береговому у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Береговому 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/dnipro/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/dnipro/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Дніпрі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Дніпрі 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/chernivtsi/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/chernivtsi/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернівцях у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Чернівцях 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/irpin/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/irpin/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ірпені у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір в Ірпені 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/ivano-frankivsk/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/ivano-frankivsk/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Івано-Франківську у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір в Івано-Франківську 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/khust/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/khust/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Хусті у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Хусті 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/odesa/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/odesa/",
+    "client": 375,
+    "forms": 0,
+    "h1": [
+      "Туристичний збір в Одесі у 2026 році: перевірка зміни ставки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "noindex,follow",
+    "scroll": 375,
+    "title": "Туристичний збір в Одесі 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/lutsk/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/lutsk/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Луцьку у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Луцьку 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/lviv/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/lviv/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Львові у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Львові 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/kyyiv/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/kyyiv/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Києві у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Києві 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/kolomyya/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/kolomyya/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Коломиї у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Коломиї 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/slavsko/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/slavsko/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Славську у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Славську 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/polyana/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/polyana/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Поляні у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Поляні 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/skole/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/skole/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сколе у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Сколе 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/rivne/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/rivne/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Рівному у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Рівному 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/pivdenne/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/pivdenne/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Південному у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Південному 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/ternopil/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/ternopil/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тернополі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Тернополі 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/vinnytsya/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/vinnytsya/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Вінниці у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Вінниці 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/uzhhorod/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/uzhhorod/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ужгороді у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір в Ужгороді 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/tyachiv/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/tyachiv/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тячеві у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Тячеві 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/sumy/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/sumy/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сумах у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Сумах 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/zaporizhzhya/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/zaporizhzhya/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Запоріжжі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Запоріжжі 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/yaremche/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/yaremche/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Яремчі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір в Яремчі 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/yasinya/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/yasinya/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ясіні у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір в Ясіні 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/zhytomyr/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/zhytomyr/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Житомирі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Житомирі 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/vynohradiv/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/vynohradiv/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Виноградові у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір у Виноградові 2026 | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Україні у 2026 році: довідник громад і розрахунок"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір 2026: ставки громад і калькулятор | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/tourist-tax/start",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/start",
+    "client": 375,
+    "forms": 1,
+    "h1": [
+      "Упорядкуйте роботу з туристичним збором"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "noindex,follow",
+    "scroll": 375,
+    "title": "Облік туристичного збору: обговорити процес | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/qr-kody-dlya-restoranu",
+    "size": "mobile",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "client": 375,
+    "forms": 3,
+    "h1": [
+      "QR-коди для ресторану: від меню до підтвердженого замовлення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "QR-коди для ресторану: меню, заявки та аналітика | VDALO",
+    "updated": true,
+    "width": 390
+  },
+  {
+    "route": "/blog/channel-manager-ical-gotelyu",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Channel Manager чи iCal: що обрати для синхронізації бронювань"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Channel Manager чи iCal: відмінності для готелю | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання готелю: від заявки на сайті до запису в PMS"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Прямі бронювання готелю: віджет, календар і витрати | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Шахматка готелю: як читати бронювання, доступність і блокування"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Шахматка готелю: календар бронювань і конфлікти | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Як перейти на нову PMS: план міграції та перевірки готельних даних"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Перехід на PMS: міграція даних і контрольна звірка | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Як готелю продавати додаткові послуги: від каталогу до виконаного замовлення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Додаткові послуги готелю: як спростити замовлення | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/pidhotovka-zaselennya-gostya",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Підготовка до заселення: що гість і команда мають знати до заїзду"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Підготовка до заселення гостя: чекліст готелю | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/status-gotovnosti-nomera-housekeeping",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Готовність номера: як узгодити статуси housekeeping і рецепції"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Готовність номера: housekeeping і рецепція | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Що автоматизувати в готелі першим: метод вибору та перевірки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Автоматизація готелю: з якого процесу почати | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/shcho-take-pms-dlya-gotelyu",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Що таке PMS для готелю: функції, приклади та межі системи"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Що таке PMS для готелю: функції та приклади | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Як обрати PMS для готелю: 25 критеріїв, тести й матриця рішення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/qr-kody-dlya-goteliv",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "QR-коди для готелів: 35 сценаріїв із перевіркою результату"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "QR-коди для готелів: 35 сценаріїв і план запуску | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/qr-wifi-dlya-gotelyu",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Як зробити QR-код Wi-Fi для гостей готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/qr-kartka-v-nomer-gotelyu",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "QR-картка в номер готелю: тексти, структура та перевірка друку"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "QR-картка в номер готелю: тексти, макет і друк | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Туристичний збір у 2026 році: правила для гостей і готелів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір 2026: правила для готелю та гостя | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Розрахунок туристичного збору 2026: 7 прикладів | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/guest-services-glamping",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Каталог послуг для гостей глемпінгу: що змінилося в замовленнях"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Каталог послуг глемпінгу: досвід замовлень гостей | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Прямі бронювання глемпінгу: як сайт пов’язали з робочим календарем"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Прямі бронювання в календарі: кейс глемпінгу | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Звірка виплат OTA: як пов’язали бронювання, документи й надходження"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Звірка виплат OTA і документів: кейс Чехії | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Пізнє заселення після закриття рецепції: досвід готелю в Німеччині"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Пізнє заселення після закриття рецепції: кейс | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/hotel-data-migration",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Перенесення історії готелю: 18 475 бронювань і контрольна звірка"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Міграція 18 475 бронювань: досвід готелю | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Дослідження сайтів 2 118 об’єктів: як перевіряли видимий модуль бронювання"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Дослідження сайтів 2 118 об’єктів розміщення | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/",
+    "client": 1425,
+    "forms": 4,
+    "h1": [
+      "Система керування готелем.Для щоденної роботи."
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Система керування готелем і бронюваннями | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/about",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/about",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "VDALO: продукт, що починається з роботи готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Про VDALO: команда й підхід до роботи готелю",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/contact",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/contact",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Обговорімо задачу вашого готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Контакти VDALO: обговорити PMS і процеси готелю",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/sign-up",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/sign-up",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Запросіть доступ до VDALO для вашого готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Запросити доступ до PMS VDALO для готелю",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/hotel-automation",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/hotel-automation",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "З якого процесу почати автоматизацію готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Аудит і автоматизація процесів готелю | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/authors",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Автори матеріалів VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Автори VDALO: досвід і матеріали для готельєрів",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/authors/oleh-stepeniev",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors/oleh-stepeniev",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Олег Степенєв"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Олег Степенєв: автор матеріалів VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Костянтин Тріпайло: маркетинг і продажі | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Практичні матеріали для власника й команди готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Блог VDALO: PMS, бронювання та робота готелю",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/cases",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/cases",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "Кейси змін у роботі готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Кейси готельних процесів і автоматизації | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tools/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Практичні інструменти для готельєрів"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Інструменти для готелю: розрахунки, PMS і QR | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tools/hotel-profitability-calculator/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/hotel-profitability-calculator/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Калькулятор виручки, RevPAR та окремих витрат готелю"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Калькулятор виручки й показників готелю | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tools/pms-checklist/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/pms-checklist/",
+    "client": 1425,
+    "forms": 2,
+    "h1": [
+      "Чекліст вибору PMS: оцінка та повнота перевірки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Чекліст PMS: 25 критеріїв і порівняння систем | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "QR Studio: підготуйте код під задачу гостя"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow,max-image-preview:large",
+    "scroll": 1425,
+    "title": "QR Studio для готелю: Wi-Fi, меню й посилання | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/pricing",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/pricing",
+    "client": 1425,
+    "forms": 4,
+    "h1": [
+      "Тарифи VDALO: базова вартість, доплати та підключення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Тарифи VDALO: вартість PMS для вашого об’єкта",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/privacy",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/privacy",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Політика конфіденційності VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Конфіденційність і дані користувачів | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/offer",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/offer",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Публічна оферта та умови послуг VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Умови послуги й публічна оферта | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/refunds",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/refunds",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Повернення коштів і скасування замовлення VDALO"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Повернення коштів і скасування VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/cherkasy/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/cherkasy/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Черкасах у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Черкасах 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/chernihiv/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/chernihiv/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернігові у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Чернігові 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/berehove/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/berehove/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Береговому у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Береговому 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/dnipro/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/dnipro/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Дніпрі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Дніпрі 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/chernivtsi/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/chernivtsi/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Чернівцях у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Чернівцях 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/irpin/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/irpin/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ірпені у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір в Ірпені 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/ivano-frankivsk/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/ivano-frankivsk/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Івано-Франківську у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір в Івано-Франківську 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/khust/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/khust/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Хусті у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Хусті 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/odesa/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/odesa/",
+    "client": 1425,
+    "forms": 0,
+    "h1": [
+      "Туристичний збір в Одесі у 2026 році: перевірка зміни ставки"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "noindex,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір в Одесі 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/lutsk/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/lutsk/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Луцьку у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Луцьку 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/lviv/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/lviv/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Львові у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Львові 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/kyyiv/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/kyyiv/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Києві у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Києві 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/kolomyya/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/kolomyya/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Коломиї у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Коломиї 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/slavsko/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/slavsko/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Славську у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Славську 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/polyana/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/polyana/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Поляні у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Поляні 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/skole/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/skole/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сколе у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Сколе 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/rivne/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/rivne/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Рівному у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Рівному 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/pivdenne/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/pivdenne/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Південному у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Південному 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/ternopil/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/ternopil/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тернополі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Тернополі 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/vinnytsya/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/vinnytsya/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Вінниці у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Вінниці 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/uzhhorod/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/uzhhorod/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ужгороді у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір в Ужгороді 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/tyachiv/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/tyachiv/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Тячеві у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Тячеві 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/sumy/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/sumy/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Сумах у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Сумах 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/zaporizhzhya/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/zaporizhzhya/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Запоріжжі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Запоріжжі 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/yaremche/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/yaremche/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Яремчі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір в Яремчі 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/yasinya/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/yasinya/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Ясіні у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір в Ясіні 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/zhytomyr/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/zhytomyr/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Житомирі у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Житомирі 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/vynohradiv/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/vynohradiv/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір у Виноградові у 2026 році"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір у Виноградові 2026 | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Туристичний збір в Україні у 2026 році: довідник громад і розрахунок"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір 2026: ставки громад і калькулятор | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/tourist-tax/start",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/tourist-tax/start",
+    "client": 1425,
+    "forms": 1,
+    "h1": [
+      "Упорядкуйте роботу з туристичним збором"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "noindex,follow",
+    "scroll": 1425,
+    "title": "Облік туристичного збору: обговорити процес | VDALO",
+    "updated": true,
+    "width": 1440
+  },
+  {
+    "route": "/blog/qr-kody-dlya-restoranu",
+    "size": "desktop1440",
+    "brokenImages": [],
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "client": 1425,
+    "forms": 3,
+    "h1": [
+      "QR-коди для ресторану: від меню до підтвердженого замовлення"
+    ],
+    "productionCopyLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "QR-коди для ресторану: меню, заявки та аналітика | VDALO",
+    "updated": true,
+    "width": 1440
+  }
+]

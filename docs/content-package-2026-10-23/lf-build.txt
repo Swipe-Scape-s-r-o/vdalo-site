@@ -1,0 +1,35 @@
+
+> build
+> vite build
+
+vite v7.1.12 building for production...
+transforming...
+✓ 485 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/inter-tight-cyrillic-BS41q_Tv.woff2      17.00 kB
+dist/assets/inter-cyrillic-DqGufNeO.woff2            18.75 kB
+dist/assets/qr-scanner-worker.min-PJMWJc5V.js        43.99 kB
+dist/assets/inter-tight-latin-DX-nOvPD.woff2         44.87 kB
+dist/index.html                                      47.36 kB │ gzip:  11.77 kB
+dist/assets/inter-latin-Dx4kXJAl.woff2               48.26 kB
+dist/assets/qr-hospitality-scenarios-Ca6iyFZF.webp  190.88 kB
+dist/assets/index-oPYs27x-.css                       45.73 kB │ gzip:  10.26 kB
+dist/assets/qr-scanner-worker.min-C9fvnVQU.js         0.10 kB │ gzip:   0.12 kB
+dist/assets/_commonjsHelpers-CqkleIqs.js              0.12 kB │ gzip:   0.13 kB
+dist/assets/qrcodegen-D-VMFGdq.js                    11.59 kB │ gzip:   4.09 kB
+dist/assets/qr-scanner.min-BoGjW2XE.js               15.78 kB │ gzip:   5.62 kB
+dist/assets/browser-CujOq0-h.js                      25.79 kB │ gzip:  10.14 kB
+dist/assets/index-CONqeKu2.js                        39.08 kB │ gzip:  13.12 kB
+dist/assets/qr-scanner-worker.min-D85Z9gVD.js        43.95 kB │ gzip:  10.46 kB
+dist/assets/index-BXCRZM89.js                        46.09 kB │ gzip:  15.09 kB
+dist/assets/qr-code-styling-ByZTYklI.js              48.43 kB │ gzip:  15.00 kB
+dist/assets/index-BrNSGGRQ.js                       388.63 kB │ gzip: 165.33 kB
+dist/assets/index-DitV1D_5.js                       454.38 kB │ gzip: 117.44 kB
+dist/assets/fontkit.es-B7jIPBPz.js                  716.76 kB │ gzip: 329.79 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 7.13s

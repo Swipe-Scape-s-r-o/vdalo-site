@@ -1,0 +1,38 @@
+[
+  {
+    "route": "/",
+    "client": 305,
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "route": "/authors",
+    "client": 305,
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "client": 305,
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "route": "/blog",
+    "client": 305,
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "client": 305,
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "client": 305,
+    "scroll": 305,
+    "width": 320
+  }
+]
