@@ -1,0 +1,1184 @@
+{
+  "date": "2026-10-23",
+  "release": "3fd66c8",
+  "environment": "staging",
+  "routeCount": 13,
+  "viewportChecks": 52,
+  "pass": true,
+  "submitted": false,
+  "captures": [
+    "staging-q1-390.jpg",
+    "staging-q2-1440.jpg",
+    "staging-q2-390.jpg",
+    "staging-q3-390.jpg",
+    "staging-q4-390.jpg",
+    "staging-q5-390.jpg",
+    "staging-q6-390.jpg",
+    "staging-q7-390.jpg",
+    "staging-q8-390.jpg",
+    "staging-q9-390.jpg",
+    "staging-qa-390.jpg",
+    "staging-qb-390.jpg",
+    "staging-qc-390.jpg",
+    "staging-qd-390.jpg"
+  ],
+  "routes": [
+    {
+      "route": "q1",
+      "rows": [
+        {
+          "route": "q1",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1425,
+          "h1": "Один номер продали двом гостям?",
+          "height": 2535,
+          "icons": [
+            "channels",
+            "phone",
+            "mobile"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 681,
+          "width": 1440
+        },
+        {
+          "route": "q1",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Один номер продали двом гостям?",
+          "height": 2517,
+          "icons": [
+            "channels",
+            "phone",
+            "mobile"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 635,
+          "width": 768
+        },
+        {
+          "route": "q1",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Один номер продали двом гостям?",
+          "height": 3379,
+          "icons": [
+            "channels",
+            "phone",
+            "mobile"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 854.625,
+          "width": 390
+        },
+        {
+          "route": "q1",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Один номер продали двом гостям?",
+          "height": 3645,
+          "icons": [
+            "channels",
+            "phone",
+            "mobile"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 930.5521240234376,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "q2",
+      "rows": [
+        {
+          "route": "q2",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Знову переписуєте дані гостей вручну?",
+          "height": 2535,
+          "icons": [
+            "form",
+            "documents",
+            "settings"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 681,
+          "width": 1440
+        },
+        {
+          "route": "q2",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Знову переписуєте дані гостей вручну?",
+          "height": 2517,
+          "icons": [
+            "form",
+            "documents",
+            "settings"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 635,
+          "width": 768
+        },
+        {
+          "route": "q2",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Знову переписуєте дані гостей вручну?",
+          "height": 3365,
+          "icons": [
+            "form",
+            "documents",
+            "settings"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 881.0208740234375,
+          "width": 390
+        },
+        {
+          "route": "q2",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Знову переписуєте дані гостей вручну?",
+          "height": 3633,
+          "icons": [
+            "form",
+            "documents",
+            "settings"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 951.5521240234376,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "q3",
+      "rows": [
+        {
+          "route": "q3",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Туристичний збір рахуєте вручну?",
+          "height": 2671,
+          "icons": [
+            "pin",
+            "receipt",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 816.3125,
+          "width": 1440
+        },
+        {
+          "route": "q3",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Туристичний збір рахуєте вручну?",
+          "height": 2833,
+          "icons": [
+            "pin",
+            "receipt",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 903,
+          "width": 768
+        },
+        {
+          "route": "q3",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Туристичний збір рахуєте вручну?",
+          "height": 3773,
+          "icons": [
+            "pin",
+            "receipt",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 1211.1875,
+          "width": 390
+        },
+        {
+          "route": "q3",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Туристичний збір рахуєте вручну?",
+          "height": 4131,
+          "icons": [
+            "pin",
+            "receipt",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 1315.9271240234375,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "q4",
+      "rows": [
+        {
+          "route": "q4",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Гості питають вас одне й те саме?",
+          "height": 2559,
+          "icons": [
+            "book",
+            "chat",
+            "settings"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 681,
+          "width": 1440
+        },
+        {
+          "route": "q4",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Гості питають вас одне й те саме?",
+          "height": 2545,
+          "icons": [
+            "book",
+            "chat",
+            "settings"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 635,
+          "width": 768
+        },
+        {
+          "route": "q4",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Гості питають вас одне й те саме?",
+          "height": 3429,
+          "icons": [
+            "book",
+            "chat",
+            "settings"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 881.0208740234375,
+          "width": 390
+        },
+        {
+          "route": "q4",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Гості питають вас одне й те саме?",
+          "height": 3698,
+          "icons": [
+            "book",
+            "chat",
+            "settings"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 919.6666870117188,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "q5",
+      "rows": [
+        {
+          "route": "q5",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Гість питає о другій ночі. Хто відповість?",
+          "height": 2559,
+          "icons": [
+            "key",
+            "book",
+            "users"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 681,
+          "width": 1440
+        },
+        {
+          "route": "q5",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Гість питає о другій ночі. Хто відповість?",
+          "height": 2569,
+          "icons": [
+            "key",
+            "book",
+            "users"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 635,
+          "width": 768
+        },
+        {
+          "route": "q5",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Гість питає о другій ночі. Хто відповість?",
+          "height": 3429,
+          "icons": [
+            "key",
+            "book",
+            "users"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 881.0208740234375,
+          "width": 390
+        },
+        {
+          "route": "q5",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Гість питає о другій ночі. Хто відповість?",
+          "height": 3669,
+          "icons": [
+            "key",
+            "book",
+            "users"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 930.5521240234376,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "q6",
+      "rows": [
+        {
+          "route": "q6",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+          "height": 2706,
+          "icons": [
+            "calendar",
+            "chat",
+            "route"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 896.8333740234375,
+          "width": 1440
+        },
+        {
+          "route": "q6",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+          "height": 2829,
+          "icons": [
+            "calendar",
+            "chat",
+            "route"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 971.0208740234376,
+          "width": 768
+        },
+        {
+          "route": "q6",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+          "height": 3726,
+          "icons": [
+            "calendar",
+            "chat",
+            "route"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 1225.3646240234375,
+          "width": 390
+        },
+        {
+          "route": "q6",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Бронювання в зошиті, а заявки губляться у Viber та Instagram?",
+          "height": 4021,
+          "icons": [
+            "calendar",
+            "chat",
+            "route"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 1323.2083740234375,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "q7",
+      "rows": [
+        {
+          "route": "q7",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Скільки ви віддаєте Букінгу за рік?",
+          "height": 2525,
+          "icons": [
+            "browser",
+            "channels",
+            "chart"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 670.4896240234375,
+          "width": 1440
+        },
+        {
+          "route": "q7",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Скільки ви віддаєте Букінгу за рік?",
+          "height": 2659,
+          "icons": [
+            "browser",
+            "channels",
+            "chart"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 776.9166870117188,
+          "width": 768
+        },
+        {
+          "route": "q7",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Скільки ви віддаєте Букінгу за рік?",
+          "height": 3553,
+          "icons": [
+            "browser",
+            "channels",
+            "chart"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 1031.0833740234375,
+          "width": 390
+        },
+        {
+          "route": "q7",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Скільки ви віддаєте Букінгу за рік?",
+          "height": 3894,
+          "icons": [
+            "browser",
+            "channels",
+            "chart"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 1172.291748046875,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "q8",
+      "rows": [
+        {
+          "route": "q8",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Гості вже приїхали, а номер не прибраний?",
+          "height": 2535,
+          "icons": [
+            "sparkle",
+            "clock",
+            "users"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 681,
+          "width": 1440
+        },
+        {
+          "route": "q8",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Гості вже приїхали, а номер не прибраний?",
+          "height": 2493,
+          "icons": [
+            "sparkle",
+            "clock",
+            "users"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 635,
+          "width": 768
+        },
+        {
+          "route": "q8",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Гості вже приїхали, а номер не прибраний?",
+          "height": 3339,
+          "icons": [
+            "sparkle",
+            "clock",
+            "users"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 854.625,
+          "width": 390
+        },
+        {
+          "route": "q8",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Гості вже приїхали, а номер не прибраний?",
+          "height": 3611,
+          "icons": [
+            "sparkle",
+            "clock",
+            "users"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 905.8021240234376,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "q9",
+      "rows": [
+        {
+          "route": "q9",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Роботи більшає, а людей бракує?",
+          "height": 2751,
+          "icons": [
+            "users",
+            "screen",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 896.8333740234375,
+          "width": 1440
+        },
+        {
+          "route": "q9",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Роботи більшає, а людей бракує?",
+          "height": 2884,
+          "icons": [
+            "users",
+            "screen",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 971.0208740234376,
+          "width": 768
+        },
+        {
+          "route": "q9",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Роботи більшає, а людей бракує?",
+          "height": 3783,
+          "icons": [
+            "users",
+            "screen",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 1267.041748046875,
+          "width": 390
+        },
+        {
+          "route": "q9",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Роботи більшає, а людей бракує?",
+          "height": 4001,
+          "icons": [
+            "users",
+            "screen",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 1267.2708740234375,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "qa",
+      "rows": [
+        {
+          "route": "qa",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Двоє гостей. Один номер.",
+          "height": 2535,
+          "icons": [
+            "calendar",
+            "phone",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 681,
+          "width": 1440
+        },
+        {
+          "route": "qa",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Двоє гостей. Один номер.",
+          "height": 2493,
+          "icons": [
+            "calendar",
+            "phone",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 635,
+          "width": 768
+        },
+        {
+          "route": "qa",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Двоє гостей. Один номер.",
+          "height": 3381,
+          "icons": [
+            "calendar",
+            "phone",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 881.0208740234375,
+          "width": 390
+        },
+        {
+          "route": "qa",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Двоє гостей. Один номер.",
+          "height": 3586,
+          "icons": [
+            "calendar",
+            "phone",
+            "check"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 894.9166870117188,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "qb",
+      "rows": [
+        {
+          "route": "qb",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Ті самі питання гостей - щодня?",
+          "height": 2514,
+          "icons": [
+            "book",
+            "chat",
+            "channels"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 681,
+          "width": 1440
+        },
+        {
+          "route": "qb",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Ті самі питання гостей - щодня?",
+          "height": 2545,
+          "icons": [
+            "book",
+            "chat",
+            "channels"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 635,
+          "width": 768
+        },
+        {
+          "route": "qb",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Ті самі питання гостей - щодня?",
+          "height": 3429,
+          "icons": [
+            "book",
+            "chat",
+            "channels"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 881.0208740234375,
+          "width": 390
+        },
+        {
+          "route": "qb",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Ті самі питання гостей - щодня?",
+          "height": 3597,
+          "icons": [
+            "book",
+            "chat",
+            "channels"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 919.6666870117188,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "qc",
+      "rows": [
+        {
+          "route": "qc",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Гість знайшов вас на картах, але не зміг забронювати?",
+          "height": 2595,
+          "icons": [
+            "route",
+            "chat",
+            "browser"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 740.2083740234375,
+          "width": 1440
+        },
+        {
+          "route": "qc",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Гість знайшов вас на картах, але не зміг забронювати?",
+          "height": 2709,
+          "icons": [
+            "route",
+            "chat",
+            "browser"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 850.6875,
+          "width": 768
+        },
+        {
+          "route": "qc",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Гість знайшов вас на картах, але не зміг забронювати?",
+          "height": 3654,
+          "icons": [
+            "route",
+            "chat",
+            "browser"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 1153.1146240234375,
+          "width": 390
+        },
+        {
+          "route": "qc",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Гість знайшов вас на картах, але не зміг забронювати?",
+          "height": 3899,
+          "icons": [
+            "route",
+            "chat",
+            "browser"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 1168.71875,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    },
+    {
+      "route": "qd",
+      "rows": [
+        {
+          "route": "qd",
+          "environment": "staging",
+          "targetWidth": 1440,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 1440,
+          "h1": "Знову чекаєте гостя до півночі?",
+          "height": 2535,
+          "icons": [
+            "documents",
+            "clock",
+            "key"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 681,
+          "width": 1440
+        },
+        {
+          "route": "qd",
+          "environment": "staging",
+          "targetWidth": 768,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 768,
+          "h1": "Знову чекаєте гостя до півночі?",
+          "height": 2493,
+          "icons": [
+            "documents",
+            "clock",
+            "key"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 635,
+          "width": 768
+        },
+        {
+          "route": "qd",
+          "environment": "staging",
+          "targetWidth": 390,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 390,
+          "h1": "Знову чекаєте гостя до півночі?",
+          "height": 3387,
+          "icons": [
+            "documents",
+            "clock",
+            "key"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 881.0208740234375,
+          "width": 390
+        },
+        {
+          "route": "qd",
+          "environment": "staging",
+          "targetWidth": 320,
+          "buttons": 2,
+          "css": "/robot-funnel-assets/robot-funnels.css?v=20261023c",
+          "decorative": true,
+          "documentWidth": 320,
+          "h1": "Знову чекаєте гостя до півночі?",
+          "height": 3607,
+          "icons": [
+            "documents",
+            "clock",
+            "key"
+          ],
+          "overflow": [],
+          "textOverflow": [],
+          "top": 919.6666870117188,
+          "width": 320
+        }
+      ],
+      "heroOpen": true,
+      "bottomOpen": true,
+      "faqOpen": true,
+      "submitted": false
+    }
+  ]
+}
