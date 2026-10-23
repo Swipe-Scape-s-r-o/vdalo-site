@@ -22,7 +22,7 @@ STORY: Identify the software, try the calendar, select a role, understand channe
 
 FIRST VIEWPORT: Two-line headline and a request action on the left, authored hospitality image and clearly labelled illustrative arrival state on the right. Mobile has copy/action first and its own image crop. All content is visible without motion.
 
-FORM: Code-led adaptation within the established brand. Taste deal: One motif, seed 1666683449, no redraw. Its oversized decorative shape and giant control are translated into a usable reservation calendar because the owner requested a shorter practical conversion page. Impeccable launcher unavailable; no concept board or approved comp. Existing user instructions authorize execution without another direction question.
+FORM: Code-led adaptation within the established brand. Impeccable seed: none (unavailable). The context launcher was unavailable, as recorded in QA.md, and the documented direct-context fallback was used. Taste direction: One motif, no redraw; its separate generator output is preserved in direction/direction.json. Its oversized decorative shape and giant control are translated into a usable reservation calendar because the owner requested a shorter practical conversion page. Impeccable launcher unavailable; no concept board or approved comp. Existing user instructions authorize execution without another direction question.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 

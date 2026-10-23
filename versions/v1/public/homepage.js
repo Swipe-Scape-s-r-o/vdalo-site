@@ -23,12 +23,12 @@
  const hero=page.querySelector('.home-hero');
  const close=page.querySelector('.home-close');
  const footer=document.querySelector('footer');
- let heroVisible=true,closeVisible=false,footerVisible=false;
- function syncSticky(){sticky.hidden=heroVisible||closeVisible||footerVisible||!!document.querySelector('dialog[open],#navigation.open')||!!document.querySelector('.modal.open,.modal.is-open');}
+ const actionZones=[hero,close,footer,page.querySelector('.home-demo-copy'),page.querySelector('.home-guide-end')].filter(Boolean);
+ const visibleZones=new Set([hero]);
+ function syncSticky(){sticky.hidden=visibleZones.size>0||!!document.querySelector('dialog[open],#navigation.open')||!!document.querySelector('.modal.open,.modal.is-open');}
  if('IntersectionObserver' in window){
-  const visibility=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.target===hero)heroVisible=entry.isIntersecting;else if(entry.target===close)closeVisible=entry.isIntersecting;else footerVisible=entry.isIntersecting;});syncSticky();},{threshold:0});
-  visibility.observe(hero);visibility.observe(close);
-  if(footer)visibility.observe(footer);
+  const visibility=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)visibleZones.add(entry.target);else visibleZones.delete(entry.target);});syncSticky();},{threshold:0});
+  actionZones.forEach(zone=>visibility.observe(zone));
   new MutationObserver(syncSticky).observe(document.body,{subtree:true,attributes:true,attributeFilter:['open','class']});
  }
  // Visible HTML is the baseline. WAAPI decorates once; failure never hides copy.

@@ -139,3 +139,43 @@ body.homepage-shell{background:#fcf9f8;color:#39233e}
 .homepage-2026 .home-calendar .reservation.direct{background:#ffd3e5;color:#39233e;border-color:transparent}
 .homepage-2026 .home-calendar .reservation.online{background:#d9c9de;color:#39233e;border-color:transparent}
 .homepage-2026 .home-calendar .calendar-shell.motion-ready{opacity:1;transform:none;animation:none}
+
+/* Conversion details and the visible bottom guide share the existing palette. */
+.home-hero-trial strong{color:#fff5f7;font-weight:700}
+.home-case p{font-size:16px}
+.home-case .home-text-link{justify-content:flex-start;margin-top:4px}
+.home-case .home-note{font-size:14px}
+.home-demo{background:#efe5ed}
+.home-demo>.home-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px 88px;align-items:start}
+.home-demo-copy>p{margin-top:22px;max-width:42ch}
+.home-demo-copy>.home-button{margin-top:26px}
+.home-demo-copy>.home-note{margin-top:14px;max-width:38ch}
+.home-demo h2{max-width:16ch}
+.home-demo-agenda h3{font-size:27px;max-width:22ch}
+.home-demo-agenda ul{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:24px}
+.home-demo-agenda li{display:flex;align-items:start;gap:18px;font-size:16px;line-height:1.6}
+.home-demo-agenda li>svg{width:26px;height:26px;flex:none;margin-top:2px}
+.home-demo-agenda strong{display:block;font-size:18px;line-height:1.4;margin-bottom:5px}
+.home-trial{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:88px;padding:26px;background:#e4d5e0;border-radius:16px}
+.home-trial>strong{font-family:'Inter Tight',Inter,sans-serif;font-size:25px;line-height:1.2;letter-spacing:-.025em;max-width:23ch}
+.home-trial p{font-size:15px;max-width:58ch}
+.home-guide{background:#fcf9f8}
+.home-guide-heading{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:88px;margin-bottom:48px}
+.home-guide-heading p{max-width:47ch}
+.home-guide-layout{display:grid;grid-template-columns:260px minmax(0,760px);justify-content:space-between;gap:64px;align-items:start}
+.home-guide-nav{position:sticky;top:110px}
+.home-guide-nav>p{font-size:16px;font-weight:700}
+.home-guide-nav ul{list-style:none;padding:0;margin:14px 0 16px;display:grid;gap:2px}
+.home-guide-nav li a{display:block;padding-block:9px;font-size:15px;line-height:1.5;text-decoration-thickness:1px}
+.home-guide-nav>.home-text-link{font-size:14px}
+.home-guide-copy{min-width:0;max-width:72ch}
+.home-guide-copy p{font-size:17px;line-height:1.75}
+.home-guide-copy>section{margin-top:44px;scroll-margin-top:112px}
+.home-guide-copy h3{font-size:28px;line-height:1.2;max-width:28ch;margin-bottom:20px}
+.home-guide-copy section p+p{margin-top:18px}
+.home-guide-copy a:not(.home-button){text-decoration-thickness:1px;text-underline-offset:.2em}
+.home-guide-end{margin-top:44px;padding:28px;background:#f0e7ec;border-radius:16px}
+.home-guide-end .home-button{margin-top:22px}
+@media(hover:hover) and (pointer:fine){.home-guide a:not(.home-button):hover{text-decoration-thickness:2px}}
+@media(max-width:1000px){.home-demo>.home-wrap{gap:32px}.home-trial{gap:32px}.home-guide-heading{gap:36px}.home-guide-layout{grid-template-columns:200px minmax(0,1fr);gap:36px}.home-guide-nav li a{font-size:14px}.home-guide-copy h3{font-size:25px}}
+@media(max-width:700px){.home-reading.home-case{display:block}.home-case p{margin-top:16px}.home-case .home-text-link{margin-top:12px}.home-case .home-note{margin-top:8px}.home-demo>.home-wrap{grid-template-columns:1fr;gap:32px}.home-demo h2{max-width:18ch}.home-demo-copy>p{margin-top:18px}.home-demo-copy>.home-button{width:100%;margin-top:22px}.home-demo-copy>.home-note{max-width:42ch;margin-top:12px}.home-demo-agenda h3{font-size:25px}.home-demo-agenda ul{margin-top:22px;gap:20px}.home-demo-agenda li{gap:14px}.home-demo-agenda li>svg{width:24px;height:24px}.home-demo-agenda strong{font-size:17px}.home-trial{display:block;padding-top:26px}.home-trial>strong{display:block;font-size:25px}.home-trial p{margin-top:14px;font-size:15px}.home-guide-heading{display:block;margin-bottom:28px}.home-guide-heading p{margin-top:18px}.home-guide-layout{grid-template-columns:1fr;gap:32px}.home-guide-nav{position:static;padding-bottom:0}.home-guide-nav ul{grid-template-columns:1fr 1fr;gap:4px 18px;margin-block:12px}.home-guide-nav li a{font-size:14px;padding-block:10px}.home-guide-copy p{font-size:16px;line-height:1.75}.home-guide-copy>section{margin-top:36px;scroll-margin-top:100px}.home-guide-copy h3{font-size:25px;line-height:1.2;margin-bottom:18px;max-width:26ch}.home-guide-copy section p+p{margin-top:16px}.home-guide-end{margin-top:36px;padding:22px}.home-guide-end .home-button{width:100%}}

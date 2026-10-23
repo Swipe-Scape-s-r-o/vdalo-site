@@ -162,7 +162,7 @@ The hero is a two-column composition (1fr / 1.13fr), with copy first in the DOM 
 
 At up to 1000px the hero becomes equal columns, gaps tighten and founder/reading content becomes one outer column. At up to 700px the hero, calendar introduction, workflows, channels, price summary and FAQ stack. Onboarding copy precedes its image. Quick links become a two-column grid, and the decorative FAQ photograph is hidden. The hero changes to a dedicated image asset at up to 600px.
 
-At widths of at least 1100px hero actions stack vertically. The mobile action appears only below 700px and only when the hero, final action and footer are out of view; it also hides while the menu or a dialog is open. It reserves bottom space and includes the device safe-area inset.
+At widths of at least 1100px hero actions stack vertically. The mobile action appears only below 700px and only when the hero, demo request, final action, guide-end request and footer are out of view; it also hides while the menu or a dialog is open. It reserves bottom space and includes the device safe-area inset.
 
 **The Home Scope Rule.** Apply the compact-home conventions only within the documented homepage boundary. Keep shared components and other routes under their existing authority.
 
@@ -190,7 +190,7 @@ Role tabs are filled rectangular controls, not a general tag system. Unselected 
 
 ### Cards / Containers
 
-The price figure is a filled pink surface with the price hierarchy and room-count context. The arrival overlay is blush on a photo and is explicitly labeled as an example. The reading panel is a tonal container for existing resource links. These containers add no homepage shadow.
+The price figure is a filled pink surface with the price hierarchy and room-count context. The arrival overlay is blush on a photo and is explicitly labeled as an example. The reading panel is a tonal container for a published case excerpt and its descriptive link. These containers add no homepage shadow.
 
 ### Inputs / Fields
 
