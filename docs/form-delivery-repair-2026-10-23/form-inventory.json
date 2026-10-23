@@ -1,0 +1,5593 @@
+[
+  {
+    "route": "/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"checkout-form\" class=\"checkout-form\" action=\"/v1/api/payments/checkout\" method=\"post\"",
+        "fields": [
+          "setup",
+          "customerName",
+          "email",
+          "phone",
+          "recurringConsent",
+          "consent",
+          "plan",
+          "rooms",
+          "period"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/47",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/50",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/53",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/54",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/55",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/about",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/authors",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/authors/oleh-stepeniev",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/channel-manager-ical-gotelyu",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/pidhotovka-zaselennya-gostya",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/qr-kartka-v-nomer-gotelyu",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/qr-kody-dlya-goteliv",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/qr-kody-dlya-restoranu",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/qr-wifi-dlya-gotelyu",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/shcho-take-pms-dlya-gotelyu",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/status-gotovnosti-nomera-housekeeping",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/cases",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/contact",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/funnel",
+    "status": 200,
+    "forms": []
+  },
+  {
+    "route": "/go/trial",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"sms-trial-form\" method=\"post\" action=\"/api/funnels/top5\" novalidate",
+        "fields": [
+          "email",
+          "consent",
+          "name",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "hotel_count",
+          "room_count",
+          "pms"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/guest-communication",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-access-control",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-ai-assistant",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-automation",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-booking-calendar",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-channel-manager",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-check-in",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-direct-booking",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-energy-management",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-events",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-finance",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-guest-app",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-guest-profile",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-housekeeping",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-multi-property",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-operations",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-pms-migration",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-pms-modules",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-prro",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-revenue-management",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-site-builder",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hotel-tourist-tax",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/integrations",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/k3",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"k-card\" id=\"k-form\" onsubmit=\"return false\" aria-label=\"Калькулятор\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "calc",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/offer",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/pricing",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"checkout-form\" class=\"checkout-form\" action=\"/v1/api/payments/checkout\" method=\"post\"",
+        "fields": [
+          "setup",
+          "customerName",
+          "email",
+          "phone",
+          "recurringConsent",
+          "consent",
+          "plan",
+          "rooms",
+          "period"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/privacy",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/q",
+    "status": 200,
+    "forms": []
+  },
+  {
+    "route": "/q1",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/q2",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/q3",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/q4",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/q5",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/q6",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/q7",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/q8",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/q9",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/qa",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/qb",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/qc",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/qd",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " method=\"dialog\" class=\"sheet-close-row\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"lead-form\" novalidate data-clarity-mask=\"true\"",
+        "fields": [
+          "hotel",
+          "name",
+          "email",
+          "phone",
+          "consent",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/refunds",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/sign-up",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/solutions",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"trial\" method=\"post\" action=\"/v1/api/leads/trial\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "email",
+          "phone",
+          "property",
+          "city",
+          "property_type",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"audit\" method=\"post\" action=\"/v1/api/leads/audit\" data-mode=\"start\" novalidate",
+        "fields": [
+          "mode",
+          "estimate",
+          "name",
+          "contact",
+          "property",
+          "units",
+          "pms",
+          "pain",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tools/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tools/hotel-profitability-calculator/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tools/pms-checklist/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " data-report-form method=\"post\" action=\"/v1/api/tools/pms-report\"",
+        "fields": [
+          "email",
+          "website",
+          "consent"
+        ]
+      },
+      {
+        "attributes": " data-kind=\"contact\" method=\"post\" action=\"/v1/api/leads/audit\" novalidate",
+        "fields": [
+          "name",
+          "contact",
+          "website",
+          "consent"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"generator-form\" class=\"generator-form\"",
+        "fields": []
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/berehove/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"berehove\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/cherkasy/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"cherkasy\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/chernihiv/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"chernihiv\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/chernivtsi/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"chernivtsi\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/dnipro/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"dnipro\" data-rate-model=\"banded\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/irpin/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"irpin\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/ivano-frankivsk/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"ivano-frankivsk\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/khust/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"khust\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/kolomyya/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"kolomyya\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/kyyiv/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"kyyiv\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/lutsk/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"lutsk\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/lviv/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"lviv\" data-rate-model=\"banded\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/odesa/",
+    "status": 200,
+    "forms": []
+  },
+  {
+    "route": "/tourist-tax/pivdenne/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"pivdenne\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/polyana/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"polyana\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/rivne/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"rivne\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/skole/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"skole\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/slavsko/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"slavsko\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/start",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"ttf-form\" id=\"ttf-form\" novalidate",
+        "fields": [
+          "phone",
+          "contact_method",
+          "hotel",
+          "location"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/sumy/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"sumy\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/ternopil/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"ternopil\" data-rate-model=\"banded\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/tyachiv/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"tyachiv\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/uzhhorod/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"uzhhorod\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/vinnytsya/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"vinnytsya\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/vynohradiv/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"vynohradiv\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/yaremche/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"yaremche\" data-rate-model=\"accommodation\" novalidate",
+        "fields": [
+          "place",
+          "accommodationType",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/yasinya/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"yasinya\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/zaporizhzhya/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"zaporizhzhya\" data-rate-model=\"banded\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/tourist-tax/zhytomyr/",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"tt-calc\" id=\"tourist-tax-calculator\" method=\"post\" action=\"/api/tourist-tax/calculate\" data-place-slug=\"zhytomyr\" data-rate-model=\"flat\" novalidate",
+        "fields": [
+          "place",
+          "start",
+          "days",
+          "domesticGuests",
+          "inboundGuests",
+          "accommodationPricePerPersonPerDay",
+          "exemption"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/go",
+    "status": 200,
+    "forms": []
+  },
+  {
+    "route": "/go/index.html",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/k/index.html",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"k-card\" id=\"k-form\" onsubmit=\"return false\" aria-label=\"Калькулятор\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "calc",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/k",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"k-card\" id=\"k-form\" onsubmit=\"return false\" aria-label=\"Калькулятор\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "calc",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/k1",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"k-card\" id=\"k-form\" onsubmit=\"return false\" aria-label=\"Калькулятор\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "calc",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/k2",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"k-card\" id=\"k-form\" onsubmit=\"return false\" aria-label=\"Калькулятор\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "calc",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/k4",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"k-card\" id=\"k-form\" onsubmit=\"return false\" aria-label=\"Калькулятор\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "calc",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/k5",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " class=\"k-card\" id=\"k-form\" onsubmit=\"return false\" aria-label=\"Калькулятор\"",
+        "fields": []
+      },
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "calc",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/1",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/2",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/3",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/4",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/5",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/6",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/7",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/8",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/9",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/10",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/11",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/12",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/13",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/14",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/15",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/16",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/17",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/18",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/19",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/20",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/21",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/22",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/23",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/24",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/25",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/26",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/27",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/28",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/29",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/30",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/31",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/32",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/33",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/34",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/35",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/36",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/37",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/38",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/39",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/40",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/41",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/42",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/43",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/44",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/45",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/46",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/48",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/49",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/51",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/52",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/56",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/57",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/58",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/59",
+    "status": 200,
+    "forms": [
+      {
+        "attributes": " id=\"go-form\" novalidate",
+        "fields": [
+          "name",
+          "email",
+          "phone",
+          "contact_method",
+          "hotel",
+          "location",
+          "property_type",
+          "rooms",
+          "pms",
+          "source",
+          "code",
+          "funnel",
+          "video",
+          "watched",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term",
+          "website"
+        ]
+      }
+    ]
+  }
+]

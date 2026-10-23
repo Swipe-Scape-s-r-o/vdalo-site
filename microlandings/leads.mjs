@@ -1,6 +1,7 @@
 import {randomUUID} from 'node:crypto';
 import {getOffer} from './content.mjs';
 import {deliveryConfig,deliveryReady,processes,experiments,settings} from './config.mjs';
+import {sendAcknowledgedLead} from './legacy-delivery.mjs';
 const text=(value,max=150)=>typeof value==='string'?value.trim().slice(0,max):'';
 const roles=['owner','manager','operations','reception','other'];
 const propertyTypes=['hotel','guesthouse','apartments','resort','hostel','other'];
@@ -75,9 +76,8 @@ export async function handleFunnelLead(req,res,{sendRequest=fetch}={}){
   if(Object.keys(errors).length)return send(res,422,{ok:false,errors,message:'Перевірте поля форми.'});
   if(!deliveryReady(offer.id))return send(res,503,{ok:false,message:'Онлайн-запис ще не відкритий. Запит не надіслано.'});
   const config=deliveryConfig(offer.id),payload=makePayload(offer,data,raw);
-  const response=await sendRequest(config.endpoint,{method:'POST',headers:{'Content-Type':'application/json','Idempotency-Key':payload.lead_id,...(config.token?{Authorization:`Bearer ${config.token}`}:{})},body:JSON.stringify(payload),signal:AbortSignal.timeout(10000),redirect:'error'});
-  await response.body?.cancel();
-  if(!response.ok)return send(res,502,{ok:false,message:'Не вдалося підтвердити отримання запиту. Спробуйте пізніше.'});
+  const accepted=await sendAcknowledgedLead(config,payload,{sendRequest});
+  if(!accepted)return send(res,502,{ok:false,message:'Не вдалося підтвердити отримання запиту. Спробуйте пізніше.'});
   return send(res,200,{ok:true,leadId:payload.lead_id});
  }catch(error){return send(res,error instanceof SyntaxError?400:502,{ok:false,message:error instanceof SyntaxError?'Не вдалося прочитати запит.':'Не вдалося підтвердити отримання запиту. Спробуйте пізніше.'});}
 }

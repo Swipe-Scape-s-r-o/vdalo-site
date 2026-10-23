@@ -1,0 +1,2141 @@
+[
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/guest-services-glamping",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Як персональна сторінка допомогла гостям частіше замовляти послуги"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/guest-services-glamping",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Як глемпінг збільшив замовлення послуг | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "2–5 прямих бронювань на день: як броні одразу потрапляють у календар"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/direct-bookings-calendar",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Прямі бронювання готелю: 2–5 на день | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Як система прибрала ручну звірку виплат і документів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/hotel-booking-reconciliation",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Звірка виплат і документів у готелі | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Нічне заселення без чергового адміністратора: готель у Німеччині"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/night-self-checkin-germany",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Нічне самозаселення в готелі Німеччини | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/hotel-data-migration",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Як перенесли історію готелю за сім років і звірили дані"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/hotel-data-migration",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Міграція PMS: 18 475 бронювань готелю | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Дослідження 2 118 сайтів: як перевіряли модулі бронювання"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/booking-widget-study-2118",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Дослідження 2 118 сайтів: метод і межі висновків | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Що таке PMS для готелю: як працює система управління, основні функції та приклади"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/shcho-take-pms-dlya-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Що таке PMS для готелю: функції та приклади | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як обрати PMS для готелю у 2026/2027 роках: 25 критеріїв і чекліст перед покупкою"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як готелю збільшити замовлення додаткових послуг: сторінка гостя, каталог і простий шлях до заявки"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Додаткові послуги в готелі: як спростити замовлення | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Прямі бронювання готелю: як працює віджет і що перевірити в синхронізації календарів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Прямі бронювання готелю: віджет, календар та iCal | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як перейти на PMS без втрати історії бронювань: план міграції даних готелю"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Як перейти на PMS і зберегти історію бронювань | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Шахматка готелю: як читати календар номерів і знаходити конфлікти"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Шахматка готелю: як читати календар бронювань | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+    "client": 1425,
+    "coverLoaded": 1536,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Channel Manager чи iCal: як синхронізуються бронювання в готелі"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/channel-manager-ical-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Channel Manager чи iCal для готелю: що обрати | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Заселення без поспіху: що підготувати до приїзду гостя"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/pidhotovka-zaselennya-gostya",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Як підготувати заселення гостя до приїзду | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Що автоматизувати в готелі першим: метод оцінки без гучних обіцянок"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Що автоматизувати в готелі першим: практична оцінка | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як передавати статус готовності номера між housekeeping і рецепцією"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/status-gotovnosti-nomera-housekeeping",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Статус готовності номера: housekeeping і рецепція | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Туристичний збір у 2026 році: повний посібник для гостей, готелів і власників житла"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір 2026: ставки, пільги й розрахунок",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Туристичний збір 2026: формула і 7 прикладів | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для готелів: 35 способів використання та практичні приклади"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog/qr-kody-dlya-goteliv",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "QR-коди для готелів: 35 сценаріїв і приклади | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як зробити QR-код Wi-Fi для гостей готелю: покрокова інструкція"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-wifi-dlya-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-картка в номер готелю: що додати, як оформити та надрукувати"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-kartka-v-nomer-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "QR-картка в номер готелю: шаблони й друк | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "byline": "Костянтин ТріпайлоАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для ресторану: маркетинг і повторні візити"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/skrypty-prodazhiv",
+        "rel": "noopener noreferrer",
+        "text": "розробку й впровадження скриптів продажів у «Міністерстві з Продажів»"
+      },
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "профілі Костянтина Тріпайла на сайті Міністерства"
+      }
+    ],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-kody-dlya-restoranu",
+    "profileLinks": 4,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "QR-коди для ресторану: маркетинг і продажі | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 1,
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "client": 1425,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "ProfilePage",
+      "Person",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "Профіль у Міністерстві з Продажів ↗"
+      }
+    ],
+    "newArticleLinks": 1,
+    "path": "/authors/kostiantyn-tripailo",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Костянтин Тріпайло: співвласник і автор VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/blog",
+    "client": 1425,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage"
+    ],
+    "h1": [
+      "Практичні матеріали для готельного бізнесу"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog",
+    "profileLinks": 1,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Блог для готелів: статті, кейси й інструкції | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/cases",
+    "client": 1425,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage"
+    ],
+    "h1": [
+      "Як готелі прибирають щоденну рутину"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Кейси автоматизації готелів: приклади й результати | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+    "client": 1425,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "SoftwareApplication",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Генератор QR-кодів для готелів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/tools/qr-studio/",
+    "profileLinks": 0,
+    "robots": "index,follow,max-image-preview:large",
+    "scroll": 1425,
+    "title": "QR-генератор для готелю, садиби й ресторану | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "client": 1425,
+    "graphTypes": [
+      null
+    ],
+    "h1": [
+      "Один номер продали двом гостям?"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/q1",
+    "profileLinks": 0,
+    "robots": "noindex,nofollow",
+    "scroll": 1425,
+    "title": "Один номер продали двом гостям? | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 1440,
+    "articleCards": 0,
+    "client": 1425,
+    "graphTypes": [
+      null
+    ],
+    "h1": [
+      "Роботи більшає, а людей бракує?"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/q9",
+    "profileLinks": 0,
+    "robots": "noindex,nofollow",
+    "scroll": 1425,
+    "title": "Роботи більшає, а людей бракує? | VDALO",
+    "width": 1440
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/guest-services-glamping",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Як персональна сторінка допомогла гостям частіше замовляти послуги"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/guest-services-glamping",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Як глемпінг збільшив замовлення послуг | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "2–5 прямих бронювань на день: як броні одразу потрапляють у календар"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/direct-bookings-calendar",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Прямі бронювання готелю: 2–5 на день | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Як система прибрала ручну звірку виплат і документів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/hotel-booking-reconciliation",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Звірка виплат і документів у готелі | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Нічне заселення без чергового адміністратора: готель у Німеччині"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/night-self-checkin-germany",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Нічне самозаселення в готелі Німеччини | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/hotel-data-migration",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Як перенесли історію готелю за сім років і звірили дані"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/hotel-data-migration",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Міграція PMS: 18 475 бронювань готелю | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Дослідження 2 118 сайтів: як перевіряли модулі бронювання"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/booking-widget-study-2118",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Дослідження 2 118 сайтів: метод і межі висновків | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Що таке PMS для готелю: як працює система управління, основні функції та приклади"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/shcho-take-pms-dlya-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Що таке PMS для готелю: функції та приклади | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як обрати PMS для готелю у 2026/2027 роках: 25 критеріїв і чекліст перед покупкою"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як готелю збільшити замовлення додаткових послуг: сторінка гостя, каталог і простий шлях до заявки"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Додаткові послуги в готелі: як спростити замовлення | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Прямі бронювання готелю: як працює віджет і що перевірити в синхронізації календарів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Прямі бронювання готелю: віджет, календар та iCal | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як перейти на PMS без втрати історії бронювань: план міграції даних готелю"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Як перейти на PMS і зберегти історію бронювань | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Шахматка готелю: як читати календар номерів і знаходити конфлікти"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Шахматка готелю: як читати календар бронювань | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+    "client": 375,
+    "coverLoaded": 1536,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Channel Manager чи iCal: як синхронізуються бронювання в готелі"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/channel-manager-ical-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Channel Manager чи iCal для готелю: що обрати | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Заселення без поспіху: що підготувати до приїзду гостя"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/pidhotovka-zaselennya-gostya",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Як підготувати заселення гостя до приїзду | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Що автоматизувати в готелі першим: метод оцінки без гучних обіцянок"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Що автоматизувати в готелі першим: практична оцінка | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як передавати статус готовності номера між housekeeping і рецепцією"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/status-gotovnosti-nomera-housekeeping",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Статус готовності номера: housekeeping і рецепція | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Туристичний збір у 2026 році: повний посібник для гостей, готелів і власників житла"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір 2026: ставки, пільги й розрахунок",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Туристичний збір 2026: формула і 7 прикладів | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для готелів: 35 способів використання та практичні приклади"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog/qr-kody-dlya-goteliv",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "QR-коди для готелів: 35 сценаріїв і приклади | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як зробити QR-код Wi-Fi для гостей готелю: покрокова інструкція"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-wifi-dlya-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-картка в номер готелю: що додати, як оформити та надрукувати"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-kartka-v-nomer-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "QR-картка в номер готелю: шаблони й друк | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "byline": "Костянтин ТріпайлоАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для ресторану: маркетинг і повторні візити"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/skrypty-prodazhiv",
+        "rel": "noopener noreferrer",
+        "text": "розробку й впровадження скриптів продажів у «Міністерстві з Продажів»"
+      },
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "профілі Костянтина Тріпайла на сайті Міністерства"
+      }
+    ],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-kody-dlya-restoranu",
+    "profileLinks": 4,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "QR-коди для ресторану: маркетинг і продажі | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 1,
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "client": 375,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "ProfilePage",
+      "Person",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "Профіль у Міністерстві з Продажів ↗"
+      }
+    ],
+    "newArticleLinks": 1,
+    "path": "/authors/kostiantyn-tripailo",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Костянтин Тріпайло: співвласник і автор VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/blog",
+    "client": 375,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage"
+    ],
+    "h1": [
+      "Практичні матеріали для готельного бізнесу"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog",
+    "profileLinks": 1,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Блог для готелів: статті, кейси й інструкції | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/cases",
+    "client": 375,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage"
+    ],
+    "h1": [
+      "Як готелі прибирають щоденну рутину"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Кейси автоматизації готелів: приклади й результати | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+    "client": 375,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "SoftwareApplication",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Генератор QR-кодів для готелів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/tools/qr-studio/",
+    "profileLinks": 0,
+    "robots": "index,follow,max-image-preview:large",
+    "scroll": 375,
+    "title": "QR-генератор для готелю, садиби й ресторану | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "client": 375,
+    "graphTypes": [
+      null
+    ],
+    "h1": [
+      "Один номер продали двом гостям?"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/q1",
+    "profileLinks": 0,
+    "robots": "noindex,nofollow",
+    "scroll": 375,
+    "title": "Один номер продали двом гостям? | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 390,
+    "articleCards": 0,
+    "client": 375,
+    "graphTypes": [
+      null
+    ],
+    "h1": [
+      "Роботи більшає, а людей бракує?"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/q9",
+    "profileLinks": 0,
+    "robots": "noindex,nofollow",
+    "scroll": 375,
+    "title": "Роботи більшає, а людей бракує? | VDALO",
+    "width": 390
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/guest-services-glamping",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Як персональна сторінка допомогла гостям частіше замовляти послуги"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/guest-services-glamping",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Як глемпінг збільшив замовлення послуг | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "2–5 прямих бронювань на день: як броні одразу потрапляють у календар"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/direct-bookings-calendar",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Прямі бронювання готелю: 2–5 на день | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Як система прибрала ручну звірку виплат і документів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/hotel-booking-reconciliation",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Звірка виплат і документів у готелі | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Нічне заселення без чергового адміністратора: готель у Німеччині"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/night-self-checkin-germany",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Нічне самозаселення в готелі Німеччини | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/hotel-data-migration",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Як перенесли історію готелю за сім років і звірили дані"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/hotel-data-migration",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Міграція PMS: 18 475 бронювань готелю | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "Article"
+    ],
+    "h1": [
+      "Дослідження 2 118 сайтів: як перевіряли модулі бронювання"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases/booking-widget-study-2118",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Дослідження 2 118 сайтів: метод і межі висновків | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Що таке PMS для готелю: як працює система управління, основні функції та приклади"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/shcho-take-pms-dlya-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Що таке PMS для готелю: функції та приклади | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як обрати PMS для готелю у 2026/2027 роках: 25 критеріїв і чекліст перед покупкою"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як готелю збільшити замовлення додаткових послуг: сторінка гостя, каталог і простий шлях до заявки"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Додаткові послуги в готелі: як спростити замовлення | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Прямі бронювання готелю: як працює віджет і що перевірити в синхронізації календарів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Прямі бронювання готелю: віджет, календар та iCal | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як перейти на PMS без втрати історії бронювань: план міграції даних готелю"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Як перейти на PMS і зберегти історію бронювань | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Шахматка готелю: як читати календар номерів і знаходити конфлікти"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Шахматка готелю: як читати календар бронювань | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+    "client": 305,
+    "coverLoaded": 1536,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Channel Manager чи iCal: як синхронізуються бронювання в готелі"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/channel-manager-ical-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Channel Manager чи iCal для готелю: що обрати | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Заселення без поспіху: що підготувати до приїзду гостя"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/pidhotovka-zaselennya-gostya",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Як підготувати заселення гостя до приїзду | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Що автоматизувати в готелі першим: метод оцінки без гучних обіцянок"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Що автоматизувати в готелі першим: практична оцінка | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як передавати статус готовності номера між housekeeping і рецепцією"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/status-gotovnosti-nomera-housekeeping",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Статус готовності номера: housekeeping і рецепція | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Туристичний збір у 2026 році: повний посібник для гостей, готелів і власників житла"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Туристичний збір 2026: ставки, пільги й розрахунок",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Туристичний збір 2026: формула і 7 прикладів | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для готелів: 35 способів використання та практичні приклади"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog/qr-kody-dlya-goteliv",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "QR-коди для готелів: 35 сценаріїв і приклади | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Як зробити QR-код Wi-Fi для гостей готелю: покрокова інструкція"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-wifi-dlya-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-картка в номер готелю: що додати, як оформити та надрукувати"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-kartka-v-nomer-gotelyu",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "QR-картка в номер готелю: шаблони й друк | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "byline": "Костянтин ТріпайлоАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для ресторану: маркетинг і повторні візити"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/skrypty-prodazhiv",
+        "rel": "noopener noreferrer",
+        "text": "розробку й впровадження скриптів продажів у «Міністерстві з Продажів»"
+      },
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "профілі Костянтина Тріпайла на сайті Міністерства"
+      }
+    ],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-kody-dlya-restoranu",
+    "profileLinks": 4,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "QR-коди для ресторану: маркетинг і продажі | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 1,
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "client": 305,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "ProfilePage",
+      "Person",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "Профіль у Міністерстві з Продажів ↗"
+      }
+    ],
+    "newArticleLinks": 1,
+    "path": "/authors/kostiantyn-tripailo",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Костянтин Тріпайло: співвласник і автор VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/blog",
+    "client": 305,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage"
+    ],
+    "h1": [
+      "Практичні матеріали для готельного бізнесу"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog",
+    "profileLinks": 1,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Блог для готелів: статті, кейси й інструкції | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/cases",
+    "client": 305,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage"
+    ],
+    "h1": [
+      "Як готелі прибирають щоденну рутину"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/cases",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Кейси автоматизації готелів: приклади й результати | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+    "client": 305,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "SoftwareApplication",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Генератор QR-кодів для готелів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/tools/qr-studio/",
+    "profileLinks": 0,
+    "robots": "index,follow,max-image-preview:large",
+    "scroll": 305,
+    "title": "QR-генератор для готелю, садиби й ресторану | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "client": 305,
+    "graphTypes": [
+      null
+    ],
+    "h1": [
+      "Один номер продали двом гостям?"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/q1",
+    "profileLinks": 0,
+    "robots": "noindex,nofollow",
+    "scroll": 305,
+    "title": "Один номер продали двом гостям? | VDALO",
+    "width": 320
+  },
+  {
+    "expectedWidth": 320,
+    "articleCards": 0,
+    "client": 305,
+    "graphTypes": [
+      null
+    ],
+    "h1": [
+      "Роботи більшає, а людей бракує?"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/q9",
+    "profileLinks": 0,
+    "robots": "noindex,nofollow",
+    "scroll": 305,
+    "title": "Роботи більшає, а людей бракує? | VDALO",
+    "width": 320
+  }
+]

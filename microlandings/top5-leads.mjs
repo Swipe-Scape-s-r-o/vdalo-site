@@ -1,4 +1,5 @@
-import {createHash,randomUUID} from 'node:crypto';
+import {randomUUID} from 'node:crypto';
+import {resolveLeadDestination,legacyTop5Payload,sendAcknowledgedLead} from './legacy-delivery.mjs';
 
 const clean=(v,n=180)=>typeof v==='string'?v.trim().slice(0,n):'';
 const funnels=new Set(['staff','nights','overbook','commission','blackout','tourist_tax','guest_data','faq','night','notebook','direct','housekeeping','late_checkin']);
@@ -14,18 +15,17 @@ function cleanQuizContext(raw,funnel){
  if(typeof value.sms_code==='string'&&/^\d{1,2}$/.test(value.sms_code))clean.sms_code=value.sms_code;
  return ['property_format','property_type','room_range','pms_status','main_pain','frequency','intent'].every(key=>clean[key])?clean:null;
 }
+function cleanAnswer(key,value){
+ if(typeof value==='string')return clean(value,300);
+ if(typeof value==='boolean'||typeof value==='number'&&Number.isFinite(value))return value;
+ if(key==='calculator'&&value&&typeof value==='object'&&!Array.isArray(value))return Object.fromEntries(Object.entries(value).filter(([name,number])=>/^[a-z_]{1,60}$/.test(name)&&typeof number==='number'&&Number.isFinite(number)).slice(0,12));
+ return null;
+}
 const limiters=new Map();
 function rateExceeded(req){const key=req.socket?.remoteAddress||'unknown',now=Date.now();for(const [k,v] of limiters)if(v.until<now)limiters.delete(k);if(limiters.size>5000&&!limiters.has(key))return true;const b=limiters.get(key)||{count:0,until:now+60000};b.count++;limiters.set(key,b);return b.count>12;}
 const reply=(res,status,data)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(data));};
-function requestIdempotencyKey(payload,event){
- const stablePayload={...payload};delete stablePayload.submitted_at;
- const fingerprint=createHash('sha256').update(JSON.stringify(stablePayload)).digest('hex').slice(0,20);
- return `${payload.lead_id}:${event}:${fingerprint}`;
-}
 async function deliverLead(endpoint,payload,event,env,sendRequest){
- const response=await sendRequest(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Idempotency-Key':requestIdempotencyKey(payload,event),...(env.VDALO_WEBHOOK_BEARER_TOKEN?{Authorization:`Bearer ${env.VDALO_WEBHOOK_BEARER_TOKEN}`}:{})},body:JSON.stringify(payload),signal:AbortSignal.timeout(10000),redirect:'error'});
- await response.body?.cancel();
- return response.ok;
+ return sendAcknowledgedLead(endpoint,legacyTop5Payload(payload,event),{sendRequest});
 }
 export async function handleTop5Lead(req,res,{sendRequest=fetch,env=process.env}={}){
  if(req.method!=='POST')return reply(res,405,{ok:false,message:'Метод недоступний.'});
@@ -48,7 +48,7 @@ export async function handleTop5Lead(req,res,{sendRequest=fetch,env=process.env}
   if(submissionStage==='email_capture'){
    if(raw.consent!==true)return reply(res,422,{ok:false,message:'Потрібна згода, щоб зберегти email і відповісти щодо тестового доступу.'});
    if(!funnels.has(funnel)||!sources.has(source))return reply(res,422,{ok:false,message:'Не вдалося визначити джерело запиту.'});
-   const endpoint=funnel==='tourist_tax'?(env.VDALO_LEAD_WEBHOOK_URL||env.VDALO_TRIAL_WEBHOOK_URL):(env.VDALO_TRIAL_WEBHOOK_URL||env.VDALO_LEAD_WEBHOOK_URL);
+   const endpoint=resolveLeadDestination(funnel,env);
    if(!endpoint)return reply(res,503,{ok:false,message:'Приймання запитів на тест ще не підключене. Email не збережено. Спробуйте пізніше.'});
    const leadId=suppliedLeadId||randomUUID();
    const quizAnswers=cleanQuizContext(raw,funnel);
@@ -70,13 +70,13 @@ export async function handleTop5Lead(req,res,{sendRequest=fetch,env=process.env}
   if(hotelCount&&!new Set(['1','2-3','4+']).has(hotelCount))return reply(res,422,{ok:false,message:'Перевірте кількість об’єктів.'});
   if(!funnels.has(funnel)||!sources.has(source))return reply(res,422,{ok:false,message:'Не вдалося визначити джерело запиту.'});
   if(raw.consent!==true)return reply(res,422,{ok:false,message:'Потрібна згода на обробку даних.'});
-  const endpoint=funnel==='tourist_tax'?(env.VDALO_LEAD_WEBHOOK_URL||env.VDALO_TRIAL_WEBHOOK_URL):(env.VDALO_TRIAL_WEBHOOK_URL||env.VDALO_LEAD_WEBHOOK_URL);
+  const endpoint=resolveLeadDestination(funnel,env);
   if(!endpoint)return reply(res,503,{ok:false,message:'Приймання запитів на тест ще не підключене. Запит не надіслано.'});
   const calc=typeof raw.calc==='string'?raw.calc.slice(0,4000):'';
   const quizAnswers=cleanQuizContext(raw,funnel);
   const isTouristTax=funnel==='tourist_tax';
   const leadId=suppliedLeadId||randomUUID();
-  const safeAnswers=raw.answers&&typeof raw.answers==='object'&&!Array.isArray(raw.answers)?Object.fromEntries(Object.entries(raw.answers).slice(0,12).map(([key,value])=>[clean(key,50),typeof value==='string'?clean(value,300):typeof value==='number'||typeof value==='boolean'?value:null])):{};
+  const safeAnswers=raw.answers&&typeof raw.answers==='object'&&!Array.isArray(raw.answers)?Object.fromEntries(Object.entries(raw.answers).slice(0,12).map(([key,value])=>[clean(key,50),cleanAnswer(key,value)])):{};
   const payload={lead_id:leadId,kind:isTouristTax?'tourist_tax_inquiry':'trial_request',event_type:isRobotFunnel?'lead_captured':submissionStage==='details_complete'?'lead_enriched':'lead_captured',status:'pending_contact',stage:'NEW',proposed_next_step:'review_trial_request',...(isTouristTax?{}:{trial_days:14,requires_card:false}),submitted_at:new Date().toISOString(),contact:{name,email,phone,preferred_method:contactMethod,...(hotel?{hotel_name:hotel}:{}),...(propertyType?{property_type:propertyType}:{}),...(location?{location}:{}),...(rooms?{room_range:rooms}:{}),...(hotelCount?{hotel_count:hotelCount}:{}),...(pms?{current_pms:pms}:{})},...(quizAnswers?{qualification:{quiz_answers:quizAnswers}}:{}),...(safeAnswers?{answers:safeAnswers}:{}),attribution:{source,code,funnel,...(pageFormat?{page_format:pageFormat}:{}),...(video?{video}:{}),...(videoVariant?{video_variant:videoVariant}:{}),...(contactTag?{contact_tag:contactTag}:{}),entry_page:entryPage||null,watched_percent:[0,25,50,75,100].reduce((best,value)=>Math.abs(best-watched)<Math.abs(value-watched)?value:best,0),calculator:calc||null,utm:Object.fromEntries(['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(k=>[k,clean(raw[k],150)]).filter(([,v])=>v))},permissions:{respond_to_request:true,consent:true},source_system:isRobotFunnel?'vdalo-robot-funnels':'vdalo-top5-funnels'};
   const accepted=await deliverLead(endpoint,payload,submissionStage||'details_complete',env,sendRequest);
   if(!accepted)return reply(res,502,{ok:false,message:'Не вдалося підтвердити отримання запиту. Спробуйте пізніше.'});

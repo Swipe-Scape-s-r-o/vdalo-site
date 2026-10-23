@@ -54,14 +54,14 @@ test('trial lead validates and retains quiz qualification for the matching desti
     sendRequest: async (url, options) => {
       assert.equal(url, 'https://receiver.example.invalid/trial');
       forwarded = JSON.parse(options.body);
-      return {ok: true, body: {async cancel() {}}};
+      return new Response(JSON.stringify({ok:true}),{status:200});
     }
   });
   assert.equal(status, 200);
   assert.equal(responseBody.ok, true);
   assert.equal(forwarded.kind, 'trial_request');
   assert.equal(forwarded.trial_days, 14);
-  assert.deepEqual(forwarded.qualification.quiz_answers, {
+  assert.deepEqual(Object.fromEntries(Object.entries(forwarded.qualification.quiz_answers).filter(([key])=>key!=='form_fields')), {
     property_format: 'hotel', property_type: 'hotel', room_range: '6-12',
     pms_status: 'exely', main_pain: 'checkin', frequency: 'daily', intent: 'solution'
   });

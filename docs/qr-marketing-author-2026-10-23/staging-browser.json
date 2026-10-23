@@ -1,0 +1,488 @@
+[
+  {
+    "profile": "desktop",
+    "articleCards": 1,
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "client": 1425,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "ProfilePage",
+      "Person",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "Профіль у Міністерстві з Продажів ↗"
+      }
+    ],
+    "newArticleLinks": 1,
+    "path": "/authors/kostiantyn-tripailo",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Костянтин Тріпайло: співвласник і автор VDALO",
+    "width": 1440
+  },
+  {
+    "profile": "desktop",
+    "articleCards": 0,
+    "byline": "Костянтин ТріпайлоАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для ресторану: маркетинг і повторні візити"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/skrypty-prodazhiv",
+        "rel": "noopener noreferrer",
+        "text": "розробку й впровадження скриптів продажів у «Міністерстві з Продажів»"
+      },
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "профілі Костянтина Тріпайла на сайті Міністерства"
+      }
+    ],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-kody-dlya-restoranu",
+    "profileLinks": 4,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "QR-коди для ресторану: маркетинг і продажі | VDALO",
+    "width": 1440
+  },
+  {
+    "profile": "desktop",
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/blog",
+    "client": 1425,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage"
+    ],
+    "h1": [
+      "Практичні матеріали для готельного бізнесу"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog",
+    "profileLinks": 1,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Блог для готелів: статті, кейси й інструкції | VDALO",
+    "width": 1440
+  },
+  {
+    "profile": "desktop",
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/authors",
+    "client": 1425,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Автори VDALO"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/authors",
+    "profileLinks": 2,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "Автори VDALO: досвід і статті для готельного бізнесу",
+    "width": 1440
+  },
+  {
+    "profile": "desktop",
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "client": 1425,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для готелів: 35 способів використання та практичні приклади"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog/qr-kody-dlya-goteliv",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 1425,
+    "title": "QR-коди для готелів: 35 сценаріїв і приклади | VDALO",
+    "width": 1440
+  },
+  {
+    "profile": "desktop",
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+    "client": 1425,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "SoftwareApplication",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Генератор QR-кодів для готелів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/tools/qr-studio/",
+    "profileLinks": 0,
+    "robots": "index,follow,max-image-preview:large",
+    "scroll": 1425,
+    "title": "QR-генератор для готелю, садиби й ресторану | VDALO",
+    "width": 1440
+  },
+  {
+    "profile": "mobile",
+    "articleCards": 1,
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "client": 375,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "ProfilePage",
+      "Person",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "Профіль у Міністерстві з Продажів ↗"
+      }
+    ],
+    "newArticleLinks": 1,
+    "path": "/authors/kostiantyn-tripailo",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Костянтин Тріпайло: співвласник і автор VDALO",
+    "width": 390
+  },
+  {
+    "profile": "mobile",
+    "articleCards": 0,
+    "byline": "Костянтин ТріпайлоАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для ресторану: маркетинг і повторні візити"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/skrypty-prodazhiv",
+        "rel": "noopener noreferrer",
+        "text": "розробку й впровадження скриптів продажів у «Міністерстві з Продажів»"
+      },
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "профілі Костянтина Тріпайла на сайті Міністерства"
+      }
+    ],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-kody-dlya-restoranu",
+    "profileLinks": 4,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "QR-коди для ресторану: маркетинг і продажі | VDALO",
+    "width": 390
+  },
+  {
+    "profile": "mobile",
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/blog",
+    "client": 375,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage"
+    ],
+    "h1": [
+      "Практичні матеріали для готельного бізнесу"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog",
+    "profileLinks": 1,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Блог для готелів: статті, кейси й інструкції | VDALO",
+    "width": 390
+  },
+  {
+    "profile": "mobile",
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/authors",
+    "client": 375,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Автори VDALO"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/authors",
+    "profileLinks": 2,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "Автори VDALO: досвід і статті для готельного бізнесу",
+    "width": 390
+  },
+  {
+    "profile": "mobile",
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "client": 375,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для готелів: 35 способів використання та практичні приклади"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog/qr-kody-dlya-goteliv",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 375,
+    "title": "QR-коди для готелів: 35 сценаріїв і приклади | VDALO",
+    "width": 390
+  },
+  {
+    "profile": "mobile",
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+    "client": 375,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "SoftwareApplication",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Генератор QR-кодів для готелів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/tools/qr-studio/",
+    "profileLinks": 0,
+    "robots": "index,follow,max-image-preview:large",
+    "scroll": 375,
+    "title": "QR-генератор для готелю, садиби й ресторану | VDALO",
+    "width": 390
+  },
+  {
+    "profile": "narrow",
+    "articleCards": 1,
+    "canonical": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+    "client": 305,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "ProfilePage",
+      "Person",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Костянтин Тріпайло"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "Профіль у Міністерстві з Продажів ↗"
+      }
+    ],
+    "newArticleLinks": 1,
+    "path": "/authors/kostiantyn-tripailo",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Костянтин Тріпайло: співвласник і автор VDALO",
+    "width": 320
+  },
+  {
+    "profile": "narrow",
+    "articleCards": 0,
+    "byline": "Костянтин ТріпайлоАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для ресторану: маркетинг і повторні візити"
+    ],
+    "ministryLinks": [
+      {
+        "href": "https://ministrysale.com/skrypty-prodazhiv",
+        "rel": "noopener noreferrer",
+        "text": "розробку й впровадження скриптів продажів у «Міністерстві з Продажів»"
+      },
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer",
+        "text": "профілі Костянтина Тріпайла на сайті Міністерства"
+      }
+    ],
+    "newArticleLinks": 0,
+    "path": "/blog/qr-kody-dlya-restoranu",
+    "profileLinks": 4,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "QR-коди для ресторану: маркетинг і продажі | VDALO",
+    "width": 320
+  },
+  {
+    "profile": "narrow",
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/blog",
+    "client": 305,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage"
+    ],
+    "h1": [
+      "Практичні матеріали для готельного бізнесу"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog",
+    "profileLinks": 1,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Блог для готелів: статті, кейси й інструкції | VDALO",
+    "width": 320
+  },
+  {
+    "profile": "narrow",
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/authors",
+    "client": 305,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "CollectionPage",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Автори VDALO"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 0,
+    "path": "/authors",
+    "profileLinks": 2,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "Автори VDALO: досвід і статті для готельного бізнесу",
+    "width": 320
+  },
+  {
+    "profile": "narrow",
+    "articleCards": 0,
+    "byline": "Олег СтепенєвАвтор матеріалу",
+    "canonical": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+    "client": 305,
+    "coverLoaded": 1200,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "QR-коди для готелів: 35 способів використання та практичні приклади"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/blog/qr-kody-dlya-goteliv",
+    "profileLinks": 0,
+    "robots": "index,follow",
+    "scroll": 305,
+    "title": "QR-коди для готелів: 35 сценаріїв і приклади | VDALO",
+    "width": 320
+  },
+  {
+    "profile": "narrow",
+    "articleCards": 0,
+    "canonical": "https://www.vdalo.tech/tools/qr-studio/",
+    "client": 305,
+    "graphTypes": [
+      "Organization",
+      "WebSite",
+      "WebPage",
+      "SoftwareApplication",
+      "BreadcrumbList"
+    ],
+    "h1": [
+      "Генератор QR-кодів для готелів"
+    ],
+    "ministryLinks": [],
+    "newArticleLinks": 1,
+    "path": "/tools/qr-studio/",
+    "profileLinks": 0,
+    "robots": "index,follow,max-image-preview:large",
+    "scroll": 305,
+    "title": "QR-генератор для готелю, садиби й ресторану | VDALO",
+    "width": 320
+  }
+]

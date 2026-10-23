@@ -91,7 +91,7 @@ test('robot funnel accepts only object name and contact, then sends a captured l
  const res={writeHead(code){status=code;},end(body){response=JSON.parse(body);}};
  await handleTop5Lead(request,res,{
   env:{VDALO_TRIAL_WEBHOOK_URL:'https://receiver.example.invalid/leads'},
-  sendRequest:async(_url,options)=>{payload=JSON.parse(options.body);return {ok:true,body:{async cancel(){}}};},
+  sendRequest:async(_url,options)=>{payload=JSON.parse(options.body);return new Response(JSON.stringify({ok:true}),{status:200});},
  });
  assert.equal(status,200);
  assert.equal(response.ok,true);

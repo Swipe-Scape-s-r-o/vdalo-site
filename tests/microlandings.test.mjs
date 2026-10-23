@@ -38,7 +38,7 @@ for(const offer of offers){
  }));
  test(`${offer.id}: success only after receiver acknowledgement`,async()=>withEnvironment(true,async()=>{
   let captured;
-  const result=await request(valid(offer.id),async(url,options)=>{assert.equal(url,'https://receiver.example.invalid/leads');captured=JSON.parse(options.body);return {ok:true,body:{async cancel(){}}};});
+  const result=await request(valid(offer.id),async(url,options)=>{assert.equal(url,'https://receiver.example.invalid/leads');captured=JSON.parse(options.body);return new Response(JSON.stringify({ok:true}),{status:200});});
   assert.equal(result.status,200);assert.equal(result.output.ok,true);assert.equal(captured.offer_id,offer.id);assert.equal(captured.landing_route,offer.route);assert.equal(captured.stage,'NEW');assert.equal(captured.qualification.room_count,12);assert.equal(result.output.leadId,captured.lead_id);
  }));
  test(`${offer.id}: receiver failure never reports success`,async()=>withEnvironment(true,async()=>{

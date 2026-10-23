@@ -1,0 +1,40 @@
+{
+  "sitemap": {
+    "article": true,
+    "author": true,
+    "urls": 91
+  },
+  "interactions": {
+    "headerBottom": 68.66667175292969,
+    "links": [
+      {
+        "href": "https://ministrysale.com/skrypty-prodazhiv",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://ministrysale.com/kostiantyn-tripailo",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "tables": [
+      {
+        "client": 267,
+        "overflow": "auto",
+        "scroll": 620
+      },
+      {
+        "client": 267,
+        "overflow": "auto",
+        "scroll": 620
+      },
+      {
+        "client": 267,
+        "overflow": "auto",
+        "scroll": 620
+      }
+    ],
+    "targetTop": 204.02084350585935,
+    "tocOpen": true,
+    "width": 320
+  }
+}
