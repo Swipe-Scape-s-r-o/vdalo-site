@@ -1,0 +1,42 @@
+[
+  {
+    "consentInsideForm": true,
+    "group": true,
+    "pmsInsideDialog": true,
+    "pmsInsideForm": true,
+    "route": "/k1",
+    "submitInsideForm": true
+  },
+  {
+    "consentInsideForm": true,
+    "group": true,
+    "pmsInsideDialog": true,
+    "pmsInsideForm": true,
+    "route": "/k2",
+    "submitInsideForm": true
+  },
+  {
+    "consentInsideForm": true,
+    "group": true,
+    "pmsInsideDialog": true,
+    "pmsInsideForm": true,
+    "route": "/k3",
+    "submitInsideForm": true
+  },
+  {
+    "consentInsideForm": true,
+    "group": true,
+    "pmsInsideDialog": true,
+    "pmsInsideForm": true,
+    "route": "/k4",
+    "submitInsideForm": true
+  },
+  {
+    "consentInsideForm": true,
+    "group": true,
+    "pmsInsideDialog": true,
+    "pmsInsideForm": true,
+    "route": "/k5",
+    "submitInsideForm": true
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "noConsent": "Підтвердьте згоду на обробку даних.",
+  "deliveryMessage": "Приймання запитів на тест ще не підключене. Запит не надіслано.",
+  "desktop": {
+    "overflow": false,
+    "width": 1440
+  },
+  "mobile": {
+    "overflow": false,
+    "width": 390
+  }
+}

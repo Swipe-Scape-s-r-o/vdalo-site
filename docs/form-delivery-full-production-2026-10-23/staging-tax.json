@@ -1,0 +1,12 @@
+{
+  "consentError": "Підтвердьте згоду, щоб надіслати запит.",
+  "phoneError": "Вкажіть коректний номер телефону.",
+  "deliveryMessage": "Приймання запитів на тест ще не підключене. Запит не надіслано.",
+  "overflow": false,
+  "success": false,
+  "width": 390,
+  "desktop": {
+    "overflow": false,
+    "width": 1440
+  }
+}

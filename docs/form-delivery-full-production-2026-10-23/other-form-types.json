@@ -1,0 +1,20 @@
+[
+  {
+    "active": "customerName",
+    "invalid": [
+      "customerName",
+      "email",
+      "recurringConsent",
+      "consent"
+    ],
+    "kind": "payment-validation-only",
+    "paymentExecuted": false,
+    "route": "/pricing"
+  },
+  {
+    "kind": "pms-report",
+    "ready": "false",
+    "reportFormPresent": true,
+    "route": "/tools/pms-checklist/"
+  }
+]

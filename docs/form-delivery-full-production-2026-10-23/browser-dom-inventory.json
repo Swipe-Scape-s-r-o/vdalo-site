@@ -1,0 +1,2545 @@
+[
+  {
+    "route": "/",
+    "forms": [
+      {
+        "key": "checkout-form",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Система керування готелем і бронюваннями | VDALO"
+  },
+  {
+    "route": "/1",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/10",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/11",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/12",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/13",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/14",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/15",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/16",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/17",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/18",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/19",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/2",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/20",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/21",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Інструкції для гостей і нічні запитання | VDALO"
+  },
+  {
+    "route": "/22",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Інструкції для гостей і нічні запитання | VDALO"
+  },
+  {
+    "route": "/23",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Інструкції для гостей і нічні запитання | VDALO"
+  },
+  {
+    "route": "/24",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/25",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/26",
+    "browserBlocked": true,
+    "httpStatus": 200,
+    "note": "Chrome locally blocked the page; direct public HTTP check returns the form."
+  },
+  {
+    "route": "/27",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/28",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/29",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/3",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Документи й туристичний збір у готелі | VDALO"
+  },
+  {
+    "route": "/30",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/31",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/32",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/33",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/34",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Документи й туристичний збір у готелі | VDALO"
+  },
+  {
+    "route": "/35",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Документи й туристичний збір у готелі | VDALO"
+  },
+  {
+    "route": "/36",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/37",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/38",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/39",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/4",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/40",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/41",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/42",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Інструкції для гостей і нічні запитання | VDALO"
+  },
+  {
+    "route": "/43",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Інструкції для гостей і нічні запитання | VDALO"
+  },
+  {
+    "route": "/44",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/45",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/46",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/47",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Прямі звернення та бронювання для готелю | VDALO"
+  },
+  {
+    "route": "/48",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Прямі запити й канали бронювання готелю | VDALO"
+  },
+  {
+    "route": "/49",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Прямі запити й канали бронювання готелю | VDALO"
+  },
+  {
+    "route": "/5",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/50",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Робота готелю під час відключень світла | VDALO"
+  },
+  {
+    "route": "/51",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/52",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/53",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Підготовка до заїзду та заселення гостей | VDALO"
+  },
+  {
+    "route": "/54",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Інструкції для гостей і нічні запитання | VDALO"
+  },
+  {
+    "route": "/55",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання з каналів і ризик овербукінгу | VDALO"
+  },
+  {
+    "route": "/56",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Заселення гостей і робота рецепції | VDALO"
+  },
+  {
+    "route": "/57",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Щоденна робота готелю під час відключень | VDALO"
+  },
+  {
+    "route": "/58",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Прямі запити й канали бронювання готелю | VDALO"
+  },
+  {
+    "route": "/59",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Підготовка до заїзду та заселення гостей | VDALO"
+  },
+  {
+    "route": "/6",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/7",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/8",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання й контроль номерів у готелі | VDALO"
+  },
+  {
+    "route": "/9",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Документи й туристичний збір у готелі | VDALO"
+  },
+  {
+    "route": "/about",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Про VDALO та засновника Олега Степенєва | Досвід у готелях"
+  },
+  {
+    "route": "/authors",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Автори VDALO: досвід і статті для готельного бізнесу"
+  },
+  {
+    "route": "/authors/kostiantyn-tripailo",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Костянтин Тріпайло: співвласник і автор VDALO"
+  },
+  {
+    "route": "/authors/oleh-stepeniev",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Олег Степенєв - автор матеріалів VDALO про готелі"
+  },
+  {
+    "route": "/blog",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Блог для готелів: статті, кейси й інструкції | VDALO"
+  },
+  {
+    "route": "/blog/channel-manager-ical-gotelyu",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Channel Manager чи iCal для готелю: що обрати | VDALO"
+  },
+  {
+    "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Як перейти на PMS і зберегти історію бронювань | VDALO"
+  },
+  {
+    "route": "/blog/pidhotovka-zaselennya-gostya",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Як підготувати заселення гостя до приїзду | VDALO"
+  },
+  {
+    "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Прямі бронювання готелю: віджет, календар та iCal | VDALO"
+  },
+  {
+    "route": "/blog/qr-kartka-v-nomer-gotelyu",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "QR-картка в номер готелю: шаблони й друк | VDALO"
+  },
+  {
+    "route": "/blog/qr-kody-dlya-goteliv",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "QR-коди для готелів: 35 сценаріїв і приклади | VDALO"
+  },
+  {
+    "route": "/blog/qr-kody-dlya-restoranu",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "QR-коди для ресторану: маркетинг і продажі | VDALO"
+  },
+  {
+    "route": "/blog/qr-wifi-dlya-gotelyu",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO"
+  },
+  {
+    "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір 2026: формула і 7 прикладів | VDALO"
+  },
+  {
+    "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Шахматка готелю: як читати календар бронювань | VDALO"
+  },
+  {
+    "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Що автоматизувати в готелі першим: практична оцінка | VDALO"
+  },
+  {
+    "route": "/blog/shcho-take-pms-dlya-gotelyu",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Що таке PMS для готелю: функції та приклади | VDALO"
+  },
+  {
+    "route": "/blog/status-gotovnosti-nomera-housekeeping",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Статус готовності номера: housekeeping і рецепція | VDALO"
+  },
+  {
+    "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір 2026: ставки, пільги й розрахунок"
+  },
+  {
+    "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Додаткові послуги в готелі: як спростити замовлення | VDALO"
+  },
+  {
+    "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO"
+  },
+  {
+    "route": "/cases",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Кейси автоматизації готелів: приклади й результати | VDALO"
+  },
+  {
+    "route": "/cases/booking-widget-study-2118",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Дослідження 2 118 сайтів: метод і межі висновків | VDALO"
+  },
+  {
+    "route": "/cases/direct-bookings-calendar",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Прямі бронювання готелю: 2–5 на день | VDALO"
+  },
+  {
+    "route": "/cases/guest-services-glamping",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Як глемпінг збільшив замовлення послуг | VDALO"
+  },
+  {
+    "route": "/cases/hotel-booking-reconciliation",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Звірка виплат і документів у готелі | VDALO"
+  },
+  {
+    "route": "/cases/hotel-data-migration",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Міграція PMS: 18 475 бронювань готелю | VDALO"
+  },
+  {
+    "route": "/cases/night-self-checkin-germany",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Нічне самозаселення в готелі Німеччини | VDALO"
+  },
+  {
+    "route": "/contact",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Контакти VDALO | Обговорити автоматизацію готелю"
+  },
+  {
+    "route": "/funnel",
+    "forms": [],
+    "title": "Усі 8 воронок | VDALO"
+  },
+  {
+    "route": "/go",
+    "forms": [],
+    "title": "Документи й туристичний збір у готелі | VDALO"
+  },
+  {
+    "route": "/go/index.html",
+    "forms": [
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Підготовка до заїзду та заселення гостей | VDALO"
+  },
+  {
+    "route": "/go/trial",
+    "forms": [
+      {
+        "key": "sms-trial-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "14-денний тест VDALO для готелю"
+  },
+  {
+    "route": "/guest-communication",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Комунікація з гостями готелю | VDALO"
+  },
+  {
+    "route": "/hotel-access-control",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Цифрове заселення, кіоск і PIN для готелю | VDALO"
+  },
+  {
+    "route": "/hotel-ai-assistant",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "AI-помічники в PMS: для персоналу й гостей | VDALO"
+  },
+  {
+    "route": "/hotel-automation",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Автоматизація процесів готелю: з чого почати | VDALO"
+  },
+  {
+    "route": "/hotel-booking-calendar",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Календар бронювань готелю та шахівниця номерів | VDALO"
+  },
+  {
+    "route": "/hotel-channel-manager",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Channel Manager готелю: 60+ інтеграцій | VDALO"
+  },
+  {
+    "route": "/hotel-check-in",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Онлайн-реєстрація й заселення в готелі | VDALO"
+  },
+  {
+    "route": "/hotel-direct-booking",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Віджет бронювання для сайту готелю | VDALO"
+  },
+  {
+    "route": "/hotel-energy-management",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Керування енергією готелю через PMS | VDALO"
+  },
+  {
+    "route": "/hotel-events",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання залів і подій у готелі | VDALO"
+  },
+  {
+    "route": "/hotel-finance",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Фінансовий облік готелю у PMS | VDALO"
+  },
+  {
+    "route": "/hotel-guest-app",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Guest App і QR-сторінка для гостей готелю | VDALO"
+  },
+  {
+    "route": "/hotel-guest-profile",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Картка гостя та онлайн-реєстрація в PMS | VDALO"
+  },
+  {
+    "route": "/hotel-housekeeping",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Housekeeping та готовність номерів у PMS | VDALO"
+  },
+  {
+    "route": "/hotel-multi-property",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "PMS для кількох готелів і ролей команди | VDALO"
+  },
+  {
+    "route": "/hotel-operations",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Задачі команди готелю й готовність номерів | VDALO"
+  },
+  {
+    "route": "/hotel-pms-migration",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Перехід і імпорт даних з іншої PMS | VDALO"
+  },
+  {
+    "route": "/hotel-pms-modules",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Функції PMS VDALO: можливості й дорожня карта"
+  },
+  {
+    "route": "/hotel-prro",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "ПРРО для готелю та фіскалізація | VDALO"
+  },
+  {
+    "route": "/hotel-revenue-management",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Ціни та Revenue Management у PMS готелю | VDALO"
+  },
+  {
+    "route": "/hotel-site-builder",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Конструктор сайту для готелю в PMS | VDALO"
+  },
+  {
+    "route": "/hotel-tourist-tax",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у PMS готелю: розрахунок і облік | VDALO"
+  },
+  {
+    "route": "/integrations",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "60+ інтеграцій для готелів: Booking.com, Airbnb та інші | VDALO"
+  },
+  {
+    "route": "/offer",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Публічна оферта та умови надання послуг | VDALO"
+  },
+  {
+    "route": "/pricing",
+    "forms": [
+      {
+        "key": "checkout-form",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Тарифи для готелів і апартаментів | VDALO"
+  },
+  {
+    "route": "/privacy",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Політика конфіденційності | VDALO"
+  },
+  {
+    "route": "/q",
+    "forms": [],
+    "title": "Де готель втрачає гроші й нерви? Квіз VDALO"
+  },
+  {
+    "route": "/q1",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Один номер продали двом гостям? | VDALO"
+  },
+  {
+    "route": "/q2",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Знову переписуєте дані гостей вручну? | VDALO"
+  },
+  {
+    "route": "/q3",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір рахуєте вручну? | VDALO"
+  },
+  {
+    "route": "/q4",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Гості питають вас одне й те саме? | VDALO"
+  },
+  {
+    "route": "/q5",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Гість питає о другій ночі. Хто відповість? | VDALO"
+  },
+  {
+    "route": "/q6",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання в зошиті, а заявки губляться у Viber та Instagram? | VDALO"
+  },
+  {
+    "route": "/q7",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Скільки ви віддаєте Букінгу за рік? | VDALO"
+  },
+  {
+    "route": "/q8",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Гості вже приїхали, а номер не прибраний? | VDALO"
+  },
+  {
+    "route": "/q9",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Роботи більшає, а людей бракує? | VDALO"
+  },
+  {
+    "route": "/qa",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Двоє гостей. Один номер. | VDALO"
+  },
+  {
+    "route": "/qb",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Ті самі питання гостей - щодня? | VDALO"
+  },
+  {
+    "route": "/qc",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Гість знайшов вас на картах, але не зміг забронювати? | VDALO"
+  },
+  {
+    "route": "/qd",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "lead-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Знову чекаєте гостя до півночі? | VDALO"
+  },
+  {
+    "route": "/refunds",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Повернення коштів і скасування замовлення | VDALO"
+  },
+  {
+    "route": "/sign-up",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Реєстрація в системі VDALO для готелю | Доступ"
+  },
+  {
+    "route": "/solutions",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "trial",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "audit",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Можливості VDALO для готелю | Ключові процеси"
+  },
+  {
+    "route": "/tools/",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Інструменти для готельєрів | VDALO"
+  },
+  {
+    "route": "/tools/hotel-profitability-calculator/",
+    "forms": [
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Калькулятор прибутковості готелю: виручка та RevPAR | VDALO"
+  },
+  {
+    "route": "/tools/pms-checklist/",
+    "forms": [
+      {
+        "key": "0",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "contact",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Чекліст вибору PMS: 25 критеріїв | VDALO"
+  },
+  {
+    "route": "/tools/qr-studio/",
+    "forms": [
+      {
+        "key": "generator-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "QR-генератор для готелю, садиби й ресторану | VDALO"
+  },
+  {
+    "route": "/tourist-tax/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір 2026: ставки в містах | VDALO"
+  },
+  {
+    "route": "/tourist-tax/berehove/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Береговому 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/cherkasy/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Черкасах 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/chernihiv/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Чернігові 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/chernivtsi/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Чернівцях 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/dnipro/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Дніпрі 2026: ставки за ціною ночівлі"
+  },
+  {
+    "route": "/tourist-tax/irpin/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір в Ірпені 2026: ставки та розрахунок | VDALO"
+  },
+  {
+    "route": "/tourist-tax/ivano-frankivsk/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір в Івано-Франківську 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/khust/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Хусті на 2026 рік: ставки й калькулятор"
+  },
+  {
+    "route": "/tourist-tax/kolomyya/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Коломиї 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/kyyiv/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Києві 2026: ставки та калькулятор | VDALO"
+  },
+  {
+    "route": "/tourist-tax/lutsk/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Луцьку 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/lviv/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Львові 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/odesa/",
+    "forms": [],
+    "title": "Туристичний збір в Одесі 2026: перевірка змін ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/pivdenne/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Південному 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/polyana/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Поляні у 2026 році | Ставки"
+  },
+  {
+    "route": "/tourist-tax/rivne/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Рівному 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/skole/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Сколе 2026: ставки й калькулятор | VDALO"
+  },
+  {
+    "route": "/tourist-tax/slavsko/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Славську 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/sumy/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Сумах 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/ternopil/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Тернополі 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/tyachiv/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Тячеві 2026: ставки, калькулятор | VDALO"
+  },
+  {
+    "route": "/tourist-tax/uzhhorod/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір в Ужгороді 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/vinnytsya/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Вінниці 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/vynohradiv/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Виноградові 2026: ставка | VDALO"
+  },
+  {
+    "route": "/tourist-tax/yaremche/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Яремче у 2026 році: ставки за типом житла"
+  },
+  {
+    "route": "/tourist-tax/yasinya/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Ясіні у 2026 році: ставка та калькулятор"
+  },
+  {
+    "route": "/tourist-tax/zaporizhzhya/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Запоріжжі 2026: ставки | VDALO"
+  },
+  {
+    "route": "/tourist-tax/zhytomyr/",
+    "forms": [
+      {
+        "key": "tourist-tax-calculator",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у Житомирі: ставки 2026 | VDALO"
+  },
+  {
+    "route": "/k3",
+    "forms": [
+      {
+        "key": "k-form",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Бронювання та овербукінг: оцініть процес | VDALO"
+  },
+  {
+    "route": "/tourist-tax/start",
+    "forms": [
+      {
+        "key": "ttf-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Туристичний збір у готелі: документи й звітність | VDALO"
+  },
+  {
+    "route": "/k/index.html",
+    "forms": [
+      {
+        "key": "k-form",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Підготовка до заїзду: оцініть ручну роботу | VDALO"
+  },
+  {
+    "route": "/k",
+    "forms": [
+      {
+        "key": "k-form",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Підготовка до заїзду: оцініть ручну роботу | VDALO"
+  },
+  {
+    "route": "/k1",
+    "forms": [
+      {
+        "key": "k-form",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Підготовка до заїзду: оцініть ручну роботу | VDALO"
+  },
+  {
+    "route": "/k2",
+    "forms": [
+      {
+        "key": "k-form",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Запитання гостей: оцініть час команди | VDALO"
+  },
+  {
+    "route": "/k4",
+    "forms": [
+      {
+        "key": "k-form",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Прямі звернення гостей: оцініть процес | VDALO"
+  },
+  {
+    "route": "/k5",
+    "forms": [
+      {
+        "key": "k-form",
+        "ready": null,
+        "strayControls": []
+      },
+      {
+        "key": "go-form",
+        "ready": null,
+        "strayControls": []
+      }
+    ],
+    "title": "Керування готелем із телефона | VDALO"
+  }
+]
