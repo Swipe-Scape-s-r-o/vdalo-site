@@ -9,12 +9,13 @@ import {articleImageSeo,caseImageSeo} from './image-seo.mjs';
 
 const allArticles=[pmsArticle,pmsChoiceArticle,...editorialArticles,...secondPassArticles];
 const categories=[
+ {id:'hotel-marketing-sales',title:'Маркетинг і продажі гостинного бізнесу',description:'QR-сценарії ресторану, повторні візити та шлях від пропозиції до підтвердженого замовлення.',slugs:['/blog/qr-kody-dlya-restoranu']},
  {id:'booking-pms',title:'Бронювання, PMS і канали',description:'Календар, прямі бронювання, вибір і зміна PMS, канали продажу та передавання даних.',slugs:['/blog/shcho-take-pms-dlya-gotelyu','/blog/yak-obraty-pms-dlya-gotelyu','/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu','/blog/perehid-na-pms-bez-vtraty-danyh','/blog/shakhmatka-bronyuvan-gotelyu','/blog/channel-manager-ical-gotelyu']},
  {id:'guest-experience',title:'Гостьовий досвід і QR',description:'Заселення, інформація для гостя, QR-коди, додаткові послуги та готовність номера.',slugs:['/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy','/blog/pidhotovka-zaselennya-gostya','/blog/status-gotovnosti-nomera-housekeeping','/blog/qr-kody-dlya-goteliv','/blog/qr-wifi-dlya-gotelyu','/blog/qr-kartka-v-nomer-gotelyu']},
  {id:'tourist-tax',title:'Туристичний збір',description:'Правила, ставки громад, формула та приклади розрахунку для готелів і власників житла.',slugs:['/blog/turystychnyi-zbir-gotel-ukraina','/blog/rozrakhunok-turystychnoho-zboru-2026']},
  {id:'automation',title:'Автоматизація роботи готелю',description:'Як обирати перші процеси для автоматизації та перевіряти зміни на практиці.',slugs:['/blog/shcho-avtomatyzuvaty-v-goteli-pershym']},
 ];
-const futureCategory={id:'hotel-marketing-sales',title:'Маркетинг і продажі готелю',description:'Прямий попит, конверсія звернень, пропозиції гостям і використання QR у просуванні готельних послуг.'};
+
 
 function articleCard(article,category){
  const author=getAuthor(article.authorSlug);
@@ -27,7 +28,7 @@ function articleCard(article,category){
 }
 
 function authorCard(author){
- const expertise=author.slug==='kostiantyn-tripailo'?'Можливі теми: маркетинг і продажі готелю, прямі бронювання, QR-сценарії.':`Напрями: ${author.expertise.join(', ')}.`;
+ const expertise=author.slug==='kostiantyn-tripailo'?'Напрями: маркетинг і продажі гостинного бізнесу, QR-сценарії та оцінка результатів.':`Напрями: ${author.expertise.join(', ')}.`;
  const articleCount=allArticles.filter(article=>(article.authorSlug||'oleh-stepeniev')===author.slug).length;
  const articlesCopy=articleCount?`${articleCount} ${articleCount===1?'матеріал':articleCount<5?'матеріали':'матеріалів'} VDALO`:'Профіль автора';
  return `<a class="blog-author-card" href="${e(author.profilePath)}"><img src="${e(author.image)}" width="160" height="180" alt="${e(author.name)}" loading="lazy"><span class="blog-author-copy"><span class="blog-author-role">${e(author.role)}</span><strong>${e(author.name)}</strong><span class="blog-author-focus">${e(expertise)}</span><span class="blog-author-link">${e(articlesCopy)} <span aria-hidden="true">↗</span></span></span></a>`;
@@ -56,6 +57,6 @@ export function renderBlogPage({origin=''}={}) {
   html=html.replace('</head>', '<link rel="stylesheet" href="/blog.css"></head>');
   html=html.replace(/<main id="main">[\s\S]*?<\/main>/,content);
   html=html.replace(/href="#/g,'href="/#');
-  html=html.replace(/href="\/#(blog-categories|blog-cases|blog-authors|booking-pms|guest-experience|tourist-tax|automation)"/g,'href="#$1"');
+  html=html.replace(/href="\/#(blog-categories|blog-cases|blog-authors|booking-pms|guest-experience|tourist-tax|automation|hotel-marketing-sales)"/g,'href="#$1"');
   return html;
 }

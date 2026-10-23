@@ -10,7 +10,7 @@ export const authors = [
   {
     slug: 'kostiantyn-tripailo',
     name: 'Костянтин Тріпайло',
-    role: 'Співзасновник і CMO Міністерства з Продажів',
+    role: 'Співвласник VDALO, співзасновник і CMO Міністерства з Продажів',
     profilePath: '/authors/kostiantyn-tripailo',
     image: '/v1/assets/kostiantyn-tripailo-profile.jpg',
     expertise: ['маркетинг', 'SEO та GEO', 'контент', 'AI у продажах'],

@@ -7,6 +7,7 @@ export function getPublicSitemapRoutes({ seoRoutes, caseSlugs, pmsArticle, pmsCh
     ...orderedSeoRoutes,
     '/authors',
     '/authors/oleh-stepeniev',
+    '/authors/kostiantyn-tripailo',
     '/privacy',
     '/offer',
     '/refunds',

@@ -30,6 +30,7 @@ const renderers = new Map([
   ['/', () => render.renderPage({ origin, full: true })],
   ...seo.seoRoutes().map(path => [path, () => seo.renderSeoPage(path)]),
   ['/authors/oleh-stepeniev', () => author.renderAuthorPage()],
+  ['/authors/kostiantyn-tripailo', () => author.renderKostiantynAuthorPage()],
   ['/authors', () => author.renderAuthorsDirectory()],
   ['/privacy', () => legacyServer.privacyPage()],
   ['/offer', () => legal.renderOfferPage()],
@@ -64,7 +65,7 @@ function validDateOnly(value) {
 function expectedType(path) {
   if (path === '/about') return 'AboutPage';
   if (path === '/contact') return 'ContactPage';
-  if (path === '/authors/oleh-stepeniev') return 'ProfilePage';
+  if (/^\/authors\/[^/]+$/.test(path)) return 'ProfilePage';
   if (['/solutions','/integrations','/blog','/cases','/tools/','/authors','/tourist-tax/'].includes(path)) return 'CollectionPage';
   return 'WebPage';
 }
@@ -120,11 +121,13 @@ for (const [path, renderHtml] of routes) {
         if (!hasUpdatedTime && !html.toLocaleLowerCase('uk').includes(`оновлено ${Number(day)} ${months[Number(month)-1]} ${year}`)) errors.push(`${path}: dateModified is not represented in visible case text`);
       }
       if (article.url !== canonical || !article.headline || !article.image) errors.push(`${path}: article is missing canonical URL, headline, or image`);
-      if (article.author?.url !== `${origin}/authors/oleh-stepeniev`) errors.push(`${path}: author is not linked to author profile`);
+      const sourceArticle=[pms.pmsArticle,pmsChoice.pmsChoiceArticle,...editorial.editorialArticles,...secondPass.secondPassArticles].find(item=>item.slug===path);
+      const expectedAuthorSlug=sourceArticle?.authorSlug||'oleh-stepeniev';
+      if (article.author?.url !== `${origin}/authors/${expectedAuthorSlug}`) errors.push(`${path}: author is not linked to the configured author profile`);
       if (article.publisher?.['@id'] !== `${origin}/#organization`) errors.push(`${path}: publisher is not linked to shared Organization`);
     }
   }
-  if (path === '/authors/oleh-stepeniev' && !graph.some(node => typesOf(node).has('Person'))) errors.push(`${path}: missing author Person entity`);
+  if (/^\/authors\/[^/]+$/.test(path) && !graph.some(node => typesOf(node).has('Person'))) errors.push(`${path}: missing author Person entity`);
   if (serviceRoutes.has(path)) {
     const service = graph.find(node => typesOf(node).has('Service'));
     if (!service) errors.push(`${path}: missing Service entity`);

@@ -46,6 +46,7 @@ const touristTaxRoutes=['/tourist-tax/',...touristTaxCityRoutes()];
 const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles,touristTaxRoutes});
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
 const sitemapLastModifiedByRoute=new Map([
+ ['/authors/kostiantyn-tripailo','2026-10-23'],
  [pmsArticle.slug,pmsArticle.dateModified],
  [pmsChoiceArticle.slug,pmsChoiceArticle.dateModified],
  ...editorialArticles.map(article=>[article.slug,articleDates[article.slug]?.modified]),
