@@ -37,11 +37,17 @@ test('every existing form preserves its action, fields, required constraints and
  }
 });
 
-test('23 deferred product pages and all 13 new funnels retain their complete HTML across platforms',async()=>{
+test('23 deferred product pages and all 13 new funnels retain their content beyond approved partner navigation',async()=>{
  assert.equal(Object.keys(unchanged).length,36);
  for(const [route,hash] of Object.entries(unchanged)){
   const {html}=await rendered(route);
-  assert.equal(portableHtmlHash(html),hash.portableSha256,route);
+  // This release intentionally adds only these links and the integration-page
+  // bridge to the old chrome; continue comparing every other byte to the baseline.
+  const previousChrome=html
+   .replace(/<li class="nav-item nav-item-level-2"><a href="\/partners">Партнери та інтегратори<\/a><\/li>/g,'')
+   .replace(/<a href="\/partners">Партнери та інтегратори<\/a>/g,'')
+   .replace(/<section class="seo-section partner-integration-bridge"[^>]*>[\s\S]*?<\/section>/g,'');
+  assert.equal(portableHtmlHash(previousChrome),hash.portableSha256,route);
   assert.equal(applyPreparedContent(html,route),html,route);
  }
 });

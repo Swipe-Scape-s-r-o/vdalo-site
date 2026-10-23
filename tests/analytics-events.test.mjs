@@ -13,7 +13,7 @@ const server=read('../server.mjs');
 
 test('GTM container is installed and product forms emit acknowledged success events',()=>{
   assert.match(server,/googletagmanager\.com\/gtm\.js\?id=/);
-  assert.match(app,/track\(`\$\{kind\}_form_submit_success`,\{lead_id:result\.leadId\}\)/);
+  assert.match(app,/track\(`\$\{kind\}_form_submit_success`,\{(?:\.\.\.eventContext,)?lead_id:result\.leadId\}\)/);
   assert.match(app,/track\(`\$\{kind\}_form_submit_error`/);
 });
 
