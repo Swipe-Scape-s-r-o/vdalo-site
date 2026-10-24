@@ -50,8 +50,20 @@ Staging Chrome, 390 x 844:
 - CTA opened exactly one audit request, preserved the explicit 14-day context and /api/leads/audit action. Empty submit produced Ukrainian name, contact and consent errors. No horizontal overflow or console warnings/errors.
 - Evidence: staging-tax-mobile-offer.png, staging-tax-mobile-form.png.
 
-Final noindex-page and advertising-route browser checks will be appended after the follow-up staging publication.
+Follow-up staging release: 1cda7dc.
+
+- Chrome at 390 x 844 visited all /q1-/q9 and /qa-/qd, plus /q, /k1, /go, /go/trial and /tourist-tax/start: no invitation markup, script or stylesheet on any of the 18 pages, and no horizontal overflow. Evidence: staging-campaign-mobile.json.
+- Repeated all 18 advertising checks at 1440 x 960: no invitation markup/assets or horizontal overflow. Evidence: staging-campaign-desktop.json.
+- Chrome at 1440 x 960 confirmed exactly one offer and audit dialog on the homepage. At 30.5 seconds the offer remained closed, then navigation to /tourist-tax/odesa/ preserved the active-time session.
+- /tourist-tax/odesa/ now contains the shared invitation assets while keeping robots=noindex,follow. Served LF asset hashes match the committed source: trial-offer.js=9cadbacea673, trial-offer.css=41c045a666c4.
+- At 55.6 seconds since starting on the homepage, the desktop invitation was visible on Odesa (only about 25 seconds spent on Odesa). No console warnings/errors or horizontal overflow. Evidence: staging-odesa-desktop-offer.png.
+- Resized that open invitation to 320 x 568: dialog width 296 px, height 463 px, contained within the screen. CTA opened exactly one audit dialog, width 296 px and max height 544 px, with internal scrolling. Close worked; a subsequent article page respected session suppression. Evidence: staging-odesa-mobile320-offer.png.
+- Production /tourist-tax/ was read without changing it: HTTP 200 and no new shared invitation. origin/main remained 86ff62ff8505bbfa973e84fc57583c43b24525cf. Staging remains protected; unauthenticated HTTP requests return 401 with X-Robots-Tag: noindex, nofollow.
 
 ## Limits
 
 No valid lead or Telegram message is sent for this UI change. The established delivery endpoint and CRM transport remain unchanged. Analytics receipt in GA4/Clarity is not claimed from source tags or UI behavior.
+
+## Review
+
+Staging is ready for owner review. Functional changes stay on staging; production promotion requires the owner's subsequent approval. The unrelated historical tax-content assertion is documented above and remains visible in the full test report.

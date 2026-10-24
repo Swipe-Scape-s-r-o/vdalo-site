@@ -256,9 +256,9 @@
 test at tests\content-package.test.mjs:136:1
 ✖ all local four-person-day examples have exact products and independent half-up rounding (1.1603ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
-  
+
   0 !== 55
-  
+
       at TestContext.<anonymous> (file:///C:/Users/kosti/Documents/ChatGPT/Alisio/vdalo-site-homepage-oct24/tests/content-package.test.mjs:159:9)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1201:25)
