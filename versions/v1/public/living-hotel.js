@@ -653,7 +653,8 @@
     row.append(again, cta);
     summaryEl.append(h, dl, p, note, row);
     stage.append(summaryEl);
-    again.focus({ preventScroll: true });
+    // A completed background demonstration must not steal the reader's keyboard focus.
+    if (state.visible && root.contains(document.activeElement)) again.focus({ preventScroll: true });
   }
 
   function restart(mode) {

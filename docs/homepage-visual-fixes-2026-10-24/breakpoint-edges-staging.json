@@ -1,0 +1,32 @@
+[
+  {
+    "orientation": "horizontal",
+    "overflow": 0,
+    "width": 700
+  },
+  {
+    "orientation": "horizontal",
+    "overflow": 0,
+    "width": 701
+  },
+  {
+    "orientation": "horizontal",
+    "overflow": 0,
+    "width": 900
+  },
+  {
+    "orientation": "vertical",
+    "overflow": 0,
+    "width": 901
+  },
+  {
+    "orientation": "vertical",
+    "overflow": 0,
+    "width": 1000
+  },
+  {
+    "orientation": "vertical",
+    "overflow": 0,
+    "width": 1001
+  }
+]

@@ -108,7 +108,7 @@ document.addEventListener('keydown', event=>{
 document.addEventListener('click',event=>{
  if(siteNavigation?.querySelector('details[open]')&&!event.target.closest('#navigation'))siteNavigation.querySelectorAll('details[open]').forEach(item=>item.open=false);
 });
-addEventListener('scroll', () => document.querySelector('.header').classList.toggle('scrolled', scrollY > 120), { passive:true });
+addEventListener('scroll', () => document.querySelector('.header')?.classList.toggle('scrolled', scrollY > 120), { passive:true });
 
 // Provider-neutral events. Contact data and free text never enter this layer.
 window.dataLayer = window.dataLayer || [];
@@ -231,10 +231,11 @@ async function submitLead(kind,data) {
  } finally {clearTimeout(timer);}
 }
 const submitTrialLead=data=>submitLead('trial',data);
-const submitAuditLead=data=>submitLead('audit',data);
+const submitAuditLead=(data,kind='audit')=>submitLead(kind,data);
 document.querySelectorAll('form[data-kind]').forEach(form=>{
  let started=false,submissionId='';
  const eventContext=form.dataset.formVariant?{form_variant:form.dataset.formVariant}:{};
+ form.addEventListener('vdalo:lead-open',()=>track(`${form.dataset.kind}_form_open`,{...eventContext,location:form.dataset.location||'dialog'}));
  form.addEventListener('input',()=>{if(!started){started=true;track(`${form.dataset.kind}_form_start`,eventContext);}}, {passive:true});
  form.addEventListener('submit',async event=>{
   event.preventDefault();
@@ -255,12 +256,14 @@ document.querySelectorAll('form[data-kind]').forEach(form=>{
   if(Object.keys(errors).length) {track(`${kind}_form_submit_error`,{...eventContext,reason:'validation'});return;}
   submit.disabled=true;submit.textContent='Надсилаємо…';form.setAttribute('aria-busy','true');
   try {
-   const result=await(kind==='trial'?submitTrialLead(data):submitAuditLead(data));
+   const result=await(kind==='trial'?submitTrialLead(data):submitAuditLead(data,kind));
    track(`${kind}_form_submit_success`,{...eventContext,lead_id:result.leadId});
    if(kind==='trial')try{sessionStorage.removeItem('vdalo-quiz-context');}catch{}
    form.hidden=true;
    const success=form.parentElement.querySelector('.form-success');
-   success.hidden=false;success.focus();
+   success.hidden=false;
+   form.dispatchEvent(new Event('vdalo:lead-success',{bubbles:true}));
+   success.focus();
   } catch(error) {
    if(error.fields) showErrors(form,error.fields);
    status.textContent=error.name==='AbortError'?'Відповідь затримується. Не вдалося підтвердити отримання заявки. Спробуйте пізніше.':error.message==='Failed to fetch'?'Немає зв’язку із сервером. Перевірте інтернет і спробуйте ще раз.':error.message;

@@ -1,0 +1,182 @@
+[
+  {
+    "requestedWidth": 320,
+    "cardWidths": [
+      265,
+      265,
+      265,
+      265,
+      265
+    ],
+    "ctaGap": 24,
+    "guideLinks": 26,
+    "heroLoaded": 1122,
+    "journeyImage": {
+      "height": 198.5,
+      "width": 264.66668701171875
+    },
+    "overflow": 0,
+    "painTitleLines": [
+      2,
+      2,
+      2,
+      1,
+      2
+    ],
+    "portraitRadius": "0px",
+    "revision": "visual-polish-v6",
+    "sticky": 0,
+    "tabsOrientation": "horizontal",
+    "width": 320
+  },
+  {
+    "requestedWidth": 390,
+    "cardWidths": [
+      335,
+      335,
+      335,
+      335,
+      335
+    ],
+    "ctaGap": 24,
+    "guideLinks": 26,
+    "heroLoaded": 1122,
+    "journeyImage": {
+      "height": 251,
+      "width": 334.66668701171875
+    },
+    "overflow": 0,
+    "painTitleLines": [
+      2,
+      2,
+      1,
+      1,
+      2
+    ],
+    "portraitRadius": "0px",
+    "revision": "visual-polish-v6",
+    "sticky": 0,
+    "tabsOrientation": "horizontal",
+    "width": 390
+  },
+  {
+    "requestedWidth": 768,
+    "cardWidths": [
+      340,
+      340,
+      340,
+      340,
+      340
+    ],
+    "ctaGap": 24,
+    "guideLinks": 26,
+    "heroLoaded": 1122,
+    "journeyImage": {
+      "height": 246.25,
+      "width": 328.3333435058594
+    },
+    "overflow": 0,
+    "painTitleLines": [
+      2,
+      2,
+      1,
+      1,
+      2
+    ],
+    "portraitRadius": "0px",
+    "revision": "visual-polish-v6",
+    "sticky": 0,
+    "tabsOrientation": "horizontal",
+    "width": 768
+  },
+  {
+    "requestedWidth": 1024,
+    "cardWidths": [
+      294,
+      294,
+      294,
+      294,
+      294
+    ],
+    "ctaGap": 24,
+    "guideLinks": 26,
+    "heroLoaded": 1122,
+    "journeyImage": {
+      "height": 264.19793701171875,
+      "width": 352.2708435058594
+    },
+    "overflow": 0,
+    "painTitleLines": [
+      2,
+      2,
+      1,
+      1,
+      2
+    ],
+    "portraitRadius": "0px",
+    "revision": "visual-polish-v6",
+    "sticky": 0,
+    "tabsOrientation": "vertical",
+    "width": 1024
+  },
+  {
+    "requestedWidth": 1440,
+    "cardWidths": [
+      397,
+      397,
+      397,
+      397,
+      397
+    ],
+    "ctaGap": 24,
+    "guideLinks": 26,
+    "heroLoaded": 1122,
+    "journeyImage": {
+      "height": 357.59375,
+      "width": 476.8020935058594
+    },
+    "overflow": 0,
+    "painTitleLines": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "portraitRadius": "0px",
+    "revision": "visual-polish-v6",
+    "sticky": 0,
+    "tabsOrientation": "vertical",
+    "width": 1440
+  },
+  {
+    "requestedWidth": 1920,
+    "cardWidths": [
+      397,
+      397,
+      397,
+      397,
+      397
+    ],
+    "ctaGap": 24,
+    "guideLinks": 26,
+    "heroLoaded": 1122,
+    "journeyImage": {
+      "height": 357.59375,
+      "width": 476.8020935058594
+    },
+    "overflow": 0,
+    "painTitleLines": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "portraitRadius": "0px",
+    "revision": "visual-polish-v6",
+    "sticky": 0,
+    "tabsOrientation": "vertical",
+    "width": 1920
+  }
+]

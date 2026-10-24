@@ -1,0 +1,393 @@
+{
+  "revision": "visual-polish-v6",
+  "responsive": [
+    {
+      "requestedWidth": 320,
+      "cardWidths": [
+        265,
+        265,
+        265,
+        265,
+        265
+      ],
+      "ctaGap": 24,
+      "guideLinks": 26,
+      "heroLoaded": 1122,
+      "journeyImage": {
+        "height": 198.5,
+        "width": 264.66668701171875
+      },
+      "overflow": 0,
+      "painTitleLines": [
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "portraitRadius": "0px",
+      "revision": "visual-polish-v6",
+      "sticky": 0,
+      "tabsOrientation": "horizontal",
+      "width": 320
+    },
+    {
+      "requestedWidth": 390,
+      "cardWidths": [
+        335,
+        335,
+        335,
+        335,
+        335
+      ],
+      "ctaGap": 24,
+      "guideLinks": 26,
+      "heroLoaded": 1122,
+      "journeyImage": {
+        "height": 251,
+        "width": 334.66668701171875
+      },
+      "overflow": 0,
+      "painTitleLines": [
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "portraitRadius": "0px",
+      "revision": "visual-polish-v6",
+      "sticky": 0,
+      "tabsOrientation": "horizontal",
+      "width": 390
+    },
+    {
+      "requestedWidth": 768,
+      "cardWidths": [
+        340,
+        340,
+        340,
+        340,
+        340
+      ],
+      "ctaGap": 24,
+      "guideLinks": 26,
+      "heroLoaded": 1122,
+      "journeyImage": {
+        "height": 246.25,
+        "width": 328.3333435058594
+      },
+      "overflow": 0,
+      "painTitleLines": [
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "portraitRadius": "0px",
+      "revision": "visual-polish-v6",
+      "sticky": 0,
+      "tabsOrientation": "horizontal",
+      "width": 768
+    },
+    {
+      "requestedWidth": 1024,
+      "cardWidths": [
+        294,
+        294,
+        294,
+        294,
+        294
+      ],
+      "ctaGap": 24,
+      "guideLinks": 26,
+      "heroLoaded": 1122,
+      "journeyImage": {
+        "height": 264.19793701171875,
+        "width": 352.2708435058594
+      },
+      "overflow": 0,
+      "painTitleLines": [
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "portraitRadius": "0px",
+      "revision": "visual-polish-v6",
+      "sticky": 0,
+      "tabsOrientation": "vertical",
+      "width": 1024
+    },
+    {
+      "requestedWidth": 1440,
+      "cardWidths": [
+        397,
+        397,
+        397,
+        397,
+        397
+      ],
+      "ctaGap": 24,
+      "guideLinks": 26,
+      "heroLoaded": 1122,
+      "journeyImage": {
+        "height": 357.59375,
+        "width": 476.8020935058594
+      },
+      "overflow": 0,
+      "painTitleLines": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "portraitRadius": "0px",
+      "revision": "visual-polish-v6",
+      "sticky": 0,
+      "tabsOrientation": "vertical",
+      "width": 1440
+    },
+    {
+      "requestedWidth": 1920,
+      "cardWidths": [
+        397,
+        397,
+        397,
+        397,
+        397
+      ],
+      "ctaGap": 24,
+      "guideLinks": 26,
+      "heroLoaded": 1122,
+      "journeyImage": {
+        "height": 357.59375,
+        "width": 476.8020935058594
+      },
+      "overflow": 0,
+      "painTitleLines": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "portraitRadius": "0px",
+      "revision": "visual-polish-v6",
+      "sticky": 0,
+      "tabsOrientation": "vertical",
+      "width": 1920
+    }
+  ],
+  "breakpoints": [
+    {
+      "orientation": "horizontal",
+      "overflow": 0,
+      "width": 700
+    },
+    {
+      "orientation": "horizontal",
+      "overflow": 0,
+      "width": 701
+    },
+    {
+      "orientation": "horizontal",
+      "overflow": 0,
+      "width": 900
+    },
+    {
+      "orientation": "vertical",
+      "overflow": 0,
+      "width": 901
+    },
+    {
+      "orientation": "vertical",
+      "overflow": 0,
+      "width": 1000
+    },
+    {
+      "orientation": "vertical",
+      "overflow": 0,
+      "width": 1001
+    }
+  ],
+  "modules": [
+    {
+      "id": "calendar",
+      "overflow": 0,
+      "panelHidden": false,
+      "selected": "true"
+    },
+    {
+      "id": "channels",
+      "overflow": 0,
+      "panelHidden": false,
+      "selected": "true"
+    },
+    {
+      "id": "engine",
+      "overflow": 0,
+      "panelHidden": false,
+      "selected": "true"
+    },
+    {
+      "id": "rms",
+      "overflow": 0,
+      "panelHidden": false,
+      "selected": "true"
+    },
+    {
+      "id": "checkin",
+      "overflow": 0,
+      "panelHidden": false,
+      "selected": "true"
+    },
+    {
+      "id": "communication",
+      "overflow": 0,
+      "panelHidden": false,
+      "selected": "true"
+    },
+    {
+      "id": "housekeeping",
+      "overflow": 0,
+      "panelHidden": false,
+      "selected": "true"
+    },
+    {
+      "id": "ukraine",
+      "overflow": 0,
+      "panelHidden": false,
+      "selected": "true"
+    },
+    {
+      "id": "smart",
+      "overflow": 0,
+      "panelHidden": false,
+      "selected": "true"
+    }
+  ],
+  "journey": [
+    {
+      "imageWidth": 334.66668701171875,
+      "index": 0,
+      "loaded": 1024,
+      "overflow": 0,
+      "selected": "true"
+    },
+    {
+      "imageWidth": 334.66668701171875,
+      "index": 1,
+      "loaded": 1024,
+      "overflow": 0,
+      "selected": "true"
+    },
+    {
+      "imageWidth": 334.66668701171875,
+      "index": 2,
+      "loaded": 1024,
+      "overflow": 0,
+      "selected": "true"
+    },
+    {
+      "imageWidth": 334.66668701171875,
+      "index": 3,
+      "loaded": 1024,
+      "overflow": 0,
+      "selected": "true"
+    },
+    {
+      "imageWidth": 334.66668701171875,
+      "index": 4,
+      "loaded": 1024,
+      "overflow": 0,
+      "selected": "true"
+    }
+  ],
+  "roles": [
+    {
+      "hidden": false,
+      "index": 0,
+      "selected": "true"
+    },
+    {
+      "hidden": false,
+      "index": 1,
+      "selected": "true"
+    },
+    {
+      "hidden": false,
+      "index": 2,
+      "selected": "true"
+    }
+  ],
+  "faq": [
+    {
+      "index": 0,
+      "open": true
+    },
+    {
+      "index": 1,
+      "open": true
+    },
+    {
+      "index": 2,
+      "open": true
+    },
+    {
+      "index": 3,
+      "open": true
+    },
+    {
+      "index": 4,
+      "open": true
+    },
+    {
+      "index": 5,
+      "open": true
+    }
+  ],
+  "sharedRoutes": [
+    {
+      "h1": "Один номер продали двом гостям?",
+      "offerPresent": false,
+      "overflow": 0,
+      "privacyTitle": "Налаштування приватності",
+      "title": "Один номер продали двом гостям? | VDALO"
+    },
+    {
+      "h1": "Як зробити QR-код Wi-Fi для гостей готелю",
+      "offerPresent": false,
+      "overflow": 0,
+      "privacyTitle": "Налаштування приватності",
+      "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO"
+    },
+    {
+      "h1": "QR Studio: підготуйте код під задачу гостя",
+      "offerPresent": false,
+      "overflow": 0,
+      "privacyTitle": "Налаштування приватності",
+      "title": "QR Studio для готелю: Wi-Fi, меню й посилання | VDALO"
+    }
+  ],
+  "desktopOffer": {
+    "absentAtMs": 40271,
+    "presentAtMs": 80798,
+    "escapeClosed": true
+  },
+  "mobileOffer": {
+    "observedAfterMs": 62090,
+    "opensShortAudit": true,
+    "mainFields": [
+      "name",
+      "contact"
+    ],
+    "trialContext": true,
+    "blankValidationUkrainian": true,
+    "validLeadSubmitted": false
+  },
+  "console": []
+}

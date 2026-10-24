@@ -6,6 +6,7 @@ import {renderRouteForReview} from '../scripts/review-render.mjs';
 import {elements,inner,hasClass,textOf,decodeText} from '../versions/v1/content-revisions/html-fragments.mjs';
 import {formContract,portableHtmlHash} from '../versions/v1/content-revisions/form-contract.mjs';
 import {renderArticleMarkdown} from '../versions/v1/article-markdown.mjs';
+import {renderTrialOffer} from '../versions/v1/trial-offer.mjs';
 const baseline=JSON.parse(readFileSync(new URL('../docs/content-package-2026-10-23/BASELINE_FORM_CONTRACTS.json',import.meta.url)));
 const unchanged=JSON.parse(readFileSync(new URL('../docs/content-package-2026-10-23/BASELINE_EXCLUDED_ROUTES.json',import.meta.url)));
 const cache=new Map();
@@ -33,7 +34,9 @@ test('all 70 complete revisions render with one H1, matching metadata and preser
 test('every existing form preserves its action, fields, required constraints and submit controls',async()=>{
  for(const page of preparedPages){
   const {html}=await rendered(page.route);
-  assert.deepEqual(formContract(html),baseline[page.route],page.route);
+  // The shared invitation now contains its own contact form. Keep every
+  // original page form contract byte-for-byte outside this explicit addition.
+  assert.deepEqual(formContract(html.replace(renderTrialOffer(),'')),baseline[page.route],page.route);
  }
 });
 
@@ -44,6 +47,12 @@ test('23 deferred product pages and all 13 new funnels retain their content beyo
   // This release intentionally adds only these links and the integration-page
   // bridge to the old chrome; continue comparing every other byte to the baseline.
   const previousChrome=html
+   // Approved shared invitation is outside all original page content/forms.
+   .replace(renderTrialOffer(),'')
+   .replace(/<link rel="stylesheet" href="\/v1\/trial-offer\.css\?v=[a-f0-9]{12}"><script src="\/v1\/trial-offer\.js\?v=[a-f0-9]{12}" defer><\/script>/g,'')
+   // Consent assets now use content hashes. Keep the historical fixture's
+   // version token while continuing to compare every other markup byte.
+   .replace(/(clarity-consent\.(?:css|js)\?v=)[a-f0-9]{12}\b/g,(_,prefix)=>prefix+'3')
    .replace(/<li class="nav-item nav-item-level-2"><a href="\/partners">Партнери та інтегратори<\/a><\/li>/g,'')
    .replace(/<a href="\/partners">Партнери та інтегратори<\/a>/g,'')
    .replace(/<section class="seo-section partner-integration-bridge"[^>]*>[\s\S]*?<\/section>/g,'');

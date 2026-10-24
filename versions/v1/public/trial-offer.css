@@ -1,0 +1,36 @@
+/* Shared invitation styles stay inside the dialog on every ordinary page. */
+.home-trial-offer,.home-trial-offer *{box-sizing:border-box}
+.home-trial-offer:not([open]),.home-trial-offer [hidden]{display:none!important}
+.home-trial-offer[open]{position:fixed;inset:0;width:min(560px,calc(100% - 32px));max-width:none;max-height:calc(100dvh - 32px);margin:auto;padding:64px 0 0;border:0;border-radius:18px;background:#fcf9f8;color:#39233e;font:400 16px/1.5 Inter,Arial,sans-serif;text-align:left;overflow:hidden;box-shadow:0 20px 70px #170b2140}
+.home-trial-offer .home-offer-scroll{max-height:calc(100dvh - 96px);padding:12px 36px 20px;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.home-trial-offer::backdrop{background:#21102599}
+.home-trial-offer h2{margin:0;font:750 30px/1.15 'Inter Tight',Inter,Arial,sans-serif;letter-spacing:-.025em;color:inherit;text-align:center;text-wrap:balance}
+.home-trial-offer .home-offer-scroll>p{max-width:42ch;margin:14px auto 0;font-size:15px;line-height:1.5;color:inherit;text-align:center}
+.home-trial-offer .home-offer-content{margin-top:24px}
+.home-trial-offer .home-offer-fields{display:grid;gap:14px}
+.home-trial-offer .field{display:grid;gap:6px}
+.home-trial-offer .field>label{font-size:14px;font-weight:650;line-height:1.4}
+.home-trial-offer .field>input{display:block;width:100%;min-height:48px;padding:12px 14px;border:1px solid #927d94;border-radius:9px;background:#fff;color:#39233e;font:400 16px/1.4 Inter,Arial,sans-serif}
+.home-trial-offer input::placeholder{color:#746878;opacity:1}
+.home-trial-offer input[aria-invalid=true]{border-color:#a31e39}
+.home-trial-offer .field-error,.home-trial-offer .form-status{color:#a31e39;font-size:13px;line-height:1.4}
+.home-trial-offer .field-error:empty,.home-trial-offer .form-status:empty{display:none}
+.home-trial-offer .form-status{margin:12px 0}
+.home-trial-offer .consent-field{margin-top:18px}
+.home-trial-offer .consent-field>label{display:flex;align-items:flex-start;gap:10px;min-height:44px;font-size:13px;font-weight:400;line-height:1.5;cursor:pointer}
+.home-trial-offer input[type=checkbox]{flex:0 0 20px;width:20px;height:20px;margin:1px 0;accent-color:#9d3a73}
+.home-trial-offer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.home-trial-offer .home-button{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;margin-top:18px;padding:14px 20px;border:0;border-radius:999px;background:#ff8fc2;color:#24132b;font:700 16px/1.35 Inter,Arial,sans-serif;text-align:center;text-decoration:none;cursor:pointer}
+.home-trial-offer .home-button:disabled{opacity:.65;cursor:wait}
+.home-trial-offer .home-offer-note{margin:12px 0 0;font-size:12px;line-height:1.5;text-align:center}
+.home-trial-offer .home-offer-close{position:absolute;right:12px;top:12px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:#f0e7ec;color:#39233e;cursor:pointer}
+.home-trial-offer .home-offer-later{display:block;min-height:44px;margin:8px auto 0;padding:8px 12px;border:0;background:transparent;color:#39233e;font:600 13px/1.4 Inter,Arial,sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.home-trial-offer .honey{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.home-trial-offer .form-success{text-align:center;outline-offset:5px}
+.home-trial-offer .form-success p{margin:0;font-size:16px;line-height:1.55}
+.home-trial-offer :is(button,a,input):focus-visible{outline:3px solid #9d3a73;outline-offset:3px}
+body:has(#home-trial-offer[open]){overflow:hidden}
+@media(hover:hover){.home-trial-offer .home-button:not(:disabled):hover{background:#ffb3d1}.home-trial-offer .home-offer-close:hover{background:#e4d5e0}}
+@media(max-width:700px){.home-trial-offer[open]{width:calc(100% - 24px);max-height:calc(100dvh - 24px)}.home-trial-offer .home-offer-scroll{max-height:calc(100dvh - 88px);padding:12px 24px 16px}.home-trial-offer h2{font-size:26px}.home-trial-offer .home-offer-scroll>p{font-size:14px;margin-top:12px}.home-trial-offer .home-offer-content{margin-top:20px}.home-trial-offer .home-button{font-size:15px}}
+@media(max-width:360px){.home-trial-offer .home-offer-scroll{padding-inline:20px}.home-trial-offer h2{font-size:25px}}
+@media(prefers-reduced-motion:no-preference){.home-trial-offer[open]{animation:home-offer-enter 200ms cubic-bezier(.23,1,.32,1)}@keyframes home-offer-enter{from{opacity:.6;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}}

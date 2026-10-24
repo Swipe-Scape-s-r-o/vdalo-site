@@ -2,17 +2,11 @@
  const page=document.querySelector('.homepage-2026');
  if(!page)return;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
- const sticky=page.querySelector('.home-mobile-action');
- const hero=page.querySelector('.home-hero');
- const close=page.querySelector('.home-close');
- const footer=document.querySelector('footer');
- const actionZones=[hero,close,footer,page.querySelector('.home-demo-copy'),page.querySelector('.home-guide-end'),page.querySelector('#living-hotel'),page.querySelector('#living-hotel-m')].filter(Boolean);
- const visibleZones=new Set([hero]);
- function syncSticky(){sticky.hidden=visibleZones.size>0||!!document.querySelector('dialog[open],#navigation.open')||!!document.querySelector('.modal.open,.modal.is-open');}
- if('IntersectionObserver' in window){
-  const visibility=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)visibleZones.add(entry.target);else visibleZones.delete(entry.target);});syncSticky();},{threshold:0});
-  actionZones.forEach(zone=>visibility.observe(zone));
-  new MutationObserver(syncSticky).observe(document.body,{subtree:true,attributes:true,attributeFilter:['open','class']});
+ const productTabs=page.querySelector('.product-tabs');
+ if(productTabs){
+  const horizontal=matchMedia('(max-width:900px)');
+  const orient=()=>productTabs.setAttribute('aria-orientation',horizontal.matches?'horizontal':'vertical');
+  orient();horizontal.addEventListener('change',orient);
  }
  // Visible HTML is the baseline. WAAPI decorates once; failure never hides copy.
  if(!reduce.matches&&'IntersectionObserver' in window&&Element.prototype.animate){
