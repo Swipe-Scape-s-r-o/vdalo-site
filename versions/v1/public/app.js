@@ -108,7 +108,7 @@ document.addEventListener('keydown', event=>{
 document.addEventListener('click',event=>{
  if(siteNavigation?.querySelector('details[open]')&&!event.target.closest('#navigation'))siteNavigation.querySelectorAll('details[open]').forEach(item=>item.open=false);
 });
-addEventListener('scroll', () => document.querySelector('.header').classList.toggle('scrolled', scrollY > 120), { passive:true });
+addEventListener('scroll', () => document.querySelector('.header')?.classList.toggle('scrolled', scrollY > 120), { passive:true });
 
 // Provider-neutral events. Contact data and free text never enter this layer.
 window.dataLayer = window.dataLayer || [];

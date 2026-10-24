@@ -6,6 +6,8 @@ import {renderRouteForReview} from '../scripts/review-render.mjs';
 import {elements,inner,hasClass,textOf,decodeText} from '../versions/v1/content-revisions/html-fragments.mjs';
 import {formContract,portableHtmlHash} from '../versions/v1/content-revisions/form-contract.mjs';
 import {renderArticleMarkdown} from '../versions/v1/article-markdown.mjs';
+import {renderAuditDialog} from '../versions/v1/render.mjs';
+import {renderTrialOffer} from '../versions/v1/trial-offer.mjs';
 const baseline=JSON.parse(readFileSync(new URL('../docs/content-package-2026-10-23/BASELINE_FORM_CONTRACTS.json',import.meta.url)));
 const unchanged=JSON.parse(readFileSync(new URL('../docs/content-package-2026-10-23/BASELINE_EXCLUDED_ROUTES.json',import.meta.url)));
 const cache=new Map();
@@ -33,7 +35,10 @@ test('all 70 complete revisions render with one H1, matching metadata and preser
 test('every existing form preserves its action, fields, required constraints and submit controls',async()=>{
  for(const page of preparedPages){
   const {html}=await rendered(page.route);
-  assert.deepEqual(formContract(html),baseline[page.route],page.route);
+  // The new shared invitation supplies the established audit form only where
+  // none existed. Keep every original page form contract byte-for-byte.
+  const injectedAudit=renderAuditDialog().replace('class="lead-dialog"','class="lead-dialog site-trial-request"');
+  assert.deepEqual(formContract(html.replace(injectedAudit,'')),baseline[page.route],page.route);
  }
 });
 
@@ -44,6 +49,9 @@ test('23 deferred product pages and all 13 new funnels retain their content beyo
   // This release intentionally adds only these links and the integration-page
   // bridge to the old chrome; continue comparing every other byte to the baseline.
   const previousChrome=html
+   // Approved shared invitation is outside all original page content/forms.
+   .replace(renderTrialOffer(),'')
+   .replace(/<link rel="stylesheet" href="\/v1\/trial-offer\.css\?v=[a-f0-9]{12}"><script src="\/v1\/trial-offer\.js\?v=[a-f0-9]{12}" defer><\/script>/g,'')
    // Consent assets now use content hashes. Keep the historical fixture's
    // version token while continuing to compare every other markup byte.
    .replace(/(clarity-consent\.(?:css|js)\?v=)[a-f0-9]{12}\b/g,(_,prefix)=>prefix+'3')

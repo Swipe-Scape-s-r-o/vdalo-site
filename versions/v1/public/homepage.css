@@ -303,15 +303,3 @@ body.homepage-shell{background:#fcf9f8;color:#39233e}
 @media(max-width:700px){.home-hero-room{grid-template-rows:320px auto;margin:0}.home-room-cut{height:320px;clip-path:polygon(12% 0,100% 0,100% 100%,0 100%)}.home-hero-room figcaption{font-size:13px;margin-top:12px}}
 
 /* A single optional invitation replaces the persistent mobile action. */
-.home-trial-offer:not([open]){display:none}
-.home-trial-offer[open]{position:fixed;inset:0;width:min(520px,calc(100% - 32px));max-height:calc(100dvh - 32px);margin:auto;padding:58px 36px 24px;border:0;border-radius:16px;background:#fcf9f8;color:#39233e;overflow:auto;box-shadow:0 20px 70px #170b2140}
-.home-trial-offer::backdrop{background:#21102599}
-.homepage-2026 .home-trial-offer h2{font-size:36px;line-height:1.08;max-width:20ch}
-.homepage-2026 .home-trial-offer>p{margin-top:20px;font-size:17px;line-height:1.55}
-.home-trial-offer>.home-button{width:100%;margin-top:26px;gap:12px}
-.homepage-2026 .home-trial-offer .home-offer-note{font-size:13px;line-height:1.55;margin-top:14px}
-.home-offer-close{position:absolute;right:12px;top:12px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:#f0e7ec;color:#39233e;cursor:pointer}
-.home-offer-later{display:block;min-height:44px;margin:12px auto 0;padding:8px 12px;border:0;background:transparent;color:#39233e;font:600 14px/1.4 Inter,Arial,sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
-body:has(#home-trial-offer[open]){overflow:hidden}
-@media(max-width:700px){.home-trial-offer[open]{width:calc(100% - 24px);max-height:calc(100dvh - 24px);padding:60px 24px 18px}.homepage-2026 .home-trial-offer h2{font-size:30px}.homepage-2026 .home-trial-offer>p{font-size:16px;margin-top:18px}.home-trial-offer>.home-button{font-size:15px;padding-inline:18px;margin-top:22px}}
-@media(prefers-reduced-motion:no-preference){.home-trial-offer[open]{animation:home-offer-enter 200ms cubic-bezier(.23,1,.32,1)}@keyframes home-offer-enter{from{opacity:.6;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}}

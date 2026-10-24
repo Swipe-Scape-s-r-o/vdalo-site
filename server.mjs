@@ -26,6 +26,7 @@ import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator} 
 import {handlePmsReport} from './versions/v1/pms-report.mjs';
 import {renderSeoPage,seoRoutes} from './versions/v1/seo-pages.mjs';
 import {homeCssBundle,siteCssBundle,assetVersion} from './versions/v1/assets.mjs';
+import {withSiteTrialOffer} from './versions/v1/trial-offer.mjs';
 import {renderOfferPage,renderRefundPage} from './versions/v1/legal.mjs';
 import {renderAuthorPage,renderKostiantynAuthorPage,renderAuthorsDirectory} from './versions/v1/author-page.mjs';
 import {handleWayForPay} from './payments/wayforpay.mjs';
@@ -46,6 +47,9 @@ const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/sv
 const touristTaxRoutes=['/tourist-tax/',...touristTaxCityRoutes()];
 const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles,touristTaxRoutes});
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
+// Ordinary published pages opt in. Campaign /q*, /k*, /go*, numeric video,
+// /funnel* and /tourist-tax/start routes are deliberately outside this set.
+const trialOfferRoutes=new Set([...publicSitemapRoutes,'/v1/','/v1/privacy','/tools/qr-studio/index.html']);
 const sitemapLastModifiedByRoute=new Map([
  ['/authors/kostiantyn-tripailo','2026-10-23'],
  ['/partners','2026-10-24'],
@@ -90,13 +94,13 @@ function withTagManager(html){
  return withFavicon.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+calloPrelude+consentAssets+gtmHead);
 }
 function send(res,status,text,type='text/html; charset=utf-8',method='GET'){
- const body=type.toLowerCase().startsWith('text/html')?withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(text,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)):text;
+ const body=type.toLowerCase().startsWith('text/html')?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(text,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):text;
  const publicHtml=type.toLowerCase().startsWith('text/html')&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath);
  res.writeHead(status,{'Content-Type':type,'Cache-Control':publicHtml?'public, max-age=0, s-maxage=300, stale-while-revalidate=86400':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY'});res.end(method==='HEAD'?undefined:body);
 }
 function sendCompressed(req,res,status,data,type,cache='no-store'){
  const isHtml=type.toLowerCase().startsWith('text/html');
- const source=isHtml?withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(Buffer.isBuffer(data)?data.toString('utf8'):data,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)):data;
+ const source=isHtml?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(Buffer.isBuffer(data)?data.toString('utf8'):data,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):data;
  if(isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath))cache='public, max-age=0, s-maxage=300, stale-while-revalidate=86400';
  const body=Buffer.isBuffer(source)?source:Buffer.from(source);
  const compressed=body.length>=1024&&/\bgzip\b/.test(req.headers['accept-encoding']||'');
@@ -257,7 +261,7 @@ const server=http.createServer(async(req,res)=>{
   if(version!=='v1' && !(version==='v3' && (/^\/assets\/[a-zA-Z0-9_.-]+$/.test(relative)||relative==='/editorial.css')))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
   if(version==='v1' && relative==='/')return sendCompressed(req,res,200,prefix(firstPage({origin:'',full:true,homepage:true}),'v1'),'text/html; charset=utf-8');
   if(version==='v1' && relative==='/privacy')return send(res,200,prefix(privacyPage(),'v1'));
-  if(!/^\/(assets\/[a-zA-Z0-9_.-]+|author-page\.css|blog\.css|editorial-seo\.css|reading-layout\.css|prepared-content\.css|partners\.(?:css|js)|homepage\.(?:css|js)|tools\.(?:css|js)|seo-pages\.css|integration-channels\.css|pricing\.(?:css|js)|pricing-core\.js|site-config\.js|styles\.css|site\.css|home\.css|design-system-2\.css|dark-edition\.css|polish\.css|refinement\.css|cases\.css|editorial\.css|experience\.css|experience\.js|app\.js|clarity-consent\.(?:css|js)|living-hotel(?:-mobile|-dispatch)?\.(?:css|js))$/.test(relative))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
+  if(!/^\/(assets\/[a-zA-Z0-9_.-]+|author-page\.css|blog\.css|editorial-seo\.css|reading-layout\.css|prepared-content\.css|partners\.(?:css|js)|homepage\.(?:css|js)|trial-offer\.(?:css|js)|tools\.(?:css|js)|seo-pages\.css|integration-channels\.css|pricing\.(?:css|js)|pricing-core\.js|site-config\.js|styles\.css|site\.css|home\.css|design-system-2\.css|dark-edition\.css|polish\.css|refinement\.css|cases\.css|editorial\.css|experience\.css|experience\.js|app\.js|clarity-consent\.(?:css|js)|living-hotel(?:-mobile|-dispatch)?\.(?:css|js))$/.test(relative))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
   const file=path.join(root,'versions',version,'public',relative.slice(1));
   const bundle=version==='v1'&&relative==='/home.css'?homeCssBundle:version==='v1'&&relative==='/site.css'?siteCssBundle:null;
   const data=bundle?Buffer.from(bundle.css):await readFile(file);

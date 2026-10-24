@@ -1,0 +1,43 @@
+/* Self-contained on the main site, tax directory and standalone tools. */
+.home-trial-offer,.home-trial-offer *,.site-trial-request,.site-trial-request *{box-sizing:border-box}
+.home-trial-offer:not([open]),.site-trial-request:not([open]){display:none}
+.home-trial-offer[open]{position:fixed;inset:0;width:min(520px,calc(100% - 32px));max-width:none;max-height:calc(100dvh - 32px);margin:auto;padding:58px 36px 24px;border:0;border-radius:16px;background:#fcf9f8;color:#39233e;font:400 16px/1.55 Inter,Arial,sans-serif;text-align:left;overflow:auto;box-shadow:0 20px 70px #170b2140}
+.home-trial-offer::backdrop,.site-trial-request::backdrop{background:#21102599}
+.home-trial-offer h2{margin:0;font:750 36px/1.08 'Inter Tight',Inter,Arial,sans-serif;letter-spacing:-.025em;max-width:20ch;color:inherit}
+.home-trial-offer>p{margin:20px 0 0;font-size:17px;line-height:1.55;color:inherit}
+.home-trial-offer>.home-button{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;margin-top:26px;padding:16px 22px;gap:12px;border:0;border-radius:999px;background:#ff8fc2;color:#24132b;font:700 16px/1.3 Inter,Arial,sans-serif;text-align:center;text-decoration:none;cursor:pointer}
+.home-trial-offer>.home-button svg{flex:0 0 auto}
+.home-trial-offer .home-offer-note{font-size:13px;line-height:1.55;margin-top:14px}
+.home-offer-close{position:absolute;right:12px;top:12px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:#f0e7ec;color:#39233e;cursor:pointer}
+.home-offer-later{display:block;min-height:44px;margin:12px auto 0;padding:8px 12px;border:0;background:transparent;color:#39233e;font:600 14px/1.4 Inter,Arial,sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.home-trial-offer button:focus-visible,.site-trial-request :is(button,a,input,textarea,summary):focus-visible{outline:3px solid #9d3a73;outline-offset:3px}
+body:has(#home-trial-offer[open]),body:has(.site-trial-request[open]){overflow:hidden}
+/* Only the injected audit form needs these rules; existing site forms retain
+   their established styles and fields. No general page selectors. */
+.site-trial-request[open]{position:fixed;inset:0;width:min(620px,calc(100% - 32px));max-width:none;max-height:calc(100dvh - 32px);margin:auto;padding:0;border:0;border-radius:16px;background:#fcf9f8;color:#39233e;font:400 16px/1.55 Inter,Arial,sans-serif;text-align:left;overflow:auto;box-shadow:0 20px 70px #170b2140}
+.site-trial-request [hidden]{display:none!important}
+.site-trial-request .dialog-body{padding:62px 32px 28px}
+.site-trial-request .dialog-close{position:absolute;right:12px;top:12px;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:#f0e7ec;color:#39233e;font:400 28px/1 Arial,sans-serif;cursor:pointer}
+.site-trial-request h2{margin:8px 0 16px;font:750 30px/1.12 'Inter Tight',Inter,Arial,sans-serif;letter-spacing:-.02em;color:inherit}
+.site-trial-request p{margin:0 0 16px;color:inherit}
+.site-trial-request .eyebrow{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.site-trial-request .selected-interest{padding:12px;border-radius:8px;background:#f5eaf1;font-size:14px}
+.site-trial-request .form-grid{display:grid;gap:16px}
+.site-trial-request .field{display:grid;gap:6px;margin-bottom:16px}
+.site-trial-request label{font-weight:600}
+.site-trial-request :is(input:not([type=checkbox]),textarea){display:block;width:100%;min-height:48px;padding:12px;border:1px solid #927d94;border-radius:8px;background:#fff;color:#39233e;font:inherit}
+.site-trial-request textarea{resize:vertical}
+.site-trial-request [aria-invalid=true]{border-color:#a31e39}
+.site-trial-request .field-error,.site-trial-request .form-status{color:#a31e39;font-size:14px}
+.site-trial-request .form-optional{margin:4px 0 20px}
+.site-trial-request summary{padding:10px 0;margin-bottom:10px;cursor:pointer;font-weight:600}
+.site-trial-request summary span{font-weight:400;font-size:14px}
+.site-trial-request .consent-field label{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:400}
+.site-trial-request input[type=checkbox]{flex:0 0 20px;width:20px;height:20px;margin:2px 0;accent-color:#9d3a73}
+.site-trial-request a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.site-trial-request .button{display:flex;align-items:center;justify-content:center;min-height:50px;width:100%;padding:14px 20px;border:0;border-radius:999px;background:#ff8fc2;color:#24132b;font:700 16px/1.3 Inter,Arial,sans-serif;text-decoration:none;cursor:pointer}
+.site-trial-request .button:disabled{opacity:.65;cursor:wait}
+.site-trial-request .form-footnote{margin-top:14px;font-size:13px}
+.site-trial-request .honey{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+@media(max-width:700px){.home-trial-offer[open]{width:calc(100% - 24px);max-height:calc(100dvh - 24px);padding:60px 24px 18px}.home-trial-offer h2{font-size:30px}.home-trial-offer>p{font-size:16px;margin-top:18px}.home-trial-offer>.home-button{font-size:15px;padding-inline:18px;margin-top:22px}.site-trial-request[open]{width:calc(100% - 24px);max-height:calc(100dvh - 24px)}.site-trial-request .dialog-body{padding:62px 22px 22px}.site-trial-request h2{font-size:26px}}
+@media(prefers-reduced-motion:no-preference){.home-trial-offer[open]{animation:home-offer-enter 200ms cubic-bezier(.23,1,.32,1)}@keyframes home-offer-enter{from{opacity:.6;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}}

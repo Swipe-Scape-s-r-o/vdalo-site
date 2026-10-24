@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 
-const source=readFileSync(new URL('../versions/v1/public/homepage.js',import.meta.url),'utf8');
-const markup=readFileSync(new URL('../versions/v1/homepage.mjs',import.meta.url),'utf8');
+const source=readFileSync(new URL('../versions/v1/public/trial-offer.js',import.meta.url),'utf8');
+const markup=readFileSync(new URL('../versions/v1/trial-offer.mjs',import.meta.url),'utf8');
 function setup({values=new Map(),blockedStorage=false}={}){
  let now=0,nextId=0,editing=false,blocked=false;
  const jobs=new Map(),listeners={};
@@ -17,15 +17,14 @@ function setup({values=new Map(),blockedStorage=false}={}){
  offer.querySelectorAll=()=>[close,later];offer.querySelector=()=>start;
  offer.showModal=()=>{offer.open=true;offer.opens++;};offer.close=()=>{offer.open=false;};
  offer.getBoundingClientRect=()=>({left:10,right:400,top:100,bottom:600});
- const page={querySelector:selector=>selector==='#home-trial-offer'?offer:null};
- const document={hidden:false,activeElement:{matches:()=>editing},querySelector:selector=>selector==='.homepage-2026'?page:blocked?{}:null,
+ const document={hidden:false,activeElement:{matches:()=>editing},querySelector:selector=>selector==='#home-trial-offer'?offer:blocked?{}:null,
   addEventListener:(type,handler)=>{(listeners[type]??=[]).push(handler);}};
  const dispatch=(type,event={})=>{for(const fn of listeners[type]||[])fn(event);};
- const context={document,matchMedia:()=>({matches:true}),performance:{now:()=>now},sessionStorage:{getItem:key=>{if(blockedStorage)throw Error('blocked');return values.get(key);},setItem:(key,value)=>{if(blockedStorage)throw Error('blocked');values.set(key,value);}},
+ const context={document,addEventListener:(type,handler)=>{(listeners[type]??=[]).push(handler);},performance:{now:()=>now},sessionStorage:{getItem:key=>{if(blockedStorage)throw Error('blocked');return values.get(key);},setItem:(key,value)=>{if(blockedStorage)throw Error('blocked');values.set(key,value);}},
   setTimeout:(fn,delay)=>{const id=++nextId;jobs.set(id,{fn,at:now+delay});return id;},clearTimeout:id=>jobs.delete(id)};
  runInNewContext(source,context);
  const advance=ms=>{const target=now+ms;while(true){const job=[...jobs].sort((a,b)=>a[1].at-b[1].at)[0];if(!job||job[1].at>target)break;now=job[1].at;jobs.delete(job[0]);job[1].fn();}now=target;};
- return {offer,close,later,start,values,advance,setBlocked:value=>{blocked=value;},setEditing:value=>{editing=value;},setHidden:value=>{document.hidden=value;dispatch('visibilitychange');},requestContact:()=>dispatch('click',{target:{closest:()=>({})}})};
+ return {offer,close,later,start,values,advance,dispatch,setBlocked:value=>{blocked=value;},setEditing:value=>{editing=value;},setHidden:value=>{document.hidden=value;dispatch('visibilitychange');},requestContact:()=>dispatch('click',{target:{closest:()=>({})}})};
 }
 
 test('offer waits for 50 seconds and does not repeat after dismissal',()=>{
@@ -58,9 +57,40 @@ test('close, Escape and backdrop each dismiss the offer',()=>{
 });
 test('invitation closes before the existing short request handler runs',()=>{
  const app=setup();app.advance(50000);app.start.fire('click');assert.equal(app.offer.open,false);
- assert.match(markup,/data-home-offer-start data-open="audit"/);assert.match(markup,/data-location="home-timed-trial"/);
+ assert.match(markup,/data-home-offer-start data-open="audit"/);assert.match(markup,/data-location="site-timed-trial"/);
  assert.doesNotMatch(markup,/home-mobile-action/);
 });
 test('unavailable session storage still permits one dismissible invitation per load',()=>{
  const app=setup({blockedStorage:true});app.advance(50000);assert.equal(app.offer.open,true);app.close.fire('click');app.advance(100000);assert.equal(app.offer.opens,1);
+});
+
+test('active time survives navigation between ordinary pages',()=>{
+ const first=setup();first.advance(20000);first.dispatch('pagehide');
+ const next=setup({values:first.values});next.advance(29999);assert.equal(next.offer.open,false);
+ next.advance(1);assert.equal(next.offer.open,true);
+});
+
+test('time on an excluded page contributes nothing to the next ordinary page',()=>{
+ const first=setup();first.advance(15000);first.dispatch('pagehide');first.advance(200000);
+ const next=setup({values:first.values});next.advance(34999);assert.equal(next.offer.open,false);
+ next.advance(1);assert.equal(next.offer.open,true);
+});
+
+test('back-forward cache restore respects a dismissal from a later page',()=>{
+ const first=setup();first.advance(10000);first.dispatch('pagehide');
+ const next=setup({values:first.values});next.advance(40000);next.later.fire('click');
+ first.dispatch('pageshow',{persisted:true});first.advance(120000);assert.equal(first.offer.opens,0);
+});
+
+test('starting or submitting a lead form suppresses the invitation',()=>{
+ for(const type of ['input','submit']){
+  const app=setup();app.dispatch(type,{target:{closest:()=>({})}});app.advance(120000);assert.equal(app.offer.opens,0,type);
+ }
+});
+
+test('malformed saved elapsed time cannot bypass the delay',()=>{
+ for(const value of ['NaN','Infinity','-9000']){
+  const app=setup({values:new Map([['vdalo-site-trial-active-ms-v1',value]])});
+  app.advance(49999);assert.equal(app.offer.open,false,value);app.advance(1);assert.equal(app.offer.open,true,value);
+ }
 });

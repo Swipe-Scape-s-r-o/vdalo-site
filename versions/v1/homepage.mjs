@@ -73,9 +73,6 @@ function problems(html){
  });
 }
 
-function trialOffer(){
- return `<dialog id="home-trial-offer" class="home-trial-offer" aria-labelledby="home-trial-offer-title" aria-describedby="home-trial-offer-copy"><button type="button" class="home-offer-close" data-home-offer-dismiss aria-label="Закрити пропозицію" autofocus><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><h2 id="home-trial-offer-title">Спробуйте VDALO 14 днів</h2><p id="home-trial-offer-copy">Перевірте бронювання, заїзди й роботу команди на задачах свого готелю.</p><button type="button" class="home-button" data-home-offer-start data-open="audit" data-location="home-timed-trial" data-interest="14 днів тестування VDALO для мого готелю">Залишити заявку на тест ${icon('arrow')}</button><p class="home-offer-note">Без банківської картки. Команда зв’яжеться з вами та погодить початок тестування.</p><button type="button" class="home-offer-later" data-home-offer-dismiss>Продовжити перегляд</button></dialog>`;
-}
 
 export function renderHomepage({featureVisual,night}){
  const blocks=homepageSections(featureVisual);
@@ -84,6 +81,5 @@ export function renderHomepage({featureVisual,night}){
  <section class="home-section home-faq" id="faq" aria-labelledby="home-faq-title"><div class="home-wrap"><div><h2 id="home-faq-title">Перед початком</h2><p>Відповіді на головні запитання. Решту розберемо на демонстрації.</p>${picture('hero-hotel.webp','Затишний готельний номер у вечірньому світлі','width="1122" height="1402"')}</div><div class="home-faq-list">${questions.map(([q,a])=>`<details data-faq><summary>${q}${icon('arrow')}</summary><p>${a}</p></details>`).join('')}</div></div></section>
  <section class="home-close" id="audit" aria-labelledby="home-close-title"><div class="home-wrap"><div><h2 id="home-close-title">Почнімо з демо</h2><p>Покажемо, як працювати з вашими бронюваннями, підготувати заїзди й передавати задачі команді.</p></div><div>${request('final')}<p class="home-note">З вами зв’яжеться менеджер VDALO.</p></div></div></section>
  ${renderHomepageGuide(request)}
- ${trialOffer()}
 </div>`;
 }
