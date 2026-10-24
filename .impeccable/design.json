@@ -236,14 +236,9 @@
         "purpose": "One-time onboarding step entrance from 16px right; 60ms stagger capped at three steps."
       },
       {
-        "name": "arrival-enter",
-        "value": "650ms",
-        "purpose": "Illustrative arrival enters from 20px below after 180ms."
-      },
-      {
-        "name": "hero-settle",
-        "value": "12000ms linear",
-        "purpose": "One-time image scale from 1.025 to 1; pauses while document is hidden."
+        "name": "brand-v-enter",
+        "value": "1100ms cubic-bezier(.23,1,.32,1)",
+        "purpose": "Existing brand V enters once from 14px below and -9 degrees to a static -7-degree rotation. Skips reduced motion and pauses while document is hidden."
       },
       {
         "name": "shared-panel-feedback",
@@ -340,7 +335,7 @@
   ],
   "narrative": {
     "northStar": "A confirmed reservation",
-    "overview": "This document records the full homepage restored on 24 October 2026 after the owner rejected the shortened structure. Its filled surfaces, hotel photography and reservation rectangles express the existing plum and pink identity through practical hotel work. The restored night simulation, five distinct pain cards and complete module browser belong to this homepage; they do not prescribe the composition of other pages.\n\nThe token layer and component conventions below apply to the content inside `.homepage-2026`, plus the documented `body.homepage-shell` background and mobile-action spacing. The retained brand guide and editorial standards remain authoritative for the shared header, footer, forms, calculator and other routes. This is a local extension of the pinned VDALO world. `RESTORATION_METAPROMPT.md` supersedes the shortened STORY in the original brief while preserving its palette, type and material commitments.\n\nSource evidence is `versions/v1/homepage.mjs`, `experience.mjs`, `render.mjs`, `homepage-guide.mjs`, the homepage stylesheet/script, shared styles and `app.js`, and the existing living-hotel files. `RESTORATION_QA.md` records the supplied browser evidence and its limits. This documentation pass read source and review records without running a browser, renderer, tests, launcher or deployment. The finish verdict and owner approval are separate decisions.",
+    "overview": "This document records the full homepage restored on 24 October 2026 after the owner rejected the shortened structure. Its brand V hero, filled surfaces, hotel photography in supporting blocks and reservation rectangles express the existing plum and pink identity through practical hotel work. The restored night simulation, five distinct pain cards and complete module browser belong to this homepage; they do not prescribe the composition of other pages.\n\nThe token layer and component conventions below apply to the content inside `.homepage-2026`, plus the documented `body.homepage-shell` background and mobile-action spacing. The retained brand guide and editorial standards remain authoritative for the shared header, footer, forms, calculator and other routes. This is a local extension of the pinned VDALO world. `RESTORATION_METAPROMPT.md` supersedes the shortened STORY in the original brief while preserving its palette, type and material commitments.\n\nSource evidence is `versions/v1/homepage.mjs`, `experience.mjs`, `render.mjs`, `homepage-guide.mjs`, the homepage stylesheet/script, shared styles and `app.js`, and the existing living-hotel files. `RESTORATION_QA.md` records the supplied browser evidence and its limits. This documentation pass read source and review records without running a browser, renderer, tests, launcher or deployment. The finish verdict and owner approval are separate decisions.",
     "keyCharacteristics": [
       "Plum fields, pink actions and warm paper with tonal surface changes.",
       "Inter Tight headings and Inter body and interface text.",
@@ -369,7 +364,7 @@
       "Do keep the restored homepage styles scoped to the homepage boundary.",
       "Do preserve the canonical raster wordmark and its proportions.",
       "Do use the recorded Inter Tight and Inter hierarchy for this homepage.",
-      "Do show illustrative UI and generated hospitality imagery with the factual labels present in the implementation.",
+      "Do keep the existing hero V text-free and label illustrative product examples honestly.",
       "Do preserve visible focus, keyboard tab selection and native disclosure behavior.",
       "Do preserve source-based reduced-motion behavior and visible reading content."
     ],

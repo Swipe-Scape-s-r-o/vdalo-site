@@ -117,7 +117,7 @@ Plum anchors the system, pink identifies action and price, and pale warm surface
 ### Neutral
 
 - **Paper:** Base page, module reading surface, FAQ answers and expanded calculator surface.
-- **Blush:** Text on plum and the illustrative arrival state.
+- **Blush:** Text on plum and light component surfaces.
 - **Soft Surface:** Pain cards, calendar, case and FAQ grouping.
 - **Workflow Surface:** Channels, modules, approach and demo grouping.
 - **Tab Surface / Tab Hover:** Pale control grouping and an inherited palette shade retained in the stylesheet. These colors do not define all restored shared tab variants.
@@ -151,7 +151,7 @@ Inter Tight differs from the older Playfair Display recommendation in the retain
 
 The content width is capped at (1240px), with desktop gutters (40px each), tablet gutters (24px each) below 1000px and mobile gutters (20px each) below 700px. The route uses CSS grid and flex layouts; it does not implement the older guide's literal 12/8/4 column system.
 
-The hero is a two-column composition (1fr / 1.13fr), with copy first in the DOM and a photo with an illustrative arrival overlay. The full restored sequence follows the table below. This is a record of this route, not a global page template.
+The hero is a two-column composition (1fr / 1.13fr), with copy first in the DOM and the existing brand V as a text-free graphic. The full restored sequence follows the table below. This is a record of this route, not a global page template.
 
 | Order | Homepage surface | Actual destination |
 | --- | --- | --- |
@@ -176,7 +176,7 @@ The hero is a two-column composition (1fr / 1.13fr), with copy first in the DOM 
 
 Restored content sections use the recorded section rhythm, with component-specific spacing. The five pain cards form three cards above two wider cards on desktop, two columns plus a full-width final card below 1000px, and one column below 700px. Modules use a (270px) side navigation and one reading panel on desktop; the side navigation narrows to (220px) below 1000px and becomes a horizontally scrolling row below 900px. Role and guest-stage layouts retain their own proportions.
 
-At up to 1000px the hero becomes equal columns and gaps tighten. At up to 700px the hero, calendar introduction, channels, direct-booking diagram, roles, journey, price summary, founder, demo and FAQ stack. Onboarding copy precedes its image. Quick links become a two-column grid, the FAQ photograph is hidden and the guide navigation loses its sticky position. The hero changes to a dedicated image asset at up to 600px. Module and journey tabs and the calendar scroll inside their own regions.
+At up to 1000px the hero becomes equal columns and gaps tighten. At up to 700px the hero, calendar introduction, channels, direct-booking diagram, roles, journey, price summary, founder, demo and FAQ stack. Onboarding copy precedes its image. Quick links become a two-column grid, the FAQ photograph is hidden and the guide navigation loses its sticky position. The hero uses the same existing V SVG at every width, within a 480px desktop art row, 430px below 1000px, and 270px below 700px. Module and journey tabs and the calendar scroll inside their own regions.
 
 The night simulation uses its phone layout at up to 860px. Its homepage-specific height is capped at `calc(100svh - 104px)` with a matching minimum cap so the control row can fit below the sticky header. The scene remains the existing interactive SVG example, with its own internal layout and states.
 
@@ -186,11 +186,11 @@ At widths of at least 1100px hero actions stack vertically. The mobile action ap
 
 ## Elevation & Depth
 
-The homepage uses tonal layering for its new and locally restyled surfaces. The calendar, pain cards, diagrams, module browser, case and founder container remove inherited shadows. Filled surfaces separate a reservation, arrival, selected control, price and disclosure. Existing shared navigation, dialogs, calculator and the restored night simulation keep their own depth treatments; those inherited effects are not a new homepage shadow vocabulary.
+The homepage uses tonal layering for its new and locally restyled surfaces. The calendar, pain cards, diagrams, module browser, case and founder container remove inherited shadows. Filled surfaces separate a reservation, selected control, price and disclosure. The hero V uses the original pink vector face and a masked plum-pink offset layer; it has no surrounding card or shadow. Existing shared navigation, dialogs, calculator and the restored night simulation keep their own depth treatments; those inherited effects are not a new homepage shadow vocabulary.
 
 ## Shapes
 
-Media, pain cards, calendar, diagrams, module browser, journey state, case and price figure use the surface radius. Current tabs, arrival state, FAQ and calculator disclosure use the control radius. Primary actions use the pill radius. The reservation motif is a filled rounded rectangle grounded by the working calendar. The existing night scene retains its illustrated hotel geometry and internal control shapes.
+Media, pain cards, calendar, diagrams, module browser, journey state, case and price figure use the surface radius. Current tabs, FAQ and calculator disclosure use the control radius. Primary actions use the pill radius. The reservation motif is a filled rounded rectangle grounded by the working calendar. The existing night scene retains its illustrated hotel geometry and internal control shapes.
 
 ## Components
 
@@ -210,7 +210,7 @@ The former four-tab `.home-tabs` component and its homepage-script keyboard hand
 
 ### Cards / Containers
 
-The five pain cards each retain a photograph, distinct existing SVG icon, title, explanatory copy and relevant action. The price figure is a filled pink surface with room-count context. The arrival overlay is blush on a photo and labeled as an example. Channels and direct bookings use filled diagrams with compatibility and connection conditions. The case keeps its descriptive route link. The two redundant uppercase diagram labels and the inherited communication timeline stripe have been removed in this homepage adaptation.
+The five pain cards each retain a photograph, distinct existing SVG icon, title, explanatory copy and relevant action. The price figure is a filled pink surface with room-count context. The hero instead uses the existing `vdalo-mark-v-pink.svg` at its original proportions, with no text or example card over the letter. Its caption stays below the graphic. Channels and direct bookings use filled diagrams with compatibility and connection conditions. The case keeps its descriptive route link. The two redundant uppercase diagram labels and the inherited communication timeline stripe have been removed in this homepage adaptation.
 
 ### Inputs / Fields
 
@@ -234,7 +234,7 @@ FAQ uses native details and summary elements. The arrow changes orientation when
 
 ### Motion
 
-The homepage script uses the Web Animations API with one-time intersection triggers. Onboarding steps move horizontally (16px, 360ms) with a short stagger (60ms); the price figure settles from scale (.98, 420ms). The arrival enters vertically (20px, 650ms) after a delay (180ms). The hero image settles once from scale (1.025) over (12000ms, linear), pausing while the document is hidden. Section-heading fades have been removed.
+The homepage script uses the Web Animations API with one-time intersection triggers. Onboarding steps move horizontally (16px, 360ms) with a short stagger (60ms); the price figure settles from scale (.98, 420ms). The brand V enters once over 1100ms with the existing exponential ease-out, moving from 14px below / -9 degrees to its resting -7-degree rotation. It is visible without JavaScript. The animation is skipped for reduced motion and paused while the document is hidden. Section-heading fades have been removed.
 
 The homepage easing is cubic-bezier(.23, 1, .32, 1). Shared `app.js` also retains its existing component entrance feedback and pointer-triggered panel transition (240ms, 8px); keyboard tab selection and calendar changes stay immediate. This is inherited behavior rather than a new universal motion rule.
 
