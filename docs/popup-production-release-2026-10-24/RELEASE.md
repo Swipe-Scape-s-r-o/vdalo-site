@@ -30,13 +30,13 @@ The owner reviewed staging and explicitly approved promotion to the main domain 
 - Empty submit stayed in the same dialog with Ukrainian name, phone and consent errors and focused the name field.
 - Chrome, 320 x 568: dialog 296 x 544 px, content scrollTop 257 px, close control remained at y=24 and document width was 320 px. Evidence: production-mobile320-scroll-close.png.
 - Submitted exactly one clearly labeled test request using the contact previously authorized by the owner. The actual production UI showed Заявку отримано, hid the form and retained one dialog after the existing receiver acknowledged success. Evidence: production-request-success.png contains no contact fields. No contact number is stored in this report.
-- Requested recipient confirmation in chat for the test label ТЕСТ попапу 24.10. Telegram receipt is pending confirmation at the time of this report; UI acknowledgement is not treated as proof of delivery to Telegram.
+- The owner confirmed in this chat on 24 October 2026 that the test request labeled ТЕСТ попапу 24.10 arrived in Telegram. Delivery is supported by the recipient's confirmation in addition to the production UI acknowledgement.
 - The return button closed the dialog. A later visit to /tourist-tax/ respected session suppression and showed contained 288 px directory rows at a 320 px viewport.
 - No browser warnings/errors were observed during the production popup/form checks.
 - Browser checked all 13 short q landings plus /q, /k1, /go, /go/trial and /tourist-tax/start at both 390 and 1440 px: 36 visits with no popup markup, inline popup form, popup assets or global overflow. Details: PRODUCTION-ADVERTISING-UI.json.
 
-The deployment and observed popup behavior passed the production checks. Actual Telegram receipt remains a separately recorded confirmation item.
+The deployment and observed popup behavior passed the production checks. The owner also confirmed receipt of the production test request in Telegram, completing this delivery check.
 
 ## Verification limits
 
-Public HTTP responses, browser UI, asset hashes and console output are observable here. Backend infrastructure metrics and GA4/Clarity receipt are not established by tag presence. Telegram receipt requires the recipient's confirmation.
+Public HTTP responses, browser UI, asset hashes and console output are observable here. Telegram receipt is confirmed by the owner in this chat. A separate CRM database record was not independently verified. Backend infrastructure metrics and GA4/Clarity receipt are not established by tag presence.
