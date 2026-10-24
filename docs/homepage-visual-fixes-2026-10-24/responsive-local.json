@@ -1,0 +1,206 @@
+[
+  {
+    "requestedWidth": 1920,
+    "journeyImage": {
+      "height": 280,
+      "width": 476.8020935058594
+    },
+    "overflow": 0,
+    "painTitles": [
+      {
+        "lines": 1,
+        "title": "Броні в різних кабінетах"
+      },
+      {
+        "lines": 1,
+        "title": "Документи й збір вручну"
+      },
+      {
+        "lines": 1,
+        "title": "Кожен заїзд із нуля"
+      },
+      {
+        "lines": 1,
+        "title": "Ті самі запитання"
+      },
+      {
+        "lines": 1,
+        "title": "Готовність номера в чатах"
+      }
+    ],
+    "portraitRadius": "0px",
+    "sticky": 0,
+    "tariffCtaGap": 8,
+    "width": 1920
+  },
+  {
+    "requestedWidth": 1440,
+    "journeyImage": {
+      "height": 280,
+      "width": 476.8020935058594
+    },
+    "overflow": 0,
+    "painTitles": [
+      {
+        "lines": 1,
+        "title": "Броні в різних кабінетах"
+      },
+      {
+        "lines": 1,
+        "title": "Документи й збір вручну"
+      },
+      {
+        "lines": 1,
+        "title": "Кожен заїзд із нуля"
+      },
+      {
+        "lines": 1,
+        "title": "Ті самі запитання"
+      },
+      {
+        "lines": 1,
+        "title": "Готовність номера в чатах"
+      }
+    ],
+    "portraitRadius": "0px",
+    "sticky": 0,
+    "tariffCtaGap": 8,
+    "width": 1440
+  },
+  {
+    "requestedWidth": 1024,
+    "journeyImage": {
+      "height": 280,
+      "width": 352.2708435058594
+    },
+    "overflow": 0,
+    "painTitles": [
+      {
+        "lines": 2,
+        "title": "Броні в різних кабінетах"
+      },
+      {
+        "lines": 2,
+        "title": "Документи й збір вручну"
+      },
+      {
+        "lines": 1,
+        "title": "Кожен заїзд із нуля"
+      },
+      {
+        "lines": 1,
+        "title": "Ті самі запитання"
+      },
+      {
+        "lines": 1,
+        "title": "Готовність номера в чатах"
+      }
+    ],
+    "portraitRadius": "0px",
+    "sticky": 0,
+    "tariffCtaGap": 8,
+    "width": 1024
+  },
+  {
+    "requestedWidth": 768,
+    "journeyImage": {
+      "height": 280,
+      "width": 328.3333435058594
+    },
+    "overflow": 0,
+    "painTitles": [
+      {
+        "lines": 2,
+        "title": "Броні в різних кабінетах"
+      },
+      {
+        "lines": 2,
+        "title": "Документи й збір вручну"
+      },
+      {
+        "lines": 1,
+        "title": "Кожен заїзд із нуля"
+      },
+      {
+        "lines": 1,
+        "title": "Ті самі запитання"
+      },
+      {
+        "lines": 1,
+        "title": "Готовність номера в чатах"
+      }
+    ],
+    "portraitRadius": "0px",
+    "sticky": 0,
+    "tariffCtaGap": 8,
+    "width": 768
+  },
+  {
+    "requestedWidth": 390,
+    "journeyImage": {
+      "height": 220,
+      "width": 334.66668701171875
+    },
+    "overflow": 0,
+    "painTitles": [
+      {
+        "lines": 2,
+        "title": "Броні в різних кабінетах"
+      },
+      {
+        "lines": 2,
+        "title": "Документи й збір вручну"
+      },
+      {
+        "lines": 1,
+        "title": "Кожен заїзд із нуля"
+      },
+      {
+        "lines": 1,
+        "title": "Ті самі запитання"
+      },
+      {
+        "lines": 2,
+        "title": "Готовність номера в чатах"
+      }
+    ],
+    "portraitRadius": "0px",
+    "sticky": 0,
+    "tariffCtaGap": 8,
+    "width": 390
+  },
+  {
+    "requestedWidth": 320,
+    "journeyImage": {
+      "height": 220,
+      "width": 264.66668701171875
+    },
+    "overflow": 0,
+    "painTitles": [
+      {
+        "lines": 2,
+        "title": "Броні в різних кабінетах"
+      },
+      {
+        "lines": 2,
+        "title": "Документи й збір вручну"
+      },
+      {
+        "lines": 2,
+        "title": "Кожен заїзд із нуля"
+      },
+      {
+        "lines": 1,
+        "title": "Ті самі запитання"
+      },
+      {
+        "lines": 2,
+        "title": "Готовність номера в чатах"
+      }
+    ],
+    "portraitRadius": "0px",
+    "sticky": 0,
+    "tariffCtaGap": 8,
+    "width": 320
+  }
+]

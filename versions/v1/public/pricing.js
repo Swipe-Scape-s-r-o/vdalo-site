@@ -18,7 +18,7 @@ if (pricingRoot && core) {
   track('pricing_calculator_update',{action,plan_id:plan.id,rooms,period,module_ids:modules,module_count:modules.length,estimated_monthly:Math.round(estimateMonthly),...extra});
  };
  const applyPlanPeriod = monthly => core.applyPeriod(monthly,period);
- const roomLabel = count => count === 1 ? 'номер' : 'номерів';
+ const roomLabel = count => count % 10 === 1 && count % 100 !== 11 ? 'номер' : count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14) ? 'номери' : 'номерів';
  const selectedModules = () => moduleInputs.filter(input=>input.checked).map(input=>input.dataset.module);
  const estimateData = () => {
   const rooms = Math.max(1,Math.floor(Number(roomInput?.value)||1));
@@ -65,12 +65,12 @@ if (pricingRoot && core) {
   pricingRoot.querySelector('[data-sticky-price]').textContent=totalText;
   const estimate={plan:plan.name,rooms,period,modules:selectedModules(),estimateMonthly,isFrom};
   window.VDALO_CURRENT_ESTIMATE=estimate;
-  pricingRoot.querySelectorAll('[data-pricing-submit]').forEach(button=>button.dataset.interest=`Розрахунок: ${plan.name}, ${rooms} номерів, ${totalText}`);
+  pricingRoot.querySelectorAll('[data-pricing-submit]').forEach(button=>button.dataset.interest=`Розрахунок: ${plan.name}, ${rooms} ${roomLabel(rooms)}, ${totalText}`);
   if(checkoutForm){
    checkoutForm.elements.plan.value=plan.id;checkoutForm.elements.rooms.value=String(rooms);checkoutForm.elements.period.value=period;
    checkoutForm.querySelector('.checkout-modules').replaceChildren(...selectedModules().map(id=>{const input=document.createElement('input');input.type='hidden';input.name='module';input.value=id;return input;}));
    const trialButton=checkoutForm.querySelector('[data-open="trial"]');
-   if(trialButton){trialButton.dataset.interest=`Пробний доступ 14 днів: ${plan.name}, ${rooms} номерів, модулі: ${selectedModules().length?selectedModules().join(', '):'без додаткових модулів'}`;}
+   if(trialButton){trialButton.dataset.interest=`Пробний доступ 14 днів: ${plan.name}, ${rooms} ${roomLabel(rooms)}, модулі: ${selectedModules().length?selectedModules().join(', '):'без додаткових модулів'}`;}
    const setupPrice=plan.setup||0,setupSelected=Boolean(setupInput?.checked),setupIncluded=setupSelected&&setupPrice>0;
    checkoutForm.querySelector('[data-checkout-setup-price]').textContent=setupPrice?`${money(setupPrice)} одноразово`:'Для цього тарифу послуга підключення без оплати';
    const note=checkoutForm.querySelector('[data-checkout-note]'),submit=checkoutForm.querySelector('.checkout-submit');

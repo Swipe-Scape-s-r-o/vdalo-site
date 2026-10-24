@@ -87,6 +87,18 @@ components:
 
 # Design System: VDALO restored full homepage
 
+> The visual correction pass in `docs/homepage-visual-fixes-2026-10-24/BRIEF.md` and `QA.md` supersedes the older component notes below where they conflict. The approved hotel-room hero and section order are unchanged.
+
+## Visual corrections, 24 October
+
+- Pain cards have equal widths in a wrapping row: three then two centered cards on wide screens, two then a centered final card on tablets, one per row on phones. Images use 16:9 with a 210 px cap. Desktop titles use 23 px and a natural measure; mobile titles use 22 px and may wrap.
+- Each guest-stage card has a full-width 4:3 image above a padded caption. Prearrival, check-in and checkout have individual crop positions to preserve faces and actions. Selected guest-stage icons are plum on pink.
+- The founder photo fills a 280 x 350 px rectangular frame with 16 px corners; the image itself has no circular mask. Its frame becomes 220 x 275 px on tablets and 180 x 225 px on phones. Author actions form a wrapping group.
+- The module tariff action is a separate row with 24 px top spacing, right aligned on desktop and full width on phones. Module tab orientation follows the horizontal layout at up to 900 px. The inherited pink side stripe is removed on this homepage.
+- Whole-panel legacy reveal transforms/animations are disabled on the homepage; the approved hero and optional local motion remain. The night summary preserves keyboard focus when the visitor is outside its visible scene.
+- The persistent mobile action has been removed. A native, dismissible dialog offers 14 days of testing after 50 seconds of visible homepage time, once per tab session, deferred by privacy decisions, menus, editing and other dialogs. Its action opens the existing short audit request with trial context. It does not activate access automatically.
+- Shared privacy UI uses the plain title “Ваша приватність”. The compact phone notice retains acceptance, settings and rejection in one row with 44 px minimum targets. Optional analytics/replay stay independent and off until chosen. Asset URLs use content hashes.
+
 ## Overview
 
 **Creative North Star: "A confirmed reservation"**
