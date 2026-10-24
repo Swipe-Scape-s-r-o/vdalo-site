@@ -11,7 +11,7 @@ Skills applied: design:ux-copy and design:accessibility-review.
 | Element | Implemented copy/behavior | Reason |
 | --- | --- | --- |
 | Heading | Спробуйте VDALO 14 днів | Preserve the offer, center it and use readable natural wrapping on small phones |
-| Close separation | 76 px top padding; 44 px close target at top 12 px | Leaves 20 px between the close box and the first heading line |
+| Close separation | 64 px fixed top area plus 12 px content padding; 44 px close target at top 12 px | Leaves 20 px before the heading and keeps the close control visible while content scrolls |
 | Fields | Ім’я, Телефон | Only the contacts the team needs for manual follow-up |
 | Consent | Unchecked, required, linked privacy policy | A clear choice before contact processing |
 | Submit | Залишити заявку на тест | Describes the actual outcome: a request to the team |
