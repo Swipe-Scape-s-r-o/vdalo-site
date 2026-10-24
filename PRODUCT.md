@@ -39,7 +39,7 @@ The existing authority remains `docs/brand-v3/VDALO_DESIGN_GUIDE_FOR_CODEX.md`, 
 - Actual homepage copy and structure: `versions/v1/homepage.mjs`.
 - Existing founder photograph and profile identify Oleg Stepeniev; the homepage links to `/authors/oleh-stepeniev`.
 - The homepage links to the existing cases, blog, tools and tourist-tax resources. Those links do not establish new customer or outcome claims.
-- The current homepage hero uses the existing brand V SVG without interior text. The earlier generated hospitality photograph remains a historical asset, not a customer or testimonial; its provenance remains in `docs/homepage-redesign-2026-10-24/IMAGE_PROMPT.txt` and the JPEG comments.
+- The current homepage hero restores the existing hotel-room photograph `hero-hotel.webp` with its original diagonal crop, confirmed by the owner. The earlier generated hospitality photograph remains a historical asset, not a customer or testimonial; its provenance remains in `docs/homepage-redesign-2026-10-24/IMAGE_PROMPT.txt` and the JPEG comments.
 - `docs/homepage-redesign-2026-10-24/QA.md` records the local checks and their limits. This product record is not release approval or evidence of conversion uplift.
 
 ## Product Principles

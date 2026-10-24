@@ -27,11 +27,11 @@
    entry.target.animate([from,to],{duration:step?360:420,easing:ease,delay:step?Math.min([...entry.target.parentElement.children].indexOf(entry.target),3)*60:0});
   }),{threshold:.15});
   targets.forEach(target=>observer.observe(target));
-  const mark=page.querySelector('.home-v-art');
-  const entrance=mark?.animate([
-   {opacity:.8,transform:'translateY(14px) rotate(-9deg)'},
-   {opacity:1,transform:'translateY(0) rotate(-7deg)'}
-  ],{duration:1100,easing:ease,iterations:1});
+  const image=page.querySelector('.home-room-cut img');
+  const entrance=image?.animate([
+   {opacity:.85,transform:'scale(1.02)'},
+   {opacity:1,transform:'scale(1)'}
+  ],{duration:720,easing:ease,iterations:1});
   const pause=()=>{if(!entrance||entrance.playState==='finished')return;if(document.hidden||reduce.matches)entrance.pause();else entrance.play();};
   document.addEventListener('visibilitychange',pause);pause();
   reduce.addEventListener('change',()=>{if(reduce.matches){page.getAnimations({subtree:true}).forEach(a=>a.cancel());observer.disconnect();}});
