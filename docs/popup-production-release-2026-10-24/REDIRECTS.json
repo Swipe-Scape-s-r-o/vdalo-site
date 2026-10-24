@@ -1,0 +1,36 @@
+{
+  "rows": [
+    {
+      "legacy": "q1b",
+      "current": "qa",
+      "status": 308,
+      "location": "/qa?utm_source=release_qa&utm_campaign=popup&t=qa-release",
+      "pass": true
+    },
+    {
+      "legacy": "q4b",
+      "current": "qb",
+      "status": 308,
+      "location": "/qb?utm_source=release_qa&utm_campaign=popup&t=qa-release",
+      "pass": true
+    },
+    {
+      "legacy": "q7b",
+      "current": "qc",
+      "status": 308,
+      "location": "/qc?utm_source=release_qa&utm_campaign=popup&t=qa-release",
+      "pass": true
+    },
+    {
+      "legacy": "q10",
+      "current": "qd",
+      "status": 308,
+      "location": "/qd?utm_source=release_qa&utm_campaign=popup&t=qa-release",
+      "pass": true
+    }
+  ],
+  "apex": {
+    "status": 308,
+    "location": "https://www.vdalo.tech/q1?utm_source=release_qa"
+  }
+}

@@ -1,0 +1,326 @@
+[
+  {
+    "path": "/q1",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Один номер продали двом гостям? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/q2",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Знову переписуєте дані гостей вручну? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/q3",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Туристичний збір рахуєте вручну? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/q4",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Гості питають вас одне й те саме? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/q5",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Гість питає о другій ночі. Хто відповість? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/q6",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Бронювання в зошиті, а заявки губляться у Viber та Instagram? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/q7",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Скільки ви віддаєте Букінгу за рік? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/q8",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Гості вже приїхали, а номер не прибраний? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/q9",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Роботи більшає, а людей бракує? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/qa",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Двоє гостей. Один номер. | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/qb",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Ті самі питання гостей - щодня? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/qc",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Гість знайшов вас на картах, але не зміг забронювати? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/qd",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Знову чекаєте гостя до півночі? | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/q",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Де готель втрачає гроші й нерви? Квіз VDALO",
+    "width": 390
+  },
+  {
+    "path": "/k1",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Підготовка до заїзду: оцініть ручну роботу | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/go",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Документи й туристичний збір у готелі | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/go/trial",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "14-денний тест VDALO для готелю",
+    "width": 390
+  },
+  {
+    "path": "/tourist-tax/start",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Облік туристичного збору: обговорити процес | VDALO",
+    "width": 390
+  },
+  {
+    "path": "/q1",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Один номер продали двом гостям? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/q2",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Знову переписуєте дані гостей вручну? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/q3",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Туристичний збір рахуєте вручну? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/q4",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Гості питають вас одне й те саме? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/q5",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Гість питає о другій ночі. Хто відповість? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/q6",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Бронювання в зошиті, а заявки губляться у Viber та Instagram? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/q7",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Скільки ви віддаєте Букінгу за рік? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/q8",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Гості вже приїхали, а номер не прибраний? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/q9",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Роботи більшає, а людей бракує? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/qa",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Двоє гостей. Один номер. | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/qb",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Ті самі питання гостей - щодня? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/qc",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Гість знайшов вас на картах, але не зміг забронювати? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/qd",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Знову чекаєте гостя до півночі? | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/q",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Де готель втрачає гроші й нерви? Квіз VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/k1",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Підготовка до заїзду: оцініть ручну роботу | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/go",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Документи й туристичний збір у готелі | VDALO",
+    "width": 1440
+  },
+  {
+    "path": "/go/trial",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "14-денний тест VDALO для готелю",
+    "width": 1440
+  },
+  {
+    "path": "/tourist-tax/start",
+    "assets": 0,
+    "inline": 0,
+    "offer": 0,
+    "overflow": false,
+    "title": "Облік туристичного збору: обговорити процес | VDALO",
+    "width": 1440
+  }
+]

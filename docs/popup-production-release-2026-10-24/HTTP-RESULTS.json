@@ -1,0 +1,2517 @@
+{
+  "origin": "https://www.vdalo.tech",
+  "release": "63420da",
+  "checkedAt": "2026-10-24T08:53:01.322Z",
+  "ordinary": 93,
+  "advertising": 154,
+  "failures": [],
+  "assets": [
+    {
+      "file": "trial-offer.js",
+      "status": 200,
+      "expected": "aab0557eac17d1cc69e68cb316c29c72ca1097726c4f8379f9cb1155c5a01510",
+      "actual": "aab0557eac17d1cc69e68cb316c29c72ca1097726c4f8379f9cb1155c5a01510",
+      "match": true
+    },
+    {
+      "file": "trial-offer.css",
+      "status": 200,
+      "expected": "a4cc81860b7a5b3a46d9b7f47c2a31d2c96268f0ac42159e1ac3270002378fea",
+      "actual": "a4cc81860b7a5b3a46d9b7f47c2a31d2c96268f0ac42159e1ac3270002378fea",
+      "match": true
+    },
+    {
+      "file": "app.js",
+      "status": 200,
+      "expected": "fc06a168e7dd13858bce0a1df2e9010665212ce69a436a190b3d4bd2c0be86ed",
+      "actual": "fc06a168e7dd13858bce0a1df2e9010665212ce69a436a190b3d4bd2c0be86ed",
+      "match": true
+    },
+    {
+      "file": "clarity-consent.js",
+      "status": 200,
+      "expected": "f901957af094e7b212bd07f7c4e61a37adf07b76114376d4ef12c3f32695be9a",
+      "actual": "f901957af094e7b212bd07f7c4e61a37adf07b76114376d4ef12c3f32695be9a",
+      "match": true
+    },
+    {
+      "file": "clarity-consent.css",
+      "status": 200,
+      "expected": "342cc52ec634c64ef77946c5293fae3c98cc03c1b7d5229fec3de1a7c372f288",
+      "actual": "342cc52ec634c64ef77946c5293fae3c98cc03c1b7d5229fec3de1a7c372f288",
+      "match": true
+    }
+  ],
+  "rows": [
+    {
+      "kind": "ordinary",
+      "route": "/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/1",
+      "status": 200,
+      "url": "https://www.vdalo.tech/1",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/10",
+      "status": 200,
+      "url": "https://www.vdalo.tech/10",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/11",
+      "status": 200,
+      "url": "https://www.vdalo.tech/11",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/12",
+      "status": 200,
+      "url": "https://www.vdalo.tech/12",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/13",
+      "status": 200,
+      "url": "https://www.vdalo.tech/13",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/14",
+      "status": 200,
+      "url": "https://www.vdalo.tech/14",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/15",
+      "status": 200,
+      "url": "https://www.vdalo.tech/15",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/16",
+      "status": 200,
+      "url": "https://www.vdalo.tech/16",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/17",
+      "status": 200,
+      "url": "https://www.vdalo.tech/17",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/18",
+      "status": 200,
+      "url": "https://www.vdalo.tech/18",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/19",
+      "status": 200,
+      "url": "https://www.vdalo.tech/19",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/2",
+      "status": 200,
+      "url": "https://www.vdalo.tech/2",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/20",
+      "status": 200,
+      "url": "https://www.vdalo.tech/20",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/21",
+      "status": 200,
+      "url": "https://www.vdalo.tech/21",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/22",
+      "status": 200,
+      "url": "https://www.vdalo.tech/22",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/23",
+      "status": 200,
+      "url": "https://www.vdalo.tech/23",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/24",
+      "status": 200,
+      "url": "https://www.vdalo.tech/24",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/25",
+      "status": 200,
+      "url": "https://www.vdalo.tech/25",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/26",
+      "status": 200,
+      "url": "https://www.vdalo.tech/26",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/27",
+      "status": 200,
+      "url": "https://www.vdalo.tech/27",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/28",
+      "status": 200,
+      "url": "https://www.vdalo.tech/28",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/29",
+      "status": 200,
+      "url": "https://www.vdalo.tech/29",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/3",
+      "status": 200,
+      "url": "https://www.vdalo.tech/3",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/30",
+      "status": 200,
+      "url": "https://www.vdalo.tech/30",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/31",
+      "status": 200,
+      "url": "https://www.vdalo.tech/31",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/32",
+      "status": 200,
+      "url": "https://www.vdalo.tech/32",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/33",
+      "status": 200,
+      "url": "https://www.vdalo.tech/33",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/34",
+      "status": 200,
+      "url": "https://www.vdalo.tech/34",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/35",
+      "status": 200,
+      "url": "https://www.vdalo.tech/35",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/36",
+      "status": 200,
+      "url": "https://www.vdalo.tech/36",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/37",
+      "status": 200,
+      "url": "https://www.vdalo.tech/37",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/38",
+      "status": 200,
+      "url": "https://www.vdalo.tech/38",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/39",
+      "status": 200,
+      "url": "https://www.vdalo.tech/39",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/4",
+      "status": 200,
+      "url": "https://www.vdalo.tech/4",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/40",
+      "status": 200,
+      "url": "https://www.vdalo.tech/40",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/41",
+      "status": 200,
+      "url": "https://www.vdalo.tech/41",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/42",
+      "status": 200,
+      "url": "https://www.vdalo.tech/42",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/43",
+      "status": 200,
+      "url": "https://www.vdalo.tech/43",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/44",
+      "status": 200,
+      "url": "https://www.vdalo.tech/44",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/45",
+      "status": 200,
+      "url": "https://www.vdalo.tech/45",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/46",
+      "status": 200,
+      "url": "https://www.vdalo.tech/46",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/47",
+      "status": 200,
+      "url": "https://www.vdalo.tech/47",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/48",
+      "status": 200,
+      "url": "https://www.vdalo.tech/48",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/49",
+      "status": 200,
+      "url": "https://www.vdalo.tech/49",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/5",
+      "status": 200,
+      "url": "https://www.vdalo.tech/5",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/50",
+      "status": 200,
+      "url": "https://www.vdalo.tech/50",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/51",
+      "status": 200,
+      "url": "https://www.vdalo.tech/51",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/52",
+      "status": 200,
+      "url": "https://www.vdalo.tech/52",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/53",
+      "status": 200,
+      "url": "https://www.vdalo.tech/53",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/54",
+      "status": 200,
+      "url": "https://www.vdalo.tech/54",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/55",
+      "status": 200,
+      "url": "https://www.vdalo.tech/55",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/56",
+      "status": 200,
+      "url": "https://www.vdalo.tech/56",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/57",
+      "status": 200,
+      "url": "https://www.vdalo.tech/57",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/58",
+      "status": 200,
+      "url": "https://www.vdalo.tech/58",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/59",
+      "status": 200,
+      "url": "https://www.vdalo.tech/59",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/6",
+      "status": 200,
+      "url": "https://www.vdalo.tech/6",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/7",
+      "status": 200,
+      "url": "https://www.vdalo.tech/7",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/8",
+      "status": 200,
+      "url": "https://www.vdalo.tech/8",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/9",
+      "status": 200,
+      "url": "https://www.vdalo.tech/9",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/about",
+      "status": 200,
+      "url": "https://www.vdalo.tech/about",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/audit",
+      "status": 200,
+      "url": "https://www.vdalo.tech/audit",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/authors",
+      "status": 200,
+      "url": "https://www.vdalo.tech/authors",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/authors/kostiantyn-tripailo",
+      "status": 200,
+      "url": "https://www.vdalo.tech/authors/kostiantyn-tripailo",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/authors/oleh-stepeniev",
+      "status": 200,
+      "url": "https://www.vdalo.tech/authors/oleh-stepeniev",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/channel-manager-ical-gotelyu",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/channel-manager-ical-gotelyu",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/perehid-na-pms-bez-vtraty-danyh",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/pidhotovka-zaselennya-gostya",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/qr-kartka-v-nomer-gotelyu",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/qr-kody-dlya-goteliv",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/qr-kody-dlya-goteliv",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/qr-kody-dlya-restoranu",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/qr-kody-dlya-restoranu",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/qr-wifi-dlya-gotelyu",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/rozrakhunok-turystychnoho-zboru-2026",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/shakhmatka-bronyuvan-gotelyu",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/shcho-take-pms-dlya-gotelyu",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/status-gotovnosti-nomera-housekeeping",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/turystychnyi-zbir-gotel-ukraina",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/blog/yak-obraty-pms-dlya-gotelyu",
+      "status": 200,
+      "url": "https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/cases",
+      "status": 200,
+      "url": "https://www.vdalo.tech/cases",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/cases/booking-widget-study-2118",
+      "status": 200,
+      "url": "https://www.vdalo.tech/cases/booking-widget-study-2118",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/cases/direct-bookings-calendar",
+      "status": 200,
+      "url": "https://www.vdalo.tech/cases/direct-bookings-calendar",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/cases/guest-services-glamping",
+      "status": 200,
+      "url": "https://www.vdalo.tech/cases/guest-services-glamping",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/cases/hotel-booking-reconciliation",
+      "status": 200,
+      "url": "https://www.vdalo.tech/cases/hotel-booking-reconciliation",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/cases/hotel-data-migration",
+      "status": 200,
+      "url": "https://www.vdalo.tech/cases/hotel-data-migration",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/cases/night-self-checkin-germany",
+      "status": 200,
+      "url": "https://www.vdalo.tech/cases/night-self-checkin-germany",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/contact",
+      "status": 200,
+      "url": "https://www.vdalo.tech/contact",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/founding-hotels",
+      "status": 200,
+      "url": "https://www.vdalo.tech/founding-hotels",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/funnel",
+      "status": 200,
+      "url": "https://www.vdalo.tech/funnel",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/funnel/privacy",
+      "status": 200,
+      "url": "https://www.vdalo.tech/funnel/privacy",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/1",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/1",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/10",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/10",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/11",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/11",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/12",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/12",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/13",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/13",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/14",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/14",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/15",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/15",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/16",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/16",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/17",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/17",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/18",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/18",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/19",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/19",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/2",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/2",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/20",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/20",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/21",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/21",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/22",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/22",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/23",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/23",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/24",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/24",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/25",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/25",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/26",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/26",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/27",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/27",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/28",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/28",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/29",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/29",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/3",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/3",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/30",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/30",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/31",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/31",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/32",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/32",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/33",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/33",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/34",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/34",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/35",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/35",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/36",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/36",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/37",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/37",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/38",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/38",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/39",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/39",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/4",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/4",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/40",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/40",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/41",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/41",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/42",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/42",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/43",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/43",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/44",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/44",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/45",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/45",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/46",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/46",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/47",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/47",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/48",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/48",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/49",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/49",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/5",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/5",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/50",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/50",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/51",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/51",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/52",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/52",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/53",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/53",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/54",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/54",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/55",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/55",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/56",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/56",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/57",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/57",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/58",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/58",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/59",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/59",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/6",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/6",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/7",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/7",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/8",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/8",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/9",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/9",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/index.html",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/index.html",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/go/trial",
+      "status": 200,
+      "url": "https://www.vdalo.tech/go/trial",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/guest-communication",
+      "status": 200,
+      "url": "https://www.vdalo.tech/guest-communication",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-access-control",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-access-control",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-ai-assistant",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-ai-assistant",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-automation",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-automation",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-booking-calendar",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-booking-calendar",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-channel-manager",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-channel-manager",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-check-in",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-check-in",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-direct-booking",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-direct-booking",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-energy-management",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-energy-management",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-events",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-events",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-finance",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-finance",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-guest-app",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-guest-app",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-guest-profile",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-guest-profile",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-housekeeping",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-housekeeping",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-multi-property",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-multi-property",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-operations",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-operations",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-pms-migration",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-pms-migration",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-pms-modules",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-pms-modules",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-prro",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-prro",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/hotel-research",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-research",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-revenue-management",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-revenue-management",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-site-builder",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-site-builder",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/hotel-tourist-tax",
+      "status": 200,
+      "url": "https://www.vdalo.tech/hotel-tourist-tax",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/integrations",
+      "status": 200,
+      "url": "https://www.vdalo.tech/integrations",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/k",
+      "status": 200,
+      "url": "https://www.vdalo.tech/k",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/k/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/k/",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/k/index.html",
+      "status": 200,
+      "url": "https://www.vdalo.tech/k/index.html",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/k1",
+      "status": 200,
+      "url": "https://www.vdalo.tech/k1",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/k2",
+      "status": 200,
+      "url": "https://www.vdalo.tech/k2",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/k3",
+      "status": 200,
+      "url": "https://www.vdalo.tech/k3",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/k4",
+      "status": 200,
+      "url": "https://www.vdalo.tech/k4",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/k5",
+      "status": 200,
+      "url": "https://www.vdalo.tech/k5",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/offer",
+      "status": 200,
+      "url": "https://www.vdalo.tech/offer",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/one-process",
+      "status": 200,
+      "url": "https://www.vdalo.tech/one-process",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/partners",
+      "status": 200,
+      "url": "https://www.vdalo.tech/partners",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/pms-check",
+      "status": 200,
+      "url": "https://www.vdalo.tech/pms-check",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/pricing",
+      "status": 200,
+      "url": "https://www.vdalo.tech/pricing",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/privacy",
+      "status": 200,
+      "url": "https://www.vdalo.tech/privacy",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/q",
+      "status": 200,
+      "url": "https://www.vdalo.tech/q",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/q1",
+      "status": 200,
+      "url": "https://www.vdalo.tech/q1",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/q2",
+      "status": 200,
+      "url": "https://www.vdalo.tech/q2",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/q3",
+      "status": 200,
+      "url": "https://www.vdalo.tech/q3",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/q4",
+      "status": 200,
+      "url": "https://www.vdalo.tech/q4",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/q5",
+      "status": 200,
+      "url": "https://www.vdalo.tech/q5",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/q6",
+      "status": 200,
+      "url": "https://www.vdalo.tech/q6",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/q7",
+      "status": 200,
+      "url": "https://www.vdalo.tech/q7",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/q8",
+      "status": 200,
+      "url": "https://www.vdalo.tech/q8",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/q9",
+      "status": 200,
+      "url": "https://www.vdalo.tech/q9",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/qa",
+      "status": 200,
+      "url": "https://www.vdalo.tech/qa",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/qb",
+      "status": 200,
+      "url": "https://www.vdalo.tech/qb",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/qc",
+      "status": 200,
+      "url": "https://www.vdalo.tech/qc",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/qd",
+      "status": 200,
+      "url": "https://www.vdalo.tech/qd",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/refunds",
+      "status": 200,
+      "url": "https://www.vdalo.tech/refunds",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/research",
+      "status": 200,
+      "url": "https://www.vdalo.tech/research",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/sign-up",
+      "status": 200,
+      "url": "https://www.vdalo.tech/sign-up",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/solutions",
+      "status": 200,
+      "url": "https://www.vdalo.tech/solutions",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/switch",
+      "status": 200,
+      "url": "https://www.vdalo.tech/switch",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tools/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tools/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tools/hotel-profitability-calculator/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tools/hotel-profitability-calculator/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tools/pms-checklist/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tools/pms-checklist/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tools/qr-studio/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tools/qr-studio/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/berehove/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/berehove/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/cherkasy/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/cherkasy/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/chernihiv/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/chernihiv/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/chernivtsi/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/chernivtsi/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/dnipro/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/dnipro/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/irpin/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/irpin/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/ivano-frankivsk/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/ivano-frankivsk/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/khust/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/khust/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/kolomyya/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/kolomyya/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/kyyiv/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/kyyiv/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/lutsk/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/lutsk/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/lviv/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/lviv/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/odesa/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/odesa/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/pivdenne/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/pivdenne/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/polyana/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/polyana/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/rivne/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/rivne/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/skole/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/skole/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/slavsko/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/slavsko/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/tourist-tax/start",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/start",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/sumy/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/sumy/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/ternopil/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/ternopil/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/tyachiv/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/tyachiv/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/uzhhorod/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/uzhhorod/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/vinnytsya/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/vinnytsya/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/vynohradiv/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/vynohradiv/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/yaremche/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/yaremche/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/yasinya/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/yasinya/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/zaporizhzhya/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/zaporizhzhya/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "ordinary",
+      "route": "/tourist-tax/zhytomyr/",
+      "status": 200,
+      "url": "https://www.vdalo.tech/tourist-tax/zhytomyr/",
+      "offer": true,
+      "inline": true,
+      "popupAssets": true,
+      "attempt": 1
+    },
+    {
+      "kind": "campaign",
+      "route": "/trial",
+      "status": 200,
+      "url": "https://www.vdalo.tech/trial",
+      "offer": false,
+      "inline": false,
+      "popupAssets": false,
+      "attempt": 1
+    }
+  ]
+}
