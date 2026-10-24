@@ -4,6 +4,8 @@ export const glyphs={
  website:'<rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M7 7h.01m3 0h.01m-3 6h6m-6 3h10"/>',
  chart:'<path d="M4 4v16h16M8 15l4-5 4 2 4-7m-5 0h5v5"/>',
  key:'<circle cx="8" cy="9" r="5"/><path d="m12 13 8 8m-3-3 3-3m-6 0 3-3"/>',
+ 'room-ready':'<path d="M4 21V3h13v7M3 21h8M8 12h.01"/><path d="m12 17 3 3 6-7"/>',
+ handoff:'<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M2 15v-2a4 4 0 0 1 8 0v2m4-10h7m-3-3 3 3-3 3M3 19h7m-4-3-3 3 3 3"/>',
  message:'<path d="M21 11a8 8 0 0 1-8 8H8l-5 3 1-6a8 8 0 0 1-1-4V9a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6zM7 8h10m-10 4h7"/>',
  housekeeping:'<path d="m4 20 7-7m0-10v7l8 8M6 18l3 3 4-4m-1-7 5-5m-1-1 5 5m-6 5 5 5"/>',
  receipt:'<path d="M5 3h14v18l-3-2-4 2-4-2-3 2zM8 7h8m-8 4h8m-8 4h4"/>',

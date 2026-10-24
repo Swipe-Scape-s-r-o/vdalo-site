@@ -1,0 +1,91 @@
+[
+  {
+    "path": "/blog",
+    "status": 200,
+    "title": "Блог VDALO: PMS, бронювання та робота готелю"
+  },
+  {
+    "path": "/blog/shcho-take-pms-dlya-gotelyu",
+    "status": 200,
+    "title": "Що таке PMS для готелю: функції та приклади | VDALO"
+  },
+  {
+    "path": "/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu",
+    "status": 200,
+    "title": "Прямі бронювання готелю: віджет, календар і витрати | VDALO"
+  },
+  {
+    "path": "/cases/direct-bookings-calendar",
+    "status": 200,
+    "title": "Прямі бронювання в календарі: кейс глемпінгу | VDALO"
+  },
+  {
+    "path": "/blog/channel-manager-ical-gotelyu",
+    "status": 200,
+    "title": "Channel Manager чи iCal: відмінності для готелю | VDALO"
+  },
+  {
+    "path": "/integrations",
+    "status": 200,
+    "title": "60+ інтеграцій для готелів: Booking.com, Airbnb та інші | VDALO"
+  },
+  {
+    "path": "/blog/status-gotovnosti-nomera-housekeeping",
+    "status": 200,
+    "title": "Готовність номера: housekeeping і рецепція | VDALO"
+  },
+  {
+    "path": "/tools/qr-studio/",
+    "status": 404
+  },
+  {
+    "path": "/blog/qr-wifi-dlya-gotelyu",
+    "status": 200,
+    "title": "QR-код Wi-Fi для готелю: як створити й перевірити | VDALO"
+  },
+  {
+    "path": "/blog/qr-kartka-v-nomer-gotelyu",
+    "status": 200,
+    "title": "QR-картка в номер готелю: тексти, макет і друк | VDALO"
+  },
+  {
+    "path": "/blog/qr-kody-dlya-restoranu",
+    "status": 200,
+    "title": "QR-коди для ресторану: меню, заявки та аналітика | VDALO"
+  },
+  {
+    "path": "/blog/qr-kody-dlya-goteliv",
+    "status": 200,
+    "title": "QR-коди для готелів: 35 сценаріїв і план запуску | VDALO"
+  },
+  {
+    "path": "/pricing",
+    "status": 200,
+    "title": "Тарифи VDALO: вартість PMS для вашого об’єкта"
+  },
+  {
+    "path": "/tools/hotel-profitability-calculator/",
+    "status": 200,
+    "title": "Калькулятор виручки й показників готелю | VDALO"
+  },
+  {
+    "path": "/hotel-pms-migration",
+    "status": 200,
+    "title": "Перехід і імпорт даних з іншої PMS | VDALO"
+  },
+  {
+    "path": "/partners",
+    "status": 200,
+    "title": "Партнери та інтегратори VDALO: допомога з впровадженням"
+  },
+  {
+    "path": "/blog/yak-obraty-pms-dlya-gotelyu",
+    "status": 200,
+    "title": "Як обрати PMS для готелю: 25 критеріїв | VDALO"
+  },
+  {
+    "path": "/tools/pms-checklist/",
+    "status": 200,
+    "title": "Чекліст PMS: 25 критеріїв і порівняння систем | VDALO"
+  }
+]

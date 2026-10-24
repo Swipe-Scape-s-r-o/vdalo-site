@@ -23,7 +23,7 @@ export function trustStrip() {
 function bookingBars(week=0) {
  return experience.calendar.weeks[week].map(x=>`<button type="button" class="reservation ${x.channel}" style="grid-column:${x.start+2} / span ${x.nights};grid-row:${x.room+2}" data-reservation="${x.id}" data-channel="${x.channel}" aria-pressed="false" aria-label="${e(x.label)}, номер ${experience.calendar.rooms[x.room][0]}, ${e(x.arrival)} до ${e(x.departure)}"><span>${e(x.label)}</span><small>${e(x.status)}</small></button>`).join('');
 }
-function calendar() {
+export function calendar() {
  const start=new Date();start.setHours(0,0,0,0);
  const dates=Array.from({length:7},(_,i)=>{const date=new Date(start);date.setDate(date.getDate()+i);return date;});
  const last=new Date(start);last.setDate(last.getDate()+6);
@@ -125,6 +125,14 @@ function trustAndFaq() {
 
 export function renderContent({featureVisual,preProblems='',postIntegrations=''}) {
  return `${preProblems}${hotelProblems()}${integrations()}${directBookingModule()}${postIntegrations}${calendar()}${products(featureVisual)}${rolesAndFit()}${guestJourney()}${trustStrip()}${renderPricing()}${authorSection()}${uniqueApproach()}${onboardingAndConversion()}${trustAndFaq()}`;
+}
+
+// Reuse the complete product sections on the homepage without changing the
+// content or behavior of the standalone product routes.
+export function homepageSections(featureVisual) {
+ return {problems:hotelProblems(),channels:integrations(),direct:directBookingModule(),
+  products:products(featureVisual),roles:rolesAndFit(),journey:guestJourney(),
+  caseStudy:trustStrip(),founder:authorSection(),approach:uniqueApproach()};
 }
 
 export function renderFooter() {

@@ -27,7 +27,7 @@ const origin = 'https://www.vdalo.tech';
 const qrStudioHtml = await readFile(new URL('../qr-lab/index.html', import.meta.url), 'utf8');
 const serviceRoutes = new Set(['/hotel-booking-calendar','/hotel-check-in','/hotel-operations','/guest-communication','/hotel-automation']);
 const renderers = new Map([
-  ['/', () => render.renderPage({ origin, full: true })],
+  ['/', () => render.renderPage({ origin, full: true, homepage: true })],
   ...seo.seoRoutes().map(path => [path, () => seo.renderSeoPage(path)]),
   ['/authors/oleh-stepeniev', () => author.renderAuthorPage()],
   ['/authors/kostiantyn-tripailo', () => author.renderKostiantynAuthorPage()],

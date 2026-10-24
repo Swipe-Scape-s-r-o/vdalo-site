@@ -266,22 +266,22 @@
                                  : 'VDALO показав вільний 303 - гостя заселено без переселення' },
     night:    { tag: 'Гість під дверима', name: 'Нічний заїзд, рецепція зачинена', rate: 45,
       manual: () => `Ви встали о ${timeStr()}, щоб відчинити двері`,
-      auto: () => `Гість о ${timeStr()} отримав PIN-код (з розумним замком) і заселився сам` },
+      auto: () => `Гість о ${timeStr()} використав підготовлений PIN-код (тестовий сценарій доступу)` },
     messy:    { tag: 'Не прибрано', name: 'Ранній заїзд, а 202 не прибраний', rate: 30,
       manual: () => 'Подзвонили покоївці - гість чекав 40 хвилин',
       auto: () => `Покоївка отримала задачу о ${timeStr()}. Рецепція бачить статус номера 202` },
     phone:    { tag: 'Дзвінки', name: 'Телефон рецепції не замовкає', rate: 35,
       manual: () => `Відповіли гостю о ${timeStr()}: де паркінг і пароль від Wi‑Fi`,
-      auto: () => 'ШІ-помічник відповів гостю про паркінг, Wi‑Fi і сніданок' },
+      auto: () => 'Гість знайшов паркінг, Wi‑Fi і сніданок на гостьовій сторінці' },
     leak:     { tag: 'Тече кран', name: 'Тече кран у 202', rate: 30,
       manual: () => 'Шукали сантехніка в чатах 30 хвилин',
       auto: () => `Задача сантехніку о ${timeStr()}. Номер 202 позначено «на огляді»` },
     energy:   { tag: 'Світло дарма', name: 'Світло й клімат у порожньому номері', rate: 22,
       manual: inc => `Збігали вимкнути світло в ${inc.room}`,
-      auto: inc => `Номер ${inc.room} порожній → світло й клімат вимкнено (з датчиками)` },
+      auto: inc => `Номер ${inc.room} порожній → сценарій із датчиками: світло й клімат вимкнено (у розробці)` },
     cash:     { tag: 'Каса', name: 'Каса не сходиться після зміни', rate: 40,
       manual: () => 'Перерахували касу вручну: не вистачає 1 250 грн',
-      auto: () => 'Оплата карткою, чек через ПРРО - каса звірена без перерахунку' }
+      auto: () => 'Записи оплат зібрані в системі для перевірки командою' }
   };
   // one night as data: [second, event]
   const TIMELINE = [
@@ -580,8 +580,8 @@
     chaos: { eyebrow: 'Одна ніч вашого готелю', title: 'Ніч без системи. <em>Встигнете все?</em>',
       lead: 'Натискайте на проблеми, щоб вирішити їх власноруч, або просто дивіться. Близько 23:45 приїде гість, якому продали вже зайнятий номер.',
       sw: 'Увімкнути VDALO', sign: 'HOTEL', phone: 'Ваш телефон' },
-    vdalo: { eyebrow: 'Та сама ніч з VDALO', title: 'Та сама ніч. <em>Ви спите.</em>',
-      lead: 'Канали синхронізовані, гості заселяються за PIN-кодом, задачі летять команді, а ви бачите все в телефоні.',
+    vdalo: { eyebrow: 'Та сама ніч з VDALO', title: 'Та сама ніч. <em>Інший процес.</em>',
+      lead: 'Приклад роботи з підключеними каналами, задачами й підготовкою заїзду. Цифровий доступ потребує окремої перевірки; енергосценарій у розробці.',
       sw: 'Вимкнути VDALO', sign: 'VDALO', phone: 'VDALO · шахматка' }
   };
   function applyCopy() {
@@ -643,12 +643,12 @@
     else { cell('Проблем за ніч', state.total); cell('Втрати', `${fmt(state.loss)} грн`); cell('Вас будили', state.wake); }
     const p = document.createElement('p');
     p.textContent = vd ? 'Дзвінки, задачі й заселення взяла на себе система. Вас не будили.' : (open.length ? `Ще ${open.length} проблем лишилися на ранок. ` : '') + 'Тепер проживіть цю саму ніч з VDALO.';
-    const note = document.createElement('p'); note.className = 'note'; note.textContent = 'Умовна ніч, суми орієнтовні.';
+    const note = document.createElement('p'); note.className = 'note'; note.textContent = 'Симуляція. Події й суми умовні, склад автоматизацій перевіряємо для вашого об’єкта.';
     const row = document.createElement('div'); row.className = 'row';
     const again = document.createElement('button'); again.type = 'button'; again.className = 'lh-btn lh-btn-primary';
     again.textContent = vd ? 'Ще раз без VDALO' : 'Прожити ніч з VDALO';
     again.addEventListener('click', () => restart(vd ? 'chaos' : 'vdalo'));
-    const cta = document.createElement('button'); cta.type = 'button'; cta.className = 'lh-btn lh-btn-ghost'; cta.textContent = 'Почати безкоштовно';
+    const cta = document.createElement('button'); cta.type = 'button'; cta.className = 'lh-btn lh-btn-ghost'; cta.textContent = 'Замовити демо';
     cta.addEventListener('click', () => $('#lh-cta').click());
     row.append(again, cta);
     summaryEl.append(h, dl, p, note, row);

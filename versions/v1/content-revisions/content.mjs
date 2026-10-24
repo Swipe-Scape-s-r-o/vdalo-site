@@ -265,7 +265,9 @@ export function applyPreparedContent(html,route){
  const canonicalRoute=aliases[route]??route;
  const page=byRoute.get(canonicalRoute);
  if(!page)return html;
- html=updateHero(html,page);
+ // The compact home owns its narrative. Keep metadata without reinserting retired sections.
+ const compactHome=page.route==='/' && html.includes('data-homepage="compact-v1"');
+ if(!compactHome)html=updateHero(html,page);
  if(page.route.startsWith('/blog/'))html=reviseArticle(html,page);
  else if(page.route.startsWith('/cases/'))html=reviseCase(html,page);
  else if(['/about','/contact','/sign-up','/hotel-automation','/pricing'].includes(page.route))html=reviseService(html,page);
@@ -275,7 +277,7 @@ export function applyPreparedContent(html,route){
  else if(page.route.startsWith('/tourist-tax'))html=reviseTax(html,page);
  else if(page.route==='/tools/qr-studio/')html=reviseQr(html,page);
  else if(page.route.startsWith('/tools/'))html=reviseTool(html,page);
- else if(page.route==='/')html=reviseHome(html,page);
+ else if(page.route==='/'&&!compactHome)html=reviseHome(html,page);
  html=updateCards(html);
  html=withMetadata(html,page);
  html=reviseStructuredData(html,page);

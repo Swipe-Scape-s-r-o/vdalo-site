@@ -1,0 +1,40 @@
+[
+  {
+    "client": 390,
+    "guideWords": 1254,
+    "headingIssues": [],
+    "height": 17623,
+    "name": "mobile",
+    "readingWidth": 350,
+    "scroll": 390,
+    "width": 390
+  },
+  {
+    "client": 753,
+    "headingIssues": [],
+    "height": 14790,
+    "name": "tablet",
+    "readingWidth": 468.6666870117187,
+    "scroll": 753,
+    "width": 768
+  },
+  {
+    "client": 1425,
+    "headingIssues": [],
+    "height": 12310,
+    "name": "desktop",
+    "readingWidth": 640.6875,
+    "scroll": 1425,
+    "width": 1440,
+    "y": 0
+  },
+  {
+    "client": 305,
+    "headingIssues": [],
+    "height": 20924,
+    "name": "small-mobile",
+    "readingWidth": 264.66668701171875,
+    "scroll": 305,
+    "width": 320
+  }
+]
