@@ -36,7 +36,7 @@ import {renderTouristTaxHub,renderTouristTaxCity,handleTouristTaxCalculation} fr
 import {normalizeNonproductMetadata} from './versions/v1/nonproduct-seo.mjs';
 import {applyPreparedContent,revisionRoutes,revisionDate} from './versions/v1/content-revisions/content.mjs';
 import {renderTouristTaxFunnel} from './microlandings/tourist-tax-funnel.mjs';
-import {touristTaxCityRoutes,getTouristTaxPlace,getTouristTaxRule} from './versions/v1/tourist-tax-data.mjs';
+import {touristTaxCityRoutes,touristTaxPlaces,getTouristTaxPlace,getTouristTaxRule} from './versions/v1/tourist-tax-data.mjs';
 
 const root=path.dirname(fileURLToPath(import.meta.url));
 if(!process.env.VERCEL && existsSync(path.join(root,'.env')) && process.loadEnvFile)process.loadEnvFile(path.join(root,'.env'));
@@ -49,7 +49,7 @@ const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlug
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
 // Ordinary published pages opt in. Campaign /q*, /k*, /go*, numeric video,
 // /funnel* and /tourist-tax/start routes are deliberately outside this set.
-const trialOfferRoutes=new Set([...publicSitemapRoutes,'/v1/','/v1/privacy','/tools/qr-studio/index.html']);
+const trialOfferRoutes=new Set([...publicSitemapRoutes,...touristTaxPlaces.map(place=>place.route),'/v1/','/v1/privacy','/tools/qr-studio/index.html']);
 const sitemapLastModifiedByRoute=new Map([
  ['/authors/kostiantyn-tripailo','2026-10-23'],
  ['/partners','2026-10-24'],

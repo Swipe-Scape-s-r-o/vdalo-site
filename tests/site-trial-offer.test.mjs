@@ -8,6 +8,7 @@ import {robotFunnelRoutes,robotFunnelLegacyRoutes} from '../microlandings/robot-
 import {formContract} from '../versions/v1/content-revisions/form-contract.mjs';
 import {renderTouristTaxHub} from '../versions/v1/tourist-tax.mjs';
 import {renderAuditDialog} from '../versions/v1/render.mjs';
+import {touristTaxPlaces} from '../versions/v1/tourist-tax-data.mjs';
 
 test('every published ordinary route receives exactly one offer, form and controller',async()=>{
  const sitemap=await renderRouteForReview('/sitemap.xml');
@@ -32,6 +33,18 @@ test('all marketing funnel families exclude offer markup, scripts and styles',as
   assert.equal(response.status,200,route);
   assert.doesNotMatch(response.html,/data-site-trial-offer|home-trial-offer|\/trial-offer\.(?:js|css)/,route);
  }
+});
+
+test('ordinary tax pages outside the sitemap also opt in, preserving their noindex policy',async()=>{
+ let unindexed=0;
+ for(const place of touristTaxPlaces){
+  const response=await renderRouteForReview(place.route);
+  if(response.status===404){assert.doesNotMatch(response.html,/data-site-trial-offer/);continue;}
+  assert.equal(response.status,200,place.route);
+  assert.match(response.html,/data-site-trial-offer/,place.route);
+  if(/name="robots" content="noindex/.test(response.html))unindexed++;
+ }
+ assert.ok(unindexed>0,'known ordinary noindex pages remain covered');
 });
 
 test('legacy funnel redirects preserve campaign parameters without an offer',async()=>{
