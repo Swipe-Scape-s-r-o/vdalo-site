@@ -25,7 +25,7 @@ import {renderPmsChoiceArticle,pmsChoiceArticle} from './versions/v1/article-pms
 import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator} from './versions/v1/tools.mjs';
 import {handlePmsReport} from './versions/v1/pms-report.mjs';
 import {renderSeoPage,seoRoutes} from './versions/v1/seo-pages.mjs';
-import {homeCssBundle,siteCssBundle} from './versions/v1/assets.mjs';
+import {homeCssBundle,siteCssBundle,assetVersion} from './versions/v1/assets.mjs';
 import {renderOfferPage,renderRefundPage} from './versions/v1/legal.mjs';
 import {renderAuthorPage,renderKostiantynAuthorPage,renderAuthorsDirectory} from './versions/v1/author-page.mjs';
 import {handleWayForPay} from './payments/wayforpay.mjs';
@@ -85,7 +85,7 @@ function withSocialMetadata(html){
 function withTagManager(html){
  const withSocial=withSocialMetadata(html);
  const withFavicon=withSocial.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+(/<link\b[^>]*\brel=["'][^"']*\bicon\b[^"']*["'][^>]*>/i.test(withSocial)?'':faviconLink));
- const consentAssets='<link rel="stylesheet" href="/v1/clarity-consent.css?v=3"><script src="/v1/clarity-consent.js?v=3"></script>';
+ const consentAssets=`<link rel="stylesheet" href="/v1/clarity-consent.css?v=${assetVersion('clarity-consent.css')}"><script src="/v1/clarity-consent.js?v=${assetVersion('clarity-consent.js')}"></script>`;
  const calloPrelude=/<body[^>]*\bdata-code=/i.test(withFavicon)?calloAttributionPrelude:'';
  return withFavicon.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+calloPrelude+consentAssets+gtmHead);
 }

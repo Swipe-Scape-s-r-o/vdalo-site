@@ -44,6 +44,9 @@ test('23 deferred product pages and all 13 new funnels retain their content beyo
   // This release intentionally adds only these links and the integration-page
   // bridge to the old chrome; continue comparing every other byte to the baseline.
   const previousChrome=html
+   // Consent assets now use content hashes. Keep the historical fixture's
+   // version token while continuing to compare every other markup byte.
+   .replace(/(clarity-consent\.(?:css|js)\?v=)[a-f0-9]{12}\b/g,(_,prefix)=>prefix+'3')
    .replace(/<li class="nav-item nav-item-level-2"><a href="\/partners">Партнери та інтегратори<\/a><\/li>/g,'')
    .replace(/<a href="\/partners">Партнери та інтегратори<\/a>/g,'')
    .replace(/<section class="seo-section partner-integration-bridge"[^>]*>[\s\S]*?<\/section>/g,'');

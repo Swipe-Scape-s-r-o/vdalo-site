@@ -14,7 +14,7 @@ function setup({stored=null,blocked=false,cookies='_ga=test; _clck=test; functio
   addEventListener(type,fn){this.events[type]=fn;} querySelector(selector){if(!this.children.has(selector))this.children.set(selector,new Element(selector));return this.children.get(selector);}
   append(...els){nodes.push(...els);} showModal(){this.open=true;} close(){this.open=false;}
  }
- const document={querySelector:()=>new Element('existing-settings'),head:{appendChild:el=>scripts.push(el.src)},body:new Element('body'),documentElement:new Element('html'),readyState:'loading',activeElement:new Element('active'),createElement:tag=>new Element(tag),addEventListener:(type,fn)=>listeners[type]=fn};
+ const document={querySelector:()=>new Element('existing-settings'),querySelectorAll:()=>[new Element('existing-settings')],head:{appendChild:el=>scripts.push(el.src)},body:new Element('body'),documentElement:new Element('html'),readyState:'loading',activeElement:new Element('active'),createElement:tag=>new Element(tag),addEventListener:(type,fn)=>listeners[type]=fn};
  Object.defineProperty(document,'cookie',{get:()=>cookies,set:value=>writes.push(value)});
  let reloads=0;
  const location={hostname:'staging.vdalo.tech',pathname:'/q9',protocol:'https:',reload:()=>reloads++};
@@ -70,6 +70,7 @@ test('unavailable storage and dismissing settings do not silently grant consent'
 });
 test('consent bootstraps before GTM with no no-script tracking bypass',()=>{
  assert.ok(server.includes('opening+calloPrelude+consentAssets+gtmHead'));
- assert.match(server,/<script src="\/v1\/clarity-consent.js\?v=3"><\/script>/);
+ assert.match(server,/clarity-consent\.js\?v=\$\{assetVersion\('clarity-consent\.js'\)\}/);
+ assert.match(server,/clarity-consent\.css\?v=\$\{assetVersion\('clarity-consent\.css'\)\}/);
  assert.doesNotMatch(server,/googletagmanager.com\/ns.html/);
 });

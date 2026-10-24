@@ -2,17 +2,44 @@
  const page=document.querySelector('.homepage-2026');
  if(!page)return;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
- const sticky=page.querySelector('.home-mobile-action');
- const hero=page.querySelector('.home-hero');
- const close=page.querySelector('.home-close');
- const footer=document.querySelector('footer');
- const actionZones=[hero,close,footer,page.querySelector('.home-demo-copy'),page.querySelector('.home-guide-end'),page.querySelector('#living-hotel'),page.querySelector('#living-hotel-m')].filter(Boolean);
- const visibleZones=new Set([hero]);
- function syncSticky(){sticky.hidden=visibleZones.size>0||!!document.querySelector('dialog[open],#navigation.open')||!!document.querySelector('.modal.open,.modal.is-open');}
- if('IntersectionObserver' in window){
-  const visibility=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)visibleZones.add(entry.target);else visibleZones.delete(entry.target);});syncSticky();},{threshold:0});
-  actionZones.forEach(zone=>visibility.observe(zone));
-  new MutationObserver(syncSticky).observe(document.body,{subtree:true,attributes:true,attributeFilter:['open','class']});
+ const productTabs=page.querySelector('.product-tabs');
+ if(productTabs){
+  const horizontal=matchMedia('(max-width:900px)');
+  const orient=()=>productTabs.setAttribute('aria-orientation',horizontal.matches?'horizontal':'vertical');
+  orient();horizontal.addEventListener('change',orient);
+ }
+ const offer=page.querySelector('#home-trial-offer');
+ if(offer&&typeof offer.showModal==='function'){
+  const sessionKey='vdalo-home-trial-offer-v1';
+  let finished=false,elapsed=0,activeFrom=document.hidden?null:performance.now(),timer;
+  try{finished=sessionStorage.getItem(sessionKey)==='seen';}catch{}
+  const stop=()=>{finished=true;clearTimeout(timer);try{sessionStorage.setItem(sessionKey,'seen');}catch{}};
+  const dismiss=()=>{stop();if(offer.open)offer.close();};
+  const activeTime=()=>elapsed+(activeFrom===null?0:performance.now()-activeFrom);
+  const attempt=()=>{
+   if(finished||document.hidden)return;
+   const editing=document.activeElement?.matches('input,textarea,select,[contenteditable="true"]');
+   const blocked=document.querySelector('dialog[open],#navigation.open,.modal.open,.modal.is-open,.cookie-consent:not([hidden])');
+   if(editing||blocked){timer=setTimeout(attempt,1000);return;}
+   stop();offer.showModal();
+  };
+  const arm=()=>{clearTimeout(timer);if(!finished&&!document.hidden)timer=setTimeout(attempt,Math.max(0,50000-activeTime()));};
+  document.addEventListener('visibilitychange',()=>{
+   if(document.hidden){if(activeFrom!==null)elapsed+=performance.now()-activeFrom;activeFrom=null;clearTimeout(timer);}
+   else{activeFrom=performance.now();arm();}
+  });
+  // A visitor already requesting contact does not need another invitation.
+  document.addEventListener('click',event=>{if(event.target.closest('[data-open],[data-contact-dialog-trigger]'))stop();},{capture:true});
+  offer.querySelectorAll('[data-home-offer-dismiss]').forEach(control=>control.addEventListener('click',dismiss));
+  // Close the invitation before app.js opens the short request form with trial context.
+  offer.querySelector('[data-home-offer-start]').addEventListener('click',dismiss,{capture:true});
+  offer.addEventListener('cancel',event=>{event.preventDefault();dismiss();});
+  offer.addEventListener('click',event=>{
+   if(event.target!==offer)return;
+   const rect=offer.getBoundingClientRect();
+   if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dismiss();
+  });
+  arm();
  }
  // Visible HTML is the baseline. WAAPI decorates once; failure never hides copy.
  if(!reduce.matches&&'IntersectionObserver' in window&&Element.prototype.animate){

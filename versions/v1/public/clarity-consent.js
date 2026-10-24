@@ -78,7 +78,7 @@
     let saved = true;
     try { localStorage.setItem(storageKey, JSON.stringify(next)); localStorage.removeItem('vdalo-clarity-consent'); } catch { saved = false; }
     choice = next; updateServices(next); setBannerVisible(false); closeSettings();
-    ui.status.textContent = saved ? 'Налаштування cookie збережено.' : 'Вибір застосовано до цієї сторінки. Браузер не дозволив зберегти його для наступного відвідування.';
+    ui.status.textContent = saved ? 'Налаштування приватності збережено.' : 'Вибір застосовано до цієї сторінки. Браузер не дозволив зберегти його для наступного відвідування.';
     window.dispatchEvent(new CustomEvent('vdalo:consent-change', {detail: {analytics: next.analytics, replay: next.replay}}));
     // Remove already running trackers only after an explicit withdrawal.
     if (reload) location.reload();
@@ -94,15 +94,15 @@
   if (choice?.replay) loadClarity();
   if (!choice?.analytics || !choice?.replay) clearMeasurementCookies(choice || emptyChoice());
   const mount = () => {
-    const banner = document.createElement('section'); banner.className = 'cookie-consent'; banner.setAttribute('aria-label', 'Вибір cookie'); banner.hidden = true;
-    banner.innerHTML = `<div class="cookie-consent-copy"><strong><span aria-hidden="true">◉</span> Ваші cookie, ваш вибір</strong><p>Статистика та запис взаємодій тільки за вашою згодою. <a href="/privacy#cookie-preferences">Деталі</a></p></div><div class="cookie-consent-actions"><button type="button" class="cookie-accept" data-cookie-accept>Погодитися</button><button type="button" data-cookie-settings aria-haspopup="dialog">Налаштування</button><button type="button" class="cookie-reject" data-cookie-reject>Лише необхідні</button></div>`;
+    const banner = document.createElement('section'); banner.className = 'cookie-consent'; banner.setAttribute('aria-label', 'Ваша приватність'); banner.hidden = true;
+    banner.innerHTML = `<div class="cookie-consent-copy"><strong>Ваша приватність</strong><p>Статистика й запис дій за згодою. <a href="/privacy#cookie-preferences">Деталі</a></p></div><div class="cookie-consent-actions"><button type="button" class="cookie-accept" data-cookie-accept>Погодитися</button><button type="button" data-cookie-settings aria-haspopup="dialog">Налаштування</button><button type="button" class="cookie-reject" data-cookie-reject aria-label="Відхилити необов’язкову статистику та запис взаємодій">Відхилити</button></div>`;
     const dialog = document.createElement('dialog'); dialog.className = 'cookie-dialog'; dialog.id = 'cookie-settings'; dialog.setAttribute('aria-labelledby', 'cookie-settings-title'); dialog.setAttribute('aria-describedby', 'cookie-settings-intro');
-    dialog.innerHTML = `<header class="cookie-dialog-header"><div><p class="cookie-eyebrow">ВАША ПРИВАТНІСТЬ</p><h2 id="cookie-settings-title">Налаштування cookie</h2></div><button type="button" class="cookie-close" aria-label="Закрити налаштування cookie">×</button></header>
+    dialog.innerHTML = `<header class="cookie-dialog-header"><div><p class="cookie-eyebrow">ВАША ПРИВАТНІСТЬ</p><h2 id="cookie-settings-title">Налаштування приватності</h2></div><button type="button" class="cookie-close" aria-label="Закрити налаштування приватності">×</button></header>
       <div class="cookie-dialog-body"><p id="cookie-settings-intro">Виберіть, що дозволити. Сайт і форми працюють, навіть якщо залишити лише необхідні.</p>
-      <section class="cookie-category"><div class="cookie-category-heading"><h3>Необхідні</h3><span class="cookie-always">Завжди активні</span></div><p>Зберігають ваш вибір cookie та потрібні для запитаних вами функцій сайту. Їх не використовуємо для аналітики.</p></section>
+      <section class="cookie-category"><div class="cookie-category-heading"><h3>Необхідні</h3><span class="cookie-always">Завжди активні</span></div><p>Файли cookie запам’ятовують ваш вибір та потрібні для запитаних вами функцій сайту. Їх не використовуємо для аналітики.</p></section>
       <label class="cookie-category cookie-option"><span class="cookie-category-heading"><strong id="cookie-analytics-label">Статистика відвідувань</strong><input type="checkbox" id="cookie-analytics" role="switch" aria-labelledby="cookie-analytics-label" aria-describedby="cookie-analytics-info"><span class="cookie-switch" aria-hidden="true"></span></span><span id="cookie-analytics-info">Google Analytics 4: перегляди сторінок, переходи та натискання. Використовує cookie _ga та _ga_*.</span></label>
       <label class="cookie-category cookie-option"><span class="cookie-category-heading"><strong id="cookie-replay-label">Запис взаємодій</strong><input type="checkbox" id="cookie-replay" role="switch" aria-labelledby="cookie-replay-label" aria-describedby="cookie-replay-info"><span class="cookie-switch" aria-hidden="true"></span></span><span id="cookie-replay-info">Microsoft Clarity: прокручування та взаємодія з блоками сайту. Вміст форм маскується. Використовує cookie _clck та _clsk.</span></label>
-      <p class="cookie-details">Вибір зберігаємо на цьому пристрої до 180 днів. Змінити його можна через «Налаштування cookie» внизу сторінки. Після відкликання вже наданої згоди сторінка оновиться, щоб зупинити завантажені інструменти.</p><a class="cookie-policy" href="/privacy#cookie-preferences">Політика конфіденційності ↗</a></div>
+      <p class="cookie-details">Вибір зберігаємо на цьому пристрої до 180 днів. Змінити його можна через «Налаштування приватності» внизу сторінки. Після відкликання вже наданої згоди сторінка оновиться, щоб зупинити завантажені інструменти.</p><a class="cookie-policy" href="/privacy#cookie-preferences">Політика конфіденційності ↗</a></div>
       <footer class="cookie-dialog-footer"><div><button type="button" class="cookie-accept" data-cookie-accept>Дозволити всі</button><button type="button" data-cookie-save>Зберегти вибір</button></div><button type="button" class="cookie-reject" data-cookie-reject>Лише необхідні</button></footer>`;
     const status = document.createElement('div'); status.className = 'cookie-status'; status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
     document.body.append(banner, dialog, status);
@@ -110,10 +110,11 @@
     // Older quiz and offer layouts do not share the main site's footer.
     if (!document.querySelector('[data-open-cookie-settings]')) {
       const footer = document.querySelector('footer'), reopen = document.createElement('button');
-      reopen.type = 'button'; reopen.textContent = 'Налаштування cookie'; reopen.setAttribute('data-open-cookie-settings', '');
+      reopen.type = 'button'; reopen.textContent = 'Налаштування приватності'; reopen.setAttribute('data-open-cookie-settings', '');
       reopen.className = footer ? 'cookie-preferences-link' : 'cookie-preferences-link cookie-preferences-floating';
       (footer || document.body).appendChild(reopen);
     }
+    document.querySelectorAll('[data-open-cookie-settings]').forEach(control => { control.textContent = 'Налаштування приватності'; });
     for (const root of [banner, dialog]) {
       root.querySelector('[data-cookie-accept]').addEventListener('click', () => saveChoice({analytics: true, replay: true}));
       root.querySelector('[data-cookie-reject]').addEventListener('click', () => saveChoice(emptyChoice()));
