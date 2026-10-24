@@ -19,6 +19,7 @@
   const blocked=document.querySelector('dialog[open],#navigation.open,#navigation details[open],.modal.open,.modal.is-open,.cookie-consent:not([hidden])');
   if(editing||blocked){timer=setTimeout(attempt,1000);return;}
   stop();offer.showModal();
+  offer.querySelector('form')?.dispatchEvent(new Event('vdalo:lead-open'));
  };
  const arm=()=>{clearTimeout(timer);if(!finished&&!document.hidden)timer=setTimeout(attempt,Math.max(0,delay-activeTime()));};
  document.addEventListener('visibilitychange',()=>{
@@ -38,8 +39,14 @@
   if(event.target.closest('form[data-kind],form[data-partner-request]'))stop();
  },{capture:true});
  offer.querySelectorAll('[data-home-offer-dismiss]').forEach(control=>control.addEventListener('click',dismiss));
- // Close before app.js opens the established short request form.
- offer.querySelector('[data-home-offer-start]').addEventListener('click',dismiss,{capture:true});
+ // app.js emits this local UI event only after the existing receiver confirms
+ // success. Keep confirmation in this dialog and never expose contact data.
+ offer.addEventListener('vdalo:lead-success',()=>{
+  offer.querySelector('#home-trial-offer-title').textContent='Заявку отримано';
+  offer.querySelector('#home-trial-offer-copy').hidden=true;
+  offer.querySelector('.home-offer-later').hidden=true;
+  offer.setAttribute('aria-describedby','home-offer-success-copy');
+ });
  offer.addEventListener('cancel',event=>{event.preventDefault();dismiss();});
  offer.addEventListener('click',event=>{
   if(event.target!==offer)return;

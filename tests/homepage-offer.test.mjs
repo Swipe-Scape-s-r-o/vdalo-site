@@ -12,19 +12,21 @@ function setup({values=new Map(),blockedStorage=false}={}){
   constructor(){this.events={};this.open=false;this.opens=0;}
   addEventListener(type,handler){(this.events[type]??=[]).push(handler);}
   fire(type,event={}){for(const handler of this.events[type]||[])handler(event);}
+  dispatchEvent(event){this.fire(event.type,event);}
+  setAttribute(name,value){this[name]=value;}
  }
- const close=new Node(),later=new Node(),start=new Node(),offer=new Node();
- offer.querySelectorAll=()=>[close,later];offer.querySelector=()=>start;
+ const close=new Node(),later=new Node(),form=new Node(),title=new Node(),copy=new Node(),offer=new Node();
+ offer.querySelectorAll=()=>[close,later];offer.querySelector=selector=>({'form':form,'#home-trial-offer-title':title,'#home-trial-offer-copy':copy,'.home-offer-later':later}[selector]??null);
  offer.showModal=()=>{offer.open=true;offer.opens++;};offer.close=()=>{offer.open=false;};
  offer.getBoundingClientRect=()=>({left:10,right:400,top:100,bottom:600});
  const document={hidden:false,activeElement:{matches:()=>editing},querySelector:selector=>selector==='#home-trial-offer'?offer:blocked?{}:null,
   addEventListener:(type,handler)=>{(listeners[type]??=[]).push(handler);}};
  const dispatch=(type,event={})=>{for(const fn of listeners[type]||[])fn(event);};
- const context={document,addEventListener:(type,handler)=>{(listeners[type]??=[]).push(handler);},performance:{now:()=>now},sessionStorage:{getItem:key=>{if(blockedStorage)throw Error('blocked');return values.get(key);},setItem:(key,value)=>{if(blockedStorage)throw Error('blocked');values.set(key,value);}},
+ const context={document,Event,addEventListener:(type,handler)=>{(listeners[type]??=[]).push(handler);},performance:{now:()=>now},sessionStorage:{getItem:key=>{if(blockedStorage)throw Error('blocked');return values.get(key);},setItem:(key,value)=>{if(blockedStorage)throw Error('blocked');values.set(key,value);}},
   setTimeout:(fn,delay)=>{const id=++nextId;jobs.set(id,{fn,at:now+delay});return id;},clearTimeout:id=>jobs.delete(id)};
  runInNewContext(source,context);
  const advance=ms=>{const target=now+ms;while(true){const job=[...jobs].sort((a,b)=>a[1].at-b[1].at)[0];if(!job||job[1].at>target)break;now=job[1].at;jobs.delete(job[0]);job[1].fn();}now=target;};
- return {offer,close,later,start,values,advance,dispatch,setBlocked:value=>{blocked=value;},setEditing:value=>{editing=value;},setHidden:value=>{document.hidden=value;dispatch('visibilitychange');},requestContact:()=>dispatch('click',{target:{closest:()=>({})}})};
+ return {offer,close,later,form,title,copy,values,advance,dispatch,setBlocked:value=>{blocked=value;},setEditing:value=>{editing=value;},setHidden:value=>{document.hidden=value;dispatch('visibilitychange');},requestContact:()=>dispatch('click',{target:{closest:()=>({})}})};
 }
 
 test('offer waits for 50 seconds and does not repeat after dismissal',()=>{
@@ -55,10 +57,23 @@ test('close, Escape and backdrop each dismiss the offer',()=>{
   assert.equal(app.offer.open,false,method);app.advance(60000);assert.equal(app.offer.opens,1,method);
  }
 });
-test('invitation closes before the existing short request handler runs',()=>{
- const app=setup();app.advance(50000);app.start.fire('click');assert.equal(app.offer.open,false);
- assert.match(markup,/data-home-offer-start data-open="audit"/);assert.match(markup,/data-location="site-timed-trial"/);
+test('invitation contains an inline phone form and never opens a second request dialog',()=>{
+ assert.match(markup,/data-kind="contact" data-form-variant="timed-trial"/);assert.match(markup,/data-location="site-timed-trial"/);
+ assert.match(markup,/type="tel" autocomplete="tel" inputmode="tel" required/);
+ assert.doesNotMatch(markup,/data-home-offer-start|data-open="audit"/);
  assert.doesNotMatch(markup,/home-mobile-action/);
+});
+
+test('acknowledged success updates this same dialog and remains dismissible',()=>{
+ const app=setup();app.advance(50000);app.offer.fire('vdalo:lead-success');
+ assert.equal(app.offer.open,true);assert.equal(app.title.textContent,'Заявку отримано');
+ assert.equal(app.copy.hidden,true);assert.equal(app.later.hidden,true);assert.equal(app.offer['aria-describedby'],'home-offer-success-copy');
+ app.close.fire('click');assert.equal(app.offer.open,false);
+});
+
+test('opening emits a local form-open event without contact data',()=>{
+ const app=setup();let opened=0;app.form.addEventListener('vdalo:lead-open',event=>{opened++;assert.equal(event.detail,undefined);});
+ app.advance(50000);assert.equal(opened,1);
 });
 test('unavailable session storage still permits one dismissible invitation per load',()=>{
  const app=setup({blockedStorage:true});app.advance(50000);assert.equal(app.offer.open,true);app.close.fire('click');app.advance(100000);assert.equal(app.offer.opens,1);

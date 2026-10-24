@@ -2,12 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {renderRouteForReview} from '../scripts/review-render.mjs';
-import {withSiteTrialOffer} from '../versions/v1/trial-offer.mjs';
+import {withSiteTrialOffer,renderTrialOffer} from '../versions/v1/trial-offer.mjs';
 import {offers} from '../microlandings/content.mjs';
 import {robotFunnelRoutes,robotFunnelLegacyRoutes} from '../microlandings/robot-funnels.mjs';
 import {formContract} from '../versions/v1/content-revisions/form-contract.mjs';
 import {renderTouristTaxHub} from '../versions/v1/tourist-tax.mjs';
-import {renderAuditDialog} from '../versions/v1/render.mjs';
+import {validateLead} from '../versions/v1/server.mjs';
 import {touristTaxPlaces} from '../versions/v1/tourist-tax-data.mjs';
 
 test('every published ordinary route receives exactly one offer, form and controller',async()=>{
@@ -18,7 +18,9 @@ test('every published ordinary route receives exactly one offer, form and contro
   const response=await renderRouteForReview(route);
   assert.equal(response.status,200,route);
   assert.equal((response.html.match(/\bdata-site-trial-offer\b/g)||[]).length,1,route);
-  assert.equal((response.html.match(/id="audit-dialog"/g)||[]).length,1,route);
+  assert.equal((response.html.match(/id="home-offer-name"/g)||[]).length,1,route);
+  assert.equal((response.html.match(/id="home-offer-phone"/g)||[]).length,1,route);
+  assert.ok((response.html.match(/id="audit-dialog"/g)||[]).length<=1,route);
   assert.equal((response.html.match(/src="\/v1\/app\.js\?/g)||[]).length,1,route);
   assert.equal((response.html.match(/src="\/v1\/trial-offer\.js\?/g)||[]).length,1,route);
  }
@@ -56,12 +58,13 @@ test('legacy funnel redirects preserve campaign parameters without an offer',asy
  }
 });
 
-test('standalone pages reuse the existing audit delivery contract without changing their forms',()=>{
+test('standalone pages add one inline contact form without changing their own forms',()=>{
  const before=renderTouristTaxHub(),after=withSiteTrialOffer(before,true);
  const contracts=formContract(after);
  assert.deepEqual(contracts.slice(0,-1),formContract(before));
- assert.deepEqual(contracts.at(-1),formContract(renderAuditDialog())[0]);
+ assert.deepEqual(contracts.at(-1),formContract(renderTrialOffer())[0]);
  assert.match(after,/action="\/api\/leads\/audit"/);
+ assert.doesNotMatch(after,/id="audit-dialog"/);
  assert.equal(withSiteTrialOffer(after,true),after,'idempotent decoration');
  assert.equal(withSiteTrialOffer(before,false),before,'disabled renderer unchanged');
 });
@@ -77,7 +80,29 @@ test('static assets and 404 pages do not receive the invitation',async()=>{
 test('standalone form styles stay scoped and controller safely supports a page without the main header',()=>{
  const css=readFileSync(new URL('../versions/v1/public/trial-offer.css',import.meta.url),'utf8');
  const app=readFileSync(new URL('../versions/v1/public/app.js',import.meta.url),'utf8');
- assert.match(css,/\.site-trial-request \[hidden\]/);
- assert.match(css,/\.home-trial-offer button:focus-visible/);
+ assert.match(css,/\.home-trial-offer \[hidden\]/);
+ assert.match(css,/\.home-trial-offer :is\(button,a,input\):focus-visible/);
+ assert.match(css,/padding:64px 0 0/);
+ assert.match(css,/\.home-trial-offer \.home-offer-scroll\{[^}]*padding:12px 36px 20px;overflow:auto/);
+ assert.match(css,/\.home-trial-offer h2\{[^}]*text-align:center/);
  assert.match(app,/querySelector\('\.header'\)\?\.classList/);
+});
+
+test('inline trial request needs only name, phone and unchecked consent, with replay masking',()=>{
+ const html=renderTrialOffer();
+ assert.match(html,/data-clarity-mask="true"/);
+ assert.match(html,/name="consent" required/);
+ assert.doesNotMatch(html,/name="consent"[^>]*checked|name="(?:email|property|city)"/);
+ const accepted=validateLead('audit',{form_kind:'contact',name:'Тест VDALO',contact:'+380501234567',pain:'Заявка на 14-денний тест VDALO з попапу',consent:true});
+ assert.deepEqual(accepted.errors,{});assert.match(accepted.data.pain,/14-денний тест/);
+ const rejected=validateLead('audit',{form_kind:'contact',name:'Тест',contact:'test@example.com',consent:true});
+ assert.ok(rejected.errors.contact);
+});
+
+test('narrow tax directory rows wrap instead of widening the viewport behind the popup',async()=>{
+ const css=readFileSync(new URL('../versions/v1/public/tourist-tax-interactions.css',import.meta.url),'utf8');
+ assert.match(css,/@media\(max-width:760px\)\{\.tt-place-list\{grid-template-columns:minmax\(0,1fr\)\}/);
+ assert.match(css,/\.tt-place-row a\{white-space:normal;overflow-wrap:anywhere\}/);
+ const page=await renderRouteForReview('/tourist-tax/');
+ assert.match(page.html,/tourist-tax-interactions\.css\?v=[a-f0-9]{12}/);
 });

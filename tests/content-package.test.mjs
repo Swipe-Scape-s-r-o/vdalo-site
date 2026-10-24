@@ -6,7 +6,6 @@ import {renderRouteForReview} from '../scripts/review-render.mjs';
 import {elements,inner,hasClass,textOf,decodeText} from '../versions/v1/content-revisions/html-fragments.mjs';
 import {formContract,portableHtmlHash} from '../versions/v1/content-revisions/form-contract.mjs';
 import {renderArticleMarkdown} from '../versions/v1/article-markdown.mjs';
-import {renderAuditDialog} from '../versions/v1/render.mjs';
 import {renderTrialOffer} from '../versions/v1/trial-offer.mjs';
 const baseline=JSON.parse(readFileSync(new URL('../docs/content-package-2026-10-23/BASELINE_FORM_CONTRACTS.json',import.meta.url)));
 const unchanged=JSON.parse(readFileSync(new URL('../docs/content-package-2026-10-23/BASELINE_EXCLUDED_ROUTES.json',import.meta.url)));
@@ -35,10 +34,9 @@ test('all 70 complete revisions render with one H1, matching metadata and preser
 test('every existing form preserves its action, fields, required constraints and submit controls',async()=>{
  for(const page of preparedPages){
   const {html}=await rendered(page.route);
-  // The new shared invitation supplies the established audit form only where
-  // none existed. Keep every original page form contract byte-for-byte.
-  const injectedAudit=renderAuditDialog().replace('class="lead-dialog"','class="lead-dialog site-trial-request"');
-  assert.deepEqual(formContract(html.replace(injectedAudit,'')),baseline[page.route],page.route);
+  // The shared invitation now contains its own contact form. Keep every
+  // original page form contract byte-for-byte outside this explicit addition.
+  assert.deepEqual(formContract(html.replace(renderTrialOffer(),'')),baseline[page.route],page.route);
  }
 });
 
