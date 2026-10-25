@@ -22,7 +22,7 @@ import {renderEditorialArticle,editorialArticles,articleDates} from './versions/
 import {renderSecondPassArticle,secondPassArticles,modifiedAt as secondPassModifiedAt} from './versions/v1/article-second-pass.mjs';
 import {renderPmsArticle,pmsArticle} from './versions/v1/article-pms.mjs';
 import {renderPmsChoiceArticle,pmsChoiceArticle} from './versions/v1/article-pms-choice.mjs';
-import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator} from './versions/v1/tools.mjs';
+import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator,renderDirectBookingCostCalculator,renderHotelRoomCostCalculator,renderHousekeepingChecklist} from './versions/v1/tools.mjs';
 import {handlePmsReport} from './versions/v1/pms-report.mjs';
 import {renderSeoPage,seoRoutes} from './versions/v1/seo-pages.mjs';
 import {homeCssBundle,siteCssBundle,assetVersion} from './versions/v1/assets.mjs';
@@ -32,6 +32,8 @@ import {renderAuthorPage,renderKostiantynAuthorPage,renderAuthorsDirectory} from
 import {handleWayForPay} from './payments/wayforpay.mjs';
 import {applySitewideSchema} from './versions/v1/schema.mjs';
 import {getPublicSitemapRoutes,serializeSitemapXml} from './versions/v1/sitemap.mjs';
+import {renderResourceLibrary,getPublicResource} from './versions/v1/resource-library.mjs';
+import {renderAdminTimeCalculator,renderWebsiteChecklist,renderGuestMessageBuilder,renderHousekeepingWorkloadCalculator,renderCancellationCalculator,renderReviewReplyTemplates} from './versions/v1/advanced-tools.mjs';
 import {renderTouristTaxHub,renderTouristTaxCity,handleTouristTaxCalculation} from './versions/v1/tourist-tax.mjs';
 import {normalizeNonproductMetadata} from './versions/v1/nonproduct-seo.mjs';
 import {applyPreparedContent,revisionRoutes,revisionDate} from './versions/v1/content-revisions/content.mjs';
@@ -40,7 +42,7 @@ import {touristTaxCityRoutes,touristTaxPlaces,getTouristTaxPlace,getTouristTaxRu
 
 const root=path.dirname(fileURLToPath(import.meta.url));
 if(!process.env.VERCEL && existsSync(path.join(root,'.env')) && process.loadEnvFile)process.loadEnvFile(path.join(root,'.env'));
-const types={'.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.jpg':'image/jpeg','.jpeg':'image/jpeg','.mp4':'video/mp4','.webm':'video/webm','.json':'application/json; charset=utf-8','.woff2':'font/woff2'};
+const types={'.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.jpg':'image/jpeg','.jpeg':'image/jpeg','.mp4':'video/mp4','.webm':'video/webm','.json':'application/json; charset=utf-8','.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','.woff2':'font/woff2'};
 const gtmHead=`<script>(function(w,d,s,l,i){w.__vdaloLoadGoogleTags=function(){if(w.__vdaloGoogleTagsLoaded)return;w.__vdaloGoogleTagsLoaded=true;w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;d.head.appendChild(j);};if(w.vdaloConsent&&w.vdaloConsent.getPreferences().analytics)w.__vdaloLoadGoogleTags();})(window,document,'script','dataLayer','GTM-PKDT7MMT');</script>`;
 const calloAttributionPrelude=`<script>(function(){try{var url=new URL(window.location.href),tag=url.searchParams.get('t');if(tag){window.__vdaloCalloTag=tag;url.searchParams.delete('t');history.replaceState(history.state,'',url.pathname+(url.search?url.search:'')+url.hash);}}catch(_){}})();</script>`;
 const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/svg+xml">';
@@ -124,7 +126,7 @@ function sendVideo(req,res,data){
  res.writeHead(status,{'Content-Type':'video/mp4','Content-Length':body.length,'Cache-Control':'public, max-age=86400','X-Content-Type-Options':'nosniff','Accept-Ranges':'bytes',...(status===206?{'Content-Range':`bytes ${start}-${end}/${size}`}:{})});
  res.end(req.method==='HEAD'?undefined:body);
 }
-function prefix(html,version){return html.replace(/\b(src|href|action|poster)="\/([^\"]*)"/g,(match,attribute,path)=>{if(path.startsWith('/')||path.startsWith('v1/')||path.startsWith('v2/')||path.startsWith('v3/'))return match;if(attribute==='href'&&(/^(?:$|#|privacy(?:\/|$)|offer(?:\/|$)|refunds?(?:\/|$)|cases(?:\/|$)|blog(?:\/|$)|authors(?:\/|$)|tools(?:\/|$)|solutions(?:\/|$)|integrations(?:\/|$)|pricing(?:\/|$)|hotel-[a-z0-9-]+(?:\/|$)|guest-communication(?:\/|$)|hotel-automation(?:\/|$)|about(?:\/|$)|partners(?:\/|$)|contact(?:\/|$)|tourist-tax(?:\/|$)|sign-up(?:\/|$)|registration(?:\/|$))/.test(path)))return match;return `${attribute}="/${version}/${path}"`;});}
+function prefix(html,version){return html.replace(/\b(src|href|action|poster)="\/([^\"]*)"/g,(match,attribute,path)=>{if(path.startsWith('/')||path.startsWith('v1/')||path.startsWith('v2/')||path.startsWith('v3/'))return match;if(attribute==='href'&&(/^(?:$|#|privacy(?:\/|$)|offer(?:\/|$)|refunds?(?:\/|$)|cases(?:\/|$)|blog(?:\/|$)|authors(?:\/|$)|tools(?:\/|$)|resources(?:\/|$)|downloads\/hotel\/|solutions(?:\/|$)|integrations(?:\/|$)|pricing(?:\/|$)|hotel-[a-z0-9-]+(?:\/|$)|guest-communication(?:\/|$)|hotel-automation(?:\/|$)|about(?:\/|$)|partners(?:\/|$)|contact(?:\/|$)|tourist-tax(?:\/|$)|sign-up(?:\/|$)|registration(?:\/|$))/.test(path)))return match;return `${attribute}="/${version}/${path}"`;});}
 function renderNotFound(){
  return `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Сторінку не знайдено | VDALO</title><meta name="robots" content="noindex,follow"><link rel="stylesheet" href="/v1/site.css"></head><body><header class="site-header"><a href="/" aria-label="VDALO, на головну"><img src="/v1/assets/vdalo-canonical-496.png" width="124" height="41" alt="VDALO"></a></header><main id="main" class="wrap" style="min-height:65vh;display:grid;align-content:center;gap:1rem"><p class="eyebrow">VDALO · 404</p><h1>Сторінку не знайдено</h1><p>Можливо, адресу змінено. Перейдіть на головну або відкрийте довідник туристичного збору.</p><p><a class="button primary" href="/">На головну</a> <a class="button outline" href="/tourist-tax/">Туристичний збір</a></p></main></body></html>`;
 }
@@ -193,6 +195,28 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/tools/pms-checklist/')return send(res,200,prefix(renderPmsChecklist(),'v1'));
   if(pathname==='/tools/hotel-profitability-calculator'){res.writeHead(308,{Location:'/tools/hotel-profitability-calculator/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/tools/hotel-profitability-calculator/')return send(res,200,prefix(renderHotelProfitabilityCalculator(),'v1'));
+  if(pathname==='/tools/direct-booking-cost-calculator'){res.writeHead(308,{Location:'/tools/direct-booking-cost-calculator/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/tools/direct-booking-cost-calculator/')return send(res,200,prefix(renderDirectBookingCostCalculator(),'v1'));
+  if(pathname==='/tools/hotel-room-cost-calculator'){res.writeHead(308,{Location:'/tools/hotel-room-cost-calculator/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/tools/hotel-room-cost-calculator/')return send(res,200,prefix(renderHotelRoomCostCalculator(),'v1'));
+  if(pathname==='/tools/housekeeping-checklist'){res.writeHead(308,{Location:'/tools/housekeeping-checklist/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/tools/housekeeping-checklist/')return send(res,200,prefix(renderHousekeepingChecklist(),'v1'));
+  if(pathname==='/tools/hotel-admin-time-calculator'){res.writeHead(308,{Location:'/tools/hotel-admin-time-calculator/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/tools/hotel-admin-time-calculator/')return send(res,200,prefix(renderAdminTimeCalculator(),'v1'));
+  if(pathname==='/tools/hotel-website-checklist'){res.writeHead(308,{Location:'/tools/hotel-website-checklist/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/tools/hotel-website-checklist/')return send(res,200,prefix(renderWebsiteChecklist(),'v1'));
+  if(pathname==='/tools/guest-message-builder'){res.writeHead(308,{Location:'/tools/guest-message-builder/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/tools/guest-message-builder/')return send(res,200,prefix(renderGuestMessageBuilder(),'v1'));
+  if(pathname==='/tools/housekeeping-workload-calculator'){res.writeHead(308,{Location:'/tools/housekeeping-workload-calculator/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/tools/housekeeping-workload-calculator/')return send(res,200,prefix(renderHousekeepingWorkloadCalculator(),'v1'));
+  if(pathname==='/tools/hotel-cancellation-cost-calculator'){res.writeHead(308,{Location:'/tools/hotel-cancellation-cost-calculator/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/tools/hotel-cancellation-cost-calculator/')return send(res,200,prefix(renderCancellationCalculator(),'v1'));
+  if(pathname==='/tools/hotel-review-response'){res.writeHead(308,{Location:'/tools/hotel-review-response/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/tools/hotel-review-response/')return send(res,200,prefix(renderReviewReplyTemplates(),'v1'));
+  if(pathname==='/resources/'){res.writeHead(308,{Location:'/resources'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/resources')return send(res,200,prefix(renderResourceLibrary(),'v1'));
+  const publicResourceMatch=pathname.match(/^\/downloads\/hotel\/([A-Za-z0-9_.-]+)$/);
+  if(publicResourceMatch){const resource=await getPublicResource(publicResourceMatch[1]);if(!resource)return send(res,404,'Не знайдено.','text/plain; charset=utf-8');res.writeHead(200,{'Content-Type':resource.type,'Content-Length':resource.data.length,'Content-Disposition':`attachment; filename="${resource.filename}"`,'Cache-Control':'public, max-age=86400','X-Content-Type-Options':'nosniff'});return res.end(req.method==='HEAD'?undefined:resource.data);}
   if(pathname===pmsChoiceArticle.slug+'/'){res.writeHead(308,{Location:pmsChoiceArticle.slug+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname===pmsChoiceArticle.slug)return send(res,200,prefix(renderPmsChoiceArticle(),'v1'));
   if(pathname==='/blog/' ){res.writeHead(308,{Location:'/blog'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}

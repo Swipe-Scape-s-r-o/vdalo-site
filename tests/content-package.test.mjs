@@ -141,9 +141,14 @@ test('all local four-person-day examples have exact products and independent hal
   return numerator/scale;
  };
  for(const page of preparedPages.filter(p=>/^\/tourist-tax\/[^/]+\/$/.test(p.route))){
-  const section=page.sections.find(s=>s.title==='Контрольна арифметика за чотири людино-доби');
-  if(!section)continue;
-  for(const line of section.markdown.split('\n')){
+  // Prepared page revisions store their complete source in `markdown`; the
+  // `sections` array is intentionally empty for these Markdown-backed pages.
+  const heading='## Контрольна арифметика за чотири людино-доби';
+  const start=page.markdown.indexOf(heading);
+  if(start<0)continue;
+  const remainder=page.markdown.slice(start+heading.length).replace(/^\s*\n/,'');
+  const section=remainder.split(/^## /m,1)[0];
+  for(const line of section.split('\n')){
    const cells=line.split('|').slice(1,-1).map(s=>s.trim());
    if(cells.length!==4||!/^\d+(?:,\d+)?%$/.test(cells[1]))continue;
    const rateMilli=milli(cells[1].replace('%',''));

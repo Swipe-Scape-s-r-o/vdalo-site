@@ -5,7 +5,7 @@ const AUTHOR_URL = `${ORIGIN}/authors/oleh-stepeniev`;
 const AUTHOR_ID = `${AUTHOR_URL}#person`;
 const LOGO_URL = `${ORIGIN}/v1/assets/vdalo-app-icon.svg`;
 
-const collectionPages = new Set(['/solutions', '/integrations', '/blog', '/cases', '/tools/', '/authors', '/tourist-tax/']);
+const collectionPages = new Set(['/solutions', '/integrations', '/blog', '/cases', '/tools/', '/resources', '/authors', '/tourist-tax/']);
 const servicePages = new Set([
   '/hotel-booking-calendar',
   '/hotel-check-in',

@@ -1,0 +1,22 @@
+ПРОПОЗИЦІЯ ПРОЖИВАННЯ ДЛЯ ГРУПИ
+Чернетка. Перед надсиланням перевірити доступність та умови.
+
+UA
+Доброго дня! За вашим запитом на період {{arrival_date}} - {{departure_date}} можемо запропонувати погоджений варіант: {{room_mix}} для {{guest_count}} гостей.
+Склад пропозиції: {{included_services}}.
+Загальна сума: {{total_amount}} {{currency}}. База податків і зборів: {{tax_and_fee_basis}}.
+Умови оплати: {{approved_payment_terms}}.
+Умови зміни та скасування: {{approved_cancellation_terms}}.
+Пропозиція актуальна до {{valid_until}}, якщо це погоджено з командою.
+Наступний крок: {{next_step}}. Контакт: {{approved_contact}}.
+
+EN
+Hello! For your requested stay from {{arrival_date}} to {{departure_date}}, we can offer the confirmed option: {{room_mix}} for {{guest_count}} guests.
+Included services: {{included_services}}.
+Total: {{total_amount}} {{currency}}. Taxes and fees: {{tax_and_fee_basis}}.
+Payment terms: {{approved_payment_terms}}.
+Changes and cancellations: {{approved_cancellation_terms}}.
+This offer is valid until {{valid_until}}, as agreed with our team.
+Next step: {{next_step}}. Contact: {{approved_contact}}.
+
+Не вигадувати ціну, залишок номерів, строк утримання чи правові умови. Чернетка не резервує номер і не проводить платіж.

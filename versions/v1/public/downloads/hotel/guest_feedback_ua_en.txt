@@ -1,0 +1,18 @@
+КОРОТКИЙ ЗВОРОТНИЙ ЗВ’ЯЗОК ПІСЛЯ ПРОЖИВАННЯ
+UA: Дякуємо за ваш досвід у {{hotel_name}}. Будемо вдячні за чесні відповіді. Можна пропустити будь-яке питання.
+EN: Thank you for staying at {{hotel_name}}. We appreciate your honest feedback. You may skip any question.
+
+1. Як ви оцінюєте чистоту? / How would you rate cleanliness?
+1 / 2 / 3 / 4 / 5 / не застосовується, not applicable
+2. Наскільки зрозумілим був заїзд? / How clear was the arrival process?
+1 / 2 / 3 / 4 / 5 / не застосовується, not applicable
+3. Як ви оцінюєте комунікацію? / How would you rate communication?
+1 / 2 / 3 / 4 / 5 / не застосовується, not applicable
+4. Що було зручно? / What worked well?
+{{free_text}}
+5. Що варто покращити? / What could we improve?
+{{free_text}}
+6. Якщо ви хочете відповіді від команди, зверніться через {{approved_contact}}.
+If you would like a reply from our team, contact {{approved_contact}}.
+
+Позначити значення шкали: 1 найнижча оцінка, 5 найвища. Не вимагати email для анонімної паперової форми. Цей шаблон не відбирає тільки позитивні публічні відгуки й не створює онлайн-систему збору відповідей.

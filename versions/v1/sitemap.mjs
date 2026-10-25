@@ -22,6 +22,16 @@ export function getPublicSitemapRoutes({ seoRoutes, caseSlugs, pmsArticle, pmsCh
     '/tools/qr-studio/',
     '/tools/pms-checklist/',
     '/tools/hotel-profitability-calculator/',
+    '/tools/direct-booking-cost-calculator/',
+    '/tools/hotel-room-cost-calculator/',
+    '/tools/housekeeping-checklist/',
+    '/tools/hotel-admin-time-calculator/',
+    '/tools/hotel-website-checklist/',
+    '/tools/guest-message-builder/',
+    '/tools/housekeeping-workload-calculator/',
+    '/tools/hotel-cancellation-cost-calculator/',
+    '/tools/hotel-review-response/',
+    '/resources',
     ...touristTaxRoutes,
   ];
 }
