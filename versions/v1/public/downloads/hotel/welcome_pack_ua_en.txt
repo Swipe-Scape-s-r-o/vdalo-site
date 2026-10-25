@@ -1,0 +1,25 @@
+ІНФОРМАЦІЯ ДЛЯ ГОСТЯ
+Заповнити тільки перевірені дані. Вилучити непридатні блоки.
+
+UA
+Вітаємо у {{hotel_name}}!
+Адреса: {{address}}. Як дістатися: {{directions_url}}.
+Узгоджений час заїзду: {{check_in_time}}. Час виїзду: {{check_out_time}}.
+Контакт команди: {{approved_contact}}. Години доступності: {{contact_hours}}.
+Сніданок: {{confirmed_breakfast_info}}.
+Паркінг: {{confirmed_parking_info}}.
+Послуги, які можна уточнити: {{available_services}}.
+Питання або зміна планів: зверніться до команди за вказаним контактом.
+
+EN
+Welcome to {{hotel_name}}!
+Address: {{address}}. Directions: {{directions_url}}.
+Your agreed check-in time: {{check_in_time}}. Check-out time: {{check_out_time}}.
+Team contact: {{approved_contact}}. Contact hours: {{contact_hours}}.
+Breakfast: {{confirmed_breakfast_info}}.
+Parking: {{confirmed_parking_info}}.
+Services you can ask about: {{available_services}}.
+For questions or changes to your plans, contact our team using the details above.
+
+КОНТРОЛЬ
+Не обіцяти 24/7, включений сніданок чи безкоштовний паркінг без факту. Інструкції доступу й гостьову Wi-Fi картку передавати окремо за процедурою. Текст не підтверджує бронювання й не надсилається автоматично.

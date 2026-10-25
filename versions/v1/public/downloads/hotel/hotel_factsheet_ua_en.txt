@@ -1,0 +1,17 @@
+КОРОТКА КАРТКА ГОТЕЛЮ
+UA / EN
+Назва / Property name: {{hotel_name}}
+Адреса / Address: {{address}}
+Сторінка бронювання / Booking page: {{booking_url}}
+Контакт / Contact: {{approved_contact}}
+Години зв’язку / Contact hours: {{contact_hours}}
+Заїзд / Check-in: {{check_in_time}}
+Виїзд / Check-out: {{check_out_time}}
+Харчування / Meals: {{confirmed_meal_info}}
+Паркінг / Parking: {{confirmed_parking_info}}
+Доступність для гостей з особливими потребами / Accessibility information: {{verified_accessibility_info}}
+Погоджені правила щодо тварин / Confirmed pet policy: {{confirmed_pet_policy}}
+Інші перевірені деталі / Other verified details: {{details}}
+Дата перевірки / Last checked: {{checked_at}}
+
+Використовувати як короткий інформаційний матеріал. Відсутній факт лишається питанням або блок вилучається. Формулювання про доступність описують перевірені конкретні умови, а не універсальну обіцянку.
