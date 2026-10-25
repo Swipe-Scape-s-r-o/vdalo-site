@@ -131,6 +131,13 @@ function renderNotFound(){
 const server=http.createServer(async(req,res)=>{
  try{
   const url=new URL(req.url,'http://localhost');
+  const shortlinkPrefix=url.pathname==='/r'||url.pathname.startsWith('/r/')||url.pathname==='/q/r'||url.pathname.startsWith('/q/r/');
+  if(shortlinkPrefix){
+   const match=/^\/(?:q\/)?r\/([A-Za-z0-9]{4,16})$/.exec(url.pathname);
+   if(!match)return send(res,404,'Не знайдено.','text/plain; charset=utf-8');
+   res.writeHead(302,{'Location':`https://app.vdalo.tech/r/${match[1]}`,'Cache-Control':'no-store'});
+   return res.end();
+  }
   const pathname=decodeURIComponent(url.pathname);
   res._schemaPath=pathname;
   res._allowPublicCache=req.method==='GET'&&!url.search;

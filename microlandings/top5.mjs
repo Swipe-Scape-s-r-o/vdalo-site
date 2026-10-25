@@ -29,7 +29,7 @@ const calculatorMetadata={
  5:{title:'Керування готелем із телефона | VDALO',description:'Оцініть, як команда отримує доступ до бронювань і робочої інформації з телефона.'}
 };
 const funnelFor={...Object.fromEntries([1,2,3,4,5,6,7,8,9,10].map(x=>[x,'overbook'])),...Object.fromEntries([11,12,13,14,15,16,17,18,19,20].map(x=>[x,'staff'])),...Object.fromEntries([21,22,23,42,43].map(x=>[x,'nights'])),...Object.fromEntries([24,25,26,27,28,29,30,31,32,33].map(x=>[x,'blackout'])),...Object.fromEntries([34,35,36,37,40,41].map(x=>[x,'overbook'])),...Object.fromEntries([38,39,44,45,46].map(x=>[x,'staff'])),...Object.fromEntries([47,48,49,58].map(x=>[x,'commission'])),...Object.fromEntries([50,51,52,57].map(x=>[x,'blackout']))};
-const attachQuizContext=`if(params.get('utm_campaign')==='hotel_quiz'){try{const quiz=JSON.parse(sessionStorage.getItem('vdalo-quiz-context')||'null');const quizRoute=location.pathname.replace(/\\/$/,'')||'/';if(quiz&&quiz.recommendation_route===quizRoute){data.quiz_answers=quiz;data.quiz_landing_route=quizRoute;}}catch{}}`;
+const attachQuizContext=`{try{const quiz=JSON.parse(sessionStorage.getItem('vdalo-quiz-context')||'null');const quizRoute=location.pathname.replace(/\\/$/,'')||'/';if(quiz&&quiz.recommendation_route===quizRoute){data.quiz_answers=quiz;data.quiz_landing_route=quizRoute;}}catch{}}`;
 
 async function template(name){return readFile(path.join(root,'top5',name),'utf8');}
 function common(html,title,description,canonical='/go'){
