@@ -211,8 +211,8 @@ function reviseHome(html,page){
  const additional=selectedBody(page,section=>['Перевірте локальні операції для України','Що показують практичні матеріали','Перевірмо процес вашого готелю','Далі за темою'].includes(section.title));
  const main=elements(html).find(node=>node.tag==='main');
  html=appendInside(html,main,copyBlock(additional,{className:'prepared-home'}));
- // Remove the stale broad integration/PRRO assertions from public home prose.
- html=html.replace(/Понад 60 сервісів уже підключені до VDALO, зокрема Booking\.com та Airbnb\./g,'Сумісність Booking.com, Airbnb та інших потрібних сервісів перевіряємо для вашого об’єкта.').replace(/понад 60 (?:сервісів|інтеграцій)/gi,'потрібні сервіси').replace(/60\+ інтеграцій/g,'Підключення сервісів');
+  // Keep the approved Channel Manager scope precise: channel count, paid module, no claim that every integration has identical fields.
+  html=html.replace(/Понад 60 сервісів уже підключені до VDALO, зокрема Booking\.com та Airbnb\./g,'Channel Manager VDALO підключає понад 60 каналів, зокрема Booking.com та Airbnb; модуль оплачується окремо.').replace(/понад 60 (?:сервісів|інтеграцій)/gi,'понад 60 каналів').replace(/60\+ інтеграцій/g,'60+ каналів');
  return html;
 }
 function updateCards(html){
