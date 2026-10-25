@@ -8,7 +8,7 @@ const buckets=new Set(['1-5','6-12','13-40','41+','1-12','41-80','81+']);
 const quizEnums={property_format:['guesthouse','hotel','apartments','glamping','hostel','multiple','other'],property_type:['hotel','guesthouse','apartments','resort','hostel','other'],room_range:['1-5','6-12','13-40','41+'],pms_status:['none','spreadsheets','manual_gaps','exely','satisfied','switching'],main_pain:['channels','checkin','night_calls','power','direct'],frequency:['daily','weekly','monthly','rare'],intent:['solution','calculator']};
 const quizDestinations={channels:{solution:['/55','overbook'],calculator:['/k3','overbook']},checkin:{solution:['/53','staff'],calculator:['/k1','staff']},night_calls:{solution:['/54','nights'],calculator:['/k2','nights']},power:{solution:['/50','blackout'],calculator:['/k5','blackout']},direct:{solution:['/47','commission'],calculator:['/k4','commission']}};
 function cleanQuizContext(raw,funnel){
- const value=raw.quiz_answers;if(raw.utm_campaign!=='hotel_quiz'||!value||typeof value!=='object'||Array.isArray(value))return null;
+ const value=raw.quiz_answers;if(!value||typeof value!=='object'||Array.isArray(value))return null;
  const expected=quizDestinations[value.main_pain]?.[value.intent];
  if(!expected||expected[0]!==raw.quiz_landing_route||expected[0]!==value.recommendation_route||expected[1]!==funnel)return null;
  const clean={};for(const [key,allowed] of Object.entries(quizEnums))if(typeof value[key]==='string'&&allowed.includes(value[key]))clean[key]=value[key];
