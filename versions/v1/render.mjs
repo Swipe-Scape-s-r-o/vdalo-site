@@ -3,6 +3,7 @@ import { renderHero, renderContent, renderFooter } from './experience.mjs';
 import { site } from './content/vdalo-ua.mjs';
 import { readFileSync } from 'node:fs';
 import { assetUrl, assetVersion, homeCssBundle, homeCriticalCss, siteCssBundle } from './assets.mjs';
+import { signupHref, loginHref } from './signup-links.mjs';
 export const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const e = escape;
 export const button = (kind, text, location, style = '') => `<button class="button ${style}" type="button" data-open="${kind}" data-location="${location}">${e(text)}</button>`;
@@ -19,7 +20,7 @@ function header({full=false}={}) {
   }
   return `<li class="nav-item nav-item-level-${level}"><a href="${sectionLink(item.href)}">${e(item.label)}</a></li>`;
  }).join('');
- return `<a class="skip-link" href="#main">Перейти до змісту</a><header class="header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="VDALO, головна">${logo()}</a><nav id="navigation" aria-label="Головна навігація"><ul class="site-nav">${navItems(site.navigation)}<li class="nav-item mobile-nav-action"><a class="mobile-audit" href="/contact" data-contact-dialog-trigger>Зв’язатися</a></li></ul></nav><div class="header-actions"><a class="header-phone" data-requires-config="phone" data-config-href="phone" hidden><span data-config-text="phone"></span></a><a class="header-telegram" data-requires-config="telegramUrl" data-config-href="telegramUrl" hidden>Telegram</a><a class="button compact" href="/contact" data-contact-dialog-trigger>Зв’язатися</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Відкрити меню"><span></span><span></span></button></div></div></header>`;
+ return `<a class="skip-link" href="#main">Перейти до змісту</a><header class="header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="VDALO, головна">${logo()}</a><nav id="navigation" aria-label="Головна навігація"><ul class="site-nav">${navItems(site.navigation)}<li class="nav-item mobile-nav-action"><a class="mobile-audit" href="/contact" data-contact-dialog-trigger>Зв’язатися</a></li><li class="nav-item mobile-nav-action"><a class="mobile-audit" href="${signupHref('header_mobile')}">Спробувати безкоштовно</a></li><li class="nav-item mobile-nav-action"><a class="mobile-login" href="${loginHref}">Увійти</a></li></ul></nav><div class="header-actions"><a class="header-phone" data-requires-config="phone" data-config-href="phone" hidden><span data-config-text="phone"></span></a><a class="header-telegram" data-requires-config="telegramUrl" data-config-href="telegramUrl" hidden>Telegram</a><a class="header-login" href="${loginHref}">Увійти</a><a class="button compact" href="${signupHref('header_desktop')}">Спробувати безкоштовно</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Відкрити меню"><span></span><span></span></button></div></div></header>`;
 }
 function hero() { return renderHero(); }
 function footer() { return renderFooter(); }
