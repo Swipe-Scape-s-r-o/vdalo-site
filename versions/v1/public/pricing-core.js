@@ -8,8 +8,8 @@
     enterprise: { id: 'enterprise', name: 'Enterprise', minimum: 151, maximum: Infinity, monthly: null, base: null, included: null, extraPrice: null, setup: null }
   };
   const modules = {
-    channels: { label: 'Керування каналами продажу', price: 590, includedFrom: ['mini', 'hotel', 'hotel-plus', 'complex', 'enterprise'] },
-    prro: { label: 'ПРРО та фіскалізація', price: 290, status: 'development', includedFrom: ['hotel', 'hotel-plus', 'complex', 'enterprise'] },
+    channels: { label: 'Channel Manager VDALO · 60+ каналів', price: 590 },
+    prro: { label: 'ПРРО та фіскалізація', price: 290, includedFrom: ['hotel', 'hotel-plus', 'complex', 'enterprise'] },
     rms: { label: 'Розширені правила ціни', price: 590, variable: true, status: 'beta' },
     assistant: { label: 'AI-помічник для гостей', price: 590, from: true, status: 'development' },
     access: { label: 'Ручні PIN-коди', price: 490, perRoom: 20, status: 'beta' },
