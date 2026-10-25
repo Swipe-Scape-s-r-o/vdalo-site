@@ -12,8 +12,8 @@ const questions=[
  ['Як почати користуватися?','Залиште заявку. Менеджер уточнить вашу задачу, покаже систему й погодить налаштування. Ви отримаєте зрозумілий наступний крок від нашої команди.'],
  ['Чи можна спочатку спробувати?','Так, доступний тест на 14 днів без банківської картки. Після підтвердження запиту команда надішле посилання на реєстрацію PMS. Відлік починається після створення акаунта. Для продовження після тесту потрібно оплатити тариф.'],
  ['Чи перенесете майбутні бронювання?','Допоможемо погодити перенесення з попередньої системи або таблиці. Перед запуском визначимо склад даних, доступний спосіб імпорту й перевіримо майбутні заїзди. Обсяг і умови робіт погоджуються окремо.'],
- ['Чи працюватимуть мої канали продажу?','Перед підключенням перевіримо потрібні канали, спосіб інтеграції та дані, які вони передають. Керування підтримуваними каналами входить у тарифи від Mini; для Start це окремий модуль.'],
- ['Що з туристичним збором і новими модулями?','Розрахунок туристичного збору та пільги доступні в системі. Ставки й правила перевіряють для громади вашого об’єкта. ПРРО, AI-помічник і частина інших модулів ще в розробці: актуальні статуси зазначені на сторінці тарифів.'],
+  ['Чи працюватимуть мої канали продажу?','Channel Manager VDALO підключає понад 60 каналів, зокрема Booking.com, Airbnb та Expedia. Це окремий платний модуль для всіх тарифів. Перед підключенням перевіримо сумісність і дані, які передає кожен канал.'],
+ ['Що з туристичним збором і локальними інструментами?','VDALO розраховує туристичний збір за налаштованими ставками та правилами об’єкта. ПРРО й сценарії з Дією доступні у погодженій конфігурації. Подання звітності до ДПС залишається окремою дією відповідального працівника. Статуси інших модулів зазначені в каталозі функцій.'],
 ];
 
 function homeCalendar(){
@@ -34,7 +34,7 @@ function pricing(){
  let detail=renderPricing().replace('id="pricing"','id="home-pricing-detail"');
  detail=editElements(detail,n=>hasClass(n,'eyebrow'),()=> '');
  detail=detail.replaceAll('Підключення без оплати','Умови підключення погодимо окремо');
- return `<section class="home-section home-pricing" id="pricing" aria-labelledby="home-price-title"><div class="home-wrap"><div class="home-price-summary"><div><h2 id="home-price-title">Тариф під ваш готель</h2><p>Кількість номерів і потрібні модулі визначають вартість. Почніть із базових процесів і додавайте решту за потреби.</p><a class="home-text-link" href="/pricing">Усі тарифи та умови</a></div><div class="home-price-figure"><p>Start, до 8 номерів</p><p class="home-price-number">${globalThis.VDALO_PRICING.plans.start.monthly.toLocaleString('uk-UA')} <span>грн/міс</span></p><p>Календар, гості, тарифи, прибирання та віджет бронювання. Канали продажу для Start підключаються окремо.</p></div></div><details class="home-price-details"><summary>Розрахувати вартість для мого об’єкта ${icon('arrow')}</summary><div class="home-price-content" data-ui>${detail}</div></details></div></section>`;
+ return `<section class="home-section home-pricing" id="pricing" aria-labelledby="home-price-title"><div class="home-wrap"><div class="home-price-summary"><div><h2 id="home-price-title">Тариф під ваш готель</h2><p>Кількість номерів і потрібні модулі визначають вартість. Почніть із базових процесів і додавайте решту за потреби.</p><a class="home-text-link" href="/pricing">Усі тарифи та умови</a></div><div class="home-price-figure"><p>Start, до 8 номерів</p><p class="home-price-number">${globalThis.VDALO_PRICING.plans.start.monthly.toLocaleString('uk-UA')} <span>грн/міс</span></p><p>Календар, гості, тарифи, прибирання та віджет бронювання. Channel Manager VDALO підключається окремо як платний модуль.</p></div></div><details class="home-price-details"><summary>Розрахувати вартість для мого об’єкта ${icon('arrow')}</summary><div class="home-price-content" data-ui>${detail}</div></details></div></section>`;
 }
 
 function demonstration(){
@@ -49,9 +49,9 @@ function restoreSection(html,heading){
  html=editElements(html,n=>hasClass(n,'eyebrow'),()=> '');
  html=editElements(html,n=>hasClass(n,'integration-hub-label')||(n.tag==='span'&&hasClass(n.parent??{attrs:{}},'direct-booking-engine')),()=> '');
  if(heading){const h=elements(html).find(n=>n.tag==='h2');if(h)html=replaceInner(html,h,heading);}
- html=html.replace(/Понад 60 сервісів уже підключені й працюють із VDALO. Набір даних може відрізнятися між інтеграціями./g,'Сумісність каналів і набір даних перевіряємо для вашого об’єкта до підключення.')
- .replace(/Понад 60 інтегрованих сервісів VDALO/g,'Приклади каналів для перевірки сумісності')
- .replace(/Понад 60 сервісів/g,'Потрібні підключення').replace(/понад 60 сервісів/gi,'потрібні сервіси')
+ html=html.replace(/Понад 60 сервісів уже підключені й працюють із VDALO. Набір даних може відрізнятися між інтеграціями./g,'Channel Manager VDALO підключає понад 60 каналів в один клік як окремий платний модуль.')
+ .replace(/Понад 60 інтегрованих сервісів VDALO/g,'Понад 60 каналів у Channel Manager VDALO')
+ .replace(/Понад 60 сервісів/g,'Понад 60 каналів').replace(/понад 60 сервісів/gi,'понад 60 каналів')
  .replace(/ПІДКЛЮЧЕНІ СЕРВІСИ/g,'ПРИКЛАДИ КАНАЛІВ').replace(/Бронювання та оплата/g,'Запит на бронювання')
  .replace('Бронювання на сайті та оплата','Бронювання на сайті')
  .replace('Повідомлення та чат-помічник','Повідомлення гостям')
