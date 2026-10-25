@@ -349,8 +349,8 @@
   "/": [
     {
       "id": "checkout-form",
-      "count": 11,
-      "sha256": "3a0da388d86659ea9a57622380fade81d590733a40b1382f72b5c6c932fed2d9"
+      "count": 10,
+      "sha256": "f7777141107e1e84b1eefaa1e1b1b5593471afcc40a076abd04fc558eebafadc"
     },
     {
       "id": "contact",
@@ -517,8 +517,8 @@
   "/pricing": [
     {
       "id": "checkout-form",
-      "count": 11,
-      "sha256": "3a0da388d86659ea9a57622380fade81d590733a40b1382f72b5c6c932fed2d9"
+      "count": 10,
+      "sha256": "f7777141107e1e84b1eefaa1e1b1b5593471afcc40a076abd04fc558eebafadc"
     },
     {
       "id": "contact",
