@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
 process.env.VERCEL = '1';
-const [render, cases, blog, editorial, secondPass, pms, pmsChoice, tools, seo, legal, author, legacyServer, sitemap] = await Promise.all([
+const [render, cases, blog, editorial, secondPass, pms, pmsChoice, tools, seo, legal, author, legacyServer, sitemap, resourceLibrary, advancedTools] = await Promise.all([
   import('../versions/v1/render.mjs'),
   import('../versions/v1/cases.mjs'),
   import('../versions/v1/blog.mjs'),
@@ -15,6 +15,8 @@ const [render, cases, blog, editorial, secondPass, pms, pmsChoice, tools, seo, l
   import('../versions/v1/author-page.mjs'),
   import('../versions/v1/server.mjs'),
   import('../versions/v1/sitemap.mjs'),
+  import('../versions/v1/resource-library.mjs'),
+  import('../versions/v1/advanced-tools.mjs'),
 ]);
 const { applySitewideSchema } = await import('../versions/v1/schema.mjs');
 const [touristTax,touristTaxData] = await Promise.all([
@@ -46,6 +48,16 @@ const renderers = new Map([
   ['/tools/qr-studio/', () => qrStudioHtml],
   ['/tools/pms-checklist/', () => tools.renderPmsChecklist()],
   ['/tools/hotel-profitability-calculator/', () => tools.renderHotelProfitabilityCalculator()],
+  ['/tools/direct-booking-cost-calculator/', () => tools.renderDirectBookingCostCalculator()],
+  ['/tools/hotel-room-cost-calculator/', () => tools.renderHotelRoomCostCalculator()],
+  ['/tools/housekeeping-checklist/', () => tools.renderHousekeepingChecklist()],
+  ['/resources', () => resourceLibrary.renderResourceLibrary()],
+  ['/tools/hotel-admin-time-calculator/', () => advancedTools.renderAdminTimeCalculator()],
+  ['/tools/hotel-website-checklist/', () => advancedTools.renderWebsiteChecklist()],
+  ['/tools/guest-message-builder/', () => advancedTools.renderGuestMessageBuilder()],
+  ['/tools/housekeeping-workload-calculator/', () => advancedTools.renderHousekeepingWorkloadCalculator()],
+  ['/tools/hotel-cancellation-cost-calculator/', () => advancedTools.renderCancellationCalculator()],
+  ['/tools/hotel-review-response/', () => advancedTools.renderReviewReplyTemplates()],
   ['/tourist-tax/', () => touristTax.renderTouristTaxHub()],
   ...touristTaxData.touristTaxCityRoutes().map(path => [path, () => touristTax.renderTouristTaxCity(path.split('/').filter(Boolean).at(-1))]),
 ]);
@@ -66,7 +78,7 @@ function expectedType(path) {
   if (path === '/about') return 'AboutPage';
   if (path === '/contact') return 'ContactPage';
   if (/^\/authors\/[^/]+$/.test(path)) return 'ProfilePage';
-  if (['/solutions','/integrations','/blog','/cases','/tools/','/authors','/tourist-tax/'].includes(path)) return 'CollectionPage';
+  if (['/solutions','/integrations','/blog','/cases','/tools/','/resources','/authors','/tourist-tax/'].includes(path)) return 'CollectionPage';
   return 'WebPage';
 }
 
