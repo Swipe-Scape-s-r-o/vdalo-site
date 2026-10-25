@@ -41,7 +41,7 @@ export function legacyTop5Payload(payload,event){
   contact:{...c,property_name:c.hotel_name||'',phone_or_email:c.phone||c.email||''},
   qualification:{...payload.qualification,property_type:c.property_type||'',city:c.location||'',room_count:null,current_PMS:c.current_pms||'',main_problem:summary.slice(0,1000),
    quiz_answers:{...payload.qualification?.quiz_answers,form_fields:snapshot}},
-  attribution:{...a,first_touch:a.utm||{},last_touch:a.utm||{}},
+  attribution:{...a,first_touch:a.first_touch||a.utm||{},last_touch:a.last_touch||a.utm||{},first_touch_at:a.first_touch_at||'',latest_touch_at:a.latest_touch_at||''},
  };
  wire.lead_id=intakeEventId(payload.lead_id,event,payload);
  return wire;

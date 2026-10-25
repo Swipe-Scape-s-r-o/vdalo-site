@@ -25,12 +25,13 @@ for(const [slug,code] of robotFunnelRoutes){
   const html=await renderRobotFunnel(code,new URLSearchParams());
   const config=JSON.parse(html.match(/<script[^>]*id="funnel-config"[^>]*>([\s\S]*?)<\/script>/)[1]);
   const answers={rooms:'13-40',preferred_time:'tomorrow_morning',contact_method:'telegram'};
-  const out=await call(handleTop5Lead,{...base,code,funnel:config.funnel,page_format:config.format,submission_id:randomUUID(),entry_page:`/${slug}`,answers,t:'private-callo-test',utm_source:'qa',utm_campaign:'restoration'});
+  const out=await call(handleTop5Lead,{...base,code,funnel:config.funnel,page_format:config.format,submission_id:randomUUID(),entry_page:`/${slug}`,answers,t:'private-callo-test',utm_source:'qa',utm_campaign:'restoration',attribution:{first_touch:{utm_source:'sms',utm_medium:'callo',utm_campaign:'first-campaign',utm_content:'SMS-K8'},last_touch:{utm_source:'qa',utm_campaign:'restoration'},first_touch_at:'2026-10-25T08:00:00.000Z',latest_touch_at:'2026-10-25T08:15:00.000Z'}});
   assert.equal(out.status,200);assert.equal(out.result.ok,true);
   assert.equal(out.headers.Authorization,'Bearer legacy-test-token');
   assert.equal(out.headers['Idempotency-Key'],out.wire.lead_id);
   assert.equal(out.intake.name,base.name);assert.equal(out.intake.phone,phone);assert.equal(out.intake.hotelName,base.hotel);
   assert.equal(out.intake.page,`/${slug}`);assert.equal(out.intake.utm.utm_campaign,'restoration');
+  assert.equal(out.intake.details.first_touch.utm_source,'sms');assert.equal(out.intake.details.last_touch.utm_campaign,'restoration');
   assert.ok(intakeEventText(out.intake,false).includes(email),'secondary email must be visible in the CRM timeline');
   assert.ok(intakeEventText(out.intake,false).includes('telegram'));
   assert.deepEqual(out.intake.details.quiz_answers.form_fields.answers,answers);
@@ -52,11 +53,12 @@ test('email capture and enrichment remain separate idempotent events on one emai
 });
 for(const kind of ['contact','audit','trial']){
  test(`main ${kind}: original reader receives contacts, details and stable retry ID`,async()=>{
-  const body={name:base.name,property:base.hotel,contact:phone,email,phone,city:'Київ',property_type:'hotel',units:'12',pms:'QA PMS',pain:'Потрібне ручне підключення',estimate:'Тест 14 днів',consent:true,form_kind:kind,submission_id:randomUUID()};
+  const body={name:base.name,property:base.hotel,contact:phone,email,phone,city:'Київ',property_type:'hotel',units:'12',pms:'QA PMS',pain:'Потрібне ручне підключення',estimate:'Тест 14 днів',consent:true,form_kind:kind,submission_id:randomUUID(),utm:{utm_source:'followup',utm_medium:'email'},attribution:{first_touch:{utm_source:'sms',utm_medium:'callo',utm_campaign:'first-campaign',utm_content:'K8'},last_touch:{utm_source:'followup',utm_medium:'email'},first_touch_at:'2026-10-25T08:00:00.000Z',latest_touch_at:'2026-10-25T08:15:00.000Z'}};
   const handler=(req,res,options)=>lead(req,res,kind==='contact'?'audit':kind,options);
   const out=await call(handler,body),retry=await call(handler,body);
   assert.equal(out.status,200);assert.equal(out.result.ok,true);assert.equal(out.wire.id,retry.wire.id);
   assert.equal(out.intake.name,base.name);assert.equal(out.intake.phone,phone);
+  assert.equal(out.intake.utm.utm_source,'followup');assert.equal(out.intake.details.first_touch.utm_source,'sms');assert.equal(out.intake.details.last_touch.utm_medium,'email');
   assert.ok(intakeEventText(out.intake,false).includes(email));assert.ok(intakeEventText(out.intake,false).includes('Київ'));
  });
 }

@@ -10,7 +10,8 @@
   if(previous&&typeof previous==='object')attribution={...previous,last_touch:Object.keys(current).length?current:previous.last_touch};
   sessionStorage.setItem('vdalo-funnel-attribution',JSON.stringify(attribution));
  }catch{}
- try{const quiz=JSON.parse(sessionStorage.getItem('vdalo-quiz-context')||'null');if(quiz&&quiz.recommendation_route===config.landing_route&&current.utm_campaign==='hotel_quiz')attribution.quiz_answers=quiz;}catch{}
+ const persistent=window.vdaloAttribution?.get?.();if(persistent){attribution={...attribution,...persistent,entry_offer:attribution.entry_offer||config.offer_id};if(!Object.keys(attribution.last_touch||{}).length&&Object.keys(current).length)attribution.last_touch=current;}
+ try{const quiz=JSON.parse(sessionStorage.getItem('vdalo-quiz-context')||'null');if(quiz&&quiz.recommendation_route===config.landing_route&&(current.utm_campaign==='hotel_quiz'||attribution.last_touch?.utm_campaign==='hotel_quiz'))attribution.quiz_answers=quiz;}catch{}
  window.dataLayer=window.dataLayer||[];
  function track(event,detail={}){
   const last=attribution.last_touch||{},first=attribution.first_touch||{};

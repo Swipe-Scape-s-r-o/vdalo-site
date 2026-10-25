@@ -104,6 +104,10 @@ export function parseSiteIntake(raw, headerKey) {
             details: {
                 mode,
                 estimate: text(b.estimate, 1200),
+                first_touch: utmOf(obj(b.attribution).first_touch),
+                last_touch: utmOf(obj(b.attribution).last_touch),
+                first_touch_at: text(obj(b.attribution).first_touch_at, 40),
+                latest_touch_at: text(obj(b.attribution).latest_touch_at, 40),
                 submitted_at: text(b.submittedAt, 40)
             }
         };
@@ -150,8 +154,10 @@ export function parseSiteIntake(raw, headerKey) {
                 feedback_interest: q.feedback_interest === true,
                 quiz_answers: q.quiz_answers && typeof q.quiz_answers === 'object' ? q.quiz_answers : null,
                 first_touch: utmOf(obj(a.first_touch)),
+                last_touch: utmOf(obj(a.last_touch)),
                 entry_offer: text(a.entry_offer, 40),
                 first_touch_at: text(a.first_touch_at, 40),
+                latest_touch_at: text(a.latest_touch_at, 40),
                 submitted_at: text(b.submitted_at, 40)
             }
         };
@@ -190,6 +196,10 @@ export function parseSiteIntake(raw, headerKey) {
                 calculator: text(a.calculator, 4000),
                 traffic_source: text(a.source, 30),
                 quiz_answers: obj(b.qualification).quiz_answers ?? null,
+                last_touch: utmOf(obj(a.last_touch)),
+                first_touch: utmOf(obj(a.first_touch)),
+                first_touch_at: text(a.first_touch_at, 40),
+                latest_touch_at: text(a.latest_touch_at, 40),
                 submitted_at: text(b.submitted_at, 40)
             }
         };

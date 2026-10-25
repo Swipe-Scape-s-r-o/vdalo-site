@@ -41,7 +41,8 @@
   video:'sms-trial',
   watched:0,
   entry_page:location.pathname,
-  ...Object.fromEntries(['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(key=>[key,query.get(key)||'']))
+  ...Object.fromEntries(['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(key=>[key,window.vdaloAttribution?.get?.().last_touch?.[key]||query.get(key)||''])),
+  attribution:window.vdaloAttribution?.get?.()||{first_touch:{},last_touch:{}}
  });
  function restoreLead(){
   try{

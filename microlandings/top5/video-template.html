@@ -386,7 +386,9 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
     const data = Object.fromEntries(new FormData(e.target));
     data.phone = phone; data.location = $('go-location').value; data.hotel = $('go-hotel').value; data.property_type = $('go-property-type').value; data.pms = $('go-pms').value;
     data.consent = true;
-    for (const key of ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']) data[key] = params.get(key) || '';
+    const attribution = window.vdaloAttribution?.get?.() || {first_touch:{},last_touch:{}};
+    data.attribution = attribution;
+    for (const key of ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']) data[key] = attribution.last_touch?.[key] || params.get(key) || '';
     if (params.get('utm_campaign') === 'hotel_quiz') {
       try {
         const quiz = JSON.parse(sessionStorage.getItem('vdalo-quiz-context') || 'null');

@@ -246,8 +246,9 @@ document.querySelectorAll('form[data-kind]').forEach(form=>{
   submissionId= submissionId||crypto.randomUUID();
   const data={...raw,submission_id:submissionId,name:(raw.name||'').trim(),property:(raw.property||'').trim(),contact:(raw.contact||'').trim(),email:(raw.email||'').trim(),phone:(raw.phone||'').trim(),city:(raw.city||'').trim(),property_type:(raw.property_type||'').trim(),units:raw.units||'',mode:kind==='trial'?(raw.mode==='implementation'?'implementation':'start'):'',estimate:raw.estimate||'',consent:raw.consent==='on',utm:{}};
   if(kind==='trial')try{const quiz=JSON.parse(sessionStorage.getItem('vdalo-quiz-context')||'null');if(quiz&&typeof quiz==='object')data.quiz_answers=quiz;}catch{}
-  const params=new URLSearchParams(location.search);
-  for(const key of ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']) if(params.get(key)) data.utm[key]=params.get(key).slice(0,150);
+  const attribution=window.vdaloAttribution?.get?.()||{first_touch:{},last_touch:Object.fromEntries(new URLSearchParams(location.search))};
+  data.utm=attribution.last_touch||{};
+  data.attribution=attribution;
   const errors=validate(kind,data);
   if(form.dataset.requireProperty==='true'&&data.property.length<2)errors.property='Вкажіть назву готелю або об’єкта.';
   showErrors(form,errors);
