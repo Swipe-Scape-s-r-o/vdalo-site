@@ -3,6 +3,7 @@ import {createHash} from 'node:crypto';
 import registry from './registry.json' with {type:'json'};
 import {renderArticleMarkdown} from '../article-markdown.mjs';
 import {getTouristTaxPlace} from '../tourist-tax-data.mjs';
+import {signupHref} from '../signup-links.mjs';
 import {elements,hasClass,inner,outer,textOf,escapeHtml as e,replaceInner,replaceOuter,editElements} from './html-fragments.mjs';
 
 export const revisionDate='2026-10-23';
@@ -91,7 +92,7 @@ function reviseCase(html,page){
  html=editElements(html,node=>hasClass(node,'reader-contents-count'),()=>`<span class="reader-contents-count">${rendered.toc.length} розділів <span aria-hidden="true">⌄</span></span>`);
  return html;
 }
-const requestCta=(kind='audit')=>`<section class="prepared-request"><div><p class="prepared-kicker">НАСТУПНИЙ КРОК</p><h2>${kind==='trial'?'Перевірте VDALO на процесі свого об’єкта':'Обговоріть процес із командою VDALO'}</h2><p>Залиште контакт і назву об’єкта. Команда уточнить запит та погодить наступні дії.</p></div><button class="button" type="button" data-open="${kind}" data-location="prepared-content">${kind==='trial'?'Надіслати запит на доступ':'Обговорити процес'} <span aria-hidden="true">↗</span></button></section>`;
+const requestCta=(kind='audit')=>`<section class="prepared-request"><div><p class="prepared-kicker">НАСТУПНИЙ КРОК</p><h2>${kind==='trial'?'Перевірте VDALO на процесі свого об’єкта':'Обговоріть процес із командою VDALO'}</h2><p>${kind==='trial'?'Створіть обліковий запис онлайн. Тест триває 14 днів і не потребує банківської картки.':'Залиште контакт і назву об’єкта. Команда уточнить запит та погодить наступні дії.'}</p></div>${kind==='trial'?`<a class="button" href="${signupHref('prepared_content')}">Створити обліковий запис <span aria-hidden="true">↗</span></a>`:`<button class="button" type="button" data-open="${kind}" data-location="prepared-content">Обговорити процес <span aria-hidden="true">↗</span></button>`}</section>`;
 function reviseService(html,page){
  const nodes=elements(html),main=nodes.find(node=>node.tag==='main');
  const content=nodes.find(node=>node.parent===main&&hasClass(node,'seo-wrap'));

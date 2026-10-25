@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {renderSeoPage} from '../versions/v1/seo-pages.mjs';
 import {renderPage} from '../versions/v1/render.mjs';
 import {renderHomepage} from '../versions/v1/homepage.mjs';
+import {renderRouteForReview} from '../scripts/review-render.mjs';
 import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import '../versions/v1/public/pricing-core.js';
@@ -52,5 +53,22 @@ test('pricing trial CTA starts self-registration and does not open a lead form',
   const html=renderSeoPage('/pricing');
   assert.match(html,/href="https:\/\/app\.vdalo\.tech\/signup\?[^\"]*utm_content=pricing_trial/);
   assert.match(html,/Спробувати безкоштовно/);
+  assert.doesNotMatch(html,/<button[^>]*data-open="trial"/);
+});
+
+test('prepared content keeps sign-up as an explainer page and sends its registration CTA to the app',async()=>{
+  const {html,status}=await renderRouteForReview('/sign-up');
+  assert.equal(status,200);
+  assert.match(html,/<h1>Створіть обліковий запис готелю у VDALO<\/h1>/);
+  assert.match(html,/href="https:\/\/app\.vdalo\.tech\/signup\?[^\"]*utm_content=seo_page"[^>]*>Створити обліковий запис/);
+  assert.match(html,/class="prepared-request"[\s\S]*?href="https:\/\/app\.vdalo\.tech\/signup\?[^\"]*utm_content=prepared_content"[^>]*>Створити обліковий запис/);
+  assert.match(html,/href="https:\/\/app\.vdalo\.tech\/app\/login"/);
+  assert.doesNotMatch(html,/data-open="trial"|не створює кабінет автоматично|надішле інструкції для входу/);
+});
+
+test('prepared pricing content uses the same direct registration path for its test CTA',async()=>{
+  const {html,status}=await renderRouteForReview('/pricing');
+  assert.equal(status,200);
+  assert.match(html,/class="prepared-request"[\s\S]*?href="https:\/\/app\.vdalo\.tech\/signup\?[^\"]*utm_content=prepared_content"[^>]*>Створити обліковий запис/);
   assert.doesNotMatch(html,/<button[^>]*data-open="trial"/);
 });
