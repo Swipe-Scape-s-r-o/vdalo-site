@@ -2,7 +2,7 @@ import {renderPage,escape} from './render.mjs';
 
 const e=escape;
 const pageShell=()=>renderPage({origin:'https://www.vdalo.tech',full:false});
-const meta=(html,{title,description,path})=>html.replace(/<title>[\s\S]*?<\/title>/,`<title>${e(title)}</title>`).replace(/<meta name="description" content="[^"]*">/,`<meta name="description" content="${e(description)}">`).replace(/<link rel="canonical" href="[^"]*">/,`<link rel="canonical" href="https://www.vdalo.tech${path}">`).replace('</head>','<link rel="stylesheet" href="/tools.css"></head>');
+const meta=(html,{title,description,path})=>html.replace(/<title>[\s\S]*?<\/title>/,`<title>${e(title)}</title>`).replace(/<meta name="description" content="[^"]*">/,`<meta name="description" content="${e(description)}">`).replace(/<link rel="canonical" href="[^"]*">/,`<link rel="canonical" href="https://www.vdalo.tech${path}">`).replace('</head>','<link rel="stylesheet" href="/tools.css"><script src="/tools.js" defer></script></head>');
 const crumb=(title)=>`<nav class="tool-crumb" aria-label="Навігаційний ланцюжок"><a href="/">Головна</a><span>/</span><a href="/tools/">Інструменти</a><span>/</span><span aria-current="page">${e(title)}</span></nav>`;
 
 export function calculateAdminTime(rows,{hourValue,realizationPct,monthlyCost}){
