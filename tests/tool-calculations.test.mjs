@@ -193,6 +193,10 @@ test('new standalone tools have canonical indexable metadata and catalog links',
  assert.match(catalog,/href="\/tools\/housekeeping-workload-calculator\/"/);
  assert.match(catalog,/href="\/tools\/hotel-cancellation-cost-calculator\/"/);
  assert.match(catalog,/href="\/tools\/hotel-review-response\/"/);
+ for(const html of [admin,checklist,renderGuestMessageBuilder(),renderHousekeepingWorkloadCalculator(),renderCancellationCalculator(),renderReviewReplyTemplates()]){
+  assert.match(html,/<link rel="stylesheet" href="\/tools\.css">/);
+  assert.match(html,/<script src="\/tools\.js" defer><\/script>/);
+ }
  assert.doesNotMatch(admin+checklist,/[—]/);
  assert.match(renderHotelProfitabilityCalculator(),/data-hotel-kpis/);
  assert.match(renderHotelProfitabilityCalculator(),/data-kpi-index-type/);
