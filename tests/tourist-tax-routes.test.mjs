@@ -126,7 +126,7 @@ test('tourist-tax funnel route is served with analytics, privacy, accessibility 
   const funnel=await request('/tourist-tax/start');
   assert.equal(funnel.status,200);
   assert.ok(funnel.body.includes(`<title>${getPreparedPage('/tourist-tax/start').title}</title>`));
-  assert.match(funnel.body,/<meta name="robots" content="noindex,follow">/);
+  assert.match(funnel.body,/<meta name="robots" content="index,follow">/);
   assert.match(funnel.body,/<link rel="canonical" href="https:\/\/www\.vdalo\.tech\/tourist-tax\/start">/);
   assert.match(funnel.body,/GTM-PKDT7MMT/);
   assert.match(funnel.body,/href="\/privacy"/);
