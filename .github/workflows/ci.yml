@@ -3,14 +3,6 @@ name: VDALO Docker deploy parity
 on:
   pull_request:
     branches: [staging, main]
-    paths:
-      - "deploy/Dockerfile"
-      - "deploy/vdalo-site-update.sh"
-      - "server.mjs"
-      - "qr-lab/**"
-      - "tests/**"
-      - "versions/**"
-      - ".github/workflows/deploy-parity.yml"
   workflow_dispatch:
 
 permissions:
