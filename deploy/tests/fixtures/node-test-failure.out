@@ -1,0 +1,39 @@
+✔ tourist tax rates keep checksum-verified sources (1.204811ms)
+✔ calculators expose canonical metadata (3.918342ms)
+✔ housekeeping checklist renders 20 items (2.011993ms)
+✖ public resource library exposes exactly 18 allowlisted files with the packaged bytes (4.350127ms)
+✔ admin time calculator matches the prepared example (0.842211ms)
+✔ review reply page offers a template-only local workflow (1.100304ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 212.447811
+
+✖ failing tests:
+
+test at tests/tool-calculations.test.mjs:74:1
+✖ public resource library exposes exactly 18 allowlisted files with the packaged bytes (4.350127ms)
+  AssertionError [ERR_ASSERTION]: frontdesk_shift.txt
+  + actual - expected
+
+  + 'b3f7a0c1d4e2958f6a7b0c3d1e9f8a2b4c6d8e0f1a3b5c7d9e1f2a4b6c8d0e2f'
+  - '58055bdcc73787eb88c78d36f0b4939e9c5dc1c3ad17e25cc85a6833cf1a0cab'
+
+      at TestContext.<anonymous> (file:///app/tests/tool-calculations.test.mjs:82:2)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'b3f7a0c1d4e2958f6a7b0c3d1e9f8a2b4c6d8e0f1a3b5c7d9e1f2a4b6c8d0e2f',
+    expected: '58055bdcc73787eb88c78d36f0b4939e9c5dc1c3ad17e25cc85a6833cf1a0cab',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

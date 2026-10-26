@@ -30,3 +30,25 @@ jobs:
 
       - name: Run schema validation inside the image
         run: docker run --rm --network=none vdalo/site:candidate-${{ github.sha }} node scripts/validate-schema.mjs
+
+  deploy-scripts:
+    # Тести shell-скриптів з deploy/ (тривоги, оновлення, чистка Docker). У серверному образі їх
+    # запустити не можна: там alpine без bash, а deploy/ видаляється з /app.
+    name: Deploy script tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request merge revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check shell syntax
+        run: for f in deploy/*.sh; do bash -n "$f"; done
+
+      - name: Run deploy script tests
+        run: node --test deploy/tests/*.test.mjs
