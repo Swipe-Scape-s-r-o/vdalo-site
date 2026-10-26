@@ -8,10 +8,13 @@ import {validateLead} from '../versions/v1/server.mjs';
 const app=readFileSync(fileURLToPath(new URL('../versions/v1/public/app.js',import.meta.url)),'utf8');
 const css=readFileSync(fileURLToPath(new URL('../versions/v1/public/refinement.css',import.meta.url)),'utf8');
 
-test('mobile contact CTA opens a short accessible dialog while desktop registration stays direct',()=>{
+test('header removes contact and trial actions while retaining the accessible contact dialog contract',()=>{
  const html=renderPage({origin:'https://www.vdalo.tech'});
- assert.equal((html.match(/data-contact-dialog-trigger/g)||[]).length,1);
- assert.match(html,/<a class="button compact" href="https:\/\/app\.vdalo\.tech\/signup\?[^\"]*utm_content=header_desktop">Спробувати безкоштовно<\/a>/);
+ const header=html.match(/<header class="header">[\s\S]*?<\/header>/)?.[0]||'';
+ assert.ok(header);
+ assert.doesNotMatch(header,/data-contact-dialog-trigger|utm_content=header_(?:desktop|mobile)|mobile-audit|Спробувати безкоштовно|Зв’язатися/);
+ assert.match(header,/class="header-login" href="https:\/\/app\.vdalo\.tech\/app\/login"/);
+ assert.match(header,/class="mobile-login" href="https:\/\/app\.vdalo\.tech\/app\/login"/);
  assert.match(html,/<dialog id="contact-dialog" class="lead-dialog contact-dialog" aria-labelledby="contact-title">/);
  assert.match(html,/<label for="contact-name">Ваше ім’я \*<\/label>/);
  assert.match(html,/<label for="contact-phone">Номер телефону \*<\/label>/);

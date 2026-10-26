@@ -25,6 +25,7 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   const hub=await request('/tourist-tax/');
   assert.equal(hub.status,200);
   assert.match(hub.body,/Туристичний збір в Україні/);
+  assert.match(hub.body,/tourist-tax-assets\/tourist-tax\.css\?v=[a-f0-9]+/,'the standalone tax stylesheet must be cache-versioned after updates');
   assert.ok(hub.body.indexOf('class="tt-infographic"')<hub.body.indexOf('id="tt-calculator"'));
   assert.ok(hub.body.indexOf('id="tt-calculator"')<hub.body.indexOf('class="tt-section tt-directory"'));
   assert.ok(hub.body.lastIndexOf('class="tt-sources"')>hub.body.indexOf('class="tt-seo-content"'));

@@ -41,6 +41,14 @@ test('unavailable product modules are explicitly marked as in development',()=>{
   assert.doesNotMatch(catalog,/ПРРО та сценарії з Дією доступні/);
 });
 
+test('PMS status catalog uses distinct responsive cards for beta and development modules',()=>{
+  const html=renderSeoPage('/hotel-pms-modules');
+  assert.equal([...html.matchAll(/class="module-status-card"/g)].length,12);
+  assert.equal([...html.matchAll(/class="module-status-icon" aria-hidden="true"/g)].length,12);
+  for(const label of ['AI-асистент для працівників','Онлайн-оплата бронювання','Аналітика QR','ПРРО та інтеграція з Дією'])assert.ok(html.includes(label),`${label} should be presented as a scannable status card`);
+  assert.match(html,/class="module-status-grid"[\s\S]*?class="module-status-card"/);
+});
+
 test('product page routes are unique and represented in the public SEO route registry',()=>{
   const paths=productFeaturePages.map(([route])=>route);
   assert.equal(new Set(paths).size,paths.length);
@@ -77,6 +85,12 @@ test('site navigation uses hover, focus and touch disclosure without chevron ico
   assert.ok(js.includes("if(event.key!=='Escape'"));
   assert.ok(js.includes("detail.dataset.suppressFocusOpen==='true'"));
   assert.ok(js.includes("last.dataset.suppressFocusOpen='true';summary.focus()"));
+});
+
+test('mobile navigation keeps its plum surface behind light menu text',()=>{
+  const css=readFileSync(fileURLToPath(new URL('../versions/v1/public/design-system-2.css',import.meta.url)),'utf8');
+  assert.match(css,/@media\(max-width:900px\)\{\.ds2 \.header nav\{[^}]*background:var\(--plum\)/);
+  assert.match(css,/\.ds2 \.header nav\.open \.nav-submenu a,\s*\.ds2 \.header nav\.open \.nav-submenu \.nav-disclosure>summary\{color:var\(--soft\)!important;background:transparent!important\}/);
 });
 
 test('beta and development modules cannot be priced or selected from pricing UI',()=>{
