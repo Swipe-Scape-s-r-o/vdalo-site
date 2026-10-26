@@ -1,1 +1,1 @@
-versions/v1/public/downloads/hotel/*.txt text eol=lf
+versions/v1/public/downloads/hotel/*.txt -text
