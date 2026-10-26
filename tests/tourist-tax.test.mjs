@@ -9,8 +9,8 @@ import {renderTouristTaxFunnel} from '../microlandings/tourist-tax-funnel.mjs';
 import {handleTop5Lead} from '../microlandings/top5-leads.mjs';
 import {touristTaxCityEditorialFaq,touristTaxCityIntroductions} from '../versions/v1/tourist-tax-editorial.mjs';
 
-test('supplemental city FAQs cover the 27 indexable city pages without tax figures',()=>{
-  const expectedSlugs=['lutsk','berehove','cherkasy','chernihiv','chernivtsi','dnipro','irpin','ivano-frankivsk','khust','kolomyya','kyyiv','lviv','pivdenne','polyana','rivne','skole','slavsko','sumy','ternopil','tyachiv','uzhhorod','vinnytsya','vynohradiv','yaremche','yasinya','zaporizhzhya','zhytomyr'];
+test('supplemental city FAQs cover the 28 indexable city pages without tax figures',()=>{
+  const expectedSlugs=['lutsk','berehove','cherkasy','chernihiv','chernivtsi','dnipro','irpin','ivano-frankivsk','khust','kolomyya','kyyiv','lviv','odesa','pivdenne','polyana','rivne','skole','slavsko','sumy','ternopil','tyachiv','uzhhorod','vinnytsya','vynohradiv','yaremche','yasinya','zaporizhzhya','zhytomyr'];
   assert.deepEqual(Object.keys(touristTaxCityEditorialFaq).sort(),expectedSlugs.sort());
   for(const [slug,item] of Object.entries(touristTaxCityEditorialFaq)){
     assert.ok(item.question&&item.answer,`${slug} has a complete FAQ item`);
@@ -24,7 +24,7 @@ test('supplemental city FAQs cover the 27 indexable city pages without tax figur
 });
 
 test('city introductions cover every indexable locality without rates or em dashes',()=>{
-  const expectedSlugs=['lutsk','berehove','cherkasy','chernihiv','chernivtsi','dnipro','irpin','ivano-frankivsk','khust','kolomyya','kyyiv','lviv','pivdenne','polyana','rivne','skole','slavsko','sumy','ternopil','tyachiv','uzhhorod','vinnytsya','vynohradiv','yaremche','yasinya','zaporizhzhya','zhytomyr'];
+  const expectedSlugs=['lutsk','berehove','cherkasy','chernihiv','chernivtsi','dnipro','irpin','ivano-frankivsk','khust','kolomyya','kyyiv','lviv','odesa','pivdenne','polyana','rivne','skole','slavsko','sumy','ternopil','tyachiv','uzhhorod','vinnytsya','vynohradiv','yaremche','yasinya','zaporizhzhya','zhytomyr'];
   assert.deepEqual(Object.keys(touristTaxCityIntroductions).sort(),expectedSlugs.sort());
   for(const [slug,introduction] of Object.entries(touristTaxCityIntroductions)){
     assert.ok(introduction.length>=60,`${slug} has a useful local introduction`);
@@ -77,27 +77,40 @@ test('Kyiv page uses the official 2026 DPS rates and calculates within the verif
   assert.equal(nextYear.state,'RATE_OUT_OF_PERIOD');
 });
 
-test('Odesa keeps a useful review URL and refuses calculations while official sources conflict',()=>{
+test('Odesa uses the official decision and calculates across the 2026 rate change',()=>{
   const place=touristTaxPlaces.find(item=>item.slug==='odesa');
   const community=touristTaxCommunities.find(item=>item.slug===place.communitySlug);
   assert.equal(place.katottgSettlementCode,'UA51100270010076757');
   assert.equal(community.katottgCode,'UA51100270000073549');
-  assert.equal(community.taxRule.status,'CONFLICT');
-  assert.equal(canCalculateTouristTaxPlace(place),false);
-  assert.equal(canIndexTouristTaxPlace(place),false);
+  assert.equal(community.taxRule.status,'VERIFIED');
+  assert.equal(community.taxRule.decisionNumber,'4314-VIII');
+  assert.equal(community.taxRule.effectiveFrom,'2026-01-01');
+  assert.deepEqual(community.taxRule.rates,{domestic:0.5,inbound:0.5});
+  assert.deepEqual(community.taxRule.ratePeriods,[{from:'2026-07-16',to:'2026-12-31',rates:{domestic:0.5,inbound:1}}]);
+  assert.equal(canCalculateTouristTaxPlace(place),true);
+  assert.equal(canIndexTouristTaxPlace(place),true);
   const page=renderTouristTaxCity('odesa');
-  assert.match(page,/<meta name="robots" content="noindex,follow"/);
+  assert.match(page,/<meta name="robots" content="index,follow"/);
   assert.match(page,/<link rel="canonical" href="https:\/\/www\.vdalo\.tech\/tourist-tax\/odesa\/"/);
   assert.match(page,/рішення №4314-VIII/);
-  assert.match(page,/Чому зараз немає розрахунку/);
+  assert.match(page,/рішення №4314-VIII/);
+  assert.match(page,/16 липня 2026 року/);
   assert.match(page,/0,50%/);assert.match(page,/1%/);
-  assert.doesNotMatch(page,/id="tt-calculator"|name="odesaCompare"/);
-  assert.ok(!touristTaxCityRoutes().includes('/tourist-tax/odesa/'));
-  for(const category of ['domestic','inbound'])for(const start of ['2026-07-13','2026-10-20','2027-01-01'])for(const scenario of ['official','odesa-inbound-1-percent']){
-    const result=calculateTouristTax({placeSlug:'odesa',start,days:3,guests:2,category,scenario});
-    assert.equal(result.state,'SOURCE_CONFLICT');assert.equal(result.totalCents,undefined);
-  }
-  assert.equal(calculateTouristTax({placeSlug:'kyyiv',start:'2026-10-20',days:1,guests:1,category:'inbound',scenario:'odesa-inbound-1-percent'}).state,'INVALID_INPUT');
+  assert.match(page,/id="tourist-tax-calculator"/);
+  assert.ok(touristTaxCityRoutes().includes('/tourist-tax/odesa/'));
+  const beforeChange=calculateTouristTax({placeSlug:'odesa',start:'2026-07-15',days:1,guestGroups:[{category:'inbound',guests:1}]});
+  const afterChange=calculateTouristTax({placeSlug:'odesa',start:'2026-07-16',days:1,guestGroups:[{category:'inbound',guests:1}]});
+  const crossingChange=calculateTouristTax({placeSlug:'odesa',start:'2026-07-15',days:2,guestGroups:[{category:'inbound',guests:1}]});
+  assert.equal(beforeChange.totalCents,'4324');
+  assert.equal(afterChange.totalCents,'8647');
+  assert.equal(crossingChange.totalCents,'12971');
+  assert.deepEqual(crossingChange.guestGroups[0].ratePeriods,[{ratePercent:0.5,days:1},{ratePercent:1,days:1}]);
+  const domestic=calculateTouristTax({placeSlug:'odesa',start:'2026-10-20',days:3,guestGroups:[{category:'domestic',guests:2}]});
+  const inbound=calculateTouristTax({placeSlug:'odesa',start:'2026-10-20',days:3,guestGroups:[{category:'inbound',guests:2}]});
+  const nextYear=calculateTouristTax({placeSlug:'odesa',start:'2027-01-01',days:1,guestGroups:[{category:'domestic',guests:1}]});
+  assert.equal(domestic.totalCents,'25941');
+  assert.equal(inbound.totalCents,'51882');
+  assert.equal(nextYear.state,'RATE_OUT_OF_PERIOD');
 });
 
 test('Sumy 2026 rate, city page and calculator are verified',()=>{
@@ -642,7 +655,7 @@ test('directory and all reviewed city pages are indexable and included in the si
   assert.ok(routes.includes('/tourist-tax/'));
   assert.ok(routes.includes('/tourist-tax/lutsk/'));
   for(const route of ['/tourist-tax/sumy/','/tourist-tax/vinnytsya/','/tourist-tax/pivdenne/'])assert.ok(routes.includes(route));
-  assert.equal(routes.filter(route=>route.startsWith('/tourist-tax/')&&route!=='/tourist-tax/').length,27);
+  assert.equal(routes.filter(route=>route.startsWith('/tourist-tax/')&&route!=='/tourist-tax/').length,28);
   assert.ok(routes.includes('/tourist-tax/kyyiv/'));
   assert.ok(routes.includes('/tourist-tax/ternopil/'));
   assert.ok(routes.includes('/tourist-tax/zaporizhzhya/'));
@@ -740,7 +753,7 @@ test('every published city with an Excel rate mismatch marks the public rate and
   const conflictingPlaces=touristTaxReleasePlan.waves[0].publishedSlugs
     .map(slug=>touristTaxPlaces.find(place=>place.slug===slug))
     .filter(place=>{
-      const candidate=place?.sourceRecord?.proposedRates;
+      const candidate=place?.editorial?.rateConflict?.referenceRates??place?.sourceRecord?.proposedRates;
       const rule=place&&touristTaxCommunities.find(community=>community.slug===place.communitySlug)?.taxRule;
       return canIndexTouristTaxPlace(place)&&Number.isFinite(candidate?.domestic)&&Number.isFinite(candidate?.inbound)&&(
         Boolean(rule?.rateSchedule)||candidate.domestic!==rule?.rates?.domestic||candidate.inbound!==rule?.rates?.inbound
@@ -813,8 +826,8 @@ test('city data, sources and publication state reconcile',()=>{
   assert.equal(new Set(touristTaxCommunities.map(community=>community.katottgCode).filter(Boolean)).size,touristTaxCommunities.filter(community=>community.katottgCode).length,'mapped community codes must be unique');
   assert.equal(new Set(touristTaxPlaces.map(place=>place.editorial.title)).size,377,'every city route must have a unique title');
   assert.equal(new Set(touristTaxPlaces.map(place=>place.editorial.seoBlock.title)).size,377,'every city route must have a unique H1');
-  assert.equal(report.warnings.length,350);
-  assert.equal(touristTaxCityRoutes().length,27);
+  assert.equal(report.warnings.length,349);
+  assert.equal(touristTaxCityRoutes().length,28);
   const unsafe={...touristTaxPlaces[0],readiness:{...touristTaxPlaces[0].readiness,seoQaPassed:false}};
   assert.ok(validateTouristTaxPlaces([unsafe]).errors.some(error=>error.includes('incomplete readiness gates')));
 });

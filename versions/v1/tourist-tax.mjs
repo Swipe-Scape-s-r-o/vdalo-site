@@ -179,7 +179,7 @@ function calculator(place = null) {
   }
   const placeField = place ? `<input type="hidden" name="place" value="${h(name)}"><div class="tt-field"><label for="tt-place-visible">Населений пункт</label><input id="tt-place-visible" value="${h(name)}" readonly></div>` : `<div class="tt-field tt-search-wrap"><label for="tt-calc-place">Населений пункт</label><input id="tt-calc-place" name="place" type="search" placeholder="Наприклад, Луцьк" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="tt-calc-place-results" aria-autocomplete="list" aria-describedby="tt-calc-place-help tt-calc-place-status"><span id="tt-calc-place-help" class="tt-hint">Оберіть населений пункт зі списку. Розрахунок доступний лише для місць із підтвердженою ставкою.</span><div id="tt-calc-place-results" class="tt-results" role="listbox" aria-label="Населені пункти з різним статусом перевірки ставки"></div><p id="tt-calc-place-status" class="tt-hint" aria-live="polite"></p></div>`;
   const locked = place ? ' data-place-slug="'+h(place.slug)+'"' : '';
-  const odesaCompareField=place?.slug==='odesa'?`<fieldset class="tt-field tt-odesa-compare"><legend>Порівняння ставок</legend><label class="tt-odesa-compare-option" for="tt-odesa-compare"><input id="tt-odesa-compare" name="odesaCompare" type="checkbox" value="1"><span>Показати сценарій зі ставкою 1% для іноземних гостей</span></label><span class="tt-hint">ДПС повідомила про цю ставку за рішенням №4314-VIII, але дату її застосування ще потрібно звірити з повним текстом рішення. Додаткова сума - сценарне порівняння, а не підтверджене нарахування за 2026 рік.</span></fieldset>`:'';
+  const odesaCompareField='';
   const initialRateModel=accommodationTypeRates?'accommodation':rateSchedule?'banded':'flat';
   const accommodationPriceField=`<div class="tt-field" data-accommodation-price-field${rateSchedule?'':' hidden'}><label for="tt-accommodation-price">Вартість проживання на одну особу за добу, грн</label><input id="tt-accommodation-price" name="accommodationPricePerPersonPerDay" type="number" min="0.01" max="1000000" step="0.01" inputmode="decimal" ${rateSchedule?'required':''}><span class="tt-hint">Потрібно для міст, де місцеве рішення встановлює тарифні діапазони. Введіть ціну саме на одну особу за одну добу.</span></div>`;
   const accommodationTypeField=accommodationTypeRates?`<div class="tt-field"><label for="tt-accommodation-type">Тип місця проживання</label><select id="tt-accommodation-type" name="accommodationType" required><option value="">Оберіть тип житла</option>${Object.entries(accommodationTypeRates).map(([key,type])=>`<option value="${h(key)}">${h(type.label)}</option>`).join('')}</select><span class="tt-hint">Ставка Яремчанської громади залежить від категорії місця розміщення.</span></div>`:'';
@@ -222,6 +222,10 @@ export function renderTouristTaxHub() {
 }
 
 function touristTaxRateSummary(rule) {
+  if (rule.ratePeriods?.length) {
+    const first=rule.ratePeriods[0];
+    return `Внутрішній: ${decimalLabel(rule.rates.domestic)}%; в’їзний: ${decimalLabel(rule.rates.inbound)}% до 15 липня, ${decimalLabel(first.rates.inbound)}% з 16 липня`;
+  }
   if (rule.rateSchedule?.bands || rule.rateSchedule?.domestic || rule.rateSchedule?.inbound) return 'Залежить від ціни проживання';
   if (rule.accommodationTypeRates) return 'Залежить від типу розміщення';
   if (!rule.rates) return 'Умови наведено в рішенні';
@@ -238,7 +242,7 @@ export function renderTouristTaxRates() {
     const hasDomestic=confirmed&&Boolean(rule.rates?.domestic||rule.rateSchedule?.domestic||rule.rateSchedule?.bands||rule.accommodationTypeRates);
     const hasInbound=confirmed&&Boolean(rule.rates?.inbound||rule.rateSchedule?.inbound||rule.rateSchedule?.bands||rule.accommodationTypeRates);
     const rateText=confirmed?touristTaxRateSummary(rule):'Суперечність джерел. Розрахунок недоступний';
-    const effective=rule.effectiveFrom?`Від ${dateLabel(rule.effectiveFrom)}`:'Період перевіряється';
+    const effective=rule.ratePeriods?.length?'2026 рік; зміну ставки для в’їзного туризму застосовуємо з 16 липня':rule.effectiveFrom?`Від ${dateLabel(rule.effectiveFrom)}`:'Період перевіряється';
     const sourceLink=rule.sourceUrl?`<a href="${h(rule.sourceUrl)}" target="_blank" rel="noopener noreferrer">Офіційне джерело</a>`:'Офіційний акт перевіряється';
     return `<tr data-search="${h(searchable)}" data-region="${h(place.region)}" data-domestic="${hasDomestic}" data-inbound="${hasInbound}" data-status="${confirmed?'verified':'review'}" data-year="2026"><th scope="row"><a href="${h(place.route)}">${h(place.name)}</a><span>${h(community?.name||place.community||'')}</span></th><td>${h(place.region)}</td><td>${h(community?.katottgCode||'Не зазначено')}</td><td>${h(rateText)}</td><td>${h(effective)}</td><td>${sourceLink}<span class="tt-rates-checked">${rule.checkedAt?`Перевірено ${h(dateLabel(rule.checkedAt))}`:'Дату звірки уточнюємо'}</span></td><td><span class="tt-rates-status${confirmed?'':' is-review'}">${confirmed?'Підтверджено':'Потребує перевірки'}</span></td></tr>`;
   }).join('');
@@ -297,13 +301,13 @@ export function renderTouristTaxCity(slug) {
       return `<article><span>${label}</span><strong>${h(range)}%${hasWorkbookRateConflict?'*':''}</strong>${content}</article>`;
     }).join('')
     : (()=>{
-      const dailyDomestic=decimalLabel(minimumWage*rule.rates.domestic/100),dailyInbound=decimalLabel(minimumWage*rule.rates.inbound/100);
-      const domesticRate=decimalLabel(rule.rates.domestic).replace(/,00$/,''),inboundRate=decimalLabel(rule.rates.inbound).replace(/,00$/,'');
-      return `<article><span>Внутрішній туризм</span><strong>${h(domesticRate)}%${hasWorkbookRateConflict?'*':''}</strong><small>приблизно ${h(dailyDomestic)} грн за одну особу за добу</small></article><article><span>В’їзний туризм</span><strong>${h(inboundRate)}%${hasWorkbookRateConflict?'*':''}</strong><small>${odesa2026Rule?'У 2026 році; ДПС повідомила про зміну на 1% за рішенням №4314-VIII.':`приблизно ${h(dailyInbound)} грн за одну особу за добу`}</small></article>`;
+      const dailyDomestic=decimalLabel(minimumWage*rule.rates.domestic/100),dailyInbound=decimalLabel(minimumWage*(odesa2026Rule?1:rule.rates.inbound)/100);
+      const domesticRate=decimalLabel(rule.rates.domestic).replace(/,00$/,''),inboundRate=decimalLabel(odesa2026Rule?1:rule.rates.inbound).replace(/,00$/,'');
+      return `<article><span>Внутрішній туризм</span><strong>${h(domesticRate)}%${hasWorkbookRateConflict?'*':''}</strong><small>${odesa2026Rule?'43,24 грн з особи за добу у 2026 році':`приблизно ${h(dailyDomestic)} грн за одну особу за добу`}</small></article><article><span>В’їзний туризм</span><strong>${h(inboundRate)}%${hasWorkbookRateConflict?'*':''}</strong><small>${odesa2026Rule?'86,47 грн з особи за добу з 16 липня 2026 року':`приблизно ${h(dailyInbound)} грн за одну особу за добу`}</small></article>`;
     })();
   const ambiguousPrices=rule.rateSchedule?.bands?rule.rateSchedule.ambiguousBoundariesUahPerPersonPerDay||[]:[rule.rateSchedule?.thresholdUahPerPersonPerDay].filter(Number.isFinite);
   const cityIntroduction=touristTaxCityIntroductions[place.slug];
-  const rateLead=accommodationTypeRates?'У 2026 році ставка залежить від типу місця розміщення: 0,50% для закладів готельного типу та 0,30% для садиб, квартир, котеджів та інших перелічених місць. Для внутрішнього й в’їзного туризму ставки однакові. У калькуляторі оберіть тип житла.':isBanded?`У 2026 році відсоток залежить від вартості проживання на одну особу за добу.${ambiguousPrices.length?` Для ціни рівно ${ambiguousPrices.map(thresholdLabel).join(' та ')} грн межа ставки не визначена однозначно, тому калькулятор не вгадує ставку.`:''}`:odesa2026Rule?'У 2026 році підтверджена ставка становить 0,50% для внутрішнього та в’їзного туризму. ДПС повідомила, що рішення №4314-VIII встановлює для іноземців 1%; загальне правило Податкового кодексу пов’язує зміну з початком бюджетного періоду.':'На цій сторінці наведено дані для проживання у 2026 році. Дату початку дії місцевого рішення та дату редакційної перевірки вказано окремо нижче. Розрахуйте орієнтовну суму за кількістю гостей і діб.';
+  const rateLead=accommodationTypeRates?'У 2026 році ставка залежить від типу місця розміщення: 0,50% для закладів готельного типу та 0,30% для садиб, квартир, котеджів та інших перелічених місць. Для внутрішнього й в’їзного туризму ставки однакові. У калькуляторі оберіть тип житла.':isBanded?`У 2026 році відсоток залежить від вартості проживання на одну особу за добу.${ambiguousPrices.length?` Для ціни рівно ${ambiguousPrices.map(thresholdLabel).join(' та ')} грн межа ставки не визначена однозначно, тому калькулятор не вгадує ставку.`:''}`:odesa2026Rule?'За рішенням №4314-VIII ставка для громадян України становить 0,5%, для іноземних гостей - 1%. Зміна застосовується з 16 липня 2026 року. Калькулятор розділяє розрахунок, якщо проживання припадає на періоди до і після цієї дати.':'На цій сторінці наведено дані для проживання у 2026 році. Дату початку дії місцевого рішення та дату редакційної перевірки вказано окремо нижче. Розрахуйте орієнтовну суму за кількістю гостей і діб.';
   const calculationSection=isBanded
     ? `<section class="tt-section"><h2>Як розрахувати туристичний збір у ${h(placeInLocative)}</h2><p>Для 2026 року мінімальна зарплата, від якої обчислюють збір, становить ${new Intl.NumberFormat('uk-UA').format(minimumWage)} грн. Оберіть тариф за ціною проживання однієї особи за добу та категорією туризму, потім помножте його на кількість гостей і розрахункових діб.</p><div class="tt-formula"><strong>Мінімальна зарплата × місцева ставка × кількість гостей × розрахункові доби</strong><span>${ambiguousPrices.length?`Ціна рівно ${ambiguousPrices.map(thresholdLabel).join(' та ')} грн потребує уточнення, калькулятор не вгадує тариф.`:'Спершу перевірте ціновий діапазон за місцевим рішенням.'}</span></div><p>Наприклад, ставка для кожної особи за одну добу залежить від її категорії туризму й відповідного цінового діапазону. Калькулятор округлює загальну суму до копійок після множення.</p></section>`
     : `<section class="tt-section"><h2>Як розрахувати суму</h2><p>Розрахунок залежить від мінімальної заробітної плати на 1 січня відповідного податкового року, місцевої ставки, кількості гостей та розрахункових діб. У 2026 році мінімальна зарплата для цієї формули становить 8 647 грн.</p><div class="tt-formula"><strong>Мінімальна зарплата × ставка громади × кількість гостей × розрахункові доби</strong><span>Розрахункову добу визначають за правилами об’єкта, з інтервалом 24 години між двома розрахунковими годинами.</span></div><p>Ставки встановлюються за кожну добу проживання. Податкове зобов’язання й можливі звільнення перевіряйте за місцевим рішенням і статтею 268 Податкового кодексу.</p></section>`;
@@ -311,11 +315,11 @@ export function renderTouristTaxCity(slug) {
     ? rule.rateSchedule.bands
       ? `Для однієї особи за добу ставки залежать від ціни проживання. Для внутрішнього туризму застосовуються рівні ${rule.rateSchedule.bands.map(band=>`${band.domesticRatePercent}%`).join(', ')}, для в’їзного туризму ${rule.rateSchedule.bands.map(band=>`${band.inboundRatePercent}%`).filter((rate,index,rates)=>rates.indexOf(rate)===index).join(' та ')}.${ambiguousPrices.length?` Ціна рівно ${ambiguousPrices.map(thresholdLabel).join(' та ')} грн неоднозначна в офіційній формі, тому калькулятор не повертає суму на цих межах.`:''}`
       : `У ${placeInLocative} ставка залежить від вартості проживання однієї особи за добу. Нижче ${thresholdLabel(rule.rateSchedule.thresholdUahPerPersonPerDay)} грн діють ставки ${rule.rateSchedule.domestic.find(tier=>tier.operator==='lt')?.ratePercent}% та ${rule.rateSchedule.inbound.find(tier=>tier.operator==='lt')?.ratePercent}%; вище порогу діють ${rule.rateSchedule.domestic.find(tier=>tier.operator==='gt')?.ratePercent}% та ${rule.rateSchedule.inbound.find(tier=>tier.operator==='gt')?.ratePercent}%. За ціни рівно ${ambiguousPrices.map(thresholdLabel).join(' та ')} грн калькулятор не видає суму через перетин у формулюванні місцевого рішення.`
-    : odesa2026Rule?'Упродовж 2026 року калькулятор використовує ставку 0,50% для громадян України та іноземних гостей за підписаною формою ДПС на цей податковий рік. ДПС повідомила про 1% для іноземців за рішенням №4314-VIII. За загальним правилом підпункту 12.4.3 Податкового кодексу зміна ставки, що змінює податкові зобов’язання, набирає чинності з початку бюджетного періоду. Це вказує на наступний бюджетний період, але не замінює перевірку повного тексту рішення. Розрахунки за 2027 рік тимчасово недоступні до підтвердження нового річного правила.'
+    : odesa2026Rule?'До 15 липня 2026 року включно ставки становили 0,5% для внутрішнього та в’їзного туризму. Від 16 липня ставка для внутрішнього туризму становить 0,5%, для в’їзного - 1%. Рішення №4314-VIII набирає чинності з дня офіційного оприлюднення; дата сторінки акта на офіційному сайті ради - 16 липня 2026 року. Річна форма ДПС із попередніми ставками була сформована до цієї зміни.'
     : `${decimalLabel(rule.rates.domestic).replace(/,00$/,'')}% для внутрішнього та ${decimalLabel(rule.rates.inbound).replace(/,00$/,'')}% для гостей, які прибули з-за кордону від мінімальної зарплати на 1 січня податкового року за кожну особу й розрахункову добу. Ставки діють з ${dateLabel(rule.effectiveFrom)}.`;
   const faqItems=[
     {question:`Які ставки туристичного збору діють ${placeLocativePhrase(place)}?`,answer:faqRates},
-    ...(odesa2026Rule?[{question:'Коли почне діяти ставка 1% для іноземців в Одесі?',answer:'ДПС повідомила про ставку 1% за рішенням №4314-VIII, але в її повідомленні не вказано дату застосування. Загальне правило підпункту 12.4.3 Податкового кодексу передбачає набрання чинності змінами, що змінюють податкові зобов’язання, з початку бюджетного періоду. Тому немає підстав застосовувати 1% посеред 2026 року лише з дати рішення. Для 2027 року дату та ставку потрібно звірити з повним текстом рішення й оновленою формою ДПС.'}]:[]),
+    ...(odesa2026Rule?[{question:'Коли в Одесі змінилася ставка для іноземних гостей?',answer:'Рішення №4314-VIII встановлює, що набирає чинності з дня офіційного оприлюднення. На офіційному сайті Одеської міської ради сторінка акта має дату створення 16 липня 2026 року. Тому калькулятор застосовує 1% до розрахункових діб від цієї дати. У примітці до акта також зазначено публікацію в газеті «Одеська правда» 30 липня 2026 року.'}]:[]),
     ...(touristTaxCityEditorialFaq[place.slug]?[touristTaxCityEditorialFaq[place.slug]]:[]),
     {question:'Як рахуються доби проживання?',answer:'Податковий кодекс визначає добу як 24 години між двома послідовними розрахунковими годинами. Звірте період проживання з годинами, встановленими вашим об’єктом.'},
     {question:'Чи враховує калькулятор пільги?',answer:'Ні. Він показує орієнтовну суму до врахування можливої пільги. Підставу й документи перевірте з податковим агентом.'},
@@ -340,7 +344,7 @@ export function renderTouristTaxCity(slug) {
 }
 
 export function calculateTouristTax({placeSlug, start, end, days, nights, guests, category, guestGroups, accommodationPricePerPersonPerDay, accommodationType, exemption='none', scenario='official'}, places=touristTaxPlaces, communities=touristTaxCommunities) {
-  if(!['official','odesa-inbound-1-percent'].includes(scenario)||(scenario==='odesa-inbound-1-percent'&&placeSlug!=='odesa'))return {state:'INVALID_INPUT',reason:'Для цього місця доступний лише підтверджений розрахунок.'};
+  if(scenario!=='official')return {state:'INVALID_INPUT',reason:'Для цього місця доступний лише підтверджений розрахунок.'};
   const stayDays=days??nights;
   const groups=Array.isArray(guestGroups)?guestGroups:(Number.isSafeInteger(guests)&&['domestic','inbound'].includes(category)?[{category,guests}]:[]);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(start ?? '') || !Number.isSafeInteger(stayDays) || stayDays < 1 || stayDays > 366 || !groups.length || groups.some(group=>!['domestic','inbound'].includes(group.category)||!Number.isSafeInteger(group.guests)||group.guests<0||group.guests>1000) || groups.every(group=>group.guests===0) || !['none','claimed'].includes(exemption)) return {state:'INVALID_INPUT'};
@@ -384,22 +388,29 @@ export function calculateTouristTax({placeSlug, start, end, days, nights, guests
   const breakdown=[];
   for(const group of groups){
     if(!group.guests)continue;
-    const ratePercent=scenario==='odesa-inbound-1-percent'&&group.category==='inbound'
-      ?1
-      :rule.accommodationTypeRates
+    const baseRatePercent=rule.accommodationTypeRates
       ?rule.accommodationTypeRates[accommodationType][group.category]
       :rule.rateSchedule?.bands
       ?rule.rateSchedule.bands.find(band=>(band.minPriceExclusiveUahPerPersonPerDay!==undefined?priceCents>band.minPriceExclusiveUahPerPersonPerDay*100:band.minPriceUahPerPersonPerDay===undefined||priceCents>=band.minPriceUahPerPersonPerDay*100)&&(band.maxPriceUahPerPersonPerDay===undefined||priceCents<=band.maxPriceUahPerPersonPerDay*100))?.[group.category==='domestic'?'domesticRatePercent':'inboundRatePercent']
       :rule.rateSchedule
         ?rule.rateSchedule[group.category]?.find(tier=>tier.operator==='lt'?priceCents<rule.rateSchedule.thresholdUahPerPersonPerDay*100:tier.operator==='gt'?priceCents>rule.rateSchedule.thresholdUahPerPersonPerDay*100:false)?.ratePercent
         :rule.rates?.[group.category];
-    if(!Number.isFinite(ratePercent)||ratePercent<=0)return {state:'RATE_UNVERIFIED'};
-    const rateHundredths=BigInt(Math.round(ratePercent*100));
-    totalNumerator+=BigInt(annualBase.minimumWageOnJanuary1)*rateHundredths*BigInt(group.guests)*BigInt(stayDays);
-    breakdown.push({category:group.category,guests:group.guests,ratePercent,...(rule.rateSchedule?{accommodationPricePerPersonPerDay:Number(accommodationPricePerPersonPerDay)}:{}),...(rule.accommodationTypeRates?{accommodationType,accommodationTypeLabel:rule.accommodationTypeRates[accommodationType].label}:{})});
+    if(!Number.isFinite(baseRatePercent)||baseRatePercent<=0)return {state:'RATE_UNVERIFIED'};
+    const rateDays=new Map();
+    for(let offset=0;offset<stayDays;offset++){
+      const day=new Date(+first+offset*86400000).toISOString().slice(0,10);
+      const period=rule.ratePeriods?.find(window=>day>=window.from&&day<=window.to);
+      const dayRate=period?.rates?.[group.category]??baseRatePercent;
+      if(!Number.isFinite(dayRate)||dayRate<=0)return {state:'RATE_UNVERIFIED'};
+      const rateHundredths=BigInt(Math.round(dayRate*100));
+      totalNumerator+=BigInt(annualBase.minimumWageOnJanuary1)*rateHundredths*BigInt(group.guests);
+      rateDays.set(dayRate,(rateDays.get(dayRate)||0)+1);
+    }
+    const rateBreakdown=[...rateDays].map(([ratePercent,rateDays])=>({ratePercent,days:rateDays}));
+    breakdown.push({category:group.category,guests:group.guests,...(rateBreakdown.length===1?{ratePercent:rateBreakdown[0].ratePercent}:{ratePeriods:rateBreakdown}),...(rule.rateSchedule?{accommodationPricePerPersonPerDay:Number(accommodationPricePerPersonPerDay)}:{}),...(rule.accommodationTypeRates?{accommodationType,accommodationTypeLabel:rule.accommodationTypeRates[accommodationType].label}:{})});
   }
   const totalCents=((totalNumerator+50n)/100n).toString();
-  return {state:'VERIFIED_RESULT',totalCents,days:stayDays,guestGroups:breakdown,minimumWage:annualBase.minimumWageOnJanuary1,ruleVersion:rule.version,sourceUrl:scenario==='odesa-inbound-1-percent'?'https://od.tax.gov.ua/diialnist/zabezpechennya-nadhodjen/print-1050922.html':rule.sourceUrl,checkedAt:rule.checkedAt,scenario,...(scenario==='odesa-inbound-1-percent'?{scenarioOnly:true}:{}),exemptionReviewRequired};
+  return {state:'VERIFIED_RESULT',totalCents,days:stayDays,guestGroups:breakdown,minimumWage:annualBase.minimumWageOnJanuary1,ruleVersion:rule.version,sourceUrl:rule.sourceUrl,checkedAt:rule.checkedAt,scenario,exemptionReviewRequired};
 }
 
 // Exact rational arithmetic in kopecks. ratePercent is represented at 2 decimal places.
