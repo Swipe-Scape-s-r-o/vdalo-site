@@ -86,7 +86,7 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   assert.match(sitemap.body,/https:\/\/www\.vdalo\.tech\/tourist-tax\//);
   assert.match(sitemap.body,/tourist-tax\/lutsk/);
   assert.doesNotMatch(sitemap.body,/tourist-tax\/aktove/);
-  const citySitemapEntries=[...sitemap.body.matchAll(/<loc>https:\/\/www\.vdalo\.tech\/tourist-tax\/(?!rates\/)[^<]+<\/loc>/g)];
+  const citySitemapEntries=[...sitemap.body.matchAll(/<loc>https:\/\/www\.vdalo\.tech\/tourist-tax\/(?!rates\/|start<\/loc>)[^<]+<\/loc>/g)];
   assert.equal(citySitemapEntries.length,28,'only verified city routes should appear in the city sitemap');
   for(const slug of ['kyyiv','sumy','vinnytsya','pivdenne','ternopil','zaporizhzhya','rivne','chernihiv','kolomyya','ivano-frankivsk','chernivtsi','lviv','cherkasy','berehove','uzhhorod','slavsko','dnipro','zhytomyr','vynohradiv','yasinya','tyachiv','irpin','skole'])assert.match(sitemap.body,new RegExp(`tourist-tax/${slug}/`));
   for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place)))assert.doesNotMatch(sitemap.body,new RegExp(`tourist-tax/${place.slug}/`),`sitemap contains unreleased place: ${place.slug}`);
@@ -145,7 +145,7 @@ test('tourist-tax funnel route is served with analytics, privacy, accessibility 
     assert.match(video.headers['Content-Type'],/video\/mp4/);
   }
   const sitemap=await request('/sitemap.xml');
-  assert.doesNotMatch(sitemap.body,/tourist-tax\/start/,'campaign funnel must stay out of the indexable sitemap');
+  assert.match(sitemap.body,/https:\/\/www\.vdalo\.tech\/tourist-tax\/start<\/loc>/,'the indexable tourist-tax guide must appear in the sitemap');
 });
 
 test('only released city routes resolve through the actual app router',async()=>{
