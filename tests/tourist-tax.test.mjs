@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {Readable} from 'node:stream';
 import {calculateTouristTax,calculateExactTouristTaxCents,exportTouristTaxReviewCsv,exportTouristTaxReviewXlsx,renderTouristTaxCity,renderTouristTaxHub} from '../versions/v1/tourist-tax.mjs';
 import {getPublicSitemapRoutes} from '../versions/v1/sitemap.mjs';
@@ -111,6 +112,14 @@ test('Odesa uses the official decision and calculates across the 2026 rate chang
   assert.equal(domestic.totalCents,'25941');
   assert.equal(inbound.totalCents,'51882');
   assert.equal(nextYear.state,'RATE_OUT_OF_PERIOD');
+});
+
+test('tourist-tax result UI displays each effective rate period instead of an undefined percentage',()=>{
+  const client=readFileSync(new URL('../versions/v1/public/tourist-tax.js',import.meta.url),'utf8');
+  assert.match(client,/Array\.isArray\(group\.ratePeriods\)/);
+  assert.match(client,/period\.ratePercent\}% × \$\{period\.days\}/);
+  assert.match(client,/`\$\{group\.ratePercent\}%`/);
+  assert.doesNotMatch(client,/group\.ratePercent\}%\$\{/);
 });
 
 test('Sumy 2026 rate, city page and calculator are verified',()=>{

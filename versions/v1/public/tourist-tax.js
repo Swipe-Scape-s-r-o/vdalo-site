@@ -183,7 +183,12 @@ if (form) {
           const card=document.createElement('section');card.className=`tt-result-card${isScenario?' tt-result-card-scenario':''}`;
           const heading=document.createElement('h3');heading.textContent=title;
           const amount=document.createElement('strong');amount.className='tt-result-amount';amount.textContent=new Intl.NumberFormat('uk-UA',{style:'currency',currency:'UAH'}).format(Number(value.totalCents)/100);
-          const groupsText=value.guestGroups.map(group=>`${group.guests} ${group.category==='domestic'?'внутрішнього':'в’їзного'} туризму · ${group.ratePercent}%${group.accommodationTypeLabel?` · ${group.accommodationTypeLabel}`:''}`).join('; ');
+          const groupsText=value.guestGroups.map(group=>{
+            const rateText=Array.isArray(group.ratePeriods)
+              ?group.ratePeriods.map(period=>`${period.ratePercent}% × ${period.days} ${period.days===1?'добу':'діб'}`).join(' + ')
+              :`${group.ratePercent}%`;
+            return `${group.guests} ${group.category==='domestic'?'внутрішнього':'в’їзного'} туризму · ${rateText}${group.accommodationTypeLabel?` · ${group.accommodationTypeLabel}`:''}`;
+          }).join('; ');
           const detail=document.createElement('p');detail.textContent=`${groupsText} · ${value.days} розрахункових діб. Інформаційний розрахунок${value.exemptionReviewRequired?' до перевірки можливої пільги':''}.`;
           card.append(heading,amount,detail);
           const source=document.createElement('a');source.href=value.sourceUrl;source.rel='noopener';source.textContent=value.scenarioOnly?'Повідомлення ДПС про ставку 1%':'Першоджерело місцевої ставки';card.append(source);
