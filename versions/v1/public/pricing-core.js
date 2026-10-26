@@ -9,7 +9,7 @@
   };
   const modules = {
     channels: { label: 'Channel Manager VDALO · 60+ каналів', price: 590 },
-    prro: { label: 'ПРРО та фіскалізація', price: 290, includedFrom: ['hotel', 'hotel-plus', 'complex', 'enterprise'] },
+    prro: { label: 'ПРРО та фіскалізація', price: 290, includedFrom: ['hotel', 'hotel-plus', 'complex', 'enterprise'], status: 'development' },
     rms: { label: 'Розширені правила ціни', price: 590, variable: true, status: 'beta' },
     assistant: { label: 'AI-помічник для гостей', price: 590, from: true, status: 'development' },
     access: { label: 'Ручні PIN-коди', price: 490, perRoom: 20, status: 'beta' },

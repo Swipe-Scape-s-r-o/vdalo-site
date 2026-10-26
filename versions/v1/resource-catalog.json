@@ -12,7 +12,7 @@
       "Відкриті задачі та приймання зміни"
     ],
     "file": "frontdesk_shift.txt",
-    "sha256": "0f1258b4134396d98bb965a784d0cb4b38e3e586ebe906624d5203d9f70025cd"
+    "sha256": "a1a40783bd20944b6939f11e49402dfdcfe70427ee2d7a47b3d90de13c900979"
   },
   {
     "id": "RS02",
@@ -27,7 +27,7 @@
       "Відкриті питання"
     ],
     "file": "arrival_control.txt",
-    "sha256": "477621a30a61df1ffad7bd500ccd64b83685b0b2eb60cd481554b9126c12ec0e"
+    "sha256": "c7ec47b9aacdbbceb38e5b16769581da7632b025131662969bbb64cf73725abe"
   },
   {
     "id": "RS03",
@@ -42,7 +42,7 @@
       "Передавання housekeeping"
     ],
     "file": "departure_control.txt",
-    "sha256": "01250550afd1c0e49fcd728430986af86f90f2350c879dc367ae3915c38112e9"
+    "sha256": "dbc47ceedfba3e60b7c16e6d2d971a6be205016163db54cb9da51bf90ecbe8f0"
   },
   {
     "id": "RS04",
@@ -57,7 +57,7 @@
       "Перевірка після дії"
     ],
     "file": "overbooking_response.txt",
-    "sha256": "f4b006d6f1abb2addd87d7e7da9b9cc4a6ba7fb5a548876bcd7a7c83ff398bf7"
+    "sha256": "ba95565ad966f3469343ac63e4717d64ad17dec49ad3e321f16616729aad674d"
   },
   {
     "id": "RS05",
@@ -72,7 +72,7 @@
       "Хто перевіряє результат"
     ],
     "file": "maintenance_handoff.txt",
-    "sha256": "1d0ff51a1b53f2a6d72970590b2cc982cf10b7bbda5a3027db0f62a176a880cd"
+    "sha256": "736e2211fda3dbf38d99585547974be65bac4c75c61c544abe546c5febf56709"
   },
   {
     "id": "RS06",
@@ -87,7 +87,7 @@
       "Контроль підтверджених фактів"
     ],
     "file": "welcome_pack_ua_en.txt",
-    "sha256": "5fbb7818495e87e31fe3c8eb237ff4c14061c25054db48208a27a8b8add46d2c"
+    "sha256": "64763aa2cc6c6f04c50df9ed37e15d97225cb69f9ff7a8e4ce480e03d6873165"
   },
   {
     "id": "RS07",
@@ -102,7 +102,7 @@
       "Дата перевірки фактів"
     ],
     "file": "hotel_factsheet_ua_en.txt",
-    "sha256": "8c8c4563ee41d326cf915250cad5ec61149dac90a6d8f0cc403c008fe70ca98c"
+    "sha256": "48b458bf321e472d2fb1c95a4f029c58f0edcf62d7769a947245b61fbc970bf8"
   },
   {
     "id": "RS08",
@@ -117,7 +117,7 @@
       "Строк і наступний крок"
     ],
     "file": "group_quote_ua_en.txt",
-    "sha256": "18ceee48e90778f0062a40baaf590a66500df598a0f79d00b635cf3e00574589"
+    "sha256": "193135fd219a01edcc25f70c0446e6da13d6cfaca498a8a7dd46a8a8b6c15bc6"
   },
   {
     "id": "RS09",
@@ -132,7 +132,7 @@
       "Що варто покращити"
     ],
     "file": "guest_feedback_ua_en.txt",
-    "sha256": "79dfb0e3055fb5d7d647e83dc606e2999e840401a043ed5eafecada700035923"
+    "sha256": "77b850318119ee4b8805c44dd4fe7f936bb8d0c458f428cf490ea1e6c5198749"
   },
   {
     "id": "RS10",
@@ -147,7 +147,7 @@
       "План повторення"
     ],
     "file": "staff_training.txt",
-    "sha256": "d92456749e3bf08d069a009720372175133fc1e9bd942e4890a16fa6a19c95fa"
+    "sha256": "b9afb11ddd8160e1d2ec1556fe3783940a6163a0cc29ef7778d72423cec48ac5"
   },
   {
     "id": "RS11",
@@ -162,7 +162,7 @@
       "Звірка й повернення за проблеми"
     ],
     "file": "pms_migration_plan.txt",
-    "sha256": "bb043821f76cf988808766d55e02643abb99890d0f98410a675e45e9a18f4c7b"
+    "sha256": "5b1f137851ba95458a0014f0bc73d9ddefa83d39d882b9a9da164e859016f200"
   },
   {
     "id": "RS12",
@@ -177,7 +177,7 @@
       "Валюта та формат дат"
     ],
     "file": "input_minimization.txt",
-    "sha256": "5de34870b55d50164342b2827d2edfc927c22d7073bacb53bb46db9ba715e970"
+    "sha256": "4f36b47c353de56498ad2a73be7cdd1d65880cf118a6cc02bbd2dc00933f92ca"
   },
   {
     "id": "RS13",
@@ -192,7 +192,7 @@
       "Список виправлень"
     ],
     "file": "website_checklist.txt",
-    "sha256": "9aeacc24b8d976f75a83801ba2c235265d54f856356c7f01efc599f8143a442a"
+    "sha256": "382d124a992a1d3a1d9580aa987e113a38ddb4a196d8d47fe5befdb39dbc1734"
   },
   {
     "id": "RS14",
@@ -207,7 +207,7 @@
       "Відповідальний і повторний огляд"
     ],
     "file": "room_acceptance.txt",
-    "sha256": "c6b028052558bb507e45375b23cc45dad08cd1f8ff1172b0247668fc55910470"
+    "sha256": "d61799c8f738489c7f1bb91777a5254705a3ecdc57623731b272f45edf5d75e8"
   },
   {
     "id": "RS15",
@@ -222,7 +222,7 @@
       "Склад витрат і припущення"
     ],
     "file": "financial_inputs.txt",
-    "sha256": "602640b2b567af1f36e0c287eb10bffd4404eefc3765f4031f02fb72c39a1fc4"
+    "sha256": "10b646b25f39e4465dc6cc813d06c412382438560ed1e2e05ee6e5957590e9c7"
   },
   {
     "id": "RS16",

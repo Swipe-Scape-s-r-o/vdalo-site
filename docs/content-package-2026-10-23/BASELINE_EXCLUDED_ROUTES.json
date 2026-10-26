@@ -1,95 +1,95 @@
 {
   "/hotel-access-control": {
     "sha256": "fc89cba4ac8784fae8b711b782704e1dc962a5bc06cd8616df69f78f1b09fc4e",
-    "portableSha256": "5f7773758867a6c5c2fba54f78b27d5f7fec1928b130ecbca2e43092e9801a1c"
+    "portableSha256": "a6b584b961127b2e42ded2ae50640084fef4845a27348a0f2447901e3ba7949c"
   },
   "/guest-communication": {
     "sha256": "d5fb91b10a72c19a7517c320e041b02a4c0c33e14338b92f7db2a61c60280f2f",
-    "portableSha256": "959fe1a88dc64f27d69db58bda48f403b3ea629a4db56cee4f95a1081370a2d1"
+    "portableSha256": "7683ae5060def6abf184776362bdf02703a08a5e7cf121b604c58d86ccf465a8"
   },
   "/hotel-booking-calendar": {
     "sha256": "16204b250d05eb3d6e71757746c7324d2fdafef58611b4d5d2d73a688bc5055a",
-    "portableSha256": "32a2cbc01bf3a5e76a7b4d62fbb8b78c29a4966e54b4483db6d35fa7046542e2"
+    "portableSha256": "0b734d46c772cf3da90b4e299b74ea59622fc9a9e35b9e5b9cbf462ff44354b6"
   },
   "/hotel-ai-assistant": {
     "sha256": "81fd342b893f2923573c191a161460033d65b4d06e3a53460d3de984d411191b",
-    "portableSha256": "4e2fe073687b65d15aea7d59990f7742ea67f26ac78228450d78f8c8ebb5c042"
+    "portableSha256": "23f3503e05ee4ce9133808035a963101dcae320f5b91ddd1a35ba29ecab841ac"
   },
   "/hotel-channel-manager": {
     "sha256": "d57cfa54744405850b2374bd51b298f3e1335744b55a9bb8194c02b9626255a8",
-    "portableSha256": "4b5557944a849ab3f278e52b0aa98f1d772f6b8e32a3b56df67e707a45c6d050"
+    "portableSha256": "8b1cce2ef46fbcaa55a4b72b73b302e7d591e45ca38566729fafb85a0c8d55c4"
   },
   "/hotel-check-in": {
     "sha256": "fd264231b077f5290118145dd6793578c62679806a0b23e7b1124ae29e34dbdb",
-    "portableSha256": "e6c6c359fe39d99070b23ee6fd2729972143f7b82b281dae49fff9fbe92aeb61"
+    "portableSha256": "b869624e910ab13fe1dc0d221f8c00b393a32e252a137d30f40ef21be453a5a7"
   },
   "/hotel-direct-booking": {
     "sha256": "c06aeb4414f54791db6938d495bc8e1c907ee65aa00108a1c6c789eb9746bfc1",
-    "portableSha256": "806240d8fa24603307535b2f7d65bb345ce2216efcf7474c3cd8eb68fbf798d9"
+    "portableSha256": "e6d1ab38d3af8806b4604137fd4e5623548b96d0e31687d976cbbdf0b43d3604"
   },
   "/hotel-finance": {
     "sha256": "ccb1e0c72927cf5e4d08d09b78fda100390e960b77ae53642936a3c5b2639c83",
-    "portableSha256": "0884fef21faf0b56ef031e5b2fc735e2f4f19d30ba2aad6c59c7eeef97a82079"
+    "portableSha256": "408ae3baeeba6459155230b9404f0ff8a174050d7eaba28dab0055779b5c6d0c"
   },
   "/hotel-events": {
     "sha256": "a8d3c35c9011befb793245294a4fbc4db5387726c1148450b1e9f6e5f6ba4385",
-    "portableSha256": "9cd1aa73b1e3af9b540e8ee33bcb8c387b729f3c226558ab87acc83e2094da83"
+    "portableSha256": "89d048a5c39929b4e71f0c412d9bc4da7c48c5383a4f4ea4ecbaacaf44766bbb"
   },
   "/hotel-energy-management": {
     "sha256": "c060c15751a2e2a7982045685a5617e327beb5292f0a6edb2976797d36274c7b",
-    "portableSha256": "1fec98e3a7053c43af17d184a27569cab00f31e61662b374613c599479f4bf13"
+    "portableSha256": "4e445f0b7c4bdffaafb22411a29add71e3333ad30aeae7409e9e77493828a5f7"
   },
   "/hotel-guest-app": {
     "sha256": "db71ae47108c7d08b0a83731e7fde4ea13213918701295c4625fcb62475f4a32",
-    "portableSha256": "979c7269101f8822ac4c70619693bf9fde188dadf758aced005e631f86e4ad2f"
+    "portableSha256": "fba5c0b032df1c6434b452992bcac7b66b3237bb8ed3ffd29f01ada09566ee41"
   },
   "/hotel-operations": {
     "sha256": "f52e34d26c64c7ed2eb5798919fa9aadac383fb3e817a7d82a269e7406b0f56e",
-    "portableSha256": "e47e31aeadee98a0a2901fcc05417b3c41b1f96479b48fde9c931813963225ef"
+    "portableSha256": "64ee9aa2903f52c9306502a4d2e320b2bd28270ac136d1e782b20646ea750291"
   },
   "/hotel-housekeeping": {
     "sha256": "c73226feb1495b271ba5ff9aad57103835fc33eb5d5a2aa36fa359d50e5f9d4c",
-    "portableSha256": "1710b3a3cf23490dbed9b6686bc456c8adaa3c4fbbd4c3e9b9cf2da695c433af"
+    "portableSha256": "95a4ecebf945a2197260ad6440b879992ce6e7a1ad6198ede5d8ab1d03ddac9f"
   },
   "/hotel-multi-property": {
     "sha256": "0b2594368f734e7db352a5b995b77524bd4c60d358551ce2c3e7c282682c3eb5",
-    "portableSha256": "d1c5931f6a2d892a7d70d52057a985ec10414a5f0a7cb7964d53767ab2266715"
+    "portableSha256": "d3311d4a7d939f2aba6344ea15335129f765d5aa1bcb86acfd31853c77a2b356"
   },
   "/hotel-pms-migration": {
     "sha256": "4f8c9717b4f10bcf68d3ad3c7b6520fa5e8fde81ca2bca3577b7bfa7325eecfe",
-    "portableSha256": "f2226ab4c7ad281d9a2867529a5e94be667c44c4e1afc00108f86b8afc0fadb6"
+    "portableSha256": "660260dd6ab29f47f9da708a42aa8e7e5bb23f7d5c68b3c8781e7c230f969c64"
   },
   "/hotel-guest-profile": {
     "sha256": "2d564717f9ecd9e09e465d476063e7d7c7e5b84e2678abd087e8d4f76adc6823",
-    "portableSha256": "6ed0694f71c77931066f4621dec4b42796b912736b41dfe1a97586c1486979cc"
+    "portableSha256": "be884e93d1c433693c4e9ecf0331767c87ccfad14c86832110bfd473eb71a9a4"
   },
   "/hotel-site-builder": {
     "sha256": "e2895e804b34268b6e866291c08724a7dd2a8353adc03c07300b4bf7766c73b6",
-    "portableSha256": "54621ae4673d8a421d4448cd7fb27986ad1fd2850c48d82ce3b3d619f787f644"
+    "portableSha256": "ba00be9cf126830db4bd3328e3e6e754660d148516ba28e39fb392c1dd3b7535"
   },
   "/hotel-prro": {
     "sha256": "aa801cc9d5332238c1e8a43e9da23b908604f205943466c45279e42a5239c45f",
-    "portableSha256": "cf1740b341ba14d186162fba2f044ee22a97151dad3f6d79be9c9cbc8c879e3b"
+    "portableSha256": "34c176c299790a438ddfd4367bf31c795c2190e7eb4f1270ed315a40c7073758"
   },
   "/hotel-tourist-tax": {
     "sha256": "f97edee3acb5888bc2325f5b03a3e0044fcc81ad0566f74626c6036f6cd9caf5",
-    "portableSha256": "229da631e452d3336cf19bd67820539a0ad59e54c372df440a85beefb9048911"
+    "portableSha256": "1de01d5095858e86641366ba2f4bffd8889ff32f7dfef9c7824e4add2b6ca106"
   },
   "/hotel-pms-modules": {
     "sha256": "75a515f31bef694adac35550ac5ccd77f9b784824ad816f45be7bc470c3b175f",
-    "portableSha256": "75a91328c69605121f3ee325724cfb8fce79c3e101cdbada8a9c8c4b23d1d478"
+    "portableSha256": "23ecfd675d1687f04e54faeb07198236c4c134ec33557d77b4d61db3c80ecc86"
   },
   "/hotel-revenue-management": {
     "sha256": "976fb395a34968adc1c873955d93f56c0cea9151e62f60a7010f44e6cee968db",
-    "portableSha256": "8a334abb6e89ffc9c5c9916c54f34d68db167c3256809da67300ccf0aa6a53a2"
+    "portableSha256": "e2b5660364c23911f33bb4e4eb4e2358a2460e6da245067ab694a7665f2a0c8a"
   },
   "/integrations": {
     "sha256": "d9755a96dbb9ebccb64bd80b94b2d9f2e9034399e85c2e52ae674d6c740dbae7",
-    "portableSha256": "ca08f5bbe9ad9ce49c5b99fc51179e116c4087352042d1b537591a87541fcc3d"
+    "portableSha256": "6837d8263e42454b6e0a1b16c0691b3e37a63b34af1c377295104aaea37f685d"
   },
   "/solutions": {
     "sha256": "7e83ae1a0658999fea7bf6f7e78bb6ac9efd726492e5eaefbe338f4b5caec0ca",
-    "portableSha256": "170798120a4b977bc4b8f3848d2bee6d321ef0f0a969824b4123cd481056c574"
+    "portableSha256": "258c439931649db0b65c38e30476b9fe73f9513e83819af1302d8fcdcc977a48"
   },
   "/q1": {
     "sha256": "54d489923b13519dec1f1715061642fb62bec6d8a13b20af9ff3a1a1258f6a01",

@@ -9,6 +9,7 @@
 .ds2 .header{background:var(--soft);color:var(--plum);border-bottom:1px solid var(--border)}
 .ds2 .header-inner{height:80px;position:relative}
 .ds2 .header nav a{font-size:13px;font-weight:400}
+.ds2 .header-login{font-size:12px;font-weight:600;color:var(--plum);white-space:nowrap}
 .ds2 .header .brand img{width:124px}
 .ds2 .header .button{font-size:12px;min-height:44px;padding:12px 20px}
 .ds2 .button{font-weight:600;min-height:48px;font-size:14px;padding:14px 23px;box-shadow:none}
@@ -344,3 +345,9 @@
 @media(min-width:901px){.ds2 .header nav .nav-submenu a,.ds2 .header nav .nav-submenu a:hover,.ds2 .header nav .nav-submenu .nav-disclosure>summary,.ds2 .header nav .nav-submenu .nav-disclosure>summary:hover{color:var(--plum)}}
 @media(max-width:900px){.ds2 .menu-toggle{flex:0 0 44px;display:flex;align-items:center;justify-content:center;gap:6px}.ds2 .menu-toggle span{display:block;width:18px;height:2px;min-height:2px;flex:none;background:var(--soft);opacity:1;border-radius:2px}.ds2 .menu-toggle[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}.ds2 .menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}.ds2 .header nav.open{display:flex}.ds2 .header nav.open .nav-disclosure>summary{color:var(--soft)}}
 .ds2 .header nav.open{display:block}
+
+.ds2 .mobile-login{font-weight:600!important}
+@media(max-width:767px){.ds2 .header-actions>.header-login{display:none}}
+
+
+@media(max-width:900px){.ds2 .header-actions>.header-login{display:none}}

@@ -8,9 +8,10 @@ import {validateLead} from '../versions/v1/server.mjs';
 const app=readFileSync(fileURLToPath(new URL('../versions/v1/public/app.js',import.meta.url)),'utf8');
 const css=readFileSync(fileURLToPath(new URL('../versions/v1/public/refinement.css',import.meta.url)),'utf8');
 
-test('contact CTA opens a short, accessible dialog from both desktop and mobile navigation',()=>{
+test('mobile contact CTA opens a short accessible dialog while desktop registration stays direct',()=>{
  const html=renderPage({origin:'https://www.vdalo.tech'});
- assert.equal((html.match(/data-contact-dialog-trigger/g)||[]).length,2);
+ assert.equal((html.match(/data-contact-dialog-trigger/g)||[]).length,1);
+ assert.match(html,/<a class="button compact" href="https:\/\/app\.vdalo\.tech\/signup\?[^\"]*utm_content=header_desktop">Спробувати безкоштовно<\/a>/);
  assert.match(html,/<dialog id="contact-dialog" class="lead-dialog contact-dialog" aria-labelledby="contact-title">/);
  assert.match(html,/<label for="contact-name">Ваше ім’я \*<\/label>/);
  assert.match(html,/<label for="contact-phone">Номер телефону \*<\/label>/);
