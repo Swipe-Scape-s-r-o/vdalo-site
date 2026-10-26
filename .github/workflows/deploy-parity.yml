@@ -1,4 +1,4 @@
-name: Deploy pipeline parity
+name: VDALO Docker deploy parity
 
 on:
   pull_request:
