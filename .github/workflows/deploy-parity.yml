@@ -1,0 +1,67 @@
+name: Deploy pipeline parity
+
+on:
+  pull_request:
+    branches: [staging]
+    paths:
+      - "deploy/Dockerfile"
+      - "deploy/vdalo-site-update.sh"
+      - "server.mjs"
+      - "qr-lab/**"
+      - "tests/**"
+      - "versions/**"
+      - ".github/workflows/deploy-parity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-parity-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  baseline-5c424be:
+    name: Baseline 5c424be
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out failing staging revision
+        uses: actions/checkout@v4
+        with:
+          ref: 5c424becf2244c755f3f58c3104fe6427eebe2ef
+
+      - name: Build the deploy image
+        run: docker build -f deploy/Dockerfile -t vdalo/site:baseline-5c424be .
+
+      - name: Run the server test command inside the image
+        id: baseline-tests
+        continue-on-error: true
+        run: docker run --rm --network=none vdalo/site:baseline-5c424be sh -c 'node --test tests/*.test.mjs'
+
+      - name: Record the baseline test result
+        env:
+          TEST_OUTCOME: ${{ steps.baseline-tests.outcome }}
+        run: |
+          echo "Baseline tests finished with: ${TEST_OUTCOME}"
+          if [ "${TEST_OUTCOME}" = "success" ]; then
+            echo "::error::Expected the reported failure on 5c424be, but its test suite passed."
+            exit 1
+          fi
+
+  candidate:
+    name: Candidate server pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Build the deploy image
+        run: docker build -f deploy/Dockerfile -t vdalo/site:candidate-${{ github.sha }} .
+
+      - name: Run server tests inside the image
+        run: docker run --rm --network=none vdalo/site:candidate-${{ github.sha }} sh -c 'node --test tests/*.test.mjs'
+
+      - name: Run schema validation inside the image
+        run: docker run --rm --network=none vdalo/site:candidate-${{ github.sha }} node scripts/validate-schema.mjs
