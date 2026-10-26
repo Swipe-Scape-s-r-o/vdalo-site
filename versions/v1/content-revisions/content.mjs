@@ -170,10 +170,11 @@ function reviseTax(html,page){
  const place=page.route.match(/^\/tourist-tax\/([^/]+)\/$/)?.[1];
  const settlement=place?getTouristTaxPlace(place):null;
  const identity=settlement?`<p class="prepared-place-identity">Територію розрахунку звіряйте за адресою об’єкта. Код населеного пункту за КАТОТТГ: <strong>${e(settlement.katottgSettlementCode)}</strong>.</p>`:'';
+  const ratesLink=place?'<p class="tt-article-link"><a href="/tourist-tax/rates/">Переглянути реєстр підтверджених ставок</a></p>':'';
  // Replace the previous prose and duplicated source panels as one complete
  // revision. Keep all live calculator/dashboard/directory DOM and data untouched.
  const paymentNote=page.route==='/tourist-tax/'?'<p class="prepared-payment-note">Реквізити для оплати залежать від громади. Перед сплатою звірте одержувача, рахунок і призначення платежу з податковим агентом або місцевою радою.</p>':'';
- return replaceInner(html,main,preserved.join('')+`<section class="tt-seo-content">${identity}${copyBlock(page.body,{className:'prepared-tax'})}${paymentNote}</section>`+sourcePanels.join(''));
+  return replaceInner(html,main,preserved.join('')+`<section class="tt-seo-content">${identity}${copyBlock(page.body,{className:'prepared-tax'})}${paymentNote}</section>${ratesLink}`+sourcePanels.join(''));
 }
 function reviseQr(html,page){
  const old=classNode(html,'seo-content');

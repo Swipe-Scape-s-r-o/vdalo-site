@@ -31,6 +31,7 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   assert.match(hub.body,/tax\.gov\.ua\/rishennya-mistsevih-rad-/);
   assert.match(hub.body,/rada\/show\/v0011201-11/);
   assert.match(hub.body,/Реквізити для оплати залежать від громади/);
+  assert.match(hub.body,/href="\/tourist-tax\/rates\/"/,'hub should link to the confirmed rates register');
   const city=await request('/tourist-tax/lutsk/');
   assert.equal(city.status,200);
   assert.match(city.body,/index,follow/);
@@ -39,11 +40,13 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   assert.match(city.body,/Ставку звірено 14 жовтня 2026 року/);
   assert.match(city.body,/Наступна планова перевірка джерел: до 1 грудня 2026 року/);
   assert.match(city.body,/а не гарантія незмінності ставки/);
+  assert.match(city.body,/href="\/tourist-tax\/rates\/"/,'published city pages should link to the register');
   for(const slug of ['sumy','vinnytsya','pivdenne','ternopil','zaporizhzhya','rivne','chernihiv','kolomyya','ivano-frankivsk','chernivtsi','lviv','cherkasy','berehove','uzhhorod','slavsko','vynohradiv','yasinya','tyachiv','irpin','skole']){
     const verifiedCity=await request(`/tourist-tax/${slug}/`);
     assert.equal(verifiedCity.status,200);
     assert.match(verifiedCity.body,/name="robots" content="index,follow"/);
     assert.match(verifiedCity.body,/Розрахуйте туристичний збір/);
+    assert.match(verifiedCity.body,/href="\/tourist-tax\/rates\/"/);
     assert.match(verifiedCity.body,['odesa','vynohradiv','yasinya','tyachiv','irpin','skole'].includes(slug)?/Ставку звірено 18 жовтня 2026 року/:/Ставку звірено 14 жовтня 2026 року/);
     assert.match(verifiedCity.body,/Наступна планова перевірка джерел: до 1 грудня 2026 року/);
   }
@@ -78,14 +81,43 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   const js=await request('/tourist-tax-assets/tourist-tax.js');
   assert.equal(js.status,200);
   const sitemap=await request('/sitemap.xml');
+  assert.match(sitemap.body,/<loc>https:\/\/www\.vdalo\.tech\/tourist-tax\/rates\/<\/loc>/,'the public confirmed rates register should be in the sitemap');
   assert.equal(sitemap.status,200);
   assert.match(sitemap.body,/https:\/\/www\.vdalo\.tech\/tourist-tax\//);
   assert.match(sitemap.body,/tourist-tax\/lutsk/);
   assert.doesNotMatch(sitemap.body,/tourist-tax\/aktove/);
-  const citySitemapEntries=[...sitemap.body.matchAll(/<loc>https:\/\/www\.vdalo\.tech\/tourist-tax\/[^<]+<\/loc>/g)];
+  const citySitemapEntries=[...sitemap.body.matchAll(/<loc>https:\/\/www\.vdalo\.tech\/tourist-tax\/(?!rates\/)[^<]+<\/loc>/g)];
   assert.equal(citySitemapEntries.length,27,'only verified city routes should appear in the city sitemap');
   for(const slug of ['kyyiv','sumy','vinnytsya','pivdenne','ternopil','zaporizhzhya','rivne','chernihiv','kolomyya','ivano-frankivsk','chernivtsi','lviv','cherkasy','berehove','uzhhorod','slavsko','dnipro','zhytomyr','vynohradiv','yasinya','tyachiv','irpin','skole'])assert.match(sitemap.body,new RegExp(`tourist-tax/${slug}/`));
   for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place)))assert.doesNotMatch(sitemap.body,new RegExp(`tourist-tax/${place.slug}/`),`sitemap contains unreleased place: ${place.slug}`);
+});
+
+test('confirmed rates register exposes only published verified city records',async()=>{
+  const response=await request('/tourist-tax/rates/');
+  assert.equal(response.status,200);
+  assert.match(response.body,/<title>Ставки туристичного збору 2026: реєстр міст \| VDALO<\/title>/);
+  assert.match(response.body,/<meta name="robots" content="index,follow">/);
+  assert.match(response.body,/<link rel="canonical" href="https:\/\/www\.vdalo\.tech\/tourist-tax\/rates\/">/);
+  assert.match(response.body,/<script src="\/tourist-tax-assets\/tourist-tax-rates\.js" defer><\/script>/);
+  assert.match(response.body,/Пошук за містом, громадою або КАТОТТГ/);
+  assert.match(response.body,/id="tt-rates-year"/);
+  assert.match(response.body,/Категорія туризму/);
+  assert.match(response.body,/id="tt-rates-status"/);
+  assert.match(response.body,/Офіційне джерело та перевірка/);
+  assert.equal((response.body.match(/class="tt-rates-status(?: is-review)?"/g)||[]).length,28);
+  assert.equal((response.body.match(/class="tt-rates-status"/g)||[]).length,27,'only 27 entries should show confirmed status');
+  for(const place of touristTaxPlaces.filter(place=>canIndexTouristTaxPlace(place))) assert.ok(response.body.includes(`href="${place.route}"`),`${place.slug} should appear in the register`);
+  assert.match(response.body,/href="\/tourist-tax\/odesa\/"/,'the existing conflicted Odesa page should be listed for review');
+  const odesaRow=response.body.match(/<tr data-search="[^"]*одеса[^"]*"[\s\S]*?<\/tr>/)?.[0]||'';
+  assert.match(odesaRow,/Суперечність джерел\. Розрахунок недоступний/);
+  assert.doesNotMatch(odesaRow,/\d[,.]\d+%/,'a conflicted rate must not be published in the register');
+  assert.doesNotMatch(response.body,/href="\/tourist-tax\/aktove\//,'unreleased locations must not appear as city pages');
+  const asset=await request('/tourist-tax-assets/tourist-tax-rates.js');
+  assert.equal(asset.status,200);
+  assert.match(asset.body,/tt-rates-filters/);
+  const noSlash=await request('/tourist-tax/rates');
+  assert.equal(noSlash.status,308);
+  assert.equal(noSlash.headers.Location,'/tourist-tax/rates/');
 });
 
 test('tourist-tax funnel route is served with analytics, privacy, accessibility and both video assets',async()=>{
@@ -136,6 +168,7 @@ test('only released city routes resolve through the actual app router',async()=>
       assert.match(response.body,/name="robots" content="noindex,follow"/);
       assert.match(response.body,/Чому зараз немає розрахунку/);
       assert.doesNotMatch(response.body,/id="tt-calculator"/);
+      assert.match(response.body,/href="\/tourist-tax\/rates\/"/);
     }else{
       assert.equal(response.status,404,`unreleased route should be unavailable: ${place.route}`);
       assert.match(response.body,/name="robots" content="noindex,follow"/);

@@ -7,6 +7,32 @@ import {canCalculateTouristTaxPlace,canIndexTouristTaxPlace,hasPlaceSeoBlock,tou
 import {touristTaxReleasePlan} from '../versions/v1/tourist-tax-release.mjs';
 import {renderTouristTaxFunnel} from '../microlandings/tourist-tax-funnel.mjs';
 import {handleTop5Lead} from '../microlandings/top5-leads.mjs';
+import {touristTaxCityEditorialFaq,touristTaxCityIntroductions} from '../versions/v1/tourist-tax-editorial.mjs';
+
+test('supplemental city FAQs cover the 27 indexable city pages without tax figures',()=>{
+  const expectedSlugs=['lutsk','berehove','cherkasy','chernihiv','chernivtsi','dnipro','irpin','ivano-frankivsk','khust','kolomyya','kyyiv','lviv','pivdenne','polyana','rivne','skole','slavsko','sumy','ternopil','tyachiv','uzhhorod','vinnytsya','vynohradiv','yaremche','yasinya','zaporizhzhya','zhytomyr'];
+  assert.deepEqual(Object.keys(touristTaxCityEditorialFaq).sort(),expectedSlugs.sort());
+  for(const [slug,item] of Object.entries(touristTaxCityEditorialFaq)){
+    assert.ok(item.question&&item.answer,`${slug} has a complete FAQ item`);
+    assert.doesNotMatch(`${item.question} ${item.answer}`,/\d|%|\u2014/,`${slug} supplemental copy contains no tax figures or em dash`);
+    const page=renderTouristTaxCity(slug);
+    assert.ok(page.includes(item.question),`${slug} page renders its local FAQ`);
+    assert.ok(page.includes(item.answer),`${slug} page renders the local answer`);
+    const structuredData=[...page.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match=>JSON.parse(match[1]));
+    assert.ok(structuredData.some(data=>data['@graph']?.some(node=>node['@type']==='FAQPage'&&node.mainEntity?.some(question=>question.name===item.question))),`${slug} local FAQ is represented in structured data`);
+  }
+});
+
+test('city introductions cover every indexable locality without rates or em dashes',()=>{
+  const expectedSlugs=['lutsk','berehove','cherkasy','chernihiv','chernivtsi','dnipro','irpin','ivano-frankivsk','khust','kolomyya','kyyiv','lviv','pivdenne','polyana','rivne','skole','slavsko','sumy','ternopil','tyachiv','uzhhorod','vinnytsya','vynohradiv','yaremche','yasinya','zaporizhzhya','zhytomyr'];
+  assert.deepEqual(Object.keys(touristTaxCityIntroductions).sort(),expectedSlugs.sort());
+  for(const [slug,introduction] of Object.entries(touristTaxCityIntroductions)){
+    assert.ok(introduction.length>=60,`${slug} has a useful local introduction`);
+    assert.doesNotMatch(introduction,/[\d%\u2014]/,`${slug} introduction contains no unverified numeric claim or em dash`);
+    const page=renderTouristTaxCity(slug);
+    assert.ok(page.includes(`<p class="tt-city-intro">${introduction}</p>`),`${slug} page renders the local introduction`);
+  }
+});
 
 test('exact rational calculation rounds once after guest-days are multiplied',()=>{
   assert.equal(calculateExactTouristTaxCents({minimumWage:8647,ratePercent:0.5,guests:2,nights:3}).toString(),'25941');

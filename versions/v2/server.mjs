@@ -54,7 +54,7 @@ async function lead(req,res,kind) {
  if (limited(req)) return send(res,429,{ok:false,message:'Забагато спроб. Будь ласка, спробуйте трохи пізніше.'});
  if (!req.headers['content-type']?.startsWith('application/json')) return send(res,415,{ok:false,message:'Непідтримуваний формат запиту.'});
  if (req.headers.origin) {
-  const allowed = new Set([origin, `http://${req.headers.host}`]);
+  const allowed = new Set([origin, `http://${req.headers.host}`, `https://${req.headers.host}`]);
   if (!allowed.has(req.headers.origin)) return send(res,403,{ok:false,message:'Надсилання з іншого сайту недоступне.'});
  }
  let body='';

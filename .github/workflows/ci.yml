@@ -1,0 +1,32 @@
+name: VDALO Docker deploy parity
+
+on:
+  pull_request:
+    branches: [staging, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-parity-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  candidate:
+    name: Candidate server pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request merge revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Build the deploy image
+        run: docker build -f deploy/Dockerfile -t vdalo/site:candidate-${{ github.sha }} .
+
+      - name: Run server tests inside the image
+        run: docker run --rm --network=none vdalo/site:candidate-${{ github.sha }} sh -c 'node --test tests/*.test.mjs'
+
+      - name: Run schema validation inside the image
+        run: docker run --rm --network=none vdalo/site:candidate-${{ github.sha }} node scripts/validate-schema.mjs
