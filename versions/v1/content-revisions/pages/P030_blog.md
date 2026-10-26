@@ -24,37 +24,37 @@
 
 Що означає PMS і як вона працює в готелі. Бронювання, номерний фонд, гості, відмінності від Channel Manager та критерії перевірки системи.
 
-https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu
+[Відкрити матеріал: Що таке PMS для готелю: функції, приклади та межі системи](https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu)
 
 ### Як обрати PMS для готелю: 25 критеріїв, тести й матриця рішення
 
 25 критеріїв вибору PMS: бронювання, канали, міграція, дані, підтримка й повна вартість. Тести на демо та оцінювання неперевірених вимог.
 
-https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu
+[Відкрити матеріал: Як обрати PMS для готелю: 25 критеріїв, тести й матриця рішення](https://www.vdalo.tech/blog/yak-obraty-pms-dlya-gotelyu)
 
 ### Прямі бронювання готелю: від заявки на сайті до запису в PMS
 
 Як перевірити віджет бронювання готелю: доступність, підтвердження, синхронізацію з PMS та економіку прямого каналу без завищених обіцянок.
 
-https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu
+[Відкрити матеріал: Прямі бронювання готелю: від заявки на сайті до запису в PMS](https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu)
 
 ### Як перейти на нову PMS: план міграції та перевірки готельних даних
 
 План міграції готелю на нову PMS: експорт, відповідність полів, тестовий імпорт, перевірка сум, перемикання каналів і резервний порядок роботи.
 
-https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh
+[Відкрити матеріал: Як перейти на нову PMS: план міграції та перевірки готельних даних](https://www.vdalo.tech/blog/perehid-na-pms-bez-vtraty-danyh)
 
 ### Шахматка готелю: як читати бронювання, доступність і блокування
 
 Як читати шахматку бронювань готелю: дати, категорії, статуси, ремонти й переселення. Приклад однієї ночі та перевірка календаря перед зміною.
 
-https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu
+[Відкрити матеріал: Шахматка готелю: як читати бронювання, доступність і блокування](https://www.vdalo.tech/blog/shakhmatka-bronyuvan-gotelyu)
 
 ### Channel Manager чи iCal: що обрати для синхронізації бронювань
 
 Порівняння iCal і Channel Manager: які дані передаються, звідки беруться затримки та як перевірити синхронізацію бронювань до запуску.
 
-https://www.vdalo.tech/blog/channel-manager-ical-gotelyu
+[Відкрити матеріал: Channel Manager чи iCal: що обрати для синхронізації бронювань](https://www.vdalo.tech/blog/channel-manager-ical-gotelyu)
 
 ## Гість і команда
 
@@ -62,19 +62,19 @@ https://www.vdalo.tech/blog/channel-manager-ical-gotelyu
 
 Як продавати сніданки, SPA й трансфери через зрозумілий каталог: картка послуги, заявка, підтвердження, виконання та оцінка економічного ефекту.
 
-https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy
+[Відкрити матеріал: Як готелю продавати додаткові послуги: від каталогу до виконаного замовлення](https://www.vdalo.tech/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy)
 
 ### Підготовка до заселення: що гість і команда мають знати до заїзду
 
 Що перевірити до заїзду гостя: бронювання, оплату, готовність номера, інструкції, пізнє прибуття та резервний контакт. Приклад повідомлення.
 
-https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya
+[Відкрити матеріал: Підготовка до заселення: що гість і команда мають знати до заїзду](https://www.vdalo.tech/blog/pidhotovka-zaselennya-gostya)
 
 ### Готовність номера: як узгодити статуси housekeeping і рецепції
 
 Як передавати статус номера між прибиранням і рецепцією: відповідальні, перевірка, технічні блоки, ранні заїзди та показники роботи команди.
 
-https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping
+[Відкрити матеріал: Готовність номера: як узгодити статуси housekeeping і рецепції](https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping)
 
 ## QR у готелі
 
@@ -82,19 +82,19 @@ https://www.vdalo.tech/blog/status-gotovnosti-nomera-housekeeping
 
 35 способів використати QR у готелі: Wi-Fi, меню, інформація для гостей, бронювання та робота команди. Як вибрати сценарій і перевірити результат.
 
-https://www.vdalo.tech/blog/qr-kody-dlya-goteliv
+[Відкрити матеріал: QR-коди для готелів: 35 сценаріїв із перевіркою результату](https://www.vdalo.tech/blog/qr-kody-dlya-goteliv)
 
 ### Як зробити QR-код Wi-Fi для гостей готелю
 
 Покрокове створення Wi-Fi QR для гостей: SSID, захист, пароль, тестування iPhone та Android, друк і заміна карток після зміни мережі.
 
-https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu
+[Відкрити матеріал: Як зробити QR-код Wi-Fi для гостей готелю](https://www.vdalo.tech/blog/qr-wifi-dlya-gotelyu)
 
 ### QR-картка в номер готелю: тексти, структура та перевірка друку
 
 Що розмістити на QR-картці в номері: Wi-Fi, довідник і контакт рецепції. Три шаблони текстів, перевірка макета та порядок оновлення карток.
 
-https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu
+[Відкрити матеріал: QR-картка в номер готелю: тексти, структура та перевірка друку](https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu)
 
 ## Туристичний збір
 
@@ -102,13 +102,13 @@ https://www.vdalo.tech/blog/qr-kartka-v-nomer-gotelyu
 
 Хто сплачує туристичний збір у 2026 році, як перевірити ставку громади, врахувати пільги, оформити облік і відокремити оплату гостя від звітності.
 
-https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina
+[Відкрити матеріал: Туристичний збір у 2026 році: правила для гостей і готелів](https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina)
 
 ### Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів
 
 Формула туристичного збору у 2026 році та сім навчальних прикладів: людино-доби, різні категорії гостей, пільги й округлення підсумкової суми.
 
-https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026
+[Відкрити матеріал: Як розрахувати туристичний збір у 2026 році: формула та 7 прикладів](https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026)
 
 ## Перша автоматизація
 
@@ -116,7 +116,7 @@ https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026
 
 Як вибрати першу задачу автоматизації готелю: частота, ручний час, винятки, ризик, тест і перевірка результатів. Картка процесу й приклад розрахунку.
 
-https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym
+[Відкрити матеріал: Що автоматизувати в готелі першим: метод вибору та перевірки](https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym)
 
 ## Маркетинг ресторану й ресторанної зони готелю
 
@@ -124,7 +124,7 @@ https://www.vdalo.tech/blog/shcho-avtomatyzuvaty-v-goteli-pershym
 
 Як пов’язати QR, мобільну пропозицію, запит, підтвердження й фактичне замовлення. Відгуки, UTM і робота команди після звернення.
 
-[Читати посібник](https://www.vdalo.tech/blog/qr-kody-dlya-restoranu)
+[Відкрити матеріал: QR-коди для ресторану: від меню до підтвердженого замовлення](https://www.vdalo.tech/blog/qr-kody-dlya-restoranu)
 
 ## Практичні кейси й інструменти
 

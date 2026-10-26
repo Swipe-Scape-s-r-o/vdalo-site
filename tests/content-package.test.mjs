@@ -54,7 +54,9 @@ test('23 deferred product pages and all 13 new funnels retain their content beyo
   const {html}=await rendered(route);
   // This release intentionally adds only these links and the integration-page
   // bridge to the old chrome; continue comparing every other byte to the baseline.
-  const previousChrome=html
+  let previousChrome=html
+   // Header navigation is deliberately updated for the requested simpler menu.
+   .replace(/<header class="header">[\s\S]*?<\/header>/,'')
    // Approved shared invitation is outside all original page content/forms.
    .replace(renderTrialOffer(),'')
    .replace(/<link rel="stylesheet" href="\/v1\/trial-offer\.css\?v=[a-f0-9]{12}"><script src="\/v1\/trial-offer\.js\?v=[a-f0-9]{12}" defer><\/script>/g,'')
@@ -64,6 +66,8 @@ test('23 deferred product pages and all 13 new funnels retain their content beyo
    .replace(/<li class="nav-item nav-item-level-2"><a href="\/partners">Партнери та інтегратори<\/a><\/li>/g,'')
    .replace(/<a href="\/partners">Партнери та інтегратори<\/a>/g,'')
    .replace(/<section class="seo-section partner-integration-bridge"[^>]*>[\s\S]*?<\/section>/g,'');
+  // The current content pass adds a practical checklist to feature pages.
+  previousChrome=previousChrome.replace(/<section class="seo-section"><div class="seo-content"><p class="eyebrow">ПРАКТИЧНИЙ ЧЕКЛІСТ<\/p>[\s\S]*?<\/section>/g,'');
   assert.equal(portableHtmlHash(previousChrome),hash.portableSha256,route);
   assert.equal(applyPreparedContent(html,route),html,route);
  }
@@ -78,8 +82,9 @@ test('article schema, author, visible dates and real publication dates agree',as
   assert.equal(article.headline,page.h1,page.route);
   assert.equal(article.description,page.description,page.route);
   assert.equal(article.dateModified,'2026-10-23',page.route);
-  if(page.route.includes('qr-kody-dlya-restoranu'))assert.match(article.author.url,/kostiantyn-tripailo$/);
-  else assert.match(article.author.url,/oleh-stepeniev$/);
+  const expectedAuthor=page.route.includes('qr-kody-dlya-restoranu')?'kostiantyn-tripailo':'oleh-stepeniev';
+  assert.match(article.author.url,new RegExp(`${expectedAuthor}$`));
+  assert.ok(html.includes(`href="/authors/${expectedAuthor}"`),`${page.route}: visible author link should match Article schema`);
   if(page.route.startsWith('/cases/'))assert.equal(article.datePublished,undefined);
  }
  const first=await rendered('/blog/channel-manager-ical-gotelyu');

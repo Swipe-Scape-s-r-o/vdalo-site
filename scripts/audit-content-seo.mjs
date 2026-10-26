@@ -9,11 +9,13 @@ import { renderEditorialArticle, editorialArticles } from '../versions/v1/articl
 import { renderSecondPassArticle, secondPassArticles } from '../versions/v1/article-second-pass.mjs';
 import { renderPmsArticle, pmsArticle } from '../versions/v1/article-pms.mjs';
 import { renderPmsChoiceArticle, pmsChoiceArticle } from '../versions/v1/article-pms-choice.mjs';
-import { renderToolsIndex, renderPmsChecklist, renderHotelProfitabilityCalculator } from '../versions/v1/tools.mjs';
+import { renderToolsIndex, renderPmsChecklist, renderHotelProfitabilityCalculator, renderDirectBookingCostCalculator, renderHotelRoomCostCalculator, renderHousekeepingChecklist } from '../versions/v1/tools.mjs';
+import { renderAdminTimeCalculator, renderWebsiteChecklist, renderGuestMessageBuilder, renderHousekeepingWorkloadCalculator, renderCancellationCalculator, renderReviewReplyTemplates } from '../versions/v1/advanced-tools.mjs';
+import { renderResourceLibrary } from '../versions/v1/resource-library.mjs';
 import { renderSeoPage, seoRoutes } from '../versions/v1/seo-pages.mjs';
 import { renderOfferPage, renderRefundPage } from '../versions/v1/legal.mjs';
 import { privacyPage } from '../versions/v1/server.mjs';
-import { renderTouristTaxHub, renderTouristTaxCity } from '../versions/v1/tourist-tax.mjs';
+import { renderTouristTaxHub, renderTouristTaxCity, renderTouristTaxRates } from '../versions/v1/tourist-tax.mjs';
 import { touristTaxCityRoutes } from '../versions/v1/tourist-tax-data.mjs';
 import { renderTouristTaxFunnel } from '../microlandings/tourist-tax-funnel.mjs';
 
@@ -31,7 +33,17 @@ const pages = new Map([
   ['/tools/', renderToolsIndex()], ['/tools/pms-checklist/', renderPmsChecklist()],
   ['/tools/qr-studio/', qrStudioHtml],
   ['/tools/hotel-profitability-calculator/', renderHotelProfitabilityCalculator()],
-  ['/tourist-tax/', renderTouristTaxHub()], ['/tourist-tax/start', renderTouristTaxFunnel()],
+  ['/tools/direct-booking-cost-calculator/', renderDirectBookingCostCalculator()],
+  ['/tools/hotel-room-cost-calculator/', renderHotelRoomCostCalculator()],
+  ['/tools/housekeeping-checklist/', renderHousekeepingChecklist()],
+  ['/tools/hotel-admin-time-calculator/', renderAdminTimeCalculator()],
+  ['/tools/hotel-website-checklist/', renderWebsiteChecklist()],
+  ['/tools/guest-message-builder/', renderGuestMessageBuilder()],
+  ['/tools/housekeeping-workload-calculator/', renderHousekeepingWorkloadCalculator()],
+  ['/tools/hotel-cancellation-cost-calculator/', renderCancellationCalculator()],
+  ['/tools/hotel-review-response/', renderReviewReplyTemplates()],
+  ['/resources', renderResourceLibrary()],
+  ['/tourist-tax/', renderTouristTaxHub()], ['/tourist-tax/rates/', renderTouristTaxRates()], ['/tourist-tax/start', renderTouristTaxFunnel()],
   ...touristTaxCityRoutes().map(route => [route, renderTouristTaxCity(route.split('/').filter(Boolean).at(-1))]),
   [pmsArticle.slug, renderPmsArticle()], [pmsChoiceArticle.slug, renderPmsChoiceArticle()],
 ]);
@@ -45,6 +57,8 @@ const localAssets = new Set();
 const internalEdges = new Set();
 const incomingRoutes = new Set();
 for (const [route, html] of pages) {
+  const normalizedDashes = html.replace(/&mdash;|&#0*8212;|&#x0*2014;/gi, '\u2014');
+  if (normalizedDashes.includes('\u2014')) errors.push(`${route}: public HTML contains the prohibited U+2014 dash`);
   const title = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim();
   const description = html.match(/<meta\s+name="description"\s+content="([^"]*)"/i)?.[1];
   const canonical = html.match(/<link\s+rel="canonical"\s+href="([^"]*)"/i)?.[1];
@@ -85,6 +99,13 @@ for (const [route, html] of pages) {
       let targetPath = target.pathname;
       if (targetPath.endsWith('/') && targetPath !== '/') targetPath = targetPath.slice(0, -1);
       if (targetPath === '/tools') targetPath = '/tools/';
+      // Public downloads are allowlisted and byte-checked by the resource test,
+      // rather than rendered as HTML pages in this route audit.
+      if (targetPath.startsWith('/downloads/hotel/')) {
+        const filename = path.join(root, 'versions', 'v1', 'public', targetPath.replace(/^\//, ''));
+        if (!existsSync(filename)) errors.push(`${route}: linked public download is missing ${targetPath}`);
+        continue;
+      }
       const targetRoute = pages.has(targetPath) ? targetPath : pages.has(`${targetPath}/`) ? `${targetPath}/` : null;
       if (!targetRoute) errors.push(`${route}: internal link points to an unrendered route ${targetPath}`);
       else if (targetRoute !== route) {
@@ -104,15 +125,16 @@ for (const asset of localAssets) if (!existsSync(path.join(root, asset))) errors
 const articleRoutes = [pmsArticle.slug, pmsChoiceArticle.slug, ...editorialArticles.map(a => a.slug), ...secondPassArticles.map(a => a.slug)];
 for (const route of articleRoutes) {
   const html = pages.get(route) || '';
-  if (!html.includes('href="/authors/oleh-stepeniev"')) errors.push(`${route}: missing linked author attribution`);
+  const schemaText = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i)?.[1];
+  const graph = schemaText ? JSON.parse(schemaText) : {};
+  const posting = graph['@graph']?.find(node => ['BlogPosting', 'Article'].includes(node['@type'])) || graph;
+  const authorPath = typeof posting.author?.url === 'string' ? new URL(posting.author.url).pathname : null;
+  if (!authorPath || !html.includes(`href="${authorPath}"`)) errors.push(`${route}: visible author link does not match Article schema`);
   if (!html.includes('BlogPosting') && !html.includes('"@type":"Article"')) errors.push(`${route}: missing Article/BlogPosting structured data`);
   const published = html.match(/article:published_time" content="([^"]+)/)?.[1];
   const modified = html.match(/article:modified_time" content="([^"]+)/)?.[1];
   if (!published || !modified) errors.push(`${route}: missing publication/update metadata`);
-  const schemaText = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i)?.[1];
   if (schemaText) {
-    const parsed = JSON.parse(schemaText);
-    const posting = parsed['@graph']?.find(node => ['BlogPosting', 'Article'].includes(node['@type'])) || parsed;
     if (published && posting.datePublished !== published) errors.push(`${route}: visible publication date and schema differ`);
     if (modified && posting.dateModified !== modified) errors.push(`${route}: visible update date and schema differ`);
   }

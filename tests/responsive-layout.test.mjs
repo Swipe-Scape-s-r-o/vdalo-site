@@ -4,6 +4,9 @@ import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 
 const css=readFileSync(fileURLToPath(new URL('../versions/v1/public/refinement.css',import.meta.url)),'utf8');
+const seoCss=readFileSync(fileURLToPath(new URL('../versions/v1/public/seo-pages.css',import.meta.url)),'utf8');
+const touristTaxCss=readFileSync(fileURLToPath(new URL('../versions/v1/public/tourist-tax.css',import.meta.url)),'utf8');
+const cookieCss=readFileSync(fileURLToPath(new URL('../versions/v1/public/clarity-consent.css',import.meta.url)),'utf8');
 
 test('tablet homepage conversion actions align with copy instead of centering under it',()=>{
   assert.match(css,/\.ds2 \.hero-v3 \.hero-v2-actions\{align-items:flex-start;justify-content:flex-start\}/);
@@ -30,4 +33,13 @@ test('role tabs fit a 320px viewport without forcing page overflow',()=>{
 
 test('mobile integration cards shrink to their grid tracks',()=>{
   assert.match(css,/@media\(max-width:767px\)\{[\s\S]*?\.ds2 \.integration-orbit \.integration-channels li\{width:auto;max-width:100%\}/);
+});
+
+test('narrow phone headings and tourist-tax pages do not force a 320px minimum width',()=>{
+  assert.match(seoCss,/@media\(max-width:360px\)\{\.seo-hero-copy>h1\{font-size:clamp\(1\.9rem,9\.5vw,2\.1rem\)\}\}/);
+  assert.match(touristTaxCss,/body\{margin:0;min-width:0;/);
+});
+
+test('cookie consent actions fit narrow phones without horizontal overflow',()=>{
+  assert.match(cookieCss,/@media\(max-width:360px\)\{\.cookie-consent-actions\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)\}\.cookie-consent-actions \.cookie-reject\{grid-column:1\/-1;justify-self:center\}\}/);
 });

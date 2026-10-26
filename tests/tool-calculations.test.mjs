@@ -72,9 +72,10 @@ test('new calculators have canonical metadata, visible controls, honest wording 
  assert.ok(index.includes('/tools/direct-booking-cost-calculator/'));
  assert.ok(index.includes('/tools/hotel-room-cost-calculator/'));
  assert.ok(index.includes('/tools/housekeeping-checklist/'));
+ assert.equal([...index.matchAll(/<article class="tool-card"/g)].length,[...index.matchAll(/class="tool-card-icon" aria-hidden="true"/g)].length,'every tool listing card should have a decorative, accessible icon');
  assert.match(housekeeping,/<h1>Перевірте номер перед передаванням рецепції<\/h1>/);
  assert.equal((housekeeping.match(/data-housekeeping-item="H\d\d"/g)||[]).length,20);
- assert.match(housekeeping,/Він не підтверджує фізичний стан номера/);
+ assert.match(housekeeping,/Остаточне рішення щодо готовності приймає відповідальна людина після фізичної перевірки/);
  assert.doesNotMatch(housekeeping,/[\u2014]/);
  assert.ok(index.includes('/resources'));
 });
@@ -148,7 +149,8 @@ test('manual website checklist is complete, local-only and has a usable real exp
  assert.equal(websiteChecklistItems.length,24);
  assert.match(html,/<h1>Перевірте сайт готелю перед наступним бронюванням<\/h1>/);
  assert.equal((html.match(/data-web-item="W\d\d"/g)||[]).length,24);
- assert.match(html,/не сканує сайт і не надсилає дані на сервер/);
+ assert.match(html,/РУЧНА ПЕРЕВІРКА ШЛЯХУ ГОСТЯ/i);
+ assert.match(html,/локального файлу експорту/i);
  assert.match(html,/data-web-export disabled/);
  assert.match(html,/data-web-reset/);
  assert.doesNotMatch(html,/[—]/);
@@ -161,7 +163,7 @@ test('guest message builder has three scenarios, two languages and does not clai
  assert.match(html,/data-message-language/);
  assert.match(html,/value="group_offer"/);
  assert.match(html,/value="feedback"/);
- assert.match(html,/не надсилається, не зберігається на сервері/);
+ assert.match(html,/Чернетка формується у браузері/);
  assert.match(client,/data-message-build/);
  assert.match(client,/data-message-copy/);
  assert.doesNotMatch(html,/[—]/);
@@ -176,7 +178,8 @@ test('guest message builder has three scenarios, two languages and does not clai
 test('review reply page offers a template-only local workflow and has no AI or auto-publish claim',async()=>{
  const html=renderReviewReplyTemplates(),client=await readFile(new URL('../versions/v1/public/tools.js',import.meta.url),'utf8');
  assert.match(html,/<h1>Підготуйте відповідь на відгук<\/h1>/);
- assert.match(html,/Немає генерації AI|немає генерації AI/);
+ assert.match(html,/без AI та автоматичного надсилання/i);
+ assert.match(html,/Текст формується у браузері та не надсилається на сервер/);
  assert.match(html,/data-review-build/);
  assert.match(client,/data-review-template/);
  assert.doesNotMatch(html,/[—]/);

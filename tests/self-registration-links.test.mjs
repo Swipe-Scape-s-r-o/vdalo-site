@@ -20,14 +20,16 @@ test('self-registration links include source UTM tags and login uses the product
   assert.equal(loginHref,'https://app.vdalo.tech/app/login');
 });
 
-test('site header exposes registration and login on desktop and mobile navigation',()=>{
+test('site header keeps login and removes contact and trial actions from desktop and mobile navigation',()=>{
   const html=renderPage({full:true});
-  assert.match(html,/href="https:\/\/app\.vdalo\.tech\/signup\?[^\"]*utm_content=header_desktop/);
-  assert.match(html,/href="https:\/\/app\.vdalo\.tech\/app\/login"/);
-  assert.match(html,/utm_content=header_mobile/);
+  const header=html.match(/<header class="header">[\s\S]*?<\/header>/)?.[0]||'';
+  assert.ok(header);
+  assert.match(header,/class="header-login" href="https:\/\/app\.vdalo\.tech\/app\/login"/);
+  assert.match(header,/class="mobile-login" href="https:\/\/app\.vdalo\.tech\/app\/login"/);
+  assert.doesNotMatch(header,/utm_content=header_(?:desktop|mobile)|mobile-audit|Спробувати безкоштовно|Зв’язатися/);
   const css=readFileSync(fileURLToPath(new URL('../versions/v1/public/design-system-2.css',import.meta.url)),'utf8');
   assert.ok(css.includes('.ds2 .header-actions>.header-login{display:none}'));
-  assert.ok(css.includes('.ds2 .mobile-audit{display:flex!important'));
+  assert.match(header,/class="mobile-login"/);
 });
 
 test('homepage hero begins direct self-registration and keeps demo as a separate CTA',()=>{
