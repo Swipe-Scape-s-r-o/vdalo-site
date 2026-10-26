@@ -23,6 +23,37 @@ install -d "$STATE" "$(dirname "$LOG")"
 exec >>"$LOG" 2>&1
 echo "---- $(date -u +%FT%TZ) check ----"
 
+# Attach the newest deployment output to build/test failure alerts. Keep the
+# message below Telegram's size limit while retaining up to the last 30 lines.
+last_deploy_log_lines() {
+  local -a lines=()
+  mapfile -t lines < <(tail -n 30 "$LOG" 2>/dev/null || true)
+
+  local details="" candidate line
+  local i
+  for ((i=${#lines[@]} - 1; i >= 0; i--)); do
+    line="${lines[$i]}"
+    if ((${#line} > 220)); then
+      line="${line:0:219}…"
+    fi
+    if [[ -n "$details" ]]; then
+      candidate="$line"$'\n'"$details"
+    else
+      candidate="$line"
+    fi
+    ((${#candidate} <= 3000)) || break
+    details="$candidate"
+  done
+  printf '%s' "$details"
+}
+
+alert_deploy_failure_with_log() {
+  local summary="$1"
+  local details
+  details=$(last_deploy_log_lines)
+  "$ALERT" deploy-failed "$summary"$'\n''Last 30 deployment log lines:'$'\n'"$details"
+}
+
 [[ -d "$REPO/.git" ]] || { echo "repo missing at $REPO"; exit 0; }
 
 # Git ops run as deploy (repo and worktrees are deploy-owned). Build/docker
@@ -109,7 +140,7 @@ run_update() {
 
   # Build + tests inside builds.slice. Only SHA-tag now; moving tag goes after smoke.
   # Tests run INSIDE the freshly built image so we don't need Node on the host.
-  if ! systemd-run --quiet --wait --slice=builds.slice --unit="vdalo-build-$branch-$$" \
+  if ! systemd-run --quiet --wait --pipe --slice=builds.slice --unit="vdalo-build-$branch-$$" \
         --working-directory="$wt" \
         /bin/sh -c "
           set -e
@@ -118,7 +149,7 @@ run_update() {
           docker run --rm --network=none vdalo/site:$image_tag-$new node scripts/validate-schema.mjs
         "; then
     echo "[$branch] build/test failed for $new"
-    "$ALERT" deploy-failed "build/test failed on $branch@$new"
+    alert_deploy_failure_with_log "build/test failed on $branch@$new"
     echo "$new" >"$last_seen_file"
     "${GIT_AS_DEPLOY[@]}" worktree remove --force "$wt" 2>/dev/null || rm -rf "$wt"
     return 1
