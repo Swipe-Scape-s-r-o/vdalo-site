@@ -36,7 +36,15 @@ test('every existing form preserves its action, fields, required constraints and
   const {html}=await rendered(page.route);
   // The shared invitation now contains its own contact form. Keep every
   // original page form contract byte-for-byte outside this explicit addition.
-  assert.deepEqual(formContract(html.replace(renderTrialOffer(),'')),baseline[page.route],page.route);
+  const withoutOffer=html.replace(renderTrialOffer(),'');
+  if(page.route==='/tourist-tax/odesa/'){
+   const odesaForm=elements(withoutOffer).find(node=>node.tag==='form'&&node.attrs.id==='tourist-tax-calculator');
+   assert.ok(odesaForm,'released Odesa calculation page should expose its date-aware calculator');
+   assert.equal(odesaForm.attrs.action,'/api/tourist-tax/calculate');
+   for(const name of ['start','days','domesticGuests','inboundGuests','exemption'])assert.ok(elements(withoutOffer).some(node=>node.attrs.name===name),`Odesa calculator should retain ${name}`);
+   assert.equal(formContract(withoutOffer).length,1,'Odesa now has one intentionally added calculator form');
+   assert.deepEqual(formContract(withoutOffer.replace(/<form class="tt-calc" id="tourist-tax-calculator"[\s\S]*?<\/form>/,'')),baseline[page.route],page.route);
+  }else assert.deepEqual(formContract(withoutOffer),baseline[page.route],page.route);
  }
 });
 

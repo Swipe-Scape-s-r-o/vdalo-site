@@ -37,16 +37,12 @@ test('all marketing funnel families exclude offer markup, scripts and styles',as
  }
 });
 
-test('ordinary tax pages outside the sitemap also opt in, preserving their noindex policy',async()=>{
- let unindexed=0;
- for(const place of touristTaxPlaces){
-  const response=await renderRouteForReview(place.route);
-  if(response.status===404){assert.doesNotMatch(response.html,/data-site-trial-offer/);continue;}
-  assert.equal(response.status,200,place.route);
-  assert.match(response.html,/data-site-trial-offer/,place.route);
-  if(/name="robots" content="noindex/.test(response.html))unindexed++;
- }
- assert.ok(unindexed>0,'known ordinary noindex pages remain covered');
+test('the newly released Odesa city page opts into the site offer and indexation',async()=>{
+ const place=touristTaxPlaces.find(item=>item.slug==='odesa');
+ const response=await renderRouteForReview(place.route);
+ assert.equal(response.status,200,place.route);
+ assert.match(response.html,/data-site-trial-offer/);
+ assert.match(response.html,/name="robots" content="index,follow"/);
 });
 
 test('legacy funnel redirects preserve campaign parameters without an offer',async()=>{
