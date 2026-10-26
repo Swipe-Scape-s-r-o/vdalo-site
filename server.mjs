@@ -46,12 +46,12 @@ const types={'.css':'text/css; charset=utf-8','.js':'text/javascript; charset=ut
 const gtmHead=`<script>(function(w,d,s,l,i){w.__vdaloLoadGoogleTags=function(){if(w.__vdaloGoogleTagsLoaded)return;w.__vdaloGoogleTagsLoaded=true;w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;d.head.appendChild(j);};if(w.vdaloConsent&&w.vdaloConsent.getPreferences().analytics)w.__vdaloLoadGoogleTags();})(window,document,'script','dataLayer','GTM-PKDT7MMT');</script>`;
 const calloAttributionPrelude=`<script>(function(){try{var url=new URL(window.location.href),tag=url.searchParams.get('t');if(tag){window.__vdaloCalloTag=tag;url.searchParams.delete('t');history.replaceState(history.state,'',url.pathname+(url.search?url.search:'')+url.hash);}}catch(_){}})();</script>`;
 const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/svg+xml">';
-const touristTaxRoutes=['/tourist-tax/','/tourist-tax/rates/',...touristTaxCityRoutes()];
+const touristTaxRoutes=['/tourist-tax/','/tourist-tax/rates/','/tourist-tax/start',...touristTaxCityRoutes()];
 const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles,touristTaxRoutes});
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
 // Ordinary published pages opt in. Campaign /q*, /k*, /go*, numeric video,
-// /funnel* and /tourist-tax/start routes are deliberately outside this set.
-const trialOfferRoutes=new Set([...publicSitemapRoutes,...touristTaxPlaces.map(place=>place.route),'/v1/','/v1/privacy','/tools/qr-studio/index.html']);
+// Advertising funnels stay outside this set. /tourist-tax/start is an indexable guide page.
+const trialOfferRoutes=new Set([...publicSitemapRoutes.filter(route=>route!=='/tourist-tax/start'),...touristTaxPlaces.map(place=>place.route),'/v1/','/v1/privacy','/tools/qr-studio/index.html']);
 const sitemapLastModifiedByRoute=new Map([
  ['/authors/kostiantyn-tripailo','2026-10-23'],
  ['/partners','2026-10-24'],

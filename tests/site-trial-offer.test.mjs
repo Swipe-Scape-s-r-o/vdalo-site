@@ -14,7 +14,7 @@ test('every published ordinary route receives exactly one offer, form and contro
  const sitemap=await renderRouteForReview('/sitemap.xml');
  const routes=[...sitemap.html.matchAll(/<loc>https:\/\/www\.vdalo\.tech([^<]*)<\/loc>/g)].map(m=>m[1]);
  assert.ok(routes.length>80);
- for(const route of [...routes,'/v1/','/v1/privacy','/tools/qr-studio/index.html']){
+ for(const route of [...routes.filter(route=>route!=='/tourist-tax/start'),'/v1/','/v1/privacy','/tools/qr-studio/index.html']){
   const response=await renderRouteForReview(route);
   assert.equal(response.status,200,route);
   assert.equal((response.html.match(/\bdata-site-trial-offer\b/g)||[]).length,1,route);
