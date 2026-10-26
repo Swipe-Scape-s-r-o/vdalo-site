@@ -2,7 +2,7 @@
 # ponytail: /etc/vdalo/alerts.env (empty, owner fills), /opt/vdalo/deploy/vdalo-alerts.sh, 3 timers:
 #  - vdalo-health (site reachable)
 #  - vdalo-disk (>=80% warn)
-#  - vdalo-docker-prune (daily, keeps last cache)
+#  - vdalo-docker-prune (daily: old vdalo/site images + build cache; keeps main, staging, last-ok)
 set -euo pipefail
 [[ $EUID -eq 0 ]] || { echo "run as root"; exit 1; }
 
@@ -13,6 +13,8 @@ if [[ ! -f /etc/vdalo/alerts.env ]]; then
 # Fill via: sudo /usr/local/sbin/vdalo-alerts setup
 # (The command hides the bot token on input, pulls chat_id from Telegram getUpdates,
 #  writes this file, and sends a test alert. Nothing secret prints to screen.)
+# TG_CHAT_ID: one id, or several separated by commas (111,222).
+# Add a recipient without touching the token: sudo /usr/local/sbin/vdalo-alerts add-recipient <id>
 TG_BOT_TOKEN=
 TG_CHAT_ID=
 EOF
@@ -21,6 +23,8 @@ EOF
 fi
 
 install -m 755 /opt/vdalo/deploy/vdalo-alerts.sh /usr/local/sbin/vdalo-alerts
+# Root-скрипт чистки ставимо копією в /usr/local/sbin (як vdalo-alerts), а не запускаємо з /opt/vdalo/deploy.
+install -m 755 /opt/vdalo/deploy/vdalo-docker-prune.sh /usr/local/sbin/vdalo-docker-prune
 
 echo "== systemd units =="
 cat >/etc/systemd/system/vdalo-health.service <<'EOF'
@@ -61,12 +65,13 @@ EOF
 
 cat >/etc/systemd/system/vdalo-docker-prune.service <<'EOF'
 [Unit]
-Description=VDALO docker build cache prune (keeps latest layers)
+Description=VDALO docker prune (old vdalo/site images and build cache; keeps main, staging, last-ok)
 [Service]
 Type=oneshot
 Slice=builds.slice
-ExecStart=/usr/bin/docker buildx prune --filter until=168h --force
-ExecStart=/usr/bin/docker image prune --filter until=168h --force
+# Вік у днях; змінити: sudo systemctl edit vdalo-docker-prune.service
+Environment=VDALO_PRUNE_DAYS=3
+ExecStart=/usr/local/sbin/vdalo-docker-prune
 EOF
 cat >/etc/systemd/system/vdalo-docker-prune.timer <<'EOF'
 [Unit]
