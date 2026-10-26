@@ -1,5 +1,6 @@
 import {canCalculateTouristTaxPlace, canIndexTouristTaxPlace, getTouristTaxPlace, getTouristTaxRule, hasPlaceSeoBlock, touristTaxCommunities, touristTaxPlaces, touristTaxSources} from './tourist-tax-data.mjs';
 import {touristTaxDashboard2026} from './tourist-tax-dashboard-data.mjs';
+import {touristTaxCityEditorialFaq} from './tourist-tax-editorial.mjs';
 import {assetVersion} from './assets.mjs';
 import {writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
@@ -314,6 +315,7 @@ export function renderTouristTaxCity(slug) {
   const faqItems=[
     {question:`Які ставки туристичного збору діють ${placeLocativePhrase(place)}?`,answer:faqRates},
     ...(odesa2026Rule?[{question:'Коли почне діяти ставка 1% для іноземців в Одесі?',answer:'ДПС повідомила про ставку 1% за рішенням №4314-VIII, але в її повідомленні не вказано дату застосування. Загальне правило підпункту 12.4.3 Податкового кодексу передбачає набрання чинності змінами, що змінюють податкові зобов’язання, з початку бюджетного періоду. Тому немає підстав застосовувати 1% посеред 2026 року лише з дати рішення. Для 2027 року дату та ставку потрібно звірити з повним текстом рішення й оновленою формою ДПС.'}]:[]),
+    ...(touristTaxCityEditorialFaq[place.slug]?[touristTaxCityEditorialFaq[place.slug]]:[]),
     {question:'Як рахуються доби проживання?',answer:'Податковий кодекс визначає добу як 24 години між двома послідовними розрахунковими годинами. Звірте період проживання з годинами, встановленими вашим об’єктом.'},
     {question:'Чи враховує калькулятор пільги?',answer:'Ні. Він показує орієнтовну суму до врахування можливої пільги. Підставу й документи перевірте з податковим агентом.'},
     {question:'Чи можна використовувати результат для звітності?',answer:'Використовуйте його для попередньої оцінки. Для обліку та декларації застосовуйте фактичні дані проживання, чинні першоджерела, документи та вимоги податкового законодавства.'},
