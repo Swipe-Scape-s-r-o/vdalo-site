@@ -11,7 +11,7 @@ const auditButton=(text='Обговорити процеси',kind='audit',inter
 const cta=(title,copy,text,kind='audit')=>`<section class="seo-cta"><div><p class="eyebrow">НАСТУПНИЙ КРОК</p><h2>${title}</h2><p>${copy}</p></div>${auditButton(text,kind,title)}</section>`;
 const list=items=>`<ul class="seo-checklist">${items.map(x=>`<li>${e(x)}</li>`).join('')}</ul>`;
 const cards=items=>`<div class="seo-card-grid">${items.map(([title,copy,url,label])=>`<article class="seo-card"><h3>${e(title)}</h3><p>${e(copy)}</p>${url.startsWith('/')?`<a href="${url}">${e(label||'Дізнатися більше')} <span aria-hidden="true">↗</span></a>`:''}</article>`).join('')}</div>`;
-const section=(eyebrow,title,body)=>`<section class="seo-section"><div class="seo-content"><p class="eyebrow">${e(eyebrow)}</p><h2>${title}</h2>${body}</div></section>`;
+const section=(eyebrow,title,body)=>`<section class="seo-section"><div class="seo-content">${eyebrow?`<p class="eyebrow">${e(eyebrow)}</p>`:''}<h2>${title}</h2>${body}</div></section>`;
 const commonLinks={integrations:['/integrations','інтеграції'],calendar:['/hotel-booking-calendar','календар бронювань'],checkin:['/hotel-check-in','підготовка до заїзду'],operations:['/hotel-operations','операційні процеси'],communication:['/guest-communication','комунікація з гостем'],automation:['/hotel-automation','автоматизація процесів'],pricing:['/pricing','тарифи'],registration:['/sign-up','як почати роботу']};
 
 const pages={
