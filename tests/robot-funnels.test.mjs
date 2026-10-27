@@ -26,6 +26,16 @@ test('all robot funnels render with lean property and contact fields, no city or
  }
 });
 
+test('robot funnel contact forms never fall back to GET or expose contacts in the URL',async()=>{
+ for(const code of expectedCodes){
+  const html=await renderRobotFunnel(code,new URLSearchParams());
+  const form=html.match(/<form id="lead-form"[^>]*>/)?.[0];
+  assert.ok(form,`${code}: lead form is rendered`);
+  assert.match(form,/\bmethod="post"/i,`${code}: uses POST`);
+  assert.match(form,/\baction="\/api\/funnels\/top5"/i,`${code}: targets the existing lead endpoint`);
+ }
+});
+
 test('public SMS slugs fit in two characters and keep legacy campaign codes mapped',async()=>{
  assert.equal(robotFunnelRoutes.size,13);
  for(const [slug,code] of robotFunnelRoutes){
