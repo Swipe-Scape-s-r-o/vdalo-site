@@ -19,6 +19,8 @@ test('mobile campaign grid constrains its column and children to the viewport',a
  const html=await renderVideoLanding(new URLSearchParams(),'/50');
  assert.match(html,/@media\(max-width:860px\)\{\.go-campaign\{[^}]*grid-template-columns:minmax\(0,1fr\)/);
  assert.match(html,/\.go-campaign>\*\{min-width:0;max-width:100%\}/);
+ assert.match(html,/\.go-campaign:not\(\.is-ended\)>\.go-right\{display:grid!important;grid-template-columns:minmax\(0,1fr\)/);
+ assert.match(html,/\.go-campaign:not\(\.is-ended\) \.go-video\{position:relative;inset:auto;left:auto;top:auto;right:auto;bottom:auto;transform:none/);
 });
 
 test('campaign CTA does not depend on the non-campaign MP4 variable',async()=>{
