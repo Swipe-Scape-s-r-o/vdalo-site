@@ -15,6 +15,12 @@ test('video campaign route contains exactly one noindex robots directive',async(
  assertSingleCampaignRobots(await renderVideoLanding(new URLSearchParams(),'/53'),'/53');
 });
 
+test('mobile campaign grid constrains its column and children to the viewport',async()=>{
+ const html=await renderVideoLanding(new URLSearchParams(),'/50');
+ assert.match(html,/@media\(max-width:860px\)\{\.go-campaign\{[^}]*grid-template-columns:minmax\(0,1fr\)/);
+ assert.match(html,/\.go-campaign>\*\{min-width:0;max-width:100%\}/);
+});
+
 test('campaign CTA does not depend on the non-campaign MP4 variable',async()=>{
  const html=await renderVideoLanding(new URLSearchParams(),'/55');
  assert.match(html,/document\.getElementById\('go-video-name'\)\.value = '' \|\| vdv\.dataset\.scenario;/);
