@@ -96,19 +96,27 @@ function withTagManager(html){
  return withFavicon.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+calloPrelude+consentAssets+gtmHead);
 }
 function send(res,status,text,type='text/html; charset=utf-8',method='GET'){
- const body=type.toLowerCase().startsWith('text/html')?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(text,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):text;
- const publicHtml=type.toLowerCase().startsWith('text/html')&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath);
- res.writeHead(status,{'Content-Type':type,'Cache-Control':publicHtml?'public, max-age=0, s-maxage=300, stale-while-revalidate=86400':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY'});res.end(method==='HEAD'?undefined:body);
+ const isHtml=type.toLowerCase().startsWith('text/html');
+ let body=isHtml?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(text,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):text;
+ if(isHtml&&res._isStagingHost)body=withNoindexRobots(body);
+ const publicHtml=isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath)&&!res._isStagingHost;
+ res.writeHead(status,{'Content-Type':type,'Cache-Control':publicHtml?'public, max-age=0, s-maxage=300, stale-while-revalidate=86400':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY',...(isHtml&&res._isStagingHost?{'X-Robots-Tag':'noindex, nofollow'}:{})});res.end(method==='HEAD'?undefined:body);
 }
 function sendCompressed(req,res,status,data,type,cache='no-store'){
  const isHtml=type.toLowerCase().startsWith('text/html');
- const source=isHtml?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(Buffer.isBuffer(data)?data.toString('utf8'):data,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):data;
- if(isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath))cache='public, max-age=0, s-maxage=300, stale-while-revalidate=86400';
+ let source=isHtml?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(Buffer.isBuffer(data)?data.toString('utf8'):data,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):data;
+ if(isHtml&&res._isStagingHost)source=withNoindexRobots(source);
+ if(isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath)&&!res._isStagingHost)cache='public, max-age=0, s-maxage=300, stale-while-revalidate=86400';
  const body=Buffer.isBuffer(source)?source:Buffer.from(source);
  const compressed=body.length>=1024&&/\bgzip\b/.test(req.headers['accept-encoding']||'');
- res.writeHead(status,{'Content-Type':type,'Cache-Control':cache,'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY','Vary':'Accept-Encoding',...(compressed?{'Content-Encoding':'gzip'}:{})});
+ res.writeHead(status,{'Content-Type':type,'Cache-Control':res._isStagingHost?'no-store':cache,'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY','Vary':'Accept-Encoding',...(isHtml&&res._isStagingHost?{'X-Robots-Tag':'noindex, nofollow'}:{}),...(compressed?{'Content-Encoding':'gzip'}:{})});
  if(req.method==='HEAD')return res.end();
  res.end(compressed?gzipSync(body,{level:6}):body);
+}
+function withNoindexRobots(html){
+ const tag='<meta name="robots" content="noindex,nofollow">';
+ if(/<meta\b(?=[^>]*\bname=["']robots["'])[^>]*>/i.test(html))return html.replace(/<meta\b(?=[^>]*\bname=["']robots["'])[^>]*>/gi,tag);
+ return html.replace(/<\/head>/i,`${tag}</head>`);
 }
 function sendVideo(req,res,data){
  const size=data.length,range=req.headers.range;
@@ -132,6 +140,7 @@ function renderNotFound(){
 }
 const server=http.createServer(async(req,res)=>{
  try{
+  res._isStagingHost=String(req.headers?.host||'').toLowerCase().replace(/:\d+$/,'')==='staging.vdalo.tech';
   const url=new URL(req.url,'http://localhost');
   const shortlinkPrefix=url.pathname==='/r'||url.pathname.startsWith('/r/')||url.pathname==='/q/r'||url.pathname.startsWith('/q/r/');
   if(shortlinkPrefix){
@@ -241,8 +250,8 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/offer')return send(res,200,prefix(renderOfferPage(),'v1'));
   if(pathname==='/refunds')return send(res,200,prefix(renderRefundPage(),'v1'));
   if(pathname==='/')return sendCompressed(req,res,200,prefix(firstPage({origin:'https://www.vdalo.tech',full:true,homepage:true}),'v1'),'text/html; charset=utf-8');
-  if(pathname==='/robots.txt')return send(res,200,'User-agent: *\nAllow: /\nSitemap: https://www.vdalo.tech/sitemap.xml\n','text/plain; charset=utf-8');
-  if(pathname==='/sitemap.xml')return send(res,200,sitemapXml(),'application/xml; charset=utf-8');
+  if(pathname==='/robots.txt')return send(res,200,res._isStagingHost?'User-agent: *\nDisallow: /\n':'User-agent: *\nAllow: /\nSitemap: https://www.vdalo.tech/sitemap.xml\n','text/plain; charset=utf-8');
+  if(pathname==='/sitemap.xml')return send(res,200,res._isStagingHost?'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>':sitemapXml(),'application/xml; charset=utf-8');
   if(pathname==='/llms.txt')return send(res,200,`# VDALO\n\n> Українська платформа для керування готельними бронюваннями та щоденними процесами.\n\n## Основні сторінки\n\n${publicSitemapRoutes.map(route=>`- https://www.vdalo.tech${route}`).join('\n')}\n\n## Дані про сайт\n\n- Мова основного сайту: українська.\n- Довідник туристичного збору містить лише опубліковані сторінки з перевіреними ставками.\n- Перед застосуванням ставки звіряйте місцеве рішення та офіційні джерела на відповідній сторінці.\n- XML sitemap: https://www.vdalo.tech/sitemap.xml\n`,'text/plain; charset=utf-8');
   if(pathname==='/funnel')return send(res,200,renderDirectory());
   if(pathname==='/funnel/privacy')return send(res,200,renderFunnelPrivacy());
