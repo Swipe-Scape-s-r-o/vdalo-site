@@ -8,7 +8,7 @@ import {renderPage} from '../versions/v1/render.mjs';
 import '../versions/v1/public/pricing-core.js';
 import {renderPricing} from '../versions/v1/pricing.mjs';
 
-test('new product pages render metadata, schema, status and a local hero image',()=>{
+test('new product pages render metadata, omit available-status badges, and keep a local hero image',()=>{
   for(const [route,config] of productFeaturePages){
     const html=renderSeoPage(route);
     assert.ok(html,`${route} should render`);
@@ -16,13 +16,37 @@ test('new product pages render metadata, schema, status and a local hero image',
     assert.ok(html.includes(`<title>${config.title}</title>`),`${route} should have its unique title`);
     assert.ok(html.includes(`name="description" content="${config.description}"`),`${route} should have its description`);
     assert.ok(html.includes('rel="canonical"'),`${route} should have a canonical`);
-    assert.ok(html.includes('seo-status-pill'),`${route} should show a product status`);
+    assert.ok(!html.includes('<p class="eyebrow">ДОСТУПНО</p>'),`${route} should not label available functionality as a status`);
+    assert.ok(!html.includes('<p class="eyebrow">ДОСТУПНО ЗАРАЗ</p>'),`${route} should not label available functionality as a status`);
+    const statusPill=html.match(/<p class="seo-status-pill"><span>СТАТУС<\/span>(.*?)<\/p>/)?.[1]||'';
+    assert.ok(!statusPill.includes('ДОСТУПНО'),`${route} should not show an available-status pill`);
     const graph=html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
     assert.ok(graph,`${route} should render JSON-LD`);
     assert.equal(JSON.parse(graph)['@type'],'WebPage',`${route} should use WebPage structured data`);
     const image=config.heroImage;
     assert.ok(existsSync(fileURLToPath(new URL(`../versions/v1/public/assets/${image}`,import.meta.url))),`${route} hero ${image} should exist`);
   }
+});
+
+test('unavailable product modules are explicitly marked as in development',()=>{
+  for(const route of ['/hotel-site-builder','/hotel-energy-management','/hotel-prro']){
+    const html=renderSeoPage(route);
+    assert.ok(html.includes('У РОЗРОБЦІ'),`${route} should state that the unavailable module is in development`);
+  }
+  const guestProfile=renderSeoPage('/hotel-guest-profile');
+  assert.match(guestProfile,/У РОЗРОБЦІ[\s\S]*?Сценарії з Дією/);
+  assert.doesNotMatch(guestProfile,/Сценарії з Дією доступні/);
+  const catalog=renderSeoPage('/hotel-pms-modules');
+  assert.match(catalog,/ПРРО та інтеграція з Дією/);
+  assert.doesNotMatch(catalog,/ПРРО та сценарії з Дією доступні/);
+});
+
+test('PMS status catalog uses distinct responsive cards for beta and development modules',()=>{
+  const html=renderSeoPage('/hotel-pms-modules');
+  assert.equal([...html.matchAll(/class="module-status-card"/g)].length,12);
+  assert.equal([...html.matchAll(/class="module-status-icon" aria-hidden="true"/g)].length,12);
+  for(const label of ['AI-асистент для працівників','Онлайн-оплата бронювання','Аналітика QR','ПРРО та інтеграція з Дією'])assert.ok(html.includes(label),`${label} should be presented as a scannable status card`);
+  assert.match(html,/class="module-status-grid"[\s\S]*?class="module-status-card"/);
 });
 
 test('product page routes are unique and represented in the public SEO route registry',()=>{
@@ -61,6 +85,12 @@ test('site navigation uses hover, focus and touch disclosure without chevron ico
   assert.ok(js.includes("if(event.key!=='Escape'"));
   assert.ok(js.includes("detail.dataset.suppressFocusOpen==='true'"));
   assert.ok(js.includes("last.dataset.suppressFocusOpen='true';summary.focus()"));
+});
+
+test('mobile navigation keeps its plum surface behind light menu text',()=>{
+  const css=readFileSync(fileURLToPath(new URL('../versions/v1/public/design-system-2.css',import.meta.url)),'utf8');
+  assert.match(css,/@media\(max-width:900px\)\{\.ds2 \.header nav\{[^}]*background:var\(--plum\)/);
+  assert.match(css,/\.ds2 \.header nav\.open \.nav-submenu a,\s*\.ds2 \.header nav\.open \.nav-submenu \.nav-disclosure>summary\{color:var\(--soft\)!important;background:transparent!important\}/);
 });
 
 test('beta and development modules cannot be priced or selected from pricing UI',()=>{

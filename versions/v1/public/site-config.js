@@ -21,10 +21,10 @@ window.VDALO_CONFIG = {
   integrations: [
     { name: 'Booking.com', logo: '/v1/assets/booking-logo.svg', type: null },
     { name: 'Airbnb', logo: '/v1/assets/airbnb-logo.svg', type: null },
-    { name: 'Hotels24', logo: '/v1/assets/hotels24-logo.svg', type: null },
     { name: 'Expedia', logo: '/v1/assets/expedia-logo.svg', type: null },
     { name: 'Agoda', logo: '/v1/assets/agoda-logo.svg', type: null },
-    { name: 'Dobovo', logo: '/v1/assets/dobovo-logo.svg', type: null }
+    { name: 'Google Hotels & Vacation Rentals', logo: null, type: null },
+    { name: 'Trip.com', logo: null, type: null }
   ],
   author: {
     name: 'Олег',

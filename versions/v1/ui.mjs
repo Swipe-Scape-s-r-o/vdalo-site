@@ -25,7 +25,7 @@ export function icon(name,extra=''){return `<svg class="ui-icon ${extra}" viewBo
 export function channelMark(name){
  if(name==='Booking.com')return '<img class="channel-logo booking-logo" src="/assets/booking-logo.svg" alt="Booking.com" width="150" height="30" loading="lazy">';
  if(name==='Airbnb')return '<img class="channel-logo airbnb-logo" src="/assets/airbnb-logo.svg" alt="Airbnb" width="125" height="39" loading="lazy">';
- const logoFiles={'Hotels24':'hotels24-logo.svg','Expedia':'expedia-logo.svg','Agoda':'agoda-logo.svg','Dobovo':'dobovo-logo.svg'};
+ const logoFiles={'Expedia':'expedia-logo.svg','Agoda':'agoda-logo.svg'};
  if(logoFiles[name])return `<img class="channel-logo ${name.toLowerCase()}-logo" src="/assets/${logoFiles[name]}" alt="${name}" width="150" height="42" loading="lazy">`;
  return `${icon(name==='Ваш сайт'?'website':'globe')}<span>${name}</span>`;
 }
