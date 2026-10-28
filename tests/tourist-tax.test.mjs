@@ -922,7 +922,8 @@ test('all 20 preliminary locality pages have complete SEO modules, internal link
     assert.match(page,/<meta name="twitter:card" content="summary_large_image">/);
     const seo=page.match(/<section class="tt-section tt-preliminary-seo"[\s\S]*?<\/section>/)?.[0]??'';
     assert.ok(seo,`${slug} should have a lower SEO content module`);
-    assert.match(seo,/<h2[^>]*>Туристичний збір у /);
+    assert.match(seo,/<h2[^>]*>Туристичний збір (?:у|в) /);
+    assert.doesNotMatch(page,/Туристичний збір (?:у|в) (?:у|в) /,`${slug} must not repeat a location preposition`);
     assert.match(seo,/<h3>Що перевірити перед розрахунком<\/h3>/);
     assert.match(seo,/<h3>Як читати попередню суму<\/h3>/);
     assert.match(seo,/<h3>Корисні матеріали<\/h3>/);

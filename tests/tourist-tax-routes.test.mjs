@@ -46,7 +46,8 @@ test('batch 24 and 25 pages are public preliminary references with clear warning
     assert.ok(preview.body.includes(touristTaxBatch24_25Drafts[slug].sourceUrl),`${slug} must link to its review source`);
     assert.match(preview.body,/Поширені запитання/);
     assert.equal((preview.body.match(/<details(?:\s|>)/g)||[]).length,4,`${slug} should render four useful FAQs`);
-    assert.match(preview.body,/Яка ставка туристичного збору діє у/,'visible questions should explain the unverified status');
+    assert.match(preview.body,/Яка ставка туристичного збору діє (?:у|в) /,'visible questions should explain the unverified status');
+    assert.doesNotMatch(previewHtml,/Туристичний збір (?:у|в) (?:у|в) /,'location phrases must not repeat the preposition');
     assert.doesNotMatch(preview.body,/id="tt-calculator"|name="accommodationType"/,'a preliminary page must not offer a tax calculator');
     assert.match(preview.body,/id="home-trial-offer"/,'a public tourist-tax page should receive the ordinary sitewide conversion dialog');
     assert.match(preview.body,/Попередні значення зі зведених матеріалів|Ставка потребує додаткової звірки/);
@@ -71,6 +72,11 @@ test('batch 24 and 25 pages are public preliminary references with clear warning
     assert.doesNotMatch(production.body,/id="tt-calculator"/);
     assert.match(production.body,/Попередні значення зі зведених матеріалів|Ставка потребує додаткової звірки/);
   }
+  const izyaslav=await request('/tourist-tax/izyaslav/','GET','staging.vdalo.tech');
+  assert.equal(izyaslav.status,200);
+  assert.match(izyaslav.body,/<title>Туристичний збір в Ізяславі: 2026 \| VDALO<\/title>/);
+  assert.match(izyaslav.body,/<h1>Туристичний збір в Ізяславі на 2026 рік<\/h1>/);
+  assert.doesNotMatch(izyaslav.body,/Туристичний збір у Ізяславі/);
 });
 
 test('hub, city, assets and sitemap resolve through the actual app router',async()=>{
