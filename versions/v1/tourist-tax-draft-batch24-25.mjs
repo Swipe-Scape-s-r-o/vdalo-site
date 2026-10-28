@@ -1,5 +1,5 @@
 // Preliminary public pages for the two research batches. The proposed rates
-// remain unverified, do not enable calculations, and stay separate from the
+// remain unverified, may support clearly labeled estimates, and stay separate from the
 // confirmed rates register.
 export const touristTaxBatch24_25Drafts = Object.freeze({
   kitsman: {
