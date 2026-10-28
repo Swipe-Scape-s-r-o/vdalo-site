@@ -1,6 +1,6 @@
 # JSON-LD local validation report
 
-- Date: 2026-10-26
+- Date: 2026-10-28
 - Rendered indexable routes: 103
 - Passed routes: 103
 - Errors: 0
