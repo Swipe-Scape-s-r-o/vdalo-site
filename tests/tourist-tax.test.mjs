@@ -671,8 +671,8 @@ test('directory and all reviewed city pages are indexable and included in the si
   assert.match(browserSearch,/event\.key === 'ArrowDown'/);
   assert.match(browserSearch,/event\.key === 'ArrowUp'/);
   assert.match(browserSearch,/event\.key === 'Escape'/);
-  assert.match(browserSearch,/Серед локацій із перевіреними сторінками збігів немає/);
-  assert.match(browserSearch,/Введіть ще одну літеру, щоб шукати серед локацій із перевіреними сторінками/);
+  assert.match(browserSearch,/У довіднику з \$\{places\.length\} локацій збігів немає/);
+  assert.doesNotMatch(browserSearch,/Серед локацій із перевіреними сторінками збігів немає/);
   assert.match(browserSearch,/querySelectorAll\('\[role="combobox"\]\[aria-controls\]:not\(#tt-place-search\)'\)/);
   assert.match(city,/<meta name="robots" content="index,follow">/);
   assert.match(city,/Розрахуйте туристичний збір/);
