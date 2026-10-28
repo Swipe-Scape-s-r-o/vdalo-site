@@ -2,6 +2,17 @@ const configElement = document.getElementById('tourist-tax-config');
 let config = {};
 try { config = JSON.parse(configElement?.textContent || '{}'); } catch {}
 
+const ukrainianCount = (value, one, few, many) => {
+  const count = Math.abs(Number(value));
+  const lastTwo = count % 100;
+  const last = count % 10;
+  const form = lastTwo >= 11 && lastTwo <= 14 ? many
+    : last === 1 ? one
+      : last >= 2 && last <= 4 ? few
+        : many;
+  return `${value} ${form}`;
+};
+
 const infographic = document.querySelector('.tt-infographic');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (infographic && !reduceMotion && 'IntersectionObserver' in window) {
@@ -259,11 +270,11 @@ if (form) {
           const amount=document.createElement('strong');amount.className='tt-result-amount';amount.textContent=new Intl.NumberFormat('uk-UA',{style:'currency',currency:'UAH'}).format(Number(value.totalCents)/100);
           const groupsText=value.guestGroups.map(group=>{
             const rateText=Array.isArray(group.ratePeriods)
-              ?group.ratePeriods.map(period=>`${period.ratePercent}% × ${period.days} ${period.days===1?'добу':'діб'}`).join(' + ')
+              ?group.ratePeriods.map(period=>`${period.ratePercent}% × ${ukrainianCount(period.days,'добу','доби','діб')}`).join(' + ')
               :`${group.ratePercent}%`;
             return `${group.guests} ${group.category==='domestic'?'внутрішнього':'в’їзного'} туризму · ${rateText}${group.accommodationTypeLabel?` · ${group.accommodationTypeLabel}`:''}`;
           }).join('; ');
-          const detail=document.createElement('p');detail.textContent=`${groupsText} · ${value.days} розрахункових діб. Інформаційний розрахунок${value.exemptionReviewRequired?' до перевірки можливої пільги':''}.`;
+          const detail=document.createElement('p');detail.textContent=`${groupsText} · ${ukrainianCount(value.days,'розрахункова доба','розрахункові доби','розрахункових діб')}. Інформаційний розрахунок${value.exemptionReviewRequired?' до перевірки можливої пільги':''}.`;
           card.append(heading,amount,detail);
           if(value.sourceUrl){const source=document.createElement('a');source.href=value.sourceUrl;source.rel='noopener';source.textContent=value.verificationStatus==='PRELIMINARY'?'Джерело попередніх значень':value.scenarioOnly?'Повідомлення ДПС про ставку 1%':'Першоджерело місцевої ставки';card.append(source);}
           const checked=document.createElement('small');checked.textContent=value.verificationStatus==='PRELIMINARY'?'Ставка та її застосування ще перевіряються.':`Перевірено ${value.checkedAt}`;card.append(checked);
