@@ -91,8 +91,9 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   assert.match(hub.body,/rada\/show\/v0011201-11/);
   assert.match(hub.body,/Реквізити для оплати залежать від громади/);
   assert.match(hub.body,/href="\/tourist-tax\/rates\/"/,'hub should link to the confirmed rates register');
-  assert.match(hub.body,/Сторінки, що проходять перевірку/);
-  assert.match(hub.body,/Попередні дані, перевірка триває/);
+  assert.match(hub.body,/href="\/tourist-tax\/kitsman\/"/);
+  assert.match(hub.body,/href="\/tourist-tax\/tsarychanka\/"/);
+  assert.doesNotMatch(hub.body,/Сторінки, що проходять перевірку|Попередні дані, перевірка триває/);
   const city=await request('/tourist-tax/lutsk/');
   assert.equal(city.status,200);
   assert.match(city.body,/index,follow/);
