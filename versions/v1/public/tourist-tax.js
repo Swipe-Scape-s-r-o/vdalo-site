@@ -16,6 +16,76 @@ if (infographic && !reduceMotion && 'IntersectionObserver' in window) {
 } else if (infographic) infographic.classList.add('is-visible');
 
 const places = Array.isArray(config.publicPlaces) ? config.publicPlaces : [];
+const directorySearchInput = document.getElementById('tt-place-search');
+if (directorySearchInput) {
+  const results = document.getElementById('tt-place-search-results');
+  const status = document.getElementById('tt-place-search-status');
+  let activeIndex = -1;
+  const closeDirectoryResults = () => {
+    results?.replaceChildren();
+    if (results) { results.hidden = true; results.style.display = 'none'; }
+    directorySearchInput.setAttribute('aria-expanded', 'false');
+    directorySearchInput.removeAttribute('aria-activedescendant');
+    activeIndex = -1;
+  };
+  const setActiveOption = index => {
+    const options = [...(results?.querySelectorAll('[role="option"]') || [])];
+    if (!options.length) return;
+    activeIndex = (index + options.length) % options.length;
+    options.forEach((option, optionIndex) => option.setAttribute('aria-selected', String(optionIndex === activeIndex)));
+    directorySearchInput.setAttribute('aria-activedescendant', options[activeIndex].id);
+  };
+  directorySearchInput.addEventListener('input', () => {
+    const query = directorySearchInput.value.trim().toLocaleLowerCase('uk-UA').replace(/\s+/g, ' ');
+    closeDirectoryResults();
+    if (query.length < 2) {
+      if (status) status.textContent = query ? 'Введіть ще одну літеру для пошуку.' : '';
+      return;
+    }
+    const allMatches = places
+      .filter(place => `${place.name} ${place.community} ${place.region} ${place.district}`.toLocaleLowerCase('uk-UA').replace(/\s+/g, ' ').includes(query))
+      .sort((a, b) => Number(!a.name.toLocaleLowerCase('uk-UA').startsWith(query)) - Number(!b.name.toLocaleLowerCase('uk-UA').startsWith(query)) || a.name.localeCompare(b.name, 'uk-UA'));
+    if (!allMatches.length) {
+      if (status) status.textContent = 'Серед опублікованих сторінок збігів немає. Перегляньте повний реєстр нижче.';
+      return;
+    }
+    const matches = allMatches.slice(0, 6);
+    for (const [index, place] of matches.entries()) {
+      const option = document.createElement('button');
+      option.type = 'button';
+      option.id = `tt-place-search-option-${index}`;
+      option.className = 'tt-place-choice';
+      option.setAttribute('role', 'option');
+      option.setAttribute('aria-selected', 'false');
+      const title = document.createElement('strong');
+      title.textContent = place.name;
+      const detail = document.createElement('small');
+      detail.textContent = `${place.community || place.region} · ${place.region}`;
+      option.append(title, detail);
+      option.addEventListener('mousedown', event => event.preventDefault());
+      option.addEventListener('click', () => { window.location.assign(place.route); });
+      results.append(option);
+    }
+    results.hidden = false;
+    results.style.display = 'block';
+    directorySearchInput.setAttribute('aria-expanded', 'true');
+    if (status) status.textContent = `Знайдено ${allMatches.length}${allMatches.length > matches.length ? `, показано перші ${matches.length}` : ''}. Використайте стрілки та Enter, щоб відкрити сторінку.`;
+  });
+  directorySearchInput.addEventListener('keydown', event => {
+    const options = [...(results?.querySelectorAll('[role="option"]') || [])];
+    if (event.key === 'Escape') { closeDirectoryResults(); return; }
+    if (!options.length) return;
+    if (event.key === 'ArrowDown') { event.preventDefault(); setActiveOption(activeIndex + 1); }
+    if (event.key === 'ArrowUp') { event.preventDefault(); setActiveOption(activeIndex < 0 ? options.length - 1 : activeIndex - 1); }
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      options[activeIndex < 0 ? 0 : activeIndex]?.click();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.tt-directory-quick-search')) closeDirectoryResults();
+  });
+}
 const funnelLinks = [...document.querySelectorAll('[data-tax-funnel-cta]')];
 const calculatorForm = document.getElementById('tourist-tax-calculator');
 const syncFunnelCtaContext = () => {
@@ -48,7 +118,7 @@ for (const link of funnelLinks) {
     });
   });
 }
-const searchInputs = document.querySelectorAll('[role="combobox"][aria-controls]');
+const searchInputs = document.querySelectorAll('[role="combobox"][aria-controls]:not(#tt-place-search)');
 
 for (const input of searchInputs) {
   const results = document.getElementById(input.getAttribute('aria-controls'));
