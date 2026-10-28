@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Readable} from 'node:stream';
+import {runInNewContext} from 'node:vm';
 import {calculateTouristTax,calculateExactTouristTaxCents,exportTouristTaxReviewCsv,exportTouristTaxReviewXlsx,renderTouristTaxBatch24_25Preview,touristTaxBatch24_25PreviewSlugs,renderTouristTaxCity,renderTouristTaxHub} from '../versions/v1/tourist-tax.mjs';
 import {getPublicSitemapRoutes} from '../versions/v1/sitemap.mjs';
 import {canCalculateTouristTaxPlace,canIndexTouristTaxPlace,hasPlaceSeoBlock,touristTaxCommunities,touristTaxPlaces,touristTaxCityRoutes,touristTaxSources,validateTouristTaxPlaces} from '../versions/v1/tourist-tax-data.mjs';
@@ -118,9 +119,23 @@ test('Odesa uses the official decision and calculates across the 2026 rate chang
 test('tourist-tax result UI displays each effective rate period instead of an undefined percentage',()=>{
   const client=readFileSync(new URL('../versions/v1/public/tourist-tax.js',import.meta.url),'utf8');
   assert.match(client,/Array\.isArray\(group\.ratePeriods\)/);
-  assert.match(client,/period\.ratePercent\}% × \$\{period\.days\}/);
+  assert.match(client,/period\.ratePercent\}% × \$\{ukrainianCount\(period\.days,'добу','доби','діб'\)\}/);
   assert.match(client,/`\$\{group\.ratePercent\}%`/);
   assert.doesNotMatch(client,/group\.ratePercent\}%\$\{/);
+  assert.match(client,/const ukrainianCount = \(value, one, few, many\) =>/);
+  assert.match(client,/ukrainianCount\(period\.days,'добу','доби','діб'\)/);
+  assert.match(client,/ukrainianCount\(value\.days,'розрахункова доба','розрахункові доби','розрахункових діб'\)/);
+  const helper=client.match(/const ukrainianCount = \(value, one, few, many\) => \{[\s\S]*?\n\};/);
+  assert.ok(helper,'the tested Ukrainian pluralization helper exists');
+  const formatCount=runInNewContext(`${helper[0]}\nukrainianCount`);
+  assert.deepEqual([1,2,4,5,11,14,21,22].map(days=>formatCount(days,'добу','доби','діб')),
+    ['1 добу','2 доби','4 доби','5 діб','11 діб','14 діб','21 добу','22 доби']);
+});
+
+test('tourist-tax hub copy no longer labels verified Kyiv and Zhytomyr rates as pending',()=>{
+  const content=readFileSync(new URL('../versions/v1/content-revisions/pages/P068_tourist-tax.md',import.meta.url),'utf8');
+  assert.match(content,/Для Києва та Житомира в реєстрі наведені перевірені ставки/);
+  assert.doesNotMatch(content,/Київ і Житомир потребують завершення перевірки/);
 });
 
 test('Sumy 2026 rate, city page and calculator are verified',()=>{
