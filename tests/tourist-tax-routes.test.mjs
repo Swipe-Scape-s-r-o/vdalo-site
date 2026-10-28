@@ -157,21 +157,38 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place)&&!preliminarySlugs.includes(place.slug)))assert.doesNotMatch(sitemap.body,new RegExp(`tourist-tax/${place.slug}/`),`sitemap contains unreleased place: ${place.slug}`);
 });
 
-test('confirmed rates register exposes only published verified city records',async()=>{
+test('rates register exposes all 48 locations with confirmed and preliminary rates',async()=>{
   const response=await request('/tourist-tax/rates/');
+  const {touristTaxBatch24_25PreviewSlugs}=await import('../versions/v1/tourist-tax.mjs');
+  const {touristTaxBatch24_25Drafts}=await import('../versions/v1/tourist-tax-draft-batch24-25.mjs');
   assert.equal(response.status,200);
-  assert.match(response.body,/<title>Ставки туристичного збору 2026: реєстр міст \| VDALO<\/title>/);
+  assert.match(response.body,/<title>Туристичний збір 2026: реєстр ставок \| VDALO<\/title>/);
   assert.match(response.body,/<meta name="robots" content="index,follow">/);
   assert.match(response.body,/<link rel="canonical" href="https:\/\/www\.vdalo\.tech\/tourist-tax\/rates\/">/);
+  assert.match(response.body,/Реєстр ставок туристичного збору на 2026 рік за 48 локаціями/);
   assert.match(response.body,/<script src="\/tourist-tax-assets\/tourist-tax-rates\.js" defer><\/script>/);
   assert.match(response.body,/Пошук за містом, громадою або КАТОТТГ/);
   assert.match(response.body,/id="tt-rates-year"/);
   assert.match(response.body,/Категорія туризму/);
   assert.match(response.body,/id="tt-rates-status"/);
-  assert.match(response.body,/Офіційне джерело та перевірка/);
-  assert.equal((response.body.match(/class="tt-rates-status(?: is-review)?"/g)||[]).length,28);
-  assert.equal((response.body.match(/class="tt-rates-status"/g)||[]).length,28,'all 28 published entries should show confirmed status');
+  assert.match(response.body,/Джерело та примітка/);
+  assert.equal((response.body.match(/class="tt-rates-status(?: is-review)?"/g)||[]).length,48);
+  assert.equal((response.body.match(/class="tt-rates-status"/g)||[]).length,28,'28 entries should show confirmed status');
+  assert.equal((response.body.match(/class="tt-rates-status is-review"/g)||[]).length,20,'20 entries should show preliminary review status');
   for(const place of touristTaxPlaces.filter(place=>canIndexTouristTaxPlace(place))) assert.ok(response.body.includes(`href="${place.route}"`),`${place.slug} should appear in the register`);
+  for(const slug of touristTaxBatch24_25PreviewSlugs()){
+    const place=touristTaxPlaces.find(item=>item.slug===slug);
+    const row=response.body.split('<tr data-search="').find(item=>item.includes(`href="${place.route}"`))||'';
+    const rates=place.sourceRecord.proposedRates;
+    const rateLabel=value=>new Intl.NumberFormat('uk-UA',{minimumFractionDigits:2,maximumFractionDigits:2}).format(value);
+    assert.ok(row,`${slug} should appear in the register`);
+    assert.ok(row.includes(`Попередні значення: внутрішній ${rateLabel(rates.domestic)}%; в’їзний ${rateLabel(rates.inbound)}%`),`${slug} should preserve the collected preliminary rates`);
+    assert.match(row,/Попередні дані · перевірка триває/);
+    assert.ok(row.includes(touristTaxBatch24_25Drafts[slug].sourceUrl),`${slug} should link to its source`);
+  }
+  assert.match(response.body,/48 локацій/);
+  assert.match(response.body,/28<\/strong> перевірених/);
+  assert.match(response.body,/20 попередніх/);
   assert.match(response.body,/href="\/tourist-tax\/odesa\/"/,'the verified Odesa page should be listed in the rates register');
   const odesaRow=response.body.match(/<tr data-search="[^"]*одеса[^"]*"[\s\S]*?<\/tr>/)?.[0]||'';
   assert.match(odesaRow,/Перевірено/);
