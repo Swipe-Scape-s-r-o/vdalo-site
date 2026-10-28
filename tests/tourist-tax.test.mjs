@@ -656,12 +656,14 @@ test('directory and all reviewed city pages are indexable and included in the si
   assert.match(hub,/<label for="tt-place-search">Знайти місто або громаду<\/label>/);
   assert.match(hub,/id="tt-place-search"[^>]+role="combobox"[^>]+aria-controls="tt-place-search-results"/);
   assert.match(hub,/id="tt-place-search-results"[^>]+role="listbox"[^>]+hidden/);
-  assert.ok(hub.includes(`${publishedPlaces.length} ${publishedPlaces.length===1?'локація':publishedPlaces.length>=2&&publishedPlaces.length<=4?'локації':'локацій'} з перевіреними місцевими даними`));
-  assert.equal((hub.match(/class="tt-directory-region"/g)||[]).length,new Set(publishedPlaces.map(place=>place.region||'Інші регіони')).size);
-  for(const place of publishedPlaces)assert.ok(hub.includes(`href="${place.route}"`),`${place.slug} should remain a crawlable directory link`);
   const preliminarySlugs=(await import('../versions/v1/tourist-tax.mjs')).touristTaxBatch24_25PreviewSlugs();
+  const directoryPlaces=[...new Map([...publishedPlaces,...touristTaxPlaces.filter(place=>preliminarySlugs.includes(place.slug))].map(place=>[place.slug,place])).values()];
+  assert.ok(hub.includes(`${directoryPlaces.length} ${directoryPlaces.length===1?'локація':directoryPlaces.length>=2&&directoryPlaces.length<=4?'локації':'локацій'} у довіднику`));
+  assert.doesNotMatch(hub,/Сторінки, що проходять перевірку|Попередні дані, перевірка триває/);
+  assert.equal((hub.match(/class="tt-directory-region"/g)||[]).length,new Set(directoryPlaces.map(place=>place.region||'Інші регіони')).size);
+  for(const place of directoryPlaces)assert.ok(hub.includes(`href="${place.route}"`),`${place.slug} should remain a crawlable directory link`);
   for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place,touristTaxCommunities)&&!preliminarySlugs.includes(place.slug)))assert.ok(!hub.includes(`href="${place.route}"`),`${place.slug} must stay out of public search and directory links`);
-  for(const slug of preliminarySlugs)assert.ok(hub.includes(`href="/tourist-tax/${slug}/"`),`${slug} should be listed in the separate preliminary directory`);
+  for(const slug of preliminarySlugs)assert.ok(hub.includes(`href="/tourist-tax/${slug}/"`),`${slug} should be listed in the combined regional directory`);
   const clientConfig=JSON.parse(hub.match(/<script type="application\/json" id="tourist-tax-config">([^<]+)<\/script>/)[1]);
   assert.deepEqual(clientConfig.publicPlaces.map(place=>place.slug).sort(),publishedPlaces.map(place=>place.slug).sort());
   const browserSearch=readFileSync(new URL('../versions/v1/public/tourist-tax.js',import.meta.url),'utf8');
