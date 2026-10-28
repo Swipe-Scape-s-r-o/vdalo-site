@@ -644,7 +644,7 @@ test('verified calculation supports mixed guest categories, possible exemptions 
   assert.equal(calculateTouristTax({placeSlug:'lutsk',start:'2026-10-10',days:1,guestGroups:[{category:'domestic',guests:0}]},[place],[community]).state,'INVALID_INPUT');
 });
 
-test('directory and all reviewed city pages are indexable and included in the sitemap',()=>{
+test('directory and all reviewed city pages are indexable and included in the sitemap',async()=>{
   const hub=renderTouristTaxHub();
   const city=renderTouristTaxCity('lutsk');
   assert.match(hub,/<meta name="robots" content="index,follow">/);
@@ -655,10 +655,12 @@ test('directory and all reviewed city pages are indexable and included in the si
   assert.match(hub,/<label for="tt-place-search">Знайти місто або громаду<\/label>/);
   assert.match(hub,/id="tt-place-search"[^>]+role="combobox"[^>]+aria-controls="tt-place-search-results"/);
   assert.match(hub,/id="tt-place-search-results"[^>]+role="listbox"[^>]+hidden/);
-  assert.ok(hub.includes(`${publishedPlaces.length} ${publishedPlaces.length===1?'локація':publishedPlaces.length>=2&&publishedPlaces.length<=4?'локації':'локацій'} з перевіреними сторінками`));
+  assert.ok(hub.includes(`${publishedPlaces.length} ${publishedPlaces.length===1?'локація':publishedPlaces.length>=2&&publishedPlaces.length<=4?'локації':'локацій'} з перевіреними місцевими даними`));
   assert.equal((hub.match(/class="tt-directory-region"/g)||[]).length,new Set(publishedPlaces.map(place=>place.region||'Інші регіони')).size);
   for(const place of publishedPlaces)assert.ok(hub.includes(`href="${place.route}"`),`${place.slug} should remain a crawlable directory link`);
-  for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place,touristTaxCommunities)))assert.ok(!hub.includes(`href="${place.route}"`),`${place.slug} must stay out of public search and directory links`);
+  const preliminarySlugs=(await import('../versions/v1/tourist-tax.mjs')).touristTaxBatch24_25PreviewSlugs();
+  for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place,touristTaxCommunities)&&!preliminarySlugs.includes(place.slug)))assert.ok(!hub.includes(`href="${place.route}"`),`${place.slug} must stay out of public search and directory links`);
+  for(const slug of preliminarySlugs)assert.ok(hub.includes(`href="/tourist-tax/${slug}/"`),`${slug} should be listed in the separate preliminary directory`);
   const clientConfig=JSON.parse(hub.match(/<script type="application\/json" id="tourist-tax-config">([^<]+)<\/script>/)[1]);
   assert.deepEqual(clientConfig.publicPlaces.map(place=>place.slug).sort(),publishedPlaces.map(place=>place.slug).sort());
   const browserSearch=readFileSync(new URL('../versions/v1/public/tourist-tax.js',import.meta.url),'utf8');
@@ -675,7 +677,7 @@ test('directory and all reviewed city pages are indexable and included in the si
   assert.equal(touristTaxSources.territoryList.matchedToKatottg,false);
   assert.match(city,/Податковий кодекс України, стаття 268/);
   assert.doesNotMatch(`${hub}${city}`,/наказ №376|z0782-26|z1117-26/i);
-  assert.doesNotMatch(`${hub}${city}`,/пілот|на перевірці|ще перевіряємо/i);
+  assert.doesNotMatch(city,/пілот|на перевірці|ще перевіряємо/i);
   const routes=getPublicSitemapRoutes({seoRoutes:[],caseSlugs:[],pmsArticle:{slug:'/blog/a'},pmsChoiceArticle:{slug:'/blog/b'},editorialArticles:[],secondPassArticles:[],touristTaxRoutes:['/tourist-tax/',...touristTaxCityRoutes()]});
   assert.ok(routes.includes('/tourist-tax/'));
   assert.ok(routes.includes('/tourist-tax/lutsk/'));

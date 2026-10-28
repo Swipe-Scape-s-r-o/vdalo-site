@@ -1,6 +1,6 @@
-// Staging-only editorial previews for the two research batches. These records
-// intentionally contain no proposed rates and are not part of public routing,
-// the city directory, calculator or sitemap.
+// Preliminary public pages for the two research batches. The proposed rates
+// remain unverified, do not enable calculations, and stay separate from the
+// confirmed rates register.
 export const touristTaxBatch24_25Drafts = Object.freeze({
   kitsman: {
     sourceUrl: 'https://tax.gov.ua/data/material/000/801/934846/lbc_2452100000_edrpou_04062127_version_2.pdf',
@@ -12,7 +12,7 @@ export const touristTaxBatch24_25Drafts = Object.freeze({
   zalishchyky: {
     sourceUrl: 'https://tax.gov.ua/data/material/000/801/934862/5d47197b_9e2e_41e1_b88f_39d17559c6c8.pdf',
     sourceLabel: 'ДПС, зведена форма місцевих рішень', decision: 'рішення №6411 від 8 липня 2025 року',
-    context: 'У витягу є загальний рядок і деталізовані категорії. Їх не можна тлумачити окремо від інструкції до форми та повного місцевого акта, тому числові значення тут не наводимо.',
+    context: 'У витягу є загальний рядок і деталізовані категорії. Їх не можна тлумачити окремо від інструкції до форми та повного місцевого акта, тому відсотки на сторінці наведено лише як попередні значення для подальшої звірки.',
     focus: 'Для Заліщиків у джерелі потрібно окремо звірити загальний рядок та категорійні записи. Сторінка не підміняє повний акт: вона позначає, що саме треба зіставити перед тим, як публікувати правило для гостей і засобів розміщення.',
     followUp: 'Переглянути оригінальний підписаний акт і туристичний додаток, а потім зіставити їх із формою ДПС.'
   },

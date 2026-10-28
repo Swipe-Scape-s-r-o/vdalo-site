@@ -46,13 +46,12 @@ const types={'.css':'text/css; charset=utf-8','.js':'text/javascript; charset=ut
 const gtmHead=`<script>(function(w,d,s,l,i){w.__vdaloLoadGoogleTags=function(){if(w.__vdaloGoogleTagsLoaded)return;w.__vdaloGoogleTagsLoaded=true;w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;d.head.appendChild(j);};if(w.vdaloConsent&&w.vdaloConsent.getPreferences().analytics)w.__vdaloLoadGoogleTags();})(window,document,'script','dataLayer','GTM-PKDT7MMT');</script>`;
 const calloAttributionPrelude=`<script>(function(){try{var url=new URL(window.location.href),tag=url.searchParams.get('t');if(tag){window.__vdaloCalloTag=tag;url.searchParams.delete('t');history.replaceState(history.state,'',url.pathname+(url.search?url.search:'')+url.hash);}}catch(_){}})();</script>`;
 const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/svg+xml">';
-const touristTaxRoutes=['/tourist-tax/','/tourist-tax/rates/','/tourist-tax/start',...touristTaxCityRoutes()];
+const touristTaxRoutes=['/tourist-tax/','/tourist-tax/rates/','/tourist-tax/start',...touristTaxCityRoutes(),...touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)];
 const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles,touristTaxRoutes});
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
 // Ordinary published pages opt in. Campaign /q*, /k*, /go*, numeric video,
 // Advertising funnels stay outside this set. /tourist-tax/start is an indexable guide page.
-const draftPreviewRoutes=new Set(touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`));
-const trialOfferRoutes=new Set([...publicSitemapRoutes.filter(route=>route!=='/tourist-tax/start'),...touristTaxPlaces.filter(place=>!draftPreviewRoutes.has(place.route)).map(place=>place.route),'/v1/','/v1/privacy','/tools/qr-studio/index.html']);
+const trialOfferRoutes=new Set([...publicSitemapRoutes.filter(route=>route!=='/tourist-tax/start'),...touristTaxPlaces.map(place=>place.route),'/v1/','/v1/privacy','/tools/qr-studio/index.html']);
 const sitemapLastModifiedByRoute=new Map([
  ['/authors/kostiantyn-tripailo','2026-10-23'],
  ['/partners','2026-10-24'],
@@ -170,7 +169,7 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/tourist-tax/')return send(res,200,renderTouristTaxHub(),'text/html; charset=utf-8',req.method);
   if(/^\/tourist-tax\/[^/]+$/.test(pathname)){res.writeHead(308,{Location:pathname+'/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   const touristTaxCity=pathname.match(/^\/tourist-tax\/([a-z0-9-]+)\/$/);
-  if(touristTaxCity){const page=renderTouristTaxCity(touristTaxCity[1]);if(page)return send(res,200,page,'text/html; charset=utf-8',req.method);if(res._isStagingHost){const draft=renderTouristTaxBatch24_25Preview(touristTaxCity[1]);if(draft)return send(res,200,draft,'text/html; charset=utf-8',req.method);}}
+  if(touristTaxCity){const page=renderTouristTaxCity(touristTaxCity[1]);if(page)return send(res,200,page,'text/html; charset=utf-8',req.method);const preliminary=renderTouristTaxBatch24_25Preview(touristTaxCity[1]);if(preliminary)return send(res,200,preliminary,'text/html; charset=utf-8',req.method);}
   if(/^\/tourist-tax-assets\/tourist-tax(?:-interactions|-rates)?\.(?:css|js)$/.test(pathname)){
    const filename=path.join(root,'versions','v1','public',path.basename(pathname));const data=await readFile(filename);
    res.writeHead(200,{'Content-Type':types[path.extname(filename)],'Cache-Control':'public, max-age=300','X-Content-Type-Options':'nosniff'});return res.end(req.method==='HEAD'?undefined:data);

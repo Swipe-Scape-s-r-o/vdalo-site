@@ -15,7 +15,10 @@ if (infographic && !reduceMotion && 'IntersectionObserver' in window) {
   infographicObserver.observe(infographic);
 } else if (infographic) infographic.classList.add('is-visible');
 
-const places = Array.isArray(config.publicPlaces) ? config.publicPlaces : [];
+const places = [
+  ...(Array.isArray(config.publicPlaces) ? config.publicPlaces : []),
+  ...(Array.isArray(config.preliminaryPlaces) ? config.preliminaryPlaces : []),
+];
 const directorySearchInput = document.getElementById('tt-place-search');
 if (directorySearchInput) {
   const results = document.getElementById('tt-place-search-results');
