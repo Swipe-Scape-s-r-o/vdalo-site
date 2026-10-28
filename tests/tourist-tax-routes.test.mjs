@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {Readable} from 'node:stream';
 import {existsSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {assetVersion} from '../versions/v1/assets.mjs';
 
 process.env.VERCEL='1';
 const {default:server}=await import('../server.mjs');
@@ -84,6 +85,7 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   assert.equal(hub.status,200);
   assert.match(hub.body,/Туристичний збір в Україні/);
   assert.match(hub.body,/tourist-tax-assets\/tourist-tax\.css\?v=[a-f0-9]+/,'the standalone tax stylesheet must be cache-versioned after updates');
+  assert.match(hub.body,new RegExp(`tourist-tax-assets/tourist-tax\\.js\\?v=${assetVersion('tourist-tax.js')}`),'the calculator script URL must change whenever its bytes change');
   assert.ok(hub.body.indexOf('class="tt-infographic"')<hub.body.indexOf('id="tt-calculator"'));
   assert.ok(hub.body.indexOf('id="tt-calculator"')<hub.body.indexOf('class="tt-section tt-directory"'));
   assert.ok(hub.body.lastIndexOf('class="tt-sources"')>hub.body.indexOf('class="tt-seo-content"'));
@@ -166,7 +168,7 @@ test('rates register exposes all 48 locations with confirmed and preliminary rat
   assert.match(response.body,/<meta name="robots" content="index,follow">/);
   assert.match(response.body,/<link rel="canonical" href="https:\/\/www\.vdalo\.tech\/tourist-tax\/rates\/">/);
   assert.match(response.body,/Реєстр ставок туристичного збору на 2026 рік за 48 локаціями/);
-  assert.match(response.body,/<script src="\/tourist-tax-assets\/tourist-tax-rates\.js" defer><\/script>/);
+  assert.match(response.body,new RegExp(`<script src="\\/tourist-tax-assets\\/tourist-tax-rates\\.js\\?v=${assetVersion('tourist-tax-rates.js')}" defer><\\/script>`),'the rates filter script URL must change whenever its bytes change');
   assert.match(response.body,/Пошук за містом, громадою або КАТОТТГ/);
   assert.match(response.body,/id="tt-rates-year"/);
   assert.match(response.body,/Категорія туризму/);
