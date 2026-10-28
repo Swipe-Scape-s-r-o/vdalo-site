@@ -1,6 +1,7 @@
 import {canCalculateTouristTaxPlace, canIndexTouristTaxPlace, getTouristTaxPlace, getTouristTaxRule, hasPlaceSeoBlock, touristTaxCommunities, touristTaxPlaces, touristTaxSources} from './tourist-tax-data.mjs';
 import {touristTaxDashboard2026} from './tourist-tax-dashboard-data.mjs';
 import {touristTaxCityEditorialFaq,touristTaxCityIntroductions} from './tourist-tax-editorial.mjs';
+import {touristTaxBatch24_25Drafts,touristTaxBatch24_25DraftSlugs,touristTaxBatch24_25PlaceForms} from './tourist-tax-draft-batch24-25.mjs';
 import {assetVersion} from './assets.mjs';
 import {writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
@@ -30,9 +31,10 @@ function parseAccommodationPriceCents(value){
 }
 
 function shell({title,description,canonical,robots='index,follow',content,config={},footerAddon='',social=false,structuredData=null}) {
+  const canonicalMeta=canonical?`<link rel="canonical" href="${h(ORIGIN+canonical)}">`:'';
   const socialMeta=social?`<meta property="og:type" content="website"><meta property="og:locale" content="uk_UA"><meta property="og:title" content="${h(title)}"><meta property="og:description" content="${h(description)}"><meta property="og:url" content="${h(ORIGIN+canonical)}"><meta property="og:image" content="${ORIGIN}/v1/assets/og-1200x630.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${h(title)}"><meta name="twitter:description" content="${h(description)}"><meta name="twitter:image" content="${ORIGIN}/v1/assets/og-1200x630.png">`:'';
   const schemaMarkup=structuredData?`<script type="application/ld+json">${JSON.stringify(structuredData).replace(/</g,'\\u003c')}</script>`:'';
-  return `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>${h(title)}</title><meta name="description" content="${h(description)}"><meta name="robots" content="${robots}"><link rel="canonical" href="${h(ORIGIN+canonical)}">${socialMeta}${schemaMarkup}<meta name="theme-color" content="#321d35"><link rel="stylesheet" href="/tourist-tax-assets/tourist-tax.css?v=${assetVersion('tourist-tax.css')}"><link rel="stylesheet" href="/tourist-tax-assets/tourist-tax-interactions.css?v=${assetVersion('tourist-tax-interactions.css')}"><script type="application/json" id="tourist-tax-config">${JSON.stringify(config).replace(/</g,'\\u003c')}</script></head><body><header class="tt-header"><a class="tt-brand" href="/" aria-label="VDALO, на головну">VDALO<span>·</span></a><span class="tt-header-note">Довідник для готелів і гостей</span></header>${content}<footer class="tt-footer"><a href="/blog/turystychnyi-zbir-gotel-ukraina">Повний посібник з туристичного збору у 2026 році</a><span>Інформаційний сервіс VDALO. Для податкового обліку звіряйте дані з першоджерелами.</span>${footerAddon}</footer><script src="/tourist-tax-assets/tourist-tax.js" defer></script></body></html>`;
+  return `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>${h(title)}</title><meta name="description" content="${h(description)}"><meta name="robots" content="${robots}">${canonicalMeta}${socialMeta}${schemaMarkup}<meta name="theme-color" content="#321d35"><link rel="stylesheet" href="/tourist-tax-assets/tourist-tax.css?v=${assetVersion('tourist-tax.css')}"><link rel="stylesheet" href="/tourist-tax-assets/tourist-tax-interactions.css?v=${assetVersion('tourist-tax-interactions.css')}"><script type="application/json" id="tourist-tax-config">${JSON.stringify(config).replace(/</g,'\\u003c')}</script></head><body><header class="tt-header"><a class="tt-brand" href="/" aria-label="VDALO, на головну">VDALO<span>·</span></a><span class="tt-header-note">Довідник для готелів і гостей</span></header>${content}<footer class="tt-footer"><a href="/blog/turystychnyi-zbir-gotel-ukraina">Повний посібник з туристичного збору у 2026 році</a><span>Інформаційний сервіс VDALO. Для податкового обліку звіряйте дані з першоджерелами.</span>${footerAddon}</footer><script src="/tourist-tax-assets/tourist-tax.js" defer></script></body></html>`;
 }
 
 function sourcesPanel() {
@@ -343,6 +345,33 @@ export function renderTouristTaxCity(slug) {
     {'@type':'FAQPage','@id':`${canonical}#faq`,inLanguage:'uk',mainEntity:faqItems.map(item=>({'@type':'Question',name:item.question,acceptedAnswer:{'@type':'Answer',text:item.answer}}))},
   ]};
   return shell({title,description,canonical:place.route,robots:'index,follow',content,config:{placeSlug:place.slug,calculationState:'READY'},social:true,structuredData});
+}
+
+export function touristTaxBatch24_25PreviewSlugs() {
+  return touristTaxBatch24_25DraftSlugs;
+}
+
+export function renderTouristTaxBatch24_25Preview(slug) {
+  const draft=touristTaxBatch24_25Drafts[slug];
+  const place=getTouristTaxPlace(slug);
+  if(!draft||!place||place.indexable===true)return null;
+  const community=touristTaxCommunities.find(item=>item.slug===place.communitySlug);
+  if(!community)return null;
+  const forms=touristTaxBatch24_25PlaceForms[slug];
+  if(!forms)return null;
+  const title=`Туристичний збір у ${forms.locative} на 2026 рік: джерела та перевірка | VDALO`;
+  const description=`Туристичний збір у ${forms.locative}: матеріали для перевірки місцевого рішення та його чинності. Ставку буде додано після підтвердження першоджерел.`;
+  const questions=[
+    {name:`Яка ставка туристичного збору діє у ${forms.locative}?`,text:`Ставку для цієї локації ще не підтверджено за повним чинним рішенням громади. На сторінці не наведено неперевірене значення, а калькулятор не пропонує розрахунок до завершення звірки першоджерел.`},
+    {name:`Яку громаду вказано для ${place.name}?`,text:`У поточному наборі даних локацію пов’язано з ${forms.communityGenitive} у ${forms.regionGenitive} області. Географічний запис ще проходить перевірку, тому перед податковим застосуванням потрібно звірити адресу об’єкта та територіальне охоплення місцевого рішення.`},
+    {name:'Чому для цієї локації поки немає калькулятора?',text:`Калькулятор потребує підтверджених місцевих правил і періоду їхньої дії. Поки першоджерела не зіставлені, сторінка показує статус перевірки замість суми.`},
+    {name:'Де перевірити правило для цієї локації?',text:`Почніть з офіційного джерела, наведеного на цій сторінці, а потім звірте повний текст рішення ради, його туристичний додаток і подальші зміни. Загальні правила визначає стаття 268 Податкового кодексу України.`}
+  ];
+  const faqMarkup=questions.map((item,index)=>`<details${index===0?' open':''}><summary>${h(item.name)}</summary><p>${h(item.text)}</p></details>`).join('');
+  const sourceLinks=[`<li><a href="${h(draft.sourceUrl)}" rel="noopener noreferrer">${h(draft.sourceLabel)}</a>: ${h(draft.decision)}.</li>`];
+  if(draft.secondarySourceUrl)sourceLinks.push(`<li><a href="${h(draft.secondarySourceUrl)}" rel="noopener noreferrer">Додаткове офіційне джерело</a>: для зіставлення публікацій ради та запису ДПС.</li>`);
+  const content=`<main class="tt-main tt-draft-preview"><nav class="tt-breadcrumb" aria-label="Навігаційний ланцюжок"><a href="/tourist-tax/">Довідник туристичного збору</a><span aria-current="page">${h(place.name)}</span></nav><section class="tt-city-hero"><p class="tt-eyebrow">ПОПЕРЕДНЯ ДОВІДКА · ПЕРЕВІРКА ДЖЕРЕЛ</p><h1>Туристичний збір у ${h(forms.locative)} на 2026 рік</h1><p class="tt-lead">У ${h(forms.locative)}, ${h(forms.regionGenitive)} області, зібрано матеріали для перевірки місцевого правила. У робочому наборі локацію пов’язано з ${h(forms.communityGenitive)}, але географічний запис і чинну ставку ще не підтверджено за першоджерелами.</p><div class="tt-alert" role="note"><strong>Ставку ще не підтверджено</strong><span>Це робоча сторінка на staging. Числові значення й калькулятор з’являться лише після звірки першоджерел.</span></div></section><section class="tt-section" aria-labelledby="tt-draft-source-title"><h2 id="tt-draft-source-title">Які матеріали перевіряємо</h2><p>${h(draft.context)}</p><ul class="tt-draft-facts"><li><strong>Населений пункт</strong><span>${h(place.name)}</span></li><li><strong>Громада для звірки</strong><span>${h(community.name)}</span></li><li><strong>Область</strong><span>${h(place.region)}</span></li><li><strong>Стан даних</strong><span>Потрібне підтвердження першоджерела та періоду чинності</span></li></ul><p>${h(draft.focus)}</p></section><section class="tt-section" aria-labelledby="tt-draft-review-title"><h2 id="tt-draft-review-title">Що потрібно підтвердити</h2><p>${h(draft.followUp)}</p><ol class="tt-draft-checklist"><li>Перевірити повний текст рішення місцевої ради та підписані додатки.</li><li>Встановити, якій території й категоріям розміщення відповідає правило.</li><li>Звірити дату набрання чинності та всі пізніші зміни.</li><li>Лише після цього перевірити розрахунок і редакційний текст.</li></ol><p>Загальні норми туристичного збору наведені у <a href="https://zakon.rada.gov.ua/laws/show/2755-17#Text" rel="noopener noreferrer">статті 268 Податкового кодексу України</a>. Вона не замінює місцевого рішення та не підтверджує ставку конкретної громади.</p></section><section class="tt-method tt-draft-faq" aria-labelledby="tt-draft-faq-title"><h2 id="tt-draft-faq-title">Поширені запитання</h2>${faqMarkup}</section><section class="tt-sources" aria-labelledby="tt-draft-sources-title"><h2 id="tt-draft-sources-title">Джерела для звірки</h2><ul>${sourceLinks.join('')}</ul><p>Зведений запис допомагає знайти місцевий акт, але сам по собі не є повним підтвердженням його чинної редакції. Поки перевірка не завершена, сторінка не надає податкової рекомендації чи суми до сплати.</p><p><a href="/tourist-tax/">Повернутися до довідника туристичного збору</a></p></section></main>`;
+  return shell({title,description,canonical:null,robots:'noindex,follow',content,structuredData:{'@context':'https://schema.org','@type':'FAQPage',mainEntity:questions.map(item=>({'@type':'Question',name:item.name,acceptedAnswer:{'@type':'Answer',text:item.text}}))}});
 }
 
 export function calculateTouristTax({placeSlug, start, end, days, nights, guests, category, guestGroups, accommodationPricePerPersonPerDay, accommodationType, exemption='none', scenario='official'}, places=touristTaxPlaces, communities=touristTaxCommunities) {

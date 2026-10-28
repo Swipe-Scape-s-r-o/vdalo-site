@@ -9,8 +9,8 @@ const {default:server}=await import('../server.mjs');
 const {touristTaxPlaces,touristTaxCityRoutes,canIndexTouristTaxPlace}=await import('../versions/v1/tourist-tax-data.mjs');
 const {getPreparedPage}=await import('../versions/v1/content-revisions/content.mjs');
 
-async function request(url,method='GET'){
-  const req={url,method,headers:{},on(){},once(){},resume(){}};
+async function request(url,method='GET',host='www.vdalo.tech'){
+  const req={url,method,headers:{host},on(){},once(){},resume(){}};
   let status=0,headers={},body='';
   const res={writeHead(code,value={}){status=code;headers=value;},end(value){if(value)body=Buffer.isBuffer(value)?value.toString('utf8'):String(value);}};
   await new Promise((resolve,reject)=>{
@@ -20,6 +20,46 @@ async function request(url,method='GET'){
   });
   return {status,headers,body};
 }
+
+test('batch 24 and 25 research previews are staging-only, noindex, and never expose unverified rates',async()=>{
+  const {touristTaxBatch24_25PreviewSlugs}=await import('../versions/v1/tourist-tax.mjs');
+  const {touristTaxBatch24_25Drafts}=await import('../versions/v1/tourist-tax-draft-batch24-25.mjs');
+  const {touristTaxPlaces,touristTaxCommunities}=await import('../versions/v1/tourist-tax-data.mjs');
+  const slugs=touristTaxBatch24_25PreviewSlugs();
+  assert.equal(slugs.length,20,'both research batches must have exactly 20 preview routes');
+  assert.equal(new Set(slugs).size,20,'preview slugs must be unique');
+  const titles=new Set();
+  for(const slug of slugs){
+    const place=touristTaxPlaces.find(item=>item.slug===slug);
+    const community=touristTaxCommunities.find(item=>item.slug===place?.communitySlug);
+    assert.ok(place&&community,`${slug} must map to a known locality and community`);
+    assert.equal(place.indexable,false,`${slug} must remain non-indexable`);
+    const route=place.route;
+    const preview=await request(route,'GET','staging.vdalo.tech');
+    const previewHtml=preview.body.replaceAll('&#39;',"'");
+    assert.equal(preview.status,200,`${route} should resolve on staging`);
+    assert.match(preview.body,/name="robots" content="noindex,nofollow"/);
+    assert.match(preview.body,/Ставку ще не підтверджено/);
+    assert.match(previewHtml,new RegExp(place.name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
+    assert.match(previewHtml,new RegExp(community.name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
+    assert.doesNotMatch(preview.body,/<link rel="canonical"/,'a noindex staging draft should not canonicalize to a production 404');
+    assert.ok(preview.body.includes(touristTaxBatch24_25Drafts[slug].sourceUrl),`${slug} must link to its review source`);
+    assert.match(preview.body,/Поширені запитання/);
+    assert.equal((preview.body.match(/<details(?:\s|>)/g)||[]).length,4,`${slug} should render four useful FAQs`);
+    assert.match(preview.body,/FAQPage/,'FAQ structured data should match the visible questions');
+    assert.doesNotMatch(preview.body,/id="tt-calculator"|name="accommodationType"/,'a draft preview must not offer a tax calculator');
+    assert.doesNotMatch(preview.body,/id="home-trial-offer"/,'a research preview should not be covered by the sitewide conversion dialog');
+    const visibleText=preview.body.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
+    assert.doesNotMatch(visibleText,/\b\d+(?:[,.]\d+)?\s*%|\b\d+(?:[,.]\d+)?\s*(?:грн|₴)/i,`${slug} must not expose a proposed rate or amount`);
+    const title=preview.body.match(/<title>([^<]+)<\/title>/)?.[1];
+    assert.ok(title,`${slug} must have a title`);
+    assert.ok(!titles.has(title),`${slug} should have a unique title`);
+    titles.add(title);
+    const production=await request(route,'GET','www.vdalo.tech');
+    assert.equal(production.status,404,`${route} must not be publicly available before approval`);
+    assert.match(production.body,/name="robots" content="noindex,follow"/);
+  }
+});
 
 test('hub, city, assets and sitemap resolve through the actual app router',async()=>{
   const hub=await request('/tourist-tax/');
