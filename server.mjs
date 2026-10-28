@@ -34,7 +34,7 @@ import {applySitewideSchema} from './versions/v1/schema.mjs';
 import {getPublicSitemapRoutes,serializeSitemapXml} from './versions/v1/sitemap.mjs';
 import {renderResourceLibrary,getPublicResource} from './versions/v1/resource-library.mjs';
 import {renderAdminTimeCalculator,renderWebsiteChecklist,renderGuestMessageBuilder,renderHousekeepingWorkloadCalculator,renderCancellationCalculator,renderReviewReplyTemplates} from './versions/v1/advanced-tools.mjs';
-import {renderTouristTaxHub,renderTouristTaxCity,renderTouristTaxRates,handleTouristTaxCalculation} from './versions/v1/tourist-tax.mjs';
+import {renderTouristTaxHub,renderTouristTaxCity,renderTouristTaxBatch24_25Preview,touristTaxBatch24_25PreviewSlugs,renderTouristTaxRates,handleTouristTaxCalculation} from './versions/v1/tourist-tax.mjs';
 import {normalizeNonproductMetadata} from './versions/v1/nonproduct-seo.mjs';
 import {applyPreparedContent,revisionRoutes,revisionDate} from './versions/v1/content-revisions/content.mjs';
 import {renderTouristTaxFunnel} from './microlandings/tourist-tax-funnel.mjs';
@@ -46,7 +46,7 @@ const types={'.css':'text/css; charset=utf-8','.js':'text/javascript; charset=ut
 const gtmHead=`<script>(function(w,d,s,l,i){w.__vdaloLoadGoogleTags=function(){if(w.__vdaloGoogleTagsLoaded)return;w.__vdaloGoogleTagsLoaded=true;w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;d.head.appendChild(j);};if(w.vdaloConsent&&w.vdaloConsent.getPreferences().analytics)w.__vdaloLoadGoogleTags();})(window,document,'script','dataLayer','GTM-PKDT7MMT');</script>`;
 const calloAttributionPrelude=`<script>(function(){try{var url=new URL(window.location.href),tag=url.searchParams.get('t');if(tag){window.__vdaloCalloTag=tag;url.searchParams.delete('t');history.replaceState(history.state,'',url.pathname+(url.search?url.search:'')+url.hash);}}catch(_){}})();</script>`;
 const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/svg+xml">';
-const touristTaxRoutes=['/tourist-tax/','/tourist-tax/rates/','/tourist-tax/start',...touristTaxCityRoutes()];
+const touristTaxRoutes=['/tourist-tax/','/tourist-tax/rates/','/tourist-tax/start',...touristTaxCityRoutes(),...touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)];
 const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles,touristTaxRoutes});
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
 // Ordinary published pages opt in. Campaign /q*, /k*, /go*, numeric video,
@@ -169,7 +169,7 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/tourist-tax/')return send(res,200,renderTouristTaxHub(),'text/html; charset=utf-8',req.method);
   if(/^\/tourist-tax\/[^/]+$/.test(pathname)){res.writeHead(308,{Location:pathname+'/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   const touristTaxCity=pathname.match(/^\/tourist-tax\/([a-z0-9-]+)\/$/);
-  if(touristTaxCity){const page=renderTouristTaxCity(touristTaxCity[1]);if(page)return send(res,200,page,'text/html; charset=utf-8',req.method);}
+  if(touristTaxCity){const page=renderTouristTaxCity(touristTaxCity[1]);if(page)return send(res,200,page,'text/html; charset=utf-8',req.method);const preliminary=renderTouristTaxBatch24_25Preview(touristTaxCity[1]);if(preliminary)return send(res,200,preliminary,'text/html; charset=utf-8',req.method);}
   if(/^\/tourist-tax-assets\/tourist-tax(?:-interactions|-rates)?\.(?:css|js)$/.test(pathname)){
    const filename=path.join(root,'versions','v1','public',path.basename(pathname));const data=await readFile(filename);
    res.writeHead(200,{'Content-Type':types[path.extname(filename)],'Cache-Control':'public, max-age=300','X-Content-Type-Options':'nosniff'});return res.end(req.method==='HEAD'?undefined:data);
@@ -252,7 +252,7 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/')return sendCompressed(req,res,200,prefix(firstPage({origin:'https://www.vdalo.tech',full:true,homepage:true}),'v1'),'text/html; charset=utf-8');
   if(pathname==='/robots.txt')return send(res,200,res._isStagingHost?'User-agent: *\nDisallow: /\n':'User-agent: *\nAllow: /\nSitemap: https://www.vdalo.tech/sitemap.xml\n','text/plain; charset=utf-8');
   if(pathname==='/sitemap.xml')return send(res,200,res._isStagingHost?'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>':sitemapXml(),'application/xml; charset=utf-8');
-  if(pathname==='/llms.txt')return send(res,200,`# VDALO\n\n> Українська платформа для керування готельними бронюваннями та щоденними процесами.\n\n## Основні сторінки\n\n${publicSitemapRoutes.map(route=>`- https://www.vdalo.tech${route}`).join('\n')}\n\n## Дані про сайт\n\n- Мова основного сайту: українська.\n- Довідник туристичного збору містить лише опубліковані сторінки з перевіреними ставками.\n- Перед застосуванням ставки звіряйте місцеве рішення та офіційні джерела на відповідній сторінці.\n- XML sitemap: https://www.vdalo.tech/sitemap.xml\n`,'text/plain; charset=utf-8');
+  if(pathname==='/llms.txt')return send(res,200,`# VDALO\n\n> Українська платформа для керування готельними бронюваннями та щоденними процесами.\n\n## Основні сторінки\n\n${publicSitemapRoutes.map(route=>`- https://www.vdalo.tech${route}`).join('\n')}\n\n## Дані про сайт\n\n- Мова основного сайту: українська.\n- Довідник туристичного збору містить сторінки з перевіреними ставками та окремо позначені попередні сторінки, що проходять перевірку.\n- Перед застосуванням ставки звіряйте місцеве рішення та офіційні джерела на відповідній сторінці.\n- XML sitemap: https://www.vdalo.tech/sitemap.xml\n`,'text/plain; charset=utf-8');
   if(pathname==='/funnel')return send(res,200,renderDirectory());
   if(pathname==='/funnel/privacy')return send(res,200,renderFunnelPrivacy());
   if(pathname==='/q/') {res.writeHead(308,{Location:'/q'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}

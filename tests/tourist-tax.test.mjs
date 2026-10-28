@@ -2,13 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Readable} from 'node:stream';
-import {calculateTouristTax,calculateExactTouristTaxCents,exportTouristTaxReviewCsv,exportTouristTaxReviewXlsx,renderTouristTaxCity,renderTouristTaxHub} from '../versions/v1/tourist-tax.mjs';
+import {calculateTouristTax,calculateExactTouristTaxCents,exportTouristTaxReviewCsv,exportTouristTaxReviewXlsx,renderTouristTaxBatch24_25Preview,touristTaxBatch24_25PreviewSlugs,renderTouristTaxCity,renderTouristTaxHub} from '../versions/v1/tourist-tax.mjs';
 import {getPublicSitemapRoutes} from '../versions/v1/sitemap.mjs';
 import {canCalculateTouristTaxPlace,canIndexTouristTaxPlace,hasPlaceSeoBlock,touristTaxCommunities,touristTaxPlaces,touristTaxCityRoutes,touristTaxSources,validateTouristTaxPlaces} from '../versions/v1/tourist-tax-data.mjs';
 import {touristTaxReleasePlan} from '../versions/v1/tourist-tax-release.mjs';
 import {renderTouristTaxFunnel} from '../microlandings/tourist-tax-funnel.mjs';
 import {handleTop5Lead} from '../microlandings/top5-leads.mjs';
 import {touristTaxCityEditorialFaq,touristTaxCityIntroductions} from '../versions/v1/tourist-tax-editorial.mjs';
+import {touristTaxBatch24_25Drafts} from '../versions/v1/tourist-tax-draft-batch24-25.mjs';
 
 test('supplemental city FAQs cover the 28 indexable city pages without tax figures',()=>{
   const expectedSlugs=['lutsk','berehove','cherkasy','chernihiv','chernivtsi','dnipro','irpin','ivano-frankivsk','khust','kolomyya','kyyiv','lviv','odesa','pivdenne','polyana','rivne','skole','slavsko','sumy','ternopil','tyachiv','uzhhorod','vinnytsya','vynohradiv','yaremche','yasinya','zaporizhzhya','zhytomyr'];
@@ -644,13 +645,33 @@ test('verified calculation supports mixed guest categories, possible exemptions 
   assert.equal(calculateTouristTax({placeSlug:'lutsk',start:'2026-10-10',days:1,guestGroups:[{category:'domestic',guests:0}]},[place],[community]).state,'INVALID_INPUT');
 });
 
-test('directory and all reviewed city pages are indexable and included in the sitemap',()=>{
+test('directory and all reviewed city pages are indexable and included in the sitemap',async()=>{
   const hub=renderTouristTaxHub();
   const city=renderTouristTaxCity('lutsk');
   assert.match(hub,/<meta name="robots" content="index,follow">/);
   assert.match(hub,/<link rel="canonical" href="https:\/\/www\.vdalo\.tech\/tourist-tax\/">/);
   assert.equal([...hub.matchAll(/\bid="tt-calc-place"/g)].length,1);
   assert.match(hub,/Луцьк/);
+  const publishedPlaces=touristTaxPlaces.filter(place=>canIndexTouristTaxPlace(place,touristTaxCommunities));
+  assert.match(hub,/<label for="tt-place-search">Знайти місто або громаду<\/label>/);
+  assert.match(hub,/id="tt-place-search"[^>]+role="combobox"[^>]+aria-controls="tt-place-search-results"/);
+  assert.match(hub,/id="tt-place-search-results"[^>]+role="listbox"[^>]+hidden/);
+  assert.ok(hub.includes(`${publishedPlaces.length} ${publishedPlaces.length===1?'локація':publishedPlaces.length>=2&&publishedPlaces.length<=4?'локації':'локацій'} з перевіреними місцевими даними`));
+  assert.equal((hub.match(/class="tt-directory-region"/g)||[]).length,new Set(publishedPlaces.map(place=>place.region||'Інші регіони')).size);
+  for(const place of publishedPlaces)assert.ok(hub.includes(`href="${place.route}"`),`${place.slug} should remain a crawlable directory link`);
+  const preliminarySlugs=(await import('../versions/v1/tourist-tax.mjs')).touristTaxBatch24_25PreviewSlugs();
+  for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place,touristTaxCommunities)&&!preliminarySlugs.includes(place.slug)))assert.ok(!hub.includes(`href="${place.route}"`),`${place.slug} must stay out of public search and directory links`);
+  for(const slug of preliminarySlugs)assert.ok(hub.includes(`href="/tourist-tax/${slug}/"`),`${slug} should be listed in the separate preliminary directory`);
+  const clientConfig=JSON.parse(hub.match(/<script type="application\/json" id="tourist-tax-config">([^<]+)<\/script>/)[1]);
+  assert.deepEqual(clientConfig.publicPlaces.map(place=>place.slug).sort(),publishedPlaces.map(place=>place.slug).sort());
+  const browserSearch=readFileSync(new URL('../versions/v1/public/tourist-tax.js',import.meta.url),'utf8');
+  assert.match(browserSearch,/const directorySearchInput = document\.getElementById\('tt-place-search'\)/);
+  assert.match(browserSearch,/event\.key === 'ArrowDown'/);
+  assert.match(browserSearch,/event\.key === 'ArrowUp'/);
+  assert.match(browserSearch,/event\.key === 'Escape'/);
+  assert.match(browserSearch,/Серед локацій із перевіреними сторінками збігів немає/);
+  assert.match(browserSearch,/Введіть ще одну літеру, щоб шукати серед локацій із перевіреними сторінками/);
+  assert.match(browserSearch,/querySelectorAll\('\[role="combobox"\]\[aria-controls\]:not\(#tt-place-search\)'\)/);
   assert.match(city,/<meta name="robots" content="index,follow">/);
   assert.match(city,/Розрахуйте туристичний збір/);
   assert.match(city,/0,5\s*%|0,5%/);
@@ -659,7 +680,7 @@ test('directory and all reviewed city pages are indexable and included in the si
   assert.equal(touristTaxSources.territoryList.matchedToKatottg,false);
   assert.match(city,/Податковий кодекс України, стаття 268/);
   assert.doesNotMatch(`${hub}${city}`,/наказ №376|z0782-26|z1117-26/i);
-  assert.doesNotMatch(`${hub}${city}`,/пілот|на перевірці|ще перевіряємо/i);
+  assert.doesNotMatch(city,/пілот|на перевірці|ще перевіряємо/i);
   const routes=getPublicSitemapRoutes({seoRoutes:[],caseSlugs:[],pmsArticle:{slug:'/blog/a'},pmsChoiceArticle:{slug:'/blog/b'},editorialArticles:[],secondPassArticles:[],touristTaxRoutes:['/tourist-tax/',...touristTaxCityRoutes()]});
   assert.ok(routes.includes('/tourist-tax/'));
   assert.ok(routes.includes('/tourist-tax/lutsk/'));
@@ -847,6 +868,82 @@ test('imported city drafts stay unavailable until explicitly released and verifi
   assert.equal(renderTouristTaxCity('not-a-place'),null);
   const result=calculateTouristTax({placeSlug:'aktove',start:'2026-10-10',days:1,guestGroups:[{category:'domestic',guests:1}]});
   assert.equal(result.state,'RATE_UNVERIFIED');
+});
+
+test('all 20 preliminary localities render clearly labeled pages and support only conditional 2026 estimates',()=>{
+  const slugs=touristTaxBatch24_25PreviewSlugs();
+  assert.equal(slugs.length,20);
+  const hub=renderTouristTaxHub();
+  const config=JSON.parse(hub.match(/<script type="application\/json" id="tourist-tax-config">([^<]+)<\/script>/)[1]);
+  assert.deepEqual(config.preliminaryPlaces.map(place=>place.slug).sort(),[...slugs].sort());
+  assert.ok(config.preliminaryPlaces.every(place=>place.calculatorAvailable), 'each published preliminary locality should be selectable in the calculator');
+  const sitemap=getPublicSitemapRoutes({seoRoutes:[],caseSlugs:[],pmsArticle:{slug:'/blog/a'},pmsChoiceArticle:{slug:'/blog/b'},editorialArticles:[],secondPassArticles:[],touristTaxRoutes:['/tourist-tax/',...slugs.map(slug=>`/tourist-tax/${slug}/`)]});
+  for(const slug of slugs){
+    const place=touristTaxPlaces.find(item=>item.slug===slug);
+    const community=touristTaxCommunities.find(item=>item.slug===place.communitySlug);
+    const rule=community.taxRule;
+    const page=renderTouristTaxBatch24_25Preview(slug);
+    assert.ok(page,`${slug} page should render`);
+    assert.ok(sitemap.includes(place.route),`${slug} should be in the public sitemap routes`);
+    assert.match(page,/<meta name="robots" content="index,follow">/);
+    assert.ok(page.includes(`<link rel="canonical" href="https://www.vdalo.tech${place.route}">`),`${slug} should have a self canonical`);
+    assert.match(page,/Попередні дані|НЕПІДТВЕРДЖЕНІ ОРІЄНТИРИ/);
+    assert.match(page,/id="tourist-tax-calculator"/);
+    assert.ok(page.includes(`${place.sourceRecord.proposedRates.domestic}%`)||page.includes(`${new Intl.NumberFormat('uk-UA',{maximumFractionDigits:2}).format(place.sourceRecord.proposedRates.domestic)}%`),`${slug} should render its preliminary domestic rate`);
+    assert.equal(rule.status,'SECONDARY_SOURCE_ONLY',`${slug} must remain outside the verified rates register`);
+    assert.deepEqual(rule.proposedRates,place.sourceRecord.proposedRates,`${slug} calculator and page must use the same candidate rates`);
+    const result=calculateTouristTax({placeSlug:slug,start:'2026-10-20',days:2,guestGroups:[{category:'domestic',guests:1}]});
+    assert.equal(result.state,'PRELIMINARY_RESULT',`${slug} should return a clearly provisional result`);
+    assert.equal(result.verificationStatus,'PRELIMINARY');
+    assert.ok(result.warning);
+    assert.equal(result.sourceUrl,touristTaxBatch24_25Drafts[slug].sourceUrl,`${slug} result should point to that locality's selected DPS document`);
+    assert.equal(result.totalCents,calculateExactTouristTaxCents({minimumWage:8647,ratePercent:rule.proposedRates.domestic,guests:1,nights:2}).toString());
+    assert.equal(calculateTouristTax({placeSlug:slug,start:'2027-01-01',days:1,guestGroups:[{category:'domestic',guests:1}]}).state,'RATE_OUT_OF_PERIOD',`${slug} must not extrapolate a preliminary rate into 2027`);
+  }
+});
+
+test('all 20 preliminary locality pages have complete SEO modules, internal links and structured breadcrumbs',()=>{
+  const titles=new Set();
+  const descriptions=new Set();
+  for(const slug of touristTaxBatch24_25PreviewSlugs()){
+    const place=touristTaxPlaces.find(item=>item.slug===slug);
+    const page=renderTouristTaxBatch24_25Preview(slug);
+    const title=page.match(/<title>(.*?)<\/title>/)?.[1]??'';
+    const description=page.match(/<meta name="description" content="(.*?)">/)?.[1]??'';
+    assert.ok(title.length>=35&&title.length<=60,`${slug} title should be concise and descriptive (${title.length})`);
+    assert.equal(titles.has(title),false,`${slug} title should be unique`);
+    assert.ok(description.length>=120&&description.length<=160,`${slug} description should fit a search snippet (${description.length})`);
+    assert.equal(descriptions.has(description),false,`${slug} description should be unique`);
+    titles.add(title);
+    descriptions.add(description);
+    assert.equal((page.match(/<h1\b/g)??[]).length,1,`${slug} should have exactly one H1`);
+    assert.match(page,/<meta name="robots" content="index,follow">/);
+    assert.ok(page.includes(`<link rel="canonical" href="https://www.vdalo.tech${place.route}">`));
+    assert.match(page,/<meta property="og:title"/);
+    assert.match(page,/<meta property="og:description"/);
+    assert.match(page,/<meta name="twitter:card" content="summary_large_image">/);
+    const seo=page.match(/<section class="tt-section tt-preliminary-seo"[\s\S]*?<\/section>/)?.[0]??'';
+    assert.ok(seo,`${slug} should have a lower SEO content module`);
+    assert.match(seo,/<h2[^>]*>Туристичний збір (?:у|в) /);
+    assert.doesNotMatch(page,/Туристичний збір (?:у|в) (?:у|в) /,`${slug} must not repeat a location preposition`);
+    assert.match(seo,/<h3>Що перевірити перед розрахунком<\/h3>/);
+    assert.match(seo,/<h3>Як читати попередню суму<\/h3>/);
+    assert.match(seo,/<h3>Корисні матеріали<\/h3>/);
+    assert.ok(seo.includes(touristTaxBatch24_25Drafts[slug].focus),`${slug} SEO module should retain location-specific guidance`);
+    assert.ok(seo.includes(touristTaxBatch24_25Drafts[slug].followUp),`${slug} SEO module should retain the specific verification task`);
+    assert.equal(page.split(touristTaxBatch24_25Drafts[slug].focus).length-1,1,`${slug} location-specific guidance should not be duplicated`);
+    assert.equal(page.split(touristTaxBatch24_25Drafts[slug].followUp).length-1,1,`${slug} verification task should not be duplicated`);
+    const words=seo.replace(/<[^>]+>/g,' ').split(/\s+/).filter(Boolean);
+    assert.ok(words.length>=150,`${slug} SEO module should provide useful explanatory depth (${words.length} words)`);
+    assert.ok(seo.includes('href="/tourist-tax/"'));
+    assert.ok(seo.includes('href="/tourist-tax/rates/"'));
+    assert.ok(seo.includes('href="/blog/turystychnyi-zbir-gotel-ukraina"'));
+    const jsonLd=JSON.parse(page.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1]??'{}');
+    assert.ok(jsonLd['@graph']?.some(node=>node['@type']==='WebPage'),`${slug} should describe the page in JSON-LD`);
+    assert.ok(jsonLd['@graph']?.some(node=>node['@type']==='BreadcrumbList'),`${slug} should expose breadcrumb structured data`);
+    assert.ok(jsonLd['@graph']?.some(node=>node['@type']==='FAQPage'&&node.mainEntity?.length===4),`${slug} should expose its four visible FAQs as structured data`);
+    assert.equal(page.includes('\u2014'),false,`${slug} public copy must not contain a long dash`);
+  }
 });
 
 test('review export keeps proposed rates separate from verified rates',()=>{

@@ -15,7 +15,85 @@ if (infographic && !reduceMotion && 'IntersectionObserver' in window) {
   infographicObserver.observe(infographic);
 } else if (infographic) infographic.classList.add('is-visible');
 
-const places = Array.isArray(config.publicPlaces) ? config.publicPlaces : [];
+const places = [
+  ...(Array.isArray(config.publicPlaces) ? config.publicPlaces : []),
+  ...(Array.isArray(config.preliminaryPlaces) ? config.preliminaryPlaces : []),
+];
+const directorySearchInput = document.getElementById('tt-place-search');
+if (directorySearchInput) {
+  const results = document.getElementById('tt-place-search-results');
+  const status = document.getElementById('tt-place-search-status');
+  const help = document.getElementById('tt-place-search-help');
+  const defaultHelp = help?.textContent || '';
+  let activeIndex = -1;
+  const closeDirectoryResults = () => {
+    results?.replaceChildren();
+    if (results) { results.hidden = true; results.style.display = 'none'; }
+    directorySearchInput.setAttribute('aria-expanded', 'false');
+    directorySearchInput.removeAttribute('aria-activedescendant');
+    activeIndex = -1;
+  };
+  const setActiveOption = index => {
+    const options = [...(results?.querySelectorAll('[role="option"]') || [])];
+    if (!options.length) return;
+    activeIndex = (index + options.length) % options.length;
+    options.forEach((option, optionIndex) => option.setAttribute('aria-selected', String(optionIndex === activeIndex)));
+    directorySearchInput.setAttribute('aria-activedescendant', options[activeIndex].id);
+  };
+  directorySearchInput.addEventListener('input', () => {
+    const query = directorySearchInput.value.trim().toLocaleLowerCase('uk-UA').replace(/\s+/g, ' ');
+    closeDirectoryResults();
+    if (query.length < 2) {
+      if (help) help.textContent = query ? 'Введіть ще одну літеру, щоб шукати серед локацій із перевіреними сторінками.' : defaultHelp;
+      if (status) status.textContent = query ? 'Введіть ще одну літеру для пошуку.' : '';
+      return;
+    }
+    const allMatches = places
+      .filter(place => `${place.name} ${place.community} ${place.region} ${place.district}`.toLocaleLowerCase('uk-UA').replace(/\s+/g, ' ').includes(query))
+      .sort((a, b) => Number(!a.name.toLocaleLowerCase('uk-UA').startsWith(query)) - Number(!b.name.toLocaleLowerCase('uk-UA').startsWith(query)) || a.name.localeCompare(b.name, 'uk-UA'));
+    if (!allMatches.length) {
+      if (help) help.textContent = 'Серед локацій із перевіреними сторінками збігів немає. Перегляньте повний реєстр місцевих правил.';
+      if (status) status.textContent = 'Серед опублікованих сторінок збігів немає. Перегляньте повний реєстр нижче.';
+      return;
+    }
+    if (help) help.textContent = defaultHelp;
+    const matches = allMatches.slice(0, 6);
+    for (const [index, place] of matches.entries()) {
+      const option = document.createElement('button');
+      option.type = 'button';
+      option.id = `tt-place-search-option-${index}`;
+      option.className = 'tt-place-choice';
+      option.setAttribute('role', 'option');
+      option.setAttribute('aria-selected', 'false');
+      const title = document.createElement('strong');
+      title.textContent = place.name;
+      const detail = document.createElement('small');
+      detail.textContent = `${place.community || place.region} · ${place.region}`;
+      option.append(title, detail);
+      option.addEventListener('mousedown', event => event.preventDefault());
+      option.addEventListener('click', () => { window.location.assign(place.route); });
+      results.append(option);
+    }
+    results.hidden = false;
+    results.style.display = 'block';
+    directorySearchInput.setAttribute('aria-expanded', 'true');
+    if (status) status.textContent = `Знайдено ${allMatches.length}${allMatches.length > matches.length ? `, показано перші ${matches.length}` : ''}. Використайте стрілки та Enter, щоб відкрити сторінку.`;
+  });
+  directorySearchInput.addEventListener('keydown', event => {
+    const options = [...(results?.querySelectorAll('[role="option"]') || [])];
+    if (event.key === 'Escape') { closeDirectoryResults(); return; }
+    if (!options.length) return;
+    if (event.key === 'ArrowDown') { event.preventDefault(); setActiveOption(activeIndex + 1); }
+    if (event.key === 'ArrowUp') { event.preventDefault(); setActiveOption(activeIndex < 0 ? options.length - 1 : activeIndex - 1); }
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      options[activeIndex < 0 ? 0 : activeIndex]?.click();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.tt-directory-quick-search')) closeDirectoryResults();
+  });
+}
 const funnelLinks = [...document.querySelectorAll('[data-tax-funnel-cta]')];
 const calculatorForm = document.getElementById('tourist-tax-calculator');
 const syncFunnelCtaContext = () => {
@@ -48,7 +126,7 @@ for (const link of funnelLinks) {
     });
   });
 }
-const searchInputs = document.querySelectorAll('[role="combobox"][aria-controls]');
+const searchInputs = document.querySelectorAll('[role="combobox"][aria-controls]:not(#tt-place-search)');
 
 for (const input of searchInputs) {
   const results = document.getElementById(input.getAttribute('aria-controls'));
@@ -65,7 +143,7 @@ for (const input of searchInputs) {
     const matches = places.filter(place => `${place.name} ${place.region} ${place.district} ${place.community}`.toLocaleLowerCase('uk-UA').includes(query));
     if (!matches.length) {
       close();
-      if (status) status.textContent = 'Поки калькулятор доступний для населених пунктів із підтвердженою ставкою. Перевірте написання або спробуйте інший населений пункт.';
+      if (status) status.textContent = 'Перевірте написання або спробуйте інший населений пункт. Для локацій із попередніми даними калькулятор покаже лише орієнтовну суму.';
       return;
     }
     for (const place of matches.slice(0, 6)) {
@@ -85,7 +163,7 @@ for (const input of searchInputs) {
         syncFunnelCtaContext();
         close();
         if (status) {
-          status.replaceChildren(document.createTextNode(place.verified ? 'Місце обрано. ' : 'Точний розрахунок поки недоступний. '));
+          status.replaceChildren(document.createTextNode(place.verified ? 'Місце обрано. ' : place.calculatorAvailable ? 'Обрано попередні дані. Результат буде орієнтовним. ' : 'Розрахунок для цієї локації поки недоступний. '));
           if (!place.verified && place.route) {
             const detail = document.createElement('a'); detail.href = place.route; detail.textContent = 'Переглянути сторінку населеного пункту'; status.append(detail);
             status.append(document.createTextNode(' '));
@@ -173,7 +251,7 @@ if (form) {
         output.textContent = 'Для цього населеного пункту розрахунок поки недоступний. Спробуйте обрати інше місто з підтвердженою ставкою.';
         return;
       }
-      if (result.state === 'VERIFIED_RESULT') {
+      if (result.state === 'VERIFIED_RESULT' || result.state === 'PRELIMINARY_RESULT') {
         if(compareOdesa&&comparisonResult?.state!=='VERIFIED_RESULT'){
           output.textContent=comparisonResult?.reason||messages[comparisonResult?.state]||'Не вдалося побудувати порівняльний сценарій. Перевірте дату проживання.';
           return;
@@ -191,8 +269,9 @@ if (form) {
           }).join('; ');
           const detail=document.createElement('p');detail.textContent=`${groupsText} · ${value.days} розрахункових діб. Інформаційний розрахунок${value.exemptionReviewRequired?' до перевірки можливої пільги':''}.`;
           card.append(heading,amount,detail);
-          const source=document.createElement('a');source.href=value.sourceUrl;source.rel='noopener';source.textContent=value.scenarioOnly?'Повідомлення ДПС про ставку 1%':'Першоджерело місцевої ставки';card.append(source);
-          const checked=document.createElement('small');checked.textContent=`Перевірено ${value.checkedAt}`;card.append(checked);
+          if(value.sourceUrl){const source=document.createElement('a');source.href=value.sourceUrl;source.rel='noopener';source.textContent=value.verificationStatus==='PRELIMINARY'?'Джерело попередніх значень':value.scenarioOnly?'Повідомлення ДПС про ставку 1%':'Першоджерело місцевої ставки';card.append(source);}
+          const checked=document.createElement('small');checked.textContent=value.verificationStatus==='PRELIMINARY'?'Ставка та її застосування ще перевіряються.':`Перевірено ${value.checkedAt}`;card.append(checked);
+          if(value.warning){const warning=document.createElement('p');warning.className='tt-scenario-warning';warning.textContent=value.warning;card.append(warning);}
           if(isScenario){const note=document.createElement('p');note.className='tt-scenario-warning';note.textContent='Умовний сценарій за повідомленою ставкою 1% для іноземців. Дату її застосування ще потрібно звірити з повним рішенням; не використовуйте цю суму як підтверджене нарахування за 2026 рік.';card.append(note);}
           return card;
         };
@@ -201,7 +280,7 @@ if (form) {
           comparison.append(renderResultCard(result,'Підтверджені ставки 2026 року'),renderResultCard(comparisonResult,'Порівняльний сценарій: 1% для іноземців',true));
           output.append(comparison);
           const difference=document.createElement('p');difference.className='tt-result-difference';difference.textContent=`Різниця між сценаріями: ${new Intl.NumberFormat('uk-UA',{style:'currency',currency:'UAH'}).format((Number(comparisonResult.totalCents)-Number(result.totalCents))/100)}.`;output.append(difference);
-        }else output.append(renderResultCard(result,'Розрахунок за підтвердженими ставками'));
+        }else output.append(renderResultCard(result,result.state==='PRELIMINARY_RESULT'?'Орієнтовний розрахунок за попередніми даними':'Розрахунок за підтвердженими ставками'));
         trackCalculation();
       } else if(result.state==='RATE_THRESHOLD_AMBIGUOUS') output.textContent=`Місцеве рішення не дає однозначно визначити ставку для ціни рівно ${new Intl.NumberFormat('uk-UA').format(result.thresholdUah)} грн. Уточніть тариф у міській раді або податкового агента.`;
       else output.textContent = result.reason || messages[result.state] || 'Не вдалося виконати перевірку. Спробуйте пізніше.';
