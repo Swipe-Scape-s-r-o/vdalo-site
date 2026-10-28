@@ -20,6 +20,8 @@ const directorySearchInput = document.getElementById('tt-place-search');
 if (directorySearchInput) {
   const results = document.getElementById('tt-place-search-results');
   const status = document.getElementById('tt-place-search-status');
+  const help = document.getElementById('tt-place-search-help');
+  const defaultHelp = help?.textContent || '';
   let activeIndex = -1;
   const closeDirectoryResults = () => {
     results?.replaceChildren();
@@ -39,6 +41,7 @@ if (directorySearchInput) {
     const query = directorySearchInput.value.trim().toLocaleLowerCase('uk-UA').replace(/\s+/g, ' ');
     closeDirectoryResults();
     if (query.length < 2) {
+      if (help) help.textContent = query ? 'Введіть ще одну літеру, щоб шукати серед локацій із перевіреними сторінками.' : defaultHelp;
       if (status) status.textContent = query ? 'Введіть ще одну літеру для пошуку.' : '';
       return;
     }
@@ -46,9 +49,11 @@ if (directorySearchInput) {
       .filter(place => `${place.name} ${place.community} ${place.region} ${place.district}`.toLocaleLowerCase('uk-UA').replace(/\s+/g, ' ').includes(query))
       .sort((a, b) => Number(!a.name.toLocaleLowerCase('uk-UA').startsWith(query)) - Number(!b.name.toLocaleLowerCase('uk-UA').startsWith(query)) || a.name.localeCompare(b.name, 'uk-UA'));
     if (!allMatches.length) {
+      if (help) help.textContent = 'Серед локацій із перевіреними сторінками збігів немає. Перегляньте повний реєстр місцевих правил.';
       if (status) status.textContent = 'Серед опублікованих сторінок збігів немає. Перегляньте повний реєстр нижче.';
       return;
     }
+    if (help) help.textContent = defaultHelp;
     const matches = allMatches.slice(0, 6);
     for (const [index, place] of matches.entries()) {
       const option = document.createElement('button');
