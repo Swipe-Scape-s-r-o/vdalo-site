@@ -16,7 +16,16 @@ import {
   getTouristTaxBatch004RateModel,
   canIndexTouristTaxPlace,
 } from '../versions/v1/tourist-tax-data.mjs';
-import {calculateTouristTax,renderTouristTaxBatch004Place,renderTouristTaxHub,renderTouristTaxRates} from '../versions/v1/tourist-tax.mjs';
+import {calculateTouristTax,renderTouristTaxBatch004Place,renderTouristTaxHub,renderTouristTaxRates,sanitizePublicTouristTaxHtml} from '../versions/v1/tourist-tax.mjs';
+
+test('public tourist-tax HTML replaces internal partial status and removes English/internal markers',()=>{
+  const source='<small>Статус даних: Часткові дані, потрібна звірка (код: <code>VDALO_PARTIAL_RATE_DATA</code>)</small><p>PARTIAL</p><p>ПОПЕРЕДНЬО 0,50% / 5,00% за індексом ДПС; перевірити оригінал і зміни. *</p>';
+  const html=sanitizePublicTouristTaxHtml(source);
+  assert.match(html,/Попередні дані · перевірка триває/u);
+  assert.match(html,/0,50%/u);
+  assert.match(html,/5,00%/u);
+  assert.doesNotMatch(html,/VDALO_PARTIAL_RATE_DATA|\bPARTIAL\b|Статус даних:|перевірити оригінал і зміни/iu);
+});
 
 test('batch004 imports only locality rows with a non-empty approved rate field',()=>{
   assert.deepEqual(touristTaxBatch004PublicationAudit,{
@@ -144,6 +153,7 @@ test('every new locality route renders indexable page with its exact approved ra
     for(const rate of rateValues)assert.ok(rateSection.includes(rate),`${place.slug} should preserve approved rate ${rate}`);
     assert.ok(rateSection.includes('<li>'),`${place.slug} should put rate statements on separate lines`);
     assert.ok(!html.includes('VDALO_PARTIAL_RATE_DATA'),`${place.slug} must not expose internal status codes`);
+    assert.doesNotMatch(html,/\bPARTIAL\b/iu,`${place.slug} must not expose the English partial marker`);
     assert.ok(!html.includes('Статус даних:'),`${place.slug} must not show the internal data-status field`);
     assert.ok(!/перевірити оригінал і зміни/iu.test(html),`${place.slug} must not show the internal review instruction`);
     assert.match(html,/VDALO не несе відповідальності за неточності/u,`${place.slug} should include the review disclaimer`);

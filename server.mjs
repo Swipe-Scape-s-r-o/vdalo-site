@@ -34,7 +34,7 @@ import {applySitewideSchema} from './versions/v1/schema.mjs';
 import {getPublicSitemapRoutes,serializeSitemapXml} from './versions/v1/sitemap.mjs';
 import {renderResourceLibrary,getPublicResource} from './versions/v1/resource-library.mjs';
 import {renderAdminTimeCalculator,renderWebsiteChecklist,renderGuestMessageBuilder,renderHousekeepingWorkloadCalculator,renderCancellationCalculator,renderReviewReplyTemplates} from './versions/v1/advanced-tools.mjs';
-import {renderTouristTaxHub,renderTouristTaxCity,renderTouristTaxBatch004Place,renderTouristTaxBatch24_25Preview,touristTaxBatch24_25PreviewSlugs,renderTouristTaxRates,handleTouristTaxCalculation} from './versions/v1/tourist-tax.mjs';
+import {renderTouristTaxHub,renderTouristTaxCity,renderTouristTaxBatch004Place,renderTouristTaxBatch24_25Preview,touristTaxBatch24_25PreviewSlugs,renderTouristTaxRates,handleTouristTaxCalculation,sanitizePublicTouristTaxHtml} from './versions/v1/tourist-tax.mjs';
 import {normalizeNonproductMetadata} from './versions/v1/nonproduct-seo.mjs';
 import {applyPreparedContent,revisionRoutes,revisionDate} from './versions/v1/content-revisions/content.mjs';
 import {renderTouristTaxFunnel} from './microlandings/tourist-tax-funnel.mjs';
@@ -169,7 +169,7 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/tourist-tax/')return send(res,200,renderTouristTaxHub(),'text/html; charset=utf-8',req.method);
   if(/^\/tourist-tax\/[^/]+$/.test(pathname)){res.writeHead(308,{Location:pathname+'/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   const touristTaxCity=pathname.match(/^\/tourist-tax\/([a-z0-9-]+)\/$/);
-  if(touristTaxCity){const page=renderTouristTaxCity(touristTaxCity[1])??renderTouristTaxBatch004Place(touristTaxCity[1]);if(page)return send(res,200,page,'text/html; charset=utf-8',req.method);const preliminary=renderTouristTaxBatch24_25Preview(touristTaxCity[1]);if(preliminary)return send(res,200,preliminary,'text/html; charset=utf-8',req.method);}
+  if(touristTaxCity){const page=renderTouristTaxCity(touristTaxCity[1])??renderTouristTaxBatch004Place(touristTaxCity[1]);if(page)return send(res,200,sanitizePublicTouristTaxHtml(page),'text/html; charset=utf-8',req.method);const preliminary=renderTouristTaxBatch24_25Preview(touristTaxCity[1]);if(preliminary)return send(res,200,sanitizePublicTouristTaxHtml(preliminary),'text/html; charset=utf-8',req.method);}
   if(/^\/tourist-tax-assets\/tourist-tax(?:-interactions|-rates)?\.(?:css|js)$/.test(pathname)){
    const filename=path.join(root,'versions','v1','public',path.basename(pathname));const data=await readFile(filename);
    res.writeHead(200,{'Content-Type':types[path.extname(filename)],'Cache-Control':'public, max-age=300','X-Content-Type-Options':'nosniff'});return res.end(req.method==='HEAD'?undefined:data);
