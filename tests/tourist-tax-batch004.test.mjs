@@ -11,8 +11,10 @@ import {
   touristTaxBatch004WithheldNoNumericRateRows,
   touristTaxPublicationRoutes,
   touristTaxPlaces,
+  touristTaxCommunities,
   getTouristTaxBatch004Place,
   getTouristTaxBatch004RateModel,
+  canIndexTouristTaxPlace,
 } from '../versions/v1/tourist-tax-data.mjs';
 import {calculateTouristTax,renderTouristTaxBatch004Place,renderTouristTaxHub,renderTouristTaxRates} from '../versions/v1/tourist-tax.mjs';
 
@@ -56,6 +58,23 @@ test('localities without numeric rates are withheld from all public discovery su
     const html=renderTouristTaxBatch004Place(place.slug);
     for(const withheld of touristTaxBatch004WithheldNoNumericRateRows)
       assert.ok(!html.includes(withheld.route),`${place.slug} must not link to withheld ${withheld.slug}`);
+  }
+});
+
+test('rates register formats every published batch rate in Ukrainian review lines',()=>{
+  const rates=renderTouristTaxRates();
+  for(const place of touristTaxBatch004Places){
+    const start=rates.indexOf(`href="${place.route}"`);
+    assert.notEqual(start,-1,`${place.slug} should appear in the rates register`);
+    const end=rates.indexOf('</tr>',start);
+    const row=rates.slice(start,end);
+    const rateMarkup=row.match(/<ul class="tt-batch-rate-lines">([\s\S]*?)<\/ul>/)?.[1]||'';
+    assert.ok(rateMarkup,`${place.slug} should use readable rate lines in the register`);
+    assert.ok(!row.includes('VDALO_PARTIAL_RATE_DATA'),`${place.slug} must not expose an internal status code in the register`);
+    assert.ok(!row.includes('перевірити оригінал і зміни'),`${place.slug} must not expose the internal review instruction in the register`);
+    const visibleRateText=rateMarkup.replace(/<[^>]+>/g,' ').replace(/&quot;/g,'"').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&#39;/g,"'");
+    assert.doesNotMatch(visibleRateText.replace(/\b(?:IX-VIII|VIII|IX|II)\b/g,''),/[A-Za-z]{2,}/u,`${place.slug} register rate should use Ukrainian wording`);
+    for(const line of rateMarkup.matchAll(/<li>([\s\S]*?)<\/li>/g))assert.ok((line[1].match(/\d+(?:[,.]\d+)?\s*%/gu)||[]).length<=1,`${place.slug} should show each percentage on its own line in the register`);
   }
 });
 
@@ -109,15 +128,29 @@ test('every new locality route renders indexable page with its exact approved ra
   const titles=new Set();
   const descriptions=new Set();
   const h1s=new Set();
+  const normalizeRegion=value=>String(value||'').replace(/\s+область$/iu,'').trim();
+  const linkTargets=[
+    ...touristTaxPlaces.filter(place=>canIndexTouristTaxPlace(place,touristTaxCommunities)).map(place=>({route:place.route,region:normalizeRegion(place.region),communityCode:touristTaxCommunities.find(item=>item.slug===place.communitySlug)?.katottgCode||''})),
+    ...touristTaxBatch004Places.map(place=>({route:place.route,region:normalizeRegion(place.region),communityCode:place.communityCode||''})),
+  ];
   for(const place of touristTaxBatch004Places){
     const html=renderTouristTaxBatch004Place(place.slug);
     assert.ok(html,`${place.slug} should render`);
     assert.match(html,new RegExp(`<link rel="canonical" href="https://www\\.vdalo\\.tech${place.route.replaceAll('/','\\/')}">`));
     assert.match(html,/<meta name="robots" content="index,follow">/);
-    const escapedRate=place.rateText.replace(/\u2014/g,'\u2013').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-    assert.ok(html.includes(escapedRate),`${place.slug} should show the approved rate text`);
-    assert.ok(html.includes(place.dataStatus),`${place.slug} should retain its data status`);
-    if(place.source['Статус ставки на сайті'])assert.ok(html.includes(place.source['Статус ставки на сайті']),`${place.slug} should retain the source rate status`);
+    const rateValues=[...place.rateText.matchAll(/\d+(?:[,.]\d+)?\s*%/gu)].map(([rate])=>rate.replace(/\./g,','));
+    const rateSection=html.match(/<ul class="tt-batch-rate-lines">([\s\S]*?)<\/ul>/)?.[1]||'';
+    assert.equal((html.match(/class="tt-batch-rate-lines"/g)||[]).length,1,`${place.slug} should display the rate once, in the summary card`);
+    for(const rate of rateValues)assert.ok(rateSection.includes(rate),`${place.slug} should preserve approved rate ${rate}`);
+    assert.ok(rateSection.includes('<li>'),`${place.slug} should put rate statements on separate lines`);
+    assert.ok(!html.includes('VDALO_PARTIAL_RATE_DATA'),`${place.slug} must not expose internal status codes`);
+    assert.ok(!html.includes('Статус даних:'),`${place.slug} must not show the internal data-status field`);
+    assert.ok(!/перевірити оригінал і зміни/iu.test(html),`${place.slug} must not show the internal review instruction`);
+    assert.match(html,/VDALO не несе відповідальності за неточності/u,`${place.slug} should include the review disclaimer`);
+    assert.match(html,/самостійно звірте чинне рішення/u,`${place.slug} should ask visitors to verify the decision`);
+    const visibleRateText=rateSection.replace(/<[^>]+>/g,' ').replace(/&quot;/g,'"').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&#39;/g,"'");
+    assert.doesNotMatch(visibleRateText.replace(/-(?:IX-)?VIII\b|-IX\b/g,''),/[A-Za-z]{2,}/u,`${place.slug} rate display should use Ukrainian wording`);
+    for(const line of rateSection.matchAll(/<li>([\s\S]*?)<\/li>/g))assert.ok((line[1].match(/\d+(?:[,.]\d+)?\s*%/gu)||[]).length<=1,`${place.slug} should place each percentage on its own line`);
     if(place.dataStatus==='VDALO_PARTIAL_RATE_DATA'||place.dataStatus==='RATE_FROM_PUBLISHED_SITE_PRELIMINARY'||String(place.source['Статус ставки на сайті']||'').includes('Попередні')||String(place.source['Статус ставки на сайті']||'').includes('Не зазначено в реєстрі')){
       assert.match(html,/Попередні дані|перевірка триває/iu,`${place.slug} should visibly retain its preliminary state`);
       assert.match(html,/Дані ще перебувають на стадії підтвердження/iu,`${place.slug} should explain that the value is still under review`);
@@ -132,15 +165,36 @@ test('every new locality route renders indexable page with its exact approved ra
     assert.match(title,/Туристичний збір/u,`${place.slug} title should reflect the search intent`);
     assert.match(title,/2026/u,`${place.slug} title should identify the tax year`);
     assert.match(description,/туристичного збору/u,`${place.slug} description should reflect the search intent`);
-    assert.match(description,new RegExp(place.katottgSettlementCode.slice(-8)),`${place.slug} description should disambiguate the locality`);
+    const normalizedCommunity=String(place.community||'громада не зазначена').replace(/\s+територіальна громада$/iu,' громада').replace(/\s+(?:міська|селищна|сільська)\s+ТГ$/iu,' громада').replace(/\s+ТГ$/iu,' громада');
+    const escapedCommunity=normalizedCommunity.replaceAll('&','&amp;').replaceAll("'",'&#39;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+    assert.ok(description.includes(escapedCommunity),`${place.slug} description should identify the locality's community`);
+    assert.match(description,/джерела й статус даних/iu,`${place.slug} description should direct visitors to the page's source and status details`);
+    assert.doesNotMatch(`${title} ${description}`,/UA\d{17}/iu,`${place.slug} metadata should not expose a KATOTTG code`);
     assert.match(h1,/2026/u,`${place.slug} H1 should identify the tax year`);
     assert.ok(!titles.has(title),`duplicate title: ${title}`);
     assert.ok(!descriptions.has(description),`duplicate description: ${description}`);
     assert.ok(!h1s.has(h1),`duplicate H1: ${h1}`);
     assert.equal((html.match(/<details>/g)||[]).length,4,`${place.slug} should have four useful FAQs`);
     assert.match(html,/<section class="tt-section tt-batch-seo"/u,`${place.slug} should have a locality-specific SEO section`);
-    for(const href of ['/tourist-tax/','/tourist-tax/rates/','/blog/turystychnyi-zbir-gotel-ukraina','/blog/rozrakhunok-turystychnoho-zboru-2026'])
+    for(const href of ['/tourist-tax/','/tourist-tax/rates/','/blog/turystychnyi-zbir-gotel-ukraina','/blog/rozrakhunok-turystychnoho-zboru-2026','/hotel-tourist-tax'])
       assert.ok(html.includes(`href="${href}"`),`${place.slug} should link to ${href}`);
+    assert.ok(html.includes('Знайти рішення місцевої ради в реєстрі ДПС'),`${place.slug} should link to the official decisions register`);
+    assert.doesNotMatch(html,/Інші локації поруч/iu,`${place.slug} should not imply geographic proximity without distance data`);
+    const relatedSection=html.match(/<section class="tt-batch-related"[\s\S]*?<\/section>/)?.[0]||'';
+    if(relatedSection){
+      if(relatedSection.includes('громади'))assert.ok(relatedSection.includes(place.community),`${place.slug} related links should use its community`);
+      else assert.ok(relatedSection.includes('області'),`${place.slug} regional links should be labeled by region`);
+      const linkedRoutes=[...relatedSection.matchAll(/<a href="([^"#]+)">/g)].map(([,route])=>route);
+      assert.ok(linkedRoutes.length>0,`${place.slug} related section should contain crawlable links`);
+      for(const route of linkedRoutes){
+        const target=linkTargets.find(item=>item.route===route);
+        assert.ok(target,`${place.slug} related link ${route} should resolve to a published locality`);
+        if(relatedSection.includes('громади'))assert.equal(target.communityCode,place.communityCode,`${place.slug} related locality should share the community`);
+        else assert.equal(target.region,normalizeRegion(place.region),`${place.slug} related locality should share the region`);
+      }
+    }
+    const regionStem=String(place.region||'').replace(/\s+область$/iu,'');
+    assert.ok(!html.includes(`у ${regionStem} область`)&&!html.includes(`в ${regionStem} область`),`${place.slug} should not use an uninflected region name after a preposition`);
     const escapedName=place.name.replaceAll('&','&amp;').replaceAll("'",'&#39;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
     assert.ok(html.includes(`Туристичний збір: дані для локації «${escapedName}»`),`${place.slug} bottom SEO heading should identify the locality`);
     titles.add(title);descriptions.add(description);h1s.add(h1);

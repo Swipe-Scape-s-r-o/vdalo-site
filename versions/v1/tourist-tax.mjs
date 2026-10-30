@@ -10,6 +10,121 @@ import {fileURLToPath} from 'node:url';
 const ORIGIN = 'https://www.vdalo.tech';
 const reviewHeaders=['settlement_slug','settlement','route','type','region','district','community','settlement_katottg','community_katottg','geo_status','tax_decision','decision_date','effective_from','effective_to','rate_model','rate_schedule','domestic_rate_percent','inbound_rate_percent','tax_status','tax_source','geo_reason','verification_basis','proposed_domestic_rate_unverified','proposed_inbound_rate_unverified','community_rate_variants','review_flags','seo_title_draft','seo_description_draft','source_record_notes'];
 const h = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const batchRatePhraseTranslations=[
+  [/\bUNSPECIFIED\s*\/\s*DPS\s+2026\s+category table not visually checked:\s*(?:не зазначено|Not specified)/giu,'Категорію не зазначено. Таблицю категорій ДПС за 2026 рік ще не звірено з оригіналом'],
+  [/\bUNSPECIFIED\s*\/\s*ALL\s*:\s*not specified\b/giu,'Категорію не зазначено. Значення для всіх категорій не зазначене'],
+  [/\bUNSPECIFIED\s*:\s*not specified\b/giu,'Категорію не зазначено'],
+  [/\bDPS\s+2026\s+category table not visually checked\b/giu,'Таблицю категорій ДПС за 2026 рік ще не звірено з оригіналом'],
+  [/\ball agent types a, b, c\s*\(Annex\s+(\d+)\)/giu,'усі категорії а, б, в за додатком $1'],
+  [/\ball places and agent types\s*\(Annex\s+(\d+)\s+a, b, c\)/giu,'усі місця розміщення за категоріями а, б, в (додаток $1)'],
+  [/\ball places and agent types\b/giu,'усі місця розміщення та категорії податкових агентів'],
+  [/\ball agent types\b/giu,'усі категорії податкових агентів'],
+  [/\bPRELIMINARY\b/giu,'Попередньо'],
+  [/\bby DPS index\b/giu,'за покажчиком ДПС'],
+  [/\bcheck original and changes\b/giu,''],
+  [/\bcheck the original and changes\b/giu,''],
+  [/\bchanges\b/giu,'зміни'],
+  [/\bindex\b/giu,'покажчик'],
+  [/\bspecified\b/giu,'зазначено'],
+  [/\bUNSPECIFIED\s*\/\s*ALL\s*:\s*not specified\b/giu,'Категорію не зазначено; значення для всіх об’єктів не зазначене'],
+  [/\b1\.0\s+усі об’єкти\b/giu,'усі об’єкти'],
+  [/\bALL_PLACES_268\.5\.1\b/giu,'усі місця проживання за пунктом 268.5.1'],
+  [/\bALL_OBJECTS_1\.0\.0\b/giu,'усі об’єкти за рядком 1.0.0'],
+  [/\bALL_TEMPORARY_ACCOMMODATION\b/giu,'усі місця тимчасового проживання'],
+  [/\bALL_ACCOMMODATION_TYPES(?:_[0-9.-]+)?\b/giu,'усі типи місць розміщення'],
+  [/\bALL_PLACE_TYPES\b/giu,'усі типи місць проживання'],
+  [/\bALL_OBJECTS\b/giu,'усі об’єкти'],
+  [/\bALL_PLACES\b/giu,'усі місця проживання'],
+  [/\bOTHER_HOTEL_TYPE\b/giu,'інші заклади готельного типу'],
+  [/\bRESIDENTIAL_HOUSE\b/giu,'житловий будинок'],
+  [/\bCATEGORIES_DPS_INDEX\b/giu,'категорії за покажчиком ДПС'],
+  [/\bHOTELS_COLUMN_ONLY\b/giu,'лише стовпець для готелів'],
+  [/\bPER_TYPE_([\d.-]+)\b/giu,'за типом $1'],
+  [/\bone rate for all accommodation objects\b/giu,'одна ставка для всіх місць розміщення'],
+  [/\bsingle rate for all accommodation objects\b/giu,'одна ставка для всіх місць розміщення'],
+  [/\ball accommodation places\b/giu,'усі місця розміщення'],
+  [/\ball accommodation types\b/giu,'усі типи місць розміщення'],
+  [/\ball accommodation objects\b/giu,'усі об’єкти розміщення'],
+  [/\bper person per night\b/giu,'за особу за добу'],
+  [/\bper person\b/giu,'за особу'],
+  [/\bper night\b/giu,'за добу'],
+  [/\bhotel-type\b/giu,'готельного типу'],
+  [/\btemporary-stay\b/giu,'тимчасового проживання'],
+  [/\bDOMESTIC\b/giu,'Внутрішній туризм'],
+  [/\bINBOUND\b/giu,'В’їзний туризм'],
+  [/\bBOTH\b/giu,'Обидві категорії'],
+  [/\bUNSPECIFIED\b/giu,'Категорію не зазначено'],
+  [/\bPARTIAL\b/giu,'Потребує додаткової перевірки'],
+  [/\bCONFLICT\b/giu,'Розбіжність у джерелах'],
+  [/\bDPS\b/giu,'ДПС'],[/\bDOCX\b/giu,'документ'],[/\bPDF\b/giu,'документ'],
+  [/\bTax Code\b/giu,'Податковий кодекс'],[/\bTourist tax\b/giu,'туристичний збір'],[/\bthe\b/giu,''],
+  [/\bDOMESTIC\b/giu,'внутрішній туризм'],[/\bINBOUND\b/giu,'в’їзний туризм'],
+  [/\bALL\b/giu,'усі'],[/\ball\b/giu,'усі'],[/\baccommodation\b/giu,'розміщення'],
+  [/\bobjects\b/giu,'об’єкти'],[/\btypes\b/giu,'типи'],[/\brate\b/giu,'ставка'],[/\bpoint\b/giu,'пункт'],
+  [/\bplaces\b/giu,'місця'],[/\bfor\b/giu,'для'],[/\bper\b/giu,'за'],[/\bannex(?:es)?\b/giu,'додаток'],
+  [/\bsingle\b/giu,'одна'],[/\bno\b/giu,'немає'],[/\bsplit\b/giu,'розподілено'],[/\btemporary\b/giu,'тимчасове'],
+  [/\brows\b/giu,'рядки'],[/\brow\b/giu,'рядок'],[/\btax\b/giu,'збір'],[/\bcode\b/giu,'кодекс'],
+  [/\band\b/giu,'та'],[/\bother\b/giu,'інші'],[/\bperson\b/giu,'особа'],[/\bnight\b/giu,'доба'],
+  [/\bidentical\b/giu,'однакові'],[/\bin\b/giu,'у'],[/\bhotels\b/giu,'готелі'],[/\bhotel\b/giu,'готель'],
+  [/\bunspecified\b/giu,'не зазначено'],[/\bone\b/giu,'одна'],[/\buniform\b/giu,'однакова'],[/\bonly\b/giu,'лише'],
+  [/\bshows\b/giu,'показує'],[/\bplaceholder(s)?\b/giu,'заповнювачі'],[/\bshelters\b/giu,'притулки'],[/\bshelter\b/giu,'притулок'],
+  [/\bcampings\b/giu,'кемпінги'],[/\bcamping\b/giu,'кемпінг'],[/\bdecision\b/giu,'рішення'],[/\bpensions\b/giu,'пансіонати'],
+  [/\bread\b/giu,'прочитано'],[/\bact\b/giu,'акт'],[/\bdomestic\b/giu,'внутрішній туризм'],[/\binbound\b/giu,'в’їзний туризм'],
+  [/\btourist\b/giu,'туристичний'],[/\bbases\b/giu,'бази'],[/\bbase\b/giu,'база'],[/\bmountain\b/giu,'гірський'],
+  [/\bcamps\b/giu,'табори'],[/\bcamp\b/giu,'табір'],[/\bstay\b/giu,'проживання'],[/\bsets\b/giu,'встановлює'],
+  [/\bseparately\b/giu,'окремо'],[/\bcouncil\b/giu,'рада'],[/\bpoints\b/giu,'пункти'],[/\bdraft\b/giu,'проєкт'],
+  [/\bused\b/giu,'застосовано'],[/\bagent\b/giu,'податковий агент'],[/\bapartments\b/giu,'квартири'],[/\bapartment\b/giu,'квартира'],
+  [/\bcottages\b/giu,'котеджі'],[/\bcottage\b/giu,'котедж'],[/\brooms\b/giu,'кімнати'],[/\broom\b/giu,'кімната'],
+  [/\bincl\./giu,'зокрема'],[/\bmost\b/giu,'більшість'],[/\bsome\b/giu,'деякі'],[/\bsuch\b/giu,'такі'],[/\bas\b/giu,'як'],
+  [/\bor\b/giu,'або'],[/\bmay\b/giu,'можуть'],[/\bvisual(ly)?\b/giu,'візуально'],[/\bneeded\b/giu,'потрібно'],[/\bnot\b/giu,'не'],
+  [/\bgives\b/giu,'наводить'],[/\bof\b/giu,'від'],[/\bcategory\b/giu,'категорія'],[/\bexcept\b/giu,'крім'],[/\btext\b/giu,'текст'],
+  [/\bsection\b/giu,'розділ'],[/\bpair\b/giu,'пара'],[/\bcategories\b/giu,'категорії'],[/\bare\b/giu,'є'],
+  [/\bregulation\b/giu,'положення'],[/\bestablishments\b/giu,'заклади'],[/\bestablishment\b/giu,'заклад'],[/\bprivate\b/giu,'приватні'],
+  [/\brecreation\b/giu,'відпочинок'],[/\bboarding\b/giu,'пансіонати'],[/\bsanatoria\b/giu,'санаторії'],[/\bresidential\b/giu,'житлові'],
+  [/\bgarden\b/giu,'садові'],[/\bdacha\b/giu,'дачні'],[/\bvalue\b/giu,'значення'],[/\bextracted\b/giu,'отримано'],[/\bby\b/giu,'за'],
+  [/\bobject\b/giu,'об’єкт'],[/\btype\b/giu,'тип'],[/\bline\b/giu,'рядок'],[/\btable\b/giu,'таблиця'],[/\bchecked\b/giu,'перевірено'],
+  [/\binternal\b/giu,'внутрішній'],[/\bexternal\b/giu,'в’їзний'],[/\btourism\b/giu,'туризм'],[/\bfirst\b/giu,'перший'],[/\bhas\b/giu,'має'],
+  [/\bexplicit\b/giu,'прямий'],[/\blabel\b/giu,'підпис'],[/\bvisually\b/giu,'візуально'],[/\bunder\b/giu,'нижче'],[/\bcolumns\b/giu,'стовпці'],
+  [/\bhouses\b/giu,'будинки'],[/\bmotels\b/giu,'мотелі'],[/\bhostels\b/giu,'хостели'],[/\bx\b/giu,'×'],[/\bp\.(\d+(?:\.\d+)*)/giu,'п. $1'],
+  [/\bart\./giu,'ст.'],[/\bII\b/gu,'ІІ'],[/\bVIII\b/gu,'VIII'],
+];
+export function formatTouristTaxBatchRateText(value){
+  let text=String(value??'').replace(/\u2014/g,'\u2013');
+  text=text.replace(/(?:;\s*)?(?:(?:ще\s+)?(?:перевірити|перевірте|звірити|звірте)\s+(?:оригінал|першоджерело)(?:\s+(?:і|та)\s+(?:зміни|оновлення))?|(?:оригінал|першоджерело)\s+(?:і|та)\s+(?:зміни|оновлення)(?:\s+ще)?\s+(?:перевірити|перевірте|звірити|звірте))\.?\s*\*?/giu,'');
+  text=text.replace(/(?:;\s*)?(?:пізніші\s+)?зміни\s+(?:ще\s+)?(?:потрібно\s+)?(?:перевірити|звірити)\.?\s*\*?/giu,'');
+  text=text.replace(/\s*\((?:PARTIAL|CONFLICT)(?:\s*;[^)]*)?\)/giu,'').replace(/\s*\bPARTIAL\b\s*\.?/giu,'');
+  for(const [pattern,replacement] of batchRatePhraseTranslations)text=text.replace(pattern,replacement);
+  text=text.replace(/\(([abc])\)/giu,(_,letter)=>`(${({a:'а',b:'б',c:'в'})[letter.toLowerCase()]})`).replace(/\s*\/\s*1\.\d+\.(?:\d+|x)\b/giu,'').replace(/\s*\/\s*1\.0(?=\s+усі об’єкти)/giu,'').replace(/\b(\d+)\.(\d+)(?=\s*%)/gu,'$1,$2').replace(/(\d+(?:[,.]\d+)?\s*%\s*(?:внутрішній|в[’'`]їзний))\s+(?:і|та)\s+/giu,'$1\n').replace(/%(?:,|;)\s*(?=(?:внутрішній|в[’'`]їзний|внутрішній туризм|в[’'`]їзний туризм)(?=\s|:|$))/giu,'%\n').replace(/\s*;\s*/gu,'\n').replace(/(?<!\d)\.\s+(?=[A-ZА-ЯІЇЄҐ])/gu,'\n').replace(/\s*,\s*\n/gu,'\n').replace(/\s*[.;,:]+\s*(?=\n|$)/gu,'').replace(/\n{2,}/gu,'\n').replace(/\s+([:;,.])/gu,'$1').trim();
+  return text.replace(/\s*\*+\s*$/u,'').trim();
+}
+function publicBatchRateMarkup(value){
+  const lines=formatTouristTaxBatchRateText(value).split('\n').map(line=>line.trim()).filter(Boolean).flatMap(line=>{
+    const rates=[...line.matchAll(/\d+(?:[,.]\d+)?\s*%/gu)];
+    if(rates.length>1)return rates.map((match,index)=>{
+      const previousEnd=index===0?0:rates[index-1].index+rates[index-1][0].length;
+      const nextStart=index+1<rates.length?rates[index+1].index:line.length;
+      const before=line.slice(previousEnd,match.index).replace(/[\/;,\s]+$/u,'').trim();
+      const after=line.slice(match.index+match[0].length,nextStart).replace(/^[\/;,\s]+/u,'').replace(/\b(?:і|та)\s*$/u,'').trim();
+      const context=`${before} ${after}`;
+      const category=/внутріш/iu.test(after)?'Внутрішній туризм':/в[’'`]їзн/iu.test(after)?'В’їзний туризм':/внутріш/iu.test(before)?'Внутрішній туризм':/в[’'`]їзн/iu.test(before)?'В’їзний туризм':'';
+      if(category){const detail=after.replace(/(?:внутрішній|в[’'`]їзний)/giu,'').trim();return `${category}: ${match[0]}${detail?` ${detail}`:''}`;}
+      if(/історич/iu.test(context))return `Історичне значення: ${match[0]}${after?` ${after}`:''}`;
+      if(index===0&&before)return `${before.replace(/[:;,.]+$/u,'')}: ${match[0]}${after?` ${after}`:''}`;
+      return `${index===0?'Перше':'Наступне'} значення: ${match[0]}${after?` ${after}`:''}`;
+    });
+    const slashIndex=[...line.matchAll(/\//gu)].map(match=>match.index).findLast(index=>/\d+(?:[,.]\d+)?\s*%/u.test(line.slice(0,index))&&/\d+(?:[,.]\d+)?\s*%/u.test(line.slice(index+1)));
+    if(slashIndex===undefined)return [line];
+    const parts=[line.slice(0,slashIndex).trim(),line.slice(slashIndex+1).trim()];
+    return parts.map((part,index)=>{
+      const category=/внутріш/iu.test(part)?'Внутрішній туризм':/в[’'`]їзн/iu.test(part)?'В’їзний туризм':'';
+      const rate=part.match(/\d+(?:[,.]\d+)?\s*%/u)?.[0];
+      if(category&&rate)return `${category}: ${rate}`;
+      if(/історич/iu.test(part)&&rate)return `Історичне значення: ${rate}`;
+      return `${index===0?'Перше значення':'Друге значення'}: ${rate}${part.replace(rate??'','').replace(/\b(?:внутрішній|в[’'`]їзний)\b/giu,'').trim()?' '+part.replace(rate??'','').replace(/\b(?:внутрішній|в[’'`]їзний)\b/giu,'').trim():''}`;
+    });
+  });
+  return `<ul class="tt-batch-rate-lines">${lines.map(line=>`<li>${h(line)}</li>`).join('')}</ul>`;
+}
 const touristTaxRegionLabel = value => {
   const region=String(value??'').trim().replace(/\s+/gu,' ');
   if(!region||region==='Інші регіони')return region||'Інші регіони';
@@ -297,13 +412,14 @@ export function renderTouristTaxRates() {
     const hasDomestic=confirmed?Boolean(rule.rates?.domestic||rule.rateSchedule?.domestic||rule.rateSchedule?.bands||rule.accommodationTypeRates):Number.isFinite(candidateRates?.domestic);
     const hasInbound=confirmed?Boolean(rule.rates?.inbound||rule.rateSchedule?.inbound||rule.rateSchedule?.bands||rule.accommodationTypeRates):Number.isFinite(candidateRates?.inbound);
     const rateText=confirmed?touristTaxRateSummary(rule):`Попередні значення: внутрішній ${decimalLabel(candidateRates.domestic)}%; в’їзний ${decimalLabel(candidateRates.inbound)}%`;
+    const rateMarkup=/%/u.test(rateText)?publicBatchRateMarkup(rateText):h(rateText);
     const effective=confirmed?(rule.ratePeriods?.length?'2026 рік; зміну ставки для в’їзного туризму застосовуємо з 16 липня':rule.effectiveFrom?`Від ${dateLabel(rule.effectiveFrom)}`:'Період перевіряється'):'Попередні дані для 2026 року; чинність звіряється';
     const sourceLink=confirmed
       ?(rule.sourceUrl?`<a href="${h(rule.sourceUrl)}" target="_blank" rel="noopener noreferrer">Офіційне джерело</a>`:'Офіційний акт перевіряється')
       :[draft?.sourceUrl&&`<a href="${h(draft.sourceUrl)}" target="_blank" rel="noopener noreferrer">${h(draft.sourceLabel||'Зведене джерело')}</a>`,draft?.secondarySourceUrl&&`<a href="${h(draft.secondarySourceUrl)}" target="_blank" rel="noopener noreferrer">Додаткове джерело</a>`].filter(Boolean).join('<br>');
     const reviewNote=confirmed?(rule.checkedAt?`Перевірено ${h(dateLabel(rule.checkedAt))}`:'Дату звірки уточнюємо'):`${h(draft?.decision||'Повний місцевий акт і чинність ще звіряються')}`;
     const regionLabel=touristTaxRegionLabel(place.region);
-    return `<tr data-search="${h(searchable)}" data-region="${h(regionLabel)}" data-domestic="${hasDomestic}" data-inbound="${hasInbound}" data-status="${confirmed?'verified':'review'}" data-year="2026"><th scope="row"><a href="${h(place.route)}">${h(place.name)}</a><span>${h(community?.name||place.community||'')}</span></th><td>${h(regionLabel)}</td><td>${h(community?.katottgCode||'Не зазначено')}</td><td>${h(rateText)}</td><td>${h(effective)}</td><td>${sourceLink}<span class="tt-rates-checked">${reviewNote}</span></td><td><span class="tt-rates-status${confirmed?'':' is-review'}">${confirmed?'Підтверджено':'Попередні дані · перевірка триває'}</span></td></tr>`;
+    return `<tr data-search="${h(searchable)}" data-region="${h(regionLabel)}" data-domestic="${hasDomestic}" data-inbound="${hasInbound}" data-status="${confirmed?'verified':'review'}" data-year="2026"><th scope="row"><a href="${h(place.route)}">${h(place.name)}</a><span>${h(community?.name||place.community||'')}</span></th><td>${h(regionLabel)}</td><td>${h(community?.katottgCode||'Не зазначено')}</td><td>${rateMarkup}</td><td>${h(effective)}</td><td>${sourceLink}<span class="tt-rates-checked">${reviewNote}</span></td><td><span class="tt-rates-status${confirmed?'':' is-review'}">${confirmed?'Підтверджено':'Попередні дані · перевірка триває'}</span></td></tr>`;
   }).join('');
   const batchRows=batchPlaces.map(place=>{
     const source=place.source;
@@ -312,15 +428,10 @@ export function renderTouristTaxRates() {
     const searchable=[place.name,source['Варіанти назв VDALO'],place.region,regionLabel,place.district,place.community,place.katottgSettlementCode,place.communityCode].filter(Boolean).join(' ').toLocaleLowerCase('uk-UA');
     const sourceFields=['PDF ДПС / сторінки','Рішення як вказано у файлі','ID файлів/рішень ДПС'];
     const sourceUrls=[...new Set(sourceFields.flatMap(key=>String(source[key]??'').match(/https?:\/\/[^\s|,;)}\]]+/g)||[]).map(value=>value.replace(/[.]+$/,'')))].filter(value=>{try{return new URL(value).protocol==='https:';}catch{return false;}});
-    const sourceLink=sourceUrls.length?`<a href="${h(sourceUrls[0])}" target="_blank" rel="noopener noreferrer">Джерело з погодженої бази</a>`:'URL джерела в окремому полі рядка не зазначено';
-    const statusLabels={VDALO_PARTIAL_RATE_DATA:'Часткові дані, потрібна звірка',READY_FROM_DPS_FILE:'Дані перенесено з файла ДПС',READY_FROM_DPS_AND_VDALO:'Дані зіставлено за матеріалами ДПС і VDALO',READY_FROM_VDALO:'Дані підготовлено у базі VDALO'};
-    const sourceStatus=source['Статус ставки на сайті']||'Не зазначено у джерельному файлі';
-    const dataStatus=statusLabels[place.dataStatus]||place.dataStatus||'Статус даних не заповнено';
-    const sourceNotes=[source['Рішення як вказано у файлі'],source['Статус форми/розбору ДПС'],source['Джерело ставки, пріоритетне']].filter(Boolean).map(publicText);
-    const sourceNote=`${sourceNotes.length?sourceNotes.join(' · ')+' · ':''}Статус у файлі: ${publicText(sourceStatus)}; ${publicText(dataStatus)}.`;
+    const sourceLink=sourceUrls.length?`<a href="${h(sourceUrls[0])}" target="_blank" rel="noopener noreferrer">Джерело з погодженої бази</a>`:'Посилання на джерело в окремому полі не зазначене';
     const hasDomestic=/внутріш|domestic/i.test(place.rateText);
     const hasInbound=/в’їзн|в'їзн|inbound/i.test(place.rateText);
-    return `<tr data-search="${publicText(searchable)}" data-region="${publicText(regionLabel)}" data-domestic="${hasDomestic}" data-inbound="${hasInbound}" data-status="review" data-year="2026"><th scope="row"><a href="${h(place.route)}">${publicText(place.name)}</a><span>${publicText(place.community||'')}</span></th><td>${publicText(regionLabel)}</td><td>${publicText(place.communityCode||'Не зазначено')}</td><td>${publicText(place.rateText)}</td><td>2026 рік у погодженій базі; період чинності потребує звірки</td><td>${sourceLink}<span class="tt-rates-checked">${sourceNote}</span></td><td><span class="tt-rates-status is-review">Попередні дані · перевірка триває</span></td></tr>`;
+    return `<tr data-search="${publicText(searchable)}" data-region="${publicText(regionLabel)}" data-domestic="${hasDomestic}" data-inbound="${hasInbound}" data-status="review" data-year="2026"><th scope="row"><a href="${h(place.route)}">${publicText(place.name)}</a><span>${publicText(place.community||'')}</span></th><td>${publicText(regionLabel)}</td><td>${publicText(place.communityCode||'Не зазначено')}</td><td>${publicBatchRateMarkup(place.rateText)}</td><td>2026 рік у погодженій базі; період чинності потребує звірки</td><td>${sourceLink}<span class="tt-rates-checked">Дані попередні, перевірка триває.</span></td><td><span class="tt-rates-status is-review">Попередні дані · перевірка триває</span></td></tr>`;
   }).join('');
   const rowsMarkup=rows+batchRows;
   const regions=[...new Set([...places.map(place=>touristTaxRegionLabel(place.region)),...batchPlaces.map(place=>touristTaxRegionLabel(place.region))])].sort((a,b)=>a.localeCompare(b,'uk'));
@@ -429,58 +540,68 @@ export function renderTouristTaxBatch004Place(slug) {
   if(!place)return null;
   const source=place.source;
   const display=value=>h(String(value??'').replace(/\u2014/g,'\u2013'));
-  const sourceFields=['PDF ДПС / сторінки','Рішення як вказано у файлі','ID файлів/рішень ДПС'];
-  const candidateUrls=[...new Set(sourceFields.flatMap(key=>String(source[key]??'').match(/https?:\/\/[^\s|,;)}\]]+/g)||[])
+  const urlsInField=value=>(String(value??'').match(/https?:\/\/[^\s|,;)}\]]+/g)||[])
     .map(value=>value.replace(/[.]+$/,''))
-    .filter(value=>{try{const parsed=new URL(value);return parsed.protocol==='https:'&&!/(^|\.)vdalo\.tech$/i.test(parsed.hostname);}catch{return false;}}))];
-  const sourcesMarkup=candidateUrls.length
-    ?`<ul>${candidateUrls.map((url,index)=>`<li><a href="${h(url)}" target="_blank" rel="noopener noreferrer">${index===0?'Відкрити джерело з погодженої бази':'Додаткове джерело з погодженої бази'}</a></li>`).join('')}</ul>`
-    :'<p>Пряме посилання на першоджерело в окремому полі цього рядка не зазначене. Перевірте реквізити рішення з погодженої бази та актуальний документ громади.</p>';
-  const decision=source['Рішення як вказано у файлі'];
-  const dpsStatus=source['Статус форми/розбору ДПС'];
-  const sourceRegistry=source['Джерело ставки, пріоритетне'];
-  const sourceNote=[decision&&`Рішення у книзі: ${decision}`,dpsStatus&&`Статус запису ДПС у книзі: ${dpsStatus}`,sourceRegistry&&`Примітка до джерела: ${sourceRegistry}`].filter(Boolean);
-  const statusText=place.dataStatus||'Статус не заповнено';
-  const sourceRateStatus=source['Статус ставки на сайті']||'Не зазначено в книзі';
-  const isPreliminary=true;
-  const statusHeading=isPreliminary
-    ?'Попередні дані · перевірка триває'
-    :sourceRateStatus==='Не зазначено в книзі'?'Статус за погодженою базою':sourceRateStatus;
-  const statusNote=isPreliminary
-    ?'* Дані ще перебувають на стадії підтвердження. Перед застосуванням звірте чинне рішення громади.'
-    :'Сторінку сформовано з погодженого файла. Перевірте зазначені реквізити та першоджерело перед застосуванням даних до конкретного об’єкта.';
+    .filter(value=>{try{const parsed=new URL(value);return parsed.protocol==='https:'&&!/(^|\.)vdalo\.tech$/i.test(parsed.hostname);}catch{return false;}});
+  const sourceFields=['PDF ДПС / сторінки','Рішення як вказано у файлі','ID файлів/рішень ДПС','Джерело ставки, пріоритетне'];
+  const sourceUrls=[...new Map(sourceFields.flatMap(field=>urlsInField(source[field]).map(url=>[url,{url,field}]))).values()];
+  const noteUrls=[...new Map(Object.entries(source).filter(([field])=>!sourceFields.includes(field)).flatMap(([field,value])=>urlsInField(value).map(url=>[url,{url,field}]))).values()]
+    .filter(item=>!sourceUrls.some(sourceUrl=>sourceUrl.url===item.url));
+  const sourceLabel=field=>field==='PDF ДПС / сторінки'?'Документ із погодженої бази'
+    :field==='Рішення як вказано у файлі'?'Рішення, зазначене в погоджених даних'
+    :field==='ID файлів/рішень ДПС'?'Матеріал із переліку ДПС'
+    :field==='Джерело ставки, пріоритетне'?'Посилання з поля джерела ставки'
+    :'Посилання з примітки для перевірки';
+  const sourceLinksMarkup=[...sourceUrls,...noteUrls].length
+    ?`<ul>${[...sourceUrls,...noteUrls].map(item=>`<li><a href="${h(item.url)}" target="_blank" rel="noopener noreferrer">${display(sourceLabel(item.field))}</a></li>`).join('')}</ul>`
+    :'<p>Пряме посилання на місцеве рішення в рядку бази не зазначене. Скористайтеся офіційним реєстром рішень місцевих рад на сайті ДПС і звірте документ за громадою та його реквізитами.</p>';
+  const sourcesMarkup=`${sourceLinksMarkup}<p><a href="${h(touristTaxSources.localCouncilDecisions.url)}" target="_blank" rel="noopener noreferrer">Знайти рішення місцевої ради в реєстрі ДПС</a></p>`;
+  const statusHeading='Попередні дані · перевірка триває';
+  const statusNote='Дані ще перебувають на стадії підтвердження. Перед застосуванням звірте чинне рішення громади та його відповідність адресі об’єкта.';
   const locationRef=`для локації «${place.name}»`;
-  const dataStatusLabels={
-    VDALO_PARTIAL_RATE_DATA:'Часткові дані, потрібна звірка',
-    READY_FROM_DPS_FILE:'Дані перенесено з файла ДПС',
-    READY_FROM_DPS_AND_VDALO:'Дані зіставлено за матеріалами ДПС і VDALO',
-    READY_FROM_VDALO:'Дані підготовлено у базі VDALO',
-    RATE_FROM_PUBLISHED_SITE_CONFIRMED:'Запис пов’язаний із підтвердженою ставкою на сайті',
-    RATE_FROM_PUBLISHED_SITE_PRELIMINARY:'Попередній запис, перевірка триває',
-  };
-  const readerStatus=dataStatusLabels[place.dataStatus]||statusText;
-  const sourceStatusMarkup=`Статус ставки у книзі: ${display(sourceRateStatus)}<br>Статус даних: ${display(readerStatus)} <span>(код: <code>${display(statusText)}</code>)</span>`;
+  const sourceStatusMarkup='Ставку перенесено з погодженої бази без перерахунку.';
   const communityLabel=place.community||'громада у вихідному рядку не зазначена';
+  const regionLabel=touristTaxRegionLabel(place.region);
   const districtLabel=place.district?`, ${place.district}`:'';
-  const relatedCandidates=touristTaxBatch004Places.filter(candidate=>candidate.slug!==slug&&candidate.communityCode&&candidate.communityCode===place.communityCode);
-  const sameArea=relatedCandidates.length?relatedCandidates:touristTaxBatch004Places.filter(candidate=>candidate.slug!==slug&&candidate.region===place.region);
-  const relatedLinks=[...new Map(sameArea.map(item=>[item.route,item])).values()].slice(0,3);
-  const relatedSeoLinks=relatedLinks.length?`<h3>Інші локації поруч у довіднику</h3><ul>${relatedLinks.map(item=>`<li><a href="${h(item.route)}">Туристичний збір: ${display(item.name)}</a>${item.community?` <span>(${display(item.community)})</span>`:''}</li>`).join('')}</ul>`:'';
-  const linkedSourceAnswer=candidateUrls.length
-    ?`У погодженій базі є посилання на джерело. <a href="${h(candidateUrls[0])}" target="_blank" rel="noopener noreferrer">Відкрити документ або сторінку джерела</a>. Звірте повний текст рішення та період його дії.`
-    :'У рядку погодженої бази немає прямого URL першоджерела. Реквізити, наведені на цій сторінці, допоможуть знайти документ громади.';
+  const existingLocationTargets=touristTaxPlaces.filter(candidate=>canIndexTouristTaxPlace(candidate,touristTaxCommunities)).map(candidate=>{
+    const community=touristTaxCommunities.find(item=>item.slug===candidate.communitySlug);
+    return {slug:candidate.slug,route:candidate.route,name:candidate.name,region:candidate.region,community:community?.name||candidate.community||'',communityCode:community?.katottgCode||''};
+  });
+  const batchLocationTargets=touristTaxBatch004Places.map(candidate=>({slug:candidate.slug,route:candidate.route,name:candidate.name,region:candidate.region,community:candidate.community||'',communityCode:candidate.communityCode||''}));
+  const allLocationTargets=[...new Map([...existingLocationTargets,...batchLocationTargets].map(item=>[item.route,item])).values()];
+  const relatedCandidates=allLocationTargets.filter(candidate=>candidate.route!==place.route&&place.communityCode&&candidate.communityCode===place.communityCode)
+    .sort((a,b)=>a.name.localeCompare(b.name,'uk'));
+  const sameRegionCandidates=allLocationTargets.filter(candidate=>candidate.route!==place.route&&touristTaxRegionLabel(candidate.region)===regionLabel)
+    .sort((a,b)=>a.name.localeCompare(b.name,'uk'));
+  const relatedByCommunity=relatedCandidates.length>0;
+  const relatedLinks=(relatedByCommunity?relatedCandidates:sameRegionCandidates).slice(0,3);
+  const relatedHeading=relatedByCommunity?`Інші локації громади «${display(communityLabel)}»`:'Інші локації в цій області';
+  const relatedSeoLinks=relatedLinks.length?`<section class="tt-batch-related" aria-labelledby="tt-related-title"><h3 id="tt-related-title">${relatedHeading}</h3><ul>${relatedLinks.map(item=>`<li><a href="${h(item.route)}">Туристичний збір: ${display(item.name)}</a>${item.community?` <span>(${display(item.community)})</span>`:''}</li>`).join('')}</ul></section>`:'';
+  const usefulLinks=[
+    ['/tourist-tax/','Довідник ставок і калькулятор'],
+    ['/tourist-tax/rates/','Реєстр ставок і джерел'],
+    ['/blog/turystychnyi-zbir-gotel-ukraina','Посібник про туристичний збір для готелів'],
+    ['/blog/rozrakhunok-turystychnoho-zboru-2026','Як розрахувати туристичний збір'],
+    ['/hotel-tourist-tax','Облік туристичного збору у VDALO'],
+  ];
+  const usefulLinksMarkup=`<nav class="tt-batch-useful-links" aria-label="Доречні матеріали"><h3>Що ще може допомогти</h3><ul>${usefulLinks.map(([href,label])=>`<li><a href="${h(href)}">${display(label)}</a></li>`).join('')}</ul></nav>`;
+  const linkedSourceAnswer=sourceUrls.length
+    ?`У погоджених даних наведено посилання на матеріал. <a href="${h(sourceUrls[0].url)}" target="_blank" rel="noopener noreferrer">Відкрити матеріал</a>. Перевірте повний текст рішення та період його дії.`
+    :noteUrls.length
+      ?`У погоджених даних є посилання з примітки для перевірки, але воно не позначене як першоджерело ставки. <a href="${h(noteUrls[0].url)}" target="_blank" rel="noopener noreferrer">Відкрити посилання з примітки</a>. Також знайдіть і звірте чинне рішення громади.`
+      :'У погоджених даних немає прямого посилання на першоджерело ставки. Знайдіть рішення громади за реквізитами в реєстрі ДПС і звірте його чинність.';
+  const publicRateText=formatTouristTaxBatchRateText(place.rateText);
   const faqItems=[
-    {question:`Яку ставку туристичного збору для локації «${place.name}» наведено на 2026 рік?`,answer:`У погодженій базі зазначено: ${place.rateText}. Статус ставки у вихідному рядку: ${sourceRateStatus}.`},
-    {question:`До якої громади належить запис про туристичний збір для локації «${place.name}»?`,answer:`У рядку вказано: ${place.name}, ${communityLabel}${districtLabel}, ${place.region}. КАТОТТГ поселення: ${place.katottgSettlementCode}. КАТОТТГ громади: ${place.communityCode||'не зазначений у цьому рядку'}.`},
-    {question:`Як перевірити туристичний збір для об’єкта в локації «${place.name}»?`,answer:`Зіставте адресу об’єкта з територією громади «${communityLabel}» в області «${place.region}», а потім перевірте категорію, період і редакцію місцевого рішення. Для цього запису бази даних зазначено статус «${sourceRateStatus}».`},
+    {question:`Яку ставку туристичного збору для локації «${place.name}» наведено на 2026 рік?`,answer:`У погодженій базі зазначено попередні значення: ${publicRateText}. Перевірка місцевого рішення ще триває.`},
+    {question:`До якої громади належить запис про туристичний збір для локації «${place.name}»?`,answer:`У погодженому рядку вказано громаду «${communityLabel}». Область: «${regionLabel}»${districtLabel}. КАТОТТГ поселення: ${place.katottgSettlementCode}. КАТОТТГ громади: ${place.communityCode||'не зазначений у цьому рядку'}.`},
+    {question:`Як перевірити туристичний збір для об’єкта в локації «${place.name}»?`,answer:`Зіставте адресу об’єкта з територією громади «${communityLabel}». У базі також зазначено область «${regionLabel}». Потім перевірте категорію, період і редакцію місцевого рішення. Наведені значення попередні.`},
     {question:`Де знайти джерело ставки туристичного збору для «${place.name}»?`,answer:linkedSourceAnswer},
   ];
-  const faqMarkup=faqItems.map(item=>`<details><summary>${display(item.question)}</summary><p>${item.answer}</p></details>`).join('');
-  const sourceContext=sourceRegistry?`У полі пріоритету джерела книги зазначено: ${display(sourceRegistry)}.`:'';
-  const rateStatusMark=' *';
-  const localitySeoBlock=`<section class="tt-section tt-batch-seo" aria-labelledby="tt-batch-seo-title"><p class="tt-eyebrow">ДОВІДКА ЗА НАСЕЛЕНИМ ПУНКТОМ</p><h2 id="tt-batch-seo-title">Туристичний збір: дані для локації «${display(place.name)}»</h2><p>Ця сторінка відповідає на запит про ставку туристичного збору для локації «${display(place.name)}» на 2026 рік. У погодженому рядку вказано текст ставки «${display(place.rateText)}», громаду «${display(communityLabel)}» та область «${display(place.region)}». Наведене значення перенесено без перерахунку; статус запису показано вище.</p><h3>Як звірити запис із адресою об’єкта</h3><p>Для готелю, садиби чи іншого місця тимчасового проживання спершу зіставте населений пункт «${display(place.name)}» та КАТОТТГ ${display(place.katottgSettlementCode)} з адресою об’єкта. Далі перевірте, чи поширюється на цю адресу рішення ${display(communityLabel)}, яка категорія туриста й період застосування зазначені в документі. Сам факт належності до області ${display(place.region)} не визначає ставку для конкретної адреси.</p><h3>Статус і джерело даних</h3><p>${display(statusNote)} ${sourceContext} ${decision?`У погодженій базі також наведено реквізити рішення: ${display(decision)}.`:''} Загальні правила туристичного збору встановлює стаття 268 Податкового кодексу України; місцеві умови потрібно звіряти з документом відповідної ради.</p>${relatedSeoLinks}<p class="tt-article-link"><a href="/tourist-tax/">Повернутися до довідника локацій</a> · <a href="/tourist-tax/rates/">Переглянути реєстр ставок</a> · <a href="/blog/turystychnyi-zbir-gotel-ukraina">Посібник для готелів про туристичний збір</a> · <a href="/blog/rozrakhunok-turystychnoho-zboru-2026">Як рахувати туристичний збір</a></p></section>`;
+  const faqMarkup=faqItems.map(item=>`<details><summary>${display(item.question)}</summary><p>${item.answer===linkedSourceAnswer?item.answer:display(item.answer).replace(/\n/g,'<br>')}</p></details>`).join('');
+  const localitySeoBlock=`<section class="tt-section tt-batch-seo" aria-labelledby="tt-batch-seo-title"><p class="tt-eyebrow">ДОВІДКА ЗА НАСЕЛЕНИМ ПУНКТОМ</p><h2 id="tt-batch-seo-title">Туристичний збір: дані для локації «${display(place.name)}»</h2><p>Для локації «${display(place.name)}» у погодженій базі вказано громаду «${display(communityLabel)}». Область: «${display(regionLabel)}». Значення ставки наведено окремими рядками вище, без перерахунку.</p><p>Щоб перевірити застосування місцевого правила до об’єкта, зіставте його адресу з територією громади й кодом поселення в довідковому блоці. У рішенні звірте категорію туризму, період чинності та подальші зміни.</p>${relatedSeoLinks}${usefulLinksMarkup}</section>`;
+  const disclaimer=`<section class="tt-preliminary-disclaimer" aria-labelledby="tt-disclaimer-title"><p class="tt-eyebrow">ВАЖЛИВО ПЕРЕД ВИКОРИСТАННЯМ</p><h2 id="tt-disclaimer-title">Самостійно перевірте місцеві дані</h2><p>Наведені ставки та відомості про їх застосування ще перебувають на перевірці. Це довідкова інформація, вона може містити неточності або не враховувати останні зміни місцевого рішення. VDALO не несе відповідальності за неточності в цих даних або рішення, ухвалені лише на їх підставі.</p><p>Перед нарахуванням чи сплатою збору самостійно звірте чинне рішення громади, його територію дії, категорії платників, період чинності та подальші зміни. За потреби зверніться до громади або фахівця з оподаткування.</p></section>`;
   const preliminaryCalculator=calculator(place,{preliminary:true});
-  const enhancedContent=`<main class="tt-main tt-batch004-page"><nav class="tt-breadcrumb" aria-label="Навігаційний ланцюжок"><a href="/tourist-tax/">Туристичний збір в Україні</a><span aria-current="page">${display(place.name)}</span></nav><section class="tt-city-hero"><p class="tt-eyebrow">ДОВІДНИК МІСЦЕВИХ СТАВОК</p><h1>${display(place.h1)}</h1><p class="tt-lead">Довідкова інформація про туристичний збір ${display(locationRef)}, область ${display(place.region)}. Ставку та її статус перенесено з погодженої бази локацій.</p><div class="tt-rate-review" role="note"><strong>${display(statusHeading)}</strong><p>${display(statusNote)}</p><small>${sourceStatusMarkup}</small></div><div class="tt-batch-rate"><span>Ставка за погодженою базою на 2026 рік</span><p>${display(place.rateText)}${rateStatusMark}</p></div></section><section class="tt-section" aria-labelledby="tt-location-title"><h2 id="tt-location-title">Територіальна прив’язка запису</h2><dl class="tt-location-facts"><div><dt>Населений пункт</dt><dd>${display(place.name)}</dd></div><div><dt>Громада</dt><dd>${display(communityLabel)}</dd></div><div><dt>Область</dt><dd>${display(place.region||'У базі не зазначена')}</dd></div>${place.district?`<div><dt>Район</dt><dd>${display(place.district)}</dd></div>`:''}<div><dt>КАТОТТГ поселення</dt><dd><code>${display(place.katottgSettlementCode)}</code></dd></div><div><dt>КАТОТТГ громади</dt><dd><code>${display(place.communityCode||'У рядку не зазначено')}</code></dd></div></dl><p>КАТОТТГ допомагає відрізнити поселення з однаковими назвами. Зіставте його та адресу об’єкта з територією громади, яку зазначено в місцевому рішенні.</p></section><section class="tt-section" aria-labelledby="tt-rate-title"><h2 id="tt-rate-title">Ставка туристичного збору ${display(locationRef)}</h2><p class="tt-batch-rate-text">${display(place.rateText)}${rateStatusMark}</p><p>Текст ставки показано в тому вигляді, у якому його перенесено з погодженого рядка. Позначки категорій, попередності чи потреби в уточненні є частиною вихідного запису.</p><p>Для застосування до конкретного об’єкта звірте адресу, категорію туриста, період та чинну редакцію документа громади. Не використовуйте область як єдину підставу для визначення місцевої ставки.</p></section>${preliminaryCalculator}<section class="tt-section tt-sources" aria-labelledby="tt-local-sources-title"><h2 id="tt-local-sources-title">Джерела та реквізити</h2>${sourcesMarkup}${sourceNote.length?`<ul>${sourceNote.map(note=>`<li>${display(note)}</li>`).join('')}</ul>`:''}<p><a href="${h(touristTaxSources.taxCode.url)}" target="_blank" rel="noopener noreferrer">Стаття 268 Податкового кодексу України</a> описує загальні правила туристичного збору. Місцеву ставку встановлює відповідна рада.</p></section><section class="tt-section tt-batch-faq" aria-labelledby="tt-faq-title"><h2 id="tt-faq-title">Питання про туристичний збір для «${display(place.name)}»</h2>${faqMarkup}</section>${localitySeoBlock}</main>`;
+  const enhancedContent=`<main class="tt-main tt-batch004-page"><nav class="tt-breadcrumb" aria-label="Навігаційний ланцюжок"><a href="/tourist-tax/">Туристичний збір в Україні</a><span aria-current="page">${display(place.name)}</span></nav><section class="tt-city-hero"><p class="tt-eyebrow">ДОВІДНИК МІСЦЕВИХ СТАВОК</p><h1>${display(place.h1)}</h1><p class="tt-lead">Довідкова інформація про туристичний збір ${display(locationRef)}. Територіальна прив’язка: громада «${display(communityLabel)}», область «${display(regionLabel)}». Значення перенесено з погодженої бази локацій.</p><div class="tt-rate-review" role="note"><strong>${display(statusHeading)}</strong><p>${display(statusNote)}</p><small>${sourceStatusMarkup}</small></div><div class="tt-batch-rate"><span>Ставка за погодженою базою на 2026 рік</span>${publicBatchRateMarkup(place.rateText)}</div></section><section class="tt-section" aria-labelledby="tt-location-title"><h2 id="tt-location-title">Територіальна прив’язка запису</h2><dl class="tt-location-facts"><div><dt>Населений пункт</dt><dd>${display(place.name)}</dd></div><div><dt>Громада</dt><dd>${display(communityLabel)}</dd></div><div><dt>Область</dt><dd>${display(regionLabel||'У базі не зазначена')}</dd></div>${place.district?`<div><dt>Район</dt><dd>${display(place.district)}</dd></div>`:''}<div><dt>КАТОТТГ поселення</dt><dd><code>${display(place.katottgSettlementCode)}</code></dd></div><div><dt>КАТОТТГ громади</dt><dd><code>${display(place.communityCode||'У рядку не зазначено')}</code></dd></div></dl><p>КАТОТТГ допомагає відрізнити поселення з однаковими назвами. Зіставте його та адресу об’єкта з територією громади, яку зазначено в місцевому рішенні.</p></section>${preliminaryCalculator}<section class="tt-section tt-sources" aria-labelledby="tt-local-sources-title"><h2 id="tt-local-sources-title">Джерела та реквізити</h2>${sourcesMarkup}<p><a href="${h(touristTaxSources.taxCode.url)}" target="_blank" rel="noopener noreferrer">Стаття 268 Податкового кодексу України</a> описує загальні правила туристичного збору. Місцеву ставку встановлює відповідна рада.</p></section><section class="tt-section tt-batch-faq" aria-labelledby="tt-faq-title"><h2 id="tt-faq-title">Питання про туристичний збір для «${display(place.name)}»</h2>${faqMarkup}</section>${localitySeoBlock}${disclaimer}</main>`;
   const canonical=`${ORIGIN}${place.route}`;
   const structuredData={'@context':'https://schema.org','@graph':[
     {'@type':'WebPage','@id':`${canonical}#webpage`,url:canonical,name:place.h1,description:place.description,inLanguage:'uk','isPartOf':{'@type':'WebSite','@id':`${ORIGIN}/#website`,url:`${ORIGIN}/`,name:'VDALO'},breadcrumb:{'@id':`${canonical}#breadcrumb`},mainEntity:{'@id':`${canonical}#faq`}},
@@ -516,7 +637,7 @@ export function renderTouristTaxBatch24_25Preview(slug) {
   const faqMarkup=questions.map((item,index)=>`<details${index===0?' open':''}><summary>${h(item.name)}</summary><p>${h(item.text)}</p></details>`).join('');
   const sourceLinks=[`<li><a href="${h(draft.sourceUrl)}" rel="noopener noreferrer">${h(draft.sourceLabel)}</a>: ${h(draft.decision)}.</li>`];
   if(draft.secondarySourceUrl)sourceLinks.push(`<li><a href="${h(draft.secondarySourceUrl)}" rel="noopener noreferrer">Додаткове офіційне джерело</a>: для зіставлення публікацій ради та запису ДПС.</li>`);
-  const disclaimer=`<section class="tt-preliminary-disclaimer" aria-labelledby="tt-disclaimer-title"><p class="tt-eyebrow">ВАЖЛИВО ПЕРЕД ЗАСТОСУВАННЯМ</p><h2 id="tt-disclaimer-title">Самостійно звірте місцеве рішення</h2><p>Ця сторінка є інформаційною довідкою, а не індивідуальною податковою консультацією. Наведені відсотки є попередніми, можуть бути неповними або застарілими та не підтверджують ставку для конкретної адреси, категорії туриста чи періоду.</p><p>Перед нарахуванням, утриманням або сплатою збору перевірте чинне рішення відповідної ради, його додатки, територію дії, категорію туриста, дату набрання чинності та подальші зміни. За потреби зверніться до громади, ДПС або фахівця з оподаткування. Не покладайтеся лише на цей матеріал.</p><p>VDALO не підтверджує чинність попередніх значень до завершення перевірки першоджерел. Інформацію буде оновлено після звірки. Загальні норми містить <a href="https://tax.gov.ua/nk/rozdil-xii--mistsevi-podatki-i/" rel="noopener noreferrer">розділ XII Податкового кодексу на сайті ДПС</a>, зокрема стаття 268 про туристичний збір.</p></section>`;
+  const disclaimer=`<section class="tt-preliminary-disclaimer" aria-labelledby="tt-disclaimer-title"><p class="tt-eyebrow">ВАЖЛИВО ПЕРЕД ЗАСТОСУВАННЯМ</p><h2 id="tt-disclaimer-title">Самостійно звірте місцеве рішення</h2><p>Ця сторінка є інформаційною довідкою, а не індивідуальною податковою консультацією. Наведені відсотки є попередніми, можуть бути неповними або застарілими та не підтверджують ставку для конкретної адреси, категорії туриста чи періоду.</p><p>Перед нарахуванням, утриманням або сплатою збору перевірте чинне рішення відповідної ради, його додатки, територію дії, категорію туриста, дату набрання чинності та подальші зміни. За потреби зверніться до громади, ДПС або фахівця з оподаткування. Не покладайтеся лише на цей матеріал.</p><p>VDALO не несе відповідальності за неточності в попередніх значеннях або рішення, ухвалені лише на їх підставі. VDALO не підтверджує чинність попередніх значень до завершення перевірки першоджерел. Інформацію буде оновлено після звірки. Загальні норми містить <a href="https://tax.gov.ua/nk/rozdil-xii--mistsevi-podatki-i/" rel="noopener noreferrer">розділ XII Податкового кодексу на сайті ДПС</a>, зокрема стаття 268 про туристичний збір.</p></section>`;
   const verifiedPlaces=touristTaxPlaces.filter(item=>item.slug!==slug&&canIndexTouristTaxPlace(item,touristTaxCommunities));
   const regionalPlaces=verifiedPlaces.filter(item=>item.region===place.region).slice(0,2);
   const relatedPlaces=(regionalPlaces.length?regionalPlaces:verifiedPlaces.slice(0,2)).map(item=>`<li><a href="${h(item.route)}">Туристичний збір ${h(placeLocativePhrase(item))}</a></li>`).join('');
