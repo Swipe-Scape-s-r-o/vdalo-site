@@ -43,11 +43,11 @@ for (const alias of Array.isArray(config.identityAliases) ? config.identityAlias
   else placesByRoute.set(alias.route, alias);
 }
 const places = [...placesByRoute.values()];
-const batchRouteSet = new Set((Array.isArray(config.batchPlaces) ? config.batchPlaces : []).map(place => place.route));
-const calculatorPlaces = [
+const calculatorPlaces = [...new Map([
   ...(Array.isArray(config.publicPlaces) ? config.publicPlaces : []),
   ...(Array.isArray(config.preliminaryPlaces) ? config.preliminaryPlaces.filter(place => place.calculatorAvailable) : []),
-].filter(place => !batchRouteSet.has(place.route));
+  ...(Array.isArray(config.batchPlaces) ? config.batchPlaces : []),
+].map(place => [place.route, place])).values()];
 const directorySearchInput = document.getElementById('tt-place-search');
 if (directorySearchInput) {
   const results = document.getElementById('tt-place-search-results');
@@ -174,7 +174,7 @@ for (const input of searchInputs) {
     for (const place of matches.slice(0, 6)) {
       const option = document.createElement('button');
       option.type = 'button'; option.className = 'tt-place-choice'; option.setAttribute('role', 'option');
-      option.textContent = `${place.name} · ${place.region}${place.community ? ` · ${place.community}` : ''}${place.verified ? ' · ставку підтверджено' : ' · дані ставки перевіряються'}`;
+      option.textContent = `${place.name}${place.verified ? '' : '*'} · ${place.region}${place.community ? ` · ${place.community}` : ''}${place.verified ? ' · ставку підтверджено' : ' · дані ставки перевіряються'}`;
       option.addEventListener('click', () => {
         input.value = place.name; input.readOnly = true;
         if (form) {
@@ -188,7 +188,14 @@ for (const input of searchInputs) {
         syncFunnelCtaContext();
         close();
         if (status) {
-          status.replaceChildren(document.createTextNode(place.verified ? 'Місце обрано. ' : place.calculatorAvailable ? 'Обрано попередні дані. Результат буде орієнтовним. ' : 'Розрахунок для цієї локації поки недоступний. '));
+          const calculatorStatus=place.calculatorAvailable
+            ? '* Дані ще перебувають на стадії підтвердження. Результат буде орієнтовним. '
+            : place.calculatorUnavailableReason==='GEO_REVIEW'
+              ? '* Розрахунок для цієї локації поки недоступний до уточнення території. '
+              : place.calculatorUnavailableReason==='RATE_STRUCTURE'
+                ? '* Ставку не вдалося однозначно розкласти за категоріями. '
+                : '* У базі немає числової ставки для розрахунку. ';
+          status.replaceChildren(document.createTextNode(place.verified ? 'Місце обрано. ' : `${calculatorStatus}Дані ще перебувають на стадії підтвердження.`));
           if (!place.verified && place.route) {
             const detail = document.createElement('a'); detail.href = place.route; detail.textContent = 'Переглянути сторінку населеного пункту'; status.append(detail);
             status.append(document.createTextNode(' '));
@@ -284,7 +291,7 @@ if (form) {
         output.replaceChildren();
         const renderResultCard=(value,title,isScenario=false)=>{
           const card=document.createElement('section');card.className=`tt-result-card${isScenario?' tt-result-card-scenario':''}`;
-          const heading=document.createElement('h3');heading.textContent=title;
+          const heading=document.createElement('h3');heading.textContent=`${title}${value.verificationStatus==='PRELIMINARY'?' *':''}`;
           const amount=document.createElement('strong');amount.className='tt-result-amount';amount.textContent=new Intl.NumberFormat('uk-UA',{style:'currency',currency:'UAH'}).format(Number(value.totalCents)/100);
           const groupsText=value.guestGroups.map(group=>{
             const rateText=Array.isArray(group.ratePeriods)
@@ -295,7 +302,7 @@ if (form) {
           const detail=document.createElement('p');detail.textContent=`${groupsText} · ${ukrainianCount(value.days,'розрахункова доба','розрахункові доби','розрахункових діб')}. Інформаційний розрахунок${value.exemptionReviewRequired?' до перевірки можливої пільги':''}.`;
           card.append(heading,amount,detail);
           if(value.sourceUrl){const source=document.createElement('a');source.href=value.sourceUrl;source.rel='noopener';source.textContent=value.verificationStatus==='PRELIMINARY'?'Джерело попередніх значень':value.scenarioOnly?'Повідомлення ДПС про ставку 1%':'Першоджерело місцевої ставки';card.append(source);}
-          const checked=document.createElement('small');checked.textContent=value.verificationStatus==='PRELIMINARY'?'Ставка та її застосування ще перевіряються.':`Перевірено ${value.checkedAt}`;card.append(checked);
+          const checked=document.createElement('small');checked.textContent=value.verificationStatus==='PRELIMINARY'?'* Дані ще перебувають на стадії підтвердження.':`Перевірено ${value.checkedAt}`;card.append(checked);
           if(value.warning){const warning=document.createElement('p');warning.className='tt-scenario-warning';warning.textContent=value.warning;card.append(warning);}
           if(isScenario){const note=document.createElement('p');note.className='tt-scenario-warning';note.textContent='Умовний сценарій за повідомленою ставкою 1% для іноземців. Дату її застосування ще потрібно звірити з повним рішенням; не використовуйте цю суму як підтверджене нарахування за 2026 рік.';card.append(note);}
           return card;

@@ -1411,22 +1411,83 @@ for(const place of batch004NewPageRows){
   }
 }
 
+// Keep candidate rows without a numeric rate in the source audit, but do not
+// expose them as pages, directory entries, calculator choices, or sitemap URLs.
+const batch004RowsWithoutNumericRate=batch004NewPageRows.filter(place=>!(/\d+(?:[,.]\d+)?\s*%/u.test(place.rateText)));
+const batch004PublicNewPageRows=batch004NewPageRows.filter(place=>/\d+(?:[,.]\d+)?\s*%/u.test(place.rateText));
+
 export const touristTaxBatch004PublicationAudit=Object.freeze({
   sourceRows:publicationBatch004.audit.publicationRows,
   rowsWithRateText:publicationBatch004.audit.publicationEligibleRowsWithRateText,
-  newPageRows:batch004NewPageRows.length,
+  candidateNewPageRows:batch004NewPageRows.length,
+  newPageRows:batch004PublicNewPageRows.length,
+  withheldNoNumericRateRows:batch004RowsWithoutNumericRate.length,
   alreadyPublishedRows:batch004RowsAlreadyCovered.length,
   emptyRateRows:batch004RowsWithEmptyRates.length,
   identityAliases:batch004IdentityAliasRows.length,
 });
-export const touristTaxBatch004Places=Object.freeze(batch004NewPageRows);
+export const touristTaxBatch004Places=Object.freeze(batch004PublicNewPageRows);
 export const touristTaxBatch004Aliases=Object.freeze(batch004IdentityAliasRows);
-export const touristTaxBatch004Routes=Object.freeze(batch004NewPageRows.map(place=>place.route));
+export const touristTaxBatch004Routes=Object.freeze(batch004PublicNewPageRows.map(place=>place.route));
 export const touristTaxBatch004EmptyRateRows=Object.freeze(batch004RowsWithEmptyRates.map(item=>item.source));
 export const touristTaxBatch004CoveredRows=Object.freeze(batch004RowsAlreadyCovered);
+export const touristTaxBatch004WithheldNoNumericRateRows=Object.freeze(batch004RowsWithoutNumericRate.map(place=>Object.freeze({
+  name:place.name,slug:place.slug,route:place.route,region:place.region,community:place.community,
+  katottgSettlementCode:place.katottgSettlementCode,communityCode:place.communityCode,
+  rateText:place.rateText,rateStatus:place.rateStatus,dataStatus:place.dataStatus,source:place.source,
+})));
 
 export function getTouristTaxBatch004Place(slug) {
   return touristTaxBatch004Places.find(place=>place.slug===slug)??null;
+}
+
+// Bar's existing record carries an explicit unresolved geographic / legal review
+// gate. Keep it closed until the underlying council act is fully reviewed.
+const touristTaxBatch004CalculatorBlockedSlugs=new Set(['bar']);
+
+export function getTouristTaxBatch004RateModel(placeOrSlug) {
+  const place=typeof placeOrSlug==='string'?getTouristTaxBatch004Place(placeOrSlug):placeOrSlug;
+  const batchPlace=place?getTouristTaxBatch004Place(place.slug):null;
+  if(!place||!batchPlace||place.katottgSettlementCode!==batchPlace.katottgSettlementCode)return null;
+  if(touristTaxBatch004CalculatorBlockedSlugs.has(batchPlace.slug))return null;
+  const parseText=text=>{
+    const source=String(text??'');
+    const values=[...source.matchAll(/(\d+(?:[,.]\d+)?)\s*%/g)].map(match=>({value:Number(match[1].replace(',','.')),start:match.index,end:match.index+match[0].length}));
+    if(!values.length)return null;
+    const labels=[...source.matchAll(/\bDOMESTIC\b|\bINBOUND\b|внутрішн\p{L}*|в[’'`]?їзн\p{L}*/giu)];
+    const valuesFor=pattern=>[...source.matchAll(pattern)].map(label=>{
+      const previous=values.filter(value=>value.end<=label.index).at(-1);
+      const nextLabel=labels.find(candidate=>candidate.index>label.index)?.index??source.length;
+      const next=values.find(value=>value.start>=label.index+label[0].length&&value.start<nextLabel);
+      if(next&&source.slice(label.index+label[0].length,next.start).includes(':'))return next.value;
+      if(previous&&label.index-previous.end<=24)return previous.value;
+      return next?.value;
+    }).filter(Number.isFinite);
+    const unique=items=>[...new Set(items)];
+    const domestic=valuesFor(/\bDOMESTIC\b|внутрішн\p{L}*/giu);
+    const inbound=valuesFor(/\bINBOUND\b|в[’'`]?їзн\p{L}*/giu);
+    let domesticRate=domestic[0];
+    let inboundRate=inbound[0];
+    if((!Number.isFinite(domesticRate)||!Number.isFinite(inboundRate))&&/\bBOTH\b|обидв\p{L}* категор|однакова ставка/iu.test(source)){
+      const value=values[0].value;
+      domesticRate=value;inboundRate=value;
+    }
+    if(!Number.isFinite(domesticRate)&&!Number.isFinite(inboundRate)&&/\bBOTH\b/iu.test(source)){
+      domesticRate=values[0].value;inboundRate=values[0].value;
+    }
+    if(!Number.isFinite(domesticRate)||!Number.isFinite(inboundRate)){
+      domesticRate=values[0].value;
+      inboundRate=values[1]?.value??values[0].value;
+    }
+    if(!Number.isFinite(domesticRate)||!Number.isFinite(inboundRate)
+      ||domesticRate<0||inboundRate<0
+      ||Math.round(domesticRate*100)!==domesticRate*100
+      ||Math.round(inboundRate*100)!==inboundRate*100)return null;
+    return {rates:{domestic:domesticRate,inbound:inboundRate},hasMultipleRates:unique(values.map(value=>value.value)).length>2};
+  };
+  const rateTextModel=parseText(place.rateText);
+  if(!rateTextModel)return null;
+  return Object.freeze({kind:'preliminary-estimate',rates:Object.freeze(rateTextModel.rates),scope:'AS_RECORDED',year:2026,hasMultipleRates:rateTextModel.hasMultipleRates});
 }
 
 export function touristTaxPublicationRoutes() {
