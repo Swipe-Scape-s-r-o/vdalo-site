@@ -30,6 +30,10 @@
 .tt-directory-region .tt-place-row small{color:var(--tt-muted);font-size:12px;line-height:1.4}
 .tt-place-arrow{flex:none;color:#a73573;font-size:18px}
 .tt-directory-register{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.tt-result-breakdown{display:grid;gap:6px;margin:12px 0 0;padding:0;list-style:none}
+.tt-result-breakdown li{padding:8px 0;border-bottom:1px solid var(--tt-line);overflow-wrap:anywhere}
+.tt-result-breakdown li:last-child{border-bottom:0}
+.tt-result-detail{margin:8px 0 0}
 .tt-directory .tt-section-heading{align-items:center}
 @media(max-width:760px){.tt-directory-quick-search{margin-top:22px;padding:17px}.tt-directory-quick-search .tt-results{left:17px;right:17px}.tt-directory .tt-section-heading{display:grid;gap:16px}.tt-directory-region .tt-place-list{grid-template-columns:1fr;padding:10px}.tt-directory-region>summary{padding:13px 14px}.tt-directory-register{white-space:normal}}
 @media(prefers-reduced-motion:reduce){.tt-directory-region .tt-place-row{transition:none}}

@@ -119,9 +119,11 @@ test('Odesa uses the official decision and calculates across the 2026 rate chang
 test('tourist-tax result UI displays each effective rate period instead of an undefined percentage',()=>{
   const client=readFileSync(new URL('../versions/v1/public/tourist-tax.js',import.meta.url),'utf8');
   assert.match(client,/Array\.isArray\(group\.ratePeriods\)/);
-  assert.match(client,/period\.ratePercent\}% × \$\{ukrainianCount\(period\.days,'добу','доби','діб'\)\}/);
-  assert.match(client,/`\$\{group\.ratePercent\}%`/);
-  assert.doesNotMatch(client,/group\.ratePercent\}%\$\{/);
+  assert.match(client,/formatPercent\(period\.ratePercent\)\} × \$\{ukrainianCount\(period\.days,'добу','доби','діб'\)\}/);
+  assert.match(client,/formatPercent\(group\.ratePercent\)/);
+  assert.match(client,/const formatPercent = value => `\$\{new Intl\.NumberFormat\('uk-UA',\{maximumFractionDigits:2\}\)\.format\(Number\(value\)\)\}%`/);
+  assert.match(client,/breakdown\.className='tt-result-breakdown'/);
+  assert.match(client,/detail\.className='tt-result-detail'/);
   assert.match(client,/const ukrainianCount = \(value, one, few, many\) =>/);
   assert.match(client,/ukrainianCount\(period\.days,'добу','доби','діб'\)/);
   assert.match(client,/ukrainianCount\(value\.days,'розрахункова доба','розрахункові доби','розрахункових діб'\)/);
