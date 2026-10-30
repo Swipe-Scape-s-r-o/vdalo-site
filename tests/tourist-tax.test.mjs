@@ -879,12 +879,13 @@ test('city data, sources and publication state reconcile',()=>{
   assert.ok(validateTouristTaxPlaces([unsafe]).errors.some(error=>error.includes('incomplete readiness gates')));
 });
 
-test('imported city drafts stay unavailable until explicitly released and verified',()=>{
+test('imported city route drafts stay unavailable while a separately approved batch rate remains preliminary',()=>{
   const page=renderTouristTaxCity('aktove');
   assert.equal(page,null);
   assert.equal(renderTouristTaxCity('not-a-place'),null);
   const result=calculateTouristTax({placeSlug:'aktove',start:'2026-10-10',days:1,guestGroups:[{category:'domestic',guests:1}]});
-  assert.equal(result.state,'RATE_UNVERIFIED');
+  assert.equal(result.state,'PRELIMINARY_RESULT');
+  assert.equal(result.verificationStatus,'PRELIMINARY');
 });
 
 test('all 20 preliminary localities render clearly labeled pages and support only conditional 2026 estimates',()=>{

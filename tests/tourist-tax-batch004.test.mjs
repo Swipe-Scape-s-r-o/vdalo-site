@@ -8,26 +8,55 @@ import {
   touristTaxBatch004Places,
   touristTaxBatch004PublicationAudit,
   touristTaxBatch004Routes,
+  touristTaxBatch004WithheldNoNumericRateRows,
   touristTaxPublicationRoutes,
+  touristTaxPlaces,
   getTouristTaxBatch004Place,
+  getTouristTaxBatch004RateModel,
 } from '../versions/v1/tourist-tax-data.mjs';
-import {renderTouristTaxBatch004Place,renderTouristTaxHub} from '../versions/v1/tourist-tax.mjs';
+import {calculateTouristTax,renderTouristTaxBatch004Place,renderTouristTaxHub,renderTouristTaxRates} from '../versions/v1/tourist-tax.mjs';
 
 test('batch004 imports only locality rows with a non-empty approved rate field',()=>{
   assert.deepEqual(touristTaxBatch004PublicationAudit,{
     sourceRows:1970,
     rowsWithRateText:1195,
-    newPageRows:1147,
+    candidateNewPageRows:1147,
+    newPageRows:1136,
+    withheldNoNumericRateRows:11,
     alreadyPublishedRows:47,
     emptyRateRows:775,
     identityAliases:1,
   });
   assert.equal(touristTaxBatch004EmptyRateRows.length,775);
+  assert.equal(touristTaxBatch004WithheldNoNumericRateRows.length,11);
   const emptyCodes=new Set(touristTaxBatch004EmptyRateRows.map(row=>row['КАТОТТГ поселення']));
   assert.ok(touristTaxBatch004Places.every(place=>!emptyCodes.has(place.katottgSettlementCode)));
-  assert.equal(touristTaxBatch004Routes.length,1147);
-  assert.equal(new Set(touristTaxBatch004Routes).size,1147);
+  assert.equal(touristTaxBatch004Routes.length,1136);
+  assert.equal(new Set(touristTaxBatch004Routes).size,1136);
   assert.equal(new Set(touristTaxPublicationRoutes()).size,touristTaxPublicationRoutes().length);
+});
+
+test('localities without numeric rates are withheld from all public discovery surfaces',()=>{
+  const hub=renderTouristTaxHub();
+  const rates=renderTouristTaxRates();
+  const configuration=JSON.parse(hub.match(/<script type="application\/json" id="tourist-tax-config">([^<]+)<\/script>/)[1]);
+  for(const place of touristTaxBatch004WithheldNoNumericRateRows){
+    assert.equal(getTouristTaxBatch004Place(place.slug),null,`${place.slug} must not be a public batch place`);
+    assert.equal(renderTouristTaxBatch004Place(place.slug),null,`${place.slug} must not render a public page`);
+    assert.ok(!touristTaxBatch004Routes.includes(place.route),`${place.slug} route must not enter route registration`);
+    assert.ok(!touristTaxPublicationRoutes().includes(place.route),`${place.slug} route must not enter the sitemap route source`);
+    assert.ok(!hub.includes(place.route),`${place.slug} route must not appear in the catalogue or client data`);
+    assert.ok(!hub.includes(place.name),`${place.name} must not appear in the public catalogue`);
+    assert.ok(!rates.includes(place.route),`${place.slug} route must not appear in the rates register`);
+    assert.ok(!rates.includes(place.name),`${place.name} must not appear in the rates register`);
+    assert.ok(!JSON.stringify(configuration).includes(place.slug),`${place.slug} must not enter calculator or search data`);
+    assert.ok(!JSON.stringify(configuration).includes(place.name),`${place.name} must not enter public search data`);
+  }
+  for(const place of touristTaxBatch004Places){
+    const html=renderTouristTaxBatch004Place(place.slug);
+    for(const withheld of touristTaxBatch004WithheldNoNumericRateRows)
+      assert.ok(!html.includes(withheld.route),`${place.slug} must not link to withheld ${withheld.slug}`);
+  }
 });
 
 test('Drahobrat resolves as a Yasinya alias, without a settlement code or duplicate route',()=>{
@@ -38,6 +67,42 @@ test('Drahobrat resolves as a Yasinya alias, without a settlement code or duplic
   assert.equal(alias.aliasOf,'yasinya');
   assert.equal(alias.katottgSettlementCode,null);
   assert.equal(getTouristTaxBatch004Place('drahobrat'),null);
+});
+
+test('every batch row with a numeric rate receives a preliminary calculator model',()=>{
+  const supported=touristTaxBatch004Places.filter(place=>getTouristTaxBatch004RateModel(place));
+  const numeric=touristTaxBatch004Places.filter(place=>/\d+(?:[,.]\d+)?\s*%/u.test(place.rateText));
+  const protectedBar=touristTaxBatch004Places.find(place=>place.slug==='bar');
+  assert.equal(supported.length,1135,'all numeric batch rates calculate except Bar, which retains its explicit existing review gate');
+  assert.equal(numeric.length,1136);
+  assert.ok(numeric.every(place=>getTouristTaxBatch004RateModel(place)||place.slug==='bar'));
+  assert.equal(getTouristTaxBatch004RateModel(protectedBar),null);
+  assert.equal(touristTaxPlaces.find(place=>place.slug==='bar').geoStatus,'REVIEW_REQUIRED');
+  assert.ok(touristTaxBatch004Places.filter(place=>!/\d+(?:[,.]\d+)?\s*%/u.test(place.rateText)).every(place=>!getTouristTaxBatch004RateModel(place)));
+  const aktove=getTouristTaxBatch004RateModel('aktove');
+  assert.deepEqual(aktove,{kind:'preliminary-estimate',rates:{domestic:0.5,inbound:0.5},scope:'AS_RECORDED',year:2026,hasMultipleRates:false});
+  assert.deepEqual(getTouristTaxBatch004RateModel('hrebinka').rates,{domestic:0.3,inbound:2});
+  assert.deepEqual(getTouristTaxBatch004RateModel('kherson').rates,{domestic:0.5,inbound:1});
+  assert.deepEqual(getTouristTaxBatch004RateModel('khmelnytskyy').rates,{domestic:0.5,inbound:5});
+  assert.deepEqual(getTouristTaxBatch004RateModel('smila').rates,{domestic:0,inbound:5});
+  assert.equal(getTouristTaxBatch004RateModel({...touristTaxBatch004Places[0],rateText:'Ставку ще не зазначено'}),null);
+  const supportedWithoutGeoGate=supported[0];
+  assert.equal(getTouristTaxBatch004RateModel({...supportedWithoutGeoGate,dataStatus:'READY_FROM_DPS_FILE'}).rates.domestic,getTouristTaxBatch004RateModel(supportedWithoutGeoGate).rates.domestic);
+});
+
+test('preliminary batch calculations are explicit, bounded to 2026, and use exact cents',()=>{
+  const oneGuest=calculateTouristTax({placeSlug:'aktove',start:'2026-01-01',days:1,guestGroups:[{category:'domestic',guests:1}]});
+  assert.equal(oneGuest.state,'PRELIMINARY_RESULT');
+  assert.equal(oneGuest.totalCents,'4324');
+  assert.equal(oneGuest.verificationStatus,'PRELIMINARY');
+  assert.match(oneGuest.warning,/\* Дані ще перебувають на стадії підтвердження/u);
+  const multipleGuests=calculateTouristTax({placeSlug:'aktove',start:'2026-01-01',days:2,guestGroups:[{category:'domestic',guests:2},{category:'inbound',guests:1}]});
+  assert.equal(multipleGuests.state,'PRELIMINARY_RESULT');
+  assert.equal(multipleGuests.totalCents,'25941');
+  assert.equal(calculateTouristTax({placeSlug:'aktove',start:'2026-12-31',days:2,guestGroups:[{category:'domestic',guests:1}]}).state,'RATE_OUT_OF_PERIOD');
+  assert.equal(calculateTouristTax({placeSlug:'aktove',start:'2027-01-01',days:1,guestGroups:[{category:'domestic',guests:1}]}).state,'RATE_OUT_OF_PERIOD');
+  assert.equal(calculateTouristTax({placeSlug:'aktove',start:'2026-01-01',days:1,guestGroups:[{category:'domestic',guests:1}],accommodationType:'hotel'}).state,'INVALID_INPUT');
+  assert.equal(calculateTouristTax({placeSlug:'bar',start:'2026-01-01',days:1,guestGroups:[{category:'domestic',guests:1}]}).state,'AMBIGUOUS_PLACE');
 });
 
 test('every new locality route renders indexable page with its exact approved rate and unique SEO fields',()=>{
@@ -53,9 +118,9 @@ test('every new locality route renders indexable page with its exact approved ra
     assert.ok(html.includes(escapedRate),`${place.slug} should show the approved rate text`);
     assert.ok(html.includes(place.dataStatus),`${place.slug} should retain its data status`);
     if(place.source['Статус ставки на сайті'])assert.ok(html.includes(place.source['Статус ставки на сайті']),`${place.slug} should retain the source rate status`);
-    if(place.dataStatus==='VDALO_PARTIAL_RATE_DATA'||place.dataStatus==='RATE_FROM_PUBLISHED_SITE_PRELIMINARY'||String(place.source['Статус ставки на сайті']||'').includes('Попередні')){
+    if(place.dataStatus==='VDALO_PARTIAL_RATE_DATA'||place.dataStatus==='RATE_FROM_PUBLISHED_SITE_PRELIMINARY'||String(place.source['Статус ставки на сайті']||'').includes('Попередні')||String(place.source['Статус ставки на сайті']||'').includes('Не зазначено в реєстрі')){
       assert.match(html,/Попередні дані|перевірка триває/iu,`${place.slug} should visibly retain its preliminary state`);
-      assert.match(html,/можуть потребувати подальшої звірки/iu,`${place.slug} should explain that the value is still under review`);
+      assert.match(html,/Дані ще перебувають на стадії підтвердження/iu,`${place.slug} should explain that the value is still under review`);
     }
     assert.ok(!html.includes('\u2014'),`${place.slug} public HTML must not contain U+2014`);
     const title=html.match(/<title>(.*?)<\/title>/)?.[1];
@@ -87,13 +152,19 @@ test('catalog includes all new routes and Drahobrat search alias',()=>{
   for(const route of touristTaxBatch004Routes)assert.ok(html.includes(`href="${route}"`),`${route} should appear in the catalogue`);
   assert.match(html,/"name":"Драгобрат"/);
   assert.match(html,/"route":"\/tourist-tax\/yasinya\/"/);
-  assert.match(html,/1188 локац|1195 локац/);
+  assert.match(html,/1184 локац/);
 });
 
-test('catalog search includes the batch without offering unsupported calculator results',()=>{
+test('calculator search includes only released batch localities and marks supported rates calculable',()=>{
   const client=readFileSync(fileURLToPath(new URL('../versions/v1/public/tourist-tax.js',import.meta.url)),'utf8');
   assert.match(client,/const placesByRoute = new Map\(\)/);
-  assert.match(client,/const calculatorPlaces = \[/);
-  assert.match(client,/filter\(place => !batchRouteSet\.has\(place\.route\)\)/);
+  assert.match(client,/const calculatorPlaces = \[\.\.\.new Map\(\[/);
+  assert.match(client,/batchPlaces\) \? config\.batchPlaces : \[\]/);
   assert.match(client,/preliminaryPlaces\.filter\(place => place\.calculatorAvailable\)/);
+  const hub=renderTouristTaxHub();
+  const config=JSON.parse(hub.match(/<script type="application\/json" id="tourist-tax-config">([^<]+)<\/script>/)[1]);
+  assert.equal(config.batchPlaces.length,1136);
+  assert.equal(config.batchPlaces.filter(place=>place.calculatorAvailable).length,1135);
+  assert.equal(config.batchPlaces.filter(place=>place.calculatorUnavailableReason==='GEO_REVIEW').length,1);
+  assert.ok(config.batchPlaces.every(place=>place.verified===false));
 });
