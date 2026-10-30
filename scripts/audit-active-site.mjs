@@ -6,7 +6,7 @@ import {pmsArticle} from '../versions/v1/article-pms.mjs';
 import {pmsChoiceArticle} from '../versions/v1/article-pms-choice.mjs';
 import {seoRoutes} from '../versions/v1/seo-pages.mjs';
 import {offers} from '../microlandings/content.mjs';
-import {touristTaxCityRoutes} from '../versions/v1/tourist-tax-data.mjs';
+import {touristTaxPublicationRoutes} from '../versions/v1/tourist-tax-data.mjs';
 
 const base = process.env.AUDIT_BASE_URL || 'http://127.0.0.1:4450';
 let inProcessServer = null;
@@ -63,7 +63,7 @@ const routes = [...new Set([
   ...editorialArticles.map(article => article.slug), ...secondPassArticles.map(article => article.slug),
   ...seoRoutes(), '/authors', '/authors/oleh-stepeniev', '/authors/kostiantyn-tripailo', '/tools/', '/tools/qr-studio/', '/tools/pms-checklist/',
   '/tools/hotel-profitability-calculator/', ...campaignRoutes,
-  '/tourist-tax/', '/tourist-tax/start', ...touristTaxCityRoutes(),
+  '/tourist-tax/', '/tourist-tax/start', ...touristTaxPublicationRoutes(),
   '/robots.txt', '/sitemap.xml',
 ])];
 const campaignRouteSet = new Set(campaignRoutes);

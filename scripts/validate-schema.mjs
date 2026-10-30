@@ -59,9 +59,9 @@ const renderers = new Map([
   ['/tools/hotel-cancellation-cost-calculator/', () => advancedTools.renderCancellationCalculator()],
   ['/tools/hotel-review-response/', () => advancedTools.renderReviewReplyTemplates()],
   ['/tourist-tax/', () => touristTax.renderTouristTaxHub()],
-  ...touristTaxData.touristTaxCityRoutes().map(path => [path, () => touristTax.renderTouristTaxCity(path.split('/').filter(Boolean).at(-1))]),
+  ...new Set([...touristTaxData.touristTaxPublicationRoutes(),...touristTax.touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)]).values().map(path => [path, () => touristTax.renderTouristTaxCity(path.split('/').filter(Boolean).at(-1))??touristTax.renderTouristTaxBatch004Place(path.split('/').filter(Boolean).at(-1))??touristTax.renderTouristTaxBatch24_25Preview(path.split('/').filter(Boolean).at(-1))]),
 ]);
-const sitemapRoutes = sitemap.getPublicSitemapRoutes({seoRoutes:seo.seoRoutes(),caseSlugs:cases.caseSlugs,pmsArticle:pms.pmsArticle,pmsChoiceArticle:pmsChoice.pmsChoiceArticle,editorialArticles:editorial.editorialArticles,secondPassArticles:secondPass.secondPassArticles,touristTaxRoutes:['/tourist-tax/',...touristTaxData.touristTaxCityRoutes()]});
+const sitemapRoutes = sitemap.getPublicSitemapRoutes({seoRoutes:seo.seoRoutes(),caseSlugs:cases.caseSlugs,pmsArticle:pms.pmsArticle,pmsChoiceArticle:pmsChoice.pmsChoiceArticle,editorialArticles:editorial.editorialArticles,secondPassArticles:secondPass.secondPassArticles,touristTaxRoutes:['/tourist-tax/',...new Set([...touristTaxData.touristTaxPublicationRoutes(),...touristTax.touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)])]});
 const routes = sitemapRoutes.map(path => [path, renderers.get(path)]);
 const indexableRoutes = new Set(routes.map(([path]) => path));
 const errors = [];

@@ -7,7 +7,7 @@ import {assetVersion} from '../versions/v1/assets.mjs';
 
 process.env.VERCEL='1';
 const {default:server}=await import('../server.mjs');
-const {touristTaxPlaces,touristTaxCityRoutes,canIndexTouristTaxPlace}=await import('../versions/v1/tourist-tax-data.mjs');
+const {touristTaxPlaces,touristTaxCityRoutes,touristTaxBatch004Places,touristTaxBatch004Routes,touristTaxBatch004WithheldNoNumericRateRows,canIndexTouristTaxPlace,getTouristTaxBatch004RateModel}=await import('../versions/v1/tourist-tax-data.mjs');
 const {getPreparedPage}=await import('../versions/v1/content-revisions/content.mjs');
 
 async function request(url,method='GET',host='www.vdalo.tech'){
@@ -83,7 +83,8 @@ test('batch 24 and 25 pages are public preliminary references with clear warning
 test('hub, city, assets and sitemap resolve through the actual app router',async()=>{
   const hub=await request('/tourist-tax/');
   assert.equal(hub.status,200);
-  assert.match(hub.body,/Туристичний збір в Україні/);
+  assert.match(hub.body,/<h1>Туристичний збір в Україні у 2026 році: довідник громад і розрахунок<\/h1>/);
+  assert.match(hub.body,/У довіднику 1184 локацій/);
   assert.match(hub.body,/tourist-tax-assets\/tourist-tax\.css\?v=[a-f0-9]+/,'the standalone tax stylesheet must be cache-versioned after updates');
   assert.match(hub.body,new RegExp(`tourist-tax-assets/tourist-tax\\.js\\?v=${assetVersion('tourist-tax.js')}`),'the calculator script URL must change whenever its bytes change');
   assert.ok(hub.body.indexOf('class="tt-infographic"')<hub.body.indexOf('id="tt-calculator"'));
@@ -115,11 +116,13 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
     assert.match(verifiedCity.body,/Наступна планова перевірка джерел: до 1 грудня 2026 року/);
   }
   const pendingCity=await request('/tourist-tax/aktove/');
-  assert.equal(pendingCity.status,404,'unreleased settlements should not have public pages');
-  assert.match(pendingCity.body,/name="robots" content="noindex,follow"/,'branded 404 pages should stay out of search results');
-  assert.match(pendingCity.body,/Сторінку не знайдено/);
-  assert.doesNotMatch(pendingCity.body,/0,3\s*%|24,00|80,00/);
-  for(const slug of ['bukovel','bar']){
+  assert.equal(pendingCity.status,200,'a locality with an approved non-empty rate field should have a page');
+  assert.match(pendingCity.body,/name="robots" content="index,follow"/);
+  assert.match(pendingCity.body,/VDALO_PARTIAL_RATE_DATA|READY_FROM_DPS_FILE/);
+  assert.match(pendingCity.body,/id="tourist-tax-calculator"/,'the unambiguous preliminary rate should have a calculator');
+  assert.match(pendingCity.body,/Дані ще перебувають на стадії підтвердження/);
+  assert.match(pendingCity.body,/Сума є попередньою\. Перед нарахуванням або сплатою звірте ставку/u);
+  for(const slug of ['bukovel']){
     const unreleased=await request(`/tourist-tax/${slug}/`);
     assert.equal(unreleased.status,404,`${slug} is not approved for the current release wave`);
     assert.match(unreleased.body,/name="robots" content="noindex,follow"/);
@@ -128,7 +131,17 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   const hubConfig=JSON.parse(hub.body.match(/<script type="application\/json" id="tourist-tax-config">([^<]+)<\/script>/)[1]);
   assert.deepEqual(hubConfig.publicPlaces.map(place=>place.slug).sort(),['berehove','cherkasy','chernihiv','chernivtsi','dnipro','irpin','ivano-frankivsk','khust','kolomyya','kyyiv','lutsk','lviv','odesa','pivdenne','polyana','rivne','skole','slavsko','sumy','ternopil','tyachiv','uzhhorod','vinnytsya','vynohradiv','yaremche','yasinya','zaporizhzhya','zhytomyr']);
   assert.equal(hubConfig.preliminaryPlaces.length,20);
+  assert.equal(hubConfig.batchPlaces.length,1136,'only batch rows with numeric rate text should be public');
+  assert.ok(hubConfig.batchPlaces.every(place=>place.route&&place.verified===false));
+  assert.equal(hubConfig.batchPlaces.length,1136,'the calculator should include the same released numeric-rate locations');
+  assert.equal(hubConfig.batchPlaces.filter(place=>place.calculatorAvailable).length,1135,'all numeric rates in the batch are calculable except the existing Bar review gate');
+  assert.equal(hubConfig.batchPlaces.filter(place=>place.calculatorUnavailableReason==='GEO_REVIEW').length,1);
   assert.ok(hubConfig.preliminaryPlaces.every(place=>place.verified===false));
+  for(const withheld of touristTaxBatch004WithheldNoNumericRateRows){
+    const removed=await request(withheld.route);
+    assert.equal(removed.status,404,`${withheld.slug} should not resolve publicly`);
+    assert.ok(!hub.body.includes(withheld.route),`${withheld.slug} should not appear in the catalogue`);
+  }
   const yaremche=await request('/tourist-tax/yaremche/');
   assert.equal(yaremche.status,200);
   assert.match(yaremche.body,/name="accommodationType"/);
@@ -138,7 +151,7 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   assert.match(yasinya.body,/0,30% \/ 1,00%/);
   assert.match(yasinya.body,/UA21060070010074038/);
   assert.match(yasinya.body,/Наступна планова перевірка джерел: до 1 грудня 2026 року/);
-  assert.doesNotMatch(hub.body,/tourist-tax\/(?:bukovel|bar|aktove)\//);
+  assert.doesNotMatch(hub.body,/tourist-tax\/bukovel\//);
   const css=await request('/tourist-tax-assets/tourist-tax.css');
   assert.equal(css.status,200);
   assert.match(css.headers['Content-Type'],/text\/css/);
@@ -151,15 +164,18 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   assert.equal(sitemap.status,200);
   assert.match(sitemap.body,/https:\/\/www\.vdalo\.tech\/tourist-tax\//);
   assert.match(sitemap.body,/tourist-tax\/lutsk/);
-  assert.doesNotMatch(sitemap.body,/tourist-tax\/aktove/);
+  assert.match(sitemap.body,/tourist-tax\/aktove/,'approved batch rows with rate text should enter the sitemap');
+  for(const withheld of touristTaxBatch004WithheldNoNumericRateRows)assert.ok(!sitemap.body.includes(withheld.route),`${withheld.slug} must not enter the sitemap`);
   const citySitemapEntries=[...sitemap.body.matchAll(/<loc>https:\/\/www\.vdalo\.tech\/tourist-tax\/(?!rates\/|start<\/loc>)[^<]+<\/loc>/g)];
-  assert.equal(citySitemapEntries.length,48,'the sitemap should include verified and approved preliminary city routes');
+  const expectedTaxRoutes=new Set([...touristTaxCityRoutes(),...touristTaxBatch004Routes,...(await import('../versions/v1/tourist-tax.mjs')).touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)]);
+  assert.equal(citySitemapEntries.length,expectedTaxRoutes.size,'the sitemap should include published, approved preliminary, and batch004 routes exactly once');
+  assert.equal(new Set(citySitemapEntries.map(entry=>entry[0])).size,citySitemapEntries.length,'the sitemap must not contain duplicate tourist-tax URLs');
   for(const slug of ['kyyiv','sumy','vinnytsya','pivdenne','ternopil','zaporizhzhya','rivne','chernihiv','kolomyya','ivano-frankivsk','chernivtsi','lviv','cherkasy','berehove','uzhhorod','slavsko','dnipro','zhytomyr','vynohradiv','yasinya','tyachiv','irpin','skole'])assert.match(sitemap.body,new RegExp(`tourist-tax/${slug}/`));
   const preliminarySlugs=(await import('../versions/v1/tourist-tax.mjs')).touristTaxBatch24_25PreviewSlugs();
-  for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place)&&!preliminarySlugs.includes(place.slug)))assert.doesNotMatch(sitemap.body,new RegExp(`tourist-tax/${place.slug}/`),`sitemap contains unreleased place: ${place.slug}`);
+  for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place)&&!preliminarySlugs.includes(place.slug)&&!touristTaxBatch004Routes.includes(place.route)))assert.doesNotMatch(sitemap.body,new RegExp(`tourist-tax/${place.slug}/`),`sitemap contains unreleased place: ${place.slug}`);
 });
 
-test('rates register exposes all 48 locations with confirmed and preliminary rates',async()=>{
+test('rates register exposes the 48 existing records and all batch004 locality rates',async()=>{
   const response=await request('/tourist-tax/rates/');
   const {touristTaxBatch24_25PreviewSlugs}=await import('../versions/v1/tourist-tax.mjs');
   const {touristTaxBatch24_25Drafts}=await import('../versions/v1/tourist-tax-draft-batch24-25.mjs');
@@ -167,16 +183,16 @@ test('rates register exposes all 48 locations with confirmed and preliminary rat
   assert.match(response.body,/<title>Туристичний збір 2026: реєстр ставок \| VDALO<\/title>/);
   assert.match(response.body,/<meta name="robots" content="index,follow">/);
   assert.match(response.body,/<link rel="canonical" href="https:\/\/www\.vdalo\.tech\/tourist-tax\/rates\/">/);
-  assert.match(response.body,/Реєстр ставок туристичного збору на 2026 рік за 48 локаціями/);
+  assert.match(response.body,/Реєстр ставок туристичного збору на 2026 рік за 1184 локаціями/);
   assert.match(response.body,new RegExp(`<script src="\\/tourist-tax-assets\\/tourist-tax-rates\\.js\\?v=${assetVersion('tourist-tax-rates.js')}" defer><\\/script>`),'the rates filter script URL must change whenever its bytes change');
   assert.match(response.body,/Пошук за містом, громадою або КАТОТТГ/);
   assert.match(response.body,/id="tt-rates-year"/);
   assert.match(response.body,/Категорія туризму/);
   assert.match(response.body,/id="tt-rates-status"/);
   assert.match(response.body,/Джерело та примітка/);
-  assert.equal((response.body.match(/class="tt-rates-status(?: is-review)?"/g)||[]).length,48);
+  assert.equal((response.body.match(/class="tt-rates-status(?: is-review)?"/g)||[]).length,1184);
   assert.equal((response.body.match(/class="tt-rates-status"/g)||[]).length,28,'28 entries should show confirmed status');
-  assert.equal((response.body.match(/class="tt-rates-status is-review"/g)||[]).length,20,'20 entries should show preliminary review status');
+  assert.equal((response.body.match(/class="tt-rates-status is-review"/g)||[]).length,1156,'existing preliminary rows and new batch rows should show review status');
   for(const place of touristTaxPlaces.filter(place=>canIndexTouristTaxPlace(place))) assert.ok(response.body.includes(`href="${place.route}"`),`${place.slug} should appear in the register`);
   for(const slug of touristTaxBatch24_25PreviewSlugs()){
     const place=touristTaxPlaces.find(item=>item.slug===slug);
@@ -188,16 +204,28 @@ test('rates register exposes all 48 locations with confirmed and preliminary rat
     assert.match(row,/Попередні дані · перевірка триває/);
     assert.ok(row.includes(touristTaxBatch24_25Drafts[slug].sourceUrl),`${slug} should link to its source`);
   }
-  assert.match(response.body,/48 локацій/);
+  assert.match(response.body,/1184 локацій/);
   assert.match(response.body,/28<\/strong> перевірених/);
-  assert.match(response.body,/20 попередніх/);
+  assert.match(response.body,/1156 попередніх або таких, що потребують звірки/);
   assert.match(response.body,/href="\/tourist-tax\/odesa\/"/,'the verified Odesa page should be listed in the rates register');
+  const renderedRows=[...response.body.matchAll(/<tr data-search="[\s\S]*?<\/tr>/g)].map(match=>match[0]);
+  const rowsByRoute=new Map(renderedRows.map(row=>[row.match(/<a href="([^"]+)"/)?.[1],row]));
+  assert.equal(rowsByRoute.size,1184,'every register row should have a unique locality route');
+  for(const place of touristTaxBatch004Places){
+    const row=rowsByRoute.get(place.route);
+    assert.ok(row,`${place.slug} should appear in the register`);
+    const displayRate=place.rateText.replace(/\u2014/g,'\u2013').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    assert.ok(row.includes(displayRate),`${place.slug} should preserve its approved rate text`);
+    assert.match(row,/data-status="review"/);
+    assert.match(row,/Попередні дані · перевірка триває/);
+  }
+  for(const withheld of touristTaxBatch004WithheldNoNumericRateRows)assert.ok(!rowsByRoute.has(withheld.route),`${withheld.slug} must not appear in the rates register`);
   const odesaRow=response.body.match(/<tr data-search="[^"]*одеса[^"]*"[\s\S]*?<\/tr>/)?.[0]||'';
   assert.match(odesaRow,/Перевірено/);
   assert.match(odesaRow,/0,50%/);
   assert.match(odesaRow,/1,00%/);
   assert.match(odesaRow,/з 16 липня/);
-  assert.doesNotMatch(response.body,/href="\/tourist-tax\/aktove\//,'unreleased locations must not appear as city pages');
+  assert.ok(response.body.includes('href="/tourist-tax/aktove/"'),'the newly released Aktove locality should appear in the expanded register');
   const asset=await request('/tourist-tax-assets/tourist-tax-rates.js');
   assert.equal(asset.status,200);
   assert.match(asset.body,/tt-rates-filters/);
@@ -250,6 +278,13 @@ test('only released city routes resolve through the actual app router',async()=>
        else if(place.slug==='khust')assert.match(title,/Туристичний збір у Хусті на 2026 рік: ставки й калькулятор/);
       else if(['tyachiv','irpin','skole'].includes(place.slug))assert.match(title,new RegExp(`Туристичний збір .* 2026: .* \\| VDALO`));
       else assert.match(title,/Туристичний збір .+2026.+/);
+    }else if(touristTaxBatch004Routes.includes(place.route)){
+      assert.equal(response.status,200,`approved batch route failed: ${place.route}`);
+      assert.match(response.body,/name="robots" content="index,follow"/);
+      if(getTouristTaxBatch004RateModel(place.slug)){
+        assert.match(response.body,/id="tourist-tax-calculator"/);
+        assert.match(response.body,/Дані ще перебувають на стадії підтвердження/);
+      }else assert.doesNotMatch(response.body,/id="tourist-tax-calculator"/);
     }else if(preliminarySlugs.has(place.slug)){
       assert.equal(response.status,200,`preliminary public route failed: ${place.route}`);
       assert.match(response.body,/name="robots" content="index,follow"/);
@@ -261,6 +296,16 @@ test('only released city routes resolve through the actual app router',async()=>
       assert.match(response.body,/name="robots" content="noindex,follow"/);
       assert.match(response.body,/Сторінку не знайдено/);
     }
+  }
+  const sitemap=await request('/sitemap.xml');
+  for(const place of touristTaxBatch004Places){
+    const response=await request(place.route);
+    assert.equal(response.status,200,`approved batch route failed: ${place.route}`);
+    assert.match(response.body,/name="robots" content="index,follow"/);
+    assert.ok(response.body.includes(`href="https://www.vdalo.tech${place.route}"`),`${place.route} should have its canonical URL`);
+    const escapedRate=place.rateText.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    assert.ok(response.body.includes(escapedRate),`${place.route} should preserve its approved rate text`);
+    assert.ok(sitemap.body.includes(`<loc>https://www.vdalo.tech${place.route}</loc>`),`${place.route} should be in the sitemap`);
   }
 });
 
@@ -276,6 +321,15 @@ test('calculation API accepts same-origin minimal inputs and fails closed',async
   assert.equal(calculation.status,200);
   assert.equal(calculation.body.state,'VERIFIED_RESULT');
   assert.equal(calculation.body.totalCents,'25941');
+  const preliminaryAktove=await send({payload:JSON.stringify({placeSlug:'aktove',start:'2026-10-10',days:1,guestGroups:[{category:'domestic',guests:1}]})});
+  assert.equal(preliminaryAktove.status,200);
+  assert.equal(preliminaryAktove.body.state,'PRELIMINARY_RESULT');
+  assert.equal(preliminaryAktove.body.totalCents,'4324');
+  assert.equal(preliminaryAktove.body.verificationStatus,'PRELIMINARY');
+  assert.match(preliminaryAktove.body.warning,/не для нарахування чи сплати/u);
+  const unsupportedResponse=await send({payload:JSON.stringify({placeSlug:'bar',start:'2026-10-10',days:1,guestGroups:[{category:'domestic',guests:1}]})});
+  assert.equal(unsupportedResponse.status,200);
+  assert.equal(unsupportedResponse.body.state,'AMBIGUOUS_PLACE');
   const odesaOfficial=await send({payload:JSON.stringify({placeSlug:'odesa',start:'2026-10-10',days:1,guestGroups:[{category:'inbound',guests:1}]})});
   assert.equal(odesaOfficial.status,200);
   assert.equal(odesaOfficial.body.state,'VERIFIED_RESULT');
@@ -299,8 +353,8 @@ test('calculation API accepts same-origin minimal inputs and fails closed',async
   assert.equal(yaremcheMissingType.body.state,'INVALID_INPUT');
   const pending={...body,placeSlug:'aktove'};
   const pendingResponse=await send({payload:JSON.stringify(pending)});
-  assert.equal(pendingResponse.status,404);
-  assert.equal(pendingResponse.body.state,'PLACE_UNAVAILABLE');
+  assert.equal(pendingResponse.status,200);
+  assert.equal(pendingResponse.body.state,'PRELIMINARY_RESULT');
   assert.equal((await send({origin:'https://attacker.example'})).status,403);
   assert.equal((await send({contentType:'text/plain'})).status,415);
   assert.equal((await send({method:'GET'})).status,405);
