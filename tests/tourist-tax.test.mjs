@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Readable} from 'node:stream';
 import {runInNewContext} from 'node:vm';
-import {calculateTouristTax,calculateExactTouristTaxCents,exportTouristTaxReviewCsv,exportTouristTaxReviewXlsx,renderTouristTaxBatch24_25Preview,touristTaxBatch24_25PreviewSlugs,renderTouristTaxCity,renderTouristTaxHub} from '../versions/v1/tourist-tax.mjs';
+import {calculateTouristTax,calculateExactTouristTaxCents,exportTouristTaxReviewCsv,exportTouristTaxReviewXlsx,renderTouristTaxBatch24_25Preview,touristTaxBatch24_25PreviewSlugs,renderTouristTaxCity,renderTouristTaxHub,renderTouristTaxRates} from '../versions/v1/tourist-tax.mjs';
 import {getPublicSitemapRoutes} from '../versions/v1/sitemap.mjs';
 import {canCalculateTouristTaxPlace,canIndexTouristTaxPlace,hasPlaceSeoBlock,touristTaxBatch004Places,touristTaxBatch004Routes,touristTaxCommunities,touristTaxPlaces,touristTaxCityRoutes,touristTaxSources,validateTouristTaxPlaces} from '../versions/v1/tourist-tax-data.mjs';
 import {touristTaxReleasePlan} from '../versions/v1/tourist-tax-release.mjs';
@@ -675,7 +675,13 @@ test('directory and all reviewed city pages are indexable and included in the si
   const directoryPlaces=[...new Map([...publishedPlaces,...touristTaxPlaces.filter(place=>preliminarySlugs.includes(place.slug)),...touristTaxBatch004Places].map(place=>[place.route,place])).values()];
   assert.ok(hub.includes(`${directoryPlaces.length} ${directoryPlaces.length===1?'локація':directoryPlaces.length>=2&&directoryPlaces.length<=4?'локації':'локацій'} у довіднику`));
   assert.doesNotMatch(hub,/Сторінки, що проходять перевірку|Попередні дані, перевірка триває/);
-  assert.equal((hub.match(/class="tt-directory-region"/g)||[]).length,new Set(directoryPlaces.map(place=>place.region||'Інші регіони')).size);
+  const canonicalRegions=new Set(directoryPlaces.map(place=>{
+    const region=String(place.region||'Інші регіони').trim().replace(/\s+/gu,' ');
+    if(region==='Інші регіони')return region;
+    if(/^м\.\s*київ$/iu.test(region))return 'м. Київ';
+    return `${region.replace(/\s+область$/iu,'')} область`;
+  }));
+  assert.equal((hub.match(/class="tt-directory-region"/g)||[]).length,canonicalRegions.size);
   for(const place of directoryPlaces)assert.ok(hub.includes(`href="${place.route}"`),`${place.slug} should remain a crawlable directory link`);
   for(const place of touristTaxPlaces.filter(place=>!canIndexTouristTaxPlace(place,touristTaxCommunities)&&!preliminarySlugs.includes(place.slug)&&!touristTaxBatch004Routes.includes(place.route)))assert.ok(!hub.includes(`href="${place.route}"`),`${place.slug} must stay out of public search and directory links`);
   for(const slug of preliminarySlugs)assert.ok(hub.includes(`href="/tourist-tax/${slug}/"`),`${slug} should be listed in the combined regional directory`);
@@ -706,6 +712,37 @@ test('directory and all reviewed city pages are indexable and included in the si
   assert.ok(routes.includes('/tourist-tax/kyyiv/'));
   assert.ok(routes.includes('/tourist-tax/ternopil/'));
   assert.ok(routes.includes('/tourist-tax/zaporizhzhya/'));
+});
+
+test('tourist-tax directory and rates filter normalize region suffix variants',()=>{
+  const hub=renderTouristTaxHub();
+  const rates=renderTouristTaxRates();
+  const publishedPlaces=touristTaxPlaces.filter(place=>canIndexTouristTaxPlace(place,touristTaxCommunities)||place.slug==='odesa');
+  const preliminaryPlaces=touristTaxBatch24_25PreviewSlugs().map(slug=>touristTaxPlaces.find(place=>place.slug===slug)).filter(Boolean);
+  const locations=[...new Map([...publishedPlaces,...preliminaryPlaces,...touristTaxBatch004Places].map(place=>[place.route,place])).values()];
+  const canonicalRegion=region=>{
+    const value=String(region||'Інші регіони').trim().replace(/\s+/gu,' ');
+    if(/^м\.\s*київ$/iu.test(value))return 'м. Київ';
+    if(value==='Інші регіони')return value;
+    return `${value.replace(/\s+область$/iu,'')} область`;
+  };
+  const expectedRegions=[...new Set(locations.map(place=>canonicalRegion(place.region)))].sort((a,b)=>a.localeCompare(b,'uk'));
+  const directoryRegions=[...hub.matchAll(/<details class="tt-directory-region"><summary><span>(.*?)<\/span>/g)].map(match=>match[1]);
+  assert.deepEqual([...new Set(directoryRegions)].sort((a,b)=>a.localeCompare(b,'uk')),expectedRegions);
+  assert.equal(directoryRegions.length,expectedRegions.length,'each administrative region should appear once in the directory');
+  const seoContent=hub.match(/<section class="tt-seo-content"[\s\S]*?<\/section>/)?.[0]||'';
+  const seoRegionLabels=[...seoContent.matchAll(/<li><strong>([^<]+):<\/strong>/g)].map(match=>match[1]);
+  assert.deepEqual([...new Set(seoRegionLabels)].sort((a,b)=>a.localeCompare(b,'uk')),expectedRegions);
+  assert.equal(seoRegionLabels.length,expectedRegions.length,'SEO links should group all localities under one canonical region label');
+  assert.ok(touristTaxBatch004Places.some(place=>place.region==='Вінницька'));
+  assert.ok(touristTaxBatch004Places.some(place=>place.region==='Вінницька область'));
+  const regionFilter=rates.match(/<select id="tt-rates-region">([\s\S]*?)<\/select>/)?.[1]||'';
+  const filterOptions=[...regionFilter.matchAll(/<option value="([^"]+)">([^<]*)<\/option>/g)].map(match=>match[1]).filter(Boolean);
+  assert.deepEqual([...new Set(filterOptions)].sort((a,b)=>a.localeCompare(b,'uk')),expectedRegions);
+  assert.equal(filterOptions.length,expectedRegions.length,'each administrative region should appear once in the rates filter');
+  const rowRegions=[...rates.matchAll(/<tr data-search="[^"]*" data-region="([^"]+)"/g)].map(match=>match[1]);
+  assert.ok(rowRegions.length>0);
+  assert.ok(rowRegions.every(region=>expectedRegions.includes(region)),'every rates row should use the same canonical region as the filter');
 });
 
 test('tourist-tax hub and every published city page direct operators to the tracked funnel',()=>{
