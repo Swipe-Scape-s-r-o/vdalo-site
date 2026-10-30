@@ -53,6 +53,7 @@ test('batch 24 and 25 pages are public preliminary references with clear warning
     assert.match(preview.body,/id="home-trial-offer"/,'a public tourist-tax page should receive the ordinary sitewide conversion dialog');
     assert.match(preview.body,/Попередні значення зі зведених матеріалів|Ставка потребує додаткової звірки/);
     assert.match(preview.body,/Не використовуйте їх для нарахування чи сплати збору/);
+    assert.match(preview.body,/VDALO не несе відповідальності за неточності/);
     for(const category of ['domestic','inbound']){
       const proposedRate=place.sourceRecord?.proposedRates?.[category];
       assert.ok(Number.isFinite(proposedRate),`${slug} needs an analyzed ${category} rate before inclusion in this batch`);
@@ -118,7 +119,8 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   const pendingCity=await request('/tourist-tax/aktove/');
   assert.equal(pendingCity.status,200,'a locality with an approved non-empty rate field should have a page');
   assert.match(pendingCity.body,/name="robots" content="index,follow"/);
-  assert.match(pendingCity.body,/VDALO_PARTIAL_RATE_DATA|READY_FROM_DPS_FILE/);
+  assert.doesNotMatch(pendingCity.body,/VDALO_PARTIAL_RATE_DATA|READY_FROM_DPS_FILE|Статус даних:/);
+  assert.match(pendingCity.body,/Попередні дані · перевірка триває/);
   assert.match(pendingCity.body,/id="tourist-tax-calculator"/,'the unambiguous preliminary rate should have a calculator');
   assert.match(pendingCity.body,/Дані ще перебувають на стадії підтвердження/);
   assert.match(pendingCity.body,/Сума є попередньою\. Перед нарахуванням або сплатою звірте ставку/u);
@@ -200,7 +202,8 @@ test('rates register exposes the 48 existing records and all batch004 locality r
     const rates=place.sourceRecord.proposedRates;
     const rateLabel=value=>new Intl.NumberFormat('uk-UA',{minimumFractionDigits:2,maximumFractionDigits:2}).format(value);
     assert.ok(row,`${slug} should appear in the register`);
-    assert.ok(row.includes(`Попередні значення: внутрішній ${rateLabel(rates.domestic)}%; в’їзний ${rateLabel(rates.inbound)}%`),`${slug} should preserve the collected preliminary rates`);
+    const rateLines=row.match(/<ul class="tt-batch-rate-lines">([\s\S]*?)<\/ul>/)?.[1]||'';
+    assert.ok(rateLines.includes(`${rateLabel(rates.domestic)}%`)&&rateLines.includes(`${rateLabel(rates.inbound)}%`),`${slug} should preserve collected preliminary rates on separate lines`);
     assert.match(row,/Попередні дані · перевірка триває/);
     assert.ok(row.includes(touristTaxBatch24_25Drafts[slug].sourceUrl),`${slug} should link to its source`);
   }
@@ -211,11 +214,15 @@ test('rates register exposes the 48 existing records and all batch004 locality r
   const renderedRows=[...response.body.matchAll(/<tr data-search="[\s\S]*?<\/tr>/g)].map(match=>match[0]);
   const rowsByRoute=new Map(renderedRows.map(row=>[row.match(/<a href="([^"]+)"/)?.[1],row]));
   assert.equal(rowsByRoute.size,1184,'every register row should have a unique locality route');
+  for(const row of rowsByRoute.values()){
+    const rateMarkup=row.match(/<ul class="tt-batch-rate-lines">([\s\S]*?)<\/ul>/)?.[1]||'';
+    for(const line of rateMarkup.matchAll(/<li>([\s\S]*?)<\/li>/g))assert.ok((line[1].match(/\d+(?:[,.]\d+)?\s*%/gu)||[]).length<=1,'the register should put each percentage on its own line');
+  }
   for(const place of touristTaxBatch004Places){
     const row=rowsByRoute.get(place.route);
     assert.ok(row,`${place.slug} should appear in the register`);
-    const displayRate=place.rateText.replace(/\u2014/g,'\u2013').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-    assert.ok(row.includes(displayRate),`${place.slug} should preserve its approved rate text`);
+    const rateMarkup=row.match(/<ul class="tt-batch-rate-lines">([\s\S]*?)<\/ul>/)?.[1]||'';
+    for(const [rate] of place.rateText.matchAll(/\d+(?:[,.]\d+)?\s*%/gu))assert.ok(rateMarkup.includes(rate.replace(/\./g,',')),`${place.slug} should preserve approved rate ${rate}`);
     assert.match(row,/data-status="review"/);
     assert.match(row,/Попередні дані · перевірка триває/);
   }
@@ -303,8 +310,8 @@ test('only released city routes resolve through the actual app router',async()=>
     assert.equal(response.status,200,`approved batch route failed: ${place.route}`);
     assert.match(response.body,/name="robots" content="index,follow"/);
     assert.ok(response.body.includes(`href="https://www.vdalo.tech${place.route}"`),`${place.route} should have its canonical URL`);
-    const escapedRate=place.rateText.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-    assert.ok(response.body.includes(escapedRate),`${place.route} should preserve its approved rate text`);
+    const rateMarkup=response.body.match(/<ul class="tt-batch-rate-lines">([\s\S]*?)<\/ul>/)?.[1]||'';
+    for(const [rate] of place.rateText.matchAll(/\d+(?:[,.]\d+)?\s*%/gu))assert.ok(rateMarkup.includes(rate.replace(/\./g,',')),`${place.route} should preserve approved rate ${rate}`);
     assert.ok(sitemap.body.includes(`<loc>https://www.vdalo.tech${place.route}</loc>`),`${place.route} should be in the sitemap`);
   }
 });

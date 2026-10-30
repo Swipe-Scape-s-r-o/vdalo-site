@@ -59,6 +59,23 @@ test('localities without numeric rates are withheld from all public discovery su
   }
 });
 
+test('rates register formats every published batch rate in Ukrainian review lines',()=>{
+  const rates=renderTouristTaxRates();
+  for(const place of touristTaxBatch004Places){
+    const start=rates.indexOf(`href="${place.route}"`);
+    assert.notEqual(start,-1,`${place.slug} should appear in the rates register`);
+    const end=rates.indexOf('</tr>',start);
+    const row=rates.slice(start,end);
+    const rateMarkup=row.match(/<ul class="tt-batch-rate-lines">([\s\S]*?)<\/ul>/)?.[1]||'';
+    assert.ok(rateMarkup,`${place.slug} should use readable rate lines in the register`);
+    assert.ok(!row.includes('VDALO_PARTIAL_RATE_DATA'),`${place.slug} must not expose an internal status code in the register`);
+    assert.ok(!row.includes('перевірити оригінал і зміни'),`${place.slug} must not expose the internal review instruction in the register`);
+    const visibleRateText=rateMarkup.replace(/<[^>]+>/g,' ').replace(/&quot;/g,'"').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&#39;/g,"'");
+    assert.doesNotMatch(visibleRateText.replace(/\b(?:IX-VIII|VIII|IX|II)\b/g,''),/[A-Za-z]{2,}/u,`${place.slug} register rate should use Ukrainian wording`);
+    for(const line of rateMarkup.matchAll(/<li>([\s\S]*?)<\/li>/g))assert.ok((line[1].match(/\d+(?:[,.]\d+)?\s*%/gu)||[]).length<=1,`${place.slug} should show each percentage on its own line in the register`);
+  }
+});
+
 test('Drahobrat resolves as a Yasinya alias, without a settlement code or duplicate route',()=>{
   assert.equal(touristTaxBatch004Aliases.length,1);
   const alias=touristTaxBatch004Aliases[0];
@@ -114,10 +131,18 @@ test('every new locality route renders indexable page with its exact approved ra
     assert.ok(html,`${place.slug} should render`);
     assert.match(html,new RegExp(`<link rel="canonical" href="https://www\\.vdalo\\.tech${place.route.replaceAll('/','\\/')}">`));
     assert.match(html,/<meta name="robots" content="index,follow">/);
-    const escapedRate=place.rateText.replace(/\u2014/g,'\u2013').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-    assert.ok(html.includes(escapedRate),`${place.slug} should show the approved rate text`);
-    assert.ok(html.includes(place.dataStatus),`${place.slug} should retain its data status`);
-    if(place.source['Статус ставки на сайті'])assert.ok(html.includes(place.source['Статус ставки на сайті']),`${place.slug} should retain the source rate status`);
+    const rateValues=[...place.rateText.matchAll(/\d+(?:[,.]\d+)?\s*%/gu)].map(([rate])=>rate.replace(/\./g,','));
+    const rateSection=html.match(/<ul class="tt-batch-rate-lines">([\s\S]*?)<\/ul>/)?.[1]||'';
+    for(const rate of rateValues)assert.ok(rateSection.includes(rate),`${place.slug} should preserve approved rate ${rate}`);
+    assert.ok(rateSection.includes('<li>'),`${place.slug} should put rate statements on separate lines`);
+    assert.ok(!html.includes('VDALO_PARTIAL_RATE_DATA'),`${place.slug} must not expose internal status codes`);
+    assert.ok(!html.includes('Статус даних:'),`${place.slug} must not show the internal data-status field`);
+    assert.ok(!/перевірити оригінал і зміни/iu.test(html),`${place.slug} must not show the internal review instruction`);
+    assert.match(html,/VDALO не несе відповідальності за неточності/u,`${place.slug} should include the review disclaimer`);
+    assert.match(html,/самостійно звірте чинне рішення/u,`${place.slug} should ask visitors to verify the decision`);
+    const visibleRateText=rateSection.replace(/<[^>]+>/g,' ').replace(/&quot;/g,'"').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&#39;/g,"'");
+    assert.doesNotMatch(visibleRateText.replace(/-(?:IX-)?VIII\b|-IX\b/g,''),/[A-Za-z]{2,}/u,`${place.slug} rate display should use Ukrainian wording`);
+    for(const line of rateSection.matchAll(/<li>([\s\S]*?)<\/li>/g))assert.ok((line[1].match(/\d+(?:[,.]\d+)?\s*%/gu)||[]).length<=1,`${place.slug} should place each percentage on its own line`);
     if(place.dataStatus==='VDALO_PARTIAL_RATE_DATA'||place.dataStatus==='RATE_FROM_PUBLISHED_SITE_PRELIMINARY'||String(place.source['Статус ставки на сайті']||'').includes('Попередні')||String(place.source['Статус ставки на сайті']||'').includes('Не зазначено в реєстрі')){
       assert.match(html,/Попередні дані|перевірка триває/iu,`${place.slug} should visibly retain its preliminary state`);
       assert.match(html,/Дані ще перебувають на стадії підтвердження/iu,`${place.slug} should explain that the value is still under review`);
