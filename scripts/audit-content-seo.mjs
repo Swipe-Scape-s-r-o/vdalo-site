@@ -15,8 +15,8 @@ import { renderResourceLibrary } from '../versions/v1/resource-library.mjs';
 import { renderSeoPage, seoRoutes } from '../versions/v1/seo-pages.mjs';
 import { renderOfferPage, renderRefundPage } from '../versions/v1/legal.mjs';
 import { privacyPage } from '../versions/v1/server.mjs';
-import { renderTouristTaxHub, renderTouristTaxCity, renderTouristTaxRates } from '../versions/v1/tourist-tax.mjs';
-import { touristTaxCityRoutes } from '../versions/v1/tourist-tax-data.mjs';
+import { renderTouristTaxHub, renderTouristTaxCity, renderTouristTaxBatch004Place, renderTouristTaxBatch24_25Preview, touristTaxBatch24_25PreviewSlugs, renderTouristTaxRates } from '../versions/v1/tourist-tax.mjs';
+import { touristTaxBatch004Routes, touristTaxCityRoutes } from '../versions/v1/tourist-tax-data.mjs';
 import { renderTouristTaxFunnel } from '../microlandings/tourist-tax-funnel.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -45,6 +45,8 @@ const pages = new Map([
   ['/resources', renderResourceLibrary()],
   ['/tourist-tax/', renderTouristTaxHub()], ['/tourist-tax/rates/', renderTouristTaxRates()], ['/tourist-tax/start', renderTouristTaxFunnel()],
   ...touristTaxCityRoutes().map(route => [route, renderTouristTaxCity(route.split('/').filter(Boolean).at(-1))]),
+  ...touristTaxBatch24_25PreviewSlugs().map(slug => [`/tourist-tax/${slug}/`, renderTouristTaxBatch24_25Preview(slug)]),
+  ...touristTaxBatch004Routes.map(route => [route, renderTouristTaxBatch004Place(route.split('/').filter(Boolean).at(-1))]),
   [pmsArticle.slug, renderPmsArticle()], [pmsChoiceArticle.slug, renderPmsChoiceArticle()],
 ]);
 for (const route of seoRoutes()) pages.set(route, renderSeoPage(route));

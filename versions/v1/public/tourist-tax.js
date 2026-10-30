@@ -26,10 +26,28 @@ if (infographic && !reduceMotion && 'IntersectionObserver' in window) {
   infographicObserver.observe(infographic);
 } else if (infographic) infographic.classList.add('is-visible');
 
-const places = [
+const placesByRoute = new Map();
+for (const place of [
   ...(Array.isArray(config.publicPlaces) ? config.publicPlaces : []),
   ...(Array.isArray(config.preliminaryPlaces) ? config.preliminaryPlaces : []),
-];
+  ...(Array.isArray(config.batchPlaces) ? config.batchPlaces : []),
+]) {
+  const previous = placesByRoute.get(place.route);
+  placesByRoute.set(place.route, previous
+    ? { ...previous, ...place, aliases: [previous.aliases, place.aliases].filter(Boolean).join(' ') }
+    : place);
+}
+for (const alias of Array.isArray(config.identityAliases) ? config.identityAliases : []) {
+  const place = placesByRoute.get(alias.route);
+  if (place) place.aliases = [place.aliases, alias.aliases, alias.name].filter(Boolean).join(' ');
+  else placesByRoute.set(alias.route, alias);
+}
+const places = [...placesByRoute.values()];
+const batchRouteSet = new Set((Array.isArray(config.batchPlaces) ? config.batchPlaces : []).map(place => place.route));
+const calculatorPlaces = [
+  ...(Array.isArray(config.publicPlaces) ? config.publicPlaces : []),
+  ...(Array.isArray(config.preliminaryPlaces) ? config.preliminaryPlaces.filter(place => place.calculatorAvailable) : []),
+].filter(place => !batchRouteSet.has(place.route));
 const directorySearchInput = document.getElementById('tt-place-search');
 if (directorySearchInput) {
   const results = document.getElementById('tt-place-search-results');
@@ -57,7 +75,7 @@ if (directorySearchInput) {
       return;
     }
     const allMatches = places
-      .filter(place => `${place.name} ${place.community} ${place.region} ${place.district}`.toLocaleLowerCase('uk-UA').replace(/\s+/g, ' ').includes(query))
+      .filter(place => `${place.name} ${place.aliases||''} ${place.katottg||''} ${place.community} ${place.region} ${place.district}`.toLocaleLowerCase('uk-UA').replace(/\s+/g, ' ').includes(query))
       .sort((a, b) => Number(!a.name.toLocaleLowerCase('uk-UA').startsWith(query)) - Number(!b.name.toLocaleLowerCase('uk-UA').startsWith(query)) || a.name.localeCompare(b.name, 'uk-UA'));
     if (!allMatches.length) {
       if (status) status.textContent = `У довіднику з ${places.length} локацій збігів немає. Перегляньте повний реєстр нижче.`;
@@ -105,7 +123,7 @@ const funnelLinks = [...document.querySelectorAll('[data-tax-funnel-cta]')];
 const calculatorForm = document.getElementById('tourist-tax-calculator');
 const syncFunnelCtaContext = () => {
   const selectedPlace = calculatorForm?.dataset.placeSlug
-    ? places.find(place => place.slug === calculatorForm.dataset.placeSlug)
+    ? calculatorPlaces.find(place => place.slug === calculatorForm.dataset.placeSlug)
     : null;
   for (const link of funnelLinks) {
     const destination = new URL(link.href, window.location.origin);
@@ -147,7 +165,7 @@ for (const input of searchInputs) {
     const query = input.value.trim().toLocaleLowerCase('uk-UA');
     results?.replaceChildren();
     if (!query) { close(); if (status) status.textContent = ''; return; }
-    const matches = places.filter(place => `${place.name} ${place.region} ${place.district} ${place.community}`.toLocaleLowerCase('uk-UA').includes(query));
+    const matches = calculatorPlaces.filter(place => `${place.name} ${place.region} ${place.district} ${place.community}`.toLocaleLowerCase('uk-UA').includes(query));
     if (!matches.length) {
       close();
       if (status) status.textContent = 'Перевірте написання або спробуйте інший населений пункт. Для локацій із попередніми даними калькулятор покаже лише орієнтовну суму.';

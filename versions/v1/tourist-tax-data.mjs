@@ -1,5 +1,6 @@
 import workbook from './tourist-tax-workbook-data.json' with { type: 'json' };
 import katottgImport from './tourist-tax-katottg-2026-07-07.json' with { type: 'json' };
+import publicationBatch004 from './tourist-tax-publication-batch004.json' with { type: 'json' };
 import {isTouristTaxPlacePublished,touristTaxReleasePlan,validateTouristTaxReleasePlan} from './tourist-tax-release.mjs';
 
 // Tax readiness is deliberately independent from settlement identity and SEO state.
@@ -1292,6 +1293,148 @@ const reviewedPlaces=workbookTouristTaxPlaces.map(place=>{
 });
 
 export const touristTaxPlaces = Object.freeze([...verifiedTouristTaxPlaces,...reviewedPlaces]);
+
+const BATCH004_PAGE_STATUS='Статус сторінки на сайті (перевірено 30.10.2026)';
+const BATCH004_RATE_FIELD='Ставки 2026 з VDALO (коротко)';
+const BATCH004_NEW_STATUS='НЕ ЗНАЙДЕНО У РЕЄСТРІ 48 ЛОКАЦІЙ · перевірити перед створенням';
+const BATCH004_PUBLISHED_STATUS='ВЖЕ ОПУБЛІКОВАНО · є в реєстрі ставок';
+const BATCH004_IDENTITY_ALIAS='URL Є НА САЙТІ · НАЗВА/КОД НЕ ЗБІГАЮТЬСЯ';
+
+const ukrainianSlugMap={
+  а:'a',б:'b',в:'v',г:'h',ґ:'g',д:'d',е:'e',є:'ye',ж:'zh',з:'z',и:'y',і:'i',ї:'yi',й:'y',к:'k',л:'l',м:'m',н:'n',о:'o',п:'p',р:'r',с:'s',т:'t',у:'u',ф:'f',х:'kh',ц:'ts',ч:'ch',ш:'sh',щ:'shch',ь:'',ю:'yu',я:'ya',ё:'yo',ы:'y',э:'e',ъ:'',ы:'y',
+};
+const makeTaxSlug=value=>String(value??'').toLocaleLowerCase('uk-UA').replace(/[а-яёіїєґьъ]/gu,char=>ukrainianSlugMap[char]??'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+const sourceUrlPath=value=>{
+  const candidate=String(value??'').match(/(?:https?:\/\/[^\s|]+)?(\/tourist-tax\/[a-z0-9-]+\/?)/i)?.[1];
+  return candidate?`${candidate.replace(/\/$/,'')}/`:null;
+};
+const existingBatchPlacesByCode=new Map(touristTaxPlaces.filter(place=>place.katottgSettlementCode).map(place=>[place.katottgSettlementCode,place]));
+const officialKatottgSlugByCode=new Map(katottgImport.places.map(place=>[place.settlementCode,place.slug]));
+const knownPublicTouristTaxRoutes=new Set([
+  ...touristTaxPlaces.filter(place=>canIndexTouristTaxPlace(place)).map(place=>place.route),
+]);
+const usedBatch004Routes=new Map(touristTaxPlaces.map(place=>[place.route,place.katottgSettlementCode??'legacy']));
+for(const slug of ['aktove','novyy-bug','kiyv','drabiv','yuzhnoukrayinsk','zinkiv','dobroslav','kobleve','sarny','pylypets','solotvyno','truskavets','kharkiv','poltava','bukovel','skhidnytsya','mukachevo','kamyanets-podilskyy','sloviansk','kramatorsk']){
+  const route=`/tourist-tax/${slug}/`;
+  if(!usedBatch004Routes.has(route))usedBatch004Routes.set(route,'reserved-preview-route');
+}
+const batch004IdentityAliasRows=[];
+const batch004NewPageRows=[];
+const batch004RowsAlreadyCovered=[];
+const batch004RowsWithEmptyRates=publicationBatch004.places.filter(item=>!item.publicationEligible);
+
+for(const item of publicationBatch004.places){
+  const source=item.source;
+  if(!item.publicationEligible)continue;
+  const siteStatus=source[BATCH004_PAGE_STATUS]??'';
+  const code=source['КАТОТТГ поселення']??'';
+  const name=source['Назва для сторінки (з DPS, інакше VDALO)']??'';
+  const region=source['Область']??'';
+  const community=source['Громада / ради']??'';
+  const rateText=source[BATCH004_RATE_FIELD]??'';
+
+  // Drahobrat is a destination inside the Yasinya community, not a separate
+  // KATOTTG settlement. Keep its approved rate and source row as an alias of
+  // the existing Yasinya URL instead of manufacturing another settlement code.
+  if(siteStatus===BATCH004_IDENTITY_ALIAS&&/драгобрат/i.test(`${name} ${source['Варіанти назв VDALO']??''}`)){
+    batch004IdentityAliasRows.push({
+      slug:'drahobrat',name,region,community,route:'/tourist-tax/yasinya/',
+      katottgSettlementCode:null,communityCode:source['Код громади VDALO/канонічний']??'',
+      rateText,rateStatus:source['Статус ставки на сайті']??'',
+      source,aliasOf:'yasinya',identityLabel:'Туристична локація Ясінянської громади; окремий код поселення не присвоюється.',
+    });
+    continue;
+  }
+  if(siteStatus===BATCH004_PUBLISHED_STATUS){batch004RowsAlreadyCovered.push({...item,coverageReason:'Workbook marks the record as already published'});continue;}
+  if(!siteStatus.startsWith(BATCH004_NEW_STATUS))continue;
+
+  const currentMatch=existingBatchPlacesByCode.get(code);
+  const legacySlug=officialKatottgSlugByCode.get(code);
+  const sourceIds=String(source['ID вихідних локацій VDALO']??'').split('|').map(value=>value.trim()).filter(Boolean);
+  const namedLegacy=sourceIds.map(slug=>touristTaxPlaces.find(place=>place.slug===slug)).find(Boolean);
+  const preferredRoute=currentMatch?.route
+    ?? (legacySlug?`/tourist-tax/${legacySlug}/`:null)
+    ?? namedLegacy?.route
+    ?? sourceUrlPath(source['URL сторінок VDALO']);
+  let route=preferredRoute??`/tourist-tax/${makeTaxSlug(name)}/`;
+  const routeCode=usedBatch004Routes.get(route);
+  if(routeCode&&routeCode!==code){
+    const base=makeTaxSlug(name)||'lokalnist';
+    const suffix=code.replace(/[^A-Z0-9]/gi,'').slice(-6).toLowerCase();
+    route=`/tourist-tax/${base}-${suffix}/`;
+  }
+  if(usedBatch004Routes.has(route)&&usedBatch004Routes.get(route)===code&&knownPublicTouristTaxRoutes.has(route)){
+    batch004RowsAlreadyCovered.push({...item,coverageReason:'The current public route already resolves to the same KATOTTG identity'});
+    continue;
+  }
+  usedBatch004Routes.set(route,code);
+  batch004NewPageRows.push({
+    slug:route.split('/').filter(Boolean).at(-1),route,name,region,community,
+    district:source['Район']??'',category:source['Категорія поселення']??'',
+    katottgSettlementCode:code,communityCode:source['Канонічний код громади зі звірки']||source['Код громади VDALO/канонічний']||source['Код громади у формі ДПС']||'',
+    rateText,rateStatus:source['Статус ставки на сайті']??'',dataStatus:source['Статус даних для сайту']??'',
+    source,publicationEligible:true,
+  });
+}
+
+const localeDuplicateCounts=new Map();
+const nameRegionCounts=new Map();
+for(const place of batch004NewPageRows){
+  const key=[place.name,place.region,place.community].join('|');
+  localeDuplicateCounts.set(key,(localeDuplicateCounts.get(key)??0)+1);
+  const nameRegionKey=[place.name,place.region].join('|');
+  nameRegionCounts.set(nameRegionKey,(nameRegionCounts.get(nameRegionKey)??0)+1);
+}
+const batch004TitleCounts=new Map();
+for(const place of batch004NewPageRows){
+  const key=[place.name,place.region,place.community].join('|');
+  const distinctCount=localeDuplicateCounts.get(key)??1;
+  const codeSuffix=place.katottgSettlementCode.replace(/[^A-Z0-9]/gi,'').slice(-5);
+  const localityLabel=distinctCount>1?`${place.name}, ${place.community} (код ${codeSuffix})`:`${place.name}, ${place.community}`;
+  const seoName=place.name.replace(/^(?:міського типу|обласного значення|районного значення)\s+/iu,'');
+  place.title=`Туристичний збір: ${seoName} 2026 (${codeSuffix}) | VDALO`;
+  const nameRegionKey=[place.name,place.region].join('|');
+  const h1Disambiguator=(nameRegionCounts.get(nameRegionKey)??1)>1?`${place.region} · ${place.community}`:place.region;
+  const h1Name=distinctCount>1?localityLabel:seoName;
+  place.h1=`Туристичний збір: ${h1Name} · ${h1Disambiguator} · 2026`;
+  const sourceRateStatus=place.source['Статус ставки на сайті']||'';
+  const preliminary=sourceRateStatus.includes('Попередні')||place.dataStatus==='VDALO_PARTIAL_RATE_DATA'||place.dataStatus==='RATE_FROM_PUBLISHED_SITE_PRELIMINARY';
+  const seoStatus=preliminary?'Дані попередні, перевірка триває':sourceRateStatus==='Підтверджено'?'У базі позначено як підтверджену':'Статус наведено за погодженою базою';
+  const descriptionCode=place.katottgSettlementCode.slice(-8);
+  place.description=`Ставка туристичного збору для локації «${seoName}» на 2026 рік. ${seoStatus}. Код КАТОТТГ: …${descriptionCode}. Перевірте джерела.`;
+  const exactKey=`${place.title}|${place.h1}`;
+  const duplicateIndex=(batch004TitleCounts.get(exactKey)??0)+1;
+  batch004TitleCounts.set(exactKey,duplicateIndex);
+  if(duplicateIndex>1){
+    place.title=place.title.replace(' | VDALO',` (${codeSuffix}) | VDALO`);
+    place.h1=place.h1.replace(' на 2026 рік',` (${codeSuffix}) на 2026 рік`);
+  }
+}
+
+export const touristTaxBatch004PublicationAudit=Object.freeze({
+  sourceRows:publicationBatch004.audit.publicationRows,
+  rowsWithRateText:publicationBatch004.audit.publicationEligibleRowsWithRateText,
+  newPageRows:batch004NewPageRows.length,
+  alreadyPublishedRows:batch004RowsAlreadyCovered.length,
+  emptyRateRows:batch004RowsWithEmptyRates.length,
+  identityAliases:batch004IdentityAliasRows.length,
+});
+export const touristTaxBatch004Places=Object.freeze(batch004NewPageRows);
+export const touristTaxBatch004Aliases=Object.freeze(batch004IdentityAliasRows);
+export const touristTaxBatch004Routes=Object.freeze(batch004NewPageRows.map(place=>place.route));
+export const touristTaxBatch004EmptyRateRows=Object.freeze(batch004RowsWithEmptyRates.map(item=>item.source));
+export const touristTaxBatch004CoveredRows=Object.freeze(batch004RowsAlreadyCovered);
+
+export function getTouristTaxBatch004Place(slug) {
+  return touristTaxBatch004Places.find(place=>place.slug===slug)??null;
+}
+
+export function touristTaxPublicationRoutes() {
+  return [...new Set([
+    ...touristTaxCityRoutes(),
+    ...touristTaxBatch004Routes,
+  ])];
+}
 
 export function findTouristTaxPlace(query) {
   const normalized = String(query ?? '').trim().toLocaleLowerCase('uk-UA');
