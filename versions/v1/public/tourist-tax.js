@@ -12,6 +12,7 @@ const ukrainianCount = (value, one, few, many) => {
         : many;
   return `${value} ${form}`;
 };
+const formatPercent = value => `${new Intl.NumberFormat('uk-UA',{maximumFractionDigits:2}).format(Number(value))}%`;
 
 const infographic = document.querySelector('.tt-infographic');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -295,12 +296,14 @@ if (form) {
           const amount=document.createElement('strong');amount.className='tt-result-amount';amount.textContent=new Intl.NumberFormat('uk-UA',{style:'currency',currency:'UAH'}).format(Number(value.totalCents)/100);
           const groupsText=value.guestGroups.map(group=>{
             const rateText=Array.isArray(group.ratePeriods)
-              ?group.ratePeriods.map(period=>`${period.ratePercent}% × ${ukrainianCount(period.days,'добу','доби','діб')}`).join(' + ')
-              :`${group.ratePercent}%`;
+              ?group.ratePeriods.map(period=>`${formatPercent(period.ratePercent)} × ${ukrainianCount(period.days,'добу','доби','діб')}`).join(' + ')
+              :formatPercent(group.ratePercent);
             return `${group.guests} ${group.category==='domestic'?'внутрішнього':'в’їзного'} туризму · ${rateText}${group.accommodationTypeLabel?` · ${group.accommodationTypeLabel}`:''}`;
-          }).join('; ');
-          const detail=document.createElement('p');detail.textContent=`${groupsText} · ${ukrainianCount(value.days,'розрахункова доба','розрахункові доби','розрахункових діб')}. Інформаційний розрахунок${value.exemptionReviewRequired?' до перевірки можливої пільги':''}.`;
-          card.append(heading,amount,detail);
+          });
+          const breakdown=document.createElement('ul');breakdown.className='tt-result-breakdown';
+          for(const groupText of groupsText){const item=document.createElement('li');item.textContent=groupText;breakdown.append(item);}
+          const detail=document.createElement('p');detail.className='tt-result-detail';detail.textContent=`${ukrainianCount(value.days,'розрахункова доба','розрахункові доби','розрахункових діб')}. Інформаційний розрахунок${value.exemptionReviewRequired?' до перевірки можливої пільги':''}.`;
+          card.append(heading,amount,breakdown,detail);
           if(value.sourceUrl){const source=document.createElement('a');source.href=value.sourceUrl;source.rel='noopener';source.textContent=value.verificationStatus==='PRELIMINARY'?'Джерело попередніх значень':value.scenarioOnly?'Повідомлення ДПС про ставку 1%':'Першоджерело місцевої ставки';card.append(source);}
           const checked=document.createElement('small');checked.textContent=value.verificationStatus==='PRELIMINARY'?'* Дані ще перебувають на стадії підтвердження.':`Перевірено ${value.checkedAt}`;card.append(checked);
           if(value.warning){const warning=document.createElement('p');warning.className='tt-scenario-warning';warning.textContent=value.warning;card.append(warning);}
