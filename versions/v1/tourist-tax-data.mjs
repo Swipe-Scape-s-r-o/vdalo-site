@@ -1385,29 +1385,39 @@ for(const place of batch004NewPageRows){
   const nameRegionKey=[place.name,place.region].join('|');
   nameRegionCounts.set(nameRegionKey,(nameRegionCounts.get(nameRegionKey)??0)+1);
 }
+const batch004NameCounts=new Map();
+for(const place of batch004NewPageRows)batch004NameCounts.set(place.name,(batch004NameCounts.get(place.name)??0)+1);
+const seoCommunityLabel=value=>String(value??'').trim()
+  .replace(/\s+територіальна громада$/iu,' громада')
+  .replace(/\s+(?:міська|селищна|сільська)\s+ТГ$/iu,' громада')
+  .replace(/\s+ТГ$/iu,' громада');
+const seoRegionLabel=value=>{
+  const region=String(value??'').trim().replace(/\s+область$/iu,'');
+  return region==='м. Київ'?region:region?`${region} область`:'';
+};
 const batch004TitleCounts=new Map();
 for(const place of batch004NewPageRows){
   const key=[place.name,place.region,place.community].join('|');
   const distinctCount=localeDuplicateCounts.get(key)??1;
-  const codeSuffix=place.katottgSettlementCode.replace(/[^A-Z0-9]/gi,'').slice(-5);
-  const localityLabel=distinctCount>1?`${place.name}, ${place.community} (код ${codeSuffix})`:`${place.name}, ${place.community}`;
   const seoName=place.name.replace(/^(?:міського типу|обласного значення|районного значення)\s+/iu,'');
-  place.title=`Туристичний збір: ${seoName} 2026 (${codeSuffix}) | VDALO`;
+  const seoCommunity=seoCommunityLabel(place.community);
+  const seoRegion=seoRegionLabel(place.region);
+  const duplicateName=(batch004NameCounts.get(place.name)??1)>1;
+  place.title=duplicateName
+    ?`Туристичний збір 2026: ${seoName}, ${seoCommunity} | VDALO`
+    :`Туристичний збір 2026: ${seoName} | VDALO`;
   const nameRegionKey=[place.name,place.region].join('|');
-  const h1Disambiguator=(nameRegionCounts.get(nameRegionKey)??1)>1?`${place.region} · ${place.community}`:place.region;
-  const h1Name=distinctCount>1?localityLabel:seoName;
+  const h1Disambiguator=(nameRegionCounts.get(nameRegionKey)??1)>1?`${seoRegion} · ${seoCommunity}`:seoRegion;
+  const h1Name=distinctCount>1?`${seoName}, ${seoCommunity}`:seoName;
   place.h1=`Туристичний збір: ${h1Name} · ${h1Disambiguator} · 2026`;
-  const sourceRateStatus=place.source['Статус ставки на сайті']||'';
-  const preliminary=sourceRateStatus.includes('Попередні')||place.dataStatus==='VDALO_PARTIAL_RATE_DATA'||place.dataStatus==='RATE_FROM_PUBLISHED_SITE_PRELIMINARY';
-  const seoStatus=preliminary?'Дані попередні, перевірка триває':sourceRateStatus==='Підтверджено'?'У базі позначено як підтверджену':'Статус наведено за погодженою базою';
-  const descriptionCode=place.katottgSettlementCode.slice(-8);
-  place.description=`Ставка туристичного збору для локації «${seoName}» на 2026 рік. ${seoStatus}. Код КАТОТТГ: …${descriptionCode}. Перевірте джерела.`;
+  place.description=`Ставка туристичного збору для «${seoName}» у громаді «${seoCommunity}» на 2026 рік. Джерела й статус даних є на сторінці.`;
   const exactKey=`${place.title}|${place.h1}`;
   const duplicateIndex=(batch004TitleCounts.get(exactKey)??0)+1;
   batch004TitleCounts.set(exactKey,duplicateIndex);
   if(duplicateIndex>1){
+    const codeSuffix=place.katottgSettlementCode.replace(/[^A-Z0-9]/gi,'').slice(-5);
     place.title=place.title.replace(' | VDALO',` (${codeSuffix}) | VDALO`);
-    place.h1=place.h1.replace(' на 2026 рік',` (${codeSuffix}) на 2026 рік`);
+    place.h1=place.h1.replace(' · 2026',` (${codeSuffix}) · 2026`);
   }
 }
 

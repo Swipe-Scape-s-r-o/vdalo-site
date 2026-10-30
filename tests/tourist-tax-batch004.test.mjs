@@ -11,8 +11,10 @@ import {
   touristTaxBatch004WithheldNoNumericRateRows,
   touristTaxPublicationRoutes,
   touristTaxPlaces,
+  touristTaxCommunities,
   getTouristTaxBatch004Place,
   getTouristTaxBatch004RateModel,
+  canIndexTouristTaxPlace,
 } from '../versions/v1/tourist-tax-data.mjs';
 import {calculateTouristTax,renderTouristTaxBatch004Place,renderTouristTaxHub,renderTouristTaxRates} from '../versions/v1/tourist-tax.mjs';
 
@@ -126,6 +128,11 @@ test('every new locality route renders indexable page with its exact approved ra
   const titles=new Set();
   const descriptions=new Set();
   const h1s=new Set();
+  const normalizeRegion=value=>String(value||'').replace(/\s+область$/iu,'').trim();
+  const linkTargets=[
+    ...touristTaxPlaces.filter(place=>canIndexTouristTaxPlace(place,touristTaxCommunities)).map(place=>({route:place.route,region:normalizeRegion(place.region),communityCode:touristTaxCommunities.find(item=>item.slug===place.communitySlug)?.katottgCode||''})),
+    ...touristTaxBatch004Places.map(place=>({route:place.route,region:normalizeRegion(place.region),communityCode:place.communityCode||''})),
+  ];
   for(const place of touristTaxBatch004Places){
     const html=renderTouristTaxBatch004Place(place.slug);
     assert.ok(html,`${place.slug} should render`);
@@ -133,6 +140,7 @@ test('every new locality route renders indexable page with its exact approved ra
     assert.match(html,/<meta name="robots" content="index,follow">/);
     const rateValues=[...place.rateText.matchAll(/\d+(?:[,.]\d+)?\s*%/gu)].map(([rate])=>rate.replace(/\./g,','));
     const rateSection=html.match(/<ul class="tt-batch-rate-lines">([\s\S]*?)<\/ul>/)?.[1]||'';
+    assert.equal((html.match(/class="tt-batch-rate-lines"/g)||[]).length,1,`${place.slug} should display the rate once, in the summary card`);
     for(const rate of rateValues)assert.ok(rateSection.includes(rate),`${place.slug} should preserve approved rate ${rate}`);
     assert.ok(rateSection.includes('<li>'),`${place.slug} should put rate statements on separate lines`);
     assert.ok(!html.includes('VDALO_PARTIAL_RATE_DATA'),`${place.slug} must not expose internal status codes`);
@@ -157,15 +165,36 @@ test('every new locality route renders indexable page with its exact approved ra
     assert.match(title,/Туристичний збір/u,`${place.slug} title should reflect the search intent`);
     assert.match(title,/2026/u,`${place.slug} title should identify the tax year`);
     assert.match(description,/туристичного збору/u,`${place.slug} description should reflect the search intent`);
-    assert.match(description,new RegExp(place.katottgSettlementCode.slice(-8)),`${place.slug} description should disambiguate the locality`);
+    const normalizedCommunity=String(place.community||'громада не зазначена').replace(/\s+територіальна громада$/iu,' громада').replace(/\s+(?:міська|селищна|сільська)\s+ТГ$/iu,' громада').replace(/\s+ТГ$/iu,' громада');
+    const escapedCommunity=normalizedCommunity.replaceAll('&','&amp;').replaceAll("'",'&#39;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+    assert.ok(description.includes(escapedCommunity),`${place.slug} description should identify the locality's community`);
+    assert.match(description,/джерела й статус даних/iu,`${place.slug} description should direct visitors to the page's source and status details`);
+    assert.doesNotMatch(`${title} ${description}`,/UA\d{17}/iu,`${place.slug} metadata should not expose a KATOTTG code`);
     assert.match(h1,/2026/u,`${place.slug} H1 should identify the tax year`);
     assert.ok(!titles.has(title),`duplicate title: ${title}`);
     assert.ok(!descriptions.has(description),`duplicate description: ${description}`);
     assert.ok(!h1s.has(h1),`duplicate H1: ${h1}`);
     assert.equal((html.match(/<details>/g)||[]).length,4,`${place.slug} should have four useful FAQs`);
     assert.match(html,/<section class="tt-section tt-batch-seo"/u,`${place.slug} should have a locality-specific SEO section`);
-    for(const href of ['/tourist-tax/','/tourist-tax/rates/','/blog/turystychnyi-zbir-gotel-ukraina','/blog/rozrakhunok-turystychnoho-zboru-2026'])
+    for(const href of ['/tourist-tax/','/tourist-tax/rates/','/blog/turystychnyi-zbir-gotel-ukraina','/blog/rozrakhunok-turystychnoho-zboru-2026','/hotel-tourist-tax'])
       assert.ok(html.includes(`href="${href}"`),`${place.slug} should link to ${href}`);
+    assert.ok(html.includes('Знайти рішення місцевої ради в реєстрі ДПС'),`${place.slug} should link to the official decisions register`);
+    assert.doesNotMatch(html,/Інші локації поруч/iu,`${place.slug} should not imply geographic proximity without distance data`);
+    const relatedSection=html.match(/<section class="tt-batch-related"[\s\S]*?<\/section>/)?.[0]||'';
+    if(relatedSection){
+      if(relatedSection.includes('громади'))assert.ok(relatedSection.includes(place.community),`${place.slug} related links should use its community`);
+      else assert.ok(relatedSection.includes('області'),`${place.slug} regional links should be labeled by region`);
+      const linkedRoutes=[...relatedSection.matchAll(/<a href="([^"#]+)">/g)].map(([,route])=>route);
+      assert.ok(linkedRoutes.length>0,`${place.slug} related section should contain crawlable links`);
+      for(const route of linkedRoutes){
+        const target=linkTargets.find(item=>item.route===route);
+        assert.ok(target,`${place.slug} related link ${route} should resolve to a published locality`);
+        if(relatedSection.includes('громади'))assert.equal(target.communityCode,place.communityCode,`${place.slug} related locality should share the community`);
+        else assert.equal(target.region,normalizeRegion(place.region),`${place.slug} related locality should share the region`);
+      }
+    }
+    const regionStem=String(place.region||'').replace(/\s+область$/iu,'');
+    assert.ok(!html.includes(`у ${regionStem} область`)&&!html.includes(`в ${regionStem} область`),`${place.slug} should not use an uninflected region name after a preposition`);
     const escapedName=place.name.replaceAll('&','&amp;').replaceAll("'",'&#39;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
     assert.ok(html.includes(`Туристичний збір: дані для локації «${escapedName}»`),`${place.slug} bottom SEO heading should identify the locality`);
     titles.add(title);descriptions.add(description);h1s.add(h1);
