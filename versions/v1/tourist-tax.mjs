@@ -97,6 +97,16 @@ export function formatTouristTaxBatchRateText(value){
   text=text.replace(/\(([abc])\)/giu,(_,letter)=>`(${({a:'а',b:'б',c:'в'})[letter.toLowerCase()]})`).replace(/\s*\/\s*1\.\d+\.(?:\d+|x)\b/giu,'').replace(/\s*\/\s*1\.0(?=\s+усі об’єкти)/giu,'').replace(/\b(\d+)\.(\d+)(?=\s*%)/gu,'$1,$2').replace(/(\d+(?:[,.]\d+)?\s*%\s*(?:внутрішній|в[’'`]їзний))\s+(?:і|та)\s+/giu,'$1\n').replace(/%(?:,|;)\s*(?=(?:внутрішній|в[’'`]їзний|внутрішній туризм|в[’'`]їзний туризм)(?=\s|:|$))/giu,'%\n').replace(/\s*;\s*/gu,'\n').replace(/(?<!\d)\.\s+(?=[A-ZА-ЯІЇЄҐ])/gu,'\n').replace(/\s*,\s*\n/gu,'\n').replace(/\s*[.;,:]+\s*(?=\n|$)/gu,'').replace(/\n{2,}/gu,'\n').replace(/\s+([:;,.])/gu,'$1').trim();
   return text.replace(/\s*\*+\s*$/u,'').trim();
 }
+export function sanitizePublicTouristTaxHtml(value){
+  const inlineSpace='(?:\\s|<[^>]*>)*';
+  let html=String(value??'');
+  html=html.replace(new RegExp(`Статус даних:${inlineSpace}Часткові дані,${inlineSpace}потрібна звірка${inlineSpace}\\(код:${inlineSpace}VDALO_PARTIAL_RATE_DATA${inlineSpace}\\)`,'giu'),'Попередні дані · перевірка триває');
+  html=html.replace(/\bVDALO_PARTIAL_RATE_DATA\b/giu,'');
+  html=html.replace(/\bPARTIAL\b/giu,'');
+  html=html.replace(/(?:перевірити|перевірте|звірити|звірте)\s+оригінал\s+і\s+зміни\.?\s*\*?/giu,'');
+  html=html.replace(/\(\s*\)/gu,'').replace(/[ \t]{2,}/gu,' ');
+  return html;
+}
 function publicBatchRateMarkup(value){
   const lines=formatTouristTaxBatchRateText(value).split('\n').map(line=>line.trim()).filter(Boolean).flatMap(line=>{
     const rates=[...line.matchAll(/\d+(?:[,.]\d+)?\s*%/gu)];

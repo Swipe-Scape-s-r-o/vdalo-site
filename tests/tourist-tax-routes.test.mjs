@@ -124,6 +124,12 @@ test('hub, city, assets and sitemap resolve through the actual app router',async
   assert.match(pendingCity.body,/id="tourist-tax-calculator"/,'the unambiguous preliminary rate should have a calculator');
   assert.match(pendingCity.body,/Дані ще перебувають на стадії підтвердження/);
   assert.match(pendingCity.body,/Сума є попередньою\. Перед нарахуванням або сплатою звірте ставку/u);
+  for(const slug of ['antoniny','devladove']){
+    const locality=await request(`/tourist-tax/${slug}/`);
+    assert.equal(locality.status,200,`${slug} should render through its public locality route`);
+    assert.match(locality.body,/Попередні дані|перевірка триває/u,`${slug} should retain a plain-language preliminary status`);
+    assert.doesNotMatch(locality.body,/VDALO_PARTIAL_RATE_DATA|\bPARTIAL\b|Статус даних:|перевірити оригінал і зміни/iu,`${slug} must not expose internal status labels or editorial notes`);
+  }
   for(const slug of ['bukovel']){
     const unreleased=await request(`/tourist-tax/${slug}/`);
     assert.equal(unreleased.status,404,`${slug} is not approved for the current release wave`);
