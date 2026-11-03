@@ -55,7 +55,7 @@ function renderPreview(key) {
   return `<figure class="free-visual"><div class="free-preview-shell"><div class="free-preview-top"><span class="free-preview-brand">V</span><span>РОБОЧИЙ ПРОСТІР</span><span class="free-preview-dots" aria-hidden="true">•••</span></div><div class="free-preview-content"><div class="free-preview-heading"><div><small>VDALO</small><strong>${esc(title)}</strong></div><span class="free-preview-indicator" aria-hidden="true"></span></div><p class="free-preview-subtitle">${esc(subtitle)}</p>${body}</div></div><figcaption>Ілюстрація можливостей, не скриншот системи</figcaption></figure>`;
 }
 
-export function renderFreePage(v, key, indexable, offerId) {
+export function renderFreePage(v, key, indexable, offerId, ready) {
   const modules = v.modules.map(id => `<article class="free-module"><span class="free-module-icon">${icon(id)}</span><div><h3>${esc(moduleInfo[id][0])}</h3><p>${esc(moduleInfo[id][1])}</p></div></article>`).join('');
   const faqs = [
     ['Що коштує 0 грн?', 'Базовий план VDALO Free коштує 0 грн для об’єктів до 10 номерів включно. Додаткові модулі оплачуються окремо, якщо ви їх оберете.'],
@@ -73,7 +73,7 @@ export function renderFreePage(v, key, indexable, offerId) {
 <title>${esc(v.title)}</title><meta name="description" content="${esc(v.description)}">
 <meta name="robots" content="${indexable ? 'noindex,follow' : 'noindex,nofollow'}">
 <link rel="canonical" href="https://www.vdalo.tech/free"><meta name="theme-color" content="#321d35">
-<link rel="stylesheet" href="/free-assets/free.css?v=4"><script src="/free-assets/free.js?v=4" defer></script>
+<link rel="stylesheet" href="/free-assets/free.css?v=5"><script src="/free-assets/free.js?v=4" defer></script>
 </head>
 <body class="free-page" data-variant="${key}">
 <a class="free-skip" href="#free-main">Перейти до змісту</a>
@@ -106,7 +106,7 @@ ${renderPreview(key)}
 <section class="free-section free-pricing"><div class="free-wrap">
 <div class="free-section-head"><p class="free-eyebrow">БІЛЬШЕ МОЖЛИВОСТЕЙ</p><h2>Додавайте модулі, коли вони потрібні</h2><p>Free дає базові інструменти. Додаткові модулі оплачуються окремо та допомагають розширити роботу з VDALO.</p></div>
 <div class="free-price-list">${paidModules.map(([name,copy,price]) => `<article><div><h3>${esc(name)}</h3><p>${esc(copy)}</p></div><strong>${esc(price)}</strong></article>`).join('')}</div>
-<p class="free-pricing-note">Для об’єктів від 11 номерів діють платні тарифи. <a href="/pricing">Переглянути тарифи VDALO</a>.</p>
+<p class="free-pricing-note">Для об’єктів від 11 номерів діють платні тарифи. Платні тарифи й додаткові модулі також можна обрати окремо. <a href="/pricing">Переглянути тарифи VDALO</a>.</p>
 </div></section>
 <section class="free-section free-story"><div class="free-wrap free-story-card">
 <div class="free-story-mark" aria-hidden="true">V</div><div><p class="free-eyebrow">ВДАЛО ДЛЯ ВАШОГО МАСШТАБУ</p><h2>Система для різних об’єктів гостинності</h2><p>VDALO підходить для готелів, садиб, апартаментів, кемпінгів і глемпінгів. Об’єкти до 10 номерів включно можуть почати з безкоштовного базового плану. Для більших об’єктів є платні тарифи й додаткові модулі.</p><p class="free-story-caption">Почніть із потрібного сьогодні та розширюйте можливості за потреби.</p></div>
@@ -117,8 +117,10 @@ ${renderPreview(key)}
 <section class="free-section free-form-section" id="free-form"><div class="free-wrap free-form-grid">
 <div class="free-form-intro"><p class="free-eyebrow">НАСТУПНИЙ КРОК</p><h2>${esc(v.final)}</h2><p>Залиште заявку, щоб отримати доступ до VDALO. Команда уточнить деталі об’єкта та розповість про підключення.</p><p class="free-form-reassurance">Для об’єктів до 10 номерів включно базовий план Free коштує 0 грн. Платні можливості обговорюються окремо.</p><p class="free-intent-note" id="free-intent" role="status" hidden>Ви обрали допомогу з налаштуванням. Розповімо про неї під час зв’язку.</p></div>
 <div class="free-form-card">
+${ready ? '' : '<div class="free-availability" role="status"><strong>Приймання заявок зараз не налаштоване.</strong><p>Щоб зв’язатися з командою, скористайтеся <a href="/contact">сторінкою контактів</a>.</p></div>'}
 <form id="free-lead-form" method="post" action="/api/funnel/leads" data-offer="free" novalidate>
 <div class="free-form-heading"><strong>Заявка на підключення</strong><span>Усі поля, крім часу дзвінка, обов’язкові.</span></div>
+<fieldset class="free-form-fields"${ready ? '' : ' disabled'}>
 <div class="free-fields">
 <div class="free-field"><label for="free-name">Ваше ім’я</label><input id="free-name" name="name" autocomplete="name" minlength="2" maxlength="100" aria-describedby="free-name-error" required><p class="free-field-error" id="free-name-error"></p></div>
 <div class="free-field"><label for="free-property">Назва об’єкта</label><input id="free-property" name="property" autocomplete="organization" minlength="2" maxlength="150" aria-describedby="free-property-error" required><p class="free-field-error" id="free-property-error"></p></div>
@@ -131,8 +133,9 @@ ${renderPreview(key)}
 <p class="free-field-error" id="free-consent-error"></p>
 <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="free-honey">
 <p class="free-form-error" id="free-error" role="alert" aria-live="polite"></p>
-<button type="submit" class="free-cta"><span class="free-submit-label">Надіслати заявку</span> ${icon('arrow')}</button>
-<p class="free-form-foot">Відповідь на заявку залежить від графіка команди.</p>
+<button type="submit" class="free-cta"${ready ? '' : ' disabled'}><span class="free-submit-label">Надіслати заявку</span> ${icon('arrow')}</button>
+${ready ? '<p class="free-form-foot">Відповідь на заявку залежить від графіка команди.</p>' : ''}
+</fieldset>
 </form>
 <div class="free-success" id="free-success" role="status" tabindex="-1" hidden><span class="free-success-icon">${icon('check')}</span><h3>Дякуємо за заявку!</h3><p id="free-status"></p></div>
 </div>

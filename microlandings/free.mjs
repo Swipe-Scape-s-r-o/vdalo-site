@@ -1,4 +1,5 @@
 import {freeCampaignOffer} from './content.mjs';
+import {deliveryReady} from './config.mjs';
 import {renderFreePage} from './free-view.mjs';
 
 // Five messages continue the corresponding Callo conversations.
@@ -154,8 +155,8 @@ const variants = {
   }
 };
 
-export function renderFreeLanding(searchParams = new URLSearchParams()) {
+export function renderFreeLanding(searchParams = new URLSearchParams(), {ready = deliveryReady(freeCampaignOffer.id)} = {}) {
   const requested = String(searchParams.get('v') || 'a').toLowerCase();
   const key = Object.hasOwn(variants, requested) ? requested : 'a';
-  return renderFreePage(variants[key], key, !searchParams.has('v'), freeCampaignOffer.id);
+  return renderFreePage(variants[key], key, !searchParams.has('v'), freeCampaignOffer.id, ready);
 }
