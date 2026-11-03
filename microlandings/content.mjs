@@ -108,4 +108,5 @@ export const offers=[
 ];
 offers.forEach(offer=>Object.assign(offer,conversionCopy[offer.id]));
 offers.forEach(offer=>Object.assign(offer,copyDirectionV2[offer.id]));
-export function getOffer(id){return offers.find(offer=>offer.id===id);}
+export const freeCampaignOffer={id:'free',number:'09',route:'/free',status:'current',title:'Безкоштовна система для садиб і готелів до 10 номерів | Вдало',audience:'Для садиб і готелів до 10 номерів',eyebrow:'Безкоштовний план VDALO',cta:'Залишити заявку',formTitle:'Поговорімо про підключення VDALO',formIntro:'Залиште контакти й кілька деталей про об’єкт. Команда VDALO зв’яжеться, щоб узгодити наступний крок.',extra:'rooms',crmNext:'free_request -> contact -> onboarding',success:'Заявку отримано. Команда VDALO зв’яжеться з вами, щоб обговорити підключення.'};
+export function getOffer(id){return id==='free'?freeCampaignOffer:offers.find(offer=>offer.id===id);}
