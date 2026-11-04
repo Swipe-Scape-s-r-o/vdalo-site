@@ -4,6 +4,7 @@ import {renderMicrolanding,renderDirectory,renderFunnelPrivacy} from './microlan
 import {renderSmsGo} from './microlandings/sms-go.mjs';
 import {renderQuizPage} from './microlandings/quiz.mjs';
 import {renderSmsTrial} from './microlandings/sms-trial.mjs';
+import {renderFreeLanding} from './microlandings/free.mjs';
 import {handleFunnelLead} from './microlandings/leads.mjs';
 import {renderVideoLanding,renderCalculator,assetNames} from './microlandings/top5.mjs';
 import {handleTop5Lead} from './microlandings/top5-leads.mjs';
@@ -165,6 +166,12 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/tourist-tax'){res.writeHead(308,{Location:'/tourist-tax/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/tourist-tax/start/') {res.writeHead(308,{Location:'/tourist-tax/start'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/tourist-tax/start')return send(res,200,renderTouristTaxFunnel());
+  if(pathname==='/free/') {res.writeHead(308,{Location:'/free'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname==='/free'){res._schemaPath='/free';return send(res,200,renderFreeLanding(url.searchParams));}
+  if(/^\/free-assets\/free\.(?:css|js)$/.test(pathname)){
+   const filename=path.join(root,'microlandings','public',path.basename(pathname));const data=await readFile(filename);
+   res.writeHead(200,{'Content-Type':types[path.extname(filename)],'Cache-Control':'public, max-age=300','X-Content-Type-Options':'nosniff'});return res.end(req.method==='HEAD'?undefined:data);
+  }
   if(pathname==='/tourist-tax/rates/')return send(res,200,renderTouristTaxRates(),'text/html; charset=utf-8',req.method);
   if(pathname==='/tourist-tax/')return send(res,200,renderTouristTaxHub(),'text/html; charset=utf-8',req.method);
   if(/^\/tourist-tax\/[^/]+$/.test(pathname)){res.writeHead(308,{Location:pathname+'/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
