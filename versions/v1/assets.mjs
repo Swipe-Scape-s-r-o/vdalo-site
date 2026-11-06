@@ -12,6 +12,11 @@ export function assetUrl(name) {
  return `/assets/${name}?v=${assetVersion(`assets/${name}`)}`;
 }
 
+const fontFiles=['inter-cyrillic.woff2','inter-latin.woff2','inter-tight-cyrillic.woff2','inter-tight-latin.woff2'];
+// The shared legacy CSS is also used by the tourist-tax pages. Keep that bundle
+// unchanged and expose corrected declarations for ordinary pages separately.
+export const canonicalFontFaces=fontFiles.reduce((css,font)=>css.replaceAll(`/assets/${font}`,`/v1${assetUrl(font)}`),readFileSync(new URL('fonts.css',publicUrl),'utf8'));
+
 const sharedStyles = [
  'fonts.css',
  'styles.css',

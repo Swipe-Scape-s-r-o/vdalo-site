@@ -26,7 +26,7 @@ import {renderPmsChoiceArticle,pmsChoiceArticle} from './versions/v1/article-pms
 import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator,renderDirectBookingCostCalculator,renderHotelRoomCostCalculator,renderHousekeepingChecklist} from './versions/v1/tools.mjs';
 import {handlePmsReport} from './versions/v1/pms-report.mjs';
 import {renderSeoPage,seoRoutes} from './versions/v1/seo-pages.mjs';
-import {homeCssBundle,siteCssBundle,assetVersion} from './versions/v1/assets.mjs';
+import {homeCssBundle,siteCssBundle,assetVersion,canonicalFontFaces} from './versions/v1/assets.mjs';
 import {withSiteTrialOffer} from './versions/v1/trial-offer.mjs';
 import {renderOfferPage,renderRefundPage} from './versions/v1/legal.mjs';
 import {renderAuthorPage,renderKostiantynAuthorPage,renderAuthorsDirectory} from './versions/v1/author-page.mjs';
@@ -125,9 +125,23 @@ function withTagManager(html){
  const calloPrelude=/<body[^>]*\bdata-code=/i.test(withFavicon)?calloAttributionPrelude:'';
  return withFavicon.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+calloPrelude+consentAssets+gtmHead);
 }
+// These two feature pages remain outside the current editorial package.
+const seoUnchangedFeatureRoutes=new Set(['/hotel-booking-calendar','/hotel-tourist-tax']);
+function withCanonicalFonts(html,route){
+ if(!indexableSchemaRoutes.has(route)||route.startsWith('/tourist-tax')||seoUnchangedFeatureRoutes.has(route)||!/<link\b[^>]*href=["']\/v1\/(?:site|home)\.css[?"']/i.test(html))return html;
+ return html.replace('</head>',`<style data-vdalo-fonts>${canonicalFontFaces}</style></head>`);
+}
+function withoutUnusedHomeImagePreload(html,route){
+ if(!indexableSchemaRoutes.has(route)||route==='/'||route.startsWith('/tourist-tax')||seoUnchangedFeatureRoutes.has(route))return html;
+ const body=html.slice(html.search(/<body\b/i));
+ if(/<(?:img|video)\b[^>]*\b(?:src|poster)=["']\/v1\/assets\/hero-hotel\.webp(?:\?[^"']*)?["']/i.test(body))return html;
+ return html.replace(/<link\b(?=[^>]*\brel=["']preload["'])(?=[^>]*\bas=["']image["'])(?=[^>]*\bhref=["']\/v1\/assets\/hero-hotel\.webp(?:\?[^"']*)?["'])[^>]*>/i,'');
+}
 function send(res,status,text,type='text/html; charset=utf-8',method='GET'){
  const isHtml=type.toLowerCase().startsWith('text/html');
  let body=isHtml?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(text,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):text;
+ if(isHtml&&status===200)body=withCanonicalFonts(body,res._schemaPath||'');
+ if(isHtml&&status===200)body=withoutUnusedHomeImagePreload(body,res._schemaPath||'');
  if(isHtml&&res._isStagingHost)body=withNoindexRobots(body);
  const publicHtml=isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath)&&!res._isStagingHost;
  res.writeHead(status,{'Content-Type':type,'Cache-Control':publicHtml?'public, max-age=0, s-maxage=300, stale-while-revalidate=86400':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY',...(isHtml&&res._isStagingHost?{'X-Robots-Tag':'noindex, nofollow'}:{})});res.end(method==='HEAD'?undefined:body);
@@ -135,6 +149,8 @@ function send(res,status,text,type='text/html; charset=utf-8',method='GET'){
 function sendCompressed(req,res,status,data,type,cache='no-store'){
  const isHtml=type.toLowerCase().startsWith('text/html');
  let source=isHtml?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(Buffer.isBuffer(data)?data.toString('utf8'):data,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):data;
+ if(isHtml&&status===200)source=withCanonicalFonts(source,res._schemaPath||'');
+ if(isHtml&&status===200)source=withoutUnusedHomeImagePreload(source,res._schemaPath||'');
  if(isHtml&&res._isStagingHost)source=withNoindexRobots(source);
  if(isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath)&&!res._isStagingHost)cache='public, max-age=0, s-maxage=300, stale-while-revalidate=86400';
  const body=Buffer.isBuffer(source)?source:Buffer.from(source);
