@@ -347,6 +347,11 @@ const server=http.createServer(async(req,res)=>{
    const filename=path.join(root,'microlandings','public',path.basename(pathname));
    const data=await readFile(filename);res.writeHead(200,{'Content-Type':types[path.extname(filename)],'Cache-Control':'public, max-age=300','X-Content-Type-Options':'nosniff'});return res.end(req.method==='HEAD'?undefined:data);
   }
+  // Old CSS bundles reference these four fonts without the /v1 prefix. Keep
+  // their URLs working even on pages whose HTML is outside this release.
+  if((req.method==='GET'||req.method==='HEAD')&&/^\/assets\/inter(?:-tight)?-(?:cyrillic|latin)\.woff2$/.test(pathname)){
+   res.writeHead(307,{Location:`/v1${pathname}${url.search}`,'Cache-Control':'public, max-age=300'});return res.end();
+  }
   const route=pathname.match(/^\/(v1|v2|v3)(\/.*)?$/);
   if(!route)return send(res,404,renderNotFound());
   const version=route[1],relative=route[2]||'/';

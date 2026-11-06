@@ -24,3 +24,16 @@ test('font fix does not alter the tourist-tax page head',async()=>{
  assert.equal(page.status,200);
  assert.doesNotMatch(page.html,/<style data-vdalo-fonts>/);
 });
+
+test('legacy font URLs resolve to the existing versioned files without changing old page markup',async()=>{
+ for(const font of ['inter-cyrillic.woff2','inter-latin.woff2','inter-tight-cyrillic.woff2','inter-tight-latin.woff2']){
+  const oldUrl=assetUrl(font);
+  const redirect=await renderRouteForReview(oldUrl);
+  assert.equal(redirect.status,307,oldUrl);
+  assert.equal(redirect.headers.Location||redirect.headers.location,`/v1${oldUrl}`,oldUrl);
+  const target=await renderRouteForReview(redirect.headers.Location||redirect.headers.location);
+  assert.equal(target.status,200,font);
+  assert.match(String(target.headers['Content-Type']||target.headers['content-type']),/font\/woff2/i,font);
+ }
+ assert.equal((await renderRouteForReview('/assets/not-a-font.woff2')).status,404);
+});
