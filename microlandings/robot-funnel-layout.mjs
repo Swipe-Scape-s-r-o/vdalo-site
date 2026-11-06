@@ -6,7 +6,7 @@ export function renderFunnelLayout({cfg,code,details,media,form,faq,videoList,ta
  const caption=code==='q3'?'Автоматизація після реєстрації та налаштування об’єкта':cfg.format==='calculator'?'Почніть із власних цифр':cfg.format==='questions'?'Дві відповіді, щоб почати з вашої ситуації':videoList.length?'Коротко про ситуацію, знайому готельєрам':'Пряме бронювання з вашого сайту';
  return `<!doctype html><html lang="uk"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>${esc(cfg.h1)} | VDALO</title><meta name="description" content="${esc(cfg.sub)}"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#2D1A31">
+<title>${esc(cfg.metaTitle||`${cfg.h1} | VDALO`)}</title><meta name="description" content="${esc(cfg.sub)}"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#2D1A31">
 <link rel="stylesheet" href="/robot-funnel-assets/robot-funnels.css?v=20261023d"><script type="application/json" id="funnel-config">${config}</script></head><body data-code="${code}">
 <a class="skip-link" href="#main">До вмісту</a>
 <header class="header"><a href="/" aria-label="VDALO, на головну"><img src="/v1/assets/vdalo-canonical-496.png" width="140" height="44" alt="VDALO"></a><a class="header-link" href="#how">Як це працює <span aria-hidden="true">↗</span></a></header>

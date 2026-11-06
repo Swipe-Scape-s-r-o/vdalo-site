@@ -1419,6 +1419,8 @@ for(const place of batch004NewPageRows){
     place.title=place.title.replace(' | VDALO',` (${codeSuffix}) | VDALO`);
     place.h1=place.h1.replace(' · 2026',` (${codeSuffix}) · 2026`);
   }
+  // Preserve the locality and community; omit the brand suffix only when needed.
+  if(place.title.length>60)place.title=place.title.replace(/ \| VDALO$/u,'');
 }
 
 // Keep candidate rows without a numeric rate in the source audit, but do not

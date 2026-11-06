@@ -50,7 +50,7 @@ test('every existing form preserves its action, fields, required constraints and
 
 const reviewedProductRoutes=new Set(['/hotel-direct-booking','/hotel-finance','/hotel-channel-manager','/hotel-revenue-management','/hotel-guest-profile','/hotel-housekeeping','/hotel-access-control','/hotel-pms-modules','/hotel-ai-assistant','/hotel-guest-app','/hotel-pms-migration','/hotel-site-builder','/hotel-multi-property','/hotel-energy-management','/hotel-prro','/hotel-events','/solutions','/integrations','/hotel-check-in','/hotel-operations','/guest-communication']);
 
-test('unrevised product pages and funnels retain their original content',async()=>{
+test('unrevised pages retain their content apart from approved campaign metadata',async()=>{
  assert.equal(Object.keys(unchanged).length,36);
  assert.equal([...reviewedProductRoutes].filter(route=>route in unchanged).length,21);
  for(const [route,hash] of Object.entries(unchanged)){
@@ -72,6 +72,18 @@ test('unrevised product pages and funnels retain their original content',async()
    .replace(/<section class="seo-section partner-integration-bridge"[^>]*>[\s\S]*?<\/section>/g,'');
   // The current content pass adds a practical checklist to feature pages.
   previousChrome=previousChrome.replace(/<section class="seo-section"><div class="seo-content"><p class="eyebrow">ПРАКТИЧНИЙ ЧЕКЛІСТ<\/p>[\s\S]*?<\/section>/g,'');
+  // The short campaign titles are intentional; every other byte remains checked.
+  const campaignTitles={
+   '/q6':['Бронювання в зошиті та месенджерах | VDALO','Бронювання в зошиті, а заявки губляться у Viber та Instagram? | VDALO'],
+   '/qc':['Гість знайшов готель, але не забронював? | VDALO','Гість знайшов вас на картах, але не зміг забронювати? | VDALO'],
+  };
+  if(route in campaignTitles){
+   const [current,old]=campaignTitles[route];
+   for(const [open,close] of [['<title>','</title>'],['<meta property="og:title" content="','">'],['<meta name="twitter:title" content="','">']]){
+    assert.ok(previousChrome.includes(`${open}${current}${close}`),route);
+    previousChrome=previousChrome.replace(`${open}${current}${close}`,`${open}${old}${close}`);
+   }
+  }
   assert.equal(portableHtmlHash(previousChrome),hash.portableSha256,route);
   assert.equal(applyPreparedContent(html,route),html,route);
  }
