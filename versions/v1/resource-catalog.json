@@ -27,7 +27,7 @@
       "Відкриті питання"
     ],
     "file": "arrival_control.txt",
-    "sha256": "477621a30a61df1ffad7bd500ccd64b83685b0b2eb60cd481554b9126c12ec0e"
+    "sha256": "ac3372d6dc4195a8f1a4658a0eedad8e11b65ba483da899a1056a28170ff6084"
   },
   {
     "id": "RS03",
@@ -57,7 +57,7 @@
       "Перевірка після дії"
     ],
     "file": "overbooking_response.txt",
-    "sha256": "f4b006d6f1abb2addd87d7e7da9b9cc4a6ba7fb5a548876bcd7a7c83ff398bf7"
+    "sha256": "ae9aa25dce0bde327e73bc7e3b89d6b42dfd03ef557e151c300541782bfeb80f"
   },
   {
     "id": "RS05",
@@ -117,7 +117,7 @@
       "Строк і наступний крок"
     ],
     "file": "group_quote_ua_en.txt",
-    "sha256": "18ceee48e90778f0062a40baaf590a66500df598a0f79d00b635cf3e00574589"
+    "sha256": "575f0e79ec6c1b24ad27f5f18b8c4463b2fa2b46c55027fcfed790f6643944be"
   },
   {
     "id": "RS09",
@@ -132,7 +132,7 @@
       "Що варто покращити"
     ],
     "file": "guest_feedback_ua_en.txt",
-    "sha256": "79dfb0e3055fb5d7d647e83dc606e2999e840401a043ed5eafecada700035923"
+    "sha256": "dbd2f0f9348f3adc08b219def02905324f8e9e17ad90f0bb05f646141a090eb0"
   },
   {
     "id": "RS10",
@@ -162,12 +162,12 @@
       "Звірка й повернення за проблеми"
     ],
     "file": "pms_migration_plan.txt",
-    "sha256": "bb043821f76cf988808766d55e02643abb99890d0f98410a675e45e9a18f4c7b"
+    "sha256": "d17486065170abd6a602405a1e31bce7f8e726cfe4dcf8e9fa5714180ee29ba5"
   },
   {
     "id": "RS12",
     "title": "Мінімальні дані для перевірки бронювань",
-    "description": "Підготуйте знеособлену копію файлу для узгодженої структурної перевірки.",
+    "description": "Підготуйте мінімальний набір полів для погодженої перевірки даних.",
     "category": "system",
     "format": "txt",
     "language": "uk",
@@ -177,7 +177,7 @@
       "Валюта та формат дат"
     ],
     "file": "input_minimization.txt",
-    "sha256": "5de34870b55d50164342b2827d2edfc927c22d7073bacb53bb46db9ba715e970"
+    "sha256": "3c3f78dabfedb7f1a7e077f3d310bc1509750b2e6c8e395a3d50c69578209965"
   },
   {
     "id": "RS13",

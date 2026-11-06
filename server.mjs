@@ -37,7 +37,7 @@ import {renderResourceLibrary,getPublicResource} from './versions/v1/resource-li
 import {renderAdminTimeCalculator,renderWebsiteChecklist,renderGuestMessageBuilder,renderHousekeepingWorkloadCalculator,renderCancellationCalculator,renderReviewReplyTemplates} from './versions/v1/advanced-tools.mjs';
 import {renderTouristTaxHub,renderTouristTaxCity,renderTouristTaxBatch004Place,renderTouristTaxBatch24_25Preview,touristTaxBatch24_25PreviewSlugs,renderTouristTaxRates,handleTouristTaxCalculation,sanitizePublicTouristTaxHtml} from './versions/v1/tourist-tax.mjs';
 import {normalizeNonproductMetadata} from './versions/v1/nonproduct-seo.mjs';
-import {applyPreparedContent,revisionRoutes,revisionDate} from './versions/v1/content-revisions/content.mjs';
+import {applyPreparedContent,revisionRoutes,getRevisionDate} from './versions/v1/content-revisions/content.mjs';
 import {renderTouristTaxFunnel} from './microlandings/tourist-tax-funnel.mjs';
 import {touristTaxCityRoutes,touristTaxPublicationRoutes,touristTaxPlaces,getTouristTaxPlace,getTouristTaxRule} from './versions/v1/tourist-tax-data.mjs';
 
@@ -56,12 +56,41 @@ const trialOfferRoutes=new Set([...publicSitemapRoutes.filter(route=>route!=='/t
 const sitemapLastModifiedByRoute=new Map([
  ['/authors/kostiantyn-tripailo','2026-10-23'],
  ['/partners','2026-10-24'],
+ ['/hotel-check-in','2026-11-05'],
+ ['/hotel-operations','2026-11-05'],
+ ['/guest-communication','2026-11-05'],
+ ['/resources','2026-11-05'],
+ ['/solutions','2026-11-05'],
+ ['/integrations','2026-11-05'],
+ ['/tools/guest-message-builder/','2026-11-05'],
+ ['/tools/hotel-website-checklist/','2026-11-05'],
+ ['/tools/housekeeping-checklist/','2026-11-05'],
+ ['/tools/housekeeping-workload-calculator/','2026-11-05'],
+ ['/tools/hotel-admin-time-calculator/','2026-11-05'],
+ ['/tools/hotel-cancellation-cost-calculator/','2026-11-05'],
+ ['/tools/hotel-review-response/','2026-11-05'],
+ ['/hotel-direct-booking','2026-11-05'],
+ ['/hotel-finance','2026-11-05'],
+ ['/hotel-channel-manager','2026-11-05'],
+ ['/hotel-revenue-management','2026-11-05'],
+ ['/hotel-guest-profile','2026-11-05'],
+ ['/hotel-housekeeping','2026-11-05'],
+ ['/hotel-access-control','2026-11-05'],
+ ['/hotel-pms-modules','2026-11-05'],
+ ['/hotel-ai-assistant','2026-11-05'],
+ ['/hotel-guest-app','2026-11-05'],
+ ['/hotel-pms-migration','2026-11-05'],
+ ['/hotel-site-builder','2026-11-05'],
+ ['/hotel-multi-property','2026-11-05'],
+ ['/hotel-energy-management','2026-11-05'],
+ ['/hotel-prro','2026-11-05'],
+ ['/hotel-events','2026-11-05'],
  [pmsArticle.slug,pmsArticle.dateModified],
  [pmsChoiceArticle.slug,pmsChoiceArticle.dateModified],
  ...editorialArticles.map(article=>[article.slug,articleDates[article.slug]?.modified]),
  ...secondPassArticles.map(article=>[article.slug,article.modifiedDate??secondPassModifiedAt]),
  ...caseSlugs.map(route=>[route,caseLastUpdated]),
- ...revisionRoutes.map(route=>[route,revisionDate]),
+ ...revisionRoutes.map(route=>[route,getRevisionDate(route)]),
 ]);
 function sitemapXml(){
  const lastModified=new Map(sitemapLastModifiedByRoute);

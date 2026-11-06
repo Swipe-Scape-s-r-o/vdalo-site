@@ -54,9 +54,9 @@
 
 ## Далі за темою
 
-- [довідник громад](https://www.vdalo.tech/tourist-tax/)
-- [правила й пільги](https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina)
-- [сім прикладів розрахунку](https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026)
+- [Довідник туристичного збору за громадами](https://www.vdalo.tech/tourist-tax/)
+- [Посібник із туристичного збору для готелів](https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina)
+- [Приклади розрахунку туристичного збору](https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026)
 
 ## Джерела
 
