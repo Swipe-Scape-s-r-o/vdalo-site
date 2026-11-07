@@ -42,3 +42,4 @@
 .module-status-card p:last-child{margin:7px 0 0!important;color:#655365!important;font-size:13px!important;line-height:1.55!important}
 @media(max-width:900px){.module-status-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
 @media(max-width:600px){.module-status-grid{grid-template-columns:1fr;gap:10px;margin:18px 0 4px}.module-status-card{gap:12px;padding:16px;border-radius:14px}.module-status-icon{flex-basis:38px;width:38px;height:38px;border-radius:11px}.module-status-icon svg{width:20px;height:20px}.module-status-card h3{font-size:16px}.module-status-card p:last-child{font-size:13px!important}}
+@media(max-width:1050px){.seo-logos{grid-template-columns:repeat(2,minmax(0,1fr))}}

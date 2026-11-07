@@ -1,5 +1,5 @@
 КОРОТКИЙ ЗВОРОТНИЙ ЗВ’ЯЗОК ПІСЛЯ ПРОЖИВАННЯ
-UA: Дякуємо за ваш досвід у {{hotel_name}}. Будемо вдячні за чесні відповіді. Можна пропустити будь-яке питання.
+UA: Дякуємо, що зупинилися в {{hotel_name}}. Будемо вдячні за чесні відповіді. Можна пропустити будь-яке запитання.
 EN: Thank you for staying at {{hotel_name}}. We appreciate your honest feedback. You may skip any question.
 
 1. Як ви оцінюєте чистоту? / How would you rate cleanliness?

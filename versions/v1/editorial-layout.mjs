@@ -5,7 +5,7 @@ export const readingStyles='<link rel="stylesheet" href="/v1/reading-layout.css?
 
 export function readerByline({authorSlug='oleh-stepeniev',dates='',minutes=''}={}){
  const author=getAuthor(authorSlug);
- return `<div class="reader-byline"><a class="reader-author" href="${author.profilePath}"><img src="${author.image}" width="40" height="40" alt=""><span><strong>${e(author.name)}</strong><small>Автор матеріалу</small></span></a><div class="reader-meta">${dates}${minutes?`<span class="reader-duration">${e(minutes)}</span>`:''}</div></div>`;
+ return `<div class="reader-byline"><a class="reader-author" href="${author.profilePath}"><img src="${author.image}" width="40" height="40" alt="Портрет автора: ${e(author.name)}" aria-hidden="true"><span><strong>${e(author.name)}</strong><small>Автор матеріалу</small></span></a><div class="reader-meta">${dates}${minutes?`<span class="reader-duration">${e(minutes)}</span>`:''}</div></div>`;
 }
 export function readerContents(links,{kind='article'}={}){
  const count=(links.match(/<a\b/g)||[]).length;
@@ -14,7 +14,7 @@ export function readerContents(links,{kind='article'}={}){
 export function readerAuthorCard(authorSlug='oleh-stepeniev'){
  const author=getAuthor(authorSlug);
  const description=authorSlug==='kostiantyn-tripailo'?'Маркетинг, контент, SEO та AI у продажах. Досвід автора й опубліковані матеріали зібрані у профілі.':'Засновник VDALO. Пише про готельні процеси на основі підприємницького досвіду та роботи з об’єктами розміщення.';
- return `<section class="reader-author-card" aria-label="Про автора"><img src="${author.image}" width="64" height="64" alt="" loading="lazy"><div><p class="reader-contents-label">Про автора</p><h2><a href="${author.profilePath}">${e(author.name)}</a></h2><p>${description}</p><a class="reader-author-link" href="${author.profilePath}">Досвід і матеріали автора <span aria-hidden="true">↗</span></a></div></section>`;
+ return `<section class="reader-author-card" aria-label="Про автора"><img src="${author.image}" width="64" height="64" alt="Портрет автора: ${e(author.name)}" aria-hidden="true" loading="lazy"><div><p class="reader-contents-label">Про автора</p><h2><a href="${author.profilePath}">${e(author.name)}</a></h2><p>${description}</p><a class="reader-author-link" href="${author.profilePath}">Досвід і матеріали автора <span aria-hidden="true">↗</span></a></div></section>`;
 }
 // Adapt the owned article templates without changing their copy, IDs or SEO metadata.
 export function applyArticleReadingLayout(html){

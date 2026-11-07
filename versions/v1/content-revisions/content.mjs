@@ -7,11 +7,57 @@ import {signupHref} from '../signup-links.mjs';
 import {elements,hasClass,inner,outer,textOf,escapeHtml as e,replaceInner,replaceOuter,editElements} from './html-fragments.mjs';
 
 export const revisionDate='2026-10-23';
+// Substantive local edits made on 5 November; do not advance dates for link-only edits.
+const laterRevisions=new Set([
+ '/blog/channel-manager-ical-gotelyu',
+ '/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu',
+ '/blog/shakhmatka-bronyuvan-gotelyu',
+ '/blog/perehid-na-pms-bez-vtraty-danyh',
+ '/blog/pidhotovka-zaselennya-gostya',
+ '/blog/status-gotovnosti-nomera-housekeeping',
+ '/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy',
+ '/blog/shcho-take-pms-dlya-gotelyu',
+ '/blog/yak-obraty-pms-dlya-gotelyu',
+ '/blog/qr-kody-dlya-goteliv',
+ '/blog/qr-wifi-dlya-gotelyu',
+ '/blog/qr-kody-dlya-restoranu',
+ '/cases/guest-services-glamping',
+ '/hotel-automation',
+ '/tools/hotel-profitability-calculator/',
+ '/tools/pms-checklist/',
+ '/tools/qr-studio/',
+ '/tools/',
+]);
+// Substantive article and case revisions prepared on 6 November.
+const articleRevisions20261106=new Set([
+ '/blog/channel-manager-ical-gotelyu',
+ '/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu',
+ '/blog/shakhmatka-bronyuvan-gotelyu',
+ '/blog/perehid-na-pms-bez-vtraty-danyh',
+ '/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy',
+ '/blog/pidhotovka-zaselennya-gostya',
+ '/blog/status-gotovnosti-nomera-housekeeping',
+ '/blog/shcho-avtomatyzuvaty-v-goteli-pershym',
+ '/blog/shcho-take-pms-dlya-gotelyu',
+ '/blog/yak-obraty-pms-dlya-gotelyu',
+ '/blog/qr-kody-dlya-goteliv',
+ '/blog/qr-wifi-dlya-gotelyu',
+ '/blog/qr-kartka-v-nomer-gotelyu',
+ '/cases/guest-services-glamping',
+ '/cases/direct-bookings-calendar',
+ '/cases/hotel-booking-reconciliation',
+ '/cases/night-self-checkin-germany',
+ '/cases/hotel-data-migration',
+ '/cases/booking-widget-study-2118',
+ '/blog/qr-kody-dlya-restoranu',
+]);
+export const getRevisionDate=route=>articleRevisions20261106.has(route)?'2026-11-06':laterRevisions.has(route)?'2026-11-05':revisionDate;
+const revisionLabel=date=>new Intl.DateTimeFormat('uk-UA',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(`${date}T00:00:00Z`)).replace(/\s*р\.$/u,'');
 const origin='https://www.vdalo.tech';
 const cssVersion=createHash('sha256').update(readFileSync(new URL('../public/prepared-content.css',import.meta.url))).digest('hex').slice(0,12);
 const byRoute=new Map();
 export const preparedPages=registry.map(meta=>{
- const markdown=readFileSync(new URL(`./pages/${meta.file}`,import.meta.url),'utf8');
+ const markdown=readFileSync(new URL(`./pages/${meta.file}`,import.meta.url),'utf8').replace(/\r\n/g,'\n');
  const withoutTitle=markdown.replace(/^# [^\n]+\n+/, '');
  const firstHeading=withoutTitle.search(/^## /m);
  const intro=firstHeading<0?withoutTitle:withoutTitle.slice(0,firstHeading).trim();
@@ -64,6 +110,11 @@ function preserveAnchors(before,after){
  // the visible contents list always points to the actual revised headings.
  return aliases.map(node=>`<span class="prepared-anchor" id="${e(node.attrs.id)}" aria-hidden="true"></span>`).join('')+after;
 }
+function updateRevisionDate(html,page){
+ const date=getRevisionDate(page.route);
+ html=html.replace(/(<meta property="article:modified_time" content=")[^"]*(">)/g,`$1${date}$2`);
+ return editElements(html,node=>node.tag==='time'&&textOf(inner(html,node)).startsWith('Оновлено'),()=>`<time datetime="${date}">Оновлено ${revisionLabel(date)}</time>`);
+}
 function reviseArticle(html,page){
  const body=classNode(html,'article-body');
  if(!body)throw new Error(`Missing article body ${page.route}`);
@@ -75,9 +126,7 @@ function reviseArticle(html,page){
  html=editElements(html,node=>hasClass(node,'reader-duration'),()=>`<span class="reader-duration">${page.minutes} хв читання</span>`);
  // Keep the original publication date. Only this new substantive revision changes
  // dateModified; the server schema builder reconciles the article graph afterwards.
- html=html.replace(/(<meta property="article:modified_time" content=")[^"]*(">)/g,`$1${revisionDate}$2`);
- html=editElements(html,node=>node.tag==='time'&&textOf(inner(html,node)).startsWith('Оновлено'),()=>`<time datetime="${revisionDate}">Оновлено 23 жовтня 2026</time>`);
- return html;
+ return updateRevisionDate(html,page);
 }
 function reviseCase(html,page){
  const column=classNode(html,'case-reading-column');
@@ -90,7 +139,8 @@ function reviseCase(html,page){
  const links=rendered.toc.map(([heading,id])=>`<a href="#${e(id)}">${e(heading)}</a>`).join('');
  html=editElements(html,node=>node.tag==='nav'&&node.attrs['aria-label']==='Зміст матеріалу',()=>`<nav aria-label="Зміст матеріалу">${links}</nav>`);
  html=editElements(html,node=>hasClass(node,'reader-contents-count'),()=>`<span class="reader-contents-count">${rendered.toc.length} розділів <span aria-hidden="true">⌄</span></span>`);
- return html;
+ html=editElements(html,node=>hasClass(node,'reader-duration'),()=>`<span class="reader-duration">${page.minutes} хв читання</span>`);
+ return updateRevisionDate(html,page);
 }
 const requestCta=(kind='audit')=>`<section class="prepared-request"><div><p class="prepared-kicker">НАСТУПНИЙ КРОК</p><h2>${kind==='trial'?'Перевірте VDALO на процесі свого об’єкта':'Обговоріть процес із командою VDALO'}</h2><p>${kind==='trial'?'Створіть обліковий запис онлайн. Тест триває 14 днів і не потребує банківської картки.':'Залиште контакт і назву об’єкта. Команда уточнить запит та погодить наступні дії.'}</p></div>${kind==='trial'?`<a class="button" href="${signupHref('prepared_content')}">Створити обліковий запис <span aria-hidden="true">↗</span></a>`:`<button class="button" type="button" data-open="${kind}" data-location="prepared-content">Обговорити процес <span aria-hidden="true">↗</span></button>`}</section>`;
 function reviseService(html,page){
@@ -144,18 +194,21 @@ function reviseCollection(html,page){
  if(page.route==='/tools/'){
   const wrap=classNode(html,'tool-wrap'),crumb=classNode(html,'tool-crumb'),hero=classNode(html,'tool-hero');
   const catalogue=classNode(html,'tool-catalog');
+  const additional=elements(html).filter(node=>node.parent?.start===wrap.start&&(hasClass(node,'tool-added-catalog')||hasClass(node,'tool-library-link'))).map(node=>outer(html,node)).join('');
   const guide=selectedBody(page,section=>section.title!=='Який інструмент вам потрібен');
-  return replaceInner(html,wrap,outer(html,crumb)+outer(html,hero)+outer(html,catalogue)+copyBlock(guide,{className:'prepared-tools'}));
+  return replaceInner(html,wrap,outer(html,crumb)+outer(html,hero)+outer(html,catalogue)+additional+copyBlock(guide,{className:'prepared-tools'}));
  }
  return html;
 }
 function reviseTool(html,page){
  const wrap=classNode(html,'tool-wrap'),crumb=classNode(html,'tool-crumb'),hero=classNode(html,'tool-hero');
  const application=classNode(html,page.route.includes('pms-checklist')?'checklist-app':'profitability-calculator');
+ const kpiExtension=page.route.includes('profitability-calculator')?classNode(html,'kpi-extension'):null;
  const before=page.sections.filter(section=>section.title==='Як працює оцінювання').map(section=>section.markdown).join('\n');
  const after=selectedBody(page,section=>!['Як працює оцінювання','Підготуйте порівняння'].includes(section.title));
- const note=page.route.includes('pms-checklist')?'<p class="prepared-availability">Звіт можна переглянути й надрукувати у браузері. Надсилання email-звіту наразі недоступне.</p>':'';
- return replaceInner(html,wrap,`${outer(html,crumb)}${outer(html,hero)}${before?copyBlock(before):''}${outer(html,application)}${note}${copyBlock(after,{className:'prepared-tools'})}`);
+ const emailAvailable=application?.attrs['data-email-ready']==='true';
+ const note=page.route.includes('pms-checklist')&&!emailAvailable?'<p class="prepared-availability">Звіт можна переглянути й надрукувати у браузері. Надсилання email-звіту наразі недоступне.</p>':'';
+ return replaceInner(html,wrap,`${outer(html,crumb)}${outer(html,hero)}${before?copyBlock(before):''}${outer(html,application)}${kpiExtension?outer(html,kpiExtension):''}${note}${copyBlock(after,{className:'prepared-tools'})}`);
 }
 function reviseTax(html,page){
  if(page.route==='/tourist-tax/start'){
@@ -224,6 +277,11 @@ function updateCards(html){
   if(!page)return fragment;
   const title=elements(fragment).find(child=>child.tag==='strong');
   if(title)fragment=replaceInner(fragment,title,e(page.h1));
+  const topic=elements(fragment).find(child=>hasClass(child,'author-article-topic'));
+  if(topic){
+   const label=textOf(inner(fragment,topic)).replace(/ · (?:\d+ хв читання|Практичний посібник)$/u,` · ${page.minutes} хв читання`);
+   fragment=replaceInner(fragment,topic,e(label));
+  }
   fragment=editElements(fragment,child=>hasClass(child,'blog-case-result'),()=> '');
   const description=elements(fragment).find(child=>hasClass(child,'author-article-description')||hasClass(child,'blog-case-lead'))??elements(fragment).find(child=>child.tag==='span'&&child.parent&&hasClass(child.parent,'blog-featured-copy')&&!child.attrs.class);
   if(description)fragment=replaceInner(fragment,description,e(page.description));
@@ -254,7 +312,7 @@ function reviseStructuredData(html,page){
    const value=JSON.parse(json),nodes=value['@graph']??[value];
    for(const node of nodes){
     if(['Article','BlogPosting'].includes(node['@type'])){
-     node.headline=page.h1;node.description=page.description;node.dateModified=revisionDate;
+     node.headline=page.h1;node.description=page.description;node.dateModified=getRevisionDate(page.route);
     }
    }
    return open+JSON.stringify(value).replaceAll('<','\\u003c')+close;

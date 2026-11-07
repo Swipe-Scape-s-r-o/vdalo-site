@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {preparedPages,applyPreparedContent,getPreparedPage} from '../versions/v1/content-revisions/content.mjs';
+import {preparedPages,applyPreparedContent,getPreparedPage,getRevisionDate} from '../versions/v1/content-revisions/content.mjs';
 import {renderRouteForReview} from '../scripts/review-render.mjs';
 import {elements,inner,hasClass,textOf,decodeText} from '../versions/v1/content-revisions/html-fragments.mjs';
 import {formContract,portableHtmlHash} from '../versions/v1/content-revisions/form-contract.mjs';
@@ -48,9 +48,13 @@ test('every existing form preserves its action, fields, required constraints and
  }
 });
 
-test('23 deferred product pages and all 13 new funnels retain their content beyond approved partner navigation',async()=>{
+const reviewedProductRoutes=new Set(['/hotel-direct-booking','/hotel-finance','/hotel-channel-manager','/hotel-revenue-management','/hotel-guest-profile','/hotel-housekeeping','/hotel-access-control','/hotel-pms-modules','/hotel-ai-assistant','/hotel-guest-app','/hotel-pms-migration','/hotel-site-builder','/hotel-multi-property','/hotel-energy-management','/hotel-prro','/hotel-events','/solutions','/integrations','/hotel-check-in','/hotel-operations','/guest-communication']);
+
+test('unrevised pages retain their content apart from approved metadata and calendar link',async()=>{
  assert.equal(Object.keys(unchanged).length,36);
+ assert.equal([...reviewedProductRoutes].filter(route=>route in unchanged).length,21);
  for(const [route,hash] of Object.entries(unchanged)){
+  if(reviewedProductRoutes.has(route))continue;
   const {html}=await rendered(route);
   // This release intentionally adds only these links and the integration-page
   // bridge to the old chrome; continue comparing every other byte to the baseline.
@@ -68,9 +72,52 @@ test('23 deferred product pages and all 13 new funnels retain their content beyo
    .replace(/<section class="seo-section partner-integration-bridge"[^>]*>[\s\S]*?<\/section>/g,'');
   // The current content pass adds a practical checklist to feature pages.
   previousChrome=previousChrome.replace(/<section class="seo-section"><div class="seo-content"><p class="eyebrow">ПРАКТИЧНИЙ ЧЕКЛІСТ<\/p>[\s\S]*?<\/section>/g,'');
+  if(route==='/hotel-booking-calendar'){
+   const approvedLink='<p>Якщо внутрішня доступність відрізняється від каналу, скористайтеся <a href="/blog/pms-booking-rizna-dostupnist">інструкцією зі звірки PMS і Booking.com</a>.</p>';
+   assert.ok(previousChrome.includes(approvedLink),route);
+   assert.equal(previousChrome.split(approvedLink).length,2,route);
+   previousChrome=previousChrome.replace(approvedLink,'');
+  }
+  // The short campaign titles are intentional; every other byte remains checked.
+  const campaignTitles={
+   '/q6':['Бронювання в зошиті та месенджерах | VDALO','Бронювання в зошиті, а заявки губляться у Viber та Instagram? | VDALO'],
+   '/qc':['Гість знайшов готель, але не забронював? | VDALO','Гість знайшов вас на картах, але не зміг забронювати? | VDALO'],
+  };
+  if(route in campaignTitles){
+   const [current,old]=campaignTitles[route];
+   for(const [open,close] of [['<title>','</title>'],['<meta property="og:title" content="','">'],['<meta name="twitter:title" content="','">']]){
+    assert.ok(previousChrome.includes(`${open}${current}${close}`),route);
+    previousChrome=previousChrome.replace(`${open}${current}${close}`,`${open}${old}${close}`);
+   }
+  }
   assert.equal(portableHtmlHash(previousChrome),hash.portableSha256,route);
   assert.equal(applyPreparedContent(html,route),html,route);
  }
+});
+
+test('reviewed product pages render with metadata and structured data',async()=>{
+ for(const route of reviewedProductRoutes){
+  const {status,html}=await rendered(route);
+  assert.equal(status,200,route);
+  const nodes=elements(html);
+  assert.equal(nodes.filter(node=>node.tag==='h1').length,1,route);
+  assert.deepEqual(nodes.filter(node=>node.tag==='link'&&node.attrs.rel==='canonical').map(node=>node.attrs.href),[`https://www.vdalo.tech${route}`],route);
+  assert.ok(nodes.some(node=>node.tag==='meta'&&node.attrs.name==='description'&&node.attrs.content),route);
+  const schemas=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  assert.ok(schemas.length,route);for(const item of schemas)JSON.parse(item[1]);
+  assert.ok(!html.includes('\u2014'),route);
+ }
+});
+
+test('check-in metadata describes the Diia integration as in development',async()=>{
+ const {html}=await rendered('/hotel-check-in');
+ const descriptions=meta(html,'description');
+ assert.equal(descriptions.length,1);
+ assert.match(descriptions[0],/Дією перебуває у розробці/);
+ const graph=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+  .flatMap(match=>{const value=JSON.parse(match[1]);return value['@graph']??[value];});
+ const page=graph.find(node=>node['@id']==='https://www.vdalo.tech/hotel-check-in#webpage');
+ assert.match(page?.description??'',/Дією перебуває у розробці/);
 });
 
 test('article schema, author, visible dates and real publication dates agree',async()=>{
@@ -81,7 +128,9 @@ test('article schema, author, visible dates and real publication dates agree',as
   assert.ok(article,page.route);
   assert.equal(article.headline,page.h1,page.route);
   assert.equal(article.description,page.description,page.route);
-  assert.equal(article.dateModified,'2026-10-23',page.route);
+  const expectedModified=getRevisionDate(page.route);
+  assert.equal(article.dateModified,expectedModified,page.route);
+  assert.match(html,new RegExp(`<time datetime="${expectedModified}">Оновлено`),page.route);
   const expectedAuthor=page.route.includes('qr-kody-dlya-restoranu')?'kostiantyn-tripailo':'oleh-stepeniev';
   assert.match(article.author.url,new RegExp(`${expectedAuthor}$`));
   assert.ok(html.includes(`href="/authors/${expectedAuthor}"`),`${page.route}: visible author link should match Article schema`);
@@ -89,8 +138,22 @@ test('article schema, author, visible dates and real publication dates agree',as
  }
  const first=await rendered('/blog/channel-manager-ical-gotelyu');
  assert.match(first.html,/"datePublished":"2026-10-09"/);
+ assert.match(first.html,/"dateModified":"2026-11-06"/);
+ const tax=await rendered('/blog/turystychnyi-zbir-gotel-ukraina');
+ assert.match(tax.html,/"dateModified":"2026-10-23"/);
+ const revisedCase=await rendered('/cases/guest-services-glamping');
+ assert.match(revisedCase.html,/"dateModified":"2026-11-06"/);
  const qr=await rendered('/blog/qr-wifi-dlya-gotelyu');
  assert.match(qr.html,/"datePublished":"2026-10-15"/);
+});
+
+test('revised case reading times match the prepared content',async()=>{
+ for(const page of preparedPages.filter(page=>page.route.startsWith('/cases/'))){
+  const {html}=await rendered(page.route);
+  const duration=elements(html).find(node=>hasClass(node,'reader-duration'));
+  assert.ok(duration,`${page.route}: missing reading time`);
+  assert.equal(textOf(inner(html,duration)),`${page.minutes} хв читання`,page.route);
+ }
 });
 
 test('revised card headlines and author profile identity links stay current',async()=>{

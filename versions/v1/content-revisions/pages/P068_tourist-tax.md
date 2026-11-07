@@ -78,8 +78,8 @@
 
 ## Далі за темою
 
-- [загальний посібник](https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina)
-- [приклади арифметики](https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026)
+- [Посібник із туристичного збору для готелів](https://www.vdalo.tech/blog/turystychnyi-zbir-gotel-ukraina)
+- [Приклади розрахунку туристичного збору](https://www.vdalo.tech/blog/rozrakhunok-turystychnoho-zboru-2026)
 
 ## Джерела
 
