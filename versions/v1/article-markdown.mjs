@@ -59,6 +59,12 @@ export function renderArticleMarkdown(markdown) {
     const line = lines[index].trim();
     if (!line) { index++; continue; }
 
+    if (/^(?:-{3,}|\*{3,}|_{3,})$/.test(line)) {
+      html.push('<hr>');
+      index++;
+      continue;
+    }
+
     const heading = /^(#{2,3})\s+(.+)$/.exec(line);
     if (heading) {
       const level = heading[1].length;
@@ -118,7 +124,7 @@ export function renderArticleMarkdown(markdown) {
         const task = /^\[([ xX])\]\s+(.*)$/.exec(match[1]);
         if (task) {
           const checked = task[1].toLowerCase() === 'x';
-          items.push(`<li class="article-task"><input type="checkbox" disabled${checked ? ' checked' : ''}> ${inlineMarkdown(task[2])}</li>`);
+          items.push(`<li class="article-task"><label><input type="checkbox"${checked ? ' checked' : ''}><span>${inlineMarkdown(task[2])}</span></label></li>`);
         } else {
           items.push(`<li>${inlineMarkdown(match[1])}</li>`);
         }
@@ -130,7 +136,7 @@ export function renderArticleMarkdown(markdown) {
 
     const paragraph = [line];
     index++;
-    while (index < lines.length && lines[index].trim() && !/^(#{1,6}\s|```|\s*\||>\s?|[-*+]\s+|\d+\.\s+)/.test(lines[index].trim())) paragraph.push(lines[index++].trim());
+    while (index < lines.length && lines[index].trim() && !/^(#{1,6}\s|```|\s*\||>\s?|[-*+]\s+|\d+\.\s+)/.test(lines[index].trim()) && !/^(?:-{3,}|\*{3,}|_{3,})$/.test(lines[index].trim())) paragraph.push(lines[index++].trim());
     html.push(`<p>${inlineMarkdown(paragraph.join(' '))}</p>`);
   }
 

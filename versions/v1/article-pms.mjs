@@ -1,5 +1,6 @@
 import {renderPage,escape} from './render.mjs';
 import {addAuthorContext} from './author-context.mjs';
+import {articleImageSeo} from './image-seo.mjs';
 
 const e=escape;
 const slug='/blog/shcho-take-pms-dlya-gotelyu';
@@ -12,7 +13,7 @@ export const pmsArticle={
  datePublished:'2026-10-08',
  dateModified:'2026-10-23',
  image:'/assets/blog-pms-cover-natural.jpg',
- imageAlt:'Адміністраторка невеликого українського готелю переглядає календар бронювань за ноутбуком на рецепції.',
+ imageAlt:articleImageSeo[slug].alt,
  imageTitle:'Робота з бронюваннями в PMS невеликого готелю',
  imageCaption:'Ілюстрація щоденної роботи адміністратора з бронюваннями та даними готелю.'
 };

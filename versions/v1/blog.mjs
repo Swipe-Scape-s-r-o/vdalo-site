@@ -3,14 +3,15 @@ import {pmsArticle} from './article-pms.mjs';
 import {pmsChoiceArticle} from './article-pms-choice.mjs';
 import {editorialArticles} from './article-library.mjs';
 import {secondPassArticles} from './article-second-pass.mjs';
+import {overbookingArticles} from './overbooking-articles.mjs';
 import {caseData} from './cases.mjs';
 import {authors, getAuthor} from './authors.mjs';
 import {articleImageSeo,caseImageSeo} from './image-seo.mjs';
 
-const allArticles=[pmsArticle,pmsChoiceArticle,...editorialArticles,...secondPassArticles];
+const allArticles=[pmsArticle,pmsChoiceArticle,...editorialArticles,...secondPassArticles,...overbookingArticles];
 const categories=[
  {id:'hotel-marketing-sales',title:'Маркетинг і продажі гостинного бізнесу',description:'QR-сценарії ресторану, повторні візити та шлях від пропозиції до підтвердженого замовлення.',slugs:['/blog/qr-kody-dlya-restoranu']},
- {id:'booking-pms',title:'Бронювання, PMS і канали',description:'Календар, прямі бронювання, вибір і зміна PMS, канали продажу та передавання даних.',slugs:['/blog/shcho-take-pms-dlya-gotelyu','/blog/yak-obraty-pms-dlya-gotelyu','/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu','/blog/perehid-na-pms-bez-vtraty-danyh','/blog/shakhmatka-bronyuvan-gotelyu','/blog/channel-manager-ical-gotelyu']},
+ {id:'booking-pms',title:'Бронювання, PMS і канали',description:'Календар, прямі бронювання, вибір і зміна PMS, канали продажу та передавання даних.',slugs:['/blog/shcho-take-pms-dlya-gotelyu','/blog/yak-obraty-pms-dlya-gotelyu','/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu','/blog/perehid-na-pms-bez-vtraty-danyh','/blog/shakhmatka-bronyuvan-gotelyu','/blog/channel-manager-ical-gotelyu',...overbookingArticles.map(article=>article.slug)]},
  {id:'guest-experience',title:'Гостьовий досвід і QR',description:'Заселення, інформація для гостя, QR-коди, додаткові послуги та готовність номера.',slugs:['/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy','/blog/pidhotovka-zaselennya-gostya','/blog/status-gotovnosti-nomera-housekeeping','/blog/qr-kody-dlya-goteliv','/blog/qr-wifi-dlya-gotelyu','/blog/qr-kartka-v-nomer-gotelyu']},
  {id:'tourist-tax',title:'Туристичний збір',description:'Правила, ставки громад, формула та приклади розрахунку для готелів і власників житла.',slugs:['/blog/turystychnyi-zbir-gotel-ukraina','/blog/rozrakhunok-turystychnoho-zboru-2026']},
  {id:'automation',title:'Автоматизація роботи готелю',description:'Як обирати перші процеси для автоматизації та перевіряти зміни на практиці.',slugs:['/blog/shcho-avtomatyzuvaty-v-goteli-pershym']},
@@ -18,18 +19,18 @@ const categories=[
 
 
 function articleCard(article,category){
- const author=getAuthor(article.authorSlug);
+ const author=article.authorSlug===null?null:getAuthor(article.authorSlug);
  const summary=article.lead||article.description||'';
  const minutes=article.minutes?`${article.minutes} хв читання`:'Практичний посібник';
  const image=article.image||'';
  const alt=articleImageSeo[article.slug]?.alt||article.imageAlt||article.alt||article.headline;
  const imageTitle=articleImageSeo[article.slug]?.title||article.imageTitle||article.headline;
- return `<a class="blog-featured" href="${e(article.slug)}"><img src="${e(image)}" width="1200" height="800" alt="${e(alt)}" title="${e(imageTitle)}" loading="lazy"><span class="blog-featured-copy"><span class="blog-topic-number">${e(category.title)} · ${e(minutes)}</span><strong>${e(article.headline)}</strong><span>${e(summary)}</span><span class="blog-featured-author">Автор: ${e(author.name)}</span><span class="blog-featured-link">Читати матеріал <span aria-hidden="true">↗</span></span></span></a>`;
+ return `<a class="blog-featured" href="${e(article.slug)}"><img src="${e(image)}" width="1200" height="800" alt="${e(alt)}" title="${e(imageTitle)}" loading="lazy"><span class="blog-featured-copy"><span class="blog-topic-number">${e(category.title)} · ${e(minutes)}</span><strong>${e(article.headline)}</strong><span>${e(summary)}</span><span class="blog-featured-author">${author?`Автор: ${e(author.name)}`:'Матеріал VDALO'}</span><span class="blog-featured-link">Читати матеріал <span aria-hidden="true">↗</span></span></span></a>`;
 }
 
 function authorCard(author){
  const expertise=author.slug==='kostiantyn-tripailo'?'Напрями: маркетинг і продажі гостинного бізнесу, QR-сценарії та оцінка результатів.':`Напрями: ${author.expertise.join(', ')}.`;
- const articleCount=allArticles.filter(article=>(article.authorSlug||'oleh-stepeniev')===author.slug).length;
+ const articleCount=allArticles.filter(article=>article.authorSlug!==null&&(article.authorSlug||'oleh-stepeniev')===author.slug).length;
  const articlesCopy=articleCount?`${articleCount} ${articleCount===1?'матеріал':articleCount<5?'матеріали':'матеріалів'} VDALO`:'Профіль автора';
  return `<a class="blog-author-card" href="${e(author.profilePath)}"><img src="${e(author.image)}" width="160" height="180" alt="${e(author.name)}" loading="lazy"><span class="blog-author-copy"><span class="blog-author-role">${e(author.role)}</span><strong>${e(author.name)}</strong><span class="blog-author-focus">${e(expertise)}</span><span class="blog-author-link">${e(articlesCopy)} <span aria-hidden="true">↗</span></span></span></a>`;
 }
@@ -37,7 +38,8 @@ function authorCard(author){
 function categorySection(category){
  const categoryArticles=category.slugs.map(slug=>allArticles.find(article=>article.slug===slug)).filter(Boolean);
  if(!categoryArticles.length)return '';
- return `<section class="blog-category-section" id="${e(category.id)}" aria-labelledby="${e(category.id)}-title"><div class="blog-category-heading"><div><p class="blog-eyebrow">РУБРИКА · ${categoryArticles.length} ${categoryArticles.length===1?'МАТЕРІАЛ':categoryArticles.length<5?'МАТЕРІАЛИ':'МАТЕРІАЛІВ'}</p><h2 id="${e(category.id)}-title">${e(category.title)}</h2><p>${e(category.description)}</p></div><a href="#blog-categories">До рубрик <span aria-hidden="true">↑</span></a></div><div class="blog-grid blog-articles">${categoryArticles.map(article=>articleCard(article,category)).join('')}</div></section>`;
+ const cluster=category.id==='booking-pms'?'<section class="blog-overbooking-guide"><h3>Овербукінг: від перевірки бронювання до профілактики</h3><p>Подвійне бронювання може виникнути через ручну помилку, розбіжність доступності або непридатний номер. Почніть із загального посібника, а потім оберіть інструкцію для своєї ситуації.</p><ul><li><a href="/blog/overbuking-u-goteli">Що таке овербукінг і як зменшити ризик</a></li><li><a href="/blog/shcho-robyty-pry-overbukingu">Що робити адміністратору, якщо конфлікт уже стався</a></li><li><a href="/blog/channel-manager-perevirky-pered-sezonom">20 перевірок Channel Manager перед сезоном</a></li></ul></section>':'';
+ return `<section class="blog-category-section" id="${e(category.id)}" aria-labelledby="${e(category.id)}-title"><div class="blog-category-heading"><div><p class="blog-eyebrow">РУБРИКА · ${categoryArticles.length} ${categoryArticles.length===1?'МАТЕРІАЛ':categoryArticles.length<5?'МАТЕРІАЛИ':'МАТЕРІАЛІВ'}</p><h2 id="${e(category.id)}-title">${e(category.title)}</h2><p>${e(category.description)}</p></div><a href="#blog-categories">До рубрик <span aria-hidden="true">↑</span></a></div>${cluster}<div class="blog-grid blog-articles">${categoryArticles.map(article=>articleCard(article,category)).join('')}</div></section>`;
 }
 
 const featuredCases=caseData.map(c=>`<a class="blog-case-card" href="/cases/${e(c.slug)}"><img class="blog-case-thumb" src="${e(c.image)}" width="1200" height="800" alt="${e(caseImageSeo[c.slug]?.alt||c.alt)}" title="${e(caseImageSeo[c.slug]?.title||c.title)}" loading="lazy" decoding="async"><span class="blog-case-card-body"><span class="blog-case-meta">${e(c.short)}</span><strong>${e(c.title)}</strong><span class="blog-case-lead">${e(c.lead)}</span><span class="blog-case-result"><b>${e(c.metrics[0][0])}</b><span>${e(c.metrics[0][1])}</span></span><span class="blog-case-read">Читати кейс <span aria-hidden="true">↗</span></span></span></a>`).join('');

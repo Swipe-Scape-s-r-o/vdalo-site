@@ -21,12 +21,13 @@ import {renderCaseList,renderCase,caseSlugs,caseLastUpdated} from './versions/v1
 import {renderBlogPage} from './versions/v1/blog.mjs';
 import {renderEditorialArticle,editorialArticles,articleDates} from './versions/v1/article-library.mjs';
 import {renderSecondPassArticle,secondPassArticles,modifiedAt as secondPassModifiedAt} from './versions/v1/article-second-pass.mjs';
+import {renderOverbookingArticle,overbookingArticles} from './versions/v1/overbooking-articles.mjs';
 import {renderPmsArticle,pmsArticle} from './versions/v1/article-pms.mjs';
 import {renderPmsChoiceArticle,pmsChoiceArticle} from './versions/v1/article-pms-choice.mjs';
 import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator,renderDirectBookingCostCalculator,renderHotelRoomCostCalculator,renderHousekeepingChecklist} from './versions/v1/tools.mjs';
 import {handlePmsReport} from './versions/v1/pms-report.mjs';
 import {renderSeoPage,seoRoutes} from './versions/v1/seo-pages.mjs';
-import {homeCssBundle,siteCssBundle,assetVersion} from './versions/v1/assets.mjs';
+import {homeCssBundle,siteCssBundle,assetVersion,canonicalFontFaces} from './versions/v1/assets.mjs';
 import {withSiteTrialOffer} from './versions/v1/trial-offer.mjs';
 import {renderOfferPage,renderRefundPage} from './versions/v1/legal.mjs';
 import {renderAuthorPage,renderKostiantynAuthorPage,renderAuthorsDirectory} from './versions/v1/author-page.mjs';
@@ -37,7 +38,7 @@ import {renderResourceLibrary,getPublicResource} from './versions/v1/resource-li
 import {renderAdminTimeCalculator,renderWebsiteChecklist,renderGuestMessageBuilder,renderHousekeepingWorkloadCalculator,renderCancellationCalculator,renderReviewReplyTemplates} from './versions/v1/advanced-tools.mjs';
 import {renderTouristTaxHub,renderTouristTaxCity,renderTouristTaxBatch004Place,renderTouristTaxBatch24_25Preview,touristTaxBatch24_25PreviewSlugs,renderTouristTaxRates,handleTouristTaxCalculation,sanitizePublicTouristTaxHtml} from './versions/v1/tourist-tax.mjs';
 import {normalizeNonproductMetadata} from './versions/v1/nonproduct-seo.mjs';
-import {applyPreparedContent,revisionRoutes,revisionDate} from './versions/v1/content-revisions/content.mjs';
+import {applyPreparedContent,revisionRoutes,getRevisionDate} from './versions/v1/content-revisions/content.mjs';
 import {renderTouristTaxFunnel} from './microlandings/tourist-tax-funnel.mjs';
 import {touristTaxCityRoutes,touristTaxPublicationRoutes,touristTaxPlaces,getTouristTaxPlace,getTouristTaxRule} from './versions/v1/tourist-tax-data.mjs';
 
@@ -48,7 +49,7 @@ const gtmHead=`<script>(function(w,d,s,l,i){w.__vdaloLoadGoogleTags=function(){i
 const calloAttributionPrelude=`<script>(function(){try{var url=new URL(window.location.href),tag=url.searchParams.get('t');if(tag){window.__vdaloCalloTag=tag;url.searchParams.delete('t');history.replaceState(history.state,'',url.pathname+(url.search?url.search:'')+url.hash);}}catch(_){}})();</script>`;
 const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/svg+xml">';
 const touristTaxRoutes=[...new Set(['/tourist-tax/','/tourist-tax/rates/','/tourist-tax/start',...touristTaxPublicationRoutes(),...touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)])];
-const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles,touristTaxRoutes});
+const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles:[...secondPassArticles,...overbookingArticles],touristTaxRoutes});
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
 // Ordinary published pages opt in. Campaign /q*, /k*, /go*, numeric video,
 // Advertising funnels stay outside this set. /tourist-tax/start is an indexable guide page.
@@ -56,12 +57,41 @@ const trialOfferRoutes=new Set([...publicSitemapRoutes.filter(route=>route!=='/t
 const sitemapLastModifiedByRoute=new Map([
  ['/authors/kostiantyn-tripailo','2026-10-23'],
  ['/partners','2026-10-24'],
+ ['/hotel-check-in','2026-11-05'],
+ ['/hotel-operations','2026-11-05'],
+ ['/guest-communication','2026-11-05'],
+ ['/resources','2026-11-05'],
+ ['/solutions','2026-11-05'],
+ ['/integrations','2026-11-05'],
+ ['/tools/guest-message-builder/','2026-11-05'],
+ ['/tools/hotel-website-checklist/','2026-11-05'],
+ ['/tools/housekeeping-checklist/','2026-11-05'],
+ ['/tools/housekeeping-workload-calculator/','2026-11-05'],
+ ['/tools/hotel-admin-time-calculator/','2026-11-05'],
+ ['/tools/hotel-cancellation-cost-calculator/','2026-11-05'],
+ ['/tools/hotel-review-response/','2026-11-05'],
+ ['/hotel-direct-booking','2026-11-05'],
+ ['/hotel-finance','2026-11-05'],
+ ['/hotel-channel-manager','2026-11-05'],
+ ['/hotel-revenue-management','2026-11-05'],
+ ['/hotel-guest-profile','2026-11-05'],
+ ['/hotel-housekeeping','2026-11-05'],
+ ['/hotel-access-control','2026-11-05'],
+ ['/hotel-pms-modules','2026-11-05'],
+ ['/hotel-ai-assistant','2026-11-05'],
+ ['/hotel-guest-app','2026-11-05'],
+ ['/hotel-pms-migration','2026-11-05'],
+ ['/hotel-site-builder','2026-11-05'],
+ ['/hotel-multi-property','2026-11-05'],
+ ['/hotel-energy-management','2026-11-05'],
+ ['/hotel-prro','2026-11-05'],
+ ['/hotel-events','2026-11-05'],
  [pmsArticle.slug,pmsArticle.dateModified],
  [pmsChoiceArticle.slug,pmsChoiceArticle.dateModified],
  ...editorialArticles.map(article=>[article.slug,articleDates[article.slug]?.modified]),
  ...secondPassArticles.map(article=>[article.slug,article.modifiedDate??secondPassModifiedAt]),
  ...caseSlugs.map(route=>[route,caseLastUpdated]),
- ...revisionRoutes.map(route=>[route,revisionDate]),
+ ...revisionRoutes.map(route=>[route,getRevisionDate(route)]),
 ]);
 function sitemapXml(){
  const lastModified=new Map(sitemapLastModifiedByRoute);
@@ -96,9 +126,23 @@ function withTagManager(html){
  const calloPrelude=/<body[^>]*\bdata-code=/i.test(withFavicon)?calloAttributionPrelude:'';
  return withFavicon.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+calloPrelude+consentAssets+gtmHead);
 }
+// These two feature pages remain outside the current editorial package.
+const seoUnchangedFeatureRoutes=new Set(['/hotel-booking-calendar','/hotel-tourist-tax']);
+function withCanonicalFonts(html,route){
+ if(!indexableSchemaRoutes.has(route)||route.startsWith('/tourist-tax')||seoUnchangedFeatureRoutes.has(route)||!/<link\b[^>]*href=["']\/v1\/(?:site|home)\.css[?"']/i.test(html))return html;
+ return html.replace('</head>',`<style data-vdalo-fonts>${canonicalFontFaces}</style></head>`);
+}
+function withoutUnusedHomeImagePreload(html,route){
+ if(!indexableSchemaRoutes.has(route)||route==='/'||route.startsWith('/tourist-tax')||seoUnchangedFeatureRoutes.has(route))return html;
+ const body=html.slice(html.search(/<body\b/i));
+ if(/<(?:img|video)\b[^>]*\b(?:src|poster)=["']\/v1\/assets\/hero-hotel\.webp(?:\?[^"']*)?["']/i.test(body))return html;
+ return html.replace(/<link\b(?=[^>]*\brel=["']preload["'])(?=[^>]*\bas=["']image["'])(?=[^>]*\bhref=["']\/v1\/assets\/hero-hotel\.webp(?:\?[^"']*)?["'])[^>]*>/i,'');
+}
 function send(res,status,text,type='text/html; charset=utf-8',method='GET'){
  const isHtml=type.toLowerCase().startsWith('text/html');
  let body=isHtml?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(text,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):text;
+ if(isHtml&&status===200)body=withCanonicalFonts(body,res._schemaPath||'');
+ if(isHtml&&status===200)body=withoutUnusedHomeImagePreload(body,res._schemaPath||'');
  if(isHtml&&res._isStagingHost)body=withNoindexRobots(body);
  const publicHtml=isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath)&&!res._isStagingHost;
  res.writeHead(status,{'Content-Type':type,'Cache-Control':publicHtml?'public, max-age=0, s-maxage=300, stale-while-revalidate=86400':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY',...(isHtml&&res._isStagingHost?{'X-Robots-Tag':'noindex, nofollow'}:{})});res.end(method==='HEAD'?undefined:body);
@@ -106,6 +150,8 @@ function send(res,status,text,type='text/html; charset=utf-8',method='GET'){
 function sendCompressed(req,res,status,data,type,cache='no-store'){
  const isHtml=type.toLowerCase().startsWith('text/html');
  let source=isHtml?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(Buffer.isBuffer(data)?data.toString('utf8'):data,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):data;
+ if(isHtml&&status===200)source=withCanonicalFonts(source,res._schemaPath||'');
+ if(isHtml&&status===200)source=withoutUnusedHomeImagePreload(source,res._schemaPath||'');
  if(isHtml&&res._isStagingHost)source=withNoindexRobots(source);
  if(isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath)&&!res._isStagingHost)cache='public, max-age=0, s-maxage=300, stale-while-revalidate=86400';
  const body=Buffer.isBuffer(source)?source:Buffer.from(source);
@@ -250,6 +296,8 @@ const server=http.createServer(async(req,res)=>{
   if(editorialArticles.some(article=>article.slug===pathname))return send(res,200,prefix(renderEditorialArticle(pathname),'v1'));
   if(secondPassArticles.some(article=>pathname===`${article.slug}/`)){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(secondPassArticles.some(article=>article.slug===pathname))return send(res,200,prefix(renderSecondPassArticle(pathname),'v1'));
+  if(overbookingArticles.some(article=>pathname===`${article.slug}/`)){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(overbookingArticles.some(article=>article.slug===pathname))return send(res,200,prefix(renderOverbookingArticle(pathname),'v1'));
   if(pathname==='/registration'||pathname==='/registration/'){res.writeHead(308,{Location:'/sign-up'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(seoRoutes().includes(pathname))return send(res,200,prefix(renderSeoPage(pathname),'v1'));
   if(seoRoutes().includes(pathname.slice(0,-1))&&pathname.endsWith('/')){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
@@ -301,6 +349,11 @@ const server=http.createServer(async(req,res)=>{
   if(/^\/quiz-assets\/(?:quiz\.(?:css|js)|hotel-reception\.webp|quiz-manual-checkin\.jpg)$/.test(pathname)){
    const filename=path.join(root,'microlandings','public',path.basename(pathname));
    const data=await readFile(filename);res.writeHead(200,{'Content-Type':types[path.extname(filename)],'Cache-Control':'public, max-age=300','X-Content-Type-Options':'nosniff'});return res.end(req.method==='HEAD'?undefined:data);
+  }
+  // Old CSS bundles reference these four fonts without the /v1 prefix. Keep
+  // their URLs working even on pages whose HTML is outside this release.
+  if((req.method==='GET'||req.method==='HEAD')&&/^\/assets\/inter(?:-tight)?-(?:cyrillic|latin)\.woff2$/.test(pathname)){
+   res.writeHead(307,{Location:`/v1${pathname}${url.search}`,'Cache-Control':'public, max-age=300'});return res.end();
   }
   const route=pathname.match(/^\/(v1|v2|v3)(\/.*)?$/);
   if(!route)return send(res,404,renderNotFound());
