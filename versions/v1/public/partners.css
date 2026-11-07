@@ -96,6 +96,9 @@
 .partner-faq-list summary span{flex:none;font-size:23px;font-weight:400;color:#9b426f}
 .partner-faq-list details[open] summary span{transform:rotate(45deg)}
 .partner-faq-list details>p{margin:0 28px 22px 0;color:var(--partner-muted);font-size:14px}
+.partner-community{display:flex;align-items:center;justify-content:space-between;gap:28px;margin:0 0 36px;padding:28px 32px;border:1px solid var(--partner-line);border-radius:20px;background:#f8eef4}
+.partner-community>div{max-width:720px}.partner-community .partner-eyebrow{margin-bottom:9px}.partners-page .partner-community h2{font-size:clamp(1.4rem,2vw,1.8rem);line-height:1.25}.partner-community p:not(.partner-eyebrow){margin:10px 0 0;color:var(--partner-muted);font-size:14px}.partners-page .partner-community-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:#763255;font-size:14px;line-height:1.5;font-weight:700;text-underline-offset:4px}.partner-community-link svg{width:18px;height:18px;flex:none}.partner-community-link:hover{text-decoration-thickness:2px}
+@media(max-width:767px){.partner-community{align-items:flex-start;flex-direction:column;gap:12px;padding:23px 22px;margin-bottom:25px}.partner-community .partner-community-link{width:100%}}
 .partners-page .seo-related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding-top:4px}
 .partners-page .seo-related>a{position:relative;display:grid;gap:13px;align-content:start;border:1px solid var(--partner-line);border-radius:17px;padding:26px 56px 26px 26px;background:#fff;text-decoration:none}
 .partners-page .seo-related>a:hover{background:#f8eef4}
