@@ -7,6 +7,7 @@ import { renderBlogPage } from '../versions/v1/blog.mjs';
 import { renderAuthorPage, renderKostiantynAuthorPage, renderAuthorsDirectory } from '../versions/v1/author-page.mjs';
 import { renderEditorialArticle, editorialArticles } from '../versions/v1/article-library.mjs';
 import { renderSecondPassArticle, secondPassArticles } from '../versions/v1/article-second-pass.mjs';
+import { renderOverbookingArticle, overbookingArticles } from '../versions/v1/overbooking-articles.mjs';
 import { renderPmsArticle, pmsArticle } from '../versions/v1/article-pms.mjs';
 import { renderPmsChoiceArticle, pmsChoiceArticle } from '../versions/v1/article-pms-choice.mjs';
 import { renderToolsIndex, renderPmsChecklist, renderHotelProfitabilityCalculator, renderDirectBookingCostCalculator, renderHotelRoomCostCalculator, renderHousekeepingChecklist } from '../versions/v1/tools.mjs';
@@ -53,6 +54,7 @@ for (const route of seoRoutes()) pages.set(route, renderSeoPage(route));
 for (const c of caseData) pages.set(`/cases/${c.slug}`, renderCase(c.slug));
 for (const a of editorialArticles) pages.set(a.slug, renderEditorialArticle(a.slug));
 for (const a of secondPassArticles) pages.set(a.slug, renderSecondPassArticle(a.slug));
+for (const a of overbookingArticles) pages.set(a.slug, renderOverbookingArticle(a.slug));
 
 const errors = [], warnings = [], titleRoutes = new Map(), descriptionRoutes = new Map();
 const localAssets = new Set();
@@ -124,18 +126,19 @@ for (const [route, html] of pages) {
 }
 for (const asset of localAssets) if (!existsSync(path.join(root, asset))) errors.push(`Missing referenced image: ${asset}`);
 
-const articleRoutes = [pmsArticle.slug, pmsChoiceArticle.slug, ...editorialArticles.map(a => a.slug), ...secondPassArticles.map(a => a.slug)];
+const articleRoutes = [pmsArticle.slug, pmsChoiceArticle.slug, ...editorialArticles.map(a => a.slug), ...secondPassArticles.map(a => a.slug), ...overbookingArticles.map(a => a.slug)];
 for (const route of articleRoutes) {
   const html = pages.get(route) || '';
   const schemaText = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i)?.[1];
   const graph = schemaText ? JSON.parse(schemaText) : {};
   const posting = graph['@graph']?.find(node => ['BlogPosting', 'Article'].includes(node['@type'])) || graph;
   const authorPath = typeof posting.author?.url === 'string' ? new URL(posting.author.url).pathname : null;
+  const pendingDate=overbookingArticles.some(article=>article.slug===route&&article.pendingPublicationDate);
   if (!authorPath || !html.includes(`href="${authorPath}"`)) errors.push(`${route}: visible author link does not match Article schema`);
   if (!html.includes('BlogPosting') && !html.includes('"@type":"Article"')) errors.push(`${route}: missing Article/BlogPosting structured data`);
   const published = html.match(/article:published_time" content="([^"]+)/)?.[1];
   const modified = html.match(/article:modified_time" content="([^"]+)/)?.[1];
-  if (!published || !modified) errors.push(`${route}: missing publication/update metadata`);
+  if (!pendingDate && (!published || !modified)) errors.push(`${route}: missing publication/update metadata`);
   if (schemaText) {
     if (published && posting.datePublished !== published) errors.push(`${route}: visible publication date and schema differ`);
     if (modified && posting.dateModified !== modified) errors.push(`${route}: visible update date and schema differ`);

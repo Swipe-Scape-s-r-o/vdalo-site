@@ -3,6 +3,7 @@ import {pmsArticle} from './article-pms.mjs';
 import {pmsChoiceArticle} from './article-pms-choice.mjs';
 import {editorialArticles} from './article-library.mjs';
 import {secondPassArticles} from './article-second-pass.mjs';
+import {overbookingArticles} from './overbooking-articles.mjs';
 import {authors} from './authors.mjs';
 
 const origin='https://www.vdalo.tech';
@@ -11,7 +12,7 @@ const profileUrl=`${origin}${profilePath}`;
 const imagePath='/v1/assets/oleg-stepeniev-profile.jpg';
 const e=escape;
 
-const articles=[pmsArticle,pmsChoiceArticle,...editorialArticles,...secondPassArticles];
+const articles=[pmsArticle,pmsChoiceArticle,...editorialArticles,...secondPassArticles,...overbookingArticles];
 
 function profileSchema(){
  return JSON.stringify({'@context':'https://schema.org','@graph':[

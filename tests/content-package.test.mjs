@@ -50,7 +50,7 @@ test('every existing form preserves its action, fields, required constraints and
 
 const reviewedProductRoutes=new Set(['/hotel-direct-booking','/hotel-finance','/hotel-channel-manager','/hotel-revenue-management','/hotel-guest-profile','/hotel-housekeeping','/hotel-access-control','/hotel-pms-modules','/hotel-ai-assistant','/hotel-guest-app','/hotel-pms-migration','/hotel-site-builder','/hotel-multi-property','/hotel-energy-management','/hotel-prro','/hotel-events','/solutions','/integrations','/hotel-check-in','/hotel-operations','/guest-communication']);
 
-test('unrevised pages retain their content apart from approved campaign metadata',async()=>{
+test('unrevised pages retain their content apart from approved metadata and calendar link',async()=>{
  assert.equal(Object.keys(unchanged).length,36);
  assert.equal([...reviewedProductRoutes].filter(route=>route in unchanged).length,21);
  for(const [route,hash] of Object.entries(unchanged)){
@@ -72,6 +72,12 @@ test('unrevised pages retain their content apart from approved campaign metadata
    .replace(/<section class="seo-section partner-integration-bridge"[^>]*>[\s\S]*?<\/section>/g,'');
   // The current content pass adds a practical checklist to feature pages.
   previousChrome=previousChrome.replace(/<section class="seo-section"><div class="seo-content"><p class="eyebrow">ПРАКТИЧНИЙ ЧЕКЛІСТ<\/p>[\s\S]*?<\/section>/g,'');
+  if(route==='/hotel-booking-calendar'){
+   const approvedLink='<p>Якщо внутрішня доступність відрізняється від каналу, скористайтеся <a href="/blog/pms-booking-rizna-dostupnist">інструкцією зі звірки PMS і Booking.com</a>.</p>';
+   assert.ok(previousChrome.includes(approvedLink),route);
+   assert.equal(previousChrome.split(approvedLink).length,2,route);
+   previousChrome=previousChrome.replace(approvedLink,'');
+  }
   // The short campaign titles are intentional; every other byte remains checked.
   const campaignTitles={
    '/q6':['Бронювання в зошиті та месенджерах | VDALO','Бронювання в зошиті, а заявки губляться у Viber та Instagram? | VDALO'],

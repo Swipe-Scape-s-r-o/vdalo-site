@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {renderRouteForReview} from '../scripts/review-render.mjs';
 import {offers} from '../microlandings/content.mjs';
 import {robotFunnelRoutes} from '../microlandings/robot-funnels.mjs';
+import {touristTaxBatch004Places} from '../versions/v1/tourist-tax-data.mjs';
 
 const decode = value => value
   .replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
@@ -66,6 +67,45 @@ test('long locality titles retain the settlement, community and year on social m
     }
     assert.equal(ogTitle, title, route);
     assert.equal(twitterTitle, title, route);
+  }
+});
+
+test('locality descriptions identify the place and disclose preliminary data consistently', async () => {
+  const locations = [
+    ['/tourist-tax/horodyshche/', 'Городище', 'Білоцерківська громада'],
+    ['/tourist-tax/nadrichne-071178/', 'Надрічне', 'Золотниківська громада'],
+    ['/tourist-tax/antoniny/', 'Антоніни', 'Антонінська громада'],
+  ];
+  for (const [route, settlement, community] of locations) {
+    const {status,html} = await renderRouteForReview(route);
+    assert.equal(status, 200, route);
+    const description = normalized(html.match(/<meta name="description" content="([^"]*)">/)?.[1] ?? '');
+    const ogDescription = normalized(html.match(/<meta property="og:description" content="([^"]*)">/)?.[1] ?? '');
+    const twitterDescription = normalized(html.match(/<meta name="twitter:description" content="([^"]*)">/)?.[1] ?? '');
+    assert.ok(description.includes(settlement), route);
+    assert.ok(description.includes(community), route);
+    assert.match(description, /Попередні ставки/u, route);
+    assert.doesNotMatch(description, /у громаді «.*громада»/u, route);
+    assert.equal(ogDescription, description, route);
+    assert.equal(twitterDescription, description, route);
+    const schemas = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)]
+      .map(match => JSON.parse(match[1]));
+    const page = schemas.flatMap(schema => schema['@graph'] ?? [schema]).find(node => node['@type'] === 'WebPage');
+    assert.equal(page?.description, description, route);
+  }
+});
+
+test('all batch locality descriptions use the current search text and disclose review status', () => {
+  assert.ok(touristTaxBatch004Places.length>1000);
+  for (const place of touristTaxBatch004Places) {
+    const description=place.description;
+    assert.match(description,/^Туристичний збір 2026:/u,place.route);
+    const name=place.name.replace(/^(?:міського типу|обласного значення|районного значення)\s+/iu,'');
+    const community=String(place.community||'громада не зазначена').replace(/\s+територіальна громада$/iu,' громада').replace(/\s+(?:міська|селищна|сільська)\s+ТГ$/iu,' громада').replace(/\s+ТГ$/iu,' громада');
+    assert.ok(description.includes(name),`${place.route}: missing locality`);
+    assert.ok(description.includes(community),`${place.route}: missing community`);
+    assert.match(description,/Попередні ставки, джерела та стан перевірки\./u,place.route);
+    assert.ok(description.length<=160,place.route);
   }
 });
 

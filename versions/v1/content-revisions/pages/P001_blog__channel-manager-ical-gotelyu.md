@@ -138,6 +138,7 @@ PMS, Channel Manager та iCal не є синонімами. PMS веде вну
 
 ## Далі за темою
 
+- [як знайти причину різної доступності PMS і Booking.com](/blog/pms-booking-rizna-dostupnist)
 - [що таке PMS](https://www.vdalo.tech/blog/shcho-take-pms-dlya-gotelyu)
 - [прямі бронювання на сайті](https://www.vdalo.tech/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu)
 - [обговорити підключення](https://www.vdalo.tech/contact)

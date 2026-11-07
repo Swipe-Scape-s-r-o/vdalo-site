@@ -174,11 +174,11 @@ test('every new locality route renders indexable page with its exact approved ra
     assert.ok(description.length<=160,`${place.slug} description should stay within 160 characters`);
     assert.match(title,/Туристичний збір/u,`${place.slug} title should reflect the search intent`);
     assert.match(title,/2026/u,`${place.slug} title should identify the tax year`);
-    assert.match(description,/туристичного збору/u,`${place.slug} description should reflect the search intent`);
+    assert.match(description,/^Туристичний збір 2026:/u,`${place.slug} description should reflect the search intent and tax year`);
     const normalizedCommunity=String(place.community||'громада не зазначена').replace(/\s+територіальна громада$/iu,' громада').replace(/\s+(?:міська|селищна|сільська)\s+ТГ$/iu,' громада').replace(/\s+ТГ$/iu,' громада');
     const escapedCommunity=normalizedCommunity.replaceAll('&','&amp;').replaceAll("'",'&#39;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
     assert.ok(description.includes(escapedCommunity),`${place.slug} description should identify the locality's community`);
-    assert.match(description,/джерела й статус даних/iu,`${place.slug} description should direct visitors to the page's source and status details`);
+    assert.match(description,/Попередні ставки, джерела та стан перевірки\./u,`${place.slug} description should identify the preliminary status and source details`);
     assert.doesNotMatch(`${title} ${description}`,/UA\d{17}/iu,`${place.slug} metadata should not expose a KATOTTG code`);
     assert.match(h1,/2026/u,`${place.slug} H1 should identify the tax year`);
     assert.ok(!titles.has(title),`duplicate title: ${title}`);

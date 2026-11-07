@@ -1410,7 +1410,7 @@ for(const place of batch004NewPageRows){
   const h1Disambiguator=(nameRegionCounts.get(nameRegionKey)??1)>1?`${seoRegion} · ${seoCommunity}`:seoRegion;
   const h1Name=distinctCount>1?`${seoName}, ${seoCommunity}`:seoName;
   place.h1=`Туристичний збір: ${h1Name} · ${h1Disambiguator} · 2026`;
-  place.description=`Ставка туристичного збору для «${seoName}» у громаді «${seoCommunity}» на 2026 рік. Джерела й статус даних є на сторінці.`;
+  place.description=`Туристичний збір 2026: ${seoName}, ${seoCommunity}. Попередні ставки, джерела та стан перевірки.`;
   const exactKey=`${place.title}|${place.h1}`;
   const duplicateIndex=(batch004TitleCounts.get(exactKey)??0)+1;
   batch004TitleCounts.set(exactKey,duplicateIndex);

@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {seoRoutes,renderSeoPage} from '../versions/v1/seo-pages.mjs';
 import {qrArticles} from '../versions/v1/qr-articles.mjs';
 import {renderSecondPassArticle} from '../versions/v1/article-second-pass.mjs';
+import {overbookingArticles} from '../versions/v1/overbooking-articles.mjs';
 import {touristTaxCityRoutes,canIndexTouristTaxPlace,getTouristTaxPlace} from '../versions/v1/tourist-tax-data.mjs';
 import {renderTouristTaxCity} from '../versions/v1/tourist-tax.mjs';
 import {renderRouteForReview} from '../scripts/review-render.mjs';
@@ -44,7 +45,9 @@ test('author article cards agree with their rendered article title, reading time
    const article=await renderRouteForReview(route);
    assert.equal(article.status,200,route);
    const title=article.html.match(/<h1[^>]*>([^<]+)<\/h1>/)?.[1];
-   const duration=`${getPreparedPage(route).minutes} хв читання`;
+   const source=getPreparedPage(route)??overbookingArticles.find(item=>item.slug===route);
+   assert.ok(source,route);
+   const duration=`${source.minutes} хв читання`;
    const displayedDuration=article.html.match(/class="reader-duration"[^>]*>(\d+ хв читання)/)?.[1];
    assert.ok(title,route);
    if(displayedDuration)assert.equal(displayedDuration,duration,route);
@@ -57,7 +60,7 @@ test('author article cards agree with their rendered article title, reading time
    assert.equal(item?.author?.url,`https://www.vdalo.tech${profile}`,route);
   }
  }
- assert.deepEqual(displayed.sort(),preparedPages.map(page=>page.route).filter(route=>route.startsWith('/blog/')).sort());
+ assert.deepEqual(displayed.sort(),[...preparedPages.map(page=>page.route).filter(route=>route.startsWith('/blog/')),...overbookingArticles.map(article=>article.slug)].sort());
 });
 
 test('fiscalization guidance distinguishes payment methods and links to tax authority explanations',async()=>{

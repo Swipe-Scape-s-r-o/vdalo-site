@@ -21,6 +21,7 @@ import {renderCaseList,renderCase,caseSlugs,caseLastUpdated} from './versions/v1
 import {renderBlogPage} from './versions/v1/blog.mjs';
 import {renderEditorialArticle,editorialArticles,articleDates} from './versions/v1/article-library.mjs';
 import {renderSecondPassArticle,secondPassArticles,modifiedAt as secondPassModifiedAt} from './versions/v1/article-second-pass.mjs';
+import {renderOverbookingArticle,overbookingArticles} from './versions/v1/overbooking-articles.mjs';
 import {renderPmsArticle,pmsArticle} from './versions/v1/article-pms.mjs';
 import {renderPmsChoiceArticle,pmsChoiceArticle} from './versions/v1/article-pms-choice.mjs';
 import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator,renderDirectBookingCostCalculator,renderHotelRoomCostCalculator,renderHousekeepingChecklist} from './versions/v1/tools.mjs';
@@ -48,7 +49,7 @@ const gtmHead=`<script>(function(w,d,s,l,i){w.__vdaloLoadGoogleTags=function(){i
 const calloAttributionPrelude=`<script>(function(){try{var url=new URL(window.location.href),tag=url.searchParams.get('t');if(tag){window.__vdaloCalloTag=tag;url.searchParams.delete('t');history.replaceState(history.state,'',url.pathname+(url.search?url.search:'')+url.hash);}}catch(_){}})();</script>`;
 const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/svg+xml">';
 const touristTaxRoutes=[...new Set(['/tourist-tax/','/tourist-tax/rates/','/tourist-tax/start',...touristTaxPublicationRoutes(),...touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)])];
-const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles,touristTaxRoutes});
+const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles:[...secondPassArticles,...overbookingArticles],touristTaxRoutes});
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
 // Ordinary published pages opt in. Campaign /q*, /k*, /go*, numeric video,
 // Advertising funnels stay outside this set. /tourist-tax/start is an indexable guide page.
@@ -295,6 +296,8 @@ const server=http.createServer(async(req,res)=>{
   if(editorialArticles.some(article=>article.slug===pathname))return send(res,200,prefix(renderEditorialArticle(pathname),'v1'));
   if(secondPassArticles.some(article=>pathname===`${article.slug}/`)){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(secondPassArticles.some(article=>article.slug===pathname))return send(res,200,prefix(renderSecondPassArticle(pathname),'v1'));
+  if(overbookingArticles.some(article=>pathname===`${article.slug}/`)){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(overbookingArticles.some(article=>article.slug===pathname))return send(res,200,prefix(renderOverbookingArticle(pathname),'v1'));
   if(pathname==='/registration'||pathname==='/registration/'){res.writeHead(308,{Location:'/sign-up'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(seoRoutes().includes(pathname))return send(res,200,prefix(renderSeoPage(pathname),'v1'));
   if(seoRoutes().includes(pathname.slice(0,-1))&&pathname.endsWith('/')){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
