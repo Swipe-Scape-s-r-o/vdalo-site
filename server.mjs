@@ -209,6 +209,11 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/api/tools/pms-report')return await handlePmsReport(req,res);
   if(req.method==='POST' && /^\/api\/leads\/(trial|audit)$/.test(pathname))return leadServer.emit('request',req,res);
   if(!['GET','HEAD'].includes(req.method))return send(res,405,'Метод недоступний.','text/plain; charset=utf-8');
+  if(pathname==='/google143cc4b428e7dc07.html'){
+   const data=await readFile(path.join(root,'public','google143cc4b428e7dc07.html'));
+   res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Content-Length':data.length,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff',...(res._isStagingHost?{'X-Robots-Tag':'noindex, nofollow'}:{})});
+   return res.end(req.method==='HEAD'?undefined:data);
+  }
   if(pathname==='/tourist-tax'){res.writeHead(308,{Location:'/tourist-tax/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/tourist-tax/start/') {res.writeHead(308,{Location:'/tourist-tax/start'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/tourist-tax/start')return send(res,200,renderTouristTaxFunnel());
