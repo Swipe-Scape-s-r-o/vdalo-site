@@ -25,7 +25,7 @@ function articleCard(article,category){
  const image=article.image||'';
  const alt=articleImageSeo[article.slug]?.alt||article.imageAlt||article.alt||article.headline;
  const imageTitle=articleImageSeo[article.slug]?.title||article.imageTitle||article.headline;
- return `<a class="blog-featured" href="${e(article.slug)}"><img src="${e(image)}" width="1200" height="800" alt="${e(alt)}" title="${e(imageTitle)}" loading="lazy"><span class="blog-featured-copy"><span class="blog-topic-number">${e(category.title)} · ${e(minutes)}</span><strong>${e(article.headline)}</strong><span>${e(summary)}</span><span class="blog-featured-author">${author?`Автор: ${e(author.name)}`:'Матеріал VDALO'}</span><span class="blog-featured-link">Читати матеріал <span aria-hidden="true">↗</span></span></span></a>`;
+ return `<a class="blog-featured" href="${e(article.slug)}"><img src="${e(image)}" width="${article.imageWidth||1200}" height="${article.imageHeight||800}" alt="${e(alt)}" title="${e(imageTitle)}" loading="lazy"><span class="blog-featured-copy"><span class="blog-topic-number">${e(category.title)} · ${e(minutes)}</span><strong>${e(article.headline)}</strong><span>${e(summary)}</span><span class="blog-featured-author">${author?`Автор: ${e(author.name)}`:'Матеріал VDALO'}</span><span class="blog-featured-link">Читати матеріал <span aria-hidden="true">↗</span></span></span></a>`;
 }
 
 function authorCard(author){
