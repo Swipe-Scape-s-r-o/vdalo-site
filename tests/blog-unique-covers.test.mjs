@@ -5,8 +5,13 @@ import {readFile} from 'node:fs/promises';
 import {renderRouteForReview} from '../scripts/review-render.mjs';
 import {overbookingArticles} from '../versions/v1/overbooking-articles.mjs';
 
-const decode=value=>value.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+const decode=value=>value.replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
 const attr=(tag,name)=>decode(tag.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1]||'');
+
+test('HTML entities are decoded only once',()=>{
+ assert.equal(decode('&amp;lt;'), '&lt;');
+ assert.equal(decode('&lt;'), '<');
+});
 
 test('blog cards have distinct, descriptive image files',async()=>{
  const {status,html}=await renderRouteForReview('/blog');
