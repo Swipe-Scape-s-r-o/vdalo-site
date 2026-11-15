@@ -12,7 +12,7 @@ export const pmsArticle={
  headline:'Що таке PMS для готелю: як працює система управління, основні функції та приклади',
  datePublished:'2026-10-08',
  dateModified:'2026-10-23',
- image:'/assets/blog-pms-cover-natural.jpg',
+ image:'/assets/blog-pms-receptionist.jpg',
  imageAlt:articleImageSeo[slug].alt,
  imageTitle:'Робота з бронюваннями в PMS невеликого готелю',
  imageCaption:'Ілюстрація щоденної роботи адміністратора з бронюваннями та даними готелю.'

@@ -13,7 +13,7 @@ export const qrArticles = [
     title: 'QR-коди для готелів: 35 сценаріїв і приклади | VDALO',
     headline: 'QR-коди для готелів: 35 способів використання та практичні приклади',
     description: 'Де використовувати QR-коди в готелі: Wi-Fi, рецепція, номер, меню, бронювання й відгуки. 35 ідей, таблиця вибору, шаблони та поради з друку.',
-    image: '/assets/blog-qr-pillar-natural.jpg',
+    image: '/assets/blog-hotel-qr-reception.jpg',
     alt: 'Гостя сканує QR-картку на стійці рецепції у бутик-готелі',
     tag: 'QR-КОДИ ДЛЯ ГОТЕЛІВ',
     minutes: 13,

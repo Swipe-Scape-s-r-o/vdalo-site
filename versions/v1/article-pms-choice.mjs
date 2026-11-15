@@ -1,6 +1,7 @@
 import {readFileSync} from 'node:fs';
 import {renderPage,escape} from './render.mjs';
 import {addAuthorContext} from './author-context.mjs';
+import {articleImageSeo} from './image-seo.mjs';
 
 const e=escape;
 export const pmsChoiceArticle={
@@ -9,7 +10,7 @@ export const pmsChoiceArticle={
  description:'Як обрати PMS для готелю в Україні? 25 критеріїв, порівняння систем, перевірка інтеграцій, вартості та підтримки. Чекліст перед покупкою.',
  headline:'Як обрати PMS для готелю у 2026/2027 роках: 25 критеріїв і чекліст перед покупкою',
  datePublished:'2026-10-08', dateModified:'2026-10-23', image:'/assets/blog-pms-choice-natural.jpg',
- imageAlt:'Робоче місце керівника готелю з ноутбуком і календарем для оцінювання системи керування готелем',
+ imageAlt:articleImageSeo['/blog/yak-obraty-pms-dlya-gotelyu'].alt,
  imageTitle:'Як обрати PMS для готелю',
  imageCaption:'Ілюстрація: Перед вибором PMS звірте її можливості з реальними сценаріями роботи команди.'
 };

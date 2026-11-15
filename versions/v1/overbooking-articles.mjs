@@ -7,10 +7,10 @@ import {getAuthor} from './authors.mjs';
 const origin='https://www.vdalo.tech';
 const coverImages={
  'overbuking-u-goteli':['blog-overbooking-hotel.jpg','Адміністраторка готелю звіряє документи й бронювання на рецепції.'],
- 'yak-pidkliuchyty-booking-com-do-pms':['blog-booking-pms-connection.jpg','Працівники готелю перевіряють налаштування каналу бронювань за ноутбуком.'],
- 'channel-manager-perevirky-pered-sezonom':['blog-channel-manager-season-check.jpg','Працівники готелю звіряють чекліст і дані бронювань перед сезоном.'],
+ 'yak-pidkliuchyty-booking-com-do-pms':['blog-booking-pms-connection.jpg','Двоє працівників готелю переглядають документи біля ноутбука.'],
+ 'channel-manager-perevirky-pered-sezonom':['blog-channel-manager-season-check.jpg','Працівниця готелю звіряє чекліст, поки колега працює за ноутбуком.'],
  'pms-booking-rizna-dostupnist':['blog-pms-booking-availability.jpg','Адміністраторка готелю порівнює календарі номерів на двох екранах.'],
- 'overbuking-booking-com':['blog-booking-overbooking-guest.jpg','Адміністратор готелю розмовляє з гостем із валізою на рецепції.'],
+ 'overbuking-booking-com':['blog-booking-overbooking-guest.jpg','Адміністраторка готелю розмовляє з гостем із валізою на рецепції.'],
  'shcho-robyty-pry-overbukingu':['blog-overbooking-response.jpg','Адміністраторка готелю телефонує, поки гість із валізою очікує на рецепції.'],
  'mapping-nomeriv-i-taryfiv':['blog-room-rate-mapping.jpg','Працівниця готелю звіряє категорії номерів у списку та на ноутбуці.'],
  'booking-auto-replenishment-skasuvannya':['blog-booking-cancellation-availability.jpg','Працівниця готелю перевіряє телефон поруч із ноутбуком.'],
