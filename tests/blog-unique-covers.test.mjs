@@ -28,6 +28,21 @@ test('blog cards have distinct, descriptive image files',async()=>{
  }
 });
 
+test('blog articles have no visible image captions and retain descriptive cover alternatives',async()=>{
+ const {html}=await renderRouteForReview('/blog');
+ const cards=[...html.matchAll(/<a class="blog-featured" href="([^"#]+)">(<img\b[^>]*>)/g)];
+ assert.equal(cards.length,28);
+ for(const [,slug,img] of cards){
+  const page=await renderRouteForReview(slug);
+  assert.equal(page.status,200,slug);
+  assert.doesNotMatch(page.html,/<figcaption\b/i,slug);
+  const cover=page.html.match(/<figure class="article-cover">\s*(<img\b[^>]*>)/)?.[1];
+  assert.ok(cover,slug);
+  assert.ok(attr(cover,'alt').trim(),slug);
+  assert.equal(attr(cover,'alt'),attr(img,'alt'),slug);
+ }
+});
+
 test('all blog and case covers match their cards and use distinct image files',async()=>{
  const blog=(await renderRouteForReview('/blog')).html;
  const cases=(await renderRouteForReview('/cases')).html;
