@@ -28,6 +28,35 @@ test('blog cards have distinct, descriptive image files',async()=>{
  }
 });
 
+test('all blog and case covers match their cards and use distinct image files',async()=>{
+ const blog=(await renderRouteForReview('/blog')).html;
+ const cases=(await renderRouteForReview('/cases')).html;
+ const articleCards=[...blog.matchAll(/<a class="blog-featured" href="([^"#]+)">(<img\b[^>]*>)/g)];
+ const caseCards=[...cases.matchAll(/<a class="case-card-image" href="([^"#]+)"[^>]*>\s*(<img\b[^>]*>)/g)];
+ assert.equal(articleCards.length,28);
+ assert.equal(caseCards.length,6);
+ const hashes=new Set();
+ for(const [,slug,img] of [...articleCards,...caseCards]){
+  const src=attr(img,'src');
+  const canonicalSrc=src.startsWith('/v1/')?src:`/v1${src}`;
+  const {status,html}=await renderRouteForReview(slug);
+  assert.equal(status,200,slug);
+  const cover=html.match(/<figure class="article-cover">\s*(<img\b[^>]*>)/)?.[1];
+  assert.ok(cover,slug);
+  const coverSrc=attr(cover,'src');
+  assert.equal(coverSrc.startsWith('/v1/')?coverSrc:`/v1${coverSrc}`,canonicalSrc,slug);
+  assert.ok(attr(img,'alt').trim(),slug);
+  assert.equal(attr(cover,'alt'),attr(img,'alt'),slug);
+  const og=[...html.matchAll(/<meta property="og:image" content="([^"]*)"/g)].map(match=>decode(match[1]));
+  assert.deepEqual(og,[`https://www.vdalo.tech${canonicalSrc}`],slug);
+  assert.equal((await renderRouteForReview(canonicalSrc)).status,200,slug);
+  const data=await readFile(new URL(`../versions/v1/public${canonicalSrc.replace('/v1','')}`,import.meta.url));
+  const hash=createHash('sha256').update(data).digest('hex');
+  assert.ok(!hashes.has(hash),`${slug}: duplicate cover`);
+  hashes.add(hash);
+ }
+});
+
 test('new covers are consistent in cards, articles and social metadata',async()=>{
  const blog=(await renderRouteForReview('/blog')).html;
  const slugs=[...overbookingArticles.map(article=>article.slug),'/blog/qr-kody-dlya-restoranu'];
