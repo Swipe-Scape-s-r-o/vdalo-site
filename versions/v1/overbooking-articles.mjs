@@ -5,8 +5,20 @@ import {readerByline,readerContents,readerAuthorCard,readingStyles} from './edit
 import {getAuthor} from './authors.mjs';
 
 const origin='https://www.vdalo.tech';
-const image='/assets/blog-booking-calendar-natural.jpg';
-const imageAlt='Працівник готелю звіряє записи та календар бронювань на рецепції';
+const coverImages={
+ 'overbuking-u-goteli':['blog-overbooking-hotel.jpg','Адміністраторка готелю звіряє документи й бронювання на рецепції.'],
+ 'yak-pidkliuchyty-booking-com-do-pms':['blog-booking-pms-connection.jpg','Працівники готелю перевіряють налаштування каналу бронювань за ноутбуком.'],
+ 'channel-manager-perevirky-pered-sezonom':['blog-channel-manager-season-check.jpg','Працівники готелю звіряють чекліст і дані бронювань перед сезоном.'],
+ 'pms-booking-rizna-dostupnist':['blog-pms-booking-availability.jpg','Адміністраторка готелю порівнює календарі номерів на двох екранах.'],
+ 'overbuking-booking-com':['blog-booking-overbooking-guest.jpg','Адміністратор готелю розмовляє з гостем із валізою на рецепції.'],
+ 'shcho-robyty-pry-overbukingu':['blog-overbooking-response.jpg','Адміністраторка готелю телефонує, поки гість із валізою очікує на рецепції.'],
+ 'mapping-nomeriv-i-taryfiv':['blog-room-rate-mapping.jpg','Працівниця готелю звіряє категорії номерів у списку та на ноутбуці.'],
+ 'booking-auto-replenishment-skasuvannya':['blog-booking-cancellation-availability.jpg','Працівниця готелю перевіряє телефон поруч із ноутбуком.'],
+ 'stop-sell-remont-nomera':['blog-hotel-room-repair-stop-sell.jpg','Працівниця готелю позначає номер, у якому проводять ремонт.'],
+ 'bronyuvannya-telefonom-mesendzherakh':['blog-hotel-phone-messenger-booking.jpg','Адміністраторка готелю розмовляє телефоном і робить запис у блокноті.'],
+ 'vartist-overbukingu-gotelyu':['blog-hotel-overbooking-cost.jpg','Працівниця готелю перевіряє документи за допомогою калькулятора.'],
+ 'yak-unyknuty-overbukingu-bez-channel-manager':['blog-manual-hotel-booking-calendar.jpg','Працівниця готелю позначає бронювання в паперовому календарі.'],
+};
 const definitions=[
  ['00_pillar_overbooking_article.md','overbuking-u-goteli','Овербукінг у готелі: що це і як уникнути | VDALO','Що таке овербукінг у готелі, чому виникають подвійні бронювання та як зменшити ризик. Причини, алгоритм дій для рецепції, чекліст і поради щодо PMS.'],
  ['01_booking_pms_connection_article.md','yak-pidkliuchyty-booking-com-do-pms','Як підключити Booking.com до PMS: інструкція | VDALO','Як підключити Booking.com до PMS: підготовка, зіставлення категорій і тарифів, перевірка бронювань, скасувань та помилок.'],
@@ -23,13 +35,15 @@ const definitions=[
 ];
 
 export const overbookingArticles=definitions.map(([filename,slug,title,description])=>{
+ const [coverFile,imageAlt]=coverImages[slug];
+ const image=`/assets/${coverFile}`;
  const markdown=readFileSync(new URL(`./content/overbooking/${filename}`,import.meta.url),'utf8').replace(/^\uFEFF/,'').replace(/\r/g,'');
  const h1=/^#\s+(.+)$/m.exec(markdown);
  if(!h1)throw new Error(`Missing H1: ${filename}`);
  const body=markdown.slice(h1.index+h1[0].length).trim();
  const minutes=Math.max(1,Math.ceil(body.replace(/[#*_\[\]()|]/g,' ').split(/\s+/u).length/200));
  const authorSlug=slug==='bronyuvannya-telefonom-mesendzherakh'?'kostiantyn-tripailo':'oleh-stepeniev';
- return Object.freeze({slug:`/blog/${slug}`,title,description,headline:h1[1].trim(),lead:description,image,imageAlt,minutes,body,authorSlug,pendingPublicationDate:true});
+ return Object.freeze({slug:`/blog/${slug}`,title,description,headline:h1[1].trim(),lead:description,image,imageAlt,imageWidth:1672,imageHeight:941,minutes,body,authorSlug,pendingPublicationDate:true});
 });
 
 export function renderOverbookingArticle(slug){
@@ -38,7 +52,7 @@ export function renderOverbookingArticle(slug){
  const author=getAuthor(article.authorSlug);
  const rendered=renderArticleMarkdown(article.body);
  const contents=rendered.toc.map(([heading,id])=>`<a href="#${e(id)}">${e(heading)}</a>`).join('');
- const imageUrl=`${origin}/v1${image}`;
+ const imageUrl=`${origin}/v1${article.image}`;
  const schema=JSON.stringify({'@context':'https://schema.org','@type':'BlogPosting',headline:article.headline,description:article.description,url:`${origin}${article.slug}`,image:[imageUrl],author:{'@type':'Person',name:author.name,url:`${origin}${author.profilePath}`},publisher:{'@type':'Organization',name:'VDALO'},inLanguage:'uk'}).replace(/</g,'\\u003c');
  let html=renderPage({origin,full:true})
   .replace(/<title>[\s\S]*?<\/title>/,`<title>${e(article.title)}</title>`)
@@ -46,11 +60,14 @@ export function renderOverbookingArticle(slug){
   .replace(/<meta property="og:type" content="[^"]*">/,'<meta property="og:type" content="article">')
   .replace(/<meta property="og:title" content="[^"]*">/,`<meta property="og:title" content="${e(article.title)}">`)
   .replace(/<meta property="og:description" content="[^"]*">/,`<meta property="og:description" content="${e(article.description)}">`)
+  .replace(/<meta property="og:image" content="[^"]*">/,`<meta property="og:image" content="${imageUrl}">`)
+  .replace(/<meta property="og:image:width" content="[^"]*">/,'<meta property="og:image:width" content="1672">')
+  .replace(/<meta property="og:image:height" content="[^"]*">/,'<meta property="og:image:height" content="941">')
   .replace(/<meta property="og:url" content="[^"]*">/,`<meta property="og:url" content="${origin}${article.slug}">`)
   .replace(/<link rel="canonical" href="[^"]*">/,`<link rel="canonical" href="${origin}${article.slug}">`)
   .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,`<script type="application/ld+json">${schema}</script>`)
-  .replace('</head>',`<meta property="og:image" content="${imageUrl}"><meta property="og:image:alt" content="${e(imageAlt)}"><link rel="stylesheet" href="/v1/editorial-seo.css">${readingStyles}</head>`);
- const content=`<main id="main" class="pms-article-page editorial-reading article-reader"><div class="article-wrap"><nav class="article-breadcrumbs" aria-label="Навігаційний ланцюжок"><a href="/">Головна</a><span aria-hidden="true">/</span><a href="/blog">Блог</a><span aria-hidden="true">/</span><span aria-current="page">Бронювання та канали</span></nav><div class="reader-hero"><header class="article-header"><p class="article-eyebrow">ПРАКТИЧНИЙ ПОСІБНИК · БРОНЮВАННЯ</p><h1>${e(article.headline)}</h1><p class="article-lead">${e(article.description)}</p>${readerByline({authorSlug:article.authorSlug,minutes:`${article.minutes} хв читання`})}</header><figure class="article-cover"><img src="${image}" width="1200" height="800" alt="${e(imageAlt)}" fetchpriority="high"><figcaption>Ілюстрація до матеріалу про роботу з бронюваннями.</figcaption></figure></div><div class="article-layout">${readerContents(contents)}<article class="article-body">${rendered.html}<section class="article-conclusion"><h2>Обговоріть процес із командою VDALO</h2><p>Розкажіть про свій об’єкт і канали бронювання. Разом визначимо, які сценарії варто перевірити.</p><a class="button" href="/contact">Зв’язатися з командою</a></section></article></div></div><div class="reader-author-end">${readerAuthorCard(article.authorSlug)}</div></main>`;
+  .replace('</head>',`<meta property="og:image:alt" content="${e(article.imageAlt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${imageUrl}"><link rel="stylesheet" href="/v1/editorial-seo.css">${readingStyles}</head>`);
+ const content=`<main id="main" class="pms-article-page editorial-reading article-reader"><div class="article-wrap"><nav class="article-breadcrumbs" aria-label="Навігаційний ланцюжок"><a href="/">Головна</a><span aria-hidden="true">/</span><a href="/blog">Блог</a><span aria-hidden="true">/</span><span aria-current="page">Бронювання та канали</span></nav><div class="reader-hero"><header class="article-header"><p class="article-eyebrow">ПРАКТИЧНИЙ ПОСІБНИК · БРОНЮВАННЯ</p><h1>${e(article.headline)}</h1><p class="article-lead">${e(article.description)}</p>${readerByline({authorSlug:article.authorSlug,minutes:`${article.minutes} хв читання`})}</header><figure class="article-cover"><img src="${article.image}" width="1672" height="941" alt="${e(article.imageAlt)}" fetchpriority="high"><figcaption>Ілюстрація до матеріалу про роботу з бронюваннями.</figcaption></figure></div><div class="article-layout">${readerContents(contents)}<article class="article-body">${rendered.html}<section class="article-conclusion"><h2>Обговоріть процес із командою VDALO</h2><p>Розкажіть про свій об’єкт і канали бронювання. Разом визначимо, які сценарії варто перевірити.</p><a class="button" href="/contact">Зв’язатися з командою</a></section></article></div></div><div class="reader-author-end">${readerAuthorCard(article.authorSlug)}</div></main>`;
  html=html.replace(/<main id="main">[\s\S]*?<\/main>/,content);
  return html.replace(/<nav id="navigation"[\s\S]*?<\/nav>/,nav=>nav.replace(/href="#([^"]+)"/g,'href="/#$1"'))
   .replace(/<footer[\s\S]*?<\/footer>/,footer=>footer.replace(/href="#([^"]+)"/g,'href="/#$1"'));
