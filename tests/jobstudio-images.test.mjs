@@ -26,11 +26,11 @@ test('integration logos reserve space with the same proportions as their SVG vie
 
 test('the PMS article cover and author card render the same concise descriptive alternative',async()=>{
  const alt=articleImageSeo['/blog/shcho-take-pms-dlya-gotelyu'].alt;
- assert.match(alt,/календар бронювань/iu);
+ assert.match(alt,/адміністраторка.*ноутбуком.*рецепції/iu);
  assert.ok(alt.length<=100,'the description should be concise in the article and cards');
  for(const route of ['/blog/shcho-take-pms-dlya-gotelyu','/authors/oleh-stepeniev']){
   const {html}=await renderRouteForReview(route);
-  const tag=[...html.matchAll(/<img\b[^>]*>/g)].map(match=>match[0]).find(value=>value.includes('blog-pms-cover-natural.jpg'));
+  const tag=[...html.matchAll(/<img\b[^>]*>/g)].map(match=>match[0]).find(value=>value.includes('blog-pms-receptionist.jpg'));
   assert.ok(tag,`${route} shows the article cover`);
   assert.ok(tag.includes(`alt="${alt}"`),`${route} renders the agreed description`);
  }
