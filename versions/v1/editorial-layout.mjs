@@ -1,7 +1,7 @@
 import {getAuthor} from './authors.mjs';
 import {escape} from './render.mjs';
 const e=escape;
-export const readingStyles='<link rel="stylesheet" href="/v1/reading-layout.css?v=20261023-1">';
+export const readingStyles='<link rel="stylesheet" href="/v1/reading-layout.css?v=20261115-1">';
 
 export function readerByline({authorSlug='oleh-stepeniev',dates='',minutes=''}={}){
  const author=getAuthor(authorSlug);
