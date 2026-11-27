@@ -15,18 +15,20 @@ import {gzipSync} from 'node:zlib';
 import {existsSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {renderPage as firstPage} from './versions/v1/render.mjs';
+import {renderPage as firstPage,withCurrentNavigation} from './versions/v1/render.mjs';
 import {server as leadServer,privacyPage} from './versions/v1/server.mjs';
 import {renderCaseList,renderCase,caseSlugs,caseLastUpdated} from './versions/v1/cases.mjs';
 import {renderBlogPage} from './versions/v1/blog.mjs';
 import {renderEditorialArticle,editorialArticles,articleDates} from './versions/v1/article-library.mjs';
 import {renderSecondPassArticle,secondPassArticles,modifiedAt as secondPassModifiedAt} from './versions/v1/article-second-pass.mjs';
-import {renderOverbookingArticle,overbookingArticles} from './versions/v1/overbooking-articles.mjs';
+import {renderBookingGuide,bookingGuides} from './versions/v1/overbooking-articles.mjs';
 import {renderPmsArticle,pmsArticle} from './versions/v1/article-pms.mjs';
 import {renderPmsChoiceArticle,pmsChoiceArticle} from './versions/v1/article-pms-choice.mjs';
-import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator,renderDirectBookingCostCalculator,renderHotelRoomCostCalculator,renderHousekeepingChecklist} from './versions/v1/tools.mjs';
+import {renderToolsIndex,renderPmsChecklist,renderHotelProfitabilityCalculator,renderDirectBookingCostCalculator,renderHotelRoomCostCalculator,renderHousekeepingChecklist,renderWorksheetTool,worksheetTools,renderPmsCostCalculator,pmsCostPath,renderOperationCalculator,operationCalculators} from './versions/v1/tools.mjs';
 import {handlePmsReport} from './versions/v1/pms-report.mjs';
-import {renderSeoPage,seoRoutes} from './versions/v1/seo-pages.mjs';
+import {appendProductPageLinks,renderSeoPage,seoRoutes} from './versions/v1/seo-pages.mjs';
+import {otaPayoutWorkbook,otaPayoutWorkbookRoute} from './versions/v1/ota-payout-preview.mjs';
+import {hotelExportPreviewRoute,hotelExportSample,hotelExportSampleFile} from './versions/v1/data-management-previews.mjs';
 import {homeCssBundle,siteCssBundle,assetVersion,canonicalFontFaces} from './versions/v1/assets.mjs';
 import {withSiteTrialOffer} from './versions/v1/trial-offer.mjs';
 import {renderOfferPage,renderRefundPage} from './versions/v1/legal.mjs';
@@ -49,7 +51,8 @@ const gtmHead=`<script>(function(w,d,s,l,i){w.__vdaloLoadGoogleTags=function(){i
 const calloAttributionPrelude=`<script>(function(){try{var url=new URL(window.location.href),tag=url.searchParams.get('t');if(tag){window.__vdaloCalloTag=tag;url.searchParams.delete('t');history.replaceState(history.state,'',url.pathname+(url.search?url.search:'')+url.hash);}}catch(_){}})();</script>`;
 const faviconLink='<link rel="icon" href="/v1/assets/favicon.svg" type="image/svg+xml">';
 const touristTaxRoutes=[...new Set(['/tourist-tax/','/tourist-tax/rates/','/tourist-tax/start',...touristTaxPublicationRoutes(),...touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)])];
-const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:seoRoutes(),caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles:[...secondPassArticles,...overbookingArticles],touristTaxRoutes});
+const publicSeoRoutes=new Set(seoRoutes());
+const publicSitemapRoutes=getPublicSitemapRoutes({seoRoutes:[...publicSeoRoutes],caseSlugs,pmsArticle,pmsChoiceArticle,editorialArticles,secondPassArticles:[...secondPassArticles,...bookingGuides],additionalToolRoutes:[...worksheetTools.map(tool=>tool.path),pmsCostPath,...operationCalculators.map(tool=>tool.path)],touristTaxRoutes});
 const indexableSchemaRoutes=new Set(publicSitemapRoutes);
 // Ordinary published pages opt in. Campaign /q*, /k*, /go*, numeric video,
 // Advertising funnels stay outside this set. /tourist-tax/start is an indexable guide page.
@@ -140,18 +143,20 @@ function withoutUnusedHomeImagePreload(html,route){
 }
 function send(res,status,text,type='text/html; charset=utf-8',method='GET'){
  const isHtml=type.toLowerCase().startsWith('text/html');
+ if(isHtml&&status===200)text=appendProductPageLinks(text,res._schemaPath||'');
  let body=isHtml?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(text,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):text;
  if(isHtml&&status===200)body=withCanonicalFonts(body,res._schemaPath||'');
- if(isHtml&&status===200)body=withoutUnusedHomeImagePreload(body,res._schemaPath||'');
- if(isHtml&&res._isStagingHost)body=withNoindexRobots(body);
- const publicHtml=isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath)&&!res._isStagingHost;
- res.writeHead(status,{'Content-Type':type,'Cache-Control':publicHtml?'public, max-age=0, s-maxage=300, stale-while-revalidate=86400':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY',...(isHtml&&res._isStagingHost?{'X-Robots-Tag':'noindex, nofollow'}:{})});res.end(method==='HEAD'?undefined:body);
+ if(isHtml&&status===200)body=withCurrentNavigation(withoutUnusedHomeImagePreload(body,res._schemaPath||''),res._schemaPath||'');
+ const restrictIndex=isHtml&&(res._isStagingHost||res._isContentPreview);
+ if(restrictIndex)body=withNoindexRobots(body);
+ const publicHtml=isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath)&&!restrictIndex;
+ res.writeHead(status,{'Content-Type':type,'Cache-Control':publicHtml?'public, max-age=0, s-maxage=300, stale-while-revalidate=86400':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY',...(restrictIndex?{'X-Robots-Tag':'noindex, nofollow'}:{})});res.end(method==='HEAD'?undefined:body);
 }
 function sendCompressed(req,res,status,data,type,cache='no-store'){
  const isHtml=type.toLowerCase().startsWith('text/html');
  let source=isHtml?withSiteTrialOffer(withTagManager(applySitewideSchema(normalizeNonproductMetadata(applyPreparedContent(Buffer.isBuffer(data)?data.toString('utf8'):data,res._schemaPath||''),res._schemaPath||''),res._schemaPath||'',indexableSchemaRoutes)),status===200&&trialOfferRoutes.has(res._schemaPath)):data;
  if(isHtml&&status===200)source=withCanonicalFonts(source,res._schemaPath||'');
- if(isHtml&&status===200)source=withoutUnusedHomeImagePreload(source,res._schemaPath||'');
+ if(isHtml&&status===200)source=withCurrentNavigation(withoutUnusedHomeImagePreload(source,res._schemaPath||''),res._schemaPath||'');
  if(isHtml&&res._isStagingHost)source=withNoindexRobots(source);
  if(isHtml&&res._allowPublicCache&&indexableSchemaRoutes.has(res._schemaPath)&&!res._isStagingHost)cache='public, max-age=0, s-maxage=300, stale-while-revalidate=86400';
  const body=Buffer.isBuffer(source)?source:Buffer.from(source);
@@ -181,7 +186,7 @@ function sendVideo(req,res,data){
  res.writeHead(status,{'Content-Type':'video/mp4','Content-Length':body.length,'Cache-Control':'public, max-age=86400','X-Content-Type-Options':'nosniff','Accept-Ranges':'bytes',...(status===206?{'Content-Range':`bytes ${start}-${end}/${size}`}:{})});
  res.end(req.method==='HEAD'?undefined:body);
 }
-function prefix(html,version){return html.replace(/\b(src|href|action|poster)="\/([^\"]*)"/g,(match,attribute,path)=>{if(path.startsWith('/')||path.startsWith('v1/')||path.startsWith('v2/')||path.startsWith('v3/'))return match;if(attribute==='href'&&(/^(?:$|#|privacy(?:\/|$)|offer(?:\/|$)|refunds?(?:\/|$)|cases(?:\/|$)|blog(?:\/|$)|authors(?:\/|$)|tools(?:\/|$)|resources(?:\/|$)|downloads\/hotel\/|solutions(?:\/|$)|integrations(?:\/|$)|pricing(?:\/|$)|hotel-[a-z0-9-]+(?:\/|$)|guest-communication(?:\/|$)|hotel-automation(?:\/|$)|about(?:\/|$)|partners(?:\/|$)|contact(?:\/|$)|tourist-tax(?:\/|$)|sign-up(?:\/|$)|registration(?:\/|$))/.test(path)))return match;return `${attribute}="/${version}/${path}"`;});}
+function prefix(html,version){return html.replace(/\b(src|href|action|poster)="\/([^\"]*)"/g,(match,attribute,path)=>{if(path.startsWith('/')||path.startsWith('v1/')||path.startsWith('v2/')||path.startsWith('v3/'))return match;if(attribute==='href'&&(publicSeoRoutes.has('/'+path.split(/[?#]/,1)[0])||/^(?:$|#|privacy(?:\/|$)|offer(?:\/|$)|refunds?(?:\/|$)|cases(?:\/|$)|blog(?:\/|$)|authors(?:\/|$)|tools(?:\/|$)|resources(?:\/|$)|downloads\/hotel\/|solutions(?:\/|$)|integrations(?:\/|$)|pricing(?:\/|$)|hotel-[a-z0-9-]+(?:\/|$)|guest-communication(?:\/|$)|hotel-automation(?:\/|$)|about(?:\/|$)|partners(?:\/|$)|contact(?:\/|$)|tourist-tax(?:\/|$)|sign-up(?:\/|$)|registration(?:\/|$))/.test(path)))return match;return `${attribute}="/${version}/${path}"`;});}
 function renderNotFound(){
  return `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Сторінку не знайдено | VDALO</title><meta name="robots" content="noindex,follow"><link rel="stylesheet" href="/v1/site.css"></head><body><header class="site-header"><a href="/" aria-label="VDALO, на головну"><img src="/v1/assets/vdalo-canonical-496.png" width="124" height="41" alt="VDALO"></a></header><main id="main" class="wrap" style="min-height:65vh;display:grid;align-content:center;gap:1rem"><p class="eyebrow">VDALO · 404</p><h1>Сторінку не знайдено</h1><p>Можливо, адресу змінено. Перейдіть на головну або відкрийте довідник туристичного збору.</p><p><a class="button primary" href="/">На головну</a> <a class="button outline" href="/tourist-tax/">Туристичний збір</a></p></main></body></html>`;
 }
@@ -288,6 +293,18 @@ const server=http.createServer(async(req,res)=>{
   if(pathname==='/tools/hotel-cancellation-cost-calculator/')return send(res,200,prefix(renderCancellationCalculator(),'v1'));
   if(pathname==='/tools/hotel-review-response'){res.writeHead(308,{Location:'/tools/hotel-review-response/'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/tools/hotel-review-response/')return send(res,200,prefix(renderReviewReplyTemplates(),'v1'));
+  if(pathname===pmsCostPath.slice(0,-1)){res.writeHead(308,{Location:pmsCostPath+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(pathname===pmsCostPath)return send(res,200,prefix(renderPmsCostCalculator(),'v1'));
+  const operationTool=operationCalculators.find(tool=>tool.path===pathname||tool.path===pathname+'/');
+  if(operationTool){
+   if(pathname!==operationTool.path){res.writeHead(308,{Location:operationTool.path+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+   return send(res,200,prefix(renderOperationCalculator(operationTool),'v1'));
+  }
+  const worksheetTool=worksheetTools.find(tool=>tool.path===pathname||tool.path===pathname+'/');
+  if(worksheetTool){
+   if(pathname!==worksheetTool.path){res.writeHead(308,{Location:worksheetTool.path+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+   return send(res,200,prefix(renderWorksheetTool(worksheetTool),'v1'));
+  }
   if(pathname==='/resources/'){res.writeHead(308,{Location:'/resources'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/resources')return send(res,200,prefix(renderResourceLibrary(),'v1'));
   const publicResourceMatch=pathname.match(/^\/downloads\/hotel\/([A-Za-z0-9_.-]+)$/);
@@ -301,11 +318,43 @@ const server=http.createServer(async(req,res)=>{
   if(editorialArticles.some(article=>article.slug===pathname))return send(res,200,prefix(renderEditorialArticle(pathname),'v1'));
   if(secondPassArticles.some(article=>pathname===`${article.slug}/`)){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(secondPassArticles.some(article=>article.slug===pathname))return send(res,200,prefix(renderSecondPassArticle(pathname),'v1'));
-  if(overbookingArticles.some(article=>pathname===`${article.slug}/`)){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
-  if(overbookingArticles.some(article=>article.slug===pathname))return send(res,200,prefix(renderOverbookingArticle(pathname),'v1'));
+  if(bookingGuides.some(article=>pathname===`${article.slug}/`)){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  const bookingGuide=bookingGuides.find(article=>article.slug===pathname);
+  if(bookingGuide)return send(res,200,prefix(renderBookingGuide(bookingGuide),'v1'));
   if(pathname==='/registration'||pathname==='/registration/'){res.writeHead(308,{Location:'/sign-up'+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
-  if(seoRoutes().includes(pathname))return send(res,200,prefix(renderSeoPage(pathname),'v1'));
-  if(seoRoutes().includes(pathname.slice(0,-1))&&pathname.endsWith('/')){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
+  if(publicSeoRoutes.has(pathname))return send(res,200,prefix(renderSeoPage(pathname),'v1'),'text/html; charset=utf-8',req.method);
+  if(process.env.VDALO_LOCAL_CONTENT_PREVIEW==='1'
+    && /^(?:localhost|127\.0\.0\.1|\[::1\])(?::\d+)?$/i.test(req.headers.host||'')
+    && ['127.0.0.1','::1','::ffff:127.0.0.1'].includes(req.socket.remoteAddress)){
+   let attachment;
+   if(pathname===otaPayoutWorkbookRoute){
+    attachment={
+     name:otaPayoutWorkbook,
+     type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+     body:await readFile(path.join(root,'versions','v1','preview-downloads',otaPayoutWorkbook))
+    };
+   }
+   if(pathname===hotelExportPreviewRoute&&url.searchParams.get('download')==='csv'){
+    attachment={name:hotelExportSampleFile,type:'text/csv; charset=utf-8',body:Buffer.from(hotelExportSample,'utf-8')};
+   }
+   if(attachment){
+    res.writeHead(200,{
+     'Content-Type':attachment.type,
+     'Content-Length':attachment.body.length,
+     'Content-Disposition':`attachment; filename="${attachment.name}"`,
+     'Cache-Control':'no-store',
+     'X-Robots-Tag':'noindex, nofollow',
+     'X-Content-Type-Options':'nosniff'
+    });
+    return res.end(req.method==='HEAD'?undefined:attachment.body);
+   }
+   const preview=renderSeoPage(pathname,{preview:true});
+   if(preview){
+    res._isContentPreview=true;
+    return send(res,200,prefix(preview,'v1'),'text/html; charset=utf-8',req.method);
+   }
+  }
+  if(pathname.endsWith('/')&&publicSeoRoutes.has(pathname.slice(0,-1))){res.writeHead(308,{Location:pathname.slice(0,-1)+url.search,'Cache-Control':'public, max-age=300'});return res.end();}
   if(pathname==='/privacy')return send(res,200,prefix(privacyPage(),'v1'));
   if(pathname==='/offer')return send(res,200,prefix(renderOfferPage(),'v1'));
   if(pathname==='/refunds')return send(res,200,prefix(renderRefundPage(),'v1'));
@@ -367,7 +416,7 @@ const server=http.createServer(async(req,res)=>{
   if(version!=='v1' && !(version==='v3' && (/^\/assets\/[a-zA-Z0-9_.-]+$/.test(relative)||relative==='/editorial.css')))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
   if(version==='v1' && relative==='/')return sendCompressed(req,res,200,prefix(firstPage({origin:'',full:true,homepage:true}),'v1'),'text/html; charset=utf-8');
   if(version==='v1' && relative==='/privacy')return send(res,200,prefix(privacyPage(),'v1'));
-  if(!/^\/(assets\/[a-zA-Z0-9_.-]+|author-page\.css|blog\.css|editorial-seo\.css|reading-layout\.css|prepared-content\.css|partners\.(?:css|js)|homepage\.(?:css|js)|trial-offer\.(?:css|js)|tools\.(?:css|js)|seo-pages\.css|integration-channels\.css|pricing\.(?:css|js)|pricing-core\.js|site-config\.js|styles\.css|site\.css|home\.css|design-system-2\.css|dark-edition\.css|polish\.css|refinement\.css|cases\.css|editorial\.css|experience\.css|experience\.js|app\.js|clarity-consent\.(?:css|js)|living-hotel(?:-mobile|-dispatch)?\.(?:css|js))$/.test(relative))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
+  if(!/^\/(assets\/[a-zA-Z0-9_.-]+|author-page\.css|blog\.css|editorial-seo\.css|reading-layout\.css|prepared-content\.css|partners\.(?:css|js)|homepage\.(?:css|js)|trial-offer\.(?:css|js)|tools\.(?:css|js)|pms-budget\.js|operation-calculators\.js|seo-pages\.css|page-design\.css|integration-channels\.css|pricing\.(?:css|js)|pricing-core\.js|site-config\.js|styles\.css|site\.css|home\.css|design-system-2\.css|dark-edition\.css|polish\.css|refinement\.css|cases\.css|editorial\.css|experience\.css|experience\.js|app\.js|clarity-consent\.(?:css|js)|living-hotel(?:-mobile|-dispatch)?\.(?:css|js))$/.test(relative))return send(res,404,'Сторінку не знайдено.','text/plain; charset=utf-8');
   const file=path.join(root,'versions',version,'public',relative.slice(1));
   const bundle=version==='v1'&&relative==='/home.css'?homeCssBundle:version==='v1'&&relative==='/site.css'?siteCssBundle:null;
   const data=bundle?Buffer.from(bundle.css):await readFile(file);

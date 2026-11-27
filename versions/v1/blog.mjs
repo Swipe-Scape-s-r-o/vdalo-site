@@ -3,15 +3,16 @@ import {pmsArticle} from './article-pms.mjs';
 import {pmsChoiceArticle} from './article-pms-choice.mjs';
 import {editorialArticles} from './article-library.mjs';
 import {secondPassArticles} from './article-second-pass.mjs';
-import {overbookingArticles} from './overbooking-articles.mjs';
+import {bookingGuides} from './overbooking-articles.mjs';
 import {caseData} from './cases.mjs';
 import {authors, getAuthor} from './authors.mjs';
 import {articleImageSeo,caseImageSeo} from './image-seo.mjs';
 
-const allArticles=[pmsArticle,pmsChoiceArticle,...editorialArticles,...secondPassArticles,...overbookingArticles];
+const allArticles=[pmsArticle,pmsChoiceArticle,...editorialArticles,...secondPassArticles,...bookingGuides];
 const categories=[
- {id:'hotel-marketing-sales',title:'Маркетинг і продажі гостинного бізнесу',description:'QR-сценарії ресторану, повторні візити та шлях від пропозиції до підтвердженого замовлення.',slugs:['/blog/qr-kody-dlya-restoranu']},
- {id:'booking-pms',title:'Бронювання, PMS і канали',description:'Календар, прямі бронювання, вибір і зміна PMS, канали продажу та передавання даних.',slugs:['/blog/shcho-take-pms-dlya-gotelyu','/blog/yak-obraty-pms-dlya-gotelyu','/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu','/blog/perehid-na-pms-bez-vtraty-danyh','/blog/shakhmatka-bronyuvan-gotelyu','/blog/channel-manager-ical-gotelyu',...overbookingArticles.map(article=>article.slug)]},
+ {id:'hotel-marketing-sales',title:'Маркетинг і продажі гостинного бізнесу',description:'QR-сценарії ресторану, повторні візити та шлях від пропозиції до підтвердженого замовлення.',slugs:['/blog/qr-kody-dlya-restoranu',...bookingGuides.filter(article=>article.topic==='Продажі готелю').map(article=>article.slug)]},
+ {id:'booking-pms',title:'Бронювання, PMS і канали',description:'Календар, прямі бронювання, вибір і зміна PMS, канали продажу та передавання даних.',slugs:['/blog/shcho-take-pms-dlya-gotelyu','/blog/yak-obraty-pms-dlya-gotelyu','/blog/pryami-bronyuvannya-ta-vidzhet-gotelyu','/blog/perehid-na-pms-bez-vtraty-danyh','/blog/shakhmatka-bronyuvan-gotelyu','/blog/channel-manager-ical-gotelyu',...bookingGuides.filter(article=>!article.topic||['Ціни й тарифи готелю','Бронювання й завантаження'].includes(article.topic)).map(article=>article.slug)]},
+ {id:'hotel-operations',title:'Рецепція та операції готелю',description:'Нічне чергування, звірка операційного дня та підготовка номерів і команди до сезону.',slugs:bookingGuides.filter(article=>article.topic==='Операції готелю').map(article=>article.slug)},
  {id:'guest-experience',title:'Гостьовий досвід і QR',description:'Заселення, інформація для гостя, QR-коди, додаткові послуги та готовність номера.',slugs:['/blog/yak-gotelyu-prodavaty-dodatkovi-poslugy','/blog/pidhotovka-zaselennya-gostya','/blog/status-gotovnosti-nomera-housekeeping','/blog/qr-kody-dlya-goteliv','/blog/qr-wifi-dlya-gotelyu','/blog/qr-kartka-v-nomer-gotelyu']},
  {id:'tourist-tax',title:'Туристичний збір',description:'Правила, ставки громад, формула та приклади розрахунку для готелів і власників житла.',slugs:['/blog/turystychnyi-zbir-gotel-ukraina','/blog/rozrakhunok-turystychnoho-zboru-2026']},
  {id:'automation',title:'Автоматизація роботи готелю',description:'Як обирати перші процеси для автоматизації та перевіряти зміни на практиці.',slugs:['/blog/shcho-avtomatyzuvaty-v-goteli-pershym']},
@@ -46,6 +47,8 @@ const featuredCases=caseData.map(c=>`<a class="blog-case-card" href="/cases/${e(
 const categoryNav=[...categories.map(category=>`<a href="#${e(category.id)}">${e(category.title)} <span>${category.slugs.filter(slug=>allArticles.some(article=>article.slug===slug)).length}</span></a>`),`<a href="#blog-cases">Кейси <span>${caseData.length}</span></a>`].join('');
 const content=`<main id="main" class="blog-page"><section class="blog-hero"><div class="blog-wrap blog-hero-grid"><div class="blog-hero-copy"><p class="blog-eyebrow">БЛОГ VDALO</p><h1>Практичні матеріали для готельного бізнесу</h1><p class="blog-lead">Статті, інструкції та кейси про бронювання, досвід гостей, туристичний збір і щоденну роботу готелю.</p></div><figure class="blog-hero-visual"><img src="/assets/hotel-management-blog.webp" width="1536" height="1024" alt="Робочий стіл у готелі з нотатником і ключ-карткою для матеріалів про керування готелем" title="Матеріали про керування готелем і готельні системи" fetchpriority="high"></figure><a class="blog-cta" href="/contact">Обговорити процеси мого готелю <span aria-hidden="true">↗</span></a></div></section><section class="blog-topics blog-published" id="blog-categories"><div class="blog-wrap"><div class="blog-section-heading"><p class="blog-eyebrow">${allArticles.length} ПРАКТИЧНИХ МАТЕРІАЛІВ</p><h2>Оберіть тему</h2><p>Згрупували матеріали за задачами готелю. Коли з’являтимуться нові статті, додаватимемо їх до відповідних рубрик.</p></div><nav class="blog-category-nav" aria-label="Рубрики блогу">${categoryNav}</nav>${categories.map(categorySection).join('')}</div></section><section class="blog-authors" id="blog-authors"><div class="blog-wrap"><div class="blog-authors-heading"><div><p class="blog-eyebrow">АВТОРИ VDALO</p><h2>Хто готує матеріали</h2><p>Досвід, практичні напрями та всі статті кожного автора зібрані в окремому профілі.</p></div><a href="/authors">Усі автори <span aria-hidden="true">↗</span></a></div><div class="blog-authors-grid">${authors.map(authorCard).join('')}</div></div></section><section class="blog-case" id="blog-cases"><div class="blog-wrap"><p class="blog-eyebrow">КЕЙСИ VDALO · ${caseData.length} ІСТОРІЙ</p><h2>Як готелі змінюють щоденну роботу</h2><p class="blog-case-intro">Практичні історії з умовами, процесом і результатами конкретного об’єкта. Кожен кейс пояснює, що можна перевірити у схожій ситуації.</p><div class="blog-case-grid">${featuredCases}</div><a class="blog-cta blog-cta-light" href="/cases">Переглянути всі кейси <span aria-hidden="true">↗</span></a></div></section><section class="blog-editorial"><div class="blog-wrap"><h2>Як ми готуємо матеріали</h2><p>Пояснюємо терміни на прикладах готельної роботи, відокремлюємо підтверджені можливості продукту від сценаріїв, що залежать від налаштувань, а правову інформацію звіряємо з офіційними джерелами. Згенеровані обкладинки позначаємо як ілюстрації.</p><p>Скористайтеся <a href="/tools/">інструментами для готельєрів</a> або відкрийте <a href="/authors">каталог авторів VDALO</a>.</p></div></section></main>`;
 
+const localAnchorIds=new Set(['blog-categories','blog-cases','blog-authors',...categories.map(category=>category.id)]);
+
 export function renderBlogPage({origin=''}={}) {
   let html=renderPage({origin,full:false});
   html=html.replace(/<title>[\s\S]*?<\/title>/, '<title>Блог для готелів: статті, кейси й інструкції | VDALO</title>');
@@ -59,6 +62,6 @@ export function renderBlogPage({origin=''}={}) {
   html=html.replace('</head>', '<link rel="stylesheet" href="/blog.css"></head>');
   html=html.replace(/<main id="main">[\s\S]*?<\/main>/,content);
   html=html.replace(/href="#/g,'href="/#');
-  html=html.replace(/href="\/#(blog-categories|blog-cases|blog-authors|booking-pms|guest-experience|tourist-tax|automation|hotel-marketing-sales)"/g,'href="#$1"');
+  html=html.replace(/href="\/#([^"]+)"/g,(link,id)=>localAnchorIds.has(id)?`href="#${id}"`:link);
   return html;
 }

@@ -9,7 +9,7 @@
 .ds2 .header{background:var(--soft);color:var(--plum);border-bottom:1px solid var(--border)}
 .ds2 .header-inner{height:80px;position:relative}
 .ds2 .header nav a{font-size:13px;font-weight:400}
-.ds2 .header-login{font-size:12px;font-weight:600;color:var(--plum);white-space:nowrap}
+.ds2 .header-login{font-size:12px;font-weight:600;color:inherit;white-space:nowrap}
 .ds2 .header .brand img{width:124px}
 .ds2 .header .button{font-size:12px;min-height:44px;padding:12px 20px}
 .ds2 .button{font-weight:600;min-height:48px;font-size:14px;padding:14px 23px;box-shadow:none}

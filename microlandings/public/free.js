@@ -39,6 +39,8 @@
   const intent = document.getElementById('free-intent');
   let callbackRequested = false;
   let bigEventSent = false;
+  let lastPayload = '';
+  let submissionId;
 
   const sticky = document.querySelector('.free-sticky-cta');
   const hero = document.querySelector('.free-hero');
@@ -131,6 +133,13 @@
       contact: phone.value.trim(), property_type: propertyType.value, rooms: String(Number(rooms.value)),
       city: '', note, consent: true, website: form.elements.website.value, attribution
     };
+
+    const payload = JSON.stringify(body);
+    if (payload !== lastPayload || !submissionId) {
+      submissionId = crypto.randomUUID();
+      lastPayload = payload;
+    }
+    body.submission_id = submissionId;
 
     button.disabled = true;
     button.setAttribute('aria-busy', 'true');

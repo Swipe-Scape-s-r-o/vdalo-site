@@ -38,6 +38,21 @@
 .ds2 .integration-flow.is-in-view .integration-connector:after{animation:connection-run 900ms var(--ease) 2}
 .ds2 .reading-progress{position:absolute;bottom:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:var(--pink);pointer-events:none}
 .ds2 .header nav a[aria-current=location]{text-decoration:underline;text-decoration-color:var(--pink);text-underline-offset:8px;text-decoration-thickness:2px}
+.ds2 #navigation :is(a[aria-current=page],a[data-current-section],details:has(a[aria-current=page],a[data-current-section])>summary){text-decoration:underline;text-decoration-color:var(--pink);text-underline-offset:8px;text-decoration-thickness:2px}
+@media(min-width:901px){.ds2 #navigation details > ul :is(a[aria-current=page],a[data-current-section],details:has(a[aria-current=page],a[data-current-section])>summary){text-decoration-color:#9c346a}}
+@media(max-width:900px) and (scripting:none){
+ .ds2 header:has(#navigation){position:static}
+ .ds2 div:has(> #navigation){height:auto;flex-wrap:wrap;padding-block:12px}
+ .ds2 div:has(> #navigation) button[aria-controls=navigation]{display:none!important}
+ .ds2 #navigation{display:block;position:static;flex:0 0 100%;max-height:none;overflow:visible;padding:0;border:0}
+ .ds2 #navigation > ul{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+ .ds2 #navigation li{min-width:0}
+ .ds2 #navigation details > ul{position:static;width:auto;max-width:none;min-width:0;margin:0;padding:0 0 8px 14px;background:transparent;border:0;box-shadow:none}
+ .ds2 #navigation details > .nav-mega-columns{display:none}
+ .ds2 #navigation details[open] > .nav-mega-mobile-list{display:block!important}
+ .ds2 #navigation :is(a,summary){display:flex;min-height:44px;align-items:center;color:var(--soft)}
+ .ds2 #navigation .mobile-nav-action{display:block}
+}
 .ds2 .motion-ready{opacity:1;transform:none}
 .ds2 .motion-ready:not(.is-in-view){opacity:.01;transform:translateY(16px)}
 .ds2 .motion-ready.is-in-view{animation:content-arrive 620ms var(--ease) both}

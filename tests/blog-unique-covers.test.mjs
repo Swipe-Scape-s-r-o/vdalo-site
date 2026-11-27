@@ -17,7 +17,7 @@ test('blog cards have distinct, descriptive image files',async()=>{
  const {status,html}=await renderRouteForReview('/blog');
  assert.equal(status,200);
  const cards=[...html.matchAll(/<a class="blog-featured" href="([^"#]+)">(<img\b[^>]*>)/g)];
- assert.equal(cards.length,28);
+ assert.equal(cards.length,49);
  const seen=new Map();
  for(const [,slug,img] of cards){
   const src=attr(img,'src');
@@ -31,7 +31,7 @@ test('blog cards have distinct, descriptive image files',async()=>{
 test('blog articles have no visible image captions and retain descriptive cover alternatives',async()=>{
  const {html}=await renderRouteForReview('/blog');
  const cards=[...html.matchAll(/<a class="blog-featured" href="([^"#]+)">(<img\b[^>]*>)/g)];
- assert.equal(cards.length,28);
+ assert.equal(cards.length,49);
  for(const [,slug,img] of cards){
   const page=await renderRouteForReview(slug);
   assert.equal(page.status,200,slug);
@@ -48,7 +48,7 @@ test('all blog and case covers match their cards and use distinct image files',a
  const cases=(await renderRouteForReview('/cases')).html;
  const articleCards=[...blog.matchAll(/<a class="blog-featured" href="([^"#]+)">(<img\b[^>]*>)/g)];
  const caseCards=[...cases.matchAll(/<a class="case-card-image" href="([^"#]+)"[^>]*>\s*(<img\b[^>]*>)/g)];
- assert.equal(articleCards.length,28);
+ assert.equal(articleCards.length,49);
  assert.equal(caseCards.length,6);
  const hashes=new Set();
  for(const [,slug,img] of [...articleCards,...caseCards]){

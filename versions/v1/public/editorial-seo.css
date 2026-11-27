@@ -14,3 +14,4 @@
 .article-body pre{max-width:100%;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
 .article-body pre code{white-space:inherit}
 @media(max-width:600px){.practice-table th,.practice-table td{padding:.65rem .75rem}.article-practice{margin-block:1.75rem}.practice-example{padding:.75rem 1rem}}
+.reader-guide-action{margin-top:18px}

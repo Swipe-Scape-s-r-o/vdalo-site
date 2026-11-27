@@ -3,6 +3,8 @@ import {renderPage,escape as e} from './render.mjs';
 import {renderArticleMarkdown} from './article-markdown.mjs';
 import {readerByline,readerContents,readerAuthorCard,readingStyles} from './editorial-layout.mjs';
 import {getAuthor} from './authors.mjs';
+import {frontDeskGuides} from './front-desk-guides.mjs';
+import {pageDesignStyles, pageMark} from './page-design.mjs';
 
 const origin='https://www.vdalo.tech';
 const coverImages={
@@ -46,12 +48,26 @@ export const overbookingArticles=definitions.map(([filename,slug,title,descripti
  return Object.freeze({slug:`/blog/${slug}`,title,description,headline:h1[1].trim(),lead:description,image,imageAlt,imageWidth:1672,imageHeight:941,minutes,body,authorSlug,pendingPublicationDate:true});
 });
 
+export const bookingGuides=[...overbookingArticles,...frontDeskGuides];
+
 export function renderOverbookingArticle(slug){
  const article=overbookingArticles.find(item=>item.slug===slug);
- if(!article)return '';
+ return article?renderBookingGuide(article):'';
+}
+
+export function renderBookingGuide(article){
  const author=getAuthor(article.authorSlug);
+ const topic=article.topic||'Бронювання та канали';
+ const mark=pageMark(article.slug,'design-guide-mark');
+ const conclusion=article.topic
+  ?'Опишіть задачу рецепції або готельної команди. Разом визначимо, який робочий сценарій перевірити.'
+  :'Розкажіть про свій об’єкт і канали бронювання. Разом визначимо, які сценарії варто перевірити.';
  const rendered=renderArticleMarkdown(article.body);
- const contents=rendered.toc.map(([heading,id])=>`<a href="#${e(id)}">${e(heading)}</a>`).join('');
+ const action=article.action?`<div class="reader-guide-action"><a class="button" href="${e(article.action[0])}">${e(article.action[1])}</a></div>`:'';
+ const download=article.download;
+ const downloadBlock=download?`<section class="article-conclusion" id="${e(download[0])}"><h2>${e(download[1])}</h2><p>${e(download[4])}</p><a class="button" href="${e(download[2])}" download>${e(download[3])}</a></section>`:'';
+ const sections=download?[...rendered.toc,[download[1],download[0]]]:rendered.toc;
+ const contents=sections.map(([heading,id])=>`<a href="#${e(id)}">${e(heading)}</a>`).join('');
  const imageUrl=`${origin}/v1${article.image}`;
  const schema=JSON.stringify({'@context':'https://schema.org','@type':'BlogPosting',headline:article.headline,description:article.description,url:`${origin}${article.slug}`,image:[imageUrl],author:{'@type':'Person',name:author.name,url:`${origin}${author.profilePath}`},publisher:{'@type':'Organization',name:'VDALO'},inLanguage:'uk'}).replace(/</g,'\\u003c');
  let html=renderPage({origin,full:true})
@@ -61,13 +77,13 @@ export function renderOverbookingArticle(slug){
   .replace(/<meta property="og:title" content="[^"]*">/,`<meta property="og:title" content="${e(article.title)}">`)
   .replace(/<meta property="og:description" content="[^"]*">/,`<meta property="og:description" content="${e(article.description)}">`)
   .replace(/<meta property="og:image" content="[^"]*">/,`<meta property="og:image" content="${imageUrl}">`)
-  .replace(/<meta property="og:image:width" content="[^"]*">/,'<meta property="og:image:width" content="1672">')
-  .replace(/<meta property="og:image:height" content="[^"]*">/,'<meta property="og:image:height" content="941">')
+  .replace(/<meta property="og:image:width" content="[^"]*">/,`<meta property="og:image:width" content="${article.imageWidth}">`)
+  .replace(/<meta property="og:image:height" content="[^"]*">/,`<meta property="og:image:height" content="${article.imageHeight}">`)
   .replace(/<meta property="og:url" content="[^"]*">/,`<meta property="og:url" content="${origin}${article.slug}">`)
   .replace(/<link rel="canonical" href="[^"]*">/,`<link rel="canonical" href="${origin}${article.slug}">`)
   .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,`<script type="application/ld+json">${schema}</script>`)
-  .replace('</head>',`<meta property="og:image:alt" content="${e(article.imageAlt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${imageUrl}"><link rel="stylesheet" href="/v1/editorial-seo.css">${readingStyles}</head>`);
- const content=`<main id="main" class="pms-article-page editorial-reading article-reader"><div class="article-wrap"><nav class="article-breadcrumbs" aria-label="Навігаційний ланцюжок"><a href="/">Головна</a><span aria-hidden="true">/</span><a href="/blog">Блог</a><span aria-hidden="true">/</span><span aria-current="page">Бронювання та канали</span></nav><div class="reader-hero"><header class="article-header"><p class="article-eyebrow">ПРАКТИЧНИЙ ПОСІБНИК · БРОНЮВАННЯ</p><h1>${e(article.headline)}</h1><p class="article-lead">${e(article.description)}</p>${readerByline({authorSlug:article.authorSlug,minutes:`${article.minutes} хв читання`})}</header><figure class="article-cover"><img src="${article.image}" width="1672" height="941" alt="${e(article.imageAlt)}" fetchpriority="high"></figure></div><div class="article-layout">${readerContents(contents)}<article class="article-body">${rendered.html}<section class="article-conclusion"><h2>Обговоріть процес із командою VDALO</h2><p>Розкажіть про свій об’єкт і канали бронювання. Разом визначимо, які сценарії варто перевірити.</p><a class="button" href="/contact">Зв’язатися з командою</a></section></article></div></div><div class="reader-author-end">${readerAuthorCard(article.authorSlug)}</div></main>`;
+  .replace('</head>',`<meta property="og:image:alt" content="${e(article.imageAlt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${imageUrl}"><link rel="stylesheet" href="/v1/editorial-seo.css">${readingStyles}${mark ? pageDesignStyles : ''}</head>`);
+ const content=`<main id="main" class="pms-article-page editorial-reading article-reader${mark ? ' article-guide-designed' : ''}"><div class="article-wrap"><nav class="article-breadcrumbs" aria-label="Навігаційний ланцюжок"><a href="/">Головна</a><span aria-hidden="true">/</span><a href="/blog">Блог</a><span aria-hidden="true">/</span><span aria-current="page">${e(topic)}</span></nav><div class="reader-hero"><header class="article-header"><p class="article-eyebrow">${mark}ПРАКТИЧНИЙ ПОСІБНИК · ${article.topic?e(topic.toLocaleUpperCase('uk')):'БРОНЮВАННЯ'}</p><h1>${e(article.headline)}</h1><p class="article-lead">${e(article.description)}</p>${readerByline({authorSlug:article.authorSlug,minutes:`${article.minutes} хв читання`})}${action}</header><figure class="article-cover"><img src="${article.image}" width="${article.imageWidth}" height="${article.imageHeight}" alt="${e(article.imageAlt)}" fetchpriority="high"></figure></div><div class="article-layout">${readerContents(contents)}<article class="article-body">${rendered.html}${downloadBlock}<section class="article-conclusion"><h2>Обговоріть процес із командою VDALO</h2><p>${e(conclusion)}</p><a class="button" href="/contact">Зв’язатися з командою</a></section></article></div></div><div class="reader-author-end">${readerAuthorCard(article.authorSlug)}</div></main>`;
  html=html.replace(/<main id="main">[\s\S]*?<\/main>/,content);
  return html.replace(/<nav id="navigation"[\s\S]*?<\/nav>/,nav=>nav.replace(/href="#([^"]+)"/g,'href="/#$1"'))
   .replace(/<footer[\s\S]*?<\/footer>/,footer=>footer.replace(/href="#([^"]+)"/g,'href="/#$1"'));

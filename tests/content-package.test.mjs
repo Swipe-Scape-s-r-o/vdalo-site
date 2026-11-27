@@ -77,6 +77,20 @@ test('unrevised pages retain their content apart from approved metadata and cale
    assert.ok(previousChrome.includes(approvedLink),route);
    assert.equal(previousChrome.split(approvedLink).length,2,route);
    previousChrome=previousChrome.replace(approvedLink,'');
+   // The product brief adds the long-range date example and contextual front-desk link.
+   const frontDeskSection=previousChrome.match(/<div class="seo-wrap product-release-related"><section class="seo-section">[\s\S]*?<\/section><\/div>/)?.[0];
+   assert.match(frontDeskSection??'',/«Перейти до дати»[^<]*92 дні/);
+   assert.match(frontDeskSection??'',/href="\/hotel-front-desk"/);
+   previousChrome=previousChrome.replace(frontDeskSection,'');
+   const demo=previousChrome.match(/<section class="section pms-section seo-calendar-demo" id="pms">[\s\S]*?<\/section>/)?.[0];
+   assert.match(demo??'',/Демонстраційні дані\. Ваші бронювання не змінюються\./);
+   assert.match(demo,/id="calendar-data"/);
+   assert.match(demo,/data-week="next"/);
+   assert.match(demo,/data-filter="direct"/);
+   assert.equal(previousChrome.split('id="calendar-data"').length,2,route);
+   const demoLink='<a class="seo-secondary" href="#pms">Спробувати демо календаря <span aria-hidden="true">↗</span></a>';
+   assert.ok(previousChrome.includes(demoLink),route);
+   previousChrome=previousChrome.replace(demo,'').replace(demoLink,'<a class="seo-secondary" href="/solutions">Переглянути можливості <span aria-hidden="true">↗</span></a>');
   }
   // The short campaign titles are intentional; every other byte remains checked.
   const campaignTitles={
