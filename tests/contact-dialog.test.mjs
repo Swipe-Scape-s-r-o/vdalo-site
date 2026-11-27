@@ -58,7 +58,8 @@ test('callback form requires a phone number and keeps the contact intent for the
  assert.equal(accepted.data.form_kind,'contact');
 });
 
-test('contact modal restores focus and keeps truthful server-confirmed success behavior',()=>{
+test('contact and demo modals focus visible controls and restore focus on close',()=>{
+ assert.match(app,/requestAnimationFrame\(\(\)=>\{if\(dialog\.open\)form\.elements\.name\?\.focus\(\);\}\)/);
  assert.match(app,/dialog\.addEventListener\('close',\(\)=>\{document\.body\.classList\.remove\('dialog-open'\);opener\?\.focus\(\);\}\)/);
  assert.match(app,/result\.ok!==true/);
  assert.match(app,/const route=kind==='contact'\?'audit':kind/);

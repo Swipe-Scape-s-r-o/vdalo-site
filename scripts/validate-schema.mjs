@@ -45,10 +45,13 @@ const renderers = new Map([
   [pmsChoice.pmsChoiceArticle.slug, () => pmsChoice.renderPmsChoiceArticle()],
   ...editorial.editorialArticles.map(item => [item.slug, () => editorial.renderEditorialArticle(item.slug)]),
   ...secondPass.secondPassArticles.map(item => [item.slug, () => secondPass.renderSecondPassArticle(item.slug)]),
-  ...overbooking.overbookingArticles.map(item => [item.slug, () => overbooking.renderOverbookingArticle(item.slug)]),
+  ...overbooking.bookingGuides.map(item => [item.slug, () => overbooking.renderBookingGuide(item)]),
+  ...tools.worksheetTools.map(item => [item.path, () => tools.renderWorksheetTool(item)]),
   ['/tools/', () => tools.renderToolsIndex()],
   ['/tools/qr-studio/', () => qrStudioHtml],
   ['/tools/pms-checklist/', () => tools.renderPmsChecklist()],
+  [tools.pmsCostPath, () => tools.renderPmsCostCalculator()],
+  ...tools.operationCalculators.map(item => [item.path, () => tools.renderOperationCalculator(item)]),
   ['/tools/hotel-profitability-calculator/', () => tools.renderHotelProfitabilityCalculator()],
   ['/tools/direct-booking-cost-calculator/', () => tools.renderDirectBookingCostCalculator()],
   ['/tools/hotel-room-cost-calculator/', () => tools.renderHotelRoomCostCalculator()],
@@ -63,7 +66,7 @@ const renderers = new Map([
   ['/tourist-tax/', () => touristTax.renderTouristTaxHub()],
   ...new Set([...touristTaxData.touristTaxPublicationRoutes(),...touristTax.touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)]).values().map(path => [path, () => touristTax.renderTouristTaxCity(path.split('/').filter(Boolean).at(-1))??touristTax.renderTouristTaxBatch004Place(path.split('/').filter(Boolean).at(-1))??touristTax.renderTouristTaxBatch24_25Preview(path.split('/').filter(Boolean).at(-1))]),
 ]);
-const sitemapRoutes = sitemap.getPublicSitemapRoutes({seoRoutes:seo.seoRoutes(),caseSlugs:cases.caseSlugs,pmsArticle:pms.pmsArticle,pmsChoiceArticle:pmsChoice.pmsChoiceArticle,editorialArticles:editorial.editorialArticles,secondPassArticles:[...secondPass.secondPassArticles,...overbooking.overbookingArticles],touristTaxRoutes:['/tourist-tax/',...new Set([...touristTaxData.touristTaxPublicationRoutes(),...touristTax.touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)])]});
+const sitemapRoutes = sitemap.getPublicSitemapRoutes({seoRoutes:seo.seoRoutes(),caseSlugs:cases.caseSlugs,pmsArticle:pms.pmsArticle,pmsChoiceArticle:pmsChoice.pmsChoiceArticle,editorialArticles:editorial.editorialArticles,secondPassArticles:[...secondPass.secondPassArticles,...overbooking.bookingGuides],additionalToolRoutes:[...tools.worksheetTools.map(tool=>tool.path),tools.pmsCostPath,...tools.operationCalculators.map(tool=>tool.path)],touristTaxRoutes:['/tourist-tax/',...new Set([...touristTaxData.touristTaxPublicationRoutes(),...touristTax.touristTaxBatch24_25PreviewSlugs().map(slug=>`/tourist-tax/${slug}/`)])]});
 const routes = sitemapRoutes.map(path => [path, renderers.get(path)]);
 const indexableRoutes = new Set(routes.map(([path]) => path));
 const errors = [];
@@ -135,7 +138,7 @@ for (const [path, renderHtml] of routes) {
         if (!hasUpdatedTime && !html.toLocaleLowerCase('uk').includes(`оновлено ${Number(day)} ${months[Number(month)-1]} ${year}`)) errors.push(`${path}: dateModified is not represented in visible case text`);
       }
       if (article.url !== canonical || !article.headline || !article.image) errors.push(`${path}: article is missing canonical URL, headline, or image`);
-      const sourceArticle=[pms.pmsArticle,pmsChoice.pmsChoiceArticle,...editorial.editorialArticles,...secondPass.secondPassArticles,...overbooking.overbookingArticles].find(item=>item.slug===path);
+      const sourceArticle=[pms.pmsArticle,pmsChoice.pmsChoiceArticle,...editorial.editorialArticles,...secondPass.secondPassArticles,...overbooking.bookingGuides].find(item=>item.slug===path);
       const expectedAuthorSlug=sourceArticle?.authorSlug||'oleh-stepeniev';
       if (article.author?.url !== `${origin}/authors/${expectedAuthorSlug}`) errors.push(`${path}: author is not linked to the configured author profile`);
       if (article.publisher?.['@id'] !== `${origin}/#organization`) errors.push(`${path}: publisher is not linked to shared Organization`);

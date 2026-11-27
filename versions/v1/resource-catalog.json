@@ -72,6 +72,7 @@
       "Хто перевіряє результат"
     ],
     "file": "maintenance_handoff.txt",
+    "guide": "/tools/hotel-maintenance-log/",
     "sha256": "1d0ff51a1b53f2a6d72970590b2cc982cf10b7bbda5a3027db0f62a176a880cd"
   },
   {
@@ -268,5 +269,165 @@
     ],
     "file": "VDALO_Cancellation_Impact_UA.xlsx",
     "sha256": "4f0f65b3653aaaa8ab3b16f5f2e24b3e11716d71948be90b9bf195af0edf4351"
+  },
+  {
+    "id": "RS19",
+    "title": "Список розселення групи",
+    "description": "Звірте номери, дати та платників із організатором групи.",
+    "category": "team",
+    "format": "xlsx",
+    "language": "uk",
+    "preview": [
+      "Бланк погодження й заповнений приклад",
+      "Дати, номери й платники",
+      "Версія списку та відповідальний"
+    ],
+    "file": "VDALO_Group_Rooming_List_UA.xlsx",
+    "sha256": "dc36611c92253c0b62c9b37831d433c8d82cef0a515c2bbc33ebb5c62c43a12f",
+    "guide": "/blog/group-bookings-rooming-list"
+  },
+  {
+    "id": "RS20",
+    "title": "Шахівниця бронювань в Excel",
+    "description": "Ведіть заїзди, виїзди й перетини бронювань у тижневій сітці.",
+    "category": "team",
+    "format": "xlsx",
+    "language": "uk",
+    "preview": [
+      "Бланк і заповнений тиждень",
+      "Список бронювань і номерів",
+      "Позначення накладень у сітці"
+    ],
+    "file": "VDALO_Booking_Week_UA.xlsx",
+    "sha256": "c014427d9ebb05ebf47b875ed32ca1a6586012b743c6b8cb67b33fa895d9e4b4",
+    "guide": "/tools/hotel-booking-calendar-excel/"
+  },
+  {
+    "id": "RS21",
+    "title": "Журнал передачі зміни адміністратора",
+    "description": "Зафіксуйте відкриті питання, наступні дії та відповідальних.",
+    "category": "team",
+    "format": "xlsx",
+    "language": "uk",
+    "preview": [
+      "Дати, межі й ролі зміни",
+      "Дії, строки та прийняття",
+      "Бланк і заповнений приклад"
+    ],
+    "file": "VDALO_Front_Desk_Handover_UA.xlsx",
+    "sha256": "9cef7fa7dd806302a9340e2e514d49d82e42c25b39e7931bc2a1576f3cb1e1a6",
+    "guide": "/tools/front-desk-shift-handover/"
+  },
+  {
+    "id": "RS22",
+    "title": "Календар тарифів готелю на сезон",
+    "description": "Заплануйте ціни на тиждень, сезонний період і святковий виняток.",
+    "category": "money",
+    "format": "xlsx",
+    "language": "uk",
+    "preview": [
+      "Бланк і заповнений тиждень",
+      "Три категорії номерів, сезон і свято",
+      "Пріоритет тарифу й поля для обмежень"
+    ],
+    "file": "VDALO_Season_Rate_Calendar_UA.xlsx",
+    "sha256": "128e79931002596dd9d2ceb27d1e15fc0dd17773c724c666b9a189b0a1f808b0",
+    "guide": "/tools/hotel-rate-calendar/"
+  },
+  {
+    "id": "RS23",
+    "title": "Журнал знайдених речей",
+    "description": "Ведіть запис від знахідки до повернення власнику.",
+    "category": "team",
+    "format": "xlsx",
+    "language": "uk",
+    "preview": [
+      "Номер запису, час і місце",
+      "Місце зберігання й відповідальні",
+      "Послідовність передач і видача"
+    ],
+    "file": "VDALO_Lost_And_Found_UA.xlsx",
+    "sha256": "fc9de587b970d97e3b5f2531e5ceb0365ffda15b9472fd378ca4cbe20e5dc0cb",
+    "guide": "/tools/hotel-lost-and-found/"
+  },
+  {
+    "id": "RS24",
+    "title": "Відомість сніданків",
+    "description": "Підготуйте для кухні кількість включених і додаткових порцій.",
+    "category": "team",
+    "format": "xlsx",
+    "language": "uk",
+    "preview": [
+      "Дата й номер",
+      "Дорослі та діти окремо",
+      "Підсумок і навчальний приклад"
+    ],
+    "file": "VDALO_Breakfast_List_UA.xlsx",
+    "sha256": "2c2cb6e08343c04808a1bcd195ac367918ed3fbccbcb400f3364beb3ae23d664",
+    "guide": "/tools/hotel-breakfast-list/"
+  },
+  {
+    "id": "RS25",
+    "title": "Журнал несправностей і ремонтів",
+    "description": "Відстежуйте ремонт, приймання номера та заявки для наступної зміни.",
+    "category": "team",
+    "format": "xlsx",
+    "language": "uk",
+    "preview": [
+      "Реєстр заявок із кодом",
+      "Повернення номера в продаж",
+      "Автоматичний список відкритих заявок"
+    ],
+    "file": "VDALO_Maintenance_Log_UA.xlsx",
+    "sha256": "103a64a0bef1cd0dc7d4b7331c51c2de82cd3f4405cb1636afba4e0000df91ad",
+    "guide": "/tools/hotel-maintenance-log/"
+  },
+  {
+    "id": "RS26",
+    "title": "Звіт pickup і темп бронювань",
+    "description": "Порівняйте два зрізи бронювань і відстежте чисту зміну.",
+    "category": "money",
+    "format": "xlsx",
+    "language": "uk",
+    "preview": [
+      "Два зрізи за спільним періодом",
+      "Нові, змінені й вилучені записи",
+      "Навчальний від’ємний pickup"
+    ],
+    "file": "VDALO_Pickup_Report_UA.xlsx",
+    "sha256": "4b72b0e4799449e125d599b58a9e7ff0d6282751e21d9d996a2e00a09fb65bdc",
+    "guide": "/tools/hotel-pickup-report/"
+  },
+  {
+    "id": "RS27",
+    "title": "Тижневий звіт власнику готелю",
+    "description": "Зіставте номероночі, виручку, скасування й рішення за сім днів.",
+    "category": "money",
+    "format": "xlsx",
+    "language": "uk",
+    "preview": [
+      "Формули завантаження, ADR і RevPAR",
+      "Порівняння з попереднім тижнем",
+      "Три рішення з відповідальними"
+    ],
+    "file": "VDALO_Owner_Weekly_Report_UA.xlsx",
+    "sha256": "0715d15ce940070fe1aefa1bac6304139acf5b9437faf9a83fbe10830664c73e",
+    "guide": "/tools/hotel-owner-weekly-report/"
+  },
+  {
+    "id": "RS28",
+    "title": "Платіжний календар готелю на 13 тижнів",
+    "description": "Сплануйте рух коштів і знайдіть перший від’ємний залишок.",
+    "category": "money",
+    "format": "xlsx",
+    "language": "uk",
+    "preview": [
+      "Дати продажу та зарахування OTA",
+      "Податки, зарплата, закупівлі",
+      "Приклад затриманої виплати"
+    ],
+    "file": "VDALO_Hotel_Cash_Flow_13_Weeks_UA.xlsx",
+    "sha256": "a21f5c0d30feea46757b9ab10ff2bfb15eca7a04d3e0dfff0488693a4343cad6",
+    "guide": "/tools/hotel-cash-flow-budget/"
   }
 ]

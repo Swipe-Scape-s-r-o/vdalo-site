@@ -29,7 +29,24 @@ test('site header keeps login and removes contact and trial actions from desktop
   assert.doesNotMatch(header,/utm_content=header_(?:desktop|mobile)|mobile-audit|Спробувати безкоштовно|Зв’язатися/);
   const css=readFileSync(fileURLToPath(new URL('../versions/v1/public/design-system-2.css',import.meta.url)),'utf8');
   assert.ok(css.includes('.ds2 .header-actions>.header-login{display:none}'));
+  assert.match(css,/\.ds2 \.header-login\{[^}]*color:inherit/);
   assert.match(header,/class="mobile-login"/);
+  assert.match(header,/href="\/sign-up">Самореєстрація/);
+  assert.match(header,/href="\/help">Довідковий центр/);
+});
+
+test('the shared menu marks the current page or its nearest section',async()=>{
+  for(const [path,link,marker] of [
+    ['/pricing','/pricing','aria-current="page"'],
+    ['/integrations/booking-com','/integrations/booking-com','aria-current="page"'],
+    ['/blog/hotel-no-show','/blog','data-current-section'],
+    ['/tools/pms-cost-calculator/','/tools/','data-current-section']
+  ]) {
+    const {status,html}=await renderRouteForReview(path);
+    const menu=html.match(/<nav id="navigation"[^>]*>[\s\S]*?<\/nav>/)?.[0]||'';
+    assert.equal(status,200,path);
+    assert.ok(menu.includes(`href="${link}" ${marker}>`),path);
+  }
 });
 
 test('homepage hero begins direct self-registration and keeps demo as a separate CTA',()=>{
@@ -38,6 +55,8 @@ test('homepage hero begins direct self-registration and keeps demo as a separate
   assert.match(hero,/href="https:\/\/app\.vdalo\.tech\/signup\?[^\"]*utm_content=home_hero/);
   assert.match(hero,/Спробувати безкоштовно/);
   assert.match(hero,/href="#demo">Показати демо/);
+  assert.match(html,/id="demo" tabindex="-1"/);
+  assert.match(html,/href="\/hotel-booking-calendar#pms">Спробувати навчальний календар/);
   assert.doesNotMatch(hero,/data-open="audit"/);
 });
 

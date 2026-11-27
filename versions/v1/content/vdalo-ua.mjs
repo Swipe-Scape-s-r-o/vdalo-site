@@ -10,24 +10,26 @@ export const site = {
   },
   "navigation": [
     {
-      "label": "Продукт",
+      "label": "Можливості",
       "children": [
         { "label": "Огляд можливостей", "href": "/solutions" },
         { "label": "Усі функції та їх статуси", "href": "/hotel-pms-modules" },
-        { "label": "Запросити доступ", "href": "/sign-up" },
+        { "label": "Самореєстрація", "href": "/sign-up" },
         {
           "label": "Бронювання та продажі",
           "children": [
             { "label": "Календар бронювань", "href": "/hotel-booking-calendar" },
             { "label": "Прямі бронювання", "href": "/hotel-direct-booking" },
             { "label": "Channel Manager", "href": "/hotel-channel-manager" },
-            { "label": "Керування доходами", "href": "/hotel-revenue-management" }
+            { "label": "Керування доходами", "href": "/hotel-revenue-management" },
+            { "label": "Автопілот ціни", "href": "/hotel-price-autopilot" }
           ]
         },
         {
           "label": "Робота з гостями",
           "children": [
             { "label": "Підготовка до заїзду", "href": "/hotel-check-in" },
+            { "label": "Кіоск самозаселення", "href": "/hotel-self-check-in-kiosk" },
             { "label": "Профіль гостя", "href": "/hotel-guest-profile" },
             { "label": "Guest App і QR", "href": "/hotel-guest-app" },
             { "label": "Комунікація з гостем", "href": "/guest-communication" }
@@ -37,6 +39,7 @@ export const site = {
           "label": "Операції готелю",
           "children": [
             { "label": "Робота команди", "href": "/hotel-operations" },
+            { "label": "Робоче місце адміністратора", "href": "/hotel-front-desk" },
             { "label": "Прибирання та готовність номерів", "href": "/hotel-housekeeping" },
             { "label": "Доступ і заселення", "href": "/hotel-access-control" },
             { "label": "Події та оренда просторів", "href": "/hotel-events" }
@@ -63,7 +66,25 @@ export const site = {
         }
       ]
     },
-    { "label": "Інтеграції", "href": "/integrations" },
+    {
+      "label": "Для кого",
+      "children": [
+        { "label": "Усі можливості VDALO", "href": "/solutions" },
+        { "label": "Для глемпінгів", "href": "/solutions/glamping" },
+        { "label": "Для апартаментів", "href": "/solutions/apartments" }
+      ]
+    },
+    {
+      "label": "Інтеграції",
+      "children": [
+        { "label": "Огляд інтеграцій", "href": "/integrations" },
+        { "label": "Booking.com", "href": "/integrations/booking-com" },
+        { "label": "Airbnb", "href": "/integrations/airbnb" },
+        { "label": "Vrbo", "href": "/integrations/vrbo" },
+        { "label": "Канал Google", "href": "/integrations/google-hotels" },
+        { "label": "Сигнал «Канал не продає»", "href": "/hotel-channel-sales-alerts" }
+      ]
+    },
     { "label": "Тарифи", "href": "/pricing" },
     {
       "label": "Матеріали",
@@ -71,6 +92,8 @@ export const site = {
         { "label": "Кейси", "href": "/cases" },
         { "label": "Блог", "href": "/blog" },
         { "label": "Інструменти", "href": "/tools/" },
+        { "label": "Шаблони для готелю", "href": "/resources" },
+        { "label": "Довідковий центр", "href": "/help" },
         { "label": "Довідник туристичного збору", "href": "/tourist-tax/" }
       ]
     },
@@ -460,8 +483,6 @@ export const experience = {
           "channel": "direct",
           "label": "Пряме бронювання",
           "status": "Підтверджено",
-          "arrival": "06 жовтня",
-          "departure": "09 жовтня",
           "note": "Гість бронює через власний сайт готелю."
         },
         {
@@ -472,8 +493,6 @@ export const experience = {
           "channel": "online",
           "label": "Онлайн-канал",
           "status": "Очікується заїзд",
-          "arrival": "10 жовтня",
-          "departure": "13 жовтня",
           "note": "Бронювання з підключеного каналу продажу."
         },
         {
@@ -484,8 +503,6 @@ export const experience = {
           "channel": "direct",
           "label": "Пряме бронювання",
           "status": "Підтверджено",
-          "arrival": "07 жовтня",
-          "departure": "11 жовтня",
           "note": "Бронювання з модуля на сайті готелю."
         },
         {
@@ -496,8 +513,6 @@ export const experience = {
           "channel": "online",
           "label": "Онлайн-канал",
           "status": "Гість проживає",
-          "arrival": "06 жовтня",
-          "departure": "11 жовтня",
           "note": "Приклад зв’язку бронювання зі статусом проживання."
         },
         {
@@ -508,8 +523,6 @@ export const experience = {
           "channel": "direct",
           "label": "Пряме бронювання",
           "status": "Очікується заїзд",
-          "arrival": "08 жовтня",
-          "departure": "11 жовтня",
           "note": "Перед заїздом команда готує номер і документи."
         },
         {
@@ -520,8 +533,6 @@ export const experience = {
           "channel": "direct",
           "label": "Пряме бронювання",
           "status": "Виїзд",
-          "arrival": "06 жовтня",
-          "departure": "08 жовтня",
           "note": "Після виїзду номер переходить у сценарій housekeeping."
         },
         {
@@ -532,8 +543,6 @@ export const experience = {
           "channel": "online",
           "label": "Онлайн-канал",
           "status": "Підтверджено",
-          "arrival": "09 жовтня",
-          "departure": "13 жовтня",
           "note": "Команда бачить наступний заїзд у календарі."
         },
         {
@@ -544,8 +553,6 @@ export const experience = {
           "channel": "direct",
           "label": "Пряме бронювання",
           "status": "Підтверджено",
-          "arrival": "07 жовтня",
-          "departure": "12 жовтня",
           "note": "Демонстраційний приклад тривалості проживання."
         }
       ],
@@ -558,8 +565,6 @@ export const experience = {
           "channel": "online",
           "label": "Онлайн-канал",
           "status": "Підтверджено",
-          "arrival": "14 жовтня",
-          "departure": "18 жовтня",
           "note": "Другий демонстраційний тиждень."
         },
         {
@@ -570,8 +575,6 @@ export const experience = {
           "channel": "direct",
           "label": "Пряме бронювання",
           "status": "Очікується заїзд",
-          "arrival": "13 жовтня",
-          "departure": "15 жовтня",
           "note": "Прямий канал продажу."
         },
         {
@@ -582,8 +585,6 @@ export const experience = {
           "channel": "direct",
           "label": "Пряме бронювання",
           "status": "Підтверджено",
-          "arrival": "16 жовтня",
-          "departure": "20 жовтня",
           "note": "Наступний заїзд у календарі."
         },
         {
@@ -594,8 +595,6 @@ export const experience = {
           "channel": "online",
           "label": "Онлайн-канал",
           "status": "Гість проживає",
-          "arrival": "13 жовтня",
-          "departure": "18 жовтня",
           "note": "Демонстрація статусу проживання."
         },
         {
@@ -606,8 +605,6 @@ export const experience = {
           "channel": "direct",
           "label": "Пряме бронювання",
           "status": "Підтверджено",
-          "arrival": "15 жовтня",
-          "departure": "18 жовтня",
           "note": "Бронювання на власному сайті."
         },
         {
@@ -618,8 +615,6 @@ export const experience = {
           "channel": "online",
           "label": "Онлайн-канал",
           "status": "Очікується заїзд",
-          "arrival": "17 жовтня",
-          "departure": "20 жовтня",
           "note": "Готуємося до наступного заїзду."
         }
       ]

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {randomUUID} from 'node:crypto';
 import vm from 'node:vm';
 import {renderFreeLanding} from '../microlandings/free.mjs';
 
@@ -58,6 +59,7 @@ function makeClient(response = {ok:true, json:async () => ({ok:true})}) {
     window,
     location: {search:'?v=d&utm_source=sms&utm_medium=callo&utm_campaign=test&utm_content=abc'},
     URLSearchParams,
+    crypto: {randomUUID},
     localStorage: {getItem:() => null, setItem() {}},
     fetch: async (url, options) => { requests.push({url, body:JSON.parse(options.body)}); return response; }
   };
@@ -115,7 +117,7 @@ test('help request retains attribution and shows success after acknowledgement',
   assert.ok(c.window.dataLayer.every(event => !('contact' in event) && !('name' in event)));
 });
 
-test('delivery failure keeps the form available to retry', async () => {
+test('delivery failure retries the same submission and edits create a new one', async () => {
   const c = makeClient({ok:false,json:async () => ({ok:false,message:'Тестова помилка доставки.'})});
   fillValid(c);
   await c.submit();
@@ -126,6 +128,13 @@ test('delivery failure keeps the form available to retry', async () => {
   assert.equal(c.nodes['free-error'].textContent, 'Тестова помилка доставки.');
   assert.ok(c.window.dataLayer.some(event => event.event === 'free_submit_attempt'));
   assert.ok(!c.window.dataLayer.some(event => event.event === 'free_step1' || event.event === 'free_lead_success'));
+
+  await c.submit();
+  assert.match(c.requests[0].body.submission_id, /^[a-f0-9-]{36}$/i);
+  assert.equal(c.requests[1].body.submission_id, c.requests[0].body.submission_id);
+  c.fields.rooms.value = '2';
+  await c.submit();
+  assert.notEqual(c.requests[2].body.submission_id, c.requests[0].body.submission_id);
 });
 
 test('mobile sticky action stays away from the hero and form', () => {

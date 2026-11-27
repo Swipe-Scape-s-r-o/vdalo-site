@@ -6,6 +6,9 @@ import {publicResources,renderResourceLibrary} from '../versions/v1/resource-lib
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {runInNewContext} from 'node:vm';
+import {calculatePmsBudget} from '../versions/v1/public/pms-budget.js';
+import {calculateLinen,calculateLongStay,calculateGroupQuote,calculateGlampingSeason} from '../versions/v1/public/operation-calculators.js';
+import {renderRouteForReview} from '../scripts/review-render.mjs';
 import {calculateAdminTime,renderAdminTimeCalculator,renderWebsiteChecklist,websiteChecklistItems,renderGuestMessageBuilder,renderHousekeepingWorkloadCalculator,renderCancellationCalculator,renderReviewReplyTemplates} from '../versions/v1/advanced-tools.mjs';
 
 test('PMS checklist requires an explanation when a user makes a not-applicable criterion critical',async()=>{
@@ -237,8 +240,8 @@ test('new calculators have canonical metadata, visible controls, honest wording 
  assert.ok(index.includes('/resources'));
 });
 
-test('public resource library exposes exactly 18 allowlisted files with the packaged bytes',async()=>{
- assert.equal(publicResources.length,18);
+test('public resource library exposes exactly 28 allowlisted files with the packaged bytes',async()=>{
+ assert.equal(publicResources.length,28);
  const html=renderResourceLibrary();
  assert.match(html,/<link rel="canonical" href="https:\/\/www\.vdalo\.tech\/resources">/);
  assert.match(html,/<meta name="robots" content="index,follow">/);
@@ -248,6 +251,181 @@ test('public resource library exposes exactly 18 allowlisted files with the pack
   const data=await readFile(new URL(`../versions/v1/public/downloads/hotel/${resource.file}`,import.meta.url));
   assert.equal(createHash('sha256').update(data).digest('hex'),resource.sha256,resource.file);
   assert.ok(html.includes(resource.path),resource.file);
+ }
+});
+
+test('reception guides and worksheets are discoverable and serve their canonical destinations',async()=>{
+ const pages=[
+  ['/blog/group-bookings-rooming-list','/hotel-booking-calendar','#rooming-list','VDALO_Group_Rooming_List_UA.xlsx'],
+  ['/blog/hotel-no-show','/tools/hotel-cancellation-cost-calculator/','/blog/vartist-overbukingu-gotelyu'],
+  ['/tools/hotel-booking-calendar-excel/','/blog/shakhmatka-bronyuvan-gotelyu','#instrument','VDALO_Booking_Week_UA.xlsx'],
+  ['/tools/front-desk-shift-handover/','/resources','#instrument','VDALO_Front_Desk_Handover_UA.xlsx']
+ ];
+ const {html:sitemap}=await renderRouteForReview('/sitemap.xml');
+ for(const [path,source,action,file] of pages){
+  const {status,html}=await renderRouteForReview(path);
+  const origin='https://www.vdalo.tech';
+  assert.equal(status,200,path);
+  assert.equal((html.match(/<h1\b/g)||[]).length,1,path);
+  assert.ok(html.includes(`rel="canonical" href="${origin}${path}"`),path);
+  assert.ok(sitemap.includes(`<loc>${origin}${path}</loc>`),path);
+  assert.ok(html.includes(`href="${action}"`),path);
+  if(action.startsWith('#'))assert.ok(html.includes(`id="${action.slice(1)}"`),path);
+  assert.ok((await renderRouteForReview(source)).html.includes(`href="${path}"`),source);
+  const alternate=path.endsWith('/')?path.slice(0,-1):path+'/';
+  const redirect=await renderRouteForReview(alternate+'?from=guide');
+  assert.equal(redirect.status,308,alternate);
+  assert.equal(redirect.headers.Location,path+'?from=guide');
+  if(!file)continue;
+  const link='/downloads/hotel/'+file;
+  assert.ok(html.includes(`href="${link}" download`),path);
+  const download=await renderRouteForReview(link);
+  assert.equal(download.status,200,file);
+  assert.equal(download.headers['Content-Type'],'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+  assert.equal(download.headers['Content-Disposition'],`attachment; filename="${file}"`);
+  assert.equal(download.headers['Content-Length'],(await readFile(new URL(`../versions/v1/public${link}`,import.meta.url))).length);
+ }
+});
+
+
+const pmsBudgetBlank={
+ units:2,currency:'UAH',baseMonthly:0,perUnitMonthly:0,channelsMonthly:0,modulesMonthly:0,annualFees:0,
+ setup:0,migration:0,training:0,otherSetup:0,roleOneSetupHours:0,roleOneMonthlyHours:0,roleTwoSetupHours:0,roleTwoMonthlyHours:0
+};
+
+test('PMS budget distinguishes cash, setup work and team time over two years',()=>{
+ assert.deepEqual(calculatePmsBudget(pmsBudgetBlank),{
+  monthly:0,launch:0,firstYear:0,nextYear:0,firstYearTeam:0,teamAnnual:0,firstYearTotal:0,nextYearTotal:0
+ });
+ assert.deepEqual(calculatePmsBudget({
+  ...pmsBudgetBlank,units:12,baseMonthly:1200,channelsMonthly:600,modulesMonthly:400,
+  setup:2500,migration:3000,training:1500,roleOneSetupHours:6,roleOneMonthlyHours:1,roleOneRate:200,roleTwoSetupHours:2,roleTwoRate:400
+ }),{
+  monthly:2200,launch:7000,firstYear:33400,nextYear:26400,firstYearTeam:4400,teamAnnual:2400,firstYearTotal:37800,nextYearTotal:28800
+ });
+ const values={...pmsBudgetBlank,units:3,currency:'USD',rateDate:'2026-11-27',rate:40.1234,baseMonthly:399,
+  perUnitMonthly:10,channelsMonthly:20,fxMonthly:1.25,fxUnitMonthly:2,fxSetup:12.50,annualFees:1000,setup:100};
+ const fx=calculatePmsBudget(values);
+ assert.equal(fx.monthly,739.89);
+ assert.equal(fx.launch,601.54);
+ assert.equal(fx.nextYear,9878.68);
+ assert.equal(fx.firstYear,10480.22);
+ assert.equal(calculatePmsBudget({...values,rateDate:'2026-02-31'}).field,'rateDate');
+ assert.equal(calculatePmsBudget({...values,rate:0}).field,'rate');
+ assert.equal(calculatePmsBudget({...pmsBudgetBlank,roleOneMonthlyHours:1}).field,'roleOneRate');
+ for(const input of [{units:0},{units:5001},{units:1.5},{channelsMonthly:-1},{baseMonthly:Infinity}]){
+  assert.ok(calculatePmsBudget({...pmsBudgetBlank,...input}).error);
+ }
+});
+
+test('PMS budget has one canonical address, a versioned script and pricing links',async()=>{
+ const path='/tools/pms-cost-calculator/';
+ const {status,html}=await renderRouteForReview(path);
+ assert.equal(status,200);
+ assert.ok(html.includes(`rel="canonical" href="https://www.vdalo.tech${path}"`));
+ assert.match(html,/<h1>Калькулятор повної вартості готельної PMS<\/h1>/);
+ assert.match(html,/href="#instrument"/);
+ assert.match(html,/<form id="instrument"[^>]+data-pms-budget/);
+ const module=html.match(/<script type="module" src="([^"]+pms-budget\.js\?v=[a-f0-9]+)"/)?.[1];
+ assert.ok(module);
+ const asset=await renderRouteForReview(module);
+ assert.equal(asset.status,200);
+ assert.match(asset.headers['Content-Type']||asset.headers['content-type'],/javascript/);
+ for(const ref of ['/pricing','/tools/','/tools/pms-checklist/']){
+  assert.ok((await renderRouteForReview(ref)).html.includes(`href="${path}"`),ref);
+ }
+ const sitemap=await renderRouteForReview('/sitemap.xml');
+ assert.equal(sitemap.html.split(`<loc>https://www.vdalo.tech${path}</loc>`).length,2);
+ const alternate=await renderRouteForReview(path.slice(0,-1)+'?ref=pricing');
+ assert.equal(alternate.status,308);
+ assert.equal(alternate.headers.Location,path+'?ref=pricing');
+});
+
+test('linen stock rounds laundry and reserve separately for each bed type',()=>{
+ const input={bedsA:12,setsA:1,bedsB:0,setsB:1,changePct:50,turnaround:1,reservePct:20};
+ assert.deepEqual(calculateLinen(input),{
+  first:{rooms:12,laundry:6,reserve:4,total:22},second:{rooms:0,laundry:0,reserve:0,total:0},total:22
+ });
+ const external=calculateLinen({...input,bedsB:6,setsB:2,turnaround:2});
+ assert.equal(external.total,58);
+ assert.equal(external.first.total,29);
+ assert.equal(external.second.total,29);
+ assert.equal(calculateLinen({...input,bedsA:1,changePct:1,turnaround:0.01,reservePct:1}).total,3);
+ assert.equal(calculateLinen({...input,changePct:0,turnaround:0,reservePct:0}).total,12);
+ assert.ok(calculateLinen({...input,bedsA:0}).error);
+});
+
+test('long-stay discount handles zero, an unattainable contribution and a flat zero-proceeds case',()=>{
+ const input={nights:14,shortSold:10,shortRate:1400,longRate:1200,shortCommission:15,longCommission:4,
+  nightCost:190,cleaningCost:250,shortClean:5,longClean:1,discount:10};
+ const value=calculateLongStay(input);
+ assert.equal(value.maxDiscount,27.70);
+ assert.equal(value.shortContribution,8750);
+ assert.equal(Math.round(value.longContribution*100),1160520);
+ const identical={...input,shortSold:14,shortRate:1200,shortCommission:4,shortClean:1,discount:0};
+ assert.equal(calculateLongStay(identical).difference,0);
+ assert.equal(calculateLongStay(identical).maxDiscount,0);
+ assert.equal(calculateLongStay({...identical,longRate:200}).maxDiscount,null);
+ assert.equal(calculateLongStay({...identical,nightCost:0,cleaningCost:0,shortCommission:100,longCommission:100}).maxDiscount,100);
+ assert.ok(calculateLongStay({...input,shortSold:15}).error);
+});
+
+test('group quote separates rooms, discount, meals and contribution',()=>{
+ const input={roomsA:5,roomsB:0,nights:2,rateA:2000,rateB:0,discount:5,meals:20,mealPrice:250,
+  extras:0,roomCost:600,mealCost:100,extraCost:0};
+ assert.deepEqual(calculateGroupQuote(input),{roomNights:10,roomGross:20000,discount:1000,meals:5000,extras:0,total:24000,cost:8000,contribution:16000});
+ const extra=calculateGroupQuote({...input,roomsB:2,rateB:2500,extras:2000});
+ assert.equal(extra.roomNights,14);
+ assert.equal(extra.total,35500);
+ const free=calculateGroupQuote({...input,discount:100,meals:0});
+ assert.equal(free.total,0);
+ assert.equal(free.contribution,-6000);
+ assert.ok(calculateGroupQuote({...input,roomsA:1.5}).error);
+});
+
+test('glamping season distinguishes weekdays, weekends and overlapping closures across months',()=>{
+ const date=value=>Date.parse(value);
+ const input={start:date('2026-06-26'),end:date('2026-07-05'),houses:3,unavailableHouses:0,
+  weekdayRate:1500,weekendRate:2000,lowPct:40,steadyPct:60,highPct:80};
+ const open=calculateGlampingSeason(input);
+ assert.deepEqual(open,{actualNights:10,closedNights:0,houseNights:30,weekdayHouseNights:18,weekendHouseNights:12,
+  low:{houseNights:12,revenue:20400},steady:{houseNights:18,revenue:30600},high:{houseNights:24,revenue:40800}});
+ const closed={...input,closedFrom:date('2026-07-01'),closedTo:date('2026-07-02'),unavailableHouses:1,
+  unavailableFrom:date('2026-07-02'),unavailableTo:date('2026-07-05')};
+ const partial=calculateGlampingSeason(closed);
+ assert.equal(partial.closedNights,2);
+ assert.equal(partial.houseNights,21);
+ assert.equal(partial.weekdayHouseNights,11);
+ assert.equal(partial.weekendHouseNights,10);
+ assert.deepEqual(partial.steady,{houseNights:12.6,revenue:21900});
+ assert.deepEqual(calculateGlampingSeason({...closed,lowPct:0,steadyPct:0,highPct:0}).steady,{houseNights:0,revenue:0});
+
+ const pastEpoch={...input,start:date('1969-12-31'),end:date('1970-01-02')};
+ assert.ok(calculateGlampingSeason({...pastEpoch,closedFrom:null,closedTo:date('1970-01-01')}).error);
+ assert.ok(calculateGlampingSeason({...input,end:date('2026-06-25')}).error);
+ assert.ok(calculateGlampingSeason({...input,end:date('2027-06-27')}).error);
+ assert.ok(calculateGlampingSeason({...closed,unavailableHouses:4}).error);
+ assert.ok(calculateGlampingSeason({...closed,unavailableTo:null}).error);
+ assert.ok(calculateGlampingSeason({...input,lowPct:80,steadyPct:25}).error);
+});
+
+test('operation calculators have canonical routes and versioned client assets',async()=>{
+ const paths=['/tools/hotel-linen-par-stock/','/tools/long-stay-discount/','/tools/group-booking-quote/','/tools/glamping-season-planner/'];
+ const {html:index}=await renderRouteForReview('/tools/');
+ const {html:sitemap}=await renderRouteForReview('/sitemap.xml');
+ for(const path of paths){
+  const {status,html}=await renderRouteForReview(path);
+  assert.equal(status,200,path);
+  assert.ok(html.includes(`rel="canonical" href="https://www.vdalo.tech${path}"`));
+  assert.equal((html.match(/<h1\b/g)||[]).length,1);
+  assert.ok(index.includes(`href="${path}"`));
+  assert.ok(sitemap.includes(`<loc>https://www.vdalo.tech${path}</loc>`));
+  const script=html.match(/src="([^"]+operation-calculators\.js\?v=[a-f0-9]+)"/)?.[1];
+  assert.ok(script);
+  assert.equal((await renderRouteForReview(script)).status,200);
+  const alternate=await renderRouteForReview(path.slice(0,-1)+'?from=tool');
+  assert.equal(alternate.status,308);
+  assert.equal(alternate.headers.Location,path+'?from=tool');
  }
 });
 

@@ -43,3 +43,31 @@
 @media(max-width:900px){.module-status-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
 @media(max-width:600px){.module-status-grid{grid-template-columns:1fr;gap:10px;margin:18px 0 4px}.module-status-card{gap:12px;padding:16px;border-radius:14px}.module-status-icon{flex-basis:38px;width:38px;height:38px;border-radius:11px}.module-status-icon svg{width:20px;height:20px}.module-status-card h3{font-size:16px}.module-status-card p:last-child{font-size:13px!important}}
 @media(max-width:1050px){.seo-logos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.seo-section[id],.seo-content [id]{scroll-margin-top:90px}
+.seo-calendar-demo{background:#f4edf1;padding-block:clamp(38px,6vw,76px);scroll-margin-top:90px}
+.seo-calendar-demo>.wrap{width:min(1240px,calc(100% - 40px))}
+.seo-calendar-demo .pms-intro{align-items:start;gap:24px}
+.seo-calendar-demo .pms-intro h2{font-size:clamp(28px,4vw,46px)}
+.seo-calendar-demo .pms-intro .large-copy{font-size:17px}
+.seo-calendar-demo .calendar-toolbar button{min-height:44px}
+.seo-calendar-demo .calendar-period button{min-width:44px}
+.seo-calendar-demo .calendar-shell :is(button,.calendar-scroll):focus-visible{outline:3px solid #a43f73;outline-offset:-3px}
+@media(max-width:380px){.seo-calendar-demo>.wrap{width:calc(100% - 28px)}.seo-calendar-demo .calendar-filters button{padding-inline:5px}}
+.product-release-breadcrumb{margin-bottom:24px;color:#f2e7ef;font-size:.875rem;overflow-wrap:anywhere}
+.product-release-breadcrumb a{color:inherit;text-underline-offset:.2em}
+.product-release-hero .seo-wrap{max-width:1020px}
+.product-release-hero h1{font-size:clamp(2.4rem,6vw,5rem)}
+.product-release-faq{margin:0}
+.product-release-faq dt{margin-top:1.1rem;font-weight:700}
+.product-release-faq dd{margin:.35rem 0 0;line-height:1.65}
+.product-release-action{max-width:970px;margin:32px auto 0}
+.product-release-related .seo-section{padding-block:42px}
+.product-release-related .seo-section li>a{display:inline-block;max-width:100%}
+.migration-sample-csv{display:block;box-sizing:border-box;width:100%;margin-top:.5rem;padding:.75rem;border:1px solid #d1bcca;border-radius:10px;background:#fff;color:#39233e;resize:vertical;font:inherit;font-size:.9rem}
+.migration-sample-csv:focus-visible{outline:3px solid #a43f73;outline-offset:3px}
+.product-release-table{width:100%;border-collapse:collapse;text-align:left;overflow-wrap:anywhere}
+.product-release-table :is(th,td){border-bottom:1px solid #eadde4;padding:.7em .45em;vertical-align:top}
+.product-release-table thead th{background:#fff5f7;color:#39233e}
+.product-release-preview-note{max-width:68ch;margin:0 0 18px;color:#ffd5e6;line-height:1.5}
+@media(max-width:380px){.product-release-table{font-size:.875rem}}
+@media(max-width:600px){.product-release-hero h1{font-size:clamp(2.1rem,9.7vw,3.2rem)}}

@@ -1,5 +1,6 @@
 /* VDALO homepage only. Shared routes, forms and pricing retain their system. */
 body.homepage-shell{background:#fcf9f8;color:#39233e}
+.homepage-shell .header .header-login{color:inherit}
 .homepage-2026{--home-ink:#39233e;--home-paper:#fcf9f8;--home-pink:#ff92bd;--home-soft:#f0e7ec;--home-ease:cubic-bezier(.23,1,.32,1);font-family:Inter,Arial,sans-serif;overflow:clip}
 .homepage-2026 *{box-sizing:border-box}
 .homepage-2026 [hidden]{display:none!important}
@@ -28,10 +29,23 @@ body.homepage-shell{background:#fcf9f8;color:#39233e}
 .home-hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin:30px 0 16px}
 .home-hero .home-note{max-width:40ch;color:#eadbe8}
 .home-hero-media{position:relative;margin:0 0 24px;min-width:0}
-.home-hero-room{display:grid;grid-template-rows:480px auto}
-.home-room-cut{height:480px;overflow:hidden;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%)}
-.home-room-cut img{display:block;width:100%;height:100%;object-fit:cover;object-position:54% 50%;transform:none}
-.home-hero-room figcaption{font-size:14px;line-height:1.5;margin-top:15px}
+.home-properties-frame{aspect-ratio:3/2;background:radial-gradient(ellipse at 55% 52%,#783655 0,#4f2848 48%,transparent 75%)}
+.home-properties-frame img{display:block;width:100%;height:100%;object-fit:contain}
+.home-properties-details{display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap;margin-top:2px}
+.home-properties-caption{min-width:0;display:grid;align-content:center;min-height:72px}
+.home-properties-caption :is([data-property-label],[data-property-link]){min-height:44px;display:flex;align-items:center;font:750 clamp(22px,2.55vw,36px)/1.15 'Inter Tight',Inter,sans-serif}
+.home-properties-caption [data-property-link]{gap:8px;text-decoration:none}
+.home-properties-caption [data-property-link] svg{width:20px;height:20px;flex:none;color:var(--home-pink)}
+.home-properties-caption .home-properties-all{font-size:14px;display:flex;align-items:center;min-height:44px;color:#ffd7e6}
+.home-properties-controls{display:flex;align-items:center;gap:7px}
+.home-properties-controls button{width:44px;height:44px;display:grid;place-items:center;border:1px solid #d8b8d1;border-radius:50%;background:transparent;color:inherit;cursor:pointer}
+.home-properties-controls button svg{width:20px;height:20px}
+.home-properties-controls button:hover{background:#69465e}
+.home-properties-controls .home-properties-previous svg{transform:rotate(180deg)}
+.home-properties-controls .home-properties-toggle{margin-left:2px;font:700 17px/1 Inter,sans-serif}
+.home-properties-position{margin-right:3px;min-width:40px;font-size:13px;font-variant-numeric:tabular-nums;color:#f6dae9;white-space:nowrap}
+.homepage-2026 .home-properties :is(a,button):focus-visible{outline-color:var(--home-pink);outline-offset:3px}
+.home-properties-announcement{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
 .home-quicklinks{display:flex;justify-content:space-between;gap:20px;padding-block:25px;margin-top:20px}
 .home-quicklinks a{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:16px;min-height:44px}
 .home-quicklinks svg{width:24px;height:24px;color:#ff92bd}
@@ -299,7 +313,19 @@ body.homepage-shell{background:#fcf9f8;color:#39233e}
 @media(max-width:1000px){.home-demo>.home-wrap{gap:32px}.home-trial{gap:32px}.home-guide-heading{gap:36px}.home-guide-layout{grid-template-columns:200px minmax(0,1fr);gap:36px}.home-guide-nav li a{font-size:14px}.home-guide-copy h3{font-size:25px}}
 @media(max-width:700px){.home-reading.home-case{display:block}.home-case p{margin-top:16px}.home-case .home-text-link{margin-top:12px}.home-case .home-note{margin-top:8px}.home-demo>.home-wrap{grid-template-columns:1fr;gap:32px}.home-demo h2{max-width:18ch}.home-demo-copy>p{margin-top:18px}.home-demo-copy>.home-button{width:100%;margin-top:22px}.home-demo-copy>.home-note{max-width:42ch;margin-top:12px}.home-demo-agenda h3{font-size:25px}.home-demo-agenda ul{margin-top:22px;gap:20px}.home-demo-agenda li{gap:14px}.home-demo-agenda li>svg{width:24px;height:24px}.home-demo-agenda strong{font-size:17px}.home-trial{display:block;padding-top:26px}.home-trial>strong{display:block;font-size:25px}.home-trial p{margin-top:14px;font-size:15px}.home-guide-heading{display:block;margin-bottom:28px}.home-guide-heading p{margin-top:18px}.home-guide-layout{grid-template-columns:1fr;gap:32px}.home-guide-nav{position:static;padding-bottom:0}.home-guide-nav ul{grid-template-columns:1fr 1fr;gap:4px 18px;margin-block:12px}.home-guide-nav li a{font-size:14px;padding-block:10px}.home-guide-copy p{font-size:16px;line-height:1.75}.home-guide-copy>section{margin-top:36px;scroll-margin-top:100px}.home-guide-copy h3{font-size:25px;line-height:1.2;margin-bottom:18px;max-width:26ch}.home-guide-copy section p+p{margin-top:16px}.home-guide-end{margin-top:36px;padding:22px}.home-guide-end .home-button{width:100%}}
 
-@media(max-width:1000px){.home-hero-room{grid-template-rows:430px auto}.home-room-cut{height:430px}}
-@media(max-width:700px){.home-hero-room{grid-template-rows:320px auto;margin:0}.home-room-cut{height:320px;clip-path:polygon(12% 0,100% 0,100% 100%,0 100%)}.home-hero-room figcaption{font-size:13px;margin-top:12px}}
+@media(max-width:1000px){.home-properties-details{align-items:start;display:grid}.home-properties-caption{min-height:64px}}
+@media(max-width:700px){
+ .homepage-2026 .home-hero h1{font-size:clamp(34px,8.2vw,58px)}
+ .home-properties{display:grid;gap:8px;margin:0}
+ .home-properties-details{grid-row:1;grid-template-columns:minmax(0,1fr) auto;align-items:end}
+ html:has(.homepage-shell.has-cookie-banner){scroll-padding-bottom:var(--cookie-banner-space,180px)}
+}
+@media(max-width:530px){
+ .home-hero{padding-top:26px}
+ .home-hero-grid{gap:12px}
+ .home-properties-details{grid-template-columns:1fr;align-content:start;gap:0;min-height:132px}
+ .home-properties-controls{justify-content:flex-start}
+ .home-properties-caption{min-height:64px}
+}
 
 /* A single optional invitation replaces the persistent mobile action. */

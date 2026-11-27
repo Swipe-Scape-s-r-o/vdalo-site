@@ -73,7 +73,7 @@ export function renderFreePage(v, key, indexable, offerId, ready) {
 <title>${esc(v.title)}</title><meta name="description" content="${esc(v.description)}">
 <meta name="robots" content="${indexable ? 'noindex,follow' : 'noindex,nofollow'}">
 <link rel="canonical" href="https://www.vdalo.tech/free"><meta name="theme-color" content="#321d35">
-<link rel="stylesheet" href="/free-assets/free.css?v=5"><script src="/free-assets/free.js?v=4" defer></script>
+<link rel="stylesheet" href="/free-assets/free.css?v=5"><script src="/free-assets/free.js?v=5" defer></script>
 </head>
 <body class="free-page" data-variant="${key}">
 <a class="free-skip" href="#free-main">Перейти до змісту</a>

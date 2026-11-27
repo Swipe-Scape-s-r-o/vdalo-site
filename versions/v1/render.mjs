@@ -1,4 +1,5 @@
-import {renderHomepage,homeHeroImage} from './homepage.mjs';
+import {renderHomepage} from './homepage.mjs';
+import {homeHeroImage} from './home-property-types.mjs';
 import { renderHero, renderContent, renderFooter } from './experience.mjs';
 import { site } from './content/vdalo-ua.mjs';
 import { readFileSync } from 'node:fs';
@@ -7,8 +8,10 @@ import { signupHref, loginHref } from './signup-links.mjs';
 export const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const e = escape;
 export const button = (kind, text, location, style = '') => `<button class="button ${style}" type="button" data-open="${kind}" data-location="${location}">${e(text)}</button>`;
-const logo = () => `<img src="${assetUrl('vdalo-canonical-496.png')}" width="124" height="41" alt="VDALO®" decoding="async">`;
-function header({full=false}={}) {
+const logo = homepage => homepage
+ ? `<img src="${assetUrl('vdalo-home-wordmark.svg')}" width="124" height="34" alt="VDALO" decoding="async">`
+ : `<img src="${assetUrl('vdalo-canonical-496.png')}" width="124" height="41" alt="VDALO®" decoding="async">`;
+function header({full=false,homepage=false}={}) {
  const sectionLink=url=>!full&&url.startsWith('#')?`/${url}`:url;
  const navItems=(items,level=1)=>items.map(item=>{
   if(item.children?.length){
@@ -20,7 +23,21 @@ function header({full=false}={}) {
   }
   return `<li class="nav-item nav-item-level-${level}"><a href="${sectionLink(item.href)}">${e(item.label)}</a></li>`;
  }).join('');
-  return `<a class="skip-link" href="#main">Перейти до змісту</a><header class="header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="VDALO, головна">${logo()}</a><nav id="navigation" aria-label="Головна навігація"><ul class="site-nav">${navItems(site.navigation)}<li class="nav-item mobile-nav-action"><a class="mobile-login" href="${loginHref}">Увійти</a></li></ul></nav><div class="header-actions"><a class="header-phone" data-requires-config="phone" data-config-href="phone" hidden><span data-config-text="phone"></span></a><a class="header-telegram" data-requires-config="telegramUrl" data-config-href="telegramUrl" hidden>Telegram</a><a class="header-login" href="${loginHref}">Увійти</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Відкрити меню"><span></span><span></span></button></div></div></header>`;
+  return `<a class="skip-link" href="#main">Перейти до змісту</a><header class="header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="VDALO, головна">${logo(homepage)}</a><nav id="navigation" aria-label="Головна навігація"><ul class="site-nav">${navItems(site.navigation)}<li class="nav-item mobile-nav-action"><a class="mobile-login" href="${loginHref}">Увійти</a></li></ul></nav><div class="header-actions"><a class="header-phone" data-requires-config="phone" data-config-href="phone" hidden><span data-config-text="phone"></span></a><a class="header-telegram" data-requires-config="telegramUrl" data-config-href="telegramUrl" hidden>Telegram</a><a class="header-login" href="${loginHref}">Увійти</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Відкрити меню"><span></span><span></span></button></div></div></header>`;
+}
+export function withCurrentNavigation(html, pathname) {
+ const current = pathname.replace(/\/$/, '');
+ if (!current) return html;
+ const menu = /<nav id="navigation"(?=[\s>])[^>]*>[\s\S]*?<\/nav>/;
+ const link = /<a href="(\/(?!\/)[^"#?]+)"(?=>)/g;
+ return html.replace(menu, navigation => {
+  const routes = [...navigation.matchAll(link)].map(([, href]) => href.replace(/\/$/, ''));
+  const section = routes.reduce((best, route) =>
+   route.length > best.length && (current === route || current.startsWith(route + '/')) ? route : best, '');
+  if (!section) return navigation;
+  const marker = current === section ? 'aria-current="page"' : 'data-current-section';
+  return navigation.replace(link, (tag, href) => href.replace(/\/$/, '') === section ? tag + ' ' + marker : tag);
+ });
 }
 function hero() { return renderHero(); }
 function footer() { return renderFooter(); }
@@ -35,12 +52,12 @@ export function renderPage({ origin = '', full = false, homepage = false } = {})
  const styles = full ? homeCssBundle : siteCssBundle;
  const criticalFonts = [assetUrl('inter-tight-cyrillic.woff2'),assetUrl('inter-cyrillic.woff2')];
  const fontPreloads = criticalFonts.map(href => `<link rel="preload" as="font" type="font/woff2" href="${href}" crossorigin>`).join('');
- const stylesheet = full
+ const stylesheet = full && !homepage
   ? `<link rel="preload" as="style" href="/home.css?v=${styles.version}" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/home.css?v=${styles.version}"></noscript>`
-  : `<link rel="stylesheet" href="/site.css?v=${styles.version}" fetchpriority="high">`;
+  : `<link rel="stylesheet" href="/${full ? 'home' : 'site'}.css?v=${styles.version}" fetchpriority="high">`;
  const criticalStyle = homepage ? `<link rel="stylesheet" href="/homepage.css?v=${assetVersion('homepage.css')}"><script src="/homepage.js?v=${assetVersion('homepage.js')}" defer></script>` : full ? `<style>${homeCriticalCss}</style>` : '';
  const heroPreload = homepage ? `<link rel="preload" as="image" href="${homeHeroImage.src}" imagesrcset="${homeHeroImage.srcset}" imagesizes="${homeHeroImage.sizes}" fetchpriority="high">` : full ? `<link rel="preload" as="image" href="${assetUrl('hero-hotel.webp')}" fetchpriority="high">` : '';
- return `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(site.seo.title)}</title><meta name="description" content="${e(site.seo.description)}"><meta name="theme-color" content="#39233E"><meta name="robots" content="${origin?'index,follow':'noindex,nofollow'}"><meta property="og:type" content="website"><meta property="og:locale" content="uk_UA"><meta property="og:title" content="${e(site.seo.ogTitle)}"><meta property="og:description" content="${e(site.seo.ogDescription)}">${canonical}${origin ? `<meta property="og:image" content="${e(origin)}/v1/assets/og-1200x630.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">` : ""}<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">${homepage ? stylesheet + criticalStyle : criticalStyle + stylesheet}${fontPreloads}${heroPreload}<script type="application/ld+json">${schema}</script><script src="/site-config.js?v=${assetVersion("site-config.js")}" defer></script><script src="/pricing-core.js?v=${assetVersion("pricing-core.js")}" defer></script><script src="/pricing.js?v=${assetVersion("pricing.js")}" defer></script><script src="/app.js?v=${assetVersion("app.js")}" defer></script>${full ? `<script src="/living-hotel-dispatch.js?v=${assetVersion("living-hotel-dispatch.js")}" data-mobile-src="/v1/living-hotel-mobile.js?v=${assetVersion("living-hotel-mobile.js")}" data-desktop-src="/v1/living-hotel.js?v=${assetVersion("living-hotel.js")}" defer></script>` : ''}</head><body class="ds2${homepage?' homepage-shell':''}">${header({full})}<main id="main">${homepage ? renderHomepage({featureVisual,night:livingHotel()+livingHotelMobile()}) : hero() + (full ? fullPage() : '')}</main>${footer()}${contactDialog()}${full ? dialogs() : ''}</body></html>`;
+ return `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(site.seo.title)}</title><meta name="description" content="${e(site.seo.description)}"><meta name="theme-color" content="#39233E"><meta name="robots" content="${origin?'index,follow':'noindex,nofollow'}"><meta property="og:type" content="website"><meta property="og:locale" content="uk_UA"><meta property="og:title" content="${e(site.seo.ogTitle)}"><meta property="og:description" content="${e(site.seo.ogDescription)}">${canonical}${origin ? `<meta property="og:image" content="${e(origin)}/v1/assets/og-1200x630.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">` : ""}<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">${homepage ? stylesheet + criticalStyle : criticalStyle + stylesheet}${fontPreloads}${heroPreload}<script type="application/ld+json">${schema}</script><script src="/site-config.js?v=${assetVersion("site-config.js")}" defer></script><script src="/pricing-core.js?v=${assetVersion("pricing-core.js")}" defer></script><script src="/pricing.js?v=${assetVersion("pricing.js")}" defer></script><script src="/app.js?v=${assetVersion("app.js")}" defer></script>${full ? `<script src="/living-hotel-dispatch.js?v=${assetVersion("living-hotel-dispatch.js")}" data-mobile-src="/v1/living-hotel-mobile.js?v=${assetVersion("living-hotel-mobile.js")}" data-desktop-src="/v1/living-hotel.js?v=${assetVersion("living-hotel.js")}" defer></script>` : ''}</head><body class="ds2${homepage?' homepage-shell':''}">${header({full,homepage})}<main id="main">${homepage ? renderHomepage({featureVisual,night:livingHotel()+livingHotelMobile()}) : hero() + (full ? fullPage() : '')}</main>${footer()}${contactDialog()}${full ? dialogs() : ''}</body></html>`;
 }
 function contactDialog() {
  return `<dialog id="contact-dialog" class="lead-dialog contact-dialog" aria-labelledby="contact-title"><button class="dialog-close" type="button" data-close aria-label="Закрити форму">×</button><div class="dialog-body"><p class="eyebrow">VDALO / Зв’язок</p><h2 id="contact-title">Зв’яжемося з вами</h2><p class="dialog-intro">Залиште ім’я та номер телефону. Команда VDALO зв’яжеться, щоб обговорити роботу вашого об’єкта.</p><form data-kind="contact" method="post" action="/api/leads/audit" novalidate><div class="form-grid"><div class="field"><label for="contact-name">Ваше ім’я *</label><input id="contact-name" name="name" autocomplete="name" required minlength="2" maxlength="100" aria-describedby="contact-name-error"><span class="field-error" id="contact-name-error"></span></div><div class="field"><label for="contact-phone">Номер телефону *</label><input id="contact-phone" name="contact" type="tel" autocomplete="tel" inputmode="tel" required maxlength="40" placeholder="+380…" aria-describedby="contact-phone-error"><span class="field-error" id="contact-phone-error"></span></div></div><div class="honey" aria-hidden="true"><label for="contact-website">Вебсайт</label><input id="contact-website" name="website" tabindex="-1" autocomplete="off"></div><div class="consent-field"><label><input type="checkbox" name="consent" required aria-describedby="contact-consent-error"><span>Погоджуюся використати мої контакти, щоб VDALO відповіла на цей запит. <a href="/privacy" target="_blank" rel="noopener">Політика конфіденційності</a>.</span></label><span class="field-error" id="contact-consent-error"></span></div><p class="form-status" role="status" aria-live="polite"></p><button class="button form-submit" type="submit" data-label="Передзвоніть мені">Передзвоніть мені</button><p class="form-footnote">Ваш номер потрібен лише для відповіді на цей запит.</p></form><div class="form-success" hidden tabindex="-1"><p class="eyebrow">Запит на зв’язок</p><h3>Дякуємо!</h3><p>Отримали ваш запит. Команда VDALO зв’яжеться з вами за вказаним номером.</p><button type="button" class="button dark" data-close>Повернутися до сайту</button></div></div></dialog>`;

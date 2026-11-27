@@ -42,3 +42,41 @@
 @media print{.advanced-tool .tool-actions{display:none!important}.advanced-tool{box-shadow:none;border:0;padding:0}.web-check-group{break-inside:avoid}}
 .kpi-extension{background:#fff;border:1px solid #eadde6;border-radius:20px;margin:22px 0;padding:20px}.kpi-extension summary{cursor:pointer;font-weight:750;font-size:18px}.kpi-extension>p{max-width:850px;color:#655365;line-height:1.6}.kpi-results dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.kpi-results dl div{background:#fff3f8;border-radius:12px;padding:14px}.kpi-results dt{font-size:13px;color:#655365}.kpi-results dd{font-size:20px;font-weight:750;margin:8px 0 0}.kpi-results [hidden]{display:none!important}
 .tco-extension{border-top:1px solid #e7dce4;padding:34px 0;margin:36px 0}.tco-extension h2{font:750 30px/1.2 "Inter Tight",Inter,sans-serif}.tco-extension>p{line-height:1.65;color:#655365;max-width:900px}.tco-horizon{display:grid;gap:8px;max-width:320px;font-weight:700}.tco-proposal{margin:20px 0;padding:20px;border:1px solid #e5d9e3;border-radius:18px;background:#fff}.tco-proposal legend{font-weight:750;padding:0 8px}.tco-proposal .tool-form-grid{margin:12px 0;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}.tco-results>div{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.tco-results article{padding:18px;border-radius:16px;background:#fff3f8}.tco-results h4{margin:0 0 12px}.tco-results dl{display:grid;grid-template-columns:1fr auto;gap:8px}.tco-results dd{margin:0;font-weight:700;text-align:right}
+.worksheet-tool-page .worksheet-download{scroll-margin-top:100px}
+.worksheet-download .tool-actions{margin-bottom:0}
+.tool-print-scroll{overflow-x:auto}
+.tool-print-scroll:focus-visible{outline:2px solid #a43165;outline-offset:3px}
+.tool-print-sheet table{width:100%;min-width:740px;border-collapse:collapse}
+.tool-print-sheet th,.tool-print-sheet td{border:1px solid #b49caa;padding:8px;text-align:left}
+.tool-print-sheet th{background:#f8e9ef}
+.tool-print-sheet td{height:32px}
+.resource-guide{display:block;margin-top:12px;text-underline-offset:.2em}
+@page worksheetLandscape{size:A4 landscape;margin:12mm}
+@media print{
+ body:has(.tool-print-sheet){background:white!important}
+ body:has(.tool-print-sheet)>:not(main){display:none!important}
+ .worksheet-tool-page:has(.tool-print-sheet){page:worksheetLandscape;min-height:0;background:white}
+ .worksheet-tool-page .tool-wrap:has(.tool-print-sheet)>:not(.tool-print-sheet){display:none!important}
+ .worksheet-tool-page .tool-method.tool-print-sheet{display:block!important;margin:0;padding:0;border:0;box-shadow:none;background:white;color:black}
+ .tool-print-scroll{overflow:visible}
+ .tool-print-sheet table{min-width:0;width:100%}
+}
+.pms-budget{scroll-margin-top:100px}
+.pms-budget [hidden]{display:none!important}
+.pms-budget .tool-form-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.pms-budget fieldset{min-width:0;margin:18px 0 0;padding:16px;border:1px solid #e4d2de;border-radius:14px}
+.pms-budget legend,.budget-options summary{font-weight:750}
+.pms-budget [aria-invalid="true"]{border-color:#a51d45}
+.budget-options{margin-top:16px;padding:16px;border:1px solid #e4d2de;border-radius:14px}
+.budget-options summary{cursor:pointer}
+.budget-options p{margin:12px 0}
+.budget-results{margin-top:24px}
+.budget-results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;margin:16px 0}
+.budget-results article{min-width:0;padding:18px;border-radius:14px;background:#f9edf4}
+.budget-results dl{margin:0}
+.budget-results dl>div{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding:8px 0}
+.budget-results dl>div:last-child{border-top:1px solid #dfc8d8;font-weight:750}
+.budget-results dd{margin:0;font-variant-numeric:tabular-nums}
+.ops-quote label{display:grid;gap:8px;font-weight:750}
+.ops-quote textarea{width:100%;padding:12px;border:1px solid #b69cb0;border-radius:10px;color:#39233e;font:inherit;font-weight:400}
+.ops-quote button{margin-top:12px}

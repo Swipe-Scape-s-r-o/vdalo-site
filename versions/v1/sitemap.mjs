@@ -1,4 +1,4 @@
-export function getPublicSitemapRoutes({ seoRoutes, caseSlugs, pmsArticle, pmsChoiceArticle, editorialArticles, secondPassArticles, touristTaxRoutes = [] }) {
+export function getPublicSitemapRoutes({ seoRoutes, caseSlugs, pmsArticle, pmsChoiceArticle, editorialArticles, secondPassArticles, additionalToolRoutes = [], touristTaxRoutes = [] }) {
   const preferredSeoOrder = ['/solutions','/integrations','/pricing','/hotel-booking-calendar','/hotel-direct-booking','/hotel-channel-manager','/hotel-revenue-management','/hotel-check-in','/hotel-guest-profile','/hotel-guest-app','/hotel-ai-assistant','/hotel-access-control','/hotel-operations','/hotel-housekeeping','/hotel-finance','/hotel-tourist-tax','/hotel-prro','/hotel-energy-management','/hotel-events','/hotel-pms-migration','/hotel-multi-property','/hotel-site-builder','/hotel-pms-modules','/guest-communication','/hotel-automation','/sign-up','/about','/partners','/contact'];
   const seoSet = new Set(seoRoutes);
   const orderedSeoRoutes = [...preferredSeoOrder.filter(route => seoSet.has(route)), ...seoRoutes.filter(route => !preferredSeoOrder.includes(route))];
@@ -31,6 +31,7 @@ export function getPublicSitemapRoutes({ seoRoutes, caseSlugs, pmsArticle, pmsCh
     '/tools/housekeeping-workload-calculator/',
     '/tools/hotel-cancellation-cost-calculator/',
     '/tools/hotel-review-response/',
+    ...additionalToolRoutes,
     '/resources',
     ...touristTaxRoutes,
   ];

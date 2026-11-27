@@ -152,7 +152,7 @@ function openForm(kind,source,interest='',mode='start') {
  document.body.classList.add('dialog-open');
  track(`${kind}_form_open`,{location:source});
  if(source==='hero'||source==='final') track(`${source}_${kind}_click`);
- requestAnimationFrame(()=>dialog.querySelector('input:not([type=checkbox])').focus());
+ requestAnimationFrame(()=>{if(dialog.open)form.elements.name?.focus();});
 }
 function openContactDialog(control) {
  const dialog=document.querySelector('#contact-dialog');
@@ -171,6 +171,9 @@ function openContactDialog(control) {
  requestAnimationFrame(()=>dialog.querySelector('#contact-name').focus());
 }
 function closeForm(dialog) { dialog.close(); }
+document.querySelectorAll('a[data-location="product-page"][data-cta-placement]').forEach(link=>link.addEventListener('click',()=>{
+ track('primary_cta_click',{path:location.pathname,location:link.dataset.ctaPlacement,label:link.dataset.ctaLabel});
+}));
 document.querySelectorAll('[data-open]').forEach(control=>control.addEventListener('click',()=>openForm(control.dataset.open,control.dataset.location,control.dataset.interest,control.dataset.mode)));
 document.querySelectorAll('[data-contact-dialog-trigger]').forEach(control=>control.addEventListener('click',event=>{if(!document.querySelector('#contact-dialog'))return;event.preventDefault();openContactDialog(control);}));
 document.querySelectorAll('a[href="#pricing-addons"]').forEach(link=>link.addEventListener('click',()=>{const disclosure=document.querySelector('#pricing-addons details');if(disclosure)disclosure.open=true;}));
@@ -342,15 +345,13 @@ if(calendarNode) {
  let selectedId=null;
  const monthNames=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
  const startDate=new Date();startDate.setHours(0,0,0,0);
- const baseline=new Date(2026,9,6);
+ const dateAt=(weekIndex,offset=0)=>{const date=new Date(startDate);date.setDate(date.getDate()+weekIndex*7+offset);return date;};
  const dateLabel=date=>`${date.getDate()} ${monthNames[date.getMonth()]}`;
  const dateRange=(from,to)=>from.getMonth()===to.getMonth()&&from.getFullYear()===to.getFullYear()?`${from.getDate()} до ${to.getDate()} ${monthNames[to.getMonth()]} ${to.getFullYear()}`:`${from.getDate()} ${monthNames[from.getMonth()]} до ${to.getDate()} ${monthNames[to.getMonth()]} ${to.getFullYear()}`;
- const shiftedReservation=(item,weekIndex)=>{
-  const parse=value=>{const [day,month]=value.split(' ');return new Date(2026,monthNames.indexOf(month),Number(day));};
-  const days=Math.round((startDate-baseline)/86400000)+weekIndex*7;
-  const arrival=parse(item.arrival),departure=parse(item.departure);arrival.setDate(arrival.getDate()+days);departure.setDate(departure.getDate()+days);
-  return {arrival:dateLabel(arrival),departure:dateLabel(departure)};
- };
+ const reservationDates=item=>({
+  arrival:dateLabel(dateAt(week,item.start)),
+  departure:dateLabel(dateAt(week,item.start+item.nights))
+ });
  const clearDetails=()=>{
   selectedId=null;
   details.replaceChildren();
@@ -366,7 +367,7 @@ if(calendarNode) {
   const copy=document.createElement('div');const title=document.createElement('strong');title.textContent=`${item.label} / ${item.status}`;
   const note=document.createElement('p');note.textContent=item.note;copy.append(title,note);
   const record=document.createElement('div');record.className='detail-record';
-  const dates=shiftedReservation(item,week);
+  const dates=reservationDates(item);
   for(const [label,value] of [['Заїзд',dates.arrival],['Виїзд',dates.departure]]) {const field=document.createElement('div');field.textContent=label;const strong=document.createElement('strong');strong.textContent=value;field.append(strong);record.append(field);}
   details.append(room,copy,record);
   track('calendar_reservation_view',{sample_id:item.id});
@@ -394,15 +395,13 @@ if(calendarNode) {
    const button=document.createElement('button');button.type='button';button.className=`reservation ${item.channel}`;
    button.style.gridColumn=`${item.start+2} / span ${item.nights}`;button.style.gridRow=String(item.room+2);
    button.dataset.reservation=item.id;button.dataset.channel=item.channel;button.setAttribute('aria-pressed','false');
-   const dates=shiftedReservation(item,week);
+   const dates=reservationDates(item);
    button.setAttribute('aria-label',`${item.label}, номер ${calendar.rooms[item.room][0]}, ${dates.arrival} до ${dates.departure}`);
     const name=document.createElement('span');name.textContent=item.label;const state=document.createElement('small');state.textContent=item.status;button.append(name,state);reservations.append(button);
   });
   grid.append(reservations);
-  const weekStart=new Date(startDate);weekStart.setDate(weekStart.getDate()+week*7);
-  document.querySelectorAll('[data-day]').forEach(day=>{const date=new Date(weekStart);date.setDate(date.getDate()+Number(day.dataset.day));day.textContent=String(date.getDate());const weekday=day.parentElement.querySelector('[data-day-weekday]');weekday.textContent=new Intl.DateTimeFormat('uk-UA',{weekday:'short'}).format(date).replace('.','');});
-  const weekEnd=new Date(weekStart);weekEnd.setDate(weekEnd.getDate()+6);
-  document.getElementById('calendar-period').textContent=dateRange(weekStart,weekEnd);
+  document.querySelectorAll('[data-day]').forEach(day=>{const date=dateAt(week,Number(day.dataset.day));day.textContent=String(date.getDate());const weekday=day.parentElement.querySelector('[data-day-weekday]');weekday.textContent=new Intl.DateTimeFormat('uk-UA',{weekday:'short'}).format(date).replace('.','');});
+  document.getElementById('calendar-period').textContent=dateRange(dateAt(week),dateAt(week,6));
   document.querySelector('[data-week=previous]').disabled=week===0;
   document.querySelector('[data-week=next]').disabled=week===calendar.weeks.length-1;
   clearDetails();bindReservations();applyFilter();

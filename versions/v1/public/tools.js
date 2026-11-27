@@ -315,3 +315,10 @@ ranges.forEach(range=>range.addEventListener('input',()=>{
 }));
 recalculate();
 })();
+
+(() => {
+ const button = document.querySelector('[data-worksheet-print]');
+ if (!button) return;
+ button.hidden = false;
+ button.addEventListener('click', () => window.print());
+})();
